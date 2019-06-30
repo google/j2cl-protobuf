@@ -1,0 +1,14 @@
+#foreach ($field in $extensions)
+#if ($field.isRepeated())
+#set ($extensionCreator = "proto_im_InternalMessage.ExtensionFieldInfo.createRepeated${field.stem}Extension")
+#else
+#set ($extensionCreator = "proto_im_InternalMessage.ExtensionFieldInfo.createSingle${field.stem}Extension")
+#end
+/** @const {!proto_im_Message.ExtensionFieldInfo<$field.jsDoc>}*/
+#if ($field.isMessage())
+${enclosingTypeName}.${field.name} = $extensionCreator(${field.number}, $field.type.expression);
+#else
+${enclosingTypeName}.${field.name} = $extensionCreator(${field.number});
+#end
+
+#end

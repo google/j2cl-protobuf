@@ -1,0 +1,10 @@
+/**
+ * $!oneOfDescriptor.protoFileComments
+ * @enum {number}
+ */
+$oneOfDescriptor.localTypeName = {
+${oneOfDescriptor.defaultOneOfEntry}: 0,
+#foreach ($field in $oneOfDescriptor.fields)
+  $field.name : $field.number,
+#end
+};
