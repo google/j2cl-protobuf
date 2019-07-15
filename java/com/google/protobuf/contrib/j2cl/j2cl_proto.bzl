@@ -62,8 +62,8 @@ def _unarchived_jar_path(path):
 
 def _j2cl_proto_library_aspect_impl(target, ctx):
     name = ctx.label.name + "-j2cl"
-    srcs = target.proto.direct_sources
-    transitive_srcs = target.proto.transitive_sources
+    srcs = target[ProtoInfo].direct_sources
+    transitive_srcs = target[ProtoInfo].transitive_sources
     deps = [target[ImmutableJspbInfo]]
     deps += [dep[J2clProtoInfo]._private_.j2cl_info for dep in ctx.rule.attr.deps]
     transitive_runfiles = [target[ImmutableJspbInfo]._runfiles_do_not_use_internal]
@@ -224,7 +224,7 @@ new_j2cl_proto_library = rule(
     implementation = _j2cl_proto_library_rule_impl,
     attrs = {
         "deps": attr.label_list(
-            providers = ["proto"],
+            providers = [ProtoInfo],
             aspects = [immutable_js_proto_library_aspect, _j2cl_proto_library_aspect],
         ),
     },
