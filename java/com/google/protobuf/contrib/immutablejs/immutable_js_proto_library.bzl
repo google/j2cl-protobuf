@@ -25,8 +25,8 @@ Usage:
 ImmutableJspbInfo = provider(fields = ["js", "_runfiles_do_not_use_internal"])
 
 def _immutable_js_proto_library_aspect_impl(target, ctx):
-    srcs = target.proto.direct_sources
-    transitive_srcs = target.proto.transitive_sources
+    srcs = target[ProtoInfo].direct_sources
+    transitive_srcs = target[ProtoInfo].transitive_sources
     out_srcs = []
 
     if srcs:
@@ -143,7 +143,7 @@ immutable_js_proto_library = rule(
     implementation = _immutable_js_proto_library_rule_impl,
     attrs = {
         "deps": attr.label_list(
-            providers = ["proto"],
+            providers = [ProtoInfo],
             aspects = [immutable_js_proto_library_aspect],
         ),
     },
