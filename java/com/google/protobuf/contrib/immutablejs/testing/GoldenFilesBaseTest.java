@@ -115,9 +115,7 @@ public abstract class GoldenFilesBaseTest extends TestCase {
 
   private ImmutableSet<GeneratedFile> loadFilesFromDir(String relativePath, String postfix)
       throws Exception {
-    Path path =
-        RunfilesPaths.RUNFILES_PATHS.resolvePackageRelativePath(
-            "javatests", getClass(), relativePath);
+    Path path = RunfilesPaths.resolvePackageRelativePath("javatests", getClass(), relativePath);
     try (DirectoryStream<Path> stream = Files.newDirectoryStream(path)) {
       return StreamSupport.stream(stream.spliterator(), false)
           .map(p -> readFile(p, postfix))
@@ -140,8 +138,7 @@ public abstract class GoldenFilesBaseTest extends TestCase {
   private static ImmutableSet<GeneratedFile> loadZipFiles(String protoName, Class<?> testClass)
       throws IOException {
     Path path =
-        RunfilesPaths.RUNFILES_PATHS.resolvePackageRelativePath(
-            "javatests", testClass, protoName + ".zip");
+        RunfilesPaths.resolvePackageRelativePath("javatests", testClass, protoName + ".zip");
     try (ZipFile zipFile = new ZipFile(path.toFile())) {
       return Collections.list(zipFile.entries()).stream()
           .map(e -> readZipContent(zipFile, e))
