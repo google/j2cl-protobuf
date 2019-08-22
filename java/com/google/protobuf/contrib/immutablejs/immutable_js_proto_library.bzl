@@ -17,6 +17,8 @@ Usage:
      )
 """
 
+load("//third_party/bazel_skylib/lib:dicts.bzl", "dicts")
+
 
 
 # DO NOT USE OR WE WILL BREAK YOU ON PURPOSE
@@ -75,14 +77,13 @@ def _immutable_js_proto_library_aspect_impl(target, ctx):
     deps = [dep[ImmutableJspbInfo].js for dep in ctx.rule.attr.deps]
     exports = [dep[ImmutableJspbInfo].js for dep in ctx.rule.attr.exports]
 
-    js_provider = js_common.provider(
+    js_provider = js_checkable_provider(
         ctx,
         srcs = out_srcs,
-        deps_mgmt = "closure",
         deps = deps + [d.js for d in ctx.attr._runtime_deps],
         exports = (deps if not srcs else []) + exports,
         # Seems like this works around b/34608532 but not sure how...
-        artifact_suffix = "immutable_jspb",
+        aspect_name = "_immutable_js_proto_library_aspect",
     )
 
     return [ImmutableJspbInfo(
@@ -93,7 +94,7 @@ def _immutable_js_proto_library_aspect_impl(target, ctx):
 immutable_js_proto_library_aspect = aspect(
     implementation = _immutable_js_proto_library_aspect_impl,
     attr_aspects = ["deps", "exports"],
-    attrs = dict(JS_TOOLCHAIN_ATTRIBUTE, **{
+    attrs = dicts.add(js_attrs("_immutable_js_proto_library_aspect"), {
         "_protocol_compiler": attr.label(
             executable = True,
             cfg = "host",

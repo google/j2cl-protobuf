@@ -12,6 +12,9 @@ licenses(["notice"])
 bzl_library(
     name = "immutable_js_bzl",
     srcs = ["immutable_js_proto_library.bzl"],
+    deps = [
+        "//third_party/bazel_skylib/lib:dicts",
+    ],
 )
 
 closure_js_library(
