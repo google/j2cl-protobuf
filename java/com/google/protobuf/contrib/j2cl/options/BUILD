@@ -15,6 +15,13 @@ proto_library(
     deps = ["//net/proto2/proto:descriptor"],
 )
 
+cc_proto_library(
+    name = "js_enum_cc_proto",
+    compatible_with = ["//buildenv/target:non_prod"],
+    visibility = ["//visibility:public"],
+    deps = [":js_enum"],
+)
+
 java_proto_library(
     name = "js_enum_java_proto",
     deps = [":js_enum"],
