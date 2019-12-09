@@ -139,7 +139,7 @@ def _j2cl_proto_library_aspect_impl(target, ctx):
             exports = deps,
         )
 
-    js = j2cl_common.create_js_lib_struct(j2cl_provider).js
+    js = j2cl_common.get_jsinfo_provider(j2cl_provider)
 
     return J2clProtoInfo(
         _private_ = struct(
