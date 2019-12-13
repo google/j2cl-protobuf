@@ -1,8 +1,0 @@
-@jsinterop.annotations.JsOverlay
-public $oneOfDescriptor.name get${oneOfDescriptor.name}() {
-  int number = get${oneOfDescriptor.name}_native();
-  return ${oneOfDescriptor.name}.forNumber(number);
-}
-
-@jsinterop.annotations.JsMethod(name = "get${oneOfDescriptor.name}")
-private native int get${oneOfDescriptor.name}_native();
