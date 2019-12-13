@@ -1,0 +1,22 @@
+syntax = "proto2";
+
+package protobuf.contrib.immutablejs.protos;
+
+import "java/com/google/apps/jspb/jspb.proto";
+
+message Foo {
+  option (jspb.message_id) = "foo_message_id";
+
+  optional Child payload = 1;
+  repeated Child payloads = 2;
+
+  extensions 100 to 1000;
+}
+
+message Child {
+  option (jspb.message_id) = "child_message_id";
+
+  extend Foo {
+    optional Child foo_extension = 100;
+  }
+}

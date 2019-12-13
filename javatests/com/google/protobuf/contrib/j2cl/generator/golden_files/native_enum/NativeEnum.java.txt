@@ -1,0 +1,382 @@
+package com.google.protobuf.contrib.j2cl.protos;
+
+@jsinterop.annotations.JsType(
+    isNative = true,
+    name = "native_enum",
+    namespace = "improto.protobuf.contrib.j2cl.protos")
+public final class NativeEnum {
+
+  private NativeEnum() {}
+
+  @jsinterop.annotations.JsEnum(
+      isNative = true,
+      name = "TopLevelNativeEnum",
+      namespace = "improto.protobuf.contrib.j2cl.protos",
+      hasCustomValue = true)
+  public enum TopLevelNativeEnum {
+    UNKNOWN,
+    ONE,
+    TWO,
+    THREE,
+    FOUR,
+    FIVE,
+    SIX;
+
+    @jsinterop.annotations.JsOverlay
+    public static final TopLevelNativeEnum forNumber(int i) {
+      return jsinterop.base.Js.uncheckedCast((double) i);
+    }
+
+    private int value;
+
+    @jsinterop.annotations.JsOverlay
+    public final int getNumber() {
+      return value;
+    }
+
+    @jsinterop.annotations.JsOverlay public static final int UNKNOWN_VALUE = 0;
+    @jsinterop.annotations.JsOverlay public static final int ONE_VALUE = 1;
+    @jsinterop.annotations.JsOverlay public static final int TWO_VALUE = 2;
+    @jsinterop.annotations.JsOverlay public static final int THREE_VALUE = 3;
+    @jsinterop.annotations.JsOverlay public static final int FOUR_VALUE = 4;
+    @jsinterop.annotations.JsOverlay public static final int FIVE_VALUE = 5;
+    @jsinterop.annotations.JsOverlay public static final int SIX_VALUE = 6;
+
+    // DO NOT REFER TO FROM NON GENERATED CODE! SUBJECT TO CHANGE!
+    // Native closure enum representation
+    @jsinterop.annotations.JsType(
+        isNative = true,
+        name = "TopLevelNativeEnum",
+        namespace = "improto.protobuf.contrib.j2cl.protos")
+    public static final class Internal_ClosureEnum {
+      @jsinterop.annotations.JsOverlay
+      public static final Internal_ClosureEnum toClosureValue(TopLevelNativeEnum enumInstance) {
+        return jsinterop.base.Js.uncheckedCast((double) enumInstance.getNumber());
+      }
+
+      @jsinterop.annotations.JsOverlay
+      public static final TopLevelNativeEnum toEnum(Object closureEnum) {
+        return jsinterop.base.Js.uncheckedCast(closureEnum);
+      }
+    }
+  }
+
+  @jsinterop.annotations.JsType(
+      isNative = true,
+      name = "MainMessage",
+      namespace = "improto.protobuf.contrib.j2cl.protos")
+  public static final class MainMessage
+      extends com.google.protobuf.GeneratedMessageLite<MainMessage, MainMessage.Builder> {
+
+    @jsinterop.annotations.JsEnum(
+        isNative = true,
+        name = "MainMessage.NestedNativeEnum",
+        namespace = "improto.protobuf.contrib.j2cl.protos",
+        hasCustomValue = true)
+    public enum NestedNativeEnum {
+      UNKNOWN,
+      ONE,
+      TWO,
+      THREE,
+      FOUR,
+      FIVE,
+      SIX;
+
+      @jsinterop.annotations.JsOverlay
+      public static final NestedNativeEnum forNumber(int i) {
+        return jsinterop.base.Js.uncheckedCast((double) i);
+      }
+
+      private int value;
+
+      @jsinterop.annotations.JsOverlay
+      public final int getNumber() {
+        return value;
+      }
+
+      @jsinterop.annotations.JsOverlay public static final int UNKNOWN_VALUE = 0;
+      @jsinterop.annotations.JsOverlay public static final int ONE_VALUE = 1;
+      @jsinterop.annotations.JsOverlay public static final int TWO_VALUE = 2;
+      @jsinterop.annotations.JsOverlay public static final int THREE_VALUE = 3;
+      @jsinterop.annotations.JsOverlay public static final int FOUR_VALUE = 4;
+      @jsinterop.annotations.JsOverlay public static final int FIVE_VALUE = 5;
+      @jsinterop.annotations.JsOverlay public static final int SIX_VALUE = 6;
+
+      // DO NOT REFER TO FROM NON GENERATED CODE! SUBJECT TO CHANGE!
+      // Native closure enum representation
+      @jsinterop.annotations.JsType(
+          isNative = true,
+          name = "MainMessage.NestedNativeEnum",
+          namespace = "improto.protobuf.contrib.j2cl.protos")
+      public static final class Internal_ClosureEnum {
+        @jsinterop.annotations.JsOverlay
+        public static final Internal_ClosureEnum toClosureValue(NestedNativeEnum enumInstance) {
+          return jsinterop.base.Js.uncheckedCast((double) enumInstance.getNumber());
+        }
+
+        @jsinterop.annotations.JsOverlay
+        public static final NestedNativeEnum toEnum(Object closureEnum) {
+          return jsinterop.base.Js.uncheckedCast(closureEnum);
+        }
+      }
+    }
+
+    protected MainMessage() {}
+
+    public static final native MainMessage getDefaultInstance();
+
+    @jsinterop.annotations.JsOverlay
+    public final MainMessage getDefaultInstanceForType() {
+      return getDefaultInstance();
+    }
+
+    public native Builder toBuilder();
+
+    @jsinterop.annotations.JsOverlay public static final int TOP_LEVEL_NATIVE_ENUM_FIELD_NUMBER = 1;
+    @jsinterop.annotations.JsOverlay public static final int NESTED_NATIVE_ENUM_FIELD_NUMBER = 2;
+
+    @jsinterop.annotations.JsOverlay
+    public static final int REPEATED_TOP_LEVEL_NATIVE_ENUM_FIELD_NUMBER = 3;
+
+    @jsinterop.annotations.JsMethod(name = "hasTopLevelNativeEnum")
+    public native boolean hasTopLevelNativeEnum();
+
+    @jsinterop.annotations.JsOverlay
+    public final com.google.protobuf.contrib.j2cl.protos.NativeEnum.TopLevelNativeEnum
+        getTopLevelNativeEnum() {
+      return com.google.protobuf.contrib.j2cl.protos.NativeEnum.TopLevelNativeEnum
+          .Internal_ClosureEnum.toEnum(internal_getTopLevelNativeEnum());
+    }
+
+    @jsinterop.annotations.JsMethod(name = "getTopLevelNativeEnum")
+    private native Object internal_getTopLevelNativeEnum();
+
+    @jsinterop.annotations.JsMethod(name = "hasNestedNativeEnum")
+    public native boolean hasNestedNativeEnum();
+
+    @jsinterop.annotations.JsOverlay
+    public final com.google.protobuf.contrib.j2cl.protos.NativeEnum.MainMessage.NestedNativeEnum
+        getNestedNativeEnum() {
+      return com.google.protobuf.contrib.j2cl.protos.NativeEnum.MainMessage.NestedNativeEnum
+          .Internal_ClosureEnum.toEnum(internal_getNestedNativeEnum());
+    }
+
+    @jsinterop.annotations.JsMethod(name = "getNestedNativeEnum")
+    private native Object internal_getNestedNativeEnum();
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedTopLevelNativeEnumCount")
+    public native int getRepeatedTopLevelNativeEnumCount();
+
+    @jsinterop.annotations.JsOverlay
+    public final com.google.protobuf.contrib.j2cl.protos.NativeEnum.TopLevelNativeEnum
+        getRepeatedTopLevelNativeEnum(int index) {
+      return com.google.protobuf.contrib.j2cl.protos.NativeEnum.TopLevelNativeEnum
+          .Internal_ClosureEnum.toEnum(internal_getRepeatedTopLevelNativeEnum(index));
+    }
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedTopLevelNativeEnum")
+    private native Object internal_getRepeatedTopLevelNativeEnum(int index);
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedTopLevelNativeEnumList")
+    private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Object>
+        internal_getRepeatedTopLevelNativeEnumList();
+
+    @jsinterop.annotations.JsOverlay
+    public final java.util.List<
+            com.google.protobuf.contrib.j2cl.protos.NativeEnum.TopLevelNativeEnum>
+        getRepeatedTopLevelNativeEnumList() {
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+          internal_getRepeatedTopLevelNativeEnumList(),
+          (d) ->
+              com.google.protobuf.contrib.j2cl.protos.NativeEnum.TopLevelNativeEnum
+                  .Internal_ClosureEnum.toEnum(d));
+    }
+
+    public static native Builder newBuilder();
+
+    public static native Builder newBuilder(MainMessage prototype);
+
+    @jsinterop.annotations.JsType(isNative = true)
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageLite.Builder<MainMessage, Builder> {
+
+      protected Builder() {}
+
+      @jsinterop.annotations.JsOverlay
+      public final MainMessage getDefaultInstanceForType() {
+        return getDefaultInstance();
+      }
+
+      @Override
+      public native MainMessage build();
+
+      @Override
+      public native Builder clone();
+
+      @jsinterop.annotations.JsMethod(name = "hasTopLevelNativeEnum")
+      public native boolean hasTopLevelNativeEnum();
+
+      @jsinterop.annotations.JsOverlay
+      public final com.google.protobuf.contrib.j2cl.protos.NativeEnum.TopLevelNativeEnum
+          getTopLevelNativeEnum() {
+        return com.google.protobuf.contrib.j2cl.protos.NativeEnum.TopLevelNativeEnum
+            .Internal_ClosureEnum.toEnum(internal_getTopLevelNativeEnum());
+      }
+
+      @jsinterop.annotations.JsMethod(name = "getTopLevelNativeEnum")
+      private native Object internal_getTopLevelNativeEnum();
+
+      @jsinterop.annotations.JsMethod(name = "clearTopLevelNativeEnum")
+      public native Builder clearTopLevelNativeEnum();
+
+      @jsinterop.annotations.JsOverlay
+      public final Builder setTopLevelNativeEnum(
+          com.google.protobuf.contrib.j2cl.protos.NativeEnum.TopLevelNativeEnum value) {
+        return internal_setTopLevelNativeEnum(
+            com.google.protobuf.contrib.j2cl.protos.NativeEnum.TopLevelNativeEnum
+                .Internal_ClosureEnum.toClosureValue(value));
+      }
+
+      @jsinterop.annotations.JsMethod(name = "setTopLevelNativeEnum")
+      private native Builder internal_setTopLevelNativeEnum(
+          com.google.protobuf.contrib.j2cl.protos.NativeEnum.TopLevelNativeEnum.Internal_ClosureEnum
+              value);
+
+      @jsinterop.annotations.JsMethod(name = "hasNestedNativeEnum")
+      public native boolean hasNestedNativeEnum();
+
+      @jsinterop.annotations.JsOverlay
+      public final com.google.protobuf.contrib.j2cl.protos.NativeEnum.MainMessage.NestedNativeEnum
+          getNestedNativeEnum() {
+        return com.google.protobuf.contrib.j2cl.protos.NativeEnum.MainMessage.NestedNativeEnum
+            .Internal_ClosureEnum.toEnum(internal_getNestedNativeEnum());
+      }
+
+      @jsinterop.annotations.JsMethod(name = "getNestedNativeEnum")
+      private native Object internal_getNestedNativeEnum();
+
+      @jsinterop.annotations.JsMethod(name = "clearNestedNativeEnum")
+      public native Builder clearNestedNativeEnum();
+
+      @jsinterop.annotations.JsOverlay
+      public final Builder setNestedNativeEnum(
+          com.google.protobuf.contrib.j2cl.protos.NativeEnum.MainMessage.NestedNativeEnum value) {
+        return internal_setNestedNativeEnum(
+            com.google.protobuf.contrib.j2cl.protos.NativeEnum.MainMessage.NestedNativeEnum
+                .Internal_ClosureEnum.toClosureValue(value));
+      }
+
+      @jsinterop.annotations.JsMethod(name = "setNestedNativeEnum")
+      private native Builder internal_setNestedNativeEnum(
+          com.google.protobuf.contrib.j2cl.protos.NativeEnum.MainMessage.NestedNativeEnum
+                  .Internal_ClosureEnum
+              value);
+
+      @jsinterop.annotations.JsMethod(name = "getRepeatedTopLevelNativeEnumCount")
+      public native int getRepeatedTopLevelNativeEnumCount();
+
+      @jsinterop.annotations.JsOverlay
+      public final com.google.protobuf.contrib.j2cl.protos.NativeEnum.TopLevelNativeEnum
+          getRepeatedTopLevelNativeEnum(int index) {
+        return com.google.protobuf.contrib.j2cl.protos.NativeEnum.TopLevelNativeEnum
+            .Internal_ClosureEnum.toEnum(internal_getRepeatedTopLevelNativeEnum(index));
+      }
+
+      @jsinterop.annotations.JsMethod(name = "getRepeatedTopLevelNativeEnum")
+      private native Object internal_getRepeatedTopLevelNativeEnum(int index);
+
+      @jsinterop.annotations.JsMethod(name = "getRepeatedTopLevelNativeEnumList")
+      private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Object>
+          internal_getRepeatedTopLevelNativeEnumList();
+
+      @jsinterop.annotations.JsOverlay
+      public final java.util.List<
+              com.google.protobuf.contrib.j2cl.protos.NativeEnum.TopLevelNativeEnum>
+          getRepeatedTopLevelNativeEnumList() {
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+            internal_getRepeatedTopLevelNativeEnumList(),
+            (d) ->
+                com.google.protobuf.contrib.j2cl.protos.NativeEnum.TopLevelNativeEnum
+                    .Internal_ClosureEnum.toEnum(d));
+      }
+
+      @jsinterop.annotations.JsMethod(name = "clearRepeatedTopLevelNativeEnum")
+      public native Builder clearRepeatedTopLevelNativeEnum();
+
+      @jsinterop.annotations.JsOverlay
+      public final Builder setRepeatedTopLevelNativeEnum(
+          int index, com.google.protobuf.contrib.j2cl.protos.NativeEnum.TopLevelNativeEnum value) {
+        return internal_setRepeatedTopLevelNativeEnum(
+            index,
+            com.google.protobuf.contrib.j2cl.protos.NativeEnum.TopLevelNativeEnum
+                .Internal_ClosureEnum.toClosureValue(value));
+      }
+
+      @jsinterop.annotations.JsMethod(name = "setRepeatedTopLevelNativeEnum")
+      private native Builder internal_setRepeatedTopLevelNativeEnum(
+          int index,
+          com.google.protobuf.contrib.j2cl.protos.NativeEnum.TopLevelNativeEnum.Internal_ClosureEnum
+              value);
+
+      @jsinterop.annotations.JsOverlay
+      public final Builder addRepeatedTopLevelNativeEnum(
+          com.google.protobuf.contrib.j2cl.protos.NativeEnum.TopLevelNativeEnum value) {
+        return internal_addRepeatedTopLevelNativeEnum(
+            com.google.protobuf.contrib.j2cl.protos.NativeEnum.TopLevelNativeEnum
+                .Internal_ClosureEnum.toClosureValue(value));
+      }
+
+      @jsinterop.annotations.JsMethod(name = "addRepeatedTopLevelNativeEnum")
+      private native Builder internal_addRepeatedTopLevelNativeEnum(
+          com.google.protobuf.contrib.j2cl.protos.NativeEnum.TopLevelNativeEnum.Internal_ClosureEnum
+              value);
+
+      @jsinterop.annotations.JsOverlay
+      public final Builder addAllRepeatedTopLevelNativeEnum(
+          java.lang.Iterable<com.google.protobuf.contrib.j2cl.protos.NativeEnum.TopLevelNativeEnum>
+              values) {
+        com.google.protobuf.GeneratedMessageLite.Internal_.addAll(
+            values, this::addRepeatedTopLevelNativeEnum);
+        return this;
+      }
+    }
+  }
+
+  @jsinterop.annotations.JsProperty(name = "topLevelNativeEnum")
+  private static com.google.protobuf.GeneratedMessageLite.Internal_.ExtensionFieldInfo<
+          com.google.protobuf.contrib.j2cl.protos.NativeEnum.MainMessage, ?>
+      internal_topLevelNativeEnum;
+
+  @jsinterop.annotations.JsOverlay
+  public static final com.google.protobuf.ExtensionLite<
+          com.google.protobuf.contrib.j2cl.protos.NativeEnum.MainMessage,
+          com.google.protobuf.contrib.j2cl.protos.NativeEnum.TopLevelNativeEnum>
+      topLevelNativeEnum =
+          com.google.protobuf.GeneratedMessageLite.Internal_.createSingleEnumExtension(
+              internal_topLevelNativeEnum,
+              v ->
+                  com.google.protobuf.contrib.j2cl.protos.NativeEnum.TopLevelNativeEnum
+                      .Internal_ClosureEnum.toEnum(v),
+              v ->
+                  com.google.protobuf.contrib.j2cl.protos.NativeEnum.TopLevelNativeEnum
+                      .Internal_ClosureEnum.toClosureValue(v));
+
+  @jsinterop.annotations.JsProperty(name = "repeatedTopLevelNativeEnum")
+  private static com.google.protobuf.GeneratedMessageLite.Internal_.ExtensionFieldInfo<
+          com.google.protobuf.contrib.j2cl.protos.NativeEnum.MainMessage, ?>
+      internal_repeatedTopLevelNativeEnum;
+
+  @jsinterop.annotations.JsOverlay
+  public static final com.google.protobuf.ExtensionLite<
+          com.google.protobuf.contrib.j2cl.protos.NativeEnum.MainMessage,
+          java.util.List<com.google.protobuf.contrib.j2cl.protos.NativeEnum.TopLevelNativeEnum>>
+      repeatedTopLevelNativeEnum =
+          com.google.protobuf.GeneratedMessageLite.Internal_.createRepeatedEnumExtension(
+              internal_repeatedTopLevelNativeEnum,
+              v ->
+                  com.google.protobuf.contrib.j2cl.protos.NativeEnum.TopLevelNativeEnum
+                      .Internal_ClosureEnum.toEnum(v),
+              v ->
+                  com.google.protobuf.contrib.j2cl.protos.NativeEnum.TopLevelNativeEnum
+                      .Internal_ClosureEnum.toClosureValue(v));
+}

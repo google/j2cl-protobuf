@@ -1,0 +1,27 @@
+syntax = "proto2";
+
+package javatests.com.google.protobuf.contrib.j2cl.protos;
+
+option java_package = "com.google.protobuf.contrib.j2cl.protos";
+
+message Internal {}
+
+message MyMessage {
+  optional string class = 1;
+  optional string cached_size = 2;
+  optional string serialized_size = 3;
+  optional string extension = 4;
+  message Internal {
+    optional string x = 5;
+  }
+  extensions 10 to 99;
+}
+extend MyMessage {
+  optional string class = 11;
+  optional string extension = 12;
+}
+
+message RepeatedExtensionField {
+  repeated string extension = 1;
+  repeated string class = 2;
+}

@@ -1,0 +1,10 @@
+package com.google.protobuf.contrib.j2cl.protos;
+
+@jsinterop.annotations.JsType(
+    isNative = true,
+    name = "accessor.multiple_files",
+    namespace = "improto.protobuf.contrib.gwt.testing.testdata")
+public final class AccessorMultipleFiles {
+
+  private AccessorMultipleFiles() {}
+}

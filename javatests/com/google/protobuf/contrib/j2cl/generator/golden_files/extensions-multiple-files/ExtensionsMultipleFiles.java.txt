@@ -1,0 +1,34 @@
+package com.google.protobuf.contrib.j2cl.protos;
+
+@jsinterop.annotations.JsType(
+    isNative = true,
+    name = "extensions.multiple_files",
+    namespace = "improto.protobuf.contrib.j2cl.protos")
+public final class ExtensionsMultipleFiles {
+
+  private ExtensionsMultipleFiles() {}
+
+  @jsinterop.annotations.JsProperty(name = "standaloneStringExtension")
+  private static com.google.protobuf.GeneratedMessageLite.Internal_.ExtensionFieldInfo<
+          com.google.protobuf.contrib.j2cl.protos.Base, ?>
+      internal_standaloneStringExtension;
+
+  @jsinterop.annotations.JsOverlay
+  public static final com.google.protobuf.ExtensionLite<
+          com.google.protobuf.contrib.j2cl.protos.Base, java.lang.String>
+      standaloneStringExtension =
+          com.google.protobuf.GeneratedMessageLite.Internal_.createSingleStringExtension(
+              internal_standaloneStringExtension);
+
+  @jsinterop.annotations.JsProperty(name = "standaloneDoubleExtension")
+  private static com.google.protobuf.GeneratedMessageLite.Internal_.ExtensionFieldInfo<
+          com.google.protobuf.contrib.j2cl.protos.Base, ?>
+      internal_standaloneDoubleExtension;
+
+  @jsinterop.annotations.JsOverlay
+  public static final com.google.protobuf.ExtensionLite<
+          com.google.protobuf.contrib.j2cl.protos.Base, java.util.List<java.lang.Double>>
+      standaloneDoubleExtension =
+          com.google.protobuf.GeneratedMessageLite.Internal_.createRepeatedDoubleExtension(
+              internal_standaloneDoubleExtension);
+}

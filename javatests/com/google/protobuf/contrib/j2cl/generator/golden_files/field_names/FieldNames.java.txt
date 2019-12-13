@@ -1,0 +1,1079 @@
+package com.google.protobuf.contrib.j2cl.protos;
+
+@jsinterop.annotations.JsType(
+    isNative = true,
+    name = "field_names",
+    namespace = "improto.javatests.com.google.protobuf.contrib.j2cl.protos")
+public final class FieldNames {
+
+  private FieldNames() {}
+
+  @jsinterop.annotations.JsType(
+      isNative = true,
+      name = "Fields",
+      namespace = "improto.javatests.com.google.protobuf.contrib.j2cl.protos")
+  public static final class Fields
+      extends com.google.protobuf.GeneratedMessageLite<Fields, Fields.Builder> {
+
+    public enum TestEnum implements com.google.protobuf.ProtocolMessageEnum {
+      UNKNOWN(0),
+      BLUE(1),
+      RED(2);
+
+      TestEnum(int value) {
+        this.value = value;
+      }
+
+      private static TestEnum[] cachedValues;
+
+      public static final TestEnum forNumber(int i) {
+        if (cachedValues == null) {
+          cachedValues = values();
+        }
+        return cachedValues[i];
+      }
+
+      private int value;
+
+      public final int getNumber() {
+        return value;
+      }
+
+      public static final int UNKNOWN_VALUE = 0;
+
+      public static final int BLUE_VALUE = 1;
+
+      public static final int RED_VALUE = 2;
+
+      // DO NOT REFER TO FROM NON GENERATED CODE! SUBJECT TO CHANGE!
+      // Native closure enum representation
+      @jsinterop.annotations.JsType(
+          isNative = true,
+          name = "Fields.TestEnum",
+          namespace = "improto.javatests.com.google.protobuf.contrib.j2cl.protos")
+      public static final class Internal_ClosureEnum {
+        @jsinterop.annotations.JsOverlay
+        public static final Internal_ClosureEnum toClosureValue(TestEnum enumInstance) {
+          return jsinterop.base.Js.uncheckedCast((double) enumInstance.getNumber());
+        }
+
+        @jsinterop.annotations.JsOverlay
+        public static final TestEnum toEnum(Object closureEnum) {
+          int i = jsinterop.base.Js.asInt(closureEnum);
+          TestEnum value = TestEnum.forNumber(i);
+          return value == null ? UNKNOWN : value;
+        }
+      }
+    }
+
+    @jsinterop.annotations.JsType(isNative = true)
+    public static final class Nested
+        extends com.google.protobuf.GeneratedMessageLite<Nested, Nested.Builder> {
+
+      protected Nested() {}
+
+      public static final native Nested getDefaultInstance();
+
+      @jsinterop.annotations.JsOverlay
+      public final Nested getDefaultInstanceForType() {
+        return getDefaultInstance();
+      }
+
+      public native Builder toBuilder();
+
+      public static native Builder newBuilder();
+
+      public static native Builder newBuilder(Nested prototype);
+
+      @jsinterop.annotations.JsType(isNative = true)
+      public static final class Builder
+          extends com.google.protobuf.GeneratedMessageLite.Builder<Nested, Builder> {
+
+        protected Builder() {}
+
+        @jsinterop.annotations.JsOverlay
+        public final Nested getDefaultInstanceForType() {
+          return getDefaultInstance();
+        }
+
+        @Override
+        public native Nested build();
+
+        @Override
+        public native Builder clone();
+      }
+    }
+
+    protected Fields() {}
+
+    public static final native Fields getDefaultInstance();
+
+    @jsinterop.annotations.JsOverlay
+    public final Fields getDefaultInstanceForType() {
+      return getDefaultInstance();
+    }
+
+    public native Builder toBuilder();
+
+    @jsinterop.annotations.JsOverlay
+    public static final int PRIMITIVE_LOWER_CASE_UNDERSCORE_FIELD_NUMBER = 1;
+
+    @jsinterop.annotations.JsOverlay
+    public static final int PRIMITIVELOWERCASECAMEL_FIELD_NUMBER = 2;
+
+    @jsinterop.annotations.JsOverlay
+    public static final int PRIMITIVEUPPERCASECAMEL_FIELD_NUMBER = 3;
+
+    @jsinterop.annotations.JsOverlay
+    public static final int REPEATED_PRIMITIVE_LOWER_CASE_UNDERSCORE_FIELD_NUMBER = 4;
+
+    @jsinterop.annotations.JsOverlay
+    public static final int REPEATEDPRIMITIVELOWERCASECAMEL_FIELD_NUMBER = 5;
+
+    @jsinterop.annotations.JsOverlay
+    public static final int REPEATEDPRIMITIVEUPPERCASECAMEL_FIELD_NUMBER = 6;
+
+    @jsinterop.annotations.JsOverlay
+    public static final int ENUM_LOWER_CASE_UNDERSCORE_FIELD_NUMBER = 7;
+
+    @jsinterop.annotations.JsOverlay public static final int ENUMLOWERCASECAMEL_FIELD_NUMBER = 8;
+    @jsinterop.annotations.JsOverlay public static final int ENUMUPPERCASECAMEL_FIELD_NUMBER = 9;
+
+    @jsinterop.annotations.JsOverlay
+    public static final int REPEATED_ENUM_LOWER_CASE_UNDERSCORE_FIELD_NUMBER = 10;
+
+    @jsinterop.annotations.JsOverlay
+    public static final int REPEATEDENUMLOWERCASECAMEL_FIELD_NUMBER = 11;
+
+    @jsinterop.annotations.JsOverlay
+    public static final int REPEATEDENUMUPPERCASECAMEL_FIELD_NUMBER = 12;
+
+    @jsinterop.annotations.JsOverlay
+    public static final int MESSAGE_LOWER_CASE_UNDERSCORE_FIELD_NUMBER = 13;
+
+    @jsinterop.annotations.JsOverlay
+    public static final int MESSAGELOWERCASECAMEL_FIELD_NUMBER = 14;
+
+    @jsinterop.annotations.JsOverlay
+    public static final int MESSAGEUPPERCASECAMEL_FIELD_NUMBER = 15;
+
+    @jsinterop.annotations.JsOverlay
+    public static final int REPEATED_MESSAGE_LOWER_CASE_UNDERSCORE_FIELD_NUMBER = 16;
+
+    @jsinterop.annotations.JsOverlay
+    public static final int REPEATEDMESSAGELOWERCASECAMEL_FIELD_NUMBER = 17;
+
+    @jsinterop.annotations.JsOverlay
+    public static final int REPEATEDMESSAGEUPPERCASECAMEL_FIELD_NUMBER = 18;
+
+    @jsinterop.annotations.JsMethod(name = "hasPrimitiveLowerCaseUnderscore")
+    public native boolean hasPrimitiveLowerCaseUnderscore();
+
+    @jsinterop.annotations.JsMethod(name = "getPrimitiveLowerCaseUnderscore")
+    public native boolean getPrimitiveLowerCaseUnderscore();
+
+    @jsinterop.annotations.JsMethod(name = "hasPrimitiveLowerCaseCamel")
+    public native boolean hasPrimitiveLowerCaseCamel();
+
+    @jsinterop.annotations.JsMethod(name = "getPrimitiveLowerCaseCamel")
+    public native boolean getPrimitiveLowerCaseCamel();
+
+    @jsinterop.annotations.JsMethod(name = "hasPrimitiveUpperCaseCamel")
+    public native boolean hasPrimitiveUpperCaseCamel();
+
+    @jsinterop.annotations.JsMethod(name = "getPrimitiveUpperCaseCamel")
+    public native boolean getPrimitiveUpperCaseCamel();
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedPrimitiveLowerCaseUnderscoreCount")
+    public native int getRepeatedPrimitiveLowerCaseUnderscoreCount();
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedPrimitiveLowerCaseUnderscore")
+    public native boolean getRepeatedPrimitiveLowerCaseUnderscore(int index);
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedPrimitiveLowerCaseUnderscoreList")
+    private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Boolean>
+        internal_getRepeatedPrimitiveLowerCaseUnderscoreList();
+
+    @jsinterop.annotations.JsOverlay
+    public final java.util.List<java.lang.Boolean> getRepeatedPrimitiveLowerCaseUnderscoreList() {
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+          internal_getRepeatedPrimitiveLowerCaseUnderscoreList());
+    }
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedPrimitiveLowerCaseCamelCount")
+    public native int getRepeatedPrimitiveLowerCaseCamelCount();
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedPrimitiveLowerCaseCamel")
+    public native boolean getRepeatedPrimitiveLowerCaseCamel(int index);
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedPrimitiveLowerCaseCamelList")
+    private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Boolean>
+        internal_getRepeatedPrimitiveLowerCaseCamelList();
+
+    @jsinterop.annotations.JsOverlay
+    public final java.util.List<java.lang.Boolean> getRepeatedPrimitiveLowerCaseCamelList() {
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+          internal_getRepeatedPrimitiveLowerCaseCamelList());
+    }
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedPrimitiveUpperCaseCamelCount")
+    public native int getRepeatedPrimitiveUpperCaseCamelCount();
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedPrimitiveUpperCaseCamel")
+    public native boolean getRepeatedPrimitiveUpperCaseCamel(int index);
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedPrimitiveUpperCaseCamelList")
+    private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Boolean>
+        internal_getRepeatedPrimitiveUpperCaseCamelList();
+
+    @jsinterop.annotations.JsOverlay
+    public final java.util.List<java.lang.Boolean> getRepeatedPrimitiveUpperCaseCamelList() {
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+          internal_getRepeatedPrimitiveUpperCaseCamelList());
+    }
+
+    @jsinterop.annotations.JsMethod(name = "hasEnumLowerCaseUnderscore")
+    public native boolean hasEnumLowerCaseUnderscore();
+
+    @jsinterop.annotations.JsOverlay
+    public final com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
+        getEnumLowerCaseUnderscore() {
+      return com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
+          .toEnum(internal_getEnumLowerCaseUnderscore());
+    }
+
+    @jsinterop.annotations.JsMethod(name = "getEnumLowerCaseUnderscore")
+    private native Object internal_getEnumLowerCaseUnderscore();
+
+    @jsinterop.annotations.JsMethod(name = "hasEnumLowerCaseCamel")
+    public native boolean hasEnumLowerCaseCamel();
+
+    @jsinterop.annotations.JsOverlay
+    public final com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
+        getEnumLowerCaseCamel() {
+      return com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
+          .toEnum(internal_getEnumLowerCaseCamel());
+    }
+
+    @jsinterop.annotations.JsMethod(name = "getEnumLowerCaseCamel")
+    private native Object internal_getEnumLowerCaseCamel();
+
+    @jsinterop.annotations.JsMethod(name = "hasEnumUpperCaseCamel")
+    public native boolean hasEnumUpperCaseCamel();
+
+    @jsinterop.annotations.JsOverlay
+    public final com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
+        getEnumUpperCaseCamel() {
+      return com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
+          .toEnum(internal_getEnumUpperCaseCamel());
+    }
+
+    @jsinterop.annotations.JsMethod(name = "getEnumUpperCaseCamel")
+    private native Object internal_getEnumUpperCaseCamel();
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedEnumLowerCaseUnderscoreCount")
+    public native int getRepeatedEnumLowerCaseUnderscoreCount();
+
+    @jsinterop.annotations.JsOverlay
+    public final com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
+        getRepeatedEnumLowerCaseUnderscore(int index) {
+      return com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
+          .toEnum(internal_getRepeatedEnumLowerCaseUnderscore(index));
+    }
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedEnumLowerCaseUnderscore")
+    private native Object internal_getRepeatedEnumLowerCaseUnderscore(int index);
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedEnumLowerCaseUnderscoreList")
+    private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Object>
+        internal_getRepeatedEnumLowerCaseUnderscoreList();
+
+    @jsinterop.annotations.JsOverlay
+    public final java.util.List<com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum>
+        getRepeatedEnumLowerCaseUnderscoreList() {
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+          internal_getRepeatedEnumLowerCaseUnderscoreList(),
+          (d) ->
+              com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
+                  .Internal_ClosureEnum.toEnum(d));
+    }
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedEnumLowerCaseCamelCount")
+    public native int getRepeatedEnumLowerCaseCamelCount();
+
+    @jsinterop.annotations.JsOverlay
+    public final com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
+        getRepeatedEnumLowerCaseCamel(int index) {
+      return com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
+          .toEnum(internal_getRepeatedEnumLowerCaseCamel(index));
+    }
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedEnumLowerCaseCamel")
+    private native Object internal_getRepeatedEnumLowerCaseCamel(int index);
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedEnumLowerCaseCamelList")
+    private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Object>
+        internal_getRepeatedEnumLowerCaseCamelList();
+
+    @jsinterop.annotations.JsOverlay
+    public final java.util.List<com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum>
+        getRepeatedEnumLowerCaseCamelList() {
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+          internal_getRepeatedEnumLowerCaseCamelList(),
+          (d) ->
+              com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
+                  .Internal_ClosureEnum.toEnum(d));
+    }
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedEnumUpperCaseCamelCount")
+    public native int getRepeatedEnumUpperCaseCamelCount();
+
+    @jsinterop.annotations.JsOverlay
+    public final com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
+        getRepeatedEnumUpperCaseCamel(int index) {
+      return com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
+          .toEnum(internal_getRepeatedEnumUpperCaseCamel(index));
+    }
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedEnumUpperCaseCamel")
+    private native Object internal_getRepeatedEnumUpperCaseCamel(int index);
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedEnumUpperCaseCamelList")
+    private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Object>
+        internal_getRepeatedEnumUpperCaseCamelList();
+
+    @jsinterop.annotations.JsOverlay
+    public final java.util.List<com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum>
+        getRepeatedEnumUpperCaseCamelList() {
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+          internal_getRepeatedEnumUpperCaseCamelList(),
+          (d) ->
+              com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
+                  .Internal_ClosureEnum.toEnum(d));
+    }
+
+    @jsinterop.annotations.JsMethod(name = "hasMessageLowerCaseUnderscore")
+    public native boolean hasMessageLowerCaseUnderscore();
+
+    @jsinterop.annotations.JsMethod(name = "getMessageLowerCaseUnderscore")
+    public native com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested
+        getMessageLowerCaseUnderscore();
+
+    @jsinterop.annotations.JsMethod(name = "hasMessageLowerCaseCamel")
+    public native boolean hasMessageLowerCaseCamel();
+
+    @jsinterop.annotations.JsMethod(name = "getMessageLowerCaseCamel")
+    public native com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested
+        getMessageLowerCaseCamel();
+
+    @jsinterop.annotations.JsMethod(name = "hasMessageUpperCaseCamel")
+    public native boolean hasMessageUpperCaseCamel();
+
+    @jsinterop.annotations.JsMethod(name = "getMessageUpperCaseCamel")
+    public native com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested
+        getMessageUpperCaseCamel();
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedMessageLowerCaseUnderscoreCount")
+    public native int getRepeatedMessageLowerCaseUnderscoreCount();
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedMessageLowerCaseUnderscore")
+    public native com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested
+        getRepeatedMessageLowerCaseUnderscore(int index);
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedMessageLowerCaseUnderscoreList")
+    private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<
+            com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested>
+        internal_getRepeatedMessageLowerCaseUnderscoreList();
+
+    @jsinterop.annotations.JsOverlay
+    public final java.util.List<com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested>
+        getRepeatedMessageLowerCaseUnderscoreList() {
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+          internal_getRepeatedMessageLowerCaseUnderscoreList());
+    }
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedMessageLowerCaseCamelCount")
+    public native int getRepeatedMessageLowerCaseCamelCount();
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedMessageLowerCaseCamel")
+    public native com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested
+        getRepeatedMessageLowerCaseCamel(int index);
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedMessageLowerCaseCamelList")
+    private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<
+            com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested>
+        internal_getRepeatedMessageLowerCaseCamelList();
+
+    @jsinterop.annotations.JsOverlay
+    public final java.util.List<com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested>
+        getRepeatedMessageLowerCaseCamelList() {
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+          internal_getRepeatedMessageLowerCaseCamelList());
+    }
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedMessageUpperCaseCamelCount")
+    public native int getRepeatedMessageUpperCaseCamelCount();
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedMessageUpperCaseCamel")
+    public native com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested
+        getRepeatedMessageUpperCaseCamel(int index);
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedMessageUpperCaseCamelList")
+    private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<
+            com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested>
+        internal_getRepeatedMessageUpperCaseCamelList();
+
+    @jsinterop.annotations.JsOverlay
+    public final java.util.List<com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested>
+        getRepeatedMessageUpperCaseCamelList() {
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+          internal_getRepeatedMessageUpperCaseCamelList());
+    }
+
+    public static native Builder newBuilder();
+
+    public static native Builder newBuilder(Fields prototype);
+
+    @jsinterop.annotations.JsType(isNative = true)
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageLite.Builder<Fields, Builder> {
+
+      protected Builder() {}
+
+      @jsinterop.annotations.JsOverlay
+      public final Fields getDefaultInstanceForType() {
+        return getDefaultInstance();
+      }
+
+      @Override
+      public native Fields build();
+
+      @Override
+      public native Builder clone();
+
+      @jsinterop.annotations.JsMethod(name = "hasPrimitiveLowerCaseUnderscore")
+      public native boolean hasPrimitiveLowerCaseUnderscore();
+
+      @jsinterop.annotations.JsMethod(name = "getPrimitiveLowerCaseUnderscore")
+      public native boolean getPrimitiveLowerCaseUnderscore();
+
+      @jsinterop.annotations.JsMethod(name = "clearPrimitiveLowerCaseUnderscore")
+      public native Builder clearPrimitiveLowerCaseUnderscore();
+
+      @jsinterop.annotations.JsMethod(name = "setPrimitiveLowerCaseUnderscore")
+      public native Builder setPrimitiveLowerCaseUnderscore(boolean value);
+
+      @jsinterop.annotations.JsMethod(name = "hasPrimitiveLowerCaseCamel")
+      public native boolean hasPrimitiveLowerCaseCamel();
+
+      @jsinterop.annotations.JsMethod(name = "getPrimitiveLowerCaseCamel")
+      public native boolean getPrimitiveLowerCaseCamel();
+
+      @jsinterop.annotations.JsMethod(name = "clearPrimitiveLowerCaseCamel")
+      public native Builder clearPrimitiveLowerCaseCamel();
+
+      @jsinterop.annotations.JsMethod(name = "setPrimitiveLowerCaseCamel")
+      public native Builder setPrimitiveLowerCaseCamel(boolean value);
+
+      @jsinterop.annotations.JsMethod(name = "hasPrimitiveUpperCaseCamel")
+      public native boolean hasPrimitiveUpperCaseCamel();
+
+      @jsinterop.annotations.JsMethod(name = "getPrimitiveUpperCaseCamel")
+      public native boolean getPrimitiveUpperCaseCamel();
+
+      @jsinterop.annotations.JsMethod(name = "clearPrimitiveUpperCaseCamel")
+      public native Builder clearPrimitiveUpperCaseCamel();
+
+      @jsinterop.annotations.JsMethod(name = "setPrimitiveUpperCaseCamel")
+      public native Builder setPrimitiveUpperCaseCamel(boolean value);
+
+      @jsinterop.annotations.JsMethod(name = "getRepeatedPrimitiveLowerCaseUnderscoreCount")
+      public native int getRepeatedPrimitiveLowerCaseUnderscoreCount();
+
+      @jsinterop.annotations.JsMethod(name = "getRepeatedPrimitiveLowerCaseUnderscore")
+      public native boolean getRepeatedPrimitiveLowerCaseUnderscore(int index);
+
+      @jsinterop.annotations.JsMethod(name = "getRepeatedPrimitiveLowerCaseUnderscoreList")
+      private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Boolean>
+          internal_getRepeatedPrimitiveLowerCaseUnderscoreList();
+
+      @jsinterop.annotations.JsOverlay
+      public final java.util.List<java.lang.Boolean> getRepeatedPrimitiveLowerCaseUnderscoreList() {
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+            internal_getRepeatedPrimitiveLowerCaseUnderscoreList());
+      }
+
+      @jsinterop.annotations.JsMethod(name = "clearRepeatedPrimitiveLowerCaseUnderscore")
+      public native Builder clearRepeatedPrimitiveLowerCaseUnderscore();
+
+      @jsinterop.annotations.JsMethod(name = "addRepeatedPrimitiveLowerCaseUnderscore")
+      public native Builder addRepeatedPrimitiveLowerCaseUnderscore(boolean value);
+
+      @jsinterop.annotations.JsMethod(name = "setRepeatedPrimitiveLowerCaseUnderscore")
+      public native Builder setRepeatedPrimitiveLowerCaseUnderscore(int index, boolean value);
+
+      @jsinterop.annotations.JsOverlay
+      public final Builder addAllRepeatedPrimitiveLowerCaseUnderscore(
+          java.lang.Iterable<java.lang.Boolean> values) {
+        com.google.protobuf.GeneratedMessageLite.Internal_.addAll(
+            values, this::addRepeatedPrimitiveLowerCaseUnderscore);
+        return this;
+      }
+
+      @jsinterop.annotations.JsMethod(name = "getRepeatedPrimitiveLowerCaseCamelCount")
+      public native int getRepeatedPrimitiveLowerCaseCamelCount();
+
+      @jsinterop.annotations.JsMethod(name = "getRepeatedPrimitiveLowerCaseCamel")
+      public native boolean getRepeatedPrimitiveLowerCaseCamel(int index);
+
+      @jsinterop.annotations.JsMethod(name = "getRepeatedPrimitiveLowerCaseCamelList")
+      private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Boolean>
+          internal_getRepeatedPrimitiveLowerCaseCamelList();
+
+      @jsinterop.annotations.JsOverlay
+      public final java.util.List<java.lang.Boolean> getRepeatedPrimitiveLowerCaseCamelList() {
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+            internal_getRepeatedPrimitiveLowerCaseCamelList());
+      }
+
+      @jsinterop.annotations.JsMethod(name = "clearRepeatedPrimitiveLowerCaseCamel")
+      public native Builder clearRepeatedPrimitiveLowerCaseCamel();
+
+      @jsinterop.annotations.JsMethod(name = "addRepeatedPrimitiveLowerCaseCamel")
+      public native Builder addRepeatedPrimitiveLowerCaseCamel(boolean value);
+
+      @jsinterop.annotations.JsMethod(name = "setRepeatedPrimitiveLowerCaseCamel")
+      public native Builder setRepeatedPrimitiveLowerCaseCamel(int index, boolean value);
+
+      @jsinterop.annotations.JsOverlay
+      public final Builder addAllRepeatedPrimitiveLowerCaseCamel(
+          java.lang.Iterable<java.lang.Boolean> values) {
+        com.google.protobuf.GeneratedMessageLite.Internal_.addAll(
+            values, this::addRepeatedPrimitiveLowerCaseCamel);
+        return this;
+      }
+
+      @jsinterop.annotations.JsMethod(name = "getRepeatedPrimitiveUpperCaseCamelCount")
+      public native int getRepeatedPrimitiveUpperCaseCamelCount();
+
+      @jsinterop.annotations.JsMethod(name = "getRepeatedPrimitiveUpperCaseCamel")
+      public native boolean getRepeatedPrimitiveUpperCaseCamel(int index);
+
+      @jsinterop.annotations.JsMethod(name = "getRepeatedPrimitiveUpperCaseCamelList")
+      private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Boolean>
+          internal_getRepeatedPrimitiveUpperCaseCamelList();
+
+      @jsinterop.annotations.JsOverlay
+      public final java.util.List<java.lang.Boolean> getRepeatedPrimitiveUpperCaseCamelList() {
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+            internal_getRepeatedPrimitiveUpperCaseCamelList());
+      }
+
+      @jsinterop.annotations.JsMethod(name = "clearRepeatedPrimitiveUpperCaseCamel")
+      public native Builder clearRepeatedPrimitiveUpperCaseCamel();
+
+      @jsinterop.annotations.JsMethod(name = "addRepeatedPrimitiveUpperCaseCamel")
+      public native Builder addRepeatedPrimitiveUpperCaseCamel(boolean value);
+
+      @jsinterop.annotations.JsMethod(name = "setRepeatedPrimitiveUpperCaseCamel")
+      public native Builder setRepeatedPrimitiveUpperCaseCamel(int index, boolean value);
+
+      @jsinterop.annotations.JsOverlay
+      public final Builder addAllRepeatedPrimitiveUpperCaseCamel(
+          java.lang.Iterable<java.lang.Boolean> values) {
+        com.google.protobuf.GeneratedMessageLite.Internal_.addAll(
+            values, this::addRepeatedPrimitiveUpperCaseCamel);
+        return this;
+      }
+
+      @jsinterop.annotations.JsMethod(name = "hasEnumLowerCaseUnderscore")
+      public native boolean hasEnumLowerCaseUnderscore();
+
+      @jsinterop.annotations.JsOverlay
+      public final com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
+          getEnumLowerCaseUnderscore() {
+        return com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
+            .Internal_ClosureEnum.toEnum(internal_getEnumLowerCaseUnderscore());
+      }
+
+      @jsinterop.annotations.JsMethod(name = "getEnumLowerCaseUnderscore")
+      private native Object internal_getEnumLowerCaseUnderscore();
+
+      @jsinterop.annotations.JsMethod(name = "clearEnumLowerCaseUnderscore")
+      public native Builder clearEnumLowerCaseUnderscore();
+
+      @jsinterop.annotations.JsOverlay
+      public final Builder setEnumLowerCaseUnderscore(
+          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum value) {
+        return internal_setEnumLowerCaseUnderscore(
+            com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
+                .toClosureValue(value));
+      }
+
+      @jsinterop.annotations.JsMethod(name = "setEnumLowerCaseUnderscore")
+      private native Builder internal_setEnumLowerCaseUnderscore(
+          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
+              value);
+
+      @jsinterop.annotations.JsMethod(name = "hasEnumLowerCaseCamel")
+      public native boolean hasEnumLowerCaseCamel();
+
+      @jsinterop.annotations.JsOverlay
+      public final com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
+          getEnumLowerCaseCamel() {
+        return com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
+            .Internal_ClosureEnum.toEnum(internal_getEnumLowerCaseCamel());
+      }
+
+      @jsinterop.annotations.JsMethod(name = "getEnumLowerCaseCamel")
+      private native Object internal_getEnumLowerCaseCamel();
+
+      @jsinterop.annotations.JsMethod(name = "clearEnumLowerCaseCamel")
+      public native Builder clearEnumLowerCaseCamel();
+
+      @jsinterop.annotations.JsOverlay
+      public final Builder setEnumLowerCaseCamel(
+          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum value) {
+        return internal_setEnumLowerCaseCamel(
+            com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
+                .toClosureValue(value));
+      }
+
+      @jsinterop.annotations.JsMethod(name = "setEnumLowerCaseCamel")
+      private native Builder internal_setEnumLowerCaseCamel(
+          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
+              value);
+
+      @jsinterop.annotations.JsMethod(name = "hasEnumUpperCaseCamel")
+      public native boolean hasEnumUpperCaseCamel();
+
+      @jsinterop.annotations.JsOverlay
+      public final com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
+          getEnumUpperCaseCamel() {
+        return com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
+            .Internal_ClosureEnum.toEnum(internal_getEnumUpperCaseCamel());
+      }
+
+      @jsinterop.annotations.JsMethod(name = "getEnumUpperCaseCamel")
+      private native Object internal_getEnumUpperCaseCamel();
+
+      @jsinterop.annotations.JsMethod(name = "clearEnumUpperCaseCamel")
+      public native Builder clearEnumUpperCaseCamel();
+
+      @jsinterop.annotations.JsOverlay
+      public final Builder setEnumUpperCaseCamel(
+          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum value) {
+        return internal_setEnumUpperCaseCamel(
+            com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
+                .toClosureValue(value));
+      }
+
+      @jsinterop.annotations.JsMethod(name = "setEnumUpperCaseCamel")
+      private native Builder internal_setEnumUpperCaseCamel(
+          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
+              value);
+
+      @jsinterop.annotations.JsMethod(name = "getRepeatedEnumLowerCaseUnderscoreCount")
+      public native int getRepeatedEnumLowerCaseUnderscoreCount();
+
+      @jsinterop.annotations.JsOverlay
+      public final com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
+          getRepeatedEnumLowerCaseUnderscore(int index) {
+        return com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
+            .Internal_ClosureEnum.toEnum(internal_getRepeatedEnumLowerCaseUnderscore(index));
+      }
+
+      @jsinterop.annotations.JsMethod(name = "getRepeatedEnumLowerCaseUnderscore")
+      private native Object internal_getRepeatedEnumLowerCaseUnderscore(int index);
+
+      @jsinterop.annotations.JsMethod(name = "getRepeatedEnumLowerCaseUnderscoreList")
+      private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Object>
+          internal_getRepeatedEnumLowerCaseUnderscoreList();
+
+      @jsinterop.annotations.JsOverlay
+      public final java.util.List<
+              com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum>
+          getRepeatedEnumLowerCaseUnderscoreList() {
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+            internal_getRepeatedEnumLowerCaseUnderscoreList(),
+            (d) ->
+                com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
+                    .Internal_ClosureEnum.toEnum(d));
+      }
+
+      @jsinterop.annotations.JsMethod(name = "clearRepeatedEnumLowerCaseUnderscore")
+      public native Builder clearRepeatedEnumLowerCaseUnderscore();
+
+      @jsinterop.annotations.JsOverlay
+      public final Builder setRepeatedEnumLowerCaseUnderscore(
+          int index, com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum value) {
+        return internal_setRepeatedEnumLowerCaseUnderscore(
+            index,
+            com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
+                .toClosureValue(value));
+      }
+
+      @jsinterop.annotations.JsMethod(name = "setRepeatedEnumLowerCaseUnderscore")
+      private native Builder internal_setRepeatedEnumLowerCaseUnderscore(
+          int index,
+          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
+              value);
+
+      @jsinterop.annotations.JsOverlay
+      public final Builder addRepeatedEnumLowerCaseUnderscore(
+          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum value) {
+        return internal_addRepeatedEnumLowerCaseUnderscore(
+            com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
+                .toClosureValue(value));
+      }
+
+      @jsinterop.annotations.JsMethod(name = "addRepeatedEnumLowerCaseUnderscore")
+      private native Builder internal_addRepeatedEnumLowerCaseUnderscore(
+          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
+              value);
+
+      @jsinterop.annotations.JsOverlay
+      public final Builder addAllRepeatedEnumLowerCaseUnderscore(
+          java.lang.Iterable<com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum>
+              values) {
+        com.google.protobuf.GeneratedMessageLite.Internal_.addAll(
+            values, this::addRepeatedEnumLowerCaseUnderscore);
+        return this;
+      }
+
+      @jsinterop.annotations.JsMethod(name = "getRepeatedEnumLowerCaseCamelCount")
+      public native int getRepeatedEnumLowerCaseCamelCount();
+
+      @jsinterop.annotations.JsOverlay
+      public final com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
+          getRepeatedEnumLowerCaseCamel(int index) {
+        return com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
+            .Internal_ClosureEnum.toEnum(internal_getRepeatedEnumLowerCaseCamel(index));
+      }
+
+      @jsinterop.annotations.JsMethod(name = "getRepeatedEnumLowerCaseCamel")
+      private native Object internal_getRepeatedEnumLowerCaseCamel(int index);
+
+      @jsinterop.annotations.JsMethod(name = "getRepeatedEnumLowerCaseCamelList")
+      private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Object>
+          internal_getRepeatedEnumLowerCaseCamelList();
+
+      @jsinterop.annotations.JsOverlay
+      public final java.util.List<
+              com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum>
+          getRepeatedEnumLowerCaseCamelList() {
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+            internal_getRepeatedEnumLowerCaseCamelList(),
+            (d) ->
+                com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
+                    .Internal_ClosureEnum.toEnum(d));
+      }
+
+      @jsinterop.annotations.JsMethod(name = "clearRepeatedEnumLowerCaseCamel")
+      public native Builder clearRepeatedEnumLowerCaseCamel();
+
+      @jsinterop.annotations.JsOverlay
+      public final Builder setRepeatedEnumLowerCaseCamel(
+          int index, com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum value) {
+        return internal_setRepeatedEnumLowerCaseCamel(
+            index,
+            com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
+                .toClosureValue(value));
+      }
+
+      @jsinterop.annotations.JsMethod(name = "setRepeatedEnumLowerCaseCamel")
+      private native Builder internal_setRepeatedEnumLowerCaseCamel(
+          int index,
+          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
+              value);
+
+      @jsinterop.annotations.JsOverlay
+      public final Builder addRepeatedEnumLowerCaseCamel(
+          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum value) {
+        return internal_addRepeatedEnumLowerCaseCamel(
+            com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
+                .toClosureValue(value));
+      }
+
+      @jsinterop.annotations.JsMethod(name = "addRepeatedEnumLowerCaseCamel")
+      private native Builder internal_addRepeatedEnumLowerCaseCamel(
+          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
+              value);
+
+      @jsinterop.annotations.JsOverlay
+      public final Builder addAllRepeatedEnumLowerCaseCamel(
+          java.lang.Iterable<com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum>
+              values) {
+        com.google.protobuf.GeneratedMessageLite.Internal_.addAll(
+            values, this::addRepeatedEnumLowerCaseCamel);
+        return this;
+      }
+
+      @jsinterop.annotations.JsMethod(name = "getRepeatedEnumUpperCaseCamelCount")
+      public native int getRepeatedEnumUpperCaseCamelCount();
+
+      @jsinterop.annotations.JsOverlay
+      public final com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
+          getRepeatedEnumUpperCaseCamel(int index) {
+        return com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
+            .Internal_ClosureEnum.toEnum(internal_getRepeatedEnumUpperCaseCamel(index));
+      }
+
+      @jsinterop.annotations.JsMethod(name = "getRepeatedEnumUpperCaseCamel")
+      private native Object internal_getRepeatedEnumUpperCaseCamel(int index);
+
+      @jsinterop.annotations.JsMethod(name = "getRepeatedEnumUpperCaseCamelList")
+      private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Object>
+          internal_getRepeatedEnumUpperCaseCamelList();
+
+      @jsinterop.annotations.JsOverlay
+      public final java.util.List<
+              com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum>
+          getRepeatedEnumUpperCaseCamelList() {
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+            internal_getRepeatedEnumUpperCaseCamelList(),
+            (d) ->
+                com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
+                    .Internal_ClosureEnum.toEnum(d));
+      }
+
+      @jsinterop.annotations.JsMethod(name = "clearRepeatedEnumUpperCaseCamel")
+      public native Builder clearRepeatedEnumUpperCaseCamel();
+
+      @jsinterop.annotations.JsOverlay
+      public final Builder setRepeatedEnumUpperCaseCamel(
+          int index, com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum value) {
+        return internal_setRepeatedEnumUpperCaseCamel(
+            index,
+            com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
+                .toClosureValue(value));
+      }
+
+      @jsinterop.annotations.JsMethod(name = "setRepeatedEnumUpperCaseCamel")
+      private native Builder internal_setRepeatedEnumUpperCaseCamel(
+          int index,
+          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
+              value);
+
+      @jsinterop.annotations.JsOverlay
+      public final Builder addRepeatedEnumUpperCaseCamel(
+          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum value) {
+        return internal_addRepeatedEnumUpperCaseCamel(
+            com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
+                .toClosureValue(value));
+      }
+
+      @jsinterop.annotations.JsMethod(name = "addRepeatedEnumUpperCaseCamel")
+      private native Builder internal_addRepeatedEnumUpperCaseCamel(
+          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
+              value);
+
+      @jsinterop.annotations.JsOverlay
+      public final Builder addAllRepeatedEnumUpperCaseCamel(
+          java.lang.Iterable<com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum>
+              values) {
+        com.google.protobuf.GeneratedMessageLite.Internal_.addAll(
+            values, this::addRepeatedEnumUpperCaseCamel);
+        return this;
+      }
+
+      @jsinterop.annotations.JsMethod(name = "hasMessageLowerCaseUnderscore")
+      public native boolean hasMessageLowerCaseUnderscore();
+
+      @jsinterop.annotations.JsMethod(name = "getMessageLowerCaseUnderscore")
+      public native com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested
+          getMessageLowerCaseUnderscore();
+
+      @jsinterop.annotations.JsMethod(name = "clearMessageLowerCaseUnderscore")
+      public native Builder clearMessageLowerCaseUnderscore();
+
+      @jsinterop.annotations.JsMethod(name = "setMessageLowerCaseUnderscore")
+      public native Builder setMessageLowerCaseUnderscore(
+          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested value);
+
+      @jsinterop.annotations.JsMethod(name = "setMessageLowerCaseUnderscore")
+      public native Builder setMessageLowerCaseUnderscore(
+          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested.Builder builder);
+
+      @jsinterop.annotations.JsMethod(name = "hasMessageLowerCaseCamel")
+      public native boolean hasMessageLowerCaseCamel();
+
+      @jsinterop.annotations.JsMethod(name = "getMessageLowerCaseCamel")
+      public native com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested
+          getMessageLowerCaseCamel();
+
+      @jsinterop.annotations.JsMethod(name = "clearMessageLowerCaseCamel")
+      public native Builder clearMessageLowerCaseCamel();
+
+      @jsinterop.annotations.JsMethod(name = "setMessageLowerCaseCamel")
+      public native Builder setMessageLowerCaseCamel(
+          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested value);
+
+      @jsinterop.annotations.JsMethod(name = "setMessageLowerCaseCamel")
+      public native Builder setMessageLowerCaseCamel(
+          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested.Builder builder);
+
+      @jsinterop.annotations.JsMethod(name = "hasMessageUpperCaseCamel")
+      public native boolean hasMessageUpperCaseCamel();
+
+      @jsinterop.annotations.JsMethod(name = "getMessageUpperCaseCamel")
+      public native com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested
+          getMessageUpperCaseCamel();
+
+      @jsinterop.annotations.JsMethod(name = "clearMessageUpperCaseCamel")
+      public native Builder clearMessageUpperCaseCamel();
+
+      @jsinterop.annotations.JsMethod(name = "setMessageUpperCaseCamel")
+      public native Builder setMessageUpperCaseCamel(
+          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested value);
+
+      @jsinterop.annotations.JsMethod(name = "setMessageUpperCaseCamel")
+      public native Builder setMessageUpperCaseCamel(
+          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested.Builder builder);
+
+      @jsinterop.annotations.JsMethod(name = "getRepeatedMessageLowerCaseUnderscoreCount")
+      public native int getRepeatedMessageLowerCaseUnderscoreCount();
+
+      @jsinterop.annotations.JsMethod(name = "getRepeatedMessageLowerCaseUnderscore")
+      public native com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested
+          getRepeatedMessageLowerCaseUnderscore(int index);
+
+      @jsinterop.annotations.JsMethod(name = "getRepeatedMessageLowerCaseUnderscoreList")
+      private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<
+              com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested>
+          internal_getRepeatedMessageLowerCaseUnderscoreList();
+
+      @jsinterop.annotations.JsOverlay
+      public final java.util.List<com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested>
+          getRepeatedMessageLowerCaseUnderscoreList() {
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+            internal_getRepeatedMessageLowerCaseUnderscoreList());
+      }
+
+      @jsinterop.annotations.JsMethod(name = "clearRepeatedMessageLowerCaseUnderscore")
+      public native Builder clearRepeatedMessageLowerCaseUnderscore();
+
+      @jsinterop.annotations.JsMethod(name = "addRepeatedMessageLowerCaseUnderscore")
+      public native Builder addRepeatedMessageLowerCaseUnderscore(
+          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested value);
+
+      @jsinterop.annotations.JsMethod(name = "setRepeatedMessageLowerCaseUnderscore")
+      public native Builder setRepeatedMessageLowerCaseUnderscore(
+          int index, com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested value);
+
+      @jsinterop.annotations.JsMethod(name = "addRepeatedMessageLowerCaseUnderscore")
+      public native Builder addRepeatedMessageLowerCaseUnderscore(
+          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested.Builder builder);
+
+      @jsinterop.annotations.JsMethod(name = "setRepeatedMessageLowerCaseUnderscore")
+      public native Builder setRepeatedMessageLowerCaseUnderscore(
+          int index,
+          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested.Builder builder);
+
+      @jsinterop.annotations.JsOverlay
+      public final Builder addAllRepeatedMessageLowerCaseUnderscore(
+          java.lang.Iterable<com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested>
+              values) {
+        com.google.protobuf.GeneratedMessageLite.Internal_.addAll(
+            values, this::addRepeatedMessageLowerCaseUnderscore);
+        return this;
+      }
+
+      @jsinterop.annotations.JsMethod(name = "getRepeatedMessageLowerCaseCamelCount")
+      public native int getRepeatedMessageLowerCaseCamelCount();
+
+      @jsinterop.annotations.JsMethod(name = "getRepeatedMessageLowerCaseCamel")
+      public native com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested
+          getRepeatedMessageLowerCaseCamel(int index);
+
+      @jsinterop.annotations.JsMethod(name = "getRepeatedMessageLowerCaseCamelList")
+      private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<
+              com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested>
+          internal_getRepeatedMessageLowerCaseCamelList();
+
+      @jsinterop.annotations.JsOverlay
+      public final java.util.List<com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested>
+          getRepeatedMessageLowerCaseCamelList() {
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+            internal_getRepeatedMessageLowerCaseCamelList());
+      }
+
+      @jsinterop.annotations.JsMethod(name = "clearRepeatedMessageLowerCaseCamel")
+      public native Builder clearRepeatedMessageLowerCaseCamel();
+
+      @jsinterop.annotations.JsMethod(name = "addRepeatedMessageLowerCaseCamel")
+      public native Builder addRepeatedMessageLowerCaseCamel(
+          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested value);
+
+      @jsinterop.annotations.JsMethod(name = "setRepeatedMessageLowerCaseCamel")
+      public native Builder setRepeatedMessageLowerCaseCamel(
+          int index, com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested value);
+
+      @jsinterop.annotations.JsMethod(name = "addRepeatedMessageLowerCaseCamel")
+      public native Builder addRepeatedMessageLowerCaseCamel(
+          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested.Builder builder);
+
+      @jsinterop.annotations.JsMethod(name = "setRepeatedMessageLowerCaseCamel")
+      public native Builder setRepeatedMessageLowerCaseCamel(
+          int index,
+          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested.Builder builder);
+
+      @jsinterop.annotations.JsOverlay
+      public final Builder addAllRepeatedMessageLowerCaseCamel(
+          java.lang.Iterable<com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested>
+              values) {
+        com.google.protobuf.GeneratedMessageLite.Internal_.addAll(
+            values, this::addRepeatedMessageLowerCaseCamel);
+        return this;
+      }
+
+      @jsinterop.annotations.JsMethod(name = "getRepeatedMessageUpperCaseCamelCount")
+      public native int getRepeatedMessageUpperCaseCamelCount();
+
+      @jsinterop.annotations.JsMethod(name = "getRepeatedMessageUpperCaseCamel")
+      public native com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested
+          getRepeatedMessageUpperCaseCamel(int index);
+
+      @jsinterop.annotations.JsMethod(name = "getRepeatedMessageUpperCaseCamelList")
+      private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<
+              com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested>
+          internal_getRepeatedMessageUpperCaseCamelList();
+
+      @jsinterop.annotations.JsOverlay
+      public final java.util.List<com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested>
+          getRepeatedMessageUpperCaseCamelList() {
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+            internal_getRepeatedMessageUpperCaseCamelList());
+      }
+
+      @jsinterop.annotations.JsMethod(name = "clearRepeatedMessageUpperCaseCamel")
+      public native Builder clearRepeatedMessageUpperCaseCamel();
+
+      @jsinterop.annotations.JsMethod(name = "addRepeatedMessageUpperCaseCamel")
+      public native Builder addRepeatedMessageUpperCaseCamel(
+          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested value);
+
+      @jsinterop.annotations.JsMethod(name = "setRepeatedMessageUpperCaseCamel")
+      public native Builder setRepeatedMessageUpperCaseCamel(
+          int index, com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested value);
+
+      @jsinterop.annotations.JsMethod(name = "addRepeatedMessageUpperCaseCamel")
+      public native Builder addRepeatedMessageUpperCaseCamel(
+          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested.Builder builder);
+
+      @jsinterop.annotations.JsMethod(name = "setRepeatedMessageUpperCaseCamel")
+      public native Builder setRepeatedMessageUpperCaseCamel(
+          int index,
+          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested.Builder builder);
+
+      @jsinterop.annotations.JsOverlay
+      public final Builder addAllRepeatedMessageUpperCaseCamel(
+          java.lang.Iterable<com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested>
+              values) {
+        com.google.protobuf.GeneratedMessageLite.Internal_.addAll(
+            values, this::addRepeatedMessageUpperCaseCamel);
+        return this;
+      }
+    }
+  }
+}

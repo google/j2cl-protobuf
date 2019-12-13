@@ -1,0 +1,7 @@
+syntax = "proto2";
+
+package com.google.protobuf.contrib.immutablejs.protos;
+
+message Leaf {
+  optional bool foo = 1;
+}

@@ -1,0 +1,9 @@
+syntax = "proto2";
+
+package com.google.protobuf.contrib.immutablejs.protos;
+
+import "javatests/com/google/protobuf/contrib/immutablejs/protos/leaf.proto";
+
+message Parent {
+  optional Leaf leaf = 1;
+}

@@ -1,0 +1,40 @@
+syntax = "proto2";
+
+package protobuf.contrib.immutablejs.protos;
+
+option java_multiple_files = true;
+
+message TopLevel1 {
+  message Sub2First {
+    optional TopLevel2.Sub2First top_level2_sub2_first = 1;
+    optional string payload = 2;
+  }
+
+  optional TopLevel2.Sub2First top_level2_sub2_first = 1;
+  optional TopLevel2.Sub2Second top_level2_sub2_second = 2;
+  optional TopLevel2 top_level2 = 3;
+  optional TopLevel3 top_level3 = 4;
+  optional string payload = 5;
+}
+
+message TopLevel2 {
+  message Sub2First {
+    optional TopLevel1.Sub2First top_level1_sub2_first = 1;
+    optional string payload = 2;
+  }
+
+  optional TopLevel1.Sub2First top_level1_sub2_first = 1;
+  optional string payload = 2;
+
+  enum Sub2Second {
+    UNKNOWN = 0;
+    ONE = 1;
+    TWO = 2;
+  }
+}
+
+enum TopLevel3 {
+  UNKNOWN = 0;
+  ONE = 1;
+  TWO = 2;
+}

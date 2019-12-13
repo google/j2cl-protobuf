@@ -1,0 +1,19 @@
+#set ($param = "")
+#set ($paramDec = "")
+#if (${field.isRepeated()})
+  #set ($param = "index")
+  #set ($paramDec = "int index")
+#end
+
+#if ($field.isEnum())
+  @jsinterop.annotations.JsOverlay
+  public final ${field.unboxedType} get${field.name}(${paramDec}) {
+    return ${field.unboxedType}.Internal_ClosureEnum.toEnum(internal_get${field.name}(${param}));
+  }
+
+  @jsinterop.annotations.JsMethod(name = "get${field.jsName}")
+  private native Object internal_get${field.name}(${paramDec});
+#else
+  @jsinterop.annotations.JsMethod(name = "get${field.jsName}")
+  public native ${field.unboxedType} get${field.name}(${paramDec});
+#end

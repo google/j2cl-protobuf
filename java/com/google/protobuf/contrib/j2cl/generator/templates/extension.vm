@@ -1,0 +1,23 @@
+#foreach ($field in $extensions)
+  #set ($extensionMethod = "Single${field.stem()}")
+  #set ($extensionType = "${field.boxedType}")
+  #if ($field.isRepeated())
+    #set ($extensionMethod = "Repeated${field.stem()}")
+    #set ($extensionType = "java.util.List<${field.boxedType}>")
+  #end
+
+  #set ($converters = "internal_${field.name}")
+  #if ($field.isEnum())
+    #set ($enumReadConverter = "v -> ${field.unboxedType}.Internal_ClosureEnum.toEnum(v)")
+    #set ($enumWriteConverter = "v ->  ${field.unboxedType}.Internal_ClosureEnum.toClosureValue(v)")
+    #set ($converters = "$converters, $enumReadConverter, $enumWriteConverter")
+  #end
+
+  ## Underlying field in immutable_js
+  @jsinterop.annotations.JsProperty(name = "$field.jsName")
+  private static com.google.protobuf.GeneratedMessageLite.Internal_.ExtensionFieldInfo<${field.extendedMessage}, ?> internal_${field.name};
+
+  ## Java api field
+  @jsinterop.annotations.JsOverlay
+  public static final com.google.protobuf.ExtensionLite<${field.extendedMessage}, ${extensionType}> $field.name = com.google.protobuf.GeneratedMessageLite.Internal_.create${extensionMethod}Extension($converters);
+#end

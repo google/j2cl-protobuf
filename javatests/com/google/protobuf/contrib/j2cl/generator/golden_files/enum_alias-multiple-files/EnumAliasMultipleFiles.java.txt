@@ -1,0 +1,10 @@
+package com.google.protobuf.contrib.j2cl.protos;
+
+@jsinterop.annotations.JsType(
+    isNative = true,
+    name = "enum_alias.multiple_files",
+    namespace = "improto.protobuf.contrib.j2cl.protos")
+public final class EnumAliasMultipleFiles {
+
+  private EnumAliasMultipleFiles() {}
+}

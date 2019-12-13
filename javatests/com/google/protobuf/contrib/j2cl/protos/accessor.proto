@@ -1,0 +1,68 @@
+// Tests for fields accessors of different types.
+
+syntax = "proto2";
+
+package protobuf.contrib.gwt.testing.testdata;
+
+option java_package = "com.google.protobuf.contrib.j2cl.protos";
+
+// REMOVED_BY_GENRULE option java_multiple_files = true;
+
+message TestProto {
+  // bool fields.
+  optional bool optional_bool = 1;
+  optional bool optional_bool_with_default = 2 [default = true];
+  repeated bool repeated_bool = 3;
+
+  // int32 fields
+  optional int32 optional_int = 4;
+  optional int32 optional_int_with_default = 5 [default = 135];
+  repeated int32 repeated_int = 6;
+
+  // int64 fields
+  optional int64 optional_long = 7;
+  optional int64 optional_long_with_default = 8 [default = 3000000000];
+  repeated int64 repeated_long = 9;
+
+  // float fields
+  optional float optional_float = 10;
+  optional float optional_float_with_default = 11 [default = 1.35];
+  repeated float repeated_float = 12;
+
+  // double fields
+  optional double optional_double = 13;
+  optional double optional_double_with_default = 14 [default = 2.46];
+  repeated double repeated_double = 15;
+
+  // enum fields.
+  enum TestEnum {
+    UNKNOWN = 0;
+    ONE = 1;
+    TWO = 2;
+    THREE = 3;
+    FOUR = 4;
+    FIVE = 5;
+    SIX = 6;
+  }
+  optional TestEnum optional_enum = 16;
+  optional TestEnum optional_enum_with_default = 17 [default = THREE];
+  repeated TestEnum repeated_enum = 18;
+
+  // string fields.
+  optional string optional_string = 19;
+  optional string optional_string_with_default = 20
+      [default = "non-trivial default"];
+  repeated string repeated_string = 21;
+
+  // bytes fields.
+  optional bytes optional_bytes = 28;
+  optional bytes optional_bytes_with_default = 29 [default = "a bytey default"];
+  repeated bytes repeated_bytes = 30;
+
+  // message fields.
+  message NestedMessage {
+    optional string payload = 1;
+  }
+  optional NestedMessage optional_message = 26;
+  repeated NestedMessage repeated_message = 27;
+}

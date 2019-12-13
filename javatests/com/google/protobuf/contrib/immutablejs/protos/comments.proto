@@ -1,0 +1,93 @@
+// Tests for comments in generated code.
+
+syntax = "proto2";
+
+package protobuf.contrib.immutablejs.protos;
+
+option java_multiple_files = true;
+
+// Expected message comment.
+message TestCommentsProto {
+  // This comment will be ignored because it is not a leading comment attached
+  // to the field.
+
+  // Expected field comment.
+  optional int32 a_field =
+      1;  // This comment will be ignored because it is trailing.
+
+  // Expected oneof comment.
+  oneof AOneof {
+    // Expected field comment.
+    string a_string = 2;
+    // Expected field comment.
+    string a_second_string = 3;
+  }
+
+  // Expected enum comment.
+  enum AnEnum {
+    AN_ENUM_UNDEFINED = 0;
+    FIRST = 1;
+    SECOND = 2;
+  }
+
+  // Expected multi-line field comment.
+  // A Nearby Rooster is in high definition.
+  // A Faraway Rooster is out of focus.
+  optional int64 another_field = 4;
+}
+
+// Expected message with escaped characters: @
+message TestCommentsWithDangerousCharacters {
+  // This comment will be ignored because it is not a leading comment attached
+  // to the field. Some dangerous characters: @@@@***
+
+  // Expected field with escaped characters: @*
+  optional int32 a_field = 1;  // This comment will be ignored because it is
+                               // trailing. Some dangerous characters: @@@@***
+
+  // Expected oneof with escaped characters: @*
+  oneof AOneof {
+    // Expected field with escaped characters: @*
+    string a_string = 2;
+    // Expected field with escaped characters: @*
+    string a_second_string = 3;
+  }
+
+  // Expected enum with escaped characters: @*
+  enum AnEnumWithDangerousCharacters {
+    AN_ENUM_UNDEFINED = 0;
+    FIRST = 1;
+    SECOND = 2;
+  }
+
+  // Expected multi-line field comment with escapated characters.
+  // A Nearby Rooster is in high definition.
+  // A Faraway Rooster is out of focus.
+  // @@@@@*****
+  // this is a comment containing a block comment
+  // /*
+  //  * hello I am a comment
+  //  * and I continue onto the next line.
+  //  */
+  optional int64 another_field = 4;
+}
+
+// A message with no comments.
+
+message TestNoCommentsProto {
+  optional int32 a_field =
+      1;  // This comment will be ignored because it is trailing.
+
+  oneof AOneof {
+    string a_string = 2;
+    string a_second_string = 3;
+  }
+
+  enum AnEnumWithNoComment {
+    AN_ENUM_UNDEFINED = 0;
+    FIRST = 1;
+    SECOND = 2;
+  }
+
+  optional int64 another_field = 4;
+}

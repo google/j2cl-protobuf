@@ -1,0 +1,9 @@
+syntax = "proto2";
+
+package protobuf.contrib.j2cl.protos;
+
+option java_package = "com.google.protobuf.contrib.j2cl.protos";
+
+// REMOVED_BY_GENRULE option java_multiple_files = true;
+
+message ProtoWithDashesMessage {}

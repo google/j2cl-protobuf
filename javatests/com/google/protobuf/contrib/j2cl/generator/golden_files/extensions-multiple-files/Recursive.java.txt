@@ -1,0 +1,88 @@
+package com.google.protobuf.contrib.j2cl.protos;
+
+@jsinterop.annotations.JsType(
+    isNative = true,
+    name = "Recursive",
+    namespace = "improto.protobuf.contrib.j2cl.protos")
+public final class Recursive
+    extends com.google.protobuf.GeneratedMessageLite<Recursive, Recursive.Builder> {
+
+  protected Recursive() {}
+
+  public static final native Recursive getDefaultInstance();
+
+  @jsinterop.annotations.JsOverlay
+  public final Recursive getDefaultInstanceForType() {
+    return getDefaultInstance();
+  }
+
+  public native Builder toBuilder();
+
+  @jsinterop.annotations.JsOverlay public static final int PAYLOAD_FIELD_NUMBER = 3;
+
+  @jsinterop.annotations.JsMethod(name = "hasPayload")
+  public native boolean hasPayload();
+
+  @jsinterop.annotations.JsMethod(name = "getPayload")
+  public native java.lang.String getPayload();
+
+  @jsinterop.annotations.JsProperty(name = "recursiveOptional")
+  private static com.google.protobuf.GeneratedMessageLite.Internal_.ExtensionFieldInfo<
+          com.google.protobuf.contrib.j2cl.protos.Base, ?>
+      internal_recursiveOptional;
+
+  @jsinterop.annotations.JsOverlay
+  public static final com.google.protobuf.ExtensionLite<
+          com.google.protobuf.contrib.j2cl.protos.Base,
+          com.google.protobuf.contrib.j2cl.protos.Base>
+      recursiveOptional =
+          com.google.protobuf.GeneratedMessageLite.Internal_.createSingleMessageExtension(
+              internal_recursiveOptional);
+
+  @jsinterop.annotations.JsProperty(name = "recursiveRepeated")
+  private static com.google.protobuf.GeneratedMessageLite.Internal_.ExtensionFieldInfo<
+          com.google.protobuf.contrib.j2cl.protos.Base, ?>
+      internal_recursiveRepeated;
+
+  @jsinterop.annotations.JsOverlay
+  public static final com.google.protobuf.ExtensionLite<
+          com.google.protobuf.contrib.j2cl.protos.Base,
+          java.util.List<com.google.protobuf.contrib.j2cl.protos.Base>>
+      recursiveRepeated =
+          com.google.protobuf.GeneratedMessageLite.Internal_.createRepeatedMessageExtension(
+              internal_recursiveRepeated);
+
+  public static native Builder newBuilder();
+
+  public static native Builder newBuilder(Recursive prototype);
+
+  @jsinterop.annotations.JsType(isNative = true)
+  public static final class Builder
+      extends com.google.protobuf.GeneratedMessageLite.Builder<Recursive, Builder> {
+
+    protected Builder() {}
+
+    @jsinterop.annotations.JsOverlay
+    public final Recursive getDefaultInstanceForType() {
+      return getDefaultInstance();
+    }
+
+    @Override
+    public native Recursive build();
+
+    @Override
+    public native Builder clone();
+
+    @jsinterop.annotations.JsMethod(name = "hasPayload")
+    public native boolean hasPayload();
+
+    @jsinterop.annotations.JsMethod(name = "getPayload")
+    public native java.lang.String getPayload();
+
+    @jsinterop.annotations.JsMethod(name = "clearPayload")
+    public native Builder clearPayload();
+
+    @jsinterop.annotations.JsMethod(name = "setPayload")
+    public native Builder setPayload(java.lang.String value);
+  }
+}

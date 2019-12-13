@@ -1,0 +1,1064 @@
+package com.google.protobuf.contrib.j2cl.protos;
+
+@jsinterop.annotations.JsType(
+    isNative = true,
+    name = "TestProto",
+    namespace = "improto.protobuf.contrib.gwt.testing.testdata")
+public final class TestProto
+    extends com.google.protobuf.GeneratedMessageLite<TestProto, TestProto.Builder> {
+
+  public enum TestEnum implements com.google.protobuf.ProtocolMessageEnum {
+    UNKNOWN(0),
+    ONE(1),
+    TWO(2),
+    THREE(3),
+    FOUR(4),
+    FIVE(5),
+    SIX(6);
+
+    TestEnum(int value) {
+      this.value = value;
+    }
+
+    private static TestEnum[] cachedValues;
+
+    public static final TestEnum forNumber(int i) {
+      if (cachedValues == null) {
+        cachedValues = values();
+      }
+      return cachedValues[i];
+    }
+
+    private int value;
+
+    public final int getNumber() {
+      return value;
+    }
+
+    public static final int UNKNOWN_VALUE = 0;
+
+    public static final int ONE_VALUE = 1;
+
+    public static final int TWO_VALUE = 2;
+
+    public static final int THREE_VALUE = 3;
+
+    public static final int FOUR_VALUE = 4;
+
+    public static final int FIVE_VALUE = 5;
+
+    public static final int SIX_VALUE = 6;
+
+    // DO NOT REFER TO FROM NON GENERATED CODE! SUBJECT TO CHANGE!
+    // Native closure enum representation
+    @jsinterop.annotations.JsType(
+        isNative = true,
+        name = "TestProto.TestEnum",
+        namespace = "improto.protobuf.contrib.gwt.testing.testdata")
+    public static final class Internal_ClosureEnum {
+      @jsinterop.annotations.JsOverlay
+      public static final Internal_ClosureEnum toClosureValue(TestEnum enumInstance) {
+        return jsinterop.base.Js.uncheckedCast((double) enumInstance.getNumber());
+      }
+
+      @jsinterop.annotations.JsOverlay
+      public static final TestEnum toEnum(Object closureEnum) {
+        int i = jsinterop.base.Js.asInt(closureEnum);
+        TestEnum value = TestEnum.forNumber(i);
+        return value == null ? UNKNOWN : value;
+      }
+    }
+  }
+
+  @jsinterop.annotations.JsType(isNative = true)
+  public static final class NestedMessage
+      extends com.google.protobuf.GeneratedMessageLite<NestedMessage, NestedMessage.Builder> {
+
+    protected NestedMessage() {}
+
+    public static final native NestedMessage getDefaultInstance();
+
+    @jsinterop.annotations.JsOverlay
+    public final NestedMessage getDefaultInstanceForType() {
+      return getDefaultInstance();
+    }
+
+    public native Builder toBuilder();
+
+    @jsinterop.annotations.JsOverlay public static final int PAYLOAD_FIELD_NUMBER = 1;
+
+    @jsinterop.annotations.JsMethod(name = "hasPayload")
+    public native boolean hasPayload();
+
+    @jsinterop.annotations.JsMethod(name = "getPayload")
+    public native java.lang.String getPayload();
+
+    public static native Builder newBuilder();
+
+    public static native Builder newBuilder(NestedMessage prototype);
+
+    @jsinterop.annotations.JsType(isNative = true)
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageLite.Builder<NestedMessage, Builder> {
+
+      protected Builder() {}
+
+      @jsinterop.annotations.JsOverlay
+      public final NestedMessage getDefaultInstanceForType() {
+        return getDefaultInstance();
+      }
+
+      @Override
+      public native NestedMessage build();
+
+      @Override
+      public native Builder clone();
+
+      @jsinterop.annotations.JsMethod(name = "hasPayload")
+      public native boolean hasPayload();
+
+      @jsinterop.annotations.JsMethod(name = "getPayload")
+      public native java.lang.String getPayload();
+
+      @jsinterop.annotations.JsMethod(name = "clearPayload")
+      public native Builder clearPayload();
+
+      @jsinterop.annotations.JsMethod(name = "setPayload")
+      public native Builder setPayload(java.lang.String value);
+    }
+  }
+
+  protected TestProto() {}
+
+  public static final native TestProto getDefaultInstance();
+
+  @jsinterop.annotations.JsOverlay
+  public final TestProto getDefaultInstanceForType() {
+    return getDefaultInstance();
+  }
+
+  public native Builder toBuilder();
+
+  @jsinterop.annotations.JsOverlay public static final int OPTIONAL_BOOL_FIELD_NUMBER = 1;
+
+  @jsinterop.annotations.JsOverlay
+  public static final int OPTIONAL_BOOL_WITH_DEFAULT_FIELD_NUMBER = 2;
+
+  @jsinterop.annotations.JsOverlay public static final int REPEATED_BOOL_FIELD_NUMBER = 3;
+  @jsinterop.annotations.JsOverlay public static final int OPTIONAL_INT_FIELD_NUMBER = 4;
+
+  @jsinterop.annotations.JsOverlay
+  public static final int OPTIONAL_INT_WITH_DEFAULT_FIELD_NUMBER = 5;
+
+  @jsinterop.annotations.JsOverlay public static final int REPEATED_INT_FIELD_NUMBER = 6;
+  @jsinterop.annotations.JsOverlay public static final int OPTIONAL_LONG_FIELD_NUMBER = 7;
+
+  @jsinterop.annotations.JsOverlay
+  public static final int OPTIONAL_LONG_WITH_DEFAULT_FIELD_NUMBER = 8;
+
+  @jsinterop.annotations.JsOverlay public static final int REPEATED_LONG_FIELD_NUMBER = 9;
+  @jsinterop.annotations.JsOverlay public static final int OPTIONAL_FLOAT_FIELD_NUMBER = 10;
+
+  @jsinterop.annotations.JsOverlay
+  public static final int OPTIONAL_FLOAT_WITH_DEFAULT_FIELD_NUMBER = 11;
+
+  @jsinterop.annotations.JsOverlay public static final int REPEATED_FLOAT_FIELD_NUMBER = 12;
+  @jsinterop.annotations.JsOverlay public static final int OPTIONAL_DOUBLE_FIELD_NUMBER = 13;
+
+  @jsinterop.annotations.JsOverlay
+  public static final int OPTIONAL_DOUBLE_WITH_DEFAULT_FIELD_NUMBER = 14;
+
+  @jsinterop.annotations.JsOverlay public static final int REPEATED_DOUBLE_FIELD_NUMBER = 15;
+  @jsinterop.annotations.JsOverlay public static final int OPTIONAL_ENUM_FIELD_NUMBER = 16;
+
+  @jsinterop.annotations.JsOverlay
+  public static final int OPTIONAL_ENUM_WITH_DEFAULT_FIELD_NUMBER = 17;
+
+  @jsinterop.annotations.JsOverlay public static final int REPEATED_ENUM_FIELD_NUMBER = 18;
+  @jsinterop.annotations.JsOverlay public static final int OPTIONAL_STRING_FIELD_NUMBER = 19;
+
+  @jsinterop.annotations.JsOverlay
+  public static final int OPTIONAL_STRING_WITH_DEFAULT_FIELD_NUMBER = 20;
+
+  @jsinterop.annotations.JsOverlay public static final int REPEATED_STRING_FIELD_NUMBER = 21;
+  @jsinterop.annotations.JsOverlay public static final int OPTIONAL_BYTES_FIELD_NUMBER = 28;
+
+  @jsinterop.annotations.JsOverlay
+  public static final int OPTIONAL_BYTES_WITH_DEFAULT_FIELD_NUMBER = 29;
+
+  @jsinterop.annotations.JsOverlay public static final int REPEATED_BYTES_FIELD_NUMBER = 30;
+  @jsinterop.annotations.JsOverlay public static final int OPTIONAL_MESSAGE_FIELD_NUMBER = 26;
+  @jsinterop.annotations.JsOverlay public static final int REPEATED_MESSAGE_FIELD_NUMBER = 27;
+
+  @jsinterop.annotations.JsMethod(name = "hasOptionalBool")
+  public native boolean hasOptionalBool();
+
+  @jsinterop.annotations.JsMethod(name = "getOptionalBool")
+  public native boolean getOptionalBool();
+
+  @jsinterop.annotations.JsMethod(name = "hasOptionalBoolWithDefault")
+  public native boolean hasOptionalBoolWithDefault();
+
+  @jsinterop.annotations.JsMethod(name = "getOptionalBoolWithDefault")
+  public native boolean getOptionalBoolWithDefault();
+
+  @jsinterop.annotations.JsMethod(name = "getRepeatedBoolCount")
+  public native int getRepeatedBoolCount();
+
+  @jsinterop.annotations.JsMethod(name = "getRepeatedBool")
+  public native boolean getRepeatedBool(int index);
+
+  @jsinterop.annotations.JsMethod(name = "getRepeatedBoolList")
+  private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Boolean>
+      internal_getRepeatedBoolList();
+
+  @jsinterop.annotations.JsOverlay
+  public final java.util.List<java.lang.Boolean> getRepeatedBoolList() {
+    return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+        internal_getRepeatedBoolList());
+  }
+
+  @jsinterop.annotations.JsMethod(name = "hasOptionalInt")
+  public native boolean hasOptionalInt();
+
+  @jsinterop.annotations.JsMethod(name = "getOptionalInt")
+  public native int getOptionalInt();
+
+  @jsinterop.annotations.JsMethod(name = "hasOptionalIntWithDefault")
+  public native boolean hasOptionalIntWithDefault();
+
+  @jsinterop.annotations.JsMethod(name = "getOptionalIntWithDefault")
+  public native int getOptionalIntWithDefault();
+
+  @jsinterop.annotations.JsMethod(name = "getRepeatedIntCount")
+  public native int getRepeatedIntCount();
+
+  @jsinterop.annotations.JsMethod(name = "getRepeatedInt")
+  public native int getRepeatedInt(int index);
+
+  @jsinterop.annotations.JsMethod(name = "getRepeatedIntList")
+  private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Object>
+      internal_getRepeatedIntList();
+
+  @jsinterop.annotations.JsOverlay
+  public final java.util.List<java.lang.Integer> getRepeatedIntList() {
+    return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+        internal_getRepeatedIntList(),
+        com.google.protobuf.GeneratedMessageLite.Internal_.INT_TYPE_CONVERTER);
+  }
+
+  @jsinterop.annotations.JsMethod(name = "hasOptionalLong")
+  public native boolean hasOptionalLong();
+
+  @jsinterop.annotations.JsMethod(name = "getOptionalLong")
+  public native long getOptionalLong();
+
+  @jsinterop.annotations.JsMethod(name = "hasOptionalLongWithDefault")
+  public native boolean hasOptionalLongWithDefault();
+
+  @jsinterop.annotations.JsMethod(name = "getOptionalLongWithDefault")
+  public native long getOptionalLongWithDefault();
+
+  @jsinterop.annotations.JsMethod(name = "getRepeatedLongCount")
+  public native int getRepeatedLongCount();
+
+  @jsinterop.annotations.JsMethod(name = "getRepeatedLong")
+  public native long getRepeatedLong(int index);
+
+  @jsinterop.annotations.JsMethod(name = "getRepeatedLongList")
+  private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Object>
+      internal_getRepeatedLongList();
+
+  @jsinterop.annotations.JsOverlay
+  public final java.util.List<java.lang.Long> getRepeatedLongList() {
+    return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+        internal_getRepeatedLongList(),
+        com.google.protobuf.GeneratedMessageLite.Internal_.LONG_TYPE_CONVERTER);
+  }
+
+  @jsinterop.annotations.JsMethod(name = "hasOptionalFloat")
+  public native boolean hasOptionalFloat();
+
+  @jsinterop.annotations.JsMethod(name = "getOptionalFloat")
+  public native float getOptionalFloat();
+
+  @jsinterop.annotations.JsMethod(name = "hasOptionalFloatWithDefault")
+  public native boolean hasOptionalFloatWithDefault();
+
+  @jsinterop.annotations.JsMethod(name = "getOptionalFloatWithDefault")
+  public native float getOptionalFloatWithDefault();
+
+  @jsinterop.annotations.JsMethod(name = "getRepeatedFloatCount")
+  public native int getRepeatedFloatCount();
+
+  @jsinterop.annotations.JsMethod(name = "getRepeatedFloat")
+  public native float getRepeatedFloat(int index);
+
+  @jsinterop.annotations.JsMethod(name = "getRepeatedFloatList")
+  private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Object>
+      internal_getRepeatedFloatList();
+
+  @jsinterop.annotations.JsOverlay
+  public final java.util.List<java.lang.Float> getRepeatedFloatList() {
+    return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+        internal_getRepeatedFloatList(),
+        com.google.protobuf.GeneratedMessageLite.Internal_.FLOAT_TYPE_CONVERTER);
+  }
+
+  @jsinterop.annotations.JsMethod(name = "hasOptionalDouble")
+  public native boolean hasOptionalDouble();
+
+  @jsinterop.annotations.JsMethod(name = "getOptionalDouble")
+  public native double getOptionalDouble();
+
+  @jsinterop.annotations.JsMethod(name = "hasOptionalDoubleWithDefault")
+  public native boolean hasOptionalDoubleWithDefault();
+
+  @jsinterop.annotations.JsMethod(name = "getOptionalDoubleWithDefault")
+  public native double getOptionalDoubleWithDefault();
+
+  @jsinterop.annotations.JsMethod(name = "getRepeatedDoubleCount")
+  public native int getRepeatedDoubleCount();
+
+  @jsinterop.annotations.JsMethod(name = "getRepeatedDouble")
+  public native double getRepeatedDouble(int index);
+
+  @jsinterop.annotations.JsMethod(name = "getRepeatedDoubleList")
+  private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Double>
+      internal_getRepeatedDoubleList();
+
+  @jsinterop.annotations.JsOverlay
+  public final java.util.List<java.lang.Double> getRepeatedDoubleList() {
+    return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+        internal_getRepeatedDoubleList());
+  }
+
+  @jsinterop.annotations.JsMethod(name = "hasOptionalEnum")
+  public native boolean hasOptionalEnum();
+
+  @jsinterop.annotations.JsOverlay
+  public final com.google.protobuf.contrib.j2cl.protos.TestProto.TestEnum getOptionalEnum() {
+    return com.google.protobuf.contrib.j2cl.protos.TestProto.TestEnum.Internal_ClosureEnum.toEnum(
+        internal_getOptionalEnum());
+  }
+
+  @jsinterop.annotations.JsMethod(name = "getOptionalEnum")
+  private native Object internal_getOptionalEnum();
+
+  @jsinterop.annotations.JsMethod(name = "hasOptionalEnumWithDefault")
+  public native boolean hasOptionalEnumWithDefault();
+
+  @jsinterop.annotations.JsOverlay
+  public final com.google.protobuf.contrib.j2cl.protos.TestProto.TestEnum
+      getOptionalEnumWithDefault() {
+    return com.google.protobuf.contrib.j2cl.protos.TestProto.TestEnum.Internal_ClosureEnum.toEnum(
+        internal_getOptionalEnumWithDefault());
+  }
+
+  @jsinterop.annotations.JsMethod(name = "getOptionalEnumWithDefault")
+  private native Object internal_getOptionalEnumWithDefault();
+
+  @jsinterop.annotations.JsMethod(name = "getRepeatedEnumCount")
+  public native int getRepeatedEnumCount();
+
+  @jsinterop.annotations.JsOverlay
+  public final com.google.protobuf.contrib.j2cl.protos.TestProto.TestEnum getRepeatedEnum(
+      int index) {
+    return com.google.protobuf.contrib.j2cl.protos.TestProto.TestEnum.Internal_ClosureEnum.toEnum(
+        internal_getRepeatedEnum(index));
+  }
+
+  @jsinterop.annotations.JsMethod(name = "getRepeatedEnum")
+  private native Object internal_getRepeatedEnum(int index);
+
+  @jsinterop.annotations.JsMethod(name = "getRepeatedEnumList")
+  private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Object>
+      internal_getRepeatedEnumList();
+
+  @jsinterop.annotations.JsOverlay
+  public final java.util.List<com.google.protobuf.contrib.j2cl.protos.TestProto.TestEnum>
+      getRepeatedEnumList() {
+    return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+        internal_getRepeatedEnumList(),
+        (d) ->
+            com.google.protobuf.contrib.j2cl.protos.TestProto.TestEnum.Internal_ClosureEnum.toEnum(
+                d));
+  }
+
+  @jsinterop.annotations.JsMethod(name = "hasOptionalString")
+  public native boolean hasOptionalString();
+
+  @jsinterop.annotations.JsMethod(name = "getOptionalString")
+  public native java.lang.String getOptionalString();
+
+  @jsinterop.annotations.JsMethod(name = "hasOptionalStringWithDefault")
+  public native boolean hasOptionalStringWithDefault();
+
+  @jsinterop.annotations.JsMethod(name = "getOptionalStringWithDefault")
+  public native java.lang.String getOptionalStringWithDefault();
+
+  @jsinterop.annotations.JsMethod(name = "getRepeatedStringCount")
+  public native int getRepeatedStringCount();
+
+  @jsinterop.annotations.JsMethod(name = "getRepeatedString")
+  public native java.lang.String getRepeatedString(int index);
+
+  @jsinterop.annotations.JsMethod(name = "getRepeatedStringList")
+  private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.String>
+      internal_getRepeatedStringList();
+
+  @jsinterop.annotations.JsOverlay
+  public final java.util.List<java.lang.String> getRepeatedStringList() {
+    return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+        internal_getRepeatedStringList());
+  }
+
+  @jsinterop.annotations.JsMethod(name = "hasOptionalBytes")
+  public native boolean hasOptionalBytes();
+
+  @jsinterop.annotations.JsMethod(name = "getOptionalBytes")
+  public native com.google.protobuf.ByteString getOptionalBytes();
+
+  @jsinterop.annotations.JsMethod(name = "hasOptionalBytesWithDefault")
+  public native boolean hasOptionalBytesWithDefault();
+
+  @jsinterop.annotations.JsMethod(name = "getOptionalBytesWithDefault")
+  public native com.google.protobuf.ByteString getOptionalBytesWithDefault();
+
+  @jsinterop.annotations.JsMethod(name = "getRepeatedBytesCount")
+  public native int getRepeatedBytesCount();
+
+  @jsinterop.annotations.JsMethod(name = "getRepeatedBytes")
+  public native com.google.protobuf.ByteString getRepeatedBytes(int index);
+
+  @jsinterop.annotations.JsMethod(name = "getRepeatedBytesList")
+  private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<
+          com.google.protobuf.ByteString>
+      internal_getRepeatedBytesList();
+
+  @jsinterop.annotations.JsOverlay
+  public final java.util.List<com.google.protobuf.ByteString> getRepeatedBytesList() {
+    return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+        internal_getRepeatedBytesList());
+  }
+
+  @jsinterop.annotations.JsMethod(name = "hasOptionalMessage")
+  public native boolean hasOptionalMessage();
+
+  @jsinterop.annotations.JsMethod(name = "getOptionalMessage")
+  public native com.google.protobuf.contrib.j2cl.protos.TestProto.NestedMessage
+      getOptionalMessage();
+
+  @jsinterop.annotations.JsMethod(name = "getRepeatedMessageCount")
+  public native int getRepeatedMessageCount();
+
+  @jsinterop.annotations.JsMethod(name = "getRepeatedMessage")
+  public native com.google.protobuf.contrib.j2cl.protos.TestProto.NestedMessage getRepeatedMessage(
+      int index);
+
+  @jsinterop.annotations.JsMethod(name = "getRepeatedMessageList")
+  private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<
+          com.google.protobuf.contrib.j2cl.protos.TestProto.NestedMessage>
+      internal_getRepeatedMessageList();
+
+  @jsinterop.annotations.JsOverlay
+  public final java.util.List<com.google.protobuf.contrib.j2cl.protos.TestProto.NestedMessage>
+      getRepeatedMessageList() {
+    return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+        internal_getRepeatedMessageList());
+  }
+
+  public static native Builder newBuilder();
+
+  public static native Builder newBuilder(TestProto prototype);
+
+  @jsinterop.annotations.JsType(isNative = true)
+  public static final class Builder
+      extends com.google.protobuf.GeneratedMessageLite.Builder<TestProto, Builder> {
+
+    protected Builder() {}
+
+    @jsinterop.annotations.JsOverlay
+    public final TestProto getDefaultInstanceForType() {
+      return getDefaultInstance();
+    }
+
+    @Override
+    public native TestProto build();
+
+    @Override
+    public native Builder clone();
+
+    @jsinterop.annotations.JsMethod(name = "hasOptionalBool")
+    public native boolean hasOptionalBool();
+
+    @jsinterop.annotations.JsMethod(name = "getOptionalBool")
+    public native boolean getOptionalBool();
+
+    @jsinterop.annotations.JsMethod(name = "clearOptionalBool")
+    public native Builder clearOptionalBool();
+
+    @jsinterop.annotations.JsMethod(name = "setOptionalBool")
+    public native Builder setOptionalBool(boolean value);
+
+    @jsinterop.annotations.JsMethod(name = "hasOptionalBoolWithDefault")
+    public native boolean hasOptionalBoolWithDefault();
+
+    @jsinterop.annotations.JsMethod(name = "getOptionalBoolWithDefault")
+    public native boolean getOptionalBoolWithDefault();
+
+    @jsinterop.annotations.JsMethod(name = "clearOptionalBoolWithDefault")
+    public native Builder clearOptionalBoolWithDefault();
+
+    @jsinterop.annotations.JsMethod(name = "setOptionalBoolWithDefault")
+    public native Builder setOptionalBoolWithDefault(boolean value);
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedBoolCount")
+    public native int getRepeatedBoolCount();
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedBool")
+    public native boolean getRepeatedBool(int index);
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedBoolList")
+    private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Boolean>
+        internal_getRepeatedBoolList();
+
+    @jsinterop.annotations.JsOverlay
+    public final java.util.List<java.lang.Boolean> getRepeatedBoolList() {
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+          internal_getRepeatedBoolList());
+    }
+
+    @jsinterop.annotations.JsMethod(name = "clearRepeatedBool")
+    public native Builder clearRepeatedBool();
+
+    @jsinterop.annotations.JsMethod(name = "addRepeatedBool")
+    public native Builder addRepeatedBool(boolean value);
+
+    @jsinterop.annotations.JsMethod(name = "setRepeatedBool")
+    public native Builder setRepeatedBool(int index, boolean value);
+
+    @jsinterop.annotations.JsOverlay
+    public final Builder addAllRepeatedBool(java.lang.Iterable<java.lang.Boolean> values) {
+      com.google.protobuf.GeneratedMessageLite.Internal_.addAll(values, this::addRepeatedBool);
+      return this;
+    }
+
+    @jsinterop.annotations.JsMethod(name = "hasOptionalInt")
+    public native boolean hasOptionalInt();
+
+    @jsinterop.annotations.JsMethod(name = "getOptionalInt")
+    public native int getOptionalInt();
+
+    @jsinterop.annotations.JsMethod(name = "clearOptionalInt")
+    public native Builder clearOptionalInt();
+
+    @jsinterop.annotations.JsMethod(name = "setOptionalInt")
+    public native Builder setOptionalInt(int value);
+
+    @jsinterop.annotations.JsMethod(name = "hasOptionalIntWithDefault")
+    public native boolean hasOptionalIntWithDefault();
+
+    @jsinterop.annotations.JsMethod(name = "getOptionalIntWithDefault")
+    public native int getOptionalIntWithDefault();
+
+    @jsinterop.annotations.JsMethod(name = "clearOptionalIntWithDefault")
+    public native Builder clearOptionalIntWithDefault();
+
+    @jsinterop.annotations.JsMethod(name = "setOptionalIntWithDefault")
+    public native Builder setOptionalIntWithDefault(int value);
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedIntCount")
+    public native int getRepeatedIntCount();
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedInt")
+    public native int getRepeatedInt(int index);
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedIntList")
+    private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Object>
+        internal_getRepeatedIntList();
+
+    @jsinterop.annotations.JsOverlay
+    public final java.util.List<java.lang.Integer> getRepeatedIntList() {
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+          internal_getRepeatedIntList(),
+          com.google.protobuf.GeneratedMessageLite.Internal_.INT_TYPE_CONVERTER);
+    }
+
+    @jsinterop.annotations.JsMethod(name = "clearRepeatedInt")
+    public native Builder clearRepeatedInt();
+
+    @jsinterop.annotations.JsMethod(name = "addRepeatedInt")
+    public native Builder addRepeatedInt(int value);
+
+    @jsinterop.annotations.JsMethod(name = "setRepeatedInt")
+    public native Builder setRepeatedInt(int index, int value);
+
+    @jsinterop.annotations.JsOverlay
+    public final Builder addAllRepeatedInt(java.lang.Iterable<java.lang.Integer> values) {
+      com.google.protobuf.GeneratedMessageLite.Internal_.addAll(values, this::addRepeatedInt);
+      return this;
+    }
+
+    @jsinterop.annotations.JsMethod(name = "hasOptionalLong")
+    public native boolean hasOptionalLong();
+
+    @jsinterop.annotations.JsMethod(name = "getOptionalLong")
+    public native long getOptionalLong();
+
+    @jsinterop.annotations.JsMethod(name = "clearOptionalLong")
+    public native Builder clearOptionalLong();
+
+    @jsinterop.annotations.JsMethod(name = "setOptionalLong")
+    public native Builder setOptionalLong(long value);
+
+    @jsinterop.annotations.JsMethod(name = "hasOptionalLongWithDefault")
+    public native boolean hasOptionalLongWithDefault();
+
+    @jsinterop.annotations.JsMethod(name = "getOptionalLongWithDefault")
+    public native long getOptionalLongWithDefault();
+
+    @jsinterop.annotations.JsMethod(name = "clearOptionalLongWithDefault")
+    public native Builder clearOptionalLongWithDefault();
+
+    @jsinterop.annotations.JsMethod(name = "setOptionalLongWithDefault")
+    public native Builder setOptionalLongWithDefault(long value);
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedLongCount")
+    public native int getRepeatedLongCount();
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedLong")
+    public native long getRepeatedLong(int index);
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedLongList")
+    private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Object>
+        internal_getRepeatedLongList();
+
+    @jsinterop.annotations.JsOverlay
+    public final java.util.List<java.lang.Long> getRepeatedLongList() {
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+          internal_getRepeatedLongList(),
+          com.google.protobuf.GeneratedMessageLite.Internal_.LONG_TYPE_CONVERTER);
+    }
+
+    @jsinterop.annotations.JsMethod(name = "clearRepeatedLong")
+    public native Builder clearRepeatedLong();
+
+    @jsinterop.annotations.JsMethod(name = "addRepeatedLong")
+    public native Builder addRepeatedLong(long value);
+
+    @jsinterop.annotations.JsMethod(name = "setRepeatedLong")
+    public native Builder setRepeatedLong(int index, long value);
+
+    @jsinterop.annotations.JsOverlay
+    public final Builder addAllRepeatedLong(java.lang.Iterable<java.lang.Long> values) {
+      com.google.protobuf.GeneratedMessageLite.Internal_.addAll(values, this::addRepeatedLong);
+      return this;
+    }
+
+    @jsinterop.annotations.JsMethod(name = "hasOptionalFloat")
+    public native boolean hasOptionalFloat();
+
+    @jsinterop.annotations.JsMethod(name = "getOptionalFloat")
+    public native float getOptionalFloat();
+
+    @jsinterop.annotations.JsMethod(name = "clearOptionalFloat")
+    public native Builder clearOptionalFloat();
+
+    @jsinterop.annotations.JsMethod(name = "setOptionalFloat")
+    public native Builder setOptionalFloat(float value);
+
+    @jsinterop.annotations.JsMethod(name = "hasOptionalFloatWithDefault")
+    public native boolean hasOptionalFloatWithDefault();
+
+    @jsinterop.annotations.JsMethod(name = "getOptionalFloatWithDefault")
+    public native float getOptionalFloatWithDefault();
+
+    @jsinterop.annotations.JsMethod(name = "clearOptionalFloatWithDefault")
+    public native Builder clearOptionalFloatWithDefault();
+
+    @jsinterop.annotations.JsMethod(name = "setOptionalFloatWithDefault")
+    public native Builder setOptionalFloatWithDefault(float value);
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedFloatCount")
+    public native int getRepeatedFloatCount();
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedFloat")
+    public native float getRepeatedFloat(int index);
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedFloatList")
+    private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Object>
+        internal_getRepeatedFloatList();
+
+    @jsinterop.annotations.JsOverlay
+    public final java.util.List<java.lang.Float> getRepeatedFloatList() {
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+          internal_getRepeatedFloatList(),
+          com.google.protobuf.GeneratedMessageLite.Internal_.FLOAT_TYPE_CONVERTER);
+    }
+
+    @jsinterop.annotations.JsMethod(name = "clearRepeatedFloat")
+    public native Builder clearRepeatedFloat();
+
+    @jsinterop.annotations.JsMethod(name = "addRepeatedFloat")
+    public native Builder addRepeatedFloat(float value);
+
+    @jsinterop.annotations.JsMethod(name = "setRepeatedFloat")
+    public native Builder setRepeatedFloat(int index, float value);
+
+    @jsinterop.annotations.JsOverlay
+    public final Builder addAllRepeatedFloat(java.lang.Iterable<java.lang.Float> values) {
+      com.google.protobuf.GeneratedMessageLite.Internal_.addAll(values, this::addRepeatedFloat);
+      return this;
+    }
+
+    @jsinterop.annotations.JsMethod(name = "hasOptionalDouble")
+    public native boolean hasOptionalDouble();
+
+    @jsinterop.annotations.JsMethod(name = "getOptionalDouble")
+    public native double getOptionalDouble();
+
+    @jsinterop.annotations.JsMethod(name = "clearOptionalDouble")
+    public native Builder clearOptionalDouble();
+
+    @jsinterop.annotations.JsMethod(name = "setOptionalDouble")
+    public native Builder setOptionalDouble(double value);
+
+    @jsinterop.annotations.JsMethod(name = "hasOptionalDoubleWithDefault")
+    public native boolean hasOptionalDoubleWithDefault();
+
+    @jsinterop.annotations.JsMethod(name = "getOptionalDoubleWithDefault")
+    public native double getOptionalDoubleWithDefault();
+
+    @jsinterop.annotations.JsMethod(name = "clearOptionalDoubleWithDefault")
+    public native Builder clearOptionalDoubleWithDefault();
+
+    @jsinterop.annotations.JsMethod(name = "setOptionalDoubleWithDefault")
+    public native Builder setOptionalDoubleWithDefault(double value);
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedDoubleCount")
+    public native int getRepeatedDoubleCount();
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedDouble")
+    public native double getRepeatedDouble(int index);
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedDoubleList")
+    private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Double>
+        internal_getRepeatedDoubleList();
+
+    @jsinterop.annotations.JsOverlay
+    public final java.util.List<java.lang.Double> getRepeatedDoubleList() {
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+          internal_getRepeatedDoubleList());
+    }
+
+    @jsinterop.annotations.JsMethod(name = "clearRepeatedDouble")
+    public native Builder clearRepeatedDouble();
+
+    @jsinterop.annotations.JsMethod(name = "addRepeatedDouble")
+    public native Builder addRepeatedDouble(double value);
+
+    @jsinterop.annotations.JsMethod(name = "setRepeatedDouble")
+    public native Builder setRepeatedDouble(int index, double value);
+
+    @jsinterop.annotations.JsOverlay
+    public final Builder addAllRepeatedDouble(java.lang.Iterable<java.lang.Double> values) {
+      com.google.protobuf.GeneratedMessageLite.Internal_.addAll(values, this::addRepeatedDouble);
+      return this;
+    }
+
+    @jsinterop.annotations.JsMethod(name = "hasOptionalEnum")
+    public native boolean hasOptionalEnum();
+
+    @jsinterop.annotations.JsOverlay
+    public final com.google.protobuf.contrib.j2cl.protos.TestProto.TestEnum getOptionalEnum() {
+      return com.google.protobuf.contrib.j2cl.protos.TestProto.TestEnum.Internal_ClosureEnum.toEnum(
+          internal_getOptionalEnum());
+    }
+
+    @jsinterop.annotations.JsMethod(name = "getOptionalEnum")
+    private native Object internal_getOptionalEnum();
+
+    @jsinterop.annotations.JsMethod(name = "clearOptionalEnum")
+    public native Builder clearOptionalEnum();
+
+    @jsinterop.annotations.JsOverlay
+    public final Builder setOptionalEnum(
+        com.google.protobuf.contrib.j2cl.protos.TestProto.TestEnum value) {
+      return internal_setOptionalEnum(
+          com.google.protobuf.contrib.j2cl.protos.TestProto.TestEnum.Internal_ClosureEnum
+              .toClosureValue(value));
+    }
+
+    @jsinterop.annotations.JsMethod(name = "setOptionalEnum")
+    private native Builder internal_setOptionalEnum(
+        com.google.protobuf.contrib.j2cl.protos.TestProto.TestEnum.Internal_ClosureEnum value);
+
+    @jsinterop.annotations.JsMethod(name = "hasOptionalEnumWithDefault")
+    public native boolean hasOptionalEnumWithDefault();
+
+    @jsinterop.annotations.JsOverlay
+    public final com.google.protobuf.contrib.j2cl.protos.TestProto.TestEnum
+        getOptionalEnumWithDefault() {
+      return com.google.protobuf.contrib.j2cl.protos.TestProto.TestEnum.Internal_ClosureEnum.toEnum(
+          internal_getOptionalEnumWithDefault());
+    }
+
+    @jsinterop.annotations.JsMethod(name = "getOptionalEnumWithDefault")
+    private native Object internal_getOptionalEnumWithDefault();
+
+    @jsinterop.annotations.JsMethod(name = "clearOptionalEnumWithDefault")
+    public native Builder clearOptionalEnumWithDefault();
+
+    @jsinterop.annotations.JsOverlay
+    public final Builder setOptionalEnumWithDefault(
+        com.google.protobuf.contrib.j2cl.protos.TestProto.TestEnum value) {
+      return internal_setOptionalEnumWithDefault(
+          com.google.protobuf.contrib.j2cl.protos.TestProto.TestEnum.Internal_ClosureEnum
+              .toClosureValue(value));
+    }
+
+    @jsinterop.annotations.JsMethod(name = "setOptionalEnumWithDefault")
+    private native Builder internal_setOptionalEnumWithDefault(
+        com.google.protobuf.contrib.j2cl.protos.TestProto.TestEnum.Internal_ClosureEnum value);
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedEnumCount")
+    public native int getRepeatedEnumCount();
+
+    @jsinterop.annotations.JsOverlay
+    public final com.google.protobuf.contrib.j2cl.protos.TestProto.TestEnum getRepeatedEnum(
+        int index) {
+      return com.google.protobuf.contrib.j2cl.protos.TestProto.TestEnum.Internal_ClosureEnum.toEnum(
+          internal_getRepeatedEnum(index));
+    }
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedEnum")
+    private native Object internal_getRepeatedEnum(int index);
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedEnumList")
+    private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Object>
+        internal_getRepeatedEnumList();
+
+    @jsinterop.annotations.JsOverlay
+    public final java.util.List<com.google.protobuf.contrib.j2cl.protos.TestProto.TestEnum>
+        getRepeatedEnumList() {
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+          internal_getRepeatedEnumList(),
+          (d) ->
+              com.google.protobuf.contrib.j2cl.protos.TestProto.TestEnum.Internal_ClosureEnum
+                  .toEnum(d));
+    }
+
+    @jsinterop.annotations.JsMethod(name = "clearRepeatedEnum")
+    public native Builder clearRepeatedEnum();
+
+    @jsinterop.annotations.JsOverlay
+    public final Builder setRepeatedEnum(
+        int index, com.google.protobuf.contrib.j2cl.protos.TestProto.TestEnum value) {
+      return internal_setRepeatedEnum(
+          index,
+          com.google.protobuf.contrib.j2cl.protos.TestProto.TestEnum.Internal_ClosureEnum
+              .toClosureValue(value));
+    }
+
+    @jsinterop.annotations.JsMethod(name = "setRepeatedEnum")
+    private native Builder internal_setRepeatedEnum(
+        int index,
+        com.google.protobuf.contrib.j2cl.protos.TestProto.TestEnum.Internal_ClosureEnum value);
+
+    @jsinterop.annotations.JsOverlay
+    public final Builder addRepeatedEnum(
+        com.google.protobuf.contrib.j2cl.protos.TestProto.TestEnum value) {
+      return internal_addRepeatedEnum(
+          com.google.protobuf.contrib.j2cl.protos.TestProto.TestEnum.Internal_ClosureEnum
+              .toClosureValue(value));
+    }
+
+    @jsinterop.annotations.JsMethod(name = "addRepeatedEnum")
+    private native Builder internal_addRepeatedEnum(
+        com.google.protobuf.contrib.j2cl.protos.TestProto.TestEnum.Internal_ClosureEnum value);
+
+    @jsinterop.annotations.JsOverlay
+    public final Builder addAllRepeatedEnum(
+        java.lang.Iterable<com.google.protobuf.contrib.j2cl.protos.TestProto.TestEnum> values) {
+      com.google.protobuf.GeneratedMessageLite.Internal_.addAll(values, this::addRepeatedEnum);
+      return this;
+    }
+
+    @jsinterop.annotations.JsMethod(name = "hasOptionalString")
+    public native boolean hasOptionalString();
+
+    @jsinterop.annotations.JsMethod(name = "getOptionalString")
+    public native java.lang.String getOptionalString();
+
+    @jsinterop.annotations.JsMethod(name = "clearOptionalString")
+    public native Builder clearOptionalString();
+
+    @jsinterop.annotations.JsMethod(name = "setOptionalString")
+    public native Builder setOptionalString(java.lang.String value);
+
+    @jsinterop.annotations.JsMethod(name = "hasOptionalStringWithDefault")
+    public native boolean hasOptionalStringWithDefault();
+
+    @jsinterop.annotations.JsMethod(name = "getOptionalStringWithDefault")
+    public native java.lang.String getOptionalStringWithDefault();
+
+    @jsinterop.annotations.JsMethod(name = "clearOptionalStringWithDefault")
+    public native Builder clearOptionalStringWithDefault();
+
+    @jsinterop.annotations.JsMethod(name = "setOptionalStringWithDefault")
+    public native Builder setOptionalStringWithDefault(java.lang.String value);
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedStringCount")
+    public native int getRepeatedStringCount();
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedString")
+    public native java.lang.String getRepeatedString(int index);
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedStringList")
+    private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.String>
+        internal_getRepeatedStringList();
+
+    @jsinterop.annotations.JsOverlay
+    public final java.util.List<java.lang.String> getRepeatedStringList() {
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+          internal_getRepeatedStringList());
+    }
+
+    @jsinterop.annotations.JsMethod(name = "clearRepeatedString")
+    public native Builder clearRepeatedString();
+
+    @jsinterop.annotations.JsMethod(name = "addRepeatedString")
+    public native Builder addRepeatedString(java.lang.String value);
+
+    @jsinterop.annotations.JsMethod(name = "setRepeatedString")
+    public native Builder setRepeatedString(int index, java.lang.String value);
+
+    @jsinterop.annotations.JsOverlay
+    public final Builder addAllRepeatedString(java.lang.Iterable<java.lang.String> values) {
+      com.google.protobuf.GeneratedMessageLite.Internal_.addAll(values, this::addRepeatedString);
+      return this;
+    }
+
+    @jsinterop.annotations.JsMethod(name = "hasOptionalBytes")
+    public native boolean hasOptionalBytes();
+
+    @jsinterop.annotations.JsMethod(name = "getOptionalBytes")
+    public native com.google.protobuf.ByteString getOptionalBytes();
+
+    @jsinterop.annotations.JsMethod(name = "clearOptionalBytes")
+    public native Builder clearOptionalBytes();
+
+    @jsinterop.annotations.JsMethod(name = "setOptionalBytes")
+    public native Builder setOptionalBytes(com.google.protobuf.ByteString value);
+
+    @jsinterop.annotations.JsMethod(name = "hasOptionalBytesWithDefault")
+    public native boolean hasOptionalBytesWithDefault();
+
+    @jsinterop.annotations.JsMethod(name = "getOptionalBytesWithDefault")
+    public native com.google.protobuf.ByteString getOptionalBytesWithDefault();
+
+    @jsinterop.annotations.JsMethod(name = "clearOptionalBytesWithDefault")
+    public native Builder clearOptionalBytesWithDefault();
+
+    @jsinterop.annotations.JsMethod(name = "setOptionalBytesWithDefault")
+    public native Builder setOptionalBytesWithDefault(com.google.protobuf.ByteString value);
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedBytesCount")
+    public native int getRepeatedBytesCount();
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedBytes")
+    public native com.google.protobuf.ByteString getRepeatedBytes(int index);
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedBytesList")
+    private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<
+            com.google.protobuf.ByteString>
+        internal_getRepeatedBytesList();
+
+    @jsinterop.annotations.JsOverlay
+    public final java.util.List<com.google.protobuf.ByteString> getRepeatedBytesList() {
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+          internal_getRepeatedBytesList());
+    }
+
+    @jsinterop.annotations.JsMethod(name = "clearRepeatedBytes")
+    public native Builder clearRepeatedBytes();
+
+    @jsinterop.annotations.JsMethod(name = "addRepeatedBytes")
+    public native Builder addRepeatedBytes(com.google.protobuf.ByteString value);
+
+    @jsinterop.annotations.JsMethod(name = "setRepeatedBytes")
+    public native Builder setRepeatedBytes(int index, com.google.protobuf.ByteString value);
+
+    @jsinterop.annotations.JsOverlay
+    public final Builder addAllRepeatedBytes(
+        java.lang.Iterable<com.google.protobuf.ByteString> values) {
+      com.google.protobuf.GeneratedMessageLite.Internal_.addAll(values, this::addRepeatedBytes);
+      return this;
+    }
+
+    @jsinterop.annotations.JsMethod(name = "hasOptionalMessage")
+    public native boolean hasOptionalMessage();
+
+    @jsinterop.annotations.JsMethod(name = "getOptionalMessage")
+    public native com.google.protobuf.contrib.j2cl.protos.TestProto.NestedMessage
+        getOptionalMessage();
+
+    @jsinterop.annotations.JsMethod(name = "clearOptionalMessage")
+    public native Builder clearOptionalMessage();
+
+    @jsinterop.annotations.JsMethod(name = "setOptionalMessage")
+    public native Builder setOptionalMessage(
+        com.google.protobuf.contrib.j2cl.protos.TestProto.NestedMessage value);
+
+    @jsinterop.annotations.JsMethod(name = "setOptionalMessage")
+    public native Builder setOptionalMessage(
+        com.google.protobuf.contrib.j2cl.protos.TestProto.NestedMessage.Builder builder);
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedMessageCount")
+    public native int getRepeatedMessageCount();
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedMessage")
+    public native com.google.protobuf.contrib.j2cl.protos.TestProto.NestedMessage
+        getRepeatedMessage(int index);
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedMessageList")
+    private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<
+            com.google.protobuf.contrib.j2cl.protos.TestProto.NestedMessage>
+        internal_getRepeatedMessageList();
+
+    @jsinterop.annotations.JsOverlay
+    public final java.util.List<com.google.protobuf.contrib.j2cl.protos.TestProto.NestedMessage>
+        getRepeatedMessageList() {
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+          internal_getRepeatedMessageList());
+    }
+
+    @jsinterop.annotations.JsMethod(name = "clearRepeatedMessage")
+    public native Builder clearRepeatedMessage();
+
+    @jsinterop.annotations.JsMethod(name = "addRepeatedMessage")
+    public native Builder addRepeatedMessage(
+        com.google.protobuf.contrib.j2cl.protos.TestProto.NestedMessage value);
+
+    @jsinterop.annotations.JsMethod(name = "setRepeatedMessage")
+    public native Builder setRepeatedMessage(
+        int index, com.google.protobuf.contrib.j2cl.protos.TestProto.NestedMessage value);
+
+    @jsinterop.annotations.JsMethod(name = "addRepeatedMessage")
+    public native Builder addRepeatedMessage(
+        com.google.protobuf.contrib.j2cl.protos.TestProto.NestedMessage.Builder builder);
+
+    @jsinterop.annotations.JsMethod(name = "setRepeatedMessage")
+    public native Builder setRepeatedMessage(
+        int index, com.google.protobuf.contrib.j2cl.protos.TestProto.NestedMessage.Builder builder);
+
+    @jsinterop.annotations.JsOverlay
+    public final Builder addAllRepeatedMessage(
+        java.lang.Iterable<com.google.protobuf.contrib.j2cl.protos.TestProto.NestedMessage>
+            values) {
+      com.google.protobuf.GeneratedMessageLite.Internal_.addAll(values, this::addRepeatedMessage);
+      return this;
+    }
+  }
+}

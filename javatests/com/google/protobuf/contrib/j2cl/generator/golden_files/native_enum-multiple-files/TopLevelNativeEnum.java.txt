@@ -1,0 +1,54 @@
+package com.google.protobuf.contrib.j2cl.protos;
+
+@jsinterop.annotations.JsEnum(
+    isNative = true,
+    name = "TopLevelNativeEnum",
+    namespace = "improto.protobuf.contrib.j2cl.protos",
+    hasCustomValue = true)
+public enum TopLevelNativeEnum {
+  UNKNOWN,
+  ONE,
+  TWO,
+  THREE,
+  FOUR,
+  FIVE,
+  SIX;
+
+  @jsinterop.annotations.JsOverlay
+  public static final TopLevelNativeEnum forNumber(int i) {
+    return jsinterop.base.Js.uncheckedCast((double) i);
+  }
+
+  private int value;
+
+  @jsinterop.annotations.JsOverlay
+  public final int getNumber() {
+    return value;
+  }
+
+  @jsinterop.annotations.JsOverlay public static final int UNKNOWN_VALUE = 0;
+  @jsinterop.annotations.JsOverlay public static final int ONE_VALUE = 1;
+  @jsinterop.annotations.JsOverlay public static final int TWO_VALUE = 2;
+  @jsinterop.annotations.JsOverlay public static final int THREE_VALUE = 3;
+  @jsinterop.annotations.JsOverlay public static final int FOUR_VALUE = 4;
+  @jsinterop.annotations.JsOverlay public static final int FIVE_VALUE = 5;
+  @jsinterop.annotations.JsOverlay public static final int SIX_VALUE = 6;
+
+  // DO NOT REFER TO FROM NON GENERATED CODE! SUBJECT TO CHANGE!
+  // Native closure enum representation
+  @jsinterop.annotations.JsType(
+      isNative = true,
+      name = "TopLevelNativeEnum",
+      namespace = "improto.protobuf.contrib.j2cl.protos")
+  public static final class Internal_ClosureEnum {
+    @jsinterop.annotations.JsOverlay
+    public static final Internal_ClosureEnum toClosureValue(TopLevelNativeEnum enumInstance) {
+      return jsinterop.base.Js.uncheckedCast((double) enumInstance.getNumber());
+    }
+
+    @jsinterop.annotations.JsOverlay
+    public static final TopLevelNativeEnum toEnum(Object closureEnum) {
+      return jsinterop.base.Js.uncheckedCast(closureEnum);
+    }
+  }
+}

@@ -1,0 +1,334 @@
+package com.google.protobuf.contrib.j2cl.protos;
+
+@jsinterop.annotations.JsType(
+    isNative = true,
+    name = "sparse",
+    namespace = "improto.protobuf.contrib.j2cl.protos")
+public final class Sparse {
+
+  private Sparse() {}
+
+  public enum SparseEnum implements com.google.protobuf.ProtocolMessageEnum {
+    UNKNOWN(0),
+    TEN(10),
+    TWENTY(20);
+
+    SparseEnum(int value) {
+      this.value = value;
+    }
+
+    public static final SparseEnum forNumber(int i) {
+      switch (i) {
+        case 0:
+          return UNKNOWN;
+        case 10:
+          return TEN;
+        case 20:
+          return TWENTY;
+      }
+      return null;
+    }
+
+    private int value;
+
+    public final int getNumber() {
+      return value;
+    }
+
+    public static final int UNKNOWN_VALUE = 0;
+
+    public static final int TEN_VALUE = 10;
+
+    public static final int TWENTY_VALUE = 20;
+
+    // DO NOT REFER TO FROM NON GENERATED CODE! SUBJECT TO CHANGE!
+    // Native closure enum representation
+    @jsinterop.annotations.JsType(
+        isNative = true,
+        name = "SparseEnum",
+        namespace = "improto.protobuf.contrib.j2cl.protos")
+    public static final class Internal_ClosureEnum {
+      @jsinterop.annotations.JsOverlay
+      public static final Internal_ClosureEnum toClosureValue(SparseEnum enumInstance) {
+        return jsinterop.base.Js.uncheckedCast((double) enumInstance.getNumber());
+      }
+
+      @jsinterop.annotations.JsOverlay
+      public static final SparseEnum toEnum(Object closureEnum) {
+        int i = jsinterop.base.Js.asInt(closureEnum);
+        SparseEnum value = SparseEnum.forNumber(i);
+        return value == null ? UNKNOWN : value;
+      }
+    }
+  }
+
+  public enum DenseEnum implements com.google.protobuf.ProtocolMessageEnum {
+    DEFAULT(0),
+    ONE(1),
+    TWO(2),
+    THREE(3),
+    FOUR(4),
+    FIVE(5),
+    SIX(6);
+
+    DenseEnum(int value) {
+      this.value = value;
+    }
+
+    private static DenseEnum[] cachedValues;
+
+    public static final DenseEnum forNumber(int i) {
+      if (cachedValues == null) {
+        cachedValues = values();
+      }
+      return cachedValues[i];
+    }
+
+    private int value;
+
+    public final int getNumber() {
+      return value;
+    }
+
+    public static final int DEFAULT_VALUE = 0;
+
+    public static final int ONE_VALUE = 1;
+
+    public static final int TWO_VALUE = 2;
+
+    public static final int THREE_VALUE = 3;
+
+    public static final int FOUR_VALUE = 4;
+
+    public static final int FIVE_VALUE = 5;
+
+    public static final int SIX_VALUE = 6;
+
+    // DO NOT REFER TO FROM NON GENERATED CODE! SUBJECT TO CHANGE!
+    // Native closure enum representation
+    @jsinterop.annotations.JsType(
+        isNative = true,
+        name = "DenseEnum",
+        namespace = "improto.protobuf.contrib.j2cl.protos")
+    public static final class Internal_ClosureEnum {
+      @jsinterop.annotations.JsOverlay
+      public static final Internal_ClosureEnum toClosureValue(DenseEnum enumInstance) {
+        return jsinterop.base.Js.uncheckedCast((double) enumInstance.getNumber());
+      }
+
+      @jsinterop.annotations.JsOverlay
+      public static final DenseEnum toEnum(Object closureEnum) {
+        int i = jsinterop.base.Js.asInt(closureEnum);
+        DenseEnum value = DenseEnum.forNumber(i);
+        return value == null ? DEFAULT : value;
+      }
+    }
+  }
+
+  @jsinterop.annotations.JsEnum(
+      isNative = true,
+      name = "NativeEnum",
+      namespace = "improto.protobuf.contrib.j2cl.protos",
+      hasCustomValue = true)
+  public enum NativeEnum {
+    NATIVE_ONE,
+    NATIVE_TWO,
+    NATIVE_THREE;
+
+    @jsinterop.annotations.JsOverlay
+    public static final NativeEnum forNumber(int i) {
+      return jsinterop.base.Js.uncheckedCast((double) i);
+    }
+
+    private int value;
+
+    @jsinterop.annotations.JsOverlay
+    public final int getNumber() {
+      return value;
+    }
+
+    @jsinterop.annotations.JsOverlay public static final int NATIVE_ONE_VALUE = 1;
+    @jsinterop.annotations.JsOverlay public static final int NATIVE_TWO_VALUE = 2;
+    @jsinterop.annotations.JsOverlay public static final int NATIVE_THREE_VALUE = 3;
+
+    // DO NOT REFER TO FROM NON GENERATED CODE! SUBJECT TO CHANGE!
+    // Native closure enum representation
+    @jsinterop.annotations.JsType(
+        isNative = true,
+        name = "NativeEnum",
+        namespace = "improto.protobuf.contrib.j2cl.protos")
+    public static final class Internal_ClosureEnum {
+      @jsinterop.annotations.JsOverlay
+      public static final Internal_ClosureEnum toClosureValue(NativeEnum enumInstance) {
+        return jsinterop.base.Js.uncheckedCast((double) enumInstance.getNumber());
+      }
+
+      @jsinterop.annotations.JsOverlay
+      public static final NativeEnum toEnum(Object closureEnum) {
+        return jsinterop.base.Js.uncheckedCast(closureEnum);
+      }
+    }
+  }
+
+  @jsinterop.annotations.JsType(
+      isNative = true,
+      name = "TestProto",
+      namespace = "improto.protobuf.contrib.j2cl.protos")
+  public static final class TestProto
+      extends com.google.protobuf.GeneratedMessageLite<TestProto, TestProto.Builder> {
+
+    protected TestProto() {}
+
+    public static final native TestProto getDefaultInstance();
+
+    @jsinterop.annotations.JsOverlay
+    public final TestProto getDefaultInstanceForType() {
+      return getDefaultInstance();
+    }
+
+    public native Builder toBuilder();
+
+    @jsinterop.annotations.JsOverlay public static final int SPARSE_ENUM_FIELD_NUMBER = 1;
+    @jsinterop.annotations.JsOverlay public static final int DENSE_ENUM_FIELD_NUMBER = 2;
+    @jsinterop.annotations.JsOverlay public static final int NATIVE_ENUM_FIELD_NUMBER = 3;
+
+    @jsinterop.annotations.JsMethod(name = "hasSparseEnum")
+    public native boolean hasSparseEnum();
+
+    @jsinterop.annotations.JsOverlay
+    public final com.google.protobuf.contrib.j2cl.protos.Sparse.SparseEnum getSparseEnum() {
+      return com.google.protobuf.contrib.j2cl.protos.Sparse.SparseEnum.Internal_ClosureEnum.toEnum(
+          internal_getSparseEnum());
+    }
+
+    @jsinterop.annotations.JsMethod(name = "getSparseEnum")
+    private native Object internal_getSparseEnum();
+
+    @jsinterop.annotations.JsMethod(name = "hasDenseEnum")
+    public native boolean hasDenseEnum();
+
+    @jsinterop.annotations.JsOverlay
+    public final com.google.protobuf.contrib.j2cl.protos.Sparse.DenseEnum getDenseEnum() {
+      return com.google.protobuf.contrib.j2cl.protos.Sparse.DenseEnum.Internal_ClosureEnum.toEnum(
+          internal_getDenseEnum());
+    }
+
+    @jsinterop.annotations.JsMethod(name = "getDenseEnum")
+    private native Object internal_getDenseEnum();
+
+    @jsinterop.annotations.JsMethod(name = "hasNativeEnum")
+    public native boolean hasNativeEnum();
+
+    @jsinterop.annotations.JsOverlay
+    public final com.google.protobuf.contrib.j2cl.protos.Sparse.NativeEnum getNativeEnum() {
+      return com.google.protobuf.contrib.j2cl.protos.Sparse.NativeEnum.Internal_ClosureEnum.toEnum(
+          internal_getNativeEnum());
+    }
+
+    @jsinterop.annotations.JsMethod(name = "getNativeEnum")
+    private native Object internal_getNativeEnum();
+
+    public static native Builder newBuilder();
+
+    public static native Builder newBuilder(TestProto prototype);
+
+    @jsinterop.annotations.JsType(isNative = true)
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageLite.Builder<TestProto, Builder> {
+
+      protected Builder() {}
+
+      @jsinterop.annotations.JsOverlay
+      public final TestProto getDefaultInstanceForType() {
+        return getDefaultInstance();
+      }
+
+      @Override
+      public native TestProto build();
+
+      @Override
+      public native Builder clone();
+
+      @jsinterop.annotations.JsMethod(name = "hasSparseEnum")
+      public native boolean hasSparseEnum();
+
+      @jsinterop.annotations.JsOverlay
+      public final com.google.protobuf.contrib.j2cl.protos.Sparse.SparseEnum getSparseEnum() {
+        return com.google.protobuf.contrib.j2cl.protos.Sparse.SparseEnum.Internal_ClosureEnum
+            .toEnum(internal_getSparseEnum());
+      }
+
+      @jsinterop.annotations.JsMethod(name = "getSparseEnum")
+      private native Object internal_getSparseEnum();
+
+      @jsinterop.annotations.JsMethod(name = "clearSparseEnum")
+      public native Builder clearSparseEnum();
+
+      @jsinterop.annotations.JsOverlay
+      public final Builder setSparseEnum(
+          com.google.protobuf.contrib.j2cl.protos.Sparse.SparseEnum value) {
+        return internal_setSparseEnum(
+            com.google.protobuf.contrib.j2cl.protos.Sparse.SparseEnum.Internal_ClosureEnum
+                .toClosureValue(value));
+      }
+
+      @jsinterop.annotations.JsMethod(name = "setSparseEnum")
+      private native Builder internal_setSparseEnum(
+          com.google.protobuf.contrib.j2cl.protos.Sparse.SparseEnum.Internal_ClosureEnum value);
+
+      @jsinterop.annotations.JsMethod(name = "hasDenseEnum")
+      public native boolean hasDenseEnum();
+
+      @jsinterop.annotations.JsOverlay
+      public final com.google.protobuf.contrib.j2cl.protos.Sparse.DenseEnum getDenseEnum() {
+        return com.google.protobuf.contrib.j2cl.protos.Sparse.DenseEnum.Internal_ClosureEnum.toEnum(
+            internal_getDenseEnum());
+      }
+
+      @jsinterop.annotations.JsMethod(name = "getDenseEnum")
+      private native Object internal_getDenseEnum();
+
+      @jsinterop.annotations.JsMethod(name = "clearDenseEnum")
+      public native Builder clearDenseEnum();
+
+      @jsinterop.annotations.JsOverlay
+      public final Builder setDenseEnum(
+          com.google.protobuf.contrib.j2cl.protos.Sparse.DenseEnum value) {
+        return internal_setDenseEnum(
+            com.google.protobuf.contrib.j2cl.protos.Sparse.DenseEnum.Internal_ClosureEnum
+                .toClosureValue(value));
+      }
+
+      @jsinterop.annotations.JsMethod(name = "setDenseEnum")
+      private native Builder internal_setDenseEnum(
+          com.google.protobuf.contrib.j2cl.protos.Sparse.DenseEnum.Internal_ClosureEnum value);
+
+      @jsinterop.annotations.JsMethod(name = "hasNativeEnum")
+      public native boolean hasNativeEnum();
+
+      @jsinterop.annotations.JsOverlay
+      public final com.google.protobuf.contrib.j2cl.protos.Sparse.NativeEnum getNativeEnum() {
+        return com.google.protobuf.contrib.j2cl.protos.Sparse.NativeEnum.Internal_ClosureEnum
+            .toEnum(internal_getNativeEnum());
+      }
+
+      @jsinterop.annotations.JsMethod(name = "getNativeEnum")
+      private native Object internal_getNativeEnum();
+
+      @jsinterop.annotations.JsMethod(name = "clearNativeEnum")
+      public native Builder clearNativeEnum();
+
+      @jsinterop.annotations.JsOverlay
+      public final Builder setNativeEnum(
+          com.google.protobuf.contrib.j2cl.protos.Sparse.NativeEnum value) {
+        return internal_setNativeEnum(
+            com.google.protobuf.contrib.j2cl.protos.Sparse.NativeEnum.Internal_ClosureEnum
+                .toClosureValue(value));
+      }
+
+      @jsinterop.annotations.JsMethod(name = "setNativeEnum")
+      private native Builder internal_setNativeEnum(
+          com.google.protobuf.contrib.j2cl.protos.Sparse.NativeEnum.Internal_ClosureEnum value);
+    }
+  }
+}

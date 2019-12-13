@@ -1,0 +1,52 @@
+package com.google.protobuf.contrib.j2cl.protos;
+
+@jsinterop.annotations.JsType(
+    isNative = true,
+    name = "proto_with_dashes",
+    namespace = "improto.protobuf.contrib.j2cl.protos")
+public final class ProtoWithDashes {
+
+  private ProtoWithDashes() {}
+
+  @jsinterop.annotations.JsType(
+      isNative = true,
+      name = "ProtoWithDashesMessage",
+      namespace = "improto.protobuf.contrib.j2cl.protos")
+  public static final class ProtoWithDashesMessage
+      extends com.google.protobuf.GeneratedMessageLite<
+          ProtoWithDashesMessage, ProtoWithDashesMessage.Builder> {
+
+    protected ProtoWithDashesMessage() {}
+
+    public static final native ProtoWithDashesMessage getDefaultInstance();
+
+    @jsinterop.annotations.JsOverlay
+    public final ProtoWithDashesMessage getDefaultInstanceForType() {
+      return getDefaultInstance();
+    }
+
+    public native Builder toBuilder();
+
+    public static native Builder newBuilder();
+
+    public static native Builder newBuilder(ProtoWithDashesMessage prototype);
+
+    @jsinterop.annotations.JsType(isNative = true)
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageLite.Builder<ProtoWithDashesMessage, Builder> {
+
+      protected Builder() {}
+
+      @jsinterop.annotations.JsOverlay
+      public final ProtoWithDashesMessage getDefaultInstanceForType() {
+        return getDefaultInstance();
+      }
+
+      @Override
+      public native ProtoWithDashesMessage build();
+
+      @Override
+      public native Builder clone();
+    }
+  }
+}

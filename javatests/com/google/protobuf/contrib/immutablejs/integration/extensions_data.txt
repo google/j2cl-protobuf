@@ -1,0 +1,61 @@
+optional_long: 2
+repeated_string: "2"
+repeated_string: "3"
+optional_enum: 2
+optional_int: 6
+optional_message {
+  optional_long: 20
+  repeated_string: "20"
+  repeated_string: "30"
+  optional_enum: 1
+  optional_int: 60
+}
+optional_bool: true
+repeated_bool: false
+repeated_bool: true
+repeated_bool: false
+[protobuf.contrib.immutablejs.protos.Primitives.single_bool_extension]: true
+[protobuf.contrib.immutablejs.protos.Primitives.single_int32_extension]: 2
+[protobuf.contrib.immutablejs.protos.Primitives.single_int64_extension]: 3
+[protobuf.contrib.immutablejs.protos.Primitives.single_string_extension]: "4"
+[protobuf.contrib.immutablejs.protos.Primitives.single_double_extension]: 5
+[protobuf.contrib.immutablejs.protos.Primitives.single_float_extension]: 6
+[protobuf.contrib.immutablejs.protos.Primitives.single_enum_extension]: 1
+[protobuf.contrib.immutablejs.protos.Primitives.repeated_bool_extension]: true
+[protobuf.contrib.immutablejs.protos.Primitives.repeated_bool_extension]: true
+[protobuf.contrib.immutablejs.protos.Primitives.repeated_int32_extension]: 1
+[protobuf.contrib.immutablejs.protos.Primitives.repeated_int32_extension]: 2
+[protobuf.contrib.immutablejs.protos.Primitives.repeated_int64_extension]: 3
+[protobuf.contrib.immutablejs.protos.Primitives.repeated_int64_extension]: 4
+[protobuf.contrib.immutablejs.protos.Primitives.repeated_string_extension]: "5"
+[protobuf.contrib.immutablejs.protos.Primitives.repeated_string_extension]: "6"
+[protobuf.contrib.immutablejs.protos.Primitives.repeated_double_extension]: 7
+[protobuf.contrib.immutablejs.protos.Primitives.repeated_double_extension]: 8
+[protobuf.contrib.immutablejs.protos.Primitives.repeated_float_extension]: 9
+[protobuf.contrib.immutablejs.protos.Primitives.repeated_float_extension]: 10
+[protobuf.contrib.immutablejs.protos.Primitives.repeated_enum_extension]: 2
+[protobuf.contrib.immutablejs.protos.Primitives.repeated_enum_extension]: 2
+[protobuf.contrib.immutablejs.protos.Recursive.recursive_optional]: {
+    optional_long: 200
+    repeated_string: "200"
+    repeated_string: "300"
+    optional_enum: 1
+    optional_int: 600
+}
+[protobuf.contrib.immutablejs.protos.Recursive.recursive_repeated]: {
+    optional_long: 2000
+    repeated_string: "2000"
+    repeated_string: "3000"
+    optional_enum: 1
+    optional_int: 6000
+}
+[protobuf.contrib.immutablejs.protos.Recursive.recursive_repeated]: {
+    optional_long: 20000
+    repeated_string: "20000"
+    repeated_string: "30000"
+    optional_enum: 1
+    optional_int: 60000
+}
+
+[protobuf.contrib.immutablejs.protos.standalone_string_extension]: "standalone_value"
+[protobuf.contrib.immutablejs.protos.standalone_double_extension]: 1

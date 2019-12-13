@@ -1,0 +1,7 @@
+syntax = "proto2";
+
+package protobuf.contrib.immutablejs.protos;
+
+option java_multiple_files = true;
+
+message ProtoWithDashesMessage {}

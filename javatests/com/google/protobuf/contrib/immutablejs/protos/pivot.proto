@@ -1,0 +1,19 @@
+syntax = "proto2";
+
+package protobuf.contrib.immutablejs.protos;
+
+import "java/com/google/apps/jspb/jspb.proto";
+
+option java_multiple_files = true;
+
+message Pivot {
+  option (jspb.message_id) = "my_message_id";
+
+  optional string payload = 1;
+
+  extensions 1000 to 10000;
+}
+
+extend Pivot {
+  optional Pivot pivot_extension = 1000;
+}

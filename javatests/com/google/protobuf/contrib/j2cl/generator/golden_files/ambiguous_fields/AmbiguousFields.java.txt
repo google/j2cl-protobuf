@@ -1,0 +1,390 @@
+package com.google.protobuf.contrib.j2cl.protos;
+
+@jsinterop.annotations.JsType(
+    isNative = true,
+    name = "ambiguous_fields",
+    namespace = "improto.javatests.com.google.protobuf.contrib.j2cl.protos")
+public final class AmbiguousFields {
+
+  private AmbiguousFields() {}
+
+  @jsinterop.annotations.JsType(
+      isNative = true,
+      name = "Internal",
+      namespace = "improto.javatests.com.google.protobuf.contrib.j2cl.protos")
+  public static final class Internal
+      extends com.google.protobuf.GeneratedMessageLite<Internal, Internal.Builder> {
+
+    protected Internal() {}
+
+    public static final native Internal getDefaultInstance();
+
+    @jsinterop.annotations.JsOverlay
+    public final Internal getDefaultInstanceForType() {
+      return getDefaultInstance();
+    }
+
+    public native Builder toBuilder();
+
+    public static native Builder newBuilder();
+
+    public static native Builder newBuilder(Internal prototype);
+
+    @jsinterop.annotations.JsType(isNative = true)
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageLite.Builder<Internal, Builder> {
+
+      protected Builder() {}
+
+      @jsinterop.annotations.JsOverlay
+      public final Internal getDefaultInstanceForType() {
+        return getDefaultInstance();
+      }
+
+      @Override
+      public native Internal build();
+
+      @Override
+      public native Builder clone();
+    }
+  }
+
+  @jsinterop.annotations.JsType(
+      isNative = true,
+      name = "MyMessage",
+      namespace = "improto.javatests.com.google.protobuf.contrib.j2cl.protos")
+  public static final class MyMessage
+      extends com.google.protobuf.GeneratedMessageLite<MyMessage, MyMessage.Builder> {
+
+    @jsinterop.annotations.JsType(isNative = true)
+    public static final class Internal
+        extends com.google.protobuf.GeneratedMessageLite<Internal, Internal.Builder> {
+
+      protected Internal() {}
+
+      public static final native Internal getDefaultInstance();
+
+      @jsinterop.annotations.JsOverlay
+      public final Internal getDefaultInstanceForType() {
+        return getDefaultInstance();
+      }
+
+      public native Builder toBuilder();
+
+      @jsinterop.annotations.JsOverlay public static final int X_FIELD_NUMBER = 5;
+
+      @jsinterop.annotations.JsMethod(name = "hasX")
+      public native boolean hasX();
+
+      @jsinterop.annotations.JsMethod(name = "getX")
+      public native java.lang.String getX();
+
+      public static native Builder newBuilder();
+
+      public static native Builder newBuilder(Internal prototype);
+
+      @jsinterop.annotations.JsType(isNative = true)
+      public static final class Builder
+          extends com.google.protobuf.GeneratedMessageLite.Builder<Internal, Builder> {
+
+        protected Builder() {}
+
+        @jsinterop.annotations.JsOverlay
+        public final Internal getDefaultInstanceForType() {
+          return getDefaultInstance();
+        }
+
+        @Override
+        public native Internal build();
+
+        @Override
+        public native Builder clone();
+
+        @jsinterop.annotations.JsMethod(name = "hasX")
+        public native boolean hasX();
+
+        @jsinterop.annotations.JsMethod(name = "getX")
+        public native java.lang.String getX();
+
+        @jsinterop.annotations.JsMethod(name = "clearX")
+        public native Builder clearX();
+
+        @jsinterop.annotations.JsMethod(name = "setX")
+        public native Builder setX(java.lang.String value);
+      }
+    }
+
+    protected MyMessage() {}
+
+    public static final native MyMessage getDefaultInstance();
+
+    @jsinterop.annotations.JsOverlay
+    public final MyMessage getDefaultInstanceForType() {
+      return getDefaultInstance();
+    }
+
+    public native Builder toBuilder();
+
+    @jsinterop.annotations.JsOverlay public static final int CLASS_FIELD_NUMBER = 1;
+    @jsinterop.annotations.JsOverlay public static final int CACHED_SIZE_FIELD_NUMBER = 2;
+    @jsinterop.annotations.JsOverlay public static final int SERIALIZED_SIZE_FIELD_NUMBER = 3;
+    @jsinterop.annotations.JsOverlay public static final int EXTENSION_FIELD_NUMBER = 4;
+
+    @jsinterop.annotations.JsMethod(name = "hasClass_")
+    public native boolean hasClass_();
+
+    @jsinterop.annotations.JsMethod(name = "getClass_")
+    public native java.lang.String getClass_();
+
+    @jsinterop.annotations.JsMethod(name = "hasCachedSize_")
+    public native boolean hasCachedSize_();
+
+    @jsinterop.annotations.JsMethod(name = "getCachedSize_")
+    public native java.lang.String getCachedSize_();
+
+    @jsinterop.annotations.JsMethod(name = "hasSerializedSize_")
+    public native boolean hasSerializedSize_();
+
+    @jsinterop.annotations.JsMethod(name = "getSerializedSize_")
+    public native java.lang.String getSerializedSize_();
+
+    @jsinterop.annotations.JsMethod(name = "hasExtension_")
+    public native boolean hasExtension();
+
+    @jsinterop.annotations.JsMethod(name = "getExtension_")
+    public native java.lang.String getExtension();
+
+    public static native Builder newBuilder();
+
+    public static native Builder newBuilder(MyMessage prototype);
+
+    @jsinterop.annotations.JsType(isNative = true)
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageLite.Builder<MyMessage, Builder> {
+
+      protected Builder() {}
+
+      @jsinterop.annotations.JsOverlay
+      public final MyMessage getDefaultInstanceForType() {
+        return getDefaultInstance();
+      }
+
+      @Override
+      public native MyMessage build();
+
+      @Override
+      public native Builder clone();
+
+      @jsinterop.annotations.JsMethod(name = "hasClass_")
+      public native boolean hasClass_();
+
+      @jsinterop.annotations.JsMethod(name = "getClass_")
+      public native java.lang.String getClass_();
+
+      @jsinterop.annotations.JsMethod(name = "clearClass_")
+      public native Builder clearClass_();
+
+      @jsinterop.annotations.JsMethod(name = "setClass_")
+      public native Builder setClass_(java.lang.String value);
+
+      @jsinterop.annotations.JsMethod(name = "hasCachedSize_")
+      public native boolean hasCachedSize_();
+
+      @jsinterop.annotations.JsMethod(name = "getCachedSize_")
+      public native java.lang.String getCachedSize_();
+
+      @jsinterop.annotations.JsMethod(name = "clearCachedSize_")
+      public native Builder clearCachedSize_();
+
+      @jsinterop.annotations.JsMethod(name = "setCachedSize_")
+      public native Builder setCachedSize_(java.lang.String value);
+
+      @jsinterop.annotations.JsMethod(name = "hasSerializedSize_")
+      public native boolean hasSerializedSize_();
+
+      @jsinterop.annotations.JsMethod(name = "getSerializedSize_")
+      public native java.lang.String getSerializedSize_();
+
+      @jsinterop.annotations.JsMethod(name = "clearSerializedSize_")
+      public native Builder clearSerializedSize_();
+
+      @jsinterop.annotations.JsMethod(name = "setSerializedSize_")
+      public native Builder setSerializedSize_(java.lang.String value);
+
+      @jsinterop.annotations.JsMethod(name = "hasExtension_")
+      public native boolean hasExtension();
+
+      @jsinterop.annotations.JsMethod(name = "getExtension_")
+      public native java.lang.String getExtension();
+
+      @jsinterop.annotations.JsMethod(name = "clearExtension_")
+      public native Builder clearExtension();
+
+      @jsinterop.annotations.JsMethod(name = "setExtension_")
+      public native Builder setExtension(java.lang.String value);
+    }
+  }
+
+  @jsinterop.annotations.JsType(
+      isNative = true,
+      name = "RepeatedExtensionField",
+      namespace = "improto.javatests.com.google.protobuf.contrib.j2cl.protos")
+  public static final class RepeatedExtensionField
+      extends com.google.protobuf.GeneratedMessageLite<
+          RepeatedExtensionField, RepeatedExtensionField.Builder> {
+
+    protected RepeatedExtensionField() {}
+
+    public static final native RepeatedExtensionField getDefaultInstance();
+
+    @jsinterop.annotations.JsOverlay
+    public final RepeatedExtensionField getDefaultInstanceForType() {
+      return getDefaultInstance();
+    }
+
+    public native Builder toBuilder();
+
+    @jsinterop.annotations.JsOverlay public static final int EXTENSION_FIELD_NUMBER = 1;
+    @jsinterop.annotations.JsOverlay public static final int CLASS_FIELD_NUMBER = 2;
+
+    @jsinterop.annotations.JsMethod(name = "getExtension_Count")
+    public native int getExtensionCount();
+
+    @jsinterop.annotations.JsMethod(name = "getExtension_")
+    public native java.lang.String getExtension(int index);
+
+    @jsinterop.annotations.JsMethod(name = "getExtension_List")
+    private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.String>
+        internal_getExtensionList();
+
+    @jsinterop.annotations.JsOverlay
+    public final java.util.List<java.lang.String> getExtensionList() {
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+          internal_getExtensionList());
+    }
+
+    @jsinterop.annotations.JsMethod(name = "getClass_Count")
+    public native int getClass_Count();
+
+    @jsinterop.annotations.JsMethod(name = "getClass_")
+    public native java.lang.String getClass_(int index);
+
+    @jsinterop.annotations.JsMethod(name = "getClass_List")
+    private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.String>
+        internal_getClass_List();
+
+    @jsinterop.annotations.JsOverlay
+    public final java.util.List<java.lang.String> getClass_List() {
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+          internal_getClass_List());
+    }
+
+    public static native Builder newBuilder();
+
+    public static native Builder newBuilder(RepeatedExtensionField prototype);
+
+    @jsinterop.annotations.JsType(isNative = true)
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageLite.Builder<RepeatedExtensionField, Builder> {
+
+      protected Builder() {}
+
+      @jsinterop.annotations.JsOverlay
+      public final RepeatedExtensionField getDefaultInstanceForType() {
+        return getDefaultInstance();
+      }
+
+      @Override
+      public native RepeatedExtensionField build();
+
+      @Override
+      public native Builder clone();
+
+      @jsinterop.annotations.JsMethod(name = "getExtension_Count")
+      public native int getExtensionCount();
+
+      @jsinterop.annotations.JsMethod(name = "getExtension_")
+      public native java.lang.String getExtension(int index);
+
+      @jsinterop.annotations.JsMethod(name = "getExtension_List")
+      private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.String>
+          internal_getExtensionList();
+
+      @jsinterop.annotations.JsOverlay
+      public final java.util.List<java.lang.String> getExtensionList() {
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+            internal_getExtensionList());
+      }
+
+      @jsinterop.annotations.JsMethod(name = "clearExtension_")
+      public native Builder clearExtension();
+
+      @jsinterop.annotations.JsMethod(name = "addExtension_")
+      public native Builder addExtension(java.lang.String value);
+
+      @jsinterop.annotations.JsMethod(name = "setExtension_")
+      public native Builder setExtension(int index, java.lang.String value);
+
+      @jsinterop.annotations.JsOverlay
+      public final Builder addAllExtension(java.lang.Iterable<java.lang.String> values) {
+        com.google.protobuf.GeneratedMessageLite.Internal_.addAll(values, this::addExtension);
+        return this;
+      }
+
+      @jsinterop.annotations.JsMethod(name = "getClass_Count")
+      public native int getClass_Count();
+
+      @jsinterop.annotations.JsMethod(name = "getClass_")
+      public native java.lang.String getClass_(int index);
+
+      @jsinterop.annotations.JsMethod(name = "getClass_List")
+      private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.String>
+          internal_getClass_List();
+
+      @jsinterop.annotations.JsOverlay
+      public final java.util.List<java.lang.String> getClass_List() {
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+            internal_getClass_List());
+      }
+
+      @jsinterop.annotations.JsMethod(name = "clearClass_")
+      public native Builder clearClass_();
+
+      @jsinterop.annotations.JsMethod(name = "addClass_")
+      public native Builder addClass_(java.lang.String value);
+
+      @jsinterop.annotations.JsMethod(name = "setClass_")
+      public native Builder setClass_(int index, java.lang.String value);
+
+      @jsinterop.annotations.JsOverlay
+      public final Builder addAllClass_(java.lang.Iterable<java.lang.String> values) {
+        com.google.protobuf.GeneratedMessageLite.Internal_.addAll(values, this::addClass_);
+        return this;
+      }
+    }
+  }
+
+  @jsinterop.annotations.JsProperty(name = "class_")
+  private static com.google.protobuf.GeneratedMessageLite.Internal_.ExtensionFieldInfo<
+          com.google.protobuf.contrib.j2cl.protos.AmbiguousFields.MyMessage, ?>
+      internal_class_;
+
+  @jsinterop.annotations.JsOverlay
+  public static final com.google.protobuf.ExtensionLite<
+          com.google.protobuf.contrib.j2cl.protos.AmbiguousFields.MyMessage, java.lang.String>
+      class_ =
+          com.google.protobuf.GeneratedMessageLite.Internal_.createSingleStringExtension(
+              internal_class_);
+
+  @jsinterop.annotations.JsProperty(name = "extension_")
+  private static com.google.protobuf.GeneratedMessageLite.Internal_.ExtensionFieldInfo<
+          com.google.protobuf.contrib.j2cl.protos.AmbiguousFields.MyMessage, ?>
+      internal_extension;
+
+  @jsinterop.annotations.JsOverlay
+  public static final com.google.protobuf.ExtensionLite<
+          com.google.protobuf.contrib.j2cl.protos.AmbiguousFields.MyMessage, java.lang.String>
+      extension =
+          com.google.protobuf.GeneratedMessageLite.Internal_.createSingleStringExtension(
+              internal_extension);
+}

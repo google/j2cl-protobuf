@@ -1,0 +1,105 @@
+syntax = "proto2";
+
+package protobuf.contrib.j2cl.protos;
+
+option java_package = "com.google.protobuf.contrib.j2cl.protos";
+
+// REMOVED_BY_GENRULE option java_multiple_files = true;
+
+message Base {
+  optional int64 optional_long = 1;
+  repeated string repeated_string = 3;
+  enum EmotionalState {
+    UNKNOWN = 0;
+    HAPPY = 1;
+    SAD = 2;
+  }
+  optional EmotionalState optional_enum = 4 [default = HAPPY];
+  optional int32 optional_int = 5;
+  optional Base optional_message = 6;
+  repeated Base repeated_message = 7;
+  optional bool optional_bool = 8;
+  repeated bool repeated_bool = 9;
+
+  extensions 100 to 299;
+}
+
+enum TestEnum {
+  DEFAULT = 0;
+  GREEN = 1;
+  BLUE = 2;
+  RED = 3;
+}
+
+message Primitives {
+  // primitive single extensions.
+  extend Base {
+    optional bool single_bool_extension = 101;
+  }
+
+  extend Base {
+    optional bytes single_byte_string_extension = 102;
+  }
+
+  extend Base {
+    optional int32 single_int32_extension = 103;
+  }
+  extend Base {
+    optional int64 single_int64_extension = 104;
+  }
+  extend Base {
+    optional string single_string_extension = 105;
+  }
+  extend Base {
+    optional double single_double_extension = 106;
+  }
+  extend Base {
+    optional float single_float_extension = 107;
+  }
+  extend Base {
+    optional TestEnum single_enum_extension = 108;
+  }
+
+  // primitive repeated extensions.
+  extend Base {
+    repeated bool repeated_bool_extension = 141;
+  }
+  extend Base {
+    repeated bytes repeated_byte_string_extension = 142;
+  }
+  extend Base {
+    repeated int32 repeated_int32_extension = 143;
+  }
+  extend Base {
+    repeated int64 repeated_int64_extension = 144;
+  }
+  extend Base {
+    repeated string repeated_string_extension = 145;
+  }
+  extend Base {
+    repeated double repeated_double_extension = 146;
+  }
+  extend Base {
+    repeated float repeated_float_extension = 147;
+  }
+  extend Base {
+    repeated TestEnum repeated_enum_extension = 148;
+  }
+
+  optional string payload = 2;
+}
+
+message Recursive {
+  extend Base {
+    optional Base recursive_optional = 180;
+  }
+  extend Base {
+    repeated Base recursive_repeated = 181;
+  }
+  optional string payload = 3;
+}
+
+extend Base {
+  optional string standalone_string_extension = 200;
+  repeated double standalone_double_extension = 201;
+}

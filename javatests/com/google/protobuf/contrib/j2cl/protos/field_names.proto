@@ -1,0 +1,41 @@
+// LINT: LEGACY_NAMES
+syntax = "proto2";
+
+package javatests.com.google.protobuf.contrib.j2cl.protos;
+
+option java_package = "com.google.protobuf.contrib.j2cl.protos";
+
+message Fields {
+  // Primitive field in different styles.
+  optional bool primitive_lower_case_underscore = 1;
+  optional bool primitiveLowerCaseCamel = 2;
+  optional bool PrimitiveUpperCaseCamel = 3;
+
+  repeated bool repeated_primitive_lower_case_underscore = 4;
+  repeated bool repeatedPrimitiveLowerCaseCamel = 5;
+  repeated bool RepeatedPrimitiveUpperCaseCamel = 6;
+
+  // Enum field in different styles.
+  enum TestEnum {
+    UNKNOWN = 0;
+    BLUE = 1;
+    RED = 2;
+  }
+  optional TestEnum enum_lower_case_underscore = 7;
+  optional TestEnum enumLowerCaseCamel = 8;
+  optional TestEnum EnumUpperCaseCamel = 9;
+
+  repeated TestEnum repeated_enum_lower_case_underscore = 10;
+  repeated TestEnum repeatedEnumLowerCaseCamel = 11;
+  repeated TestEnum RepeatedEnumUpperCaseCamel = 12;
+
+  // Message field in different styles.
+  message Nested {}
+  optional Nested message_lower_case_underscore = 13;
+  optional Nested messageLowerCaseCamel = 14;
+  optional Nested MessageUpperCaseCamel = 15;
+
+  repeated Nested repeated_message_lower_case_underscore = 16;
+  repeated Nested repeatedMessageLowerCaseCamel = 17;
+  repeated Nested RepeatedMessageUpperCaseCamel = 18;
+}

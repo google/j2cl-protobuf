@@ -1,0 +1,46 @@
+syntax = "proto2";
+
+package protobuf.contrib.j2cl.protos;
+
+// REMOVED_BY_GENRULE option java_multiple_files = true;
+
+message TestProtoWithOneOfs {
+  oneof a_oneof {
+    bool a_bool = 1;
+    int32 an_int = 4;
+    int64 a_long = 7;
+    float a_float = 10;
+    double a_double = 14;
+    double double_with_default = 15 [default = 2.46];
+  }
+
+  enum TestEnum {
+    UNKNOWN = 0;
+    TWO = 1;
+  }
+
+  message TestNestedProto {
+    optional string a_string = 1;
+  }
+
+  message TestNestedProtoWithOneOfs {
+    oneof a_nested_oneof {
+      bool bool_with_default = 1 [default = true];
+      int32 an_int = 7;
+    }
+
+    optional float optional_float = 2;
+  }
+
+  oneof another_oneof {
+    TestEnum an_enum = 16;
+    string a_string = 19;
+    bytes some_bytes = 20;
+    TestNestedProto nested_proto = 26;
+    TestNestedProtoWithOneOfs nested_proto_with_oneofs = 27;
+  }
+
+  optional bool optional_bool = 2;
+  required string required_string = 3;
+  repeated int32 repeated_int = 8;
+}

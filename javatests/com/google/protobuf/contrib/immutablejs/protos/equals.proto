@@ -1,0 +1,13 @@
+// Tests for fields accessors of different types.
+
+syntax = "proto2";
+
+package protobuf.contrib.immutablejs.protos;
+
+message MessageA {
+  optional string foo = 1;
+}
+
+message MessageB {
+  optional string foo = 1;
+}

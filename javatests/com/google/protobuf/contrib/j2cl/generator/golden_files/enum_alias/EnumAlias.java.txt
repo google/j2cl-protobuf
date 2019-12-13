@@ -1,0 +1,107 @@
+package com.google.protobuf.contrib.j2cl.protos;
+
+@jsinterop.annotations.JsType(
+    isNative = true,
+    name = "enum_alias",
+    namespace = "improto.protobuf.contrib.j2cl.protos")
+public final class EnumAlias {
+
+  private EnumAlias() {}
+
+  public enum EnumWithAliases implements com.google.protobuf.ProtocolMessageEnum {
+    UNKNOWN(0),
+    ORIGINAL(1),
+    ALIAS(1);
+
+    EnumWithAliases(int value) {
+      this.value = value;
+    }
+
+    public static final EnumWithAliases forNumber(int i) {
+      switch (i) {
+        case 0:
+          return UNKNOWN;
+        case 1:
+          return ORIGINAL;
+      }
+      return null;
+    }
+
+    private int value;
+
+    public final int getNumber() {
+      return value;
+    }
+
+    public static final int UNKNOWN_VALUE = 0;
+
+    public static final int ORIGINAL_VALUE = 1;
+
+    public static final int ALIAS_VALUE = 1;
+
+    // DO NOT REFER TO FROM NON GENERATED CODE! SUBJECT TO CHANGE!
+    // Native closure enum representation
+    @jsinterop.annotations.JsType(
+        isNative = true,
+        name = "EnumWithAliases",
+        namespace = "improto.protobuf.contrib.j2cl.protos")
+    public static final class Internal_ClosureEnum {
+      @jsinterop.annotations.JsOverlay
+      public static final Internal_ClosureEnum toClosureValue(EnumWithAliases enumInstance) {
+        return jsinterop.base.Js.uncheckedCast((double) enumInstance.getNumber());
+      }
+
+      @jsinterop.annotations.JsOverlay
+      public static final EnumWithAliases toEnum(Object closureEnum) {
+        int i = jsinterop.base.Js.asInt(closureEnum);
+        EnumWithAliases value = EnumWithAliases.forNumber(i);
+        return value == null ? UNKNOWN : value;
+      }
+    }
+  }
+
+  @jsinterop.annotations.JsEnum(
+      isNative = true,
+      name = "NativeEnumWithAliases",
+      namespace = "improto.protobuf.contrib.j2cl.protos",
+      hasCustomValue = true)
+  public enum NativeEnumWithAliases {
+    DEFAULT,
+    NATIVE_ORIGINAL,
+    NATIVE_ALIAS;
+
+    @jsinterop.annotations.JsOverlay
+    public static final NativeEnumWithAliases forNumber(int i) {
+      return jsinterop.base.Js.uncheckedCast((double) i);
+    }
+
+    private int value;
+
+    @jsinterop.annotations.JsOverlay
+    public final int getNumber() {
+      return value;
+    }
+
+    @jsinterop.annotations.JsOverlay public static final int DEFAULT_VALUE = 0;
+    @jsinterop.annotations.JsOverlay public static final int NATIVE_ORIGINAL_VALUE = 1;
+    @jsinterop.annotations.JsOverlay public static final int NATIVE_ALIAS_VALUE = 1;
+
+    // DO NOT REFER TO FROM NON GENERATED CODE! SUBJECT TO CHANGE!
+    // Native closure enum representation
+    @jsinterop.annotations.JsType(
+        isNative = true,
+        name = "NativeEnumWithAliases",
+        namespace = "improto.protobuf.contrib.j2cl.protos")
+    public static final class Internal_ClosureEnum {
+      @jsinterop.annotations.JsOverlay
+      public static final Internal_ClosureEnum toClosureValue(NativeEnumWithAliases enumInstance) {
+        return jsinterop.base.Js.uncheckedCast((double) enumInstance.getNumber());
+      }
+
+      @jsinterop.annotations.JsOverlay
+      public static final NativeEnumWithAliases toEnum(Object closureEnum) {
+        return jsinterop.base.Js.uncheckedCast(closureEnum);
+      }
+    }
+  }
+}
