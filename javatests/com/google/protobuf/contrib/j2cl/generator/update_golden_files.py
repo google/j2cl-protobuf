@@ -17,9 +17,9 @@ from absl import app
 from absl import logging
 
 
-_BLAZE_TARGET = "javatests/com/google/protobuf/contrib/j2cl/protos:all"
-_GOLDEN_FILES_BASE_PATH = "javatests/com/google/protobuf/contrib/j2cl/generator/golden_files/"
-_PROTO_ZIP_OUTPUT_FILE = "blaze-bin/javatests/com/google/protobuf/contrib/j2cl/protos/%s_j2cl_proto_new__interop_for_testing_do_not_use.srcjar"
+_BLAZE_TARGET = "third_party/java_src/j2cl_proto/javatests/com/google/protobuf/contrib/j2cl/protos:all"
+_GOLDEN_FILES_BASE_PATH = "third_party/java_src/j2cl_proto/javatests/com/google/protobuf/contrib/j2cl/generator/golden_files/"
+_PROTO_ZIP_OUTPUT_FILE = "blaze-bin/third_party/java_src/j2cl_proto/javatests/com/google/protobuf/contrib/j2cl/protos/%s_j2cl_proto_new__interop_for_testing_do_not_use.srcjar"
 
 
 def ensure_google3_or_die():

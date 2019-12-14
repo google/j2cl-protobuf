@@ -6,7 +6,7 @@ option java_package = "com.google.protobuf.contrib.j2cl.protos";
 
 // REMOVED_BY_GENRULE option java_multiple_files = true;
 
-import "java/com/google/protobuf/contrib/j2cl/options/js_enum.proto";
+import "third_party/java_src/j2cl_proto/java/com/google/protobuf/contrib/j2cl/options/js_enum.proto";
 
 enum SparseEnum {
   UNKNOWN = 0;

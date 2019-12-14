@@ -14,9 +14,9 @@ from absl import app
 from absl import logging
 
 
-_BLAZE_TARGET = "javatests/com/google/protobuf/contrib/immutablejs/protos:all"
-_GOLDEN_FILES_BASE_PATH = "javatests/com/google/protobuf/contrib/immutablejs/generator/golden_files/"
-_PROTO_OUTPUT_FILE = "blaze-bin/javatests/com/google/protobuf/contrib/immutablejs/protos/%s-improto/"
+_BLAZE_TARGET = "third_party/java_src/j2cl_proto/javatests/com/google/protobuf/contrib/immutablejs/protos:all"
+_GOLDEN_FILES_BASE_PATH = "third_party/java_src/j2cl_proto/javatests/com/google/protobuf/contrib/immutablejs/generator/golden_files/"
+_PROTO_OUTPUT_FILE = "blaze-bin/third_party/java_src/j2cl_proto/javatests/com/google/protobuf/contrib/immutablejs/protos/%s-improto/"
 
 
 def ensure_google3_or_die():

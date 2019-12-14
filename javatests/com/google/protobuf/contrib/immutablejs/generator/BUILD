@@ -3,6 +3,7 @@ load("//devtools/python/blaze:pytype.bzl", "pytype_binary")
 
 java_library(
     name = "tests",
+    testonly = 1,
     srcs = glob(["*.java"]),
     data = glob(["golden_files/**/*.txt"]) + [
     ],
