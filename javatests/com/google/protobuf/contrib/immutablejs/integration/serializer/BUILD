@@ -3,6 +3,8 @@ package(
     ],
 )
 
+licenses(["notice"])  # Apache 2.0
+
 java_library(
     name = "ProtoToJspb",
     srcs = ["ProtoToJspb.java"],

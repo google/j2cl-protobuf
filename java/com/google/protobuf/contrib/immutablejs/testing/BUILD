@@ -3,6 +3,8 @@ package(
     ],
 )
 
+licenses(["notice"])  # Apache 2.0
+
 java_library(
     name = "golden_files_base_test",
     testonly = 1,

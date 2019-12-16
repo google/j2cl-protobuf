@@ -1,6 +1,8 @@
 package(default_visibility = [
 ])
 
+licenses(["notice"])  # Apache 2.0
+
 generate_protos(
     name = "accessor",
     proto_file = "accessor.proto",

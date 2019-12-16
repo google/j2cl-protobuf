@@ -5,6 +5,8 @@ package(
     ],
 )
 
+licenses(["notice"])  # Apache 2.0
+
 closure_js_library(
     name = "defines",
     srcs = ["defines.js"],

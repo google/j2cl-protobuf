@@ -7,6 +7,8 @@ package(
     ],
 )
 
+licenses(["notice"])  # Apache 2.0
+
 _BROWSERS = ["//testing/web/browsers:chrome-linux"]
 
 closure_js_library(

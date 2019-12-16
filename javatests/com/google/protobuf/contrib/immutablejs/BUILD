@@ -1,3 +1,5 @@
+licenses(["notice"])  # Apache 2.0
+
 exports_files(["check_runfiles.sh"])
 
 sh_test(

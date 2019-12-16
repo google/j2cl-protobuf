@@ -1,5 +1,7 @@
 # Integration tests for immutable protos
 
+licenses(["notice"])  # Apache 2.0
+
 goog_module_proto_jspb_data(
     name = "accessor_data",
     src = "accessor_data.txt",

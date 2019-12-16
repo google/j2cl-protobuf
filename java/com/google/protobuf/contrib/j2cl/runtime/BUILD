@@ -3,6 +3,8 @@ load("//third_party/java/j2cl:j2cl_library.bzl", "j2cl_library")
 package(default_visibility = [
 ])
 
+licenses(["notice"])  # Apache 2.0
+
 j2cl_library(
     name = "runtime",
     srcs = glob(

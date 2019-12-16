@@ -2,6 +2,8 @@ load("@io_bazel_rules_closure//closure:defs.bzl", "closure_js_binary")
 load("//third_party/java/j2cl:j2cl_library.bzl", "j2cl_library")
 load("@com_google_j2cl//build_defs:rules.bzl", "J2CL_OPTIMIZED_DEFS")
 
+licenses(["notice"])  # Apache 2.0
+
 java_library(
     name = "checks",
     srcs = ["InternalChecks.java"],

@@ -1,3 +1,5 @@
+licenses(["notice"])  # Apache 2.0
+
 sh_test(
     name = "check_runfiles",
     args = [

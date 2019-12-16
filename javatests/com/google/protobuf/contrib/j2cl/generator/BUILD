@@ -1,5 +1,7 @@
 load("//devtools/python/blaze:pytype.bzl", "pytype_binary")
 
+licenses(["notice"])  # Apache 2.0
+
 pytype_binary(
     name = "update_golden_files",
     srcs = ["update_golden_files.py"],

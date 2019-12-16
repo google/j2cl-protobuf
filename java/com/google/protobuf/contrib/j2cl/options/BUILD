@@ -3,6 +3,8 @@ package(
     ],
 )
 
+licenses(["notice"])  # Apache 2.0
+
 proto_library(
     name = "js_enum",
     srcs = ["js_enum.proto"],

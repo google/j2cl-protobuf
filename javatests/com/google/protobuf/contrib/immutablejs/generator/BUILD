@@ -1,6 +1,8 @@
 # Golden files tests
 load("//devtools/python/blaze:pytype.bzl", "pytype_binary")
 
+licenses(["notice"])  # Apache 2.0
+
 java_library(
     name = "tests",
     testonly = 1,

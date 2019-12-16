@@ -6,6 +6,8 @@ package(
     ],
 )
 
+licenses(["notice"])  # Apache 2.0
+
 bzl_library(
     name = "immutable_js_bzl",
     srcs = ["immutable_js_proto_library.bzl"],

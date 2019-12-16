@@ -20,6 +20,8 @@
 
 package(default_visibility = ["//visibility:public"])
 
+licenses(["notice"])  # Apache 2.0
+
 java_binary(
     name = "J2CLProtobufCompiler",
     main_class = "com.google.protobuf.contrib.j2cl.generator.J2CLProtobufCompiler",

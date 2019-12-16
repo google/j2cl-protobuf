@@ -1,6 +1,8 @@
 load("@io_bazel_rules_closure//closure:defs.bzl", "closure_js_binary")
 load("@com_google_j2cl//build_defs:rules.bzl", "J2CL_OPTIMIZED_DEFS")
 
+licenses(["notice"])  # Apache 2.0
+
 j2cl_multi_test(
     name = "ByteStringTest",
     srcs = ["ByteStringTest.java"],

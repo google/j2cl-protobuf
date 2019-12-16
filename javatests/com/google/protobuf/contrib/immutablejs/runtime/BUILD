@@ -1,3 +1,5 @@
+licenses(["notice"])  # Apache 2.0
+
 proto_jsunit_test(
     name = "bytestring_test",
     srcs = ["bytestring_test.js"],

@@ -4,6 +4,8 @@ package(
     ],
 )
 
+licenses(["notice"])  # Apache 2.0
+
 proto_library(
     name = "accessors",
     srcs = ["accessors.proto"],

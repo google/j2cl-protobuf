@@ -6,6 +6,8 @@ package(
     default_visibility = ["//visibility:public"],
 )
 
+licenses(["notice"])  # Apache 2.0
+
 # TODO(dankurka): This target should be public, but for now we still need
 # to switch between two different j2cl proto implementations with a blaze
 # flag, making this public would expose an alternate implementation of the
