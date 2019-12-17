@@ -46,7 +46,7 @@ def generate_protos(name, proto_file, deps = []):
 
     _flatten_jar(
         name = name,
-        file = ":" + name + "_j2cl_proto_new__interop_for_testing_do_not_use.srcjar",
+        file = ":" + name + "_j2cl_proto_new_for_testing_do_not_use.srcjar",
     )
 
     j2cl_proto_library(
@@ -56,7 +56,7 @@ def generate_protos(name, proto_file, deps = []):
 
     _flatten_jar(
         name = name + "-multiple-files",
-        file = ":" + name + "-multiple-files_j2cl_proto_new__interop_for_testing_do_not_use.srcjar",
+        file = ":" + name + "-multiple-files_j2cl_proto_new_for_testing_do_not_use.srcjar",
     )
 
     j2cl_proto_library(
