@@ -1,3 +1,16 @@
+/*
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ */
 package com.google.protobuf.contrib.immutablejs.testing;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
@@ -115,7 +128,9 @@ public abstract class GoldenFilesBaseTest extends TestCase {
 
   private ImmutableSet<GeneratedFile> loadFilesFromDir(String relativePath, String postfix)
       throws Exception {
-    Path path = RunfilesPaths.resolvePackageRelativePath("third_party/java_src/j2cl_proto/javatests", getClass(), relativePath);
+    Path path =
+        RunfilesPaths.resolvePackageRelativePath(
+            "third_party/java_src/j2cl_proto/javatests", getClass(), relativePath);
     try (DirectoryStream<Path> stream = Files.newDirectoryStream(path)) {
       return StreamSupport.stream(stream.spliterator(), false)
           .map(p -> readFile(p, postfix))
@@ -138,7 +153,8 @@ public abstract class GoldenFilesBaseTest extends TestCase {
   private static ImmutableSet<GeneratedFile> loadZipFiles(String protoName, Class<?> testClass)
       throws IOException {
     Path path =
-        RunfilesPaths.resolvePackageRelativePath("third_party/java_src/j2cl_proto/javatests", testClass, protoName + ".zip");
+        RunfilesPaths.resolvePackageRelativePath(
+            "third_party/java_src/j2cl_proto/javatests", testClass, protoName + ".zip");
     try (ZipFile zipFile = new ZipFile(path.toFile())) {
       return Collections.list(zipFile.entries()).stream()
           .map(e -> readZipContent(zipFile, e))
