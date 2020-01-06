@@ -237,28 +237,3 @@ new_j2cl_proto_library = rule(
         "srcjar": "%{name}_for_testing_do_not_use.srcjar",
     },
 )
-
-# Warning: Do not use this without talking to j2cl-team@
-def j2cl_proto_selection(
-        nointerop_target,
-        interop_target,
-        name = None,
-        visibility = None,
-        testonly = None,
-        tags = None):
-    selection = select({
-
-
-        "//conditions:default": interop_target,
-    })
-
-    if name:
-        native.alias(
-            name = name,
-            actual = selection,
-            visibility = visibility,
-            testonly = testonly,
-            tags = tags,
-        )
-
-    return selection
