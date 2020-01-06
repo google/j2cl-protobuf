@@ -1,3 +1,4 @@
+
 /**
  * @fileoverview
  * @suppress {lateProvide}
@@ -63,6 +64,7 @@ class Recursive extends proto_im_InternalMessage {
     return new Recursive.Builder(this);
   }
 
+
   /**
    * @return {boolean}
    */
@@ -81,6 +83,7 @@ class Recursive extends proto_im_InternalMessage {
 
 
 // Extensions start
+
 /**
  * @const {!proto_im_Message.ExtensionFieldInfo<!improto_protobuf_contrib_immutablejs_protos_Base, !improto_protobuf_contrib_immutablejs_protos_Base>}
  */

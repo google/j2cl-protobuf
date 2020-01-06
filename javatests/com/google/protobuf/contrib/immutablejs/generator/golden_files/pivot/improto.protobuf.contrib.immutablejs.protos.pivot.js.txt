@@ -1,3 +1,4 @@
+
 /**
  * @fileoverview
  * @suppress {lateProvide}
@@ -13,6 +14,7 @@ const proto_im_Message = goog.require('proto.im.Message');
 const improto_protobuf_contrib_immutablejs_protos_Pivot = goog.require('improto.protobuf.contrib.immutablejs.protos.Pivot');
 
 const module = {};
+
 /**
  * @const {!proto_im_Message.ExtensionFieldInfo<!improto_protobuf_contrib_immutablejs_protos_Pivot, !improto_protobuf_contrib_immutablejs_protos_Pivot>}
  */

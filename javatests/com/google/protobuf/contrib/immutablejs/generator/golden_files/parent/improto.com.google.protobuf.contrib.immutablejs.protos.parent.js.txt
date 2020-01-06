@@ -1,3 +1,4 @@
+
 /**
  * @fileoverview
  * @suppress {lateProvide}
@@ -12,5 +13,6 @@ const proto_im_InternalMessage = goog.require('proto.im.internal.InternalMessage
 const proto_im_Message = goog.require('proto.im.Message');
 
 const module = {};
+
 
 exports = module;

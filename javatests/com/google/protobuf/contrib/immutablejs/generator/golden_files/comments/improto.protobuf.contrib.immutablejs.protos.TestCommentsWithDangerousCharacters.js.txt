@@ -1,3 +1,4 @@
+
 /**
  * @fileoverview
  * @suppress {lateProvide}
@@ -66,6 +67,7 @@ class TestCommentsWithDangerousCharacters extends proto_im_InternalMessage {
     return new TestCommentsWithDangerousCharacters.Builder(this);
   }
 
+
   /**
    * @return {boolean}
    */
@@ -80,6 +82,7 @@ class TestCommentsWithDangerousCharacters extends proto_im_InternalMessage {
   getAField() {
     return this.internal_getIntField(1);
   }
+
 
   /**
    * @return {boolean}
@@ -96,6 +99,7 @@ class TestCommentsWithDangerousCharacters extends proto_im_InternalMessage {
     return this.internal_getStringField(2);
   }
 
+
   /**
    * @return {boolean}
    */
@@ -110,6 +114,7 @@ class TestCommentsWithDangerousCharacters extends proto_im_InternalMessage {
   getASecondString() {
     return this.internal_getStringField(3);
   }
+
 
   /**
    * @return {boolean}
@@ -144,6 +149,7 @@ class TestCommentsWithDangerousCharacters extends proto_im_InternalMessage {
   }
 }
 
+
 /**
  * Expected oneof with escaped characters: &#64;*
  * @enum {number}
@@ -155,6 +161,7 @@ TestCommentsWithDangerousCharacters.AOneofCase = {
 };
 
 // Extensions start
+
 // Extensions end
 
 /**

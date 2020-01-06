@@ -1,3 +1,4 @@
+
 /**
  * @fileoverview
  * @suppress {lateProvide}
@@ -62,6 +63,7 @@ class Parent extends proto_im_InternalMessage {
     return new Parent.Builder(this);
   }
 
+
   /**
    * @return {boolean}
    */
@@ -83,6 +85,7 @@ class Parent extends proto_im_InternalMessage {
 
 
 // Extensions start
+
 // Extensions end
 
 /**

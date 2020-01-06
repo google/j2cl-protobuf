@@ -1,3 +1,4 @@
+
 /**
  * @fileoverview
  * @suppress {lateProvide}
@@ -62,6 +63,7 @@ class Fields extends proto_im_InternalMessage {
     return new Fields.Builder(this);
   }
 
+
   /**
    * @return {boolean}
    */
@@ -76,6 +78,7 @@ class Fields extends proto_im_InternalMessage {
   getPrimitiveLowerCaseUnderscore() {
     return this.internal_getBooleanField(1);
   }
+
 
   /**
    * @return {boolean}
@@ -92,6 +95,7 @@ class Fields extends proto_im_InternalMessage {
     return this.internal_getBooleanField(2);
   }
 
+
   /**
    * @return {boolean}
    */
@@ -106,6 +110,7 @@ class Fields extends proto_im_InternalMessage {
   getPrimitiveUpperCaseCamel() {
     return this.internal_getBooleanField(3);
   }
+
 
   /**
    * @return {number}
@@ -130,6 +135,7 @@ class Fields extends proto_im_InternalMessage {
     return this.internal_getRepeatedBooleanField(4);
   }
 
+
   /**
    * @return {number}
    */
@@ -152,6 +158,7 @@ class Fields extends proto_im_InternalMessage {
   getRepeatedPrimitiveLowerCaseCamelList() {
     return this.internal_getRepeatedBooleanField(5);
   }
+
 
   /**
    * @return {number}
@@ -176,6 +183,7 @@ class Fields extends proto_im_InternalMessage {
     return this.internal_getRepeatedBooleanField(6);
   }
 
+
   /**
    * @return {boolean}
    */
@@ -191,6 +199,7 @@ class Fields extends proto_im_InternalMessage {
     return /** @type {!Fields.TestEnum} */ (
         this.internal_getIntFieldWithDefault(7, 0));
   }
+
 
   /**
    * @return {boolean}
@@ -208,6 +217,7 @@ class Fields extends proto_im_InternalMessage {
         this.internal_getIntFieldWithDefault(8, 0));
   }
 
+
   /**
    * @return {boolean}
    */
@@ -223,6 +233,7 @@ class Fields extends proto_im_InternalMessage {
     return /** @type {!Fields.TestEnum} */ (
         this.internal_getIntFieldWithDefault(9, 0));
   }
+
 
   /**
    * @return {number}
@@ -249,6 +260,7 @@ class Fields extends proto_im_InternalMessage {
         this.internal_getRepeatedIntField(10));
   }
 
+
   /**
    * @return {number}
    */
@@ -273,6 +285,7 @@ class Fields extends proto_im_InternalMessage {
     return /** @type {!proto_im_ListView<!Fields.TestEnum>} */ (
         this.internal_getRepeatedIntField(11));
   }
+
 
   /**
    * @return {number}
@@ -299,6 +312,7 @@ class Fields extends proto_im_InternalMessage {
         this.internal_getRepeatedIntField(12));
   }
 
+
   /**
    * @return {boolean}
    */
@@ -313,6 +327,7 @@ class Fields extends proto_im_InternalMessage {
   getMessageLowerCaseUnderscore() {
     return this.internal_getMessageField(13, Fields.Nested);
   }
+
 
   /**
    * @return {boolean}
@@ -329,6 +344,7 @@ class Fields extends proto_im_InternalMessage {
     return this.internal_getMessageField(14, Fields.Nested);
   }
 
+
   /**
    * @return {boolean}
    */
@@ -343,6 +359,7 @@ class Fields extends proto_im_InternalMessage {
   getMessageUpperCaseCamel() {
     return this.internal_getMessageField(15, Fields.Nested);
   }
+
 
   /**
    * @return {number}
@@ -367,6 +384,7 @@ class Fields extends proto_im_InternalMessage {
     return this.internal_getRepeatedMessageField(16, Fields.Nested);
   }
 
+
   /**
    * @return {number}
    */
@@ -389,6 +407,7 @@ class Fields extends proto_im_InternalMessage {
   getRepeatedMessageLowerCaseCamelList() {
     return this.internal_getRepeatedMessageField(17, Fields.Nested);
   }
+
 
   /**
    * @return {number}
@@ -416,6 +435,7 @@ class Fields extends proto_im_InternalMessage {
 
 
 // Extensions start
+
 // Extensions end
 
 /**
@@ -1262,6 +1282,7 @@ Fields.Nested = class Nested extends proto_im_InternalMessage {
 
 
 // Extensions start
+
 // Extensions end
 
 /**

@@ -1,3 +1,4 @@
+
 /**
  * @fileoverview
  * @suppress {lateProvide}
@@ -64,6 +65,7 @@ class RepeatedExtensionField extends proto_im_InternalMessage {
     return new RepeatedExtensionField.Builder(this);
   }
 
+
   /**
    * @return {number}
    */
@@ -86,6 +88,7 @@ class RepeatedExtensionField extends proto_im_InternalMessage {
   getExtension_List() {
     return this.internal_getRepeatedStringField(1);
   }
+
 
   /**
    * @return {number}
@@ -113,6 +116,7 @@ class RepeatedExtensionField extends proto_im_InternalMessage {
 
 
 // Extensions start
+
 // Extensions end
 
 /**

@@ -1,3 +1,4 @@
+
 /**
  * @fileoverview
  * @suppress {lateProvide}
@@ -66,6 +67,7 @@ class TestProtoWithOneOfs extends proto_im_InternalMessage {
     return new TestProtoWithOneOfs.Builder(this);
   }
 
+
   /**
    * @return {boolean}
    */
@@ -80,6 +82,7 @@ class TestProtoWithOneOfs extends proto_im_InternalMessage {
   getABool() {
     return this.internal_getBooleanField(1);
   }
+
 
   /**
    * @return {boolean}
@@ -96,6 +99,7 @@ class TestProtoWithOneOfs extends proto_im_InternalMessage {
     return this.internal_getIntField(4);
   }
 
+
   /**
    * @return {boolean}
    */
@@ -110,6 +114,7 @@ class TestProtoWithOneOfs extends proto_im_InternalMessage {
   getALong() {
     return this.internal_getInt52LongField(7);
   }
+
 
   /**
    * @return {boolean}
@@ -126,6 +131,7 @@ class TestProtoWithOneOfs extends proto_im_InternalMessage {
     return this.internal_getDoubleField(10);
   }
 
+
   /**
    * @return {boolean}
    */
@@ -141,6 +147,7 @@ class TestProtoWithOneOfs extends proto_im_InternalMessage {
     return this.internal_getDoubleField(14);
   }
 
+
   /**
    * @return {boolean}
    */
@@ -155,6 +162,7 @@ class TestProtoWithOneOfs extends proto_im_InternalMessage {
   getDoubleWithDefault() {
     return this.internal_getDoubleFieldWithDefault(15, 2.46);
   }
+
 
   /**
    * @return {boolean}
@@ -172,6 +180,7 @@ class TestProtoWithOneOfs extends proto_im_InternalMessage {
         this.internal_getIntFieldWithDefault(16, 0));
   }
 
+
   /**
    * @return {boolean}
    */
@@ -187,6 +196,7 @@ class TestProtoWithOneOfs extends proto_im_InternalMessage {
     return this.internal_getStringField(19);
   }
 
+
   /**
    * @return {boolean}
    */
@@ -201,6 +211,7 @@ class TestProtoWithOneOfs extends proto_im_InternalMessage {
   getSomeBytes() {
     return this.internal_getByteStringField(20);
   }
+
 
   /**
    * @return {boolean}
@@ -218,6 +229,7 @@ class TestProtoWithOneOfs extends proto_im_InternalMessage {
         26, TestProtoWithOneOfs.TestNestedProto);
   }
 
+
   /**
    * @return {boolean}
    */
@@ -234,6 +246,7 @@ class TestProtoWithOneOfs extends proto_im_InternalMessage {
         27, TestProtoWithOneOfs.TestNestedProtoWithOneOfs);
   }
 
+
   /**
    * @return {boolean}
    */
@@ -249,6 +262,7 @@ class TestProtoWithOneOfs extends proto_im_InternalMessage {
     return this.internal_getBooleanField(2);
   }
 
+
   /**
    * @return {boolean}
    */
@@ -263,6 +277,7 @@ class TestProtoWithOneOfs extends proto_im_InternalMessage {
   getRequiredString() {
     return this.internal_getStringField(3);
   }
+
 
   /**
    * @return {number}
@@ -335,6 +350,7 @@ class TestProtoWithOneOfs extends proto_im_InternalMessage {
   }
 }
 
+
 /**
  *
  * @enum {number}
@@ -348,6 +364,7 @@ TestProtoWithOneOfs.AOneofCase = {
   A_DOUBLE: 14,
   DOUBLE_WITH_DEFAULT: 15,
 };
+
 /**
  *
  * @enum {number}
@@ -362,6 +379,7 @@ TestProtoWithOneOfs.AnotherOneofCase = {
 };
 
 // Extensions start
+
 // Extensions end
 
 /**
@@ -924,6 +942,7 @@ TestProtoWithOneOfs.TestNestedProto =
     return new TestProtoWithOneOfs.TestNestedProto.Builder(this);
   }
 
+
   /**
    * @return {boolean}
    */
@@ -942,6 +961,7 @@ TestProtoWithOneOfs.TestNestedProto =
 
 
 // Extensions start
+
 // Extensions end
 
 /**
@@ -1050,6 +1070,7 @@ TestProtoWithOneOfs.TestNestedProtoWithOneOfs =
     return new TestProtoWithOneOfs.TestNestedProtoWithOneOfs.Builder(this);
   }
 
+
   /**
    * @return {boolean}
    */
@@ -1065,6 +1086,7 @@ TestProtoWithOneOfs.TestNestedProtoWithOneOfs =
     return this.internal_getBooleanFieldWithDefault(1, true);
   }
 
+
   /**
    * @return {boolean}
    */
@@ -1079,6 +1101,7 @@ TestProtoWithOneOfs.TestNestedProtoWithOneOfs =
   getAnInt() {
     return this.internal_getIntField(7);
   }
+
 
   /**
    * @return {boolean}
@@ -1112,6 +1135,7 @@ TestProtoWithOneOfs.TestNestedProtoWithOneOfs =
   }
 }
 
+
 /**
  *
  * @enum {number}
@@ -1123,6 +1147,7 @@ TestProtoWithOneOfs.TestNestedProtoWithOneOfs.ANestedOneofCase = {
 };
 
 // Extensions start
+
 // Extensions end
 
 /**

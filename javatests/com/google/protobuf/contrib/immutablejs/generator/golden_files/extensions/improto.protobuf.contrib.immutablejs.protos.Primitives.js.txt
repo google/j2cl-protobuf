@@ -1,3 +1,4 @@
+
 /**
  * @fileoverview
  * @suppress {lateProvide}
@@ -66,6 +67,7 @@ class Primitives extends proto_im_InternalMessage {
     return new Primitives.Builder(this);
   }
 
+
   /**
    * @return {boolean}
    */
@@ -84,6 +86,7 @@ class Primitives extends proto_im_InternalMessage {
 
 
 // Extensions start
+
 /**
  * @const {!proto_im_Message.ExtensionFieldInfo<!improto_protobuf_contrib_immutablejs_protos_Base, !boolean>}
  */

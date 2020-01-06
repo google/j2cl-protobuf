@@ -1,3 +1,4 @@
+
 /**
  * @fileoverview
  * @suppress {lateProvide}
@@ -61,6 +62,7 @@ class MyMessage extends proto_im_InternalMessage {
     return new MyMessage.Builder(this);
   }
 
+
   /**
    * @return {boolean}
    */
@@ -75,6 +77,7 @@ class MyMessage extends proto_im_InternalMessage {
   getClass_() {
     return this.internal_getStringField(1);
   }
+
 
   /**
    * @return {boolean}
@@ -91,6 +94,7 @@ class MyMessage extends proto_im_InternalMessage {
     return this.internal_getStringField(2);
   }
 
+
   /**
    * @return {boolean}
    */
@@ -105,6 +109,7 @@ class MyMessage extends proto_im_InternalMessage {
   getSerializedSize_() {
     return this.internal_getStringField(3);
   }
+
 
   /**
    * @return {boolean}
@@ -124,6 +129,7 @@ class MyMessage extends proto_im_InternalMessage {
 
 
 // Extensions start
+
 // Extensions end
 
 /**

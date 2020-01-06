@@ -1,3 +1,4 @@
+
 /**
  * @fileoverview
  * @suppress {lateProvide}
@@ -64,6 +65,7 @@ class TestNoCommentsProto extends proto_im_InternalMessage {
     return new TestNoCommentsProto.Builder(this);
   }
 
+
   /**
    * @return {boolean}
    */
@@ -78,6 +80,7 @@ class TestNoCommentsProto extends proto_im_InternalMessage {
   getAField() {
     return this.internal_getIntField(1);
   }
+
 
   /**
    * @return {boolean}
@@ -94,6 +97,7 @@ class TestNoCommentsProto extends proto_im_InternalMessage {
     return this.internal_getStringField(2);
   }
 
+
   /**
    * @return {boolean}
    */
@@ -108,6 +112,7 @@ class TestNoCommentsProto extends proto_im_InternalMessage {
   getASecondString() {
     return this.internal_getStringField(3);
   }
+
 
   /**
    * @return {boolean}
@@ -138,6 +143,7 @@ class TestNoCommentsProto extends proto_im_InternalMessage {
   }
 }
 
+
 /**
  *
  * @enum {number}
@@ -149,6 +155,7 @@ TestNoCommentsProto.AOneofCase = {
 };
 
 // Extensions start
+
 // Extensions end
 
 /**
