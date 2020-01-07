@@ -1,4 +1,3 @@
-
 /**
  * @fileoverview
  * @suppress {lateProvide}
@@ -64,7 +63,6 @@ class Base extends proto_im_InternalMessage {
     return new Base.Builder(this);
   }
 
-
   /**
    * @return {boolean}
    */
@@ -79,7 +77,6 @@ class Base extends proto_im_InternalMessage {
   getOptionalLong() {
     return this.internal_getInt52LongField(1);
   }
-
 
   /**
    * @return {number}
@@ -104,7 +101,6 @@ class Base extends proto_im_InternalMessage {
     return this.internal_getRepeatedStringField(3);
   }
 
-
   /**
    * @return {boolean}
    */
@@ -121,7 +117,6 @@ class Base extends proto_im_InternalMessage {
         this.internal_getIntFieldWithDefault(4, 1));
   }
 
-
   /**
    * @return {boolean}
    */
@@ -137,7 +132,6 @@ class Base extends proto_im_InternalMessage {
     return this.internal_getIntField(5);
   }
 
-
   /**
    * @return {boolean}
    */
@@ -152,7 +146,6 @@ class Base extends proto_im_InternalMessage {
   getOptionalMessage() {
     return this.internal_getMessageField(6, Base);
   }
-
 
   /**
    * @return {number}
@@ -177,7 +170,6 @@ class Base extends proto_im_InternalMessage {
     return this.internal_getRepeatedMessageField(7, Base);
   }
 
-
   /**
    * @return {boolean}
    */
@@ -192,7 +184,6 @@ class Base extends proto_im_InternalMessage {
   getOptionalBool() {
     return this.internal_getBooleanField(8);
   }
-
 
   /**
    * @return {number}
@@ -220,7 +211,6 @@ class Base extends proto_im_InternalMessage {
 
 
 // Extensions start
-
 // Extensions end
 
 /**

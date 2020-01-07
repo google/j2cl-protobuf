@@ -1,4 +1,3 @@
-
 /**
  * @fileoverview
  * @suppress {lateProvide}
@@ -14,7 +13,6 @@ const proto_im_Message = goog.require('proto.im.Message');
 const improto_javatests_com_google_protobuf_contrib_j2cl_protos_MyMessage = goog.require('improto.javatests.com.google.protobuf.contrib.j2cl.protos.MyMessage');
 
 const module = {};
-
 /**
  * @const {!proto_im_Message.ExtensionFieldInfo<!improto_javatests_com_google_protobuf_contrib_j2cl_protos_MyMessage, !string>}
  */

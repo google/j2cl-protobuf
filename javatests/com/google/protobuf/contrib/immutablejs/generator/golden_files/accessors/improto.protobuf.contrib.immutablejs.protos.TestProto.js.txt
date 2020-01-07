@@ -1,4 +1,3 @@
-
 /**
  * @fileoverview
  * @suppress {lateProvide}
@@ -65,7 +64,6 @@ class TestProto extends proto_im_InternalMessage {
     return new TestProto.Builder(this);
   }
 
-
   /**
    * @return {boolean}
    */
@@ -81,7 +79,6 @@ class TestProto extends proto_im_InternalMessage {
     return this.internal_getBooleanField(1);
   }
 
-
   /**
    * @return {boolean}
    */
@@ -96,7 +93,6 @@ class TestProto extends proto_im_InternalMessage {
   getOptionalBoolWithDefault() {
     return this.internal_getBooleanFieldWithDefault(2, true);
   }
-
 
   /**
    * @return {number}
@@ -121,7 +117,6 @@ class TestProto extends proto_im_InternalMessage {
     return this.internal_getRepeatedBooleanField(3);
   }
 
-
   /**
    * @return {boolean}
    */
@@ -137,7 +132,6 @@ class TestProto extends proto_im_InternalMessage {
     return this.internal_getIntField(4);
   }
 
-
   /**
    * @return {boolean}
    */
@@ -152,7 +146,6 @@ class TestProto extends proto_im_InternalMessage {
   getOptionalIntWithDefault() {
     return this.internal_getIntFieldWithDefault(5, 135);
   }
-
 
   /**
    * @return {number}
@@ -177,7 +170,6 @@ class TestProto extends proto_im_InternalMessage {
     return this.internal_getRepeatedIntField(6);
   }
 
-
   /**
    * @return {boolean}
    */
@@ -192,7 +184,6 @@ class TestProto extends proto_im_InternalMessage {
   getOptionalLong() {
     return this.internal_getLongField(7);
   }
-
 
   /**
    * @return {boolean}
@@ -209,7 +200,6 @@ class TestProto extends proto_im_InternalMessage {
     return this.internal_getLongFieldWithDefault(
         8, goog_math_Long.fromString('3000000000'));
   }
-
 
   /**
    * @return {number}
@@ -234,7 +224,6 @@ class TestProto extends proto_im_InternalMessage {
     return this.internal_getRepeatedLongField(9);
   }
 
-
   /**
    * @return {boolean}
    */
@@ -249,7 +238,6 @@ class TestProto extends proto_im_InternalMessage {
   getOptionalInt52Long() {
     return this.internal_getInt52LongField(50);
   }
-
 
   /**
    * @return {boolean}
@@ -266,7 +254,6 @@ class TestProto extends proto_im_InternalMessage {
     return this.internal_getInt52LongFieldWithDefault(
         51, goog_math_Long.fromString('30000'));
   }
-
 
   /**
    * @return {number}
@@ -291,7 +278,6 @@ class TestProto extends proto_im_InternalMessage {
     return this.internal_getRepeatedInt52LongField(52);
   }
 
-
   /**
    * @return {boolean}
    */
@@ -307,7 +293,6 @@ class TestProto extends proto_im_InternalMessage {
     return this.internal_getDoubleField(10);
   }
 
-
   /**
    * @return {boolean}
    */
@@ -322,7 +307,6 @@ class TestProto extends proto_im_InternalMessage {
   getOptionalFloatWithDefault() {
     return this.internal_getDoubleFieldWithDefault(11, 1.35);
   }
-
 
   /**
    * @return {number}
@@ -347,7 +331,6 @@ class TestProto extends proto_im_InternalMessage {
     return this.internal_getRepeatedDoubleField(12);
   }
 
-
   /**
    * @return {boolean}
    */
@@ -363,7 +346,6 @@ class TestProto extends proto_im_InternalMessage {
     return this.internal_getDoubleField(13);
   }
 
-
   /**
    * @return {boolean}
    */
@@ -378,7 +360,6 @@ class TestProto extends proto_im_InternalMessage {
   getOptionalDoubleWithDefault() {
     return this.internal_getDoubleFieldWithDefault(14, 2.46);
   }
-
 
   /**
    * @return {number}
@@ -403,7 +384,6 @@ class TestProto extends proto_im_InternalMessage {
     return this.internal_getRepeatedDoubleField(15);
   }
 
-
   /**
    * @return {boolean}
    */
@@ -420,7 +400,6 @@ class TestProto extends proto_im_InternalMessage {
         this.internal_getIntFieldWithDefault(16, 0));
   }
 
-
   /**
    * @return {boolean}
    */
@@ -436,7 +415,6 @@ class TestProto extends proto_im_InternalMessage {
     return /** @type {!TestProto.TestEnum} */ (
         this.internal_getIntFieldWithDefault(17, 3));
   }
-
 
   /**
    * @return {number}
@@ -463,7 +441,6 @@ class TestProto extends proto_im_InternalMessage {
         this.internal_getRepeatedIntField(18));
   }
 
-
   /**
    * @return {boolean}
    */
@@ -479,7 +456,6 @@ class TestProto extends proto_im_InternalMessage {
     return this.internal_getStringField(19);
   }
 
-
   /**
    * @return {boolean}
    */
@@ -494,7 +470,6 @@ class TestProto extends proto_im_InternalMessage {
   getOptionalStringWithDefault() {
     return this.internal_getStringFieldWithDefault(20, 'non-trivial default');
   }
-
 
   /**
    * @return {number}
@@ -519,7 +494,6 @@ class TestProto extends proto_im_InternalMessage {
     return this.internal_getRepeatedStringField(21);
   }
 
-
   /**
    * @return {boolean}
    */
@@ -534,7 +508,6 @@ class TestProto extends proto_im_InternalMessage {
   getOptionalBytes() {
     return this.internal_getByteStringField(28);
   }
-
 
   /**
    * @return {boolean}
@@ -551,7 +524,6 @@ class TestProto extends proto_im_InternalMessage {
     return this.internal_getByteStringFieldWithDefault(
         29, proto_im_ByteString.fromBase64String('YSBieXRleSBkZWZhdWx0'));
   }
-
 
   /**
    * @return {number}
@@ -576,7 +548,6 @@ class TestProto extends proto_im_InternalMessage {
     return this.internal_getRepeatedByteStringField(30);
   }
 
-
   /**
    * @return {boolean}
    */
@@ -591,7 +562,6 @@ class TestProto extends proto_im_InternalMessage {
   getOptionalMessage() {
     return this.internal_getMessageField(26, TestProto.NestedMessage);
   }
-
 
   /**
    * @return {number}
@@ -619,7 +589,6 @@ class TestProto extends proto_im_InternalMessage {
 
 
 // Extensions start
-
 // Extensions end
 
 /**
@@ -1822,7 +1791,6 @@ TestProto.NestedMessage = class NestedMessage extends proto_im_InternalMessage {
     return new TestProto.NestedMessage.Builder(this);
   }
 
-
   /**
    * @return {boolean}
    */
@@ -1841,7 +1809,6 @@ TestProto.NestedMessage = class NestedMessage extends proto_im_InternalMessage {
 
 
 // Extensions start
-
 // Extensions end
 
 /**

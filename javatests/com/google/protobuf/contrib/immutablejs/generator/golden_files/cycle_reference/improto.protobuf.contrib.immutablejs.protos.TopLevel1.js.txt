@@ -1,4 +1,3 @@
-
 /**
  * @fileoverview
  * @suppress {lateProvide}
@@ -64,7 +63,6 @@ class TopLevel1 extends proto_im_InternalMessage {
     return new TopLevel1.Builder(this);
   }
 
-
   /**
    * @return {boolean}
    */
@@ -83,7 +81,6 @@ class TopLevel1 extends proto_im_InternalMessage {
             .Sub2First);
   }
 
-
   /**
    * @return {boolean}
    */
@@ -98,7 +95,6 @@ class TopLevel1 extends proto_im_InternalMessage {
   getTopLevel2Sub2Second() {
     return /** @type {!improto_protobuf_contrib_immutablejs_protos_TopLevel2.Sub2Second} */ (this.internal_getIntFieldWithDefault(2, 0));
   }
-
 
   /**
    * @return {boolean}
@@ -118,7 +114,6 @@ class TopLevel1 extends proto_im_InternalMessage {
             'improto.protobuf.contrib.immutablejs.protos.TopLevel2'));
   }
 
-
   /**
    * @return {boolean}
    */
@@ -133,7 +128,6 @@ class TopLevel1 extends proto_im_InternalMessage {
   getTopLevel3() {
     return /** @type {!improto_protobuf_contrib_immutablejs_protos_TopLevel3} */ (this.internal_getIntFieldWithDefault(4, 0));
   }
-
 
   /**
    * @return {boolean}
@@ -153,7 +147,6 @@ class TopLevel1 extends proto_im_InternalMessage {
 
 
 // Extensions start
-
 // Extensions end
 
 /**
@@ -378,7 +371,6 @@ TopLevel1.Sub2First = class Sub2First extends proto_im_InternalMessage {
     return new TopLevel1.Sub2First.Builder(this);
   }
 
-
   /**
    * @return {boolean}
    */
@@ -396,7 +388,6 @@ TopLevel1.Sub2First = class Sub2First extends proto_im_InternalMessage {
         goog.module.get('improto.protobuf.contrib.immutablejs.protos.TopLevel2')
             .Sub2First);
   }
-
 
   /**
    * @return {boolean}
@@ -416,7 +407,6 @@ TopLevel1.Sub2First = class Sub2First extends proto_im_InternalMessage {
 
 
 // Extensions start
-
 // Extensions end
 
 /**
