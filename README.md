@@ -1,4 +1,4 @@
-# [J2CL Proto]
+# J2CL Proto
 
 This repository contains the source code of the implementation of
 [Protocol Buffers](https://developers.google.com/protocol-buffers)
