@@ -78,10 +78,10 @@ public static final class Builder extends
     return getDefaultInstance();
   }
 
-  @Override
+  @java.lang.Override
   public native $descriptor.name build();
 
-  @Override
+  @java.lang.Override
   public native Builder clone();
 
 ## render fields for builder

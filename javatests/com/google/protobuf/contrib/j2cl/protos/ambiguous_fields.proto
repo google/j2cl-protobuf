@@ -27,6 +27,9 @@ message MyMessage {
   message Internal {
     optional string x = 5;
   }
+  message Override {
+    optional string x = 6;
+  }
   extensions 10 to 99;
 }
 extend MyMessage {

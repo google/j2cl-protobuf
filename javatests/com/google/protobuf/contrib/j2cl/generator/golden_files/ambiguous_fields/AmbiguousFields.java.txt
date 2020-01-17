@@ -41,10 +41,10 @@ public final class AmbiguousFields {
         return getDefaultInstance();
       }
 
-      @Override
+      @java.lang.Override
       public native Internal build();
 
-      @Override
+      @java.lang.Override
       public native Builder clone();
     }
   }
@@ -94,10 +94,68 @@ public final class AmbiguousFields {
           return getDefaultInstance();
         }
 
-        @Override
+        @java.lang.Override
         public native Internal build();
 
-        @Override
+        @java.lang.Override
+        public native Builder clone();
+
+        @jsinterop.annotations.JsMethod(name = "hasX")
+        public native boolean hasX();
+
+        @jsinterop.annotations.JsMethod(name = "getX")
+        public native java.lang.String getX();
+
+        @jsinterop.annotations.JsMethod(name = "clearX")
+        public native Builder clearX();
+
+        @jsinterop.annotations.JsMethod(name = "setX")
+        public native Builder setX(java.lang.String value);
+      }
+    }
+
+    @jsinterop.annotations.JsType(isNative = true)
+    public static final class Override
+        extends com.google.protobuf.GeneratedMessageLite<Override, Override.Builder> {
+
+      protected Override() {}
+
+      public static final native Override getDefaultInstance();
+
+      @jsinterop.annotations.JsOverlay
+      public final Override getDefaultInstanceForType() {
+        return getDefaultInstance();
+      }
+
+      public native Builder toBuilder();
+
+      @jsinterop.annotations.JsOverlay public static final int X_FIELD_NUMBER = 6;
+
+      @jsinterop.annotations.JsMethod(name = "hasX")
+      public native boolean hasX();
+
+      @jsinterop.annotations.JsMethod(name = "getX")
+      public native java.lang.String getX();
+
+      public static native Builder newBuilder();
+
+      public static native Builder newBuilder(Override prototype);
+
+      @jsinterop.annotations.JsType(isNative = true)
+      public static final class Builder
+          extends com.google.protobuf.GeneratedMessageLite.Builder<Override, Builder> {
+
+        protected Builder() {}
+
+        @jsinterop.annotations.JsOverlay
+        public final Override getDefaultInstanceForType() {
+          return getDefaultInstance();
+        }
+
+        @java.lang.Override
+        public native Override build();
+
+        @java.lang.Override
         public native Builder clone();
 
         @jsinterop.annotations.JsMethod(name = "hasX")
@@ -169,10 +227,10 @@ public final class AmbiguousFields {
         return getDefaultInstance();
       }
 
-      @Override
+      @java.lang.Override
       public native MyMessage build();
 
-      @Override
+      @java.lang.Override
       public native Builder clone();
 
       @jsinterop.annotations.JsMethod(name = "hasClass_")
@@ -294,10 +352,10 @@ public final class AmbiguousFields {
         return getDefaultInstance();
       }
 
-      @Override
+      @java.lang.Override
       public native RepeatedExtensionField build();
 
-      @Override
+      @java.lang.Override
       public native Builder clone();
 
       @jsinterop.annotations.JsMethod(name = "getExtension_Count")

@@ -42,10 +42,10 @@ public final class ProtoWithDashes {
         return getDefaultInstance();
       }
 
-      @Override
+      @java.lang.Override
       public native ProtoWithDashesMessage build();
 
-      @Override
+      @java.lang.Override
       public native Builder clone();
     }
   }

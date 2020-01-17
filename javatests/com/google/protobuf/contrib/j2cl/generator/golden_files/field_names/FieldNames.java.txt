@@ -96,10 +96,10 @@ public final class FieldNames {
           return getDefaultInstance();
         }
 
-        @Override
+        @java.lang.Override
         public native Nested build();
 
-        @Override
+        @java.lang.Override
         public native Builder clone();
       }
     }
@@ -445,10 +445,10 @@ public final class FieldNames {
         return getDefaultInstance();
       }
 
-      @Override
+      @java.lang.Override
       public native Fields build();
 
-      @Override
+      @java.lang.Override
       public native Builder clone();
 
       @jsinterop.annotations.JsMethod(name = "hasPrimitiveLowerCaseUnderscore")

@@ -244,10 +244,10 @@ public final class Primitives
       return getDefaultInstance();
     }
 
-    @Override
+    @java.lang.Override
     public native Primitives build();
 
-    @Override
+    @java.lang.Override
     public native Builder clone();
 
     @jsinterop.annotations.JsMethod(name = "hasPayload")

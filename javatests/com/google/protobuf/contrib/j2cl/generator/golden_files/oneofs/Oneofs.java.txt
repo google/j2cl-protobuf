@@ -245,10 +245,10 @@ public final class Oneofs {
           return getDefaultInstance();
         }
 
-        @Override
+        @java.lang.Override
         public native TestNestedProto build();
 
-        @Override
+        @java.lang.Override
         public native Builder clone();
 
         @jsinterop.annotations.JsMethod(name = "hasAString")
@@ -381,10 +381,10 @@ public final class Oneofs {
           return getDefaultInstance();
         }
 
-        @Override
+        @java.lang.Override
         public native TestNestedProtoWithOneOfs build();
 
-        @Override
+        @java.lang.Override
         public native Builder clone();
 
         @jsinterop.annotations.JsMethod(name = "hasBoolWithDefault")
@@ -599,10 +599,10 @@ public final class Oneofs {
         return getDefaultInstance();
       }
 
-      @Override
+      @java.lang.Override
       public native TestProtoWithOneOfs build();
 
-      @Override
+      @java.lang.Override
       public native Builder clone();
 
       @jsinterop.annotations.JsMethod(name = "hasABool")

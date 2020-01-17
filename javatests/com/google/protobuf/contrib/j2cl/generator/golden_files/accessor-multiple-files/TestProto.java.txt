@@ -108,10 +108,10 @@ public final class TestProto
         return getDefaultInstance();
       }
 
-      @Override
+      @java.lang.Override
       public native NestedMessage build();
 
-      @Override
+      @java.lang.Override
       public native Builder clone();
 
       @jsinterop.annotations.JsMethod(name = "hasPayload")
@@ -483,10 +483,10 @@ public final class TestProto
       return getDefaultInstance();
     }
 
-    @Override
+    @java.lang.Override
     public native TestProto build();
 
-    @Override
+    @java.lang.Override
     public native Builder clone();
 
     @jsinterop.annotations.JsMethod(name = "hasOptionalBool")

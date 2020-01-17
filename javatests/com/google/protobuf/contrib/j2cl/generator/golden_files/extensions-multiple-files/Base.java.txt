@@ -178,10 +178,10 @@ public final class Base extends com.google.protobuf.GeneratedMessageLite<Base, B
       return getDefaultInstance();
     }
 
-    @Override
+    @java.lang.Override
     public native Base build();
 
-    @Override
+    @java.lang.Override
     public native Builder clone();
 
     @jsinterop.annotations.JsMethod(name = "hasOptionalLong")

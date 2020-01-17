@@ -144,10 +144,10 @@ public final class MainMessage
       return getDefaultInstance();
     }
 
-    @Override
+    @java.lang.Override
     public native MainMessage build();
 
-    @Override
+    @java.lang.Override
     public native Builder clone();
 
     @jsinterop.annotations.JsMethod(name = "hasTopLevelNativeEnum")
