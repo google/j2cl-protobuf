@@ -8,7 +8,6 @@ j2cl_library(
     name = "runtime",
     visibility = [
         "//:__subpackages__",
-        "//net/proto2/proto:__pkg__",
     ],
     exports = [
     ],

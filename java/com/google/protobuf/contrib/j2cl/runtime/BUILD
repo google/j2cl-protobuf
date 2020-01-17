@@ -28,6 +28,8 @@ j2cl_library(
         "super/com/google/protobuf/ExtensionRegistry.java",
         "super/com/google/protobuf/ExtensionRegistryLite.java",
     ],
+    visibility = [
+    ],
     deps = [":runtime"],
 )
 
