@@ -64,7 +64,7 @@ def _j2cl_proto_library_aspect_impl(target, ctx):
     name = ctx.label.name + "-j2cl"
     srcs = target[ProtoInfo].direct_sources
     transitive_srcs = target[ProtoInfo].transitive_sources
-    deps = [target[ImmutableJspbInfo]]
+    deps = [target[ImmutableJspbInfo].js]
     deps += [dep[J2clProtoInfo]._private_.j2cl_info for dep in ctx.rule.attr.deps]
     transitive_runfiles = [target[ImmutableJspbInfo]._runfiles_do_not_use_internal]
     transitive_runfiles += [dep[J2clProtoInfo]._private_.runfiles for dep in ctx.rule.attr.deps]
