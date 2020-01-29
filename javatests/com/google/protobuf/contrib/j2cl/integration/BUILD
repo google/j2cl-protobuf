@@ -74,6 +74,8 @@ j2cl_multi_test(
     name = "EnumGenerationTest",
     srcs = ["EnumGenerationTest.java"],
     generate_java_test = False,
+    proto_deps = [
+    ],
     test_class = "com.google.protobuf.contrib.j2cl.integration.EnumGenerationTest",
     deps = [
         "//third_party/java/gwt:gwt-jsinterop-annotations",

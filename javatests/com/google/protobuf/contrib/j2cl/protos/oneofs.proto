@@ -15,6 +15,8 @@ syntax = "proto2";
 
 package protobuf.contrib.j2cl.protos;
 
+import "third_party/java_src/j2cl_proto/java/com/google/protobuf/contrib/j2cl/options/js_enum.proto";
+
 // REMOVED_BY_GENRULE option java_multiple_files = true;
 
 message TestProtoWithOneOfs {
@@ -56,4 +58,13 @@ message TestProtoWithOneOfs {
   optional bool optional_bool = 2;
   required string required_string = 3;
   repeated int32 repeated_int = 8;
+}
+
+message TestProtoWithNativeOneOfs {
+  oneof a_oneof {
+    option (contrib.j2cl.options.generate_js_case_enum) = true;
+
+    float a_float = 10;
+    double a_double = 14;
+  }
 }

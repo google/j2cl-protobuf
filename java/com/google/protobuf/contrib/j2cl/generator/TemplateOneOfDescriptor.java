@@ -19,6 +19,7 @@ import com.google.protobuf.Descriptors.Descriptor;
 import com.google.protobuf.Descriptors.FieldDescriptor;
 import com.google.protobuf.Descriptors.OneofDescriptor;
 import com.google.protobuf.contrib.JavaQualifiedNames;
+import com.google.protos.protobuf.contrib.j2cl.options.JsEnum;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,8 +50,7 @@ public abstract class TemplateOneOfDescriptor extends AbstractTemplateTypeDescri
   }
 
   public boolean isJsEnum() {
-    // TODO(b/143500098): support js enum in oneofs.
-    return false;
+    return descriptor().getOptions().getExtension(JsEnum.generateJsCaseEnum);
   }
 
   public List<TemplateEnumValueDescriptor> getValues() {

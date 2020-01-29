@@ -19,6 +19,7 @@ import com.google.protobuf.contrib.j2cl.protos.Sparse.DenseEnum;
 import com.google.protobuf.contrib.j2cl.protos.Sparse.NativeEnum;
 import com.google.protobuf.contrib.j2cl.protos.Sparse.SparseEnum;
 import com.google.protobuf.contrib.j2cl.protos.Sparse.TestProto;
+import com.google.protos.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithNativeOneOfs;
 import jsinterop.annotations.JsType;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -77,5 +78,12 @@ public final class EnumGenerationTest {
     // unknown values leak into Java.
     assertEquals(-1, LocalTestProto.parse("[null, null, -1]").getNativeEnum().getNumber());
     assertEquals(10, LocalTestProto.parse("[null, null, 10]").getNativeEnum().getNumber());
+  }
+
+  @Test
+  public void testNativeOneofEnum_unknownValues() throws Exception {
+    // This differs from the JVM version, which will return null for these cases.
+    assertEquals(-1.0, TestProtoWithNativeOneOfs.AOneofCase.forNumber(-1));
+    assertEquals(100.0, TestProtoWithNativeOneOfs.AOneofCase.forNumber(100));
   }
 }

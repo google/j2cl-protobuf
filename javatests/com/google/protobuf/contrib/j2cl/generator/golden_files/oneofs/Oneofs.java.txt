@@ -851,4 +851,147 @@ public final class Oneofs {
       private native Object internal_getAnotherOneofCase();
     }
   }
+
+  @jsinterop.annotations.JsType(
+      isNative = true,
+      name = "TestProtoWithNativeOneOfs",
+      namespace = "improto.protobuf.contrib.j2cl.protos")
+  public static final class TestProtoWithNativeOneOfs
+      extends com.google.protobuf.GeneratedMessageLite<
+          TestProtoWithNativeOneOfs, TestProtoWithNativeOneOfs.Builder> {
+
+    @jsinterop.annotations.JsEnum(
+        isNative = true,
+        name = "TestProtoWithNativeOneOfs.AOneofCase",
+        namespace = "improto.protobuf.contrib.j2cl.protos",
+        hasCustomValue = true)
+    public enum AOneofCase {
+      AONEOF_NOT_SET,
+      A_FLOAT,
+      A_DOUBLE;
+
+      @jsinterop.annotations.JsOverlay
+      public static final AOneofCase forNumber(int i) {
+        return jsinterop.base.Js.uncheckedCast((double) i);
+      }
+
+      private int value;
+
+      @jsinterop.annotations.JsOverlay
+      public final int getNumber() {
+        return value;
+      }
+
+      @jsinterop.annotations.JsOverlay public static final int AONEOF_NOT_SET_VALUE = 0;
+      @jsinterop.annotations.JsOverlay public static final int A_FLOAT_VALUE = 10;
+      @jsinterop.annotations.JsOverlay public static final int A_DOUBLE_VALUE = 14;
+
+      // DO NOT REFER TO FROM NON GENERATED CODE! SUBJECT TO CHANGE!
+      // Native closure enum representation
+      @jsinterop.annotations.JsType(
+          isNative = true,
+          name = "TestProtoWithNativeOneOfs.AOneofCase",
+          namespace = "improto.protobuf.contrib.j2cl.protos")
+      public static final class Internal_ClosureEnum {
+        @jsinterop.annotations.JsOverlay
+        public static final Internal_ClosureEnum toClosureValue(AOneofCase enumInstance) {
+          return jsinterop.base.Js.uncheckedCast((double) enumInstance.getNumber());
+        }
+
+        @jsinterop.annotations.JsOverlay
+        public static final AOneofCase toEnum(Object closureEnum) {
+          return jsinterop.base.Js.uncheckedCast(closureEnum);
+        }
+      }
+    }
+
+    protected TestProtoWithNativeOneOfs() {}
+
+    public static final native TestProtoWithNativeOneOfs getDefaultInstance();
+
+    @jsinterop.annotations.JsOverlay
+    public final TestProtoWithNativeOneOfs getDefaultInstanceForType() {
+      return getDefaultInstance();
+    }
+
+    public native Builder toBuilder();
+
+    @jsinterop.annotations.JsOverlay public static final int A_FLOAT_FIELD_NUMBER = 10;
+    @jsinterop.annotations.JsOverlay public static final int A_DOUBLE_FIELD_NUMBER = 14;
+
+    @jsinterop.annotations.JsMethod(name = "hasAFloat")
+    public native boolean hasAFloat();
+
+    @jsinterop.annotations.JsMethod(name = "getAFloat")
+    public native float getAFloat();
+
+    @jsinterop.annotations.JsMethod(name = "hasADouble")
+    public native boolean hasADouble();
+
+    @jsinterop.annotations.JsMethod(name = "getADouble")
+    public native double getADouble();
+
+    @jsinterop.annotations.JsOverlay
+    public final AOneofCase getAOneofCase() {
+      return AOneofCase.Internal_ClosureEnum.toEnum(internal_getAOneofCase());
+    }
+
+    @jsinterop.annotations.JsMethod(name = "getAOneofCase")
+    private native Object internal_getAOneofCase();
+
+    public static native Builder newBuilder();
+
+    public static native Builder newBuilder(TestProtoWithNativeOneOfs prototype);
+
+    @jsinterop.annotations.JsType(isNative = true)
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageLite.Builder<
+            TestProtoWithNativeOneOfs, Builder> {
+
+      protected Builder() {}
+
+      @jsinterop.annotations.JsOverlay
+      public final TestProtoWithNativeOneOfs getDefaultInstanceForType() {
+        return getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public native TestProtoWithNativeOneOfs build();
+
+      @java.lang.Override
+      public native Builder clone();
+
+      @jsinterop.annotations.JsMethod(name = "hasAFloat")
+      public native boolean hasAFloat();
+
+      @jsinterop.annotations.JsMethod(name = "getAFloat")
+      public native float getAFloat();
+
+      @jsinterop.annotations.JsMethod(name = "clearAFloat")
+      public native Builder clearAFloat();
+
+      @jsinterop.annotations.JsMethod(name = "setAFloat")
+      public native Builder setAFloat(float value);
+
+      @jsinterop.annotations.JsMethod(name = "hasADouble")
+      public native boolean hasADouble();
+
+      @jsinterop.annotations.JsMethod(name = "getADouble")
+      public native double getADouble();
+
+      @jsinterop.annotations.JsMethod(name = "clearADouble")
+      public native Builder clearADouble();
+
+      @jsinterop.annotations.JsMethod(name = "setADouble")
+      public native Builder setADouble(double value);
+
+      @jsinterop.annotations.JsOverlay
+      public final AOneofCase getAOneofCase() {
+        return AOneofCase.Internal_ClosureEnum.toEnum(internal_getAOneofCase());
+      }
+
+      @jsinterop.annotations.JsMethod(name = "getAOneofCase")
+      private native Object internal_getAOneofCase();
+    }
+  }
 }

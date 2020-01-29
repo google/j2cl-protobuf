@@ -20,3 +20,7 @@ import "net/proto2/proto/descriptor.proto";
 extend proto2.EnumOptions {
   optional bool generate_js_enum = 13371;
 }
+
+extend proto2.OneofOptions {
+  optional bool generate_js_case_enum = 13372;
+}

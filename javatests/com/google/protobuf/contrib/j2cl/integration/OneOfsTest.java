@@ -18,6 +18,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import com.google.protos.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithNativeOneOfs;
 import com.google.protos.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -48,6 +49,15 @@ public final class OneOfsTest {
   }
 
   @Test
+  public void testNothingSetNativeEnum() {
+    TestProtoWithNativeOneOfs.Builder builder = TestProtoWithNativeOneOfs.newBuilder();
+    TestProtoWithNativeOneOfs proto = builder.build();
+
+    assertEquals(TestProtoWithNativeOneOfs.AOneofCase.AONEOF_NOT_SET, proto.getAOneofCase());
+    assertEquals(TestProtoWithNativeOneOfs.AOneofCase.AONEOF_NOT_SET, builder.getAOneofCase());
+  }
+
+  @Test
   public void testSingleFieldSet() {
     TestProtoWithOneOfs.Builder builder =
         TestProtoWithOneOfs.newBuilder()
@@ -69,6 +79,18 @@ public final class OneOfsTest {
     assertEquals(
         TestProtoWithOneOfs.TestNestedProtoWithOneOfs.ANestedOneofCase.ANESTEDONEOF_NOT_SET,
         builder.getNestedProtoWithOneofs().getANestedOneofCase());
+  }
+
+  @Test
+  public void testSingleFieldSetNativeEnum() {
+    TestProtoWithNativeOneOfs.Builder builder =
+        TestProtoWithNativeOneOfs.newBuilder().setAFloat(2.5f); // member of a_oneof
+    TestProtoWithNativeOneOfs proto = builder.build();
+
+    assertEquals(TestProtoWithNativeOneOfs.AOneofCase.A_FLOAT, proto.getAOneofCase());
+    assertEquals(TestProtoWithNativeOneOfs.AOneofCase.A_FLOAT, builder.getAOneofCase());
+    assertEquals(2.5f, proto.getAFloat(), 0.0001f);
+    assertEquals(2.5f, builder.getAFloat(), 0.0001f);
   }
 
   @Test
@@ -94,6 +116,18 @@ public final class OneOfsTest {
     assertEquals(
         TestProtoWithOneOfs.TestNestedProtoWithOneOfs.ANestedOneofCase.ANESTEDONEOF_NOT_SET,
         builder.getNestedProtoWithOneofs().getANestedOneofCase());
+  }
+
+  @Test
+  public void testSingleFieldSetThenClearedNativeEnum() {
+    TestProtoWithNativeOneOfs.Builder builder =
+        TestProtoWithNativeOneOfs.newBuilder()
+            .setAFloat(2.5f) // member of a_oneof
+            .clearAFloat(); // member of a_oneof
+    TestProtoWithNativeOneOfs proto = builder.build();
+
+    assertEquals(TestProtoWithNativeOneOfs.AOneofCase.AONEOF_NOT_SET, proto.getAOneofCase());
+    assertEquals(TestProtoWithNativeOneOfs.AOneofCase.AONEOF_NOT_SET, builder.getAOneofCase());
   }
 
   @Test
@@ -134,6 +168,21 @@ public final class OneOfsTest {
   }
 
   @Test
+  public void testMultipleFieldsSetNativeEnum() {
+    TestProtoWithNativeOneOfs.Builder builder =
+        TestProtoWithNativeOneOfs.newBuilder()
+            .setADouble(0) // member of a_oneof
+            .setAFloat(2.5f); // member of a_oneof
+    TestProtoWithNativeOneOfs proto = builder.build();
+
+    assertEquals(TestProtoWithNativeOneOfs.AOneofCase.A_FLOAT, proto.getAOneofCase());
+    assertEquals(TestProtoWithNativeOneOfs.AOneofCase.A_FLOAT, builder.getAOneofCase());
+
+    assertEquals(2.5f, proto.getAFloat(), 0.0001f);
+    assertEquals(2.5f, builder.getAFloat(), 0.0001f);
+  }
+
+  @Test
   public void testMultipleFieldsSetThenCleared() {
     TestProtoWithOneOfs.Builder builder =
         TestProtoWithOneOfs.newBuilder()
@@ -168,7 +217,28 @@ public final class OneOfsTest {
   }
 
   @Test
+  public void testMultipleFieldsSetThenClearedNativeEnum() {
+    TestProtoWithNativeOneOfs.Builder builder =
+        TestProtoWithNativeOneOfs.newBuilder()
+            .setADouble(0) // member of a_oneof
+            .setAFloat(2.5f) // member of a_oneof
+            .clearAFloat(); // member of a_oneof
+    TestProtoWithNativeOneOfs proto = builder.build();
+
+    assertEquals(TestProtoWithNativeOneOfs.AOneofCase.AONEOF_NOT_SET, proto.getAOneofCase());
+
+    assertFalse(proto.hasAFloat());
+    assertEquals(0f /* default value */, proto.getAFloat(), 0.0001f);
+
+    assertFalse(proto.hasADouble());
+    assertEquals(0.0 /* default value */, proto.getADouble(), 0.0001);
+  }
+
+  @Test
   public void testForNumberWithUnknownValue() {
     assertNull(TestProtoWithOneOfs.AOneofCase.forNumber(100));
   }
+
+  // Unknown values with native oneof case enums are tested in EnumGenerationTest since the behavior
+  // differs between J2CL and JVM.
 }
