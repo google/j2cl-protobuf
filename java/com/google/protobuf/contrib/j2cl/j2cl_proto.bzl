@@ -66,7 +66,7 @@ def _j2cl_proto_library_aspect_impl(target, ctx):
     transitive_srcs = target[ProtoInfo].transitive_sources
     deps = [target[ImmutableJspbInfo].js]
     deps += [dep[J2clProtoInfo]._private_.j2cl_info for dep in ctx.rule.attr.deps]
-    transitive_runfiles = [target[ImmutableJspbInfo]._runfiles_do_not_use_internal]
+    transitive_runfiles = [target[ImmutableJspbInfo]._private_.runfiles]
     transitive_runfiles += [dep[J2clProtoInfo]._private_.runfiles for dep in ctx.rule.attr.deps]
 
     jar_archive = _new_jar(ctx, name)

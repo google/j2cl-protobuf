@@ -23,7 +23,7 @@ load("//third_party/bazel_skylib/lib:dicts.bzl", "dicts")
 # DO NOT USE OR WE WILL BREAK YOU ON PURPOSE
 # This is only exported for only particular use cases and you should talk to us
 # to verify your use case.
-ImmutableJspbInfo = provider(fields = ["js", "_runfiles_do_not_use_internal"])
+ImmutableJspbInfo = provider(fields = ["js", "_private_"])
 
 def _immutable_js_proto_library_aspect_impl(target, ctx):
     srcs = target[ProtoInfo].direct_sources
@@ -72,7 +72,7 @@ def _immutable_js_proto_library_aspect_impl(target, ctx):
             progress_message = "Generating immutable jspb files",
         )
 
-    transitive_runfiles = [dep[ImmutableJspbInfo]._runfiles_do_not_use_internal for dep in ctx.rule.attr.deps]
+    transitive_runfiles = [dep[ImmutableJspbInfo]._private_.runfiles for dep in ctx.rule.attr.deps]
     deps = [dep[ImmutableJspbInfo].js for dep in ctx.rule.attr.deps]
     exports = [dep[ImmutableJspbInfo].js for dep in ctx.rule.attr.exports]
 
@@ -88,7 +88,7 @@ def _immutable_js_proto_library_aspect_impl(target, ctx):
 
     return [ImmutableJspbInfo(
         js = js_provider,
-        _runfiles_do_not_use_internal = depset(out_srcs, transitive = transitive_runfiles),
+        _private_ = struct(runfiles = depset(out_srcs, transitive = transitive_runfiles)),
     )]
 
 immutable_js_proto_library_aspect = aspect(
@@ -136,15 +136,10 @@ def _immutable_js_proto_library_rule_impl(ctx):
         exports = [dep[ImmutableJspbInfo].js],
         deps_mgmt = "closure",
     )
-    runfiles = dep[ImmutableJspbInfo]._runfiles_do_not_use_internal
+    runfiles = dep[ImmutableJspbInfo]._private_.runfiles
 
     return [
-        DefaultInfo(
-            runfiles = ctx.runfiles(
-                transitive_files = runfiles,
-                collect_default = True,
-            ),
-        ),
+        DefaultInfo(runfiles = ctx.runfiles(transitive_files = runfiles)),
         js_provider,
     ]
 
