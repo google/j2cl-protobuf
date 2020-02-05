@@ -14,6 +14,5 @@ java_library(
         "//net/proto2/compiler/proto:plugin_java_proto",
         "//third_party/java/auto:auto_value",
         "//third_party/java/jakarta_velocity",
-        "//third_party/java/jsr305_annotations",
     ],
 )
