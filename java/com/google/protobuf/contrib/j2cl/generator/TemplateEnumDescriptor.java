@@ -19,6 +19,7 @@ import com.google.auto.value.AutoValue;
 import com.google.protobuf.Descriptors.Descriptor;
 import com.google.protobuf.Descriptors.EnumDescriptor;
 import com.google.protobuf.Descriptors.EnumValueDescriptor;
+import com.google.protos.j2cl.Options;
 import com.google.protos.protobuf.contrib.j2cl.options.JsEnum;
 import java.util.HashSet;
 import java.util.List;
@@ -51,7 +52,8 @@ public abstract class TemplateEnumDescriptor extends AbstractTemplateTypeDescrip
   }
 
   public boolean isJsEnum() {
-    return descriptor().getOptions().getExtension(JsEnum.generateJsEnum);
+    return descriptor().getOptions().getExtension(JsEnum.generateJsEnum)
+        || descriptor().getOptions().getExtension(Options.enumOptions).getGenerateJsEnum();
   }
 
   public boolean isDense() {

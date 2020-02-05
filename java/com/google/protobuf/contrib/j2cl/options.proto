@@ -1,4 +1,4 @@
-// Copyright 2019 Google LLC
+// Copyright 2020 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,27 +13,22 @@
 // limitations under the License.
 syntax = "proto2";
 
-package protobuf.contrib.j2cl.protos;
+package j2cl;
 
-import "third_party/java_src/j2cl_proto/java/com/google/protobuf/contrib/j2cl/options.proto";
+import "net/proto2/proto/descriptor.proto";
 
-option java_package = "com.google.protobuf.contrib.j2cl.protos";
-
-// REMOVED_BY_GENRULE option java_multiple_files = true;
-
-enum EnumWithAliases {
-  option allow_alias = true;
-
-  UNKNOWN = 0;
-  ORIGINAL = 1;
-  ALIAS = 1;
+extend proto2.EnumOptions {
+  optional J2clEnumOptions enum_options = 13373;
 }
 
-enum NativeEnumWithAliases {
-  option (.j2cl.enum_options).generate_js_enum = true;
-  option allow_alias = true;
+extend proto2.OneofOptions {
+  optional J2clOneofOptions oneof_options = 13374;
+}
 
-  DEFAULT = 0;
-  NATIVE_ORIGINAL = 1;
-  NATIVE_ALIAS = 1;
+message J2clOneofOptions {
+  optional bool generate_js_enum = 1;
+}
+
+message J2clEnumOptions {
+  optional bool generate_js_enum = 1;
 }

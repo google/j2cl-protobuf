@@ -19,7 +19,7 @@ option java_package = "com.google.protobuf.contrib.j2cl.protos";
 
 // REMOVED_BY_GENRULE option java_multiple_files = true;
 
-import "third_party/java_src/j2cl_proto/java/com/google/protobuf/contrib/j2cl/options/js_enum.proto";
+import "third_party/java_src/j2cl_proto/java/com/google/protobuf/contrib/j2cl/options.proto";
 
 enum SparseEnum {
   UNKNOWN = 0;
@@ -38,7 +38,7 @@ enum DenseEnum {
 }
 
 enum NativeEnum {
-  option (contrib.j2cl.options.generate_js_enum) = true;
+  option (.j2cl.enum_options).generate_js_enum = true;
 
   NATIVE_ONE = 1;
   NATIVE_TWO = 2;
