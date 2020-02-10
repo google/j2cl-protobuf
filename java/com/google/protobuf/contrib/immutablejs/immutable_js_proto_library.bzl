@@ -17,7 +17,7 @@ Usage:
      )
 """
 
-load("//third_party/bazel_skylib/lib:dicts.bzl", "dicts")
+load("@bazel_skylib//lib:dicts.bzl", "dicts")
 
 
 # DO NOT USE OR WE WILL BREAK YOU ON PURPOSE
