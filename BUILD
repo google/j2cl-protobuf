@@ -1,5 +1,5 @@
 # Description:
-#   J2CL-Proto is the new implementation of Protocol Buffers for J2CL
+#   J2CL-Protobuf is the new implementation of Protocol Buffers for J2CL
 #
 
 package(
