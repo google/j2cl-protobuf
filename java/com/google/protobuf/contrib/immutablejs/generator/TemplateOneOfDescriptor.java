@@ -17,7 +17,6 @@ import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
 import com.google.protobuf.Descriptors.FieldDescriptor;
 import com.google.protobuf.Descriptors.OneofDescriptor;
-import com.google.protobuf.contrib.JavaQualifiedNames;
 
 /** Represents a protocol buffer union. */
 @AutoValue

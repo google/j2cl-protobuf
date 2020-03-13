@@ -16,7 +16,6 @@ package com.google.protobuf.contrib.immutablejs.generator;
 import com.google.common.base.Ascii;
 import com.google.common.collect.ImmutableMap;
 import com.google.protobuf.Descriptors;
-import com.google.protobuf.contrib.JavaQualifiedNames;
 
 /** Helper class for generating fully qualified JS/J2CL identifiers for descriptors. */
 public final class JavaScriptQualifiedNames {
