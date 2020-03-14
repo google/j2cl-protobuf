@@ -16,7 +16,6 @@ package com.google.protobuf.contrib.immutablejs.generator;
 import static com.google.common.base.Preconditions.checkState;
 
 import com.google.auto.value.AutoValue;
-import com.google.common.escape.SourceCodeEscapers;
 import com.google.common.io.BaseEncoding;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.Descriptors.EnumValueDescriptor;
