@@ -1,5 +1,11 @@
+load("@bazel_tools//tools/build_defs/proto/cpp:cc_proto_library.bzl", "cc_proto_library")
+load("//java/com/google/protobuf/contrib/gwt:GwtProtoLibrary.bzl", "GwtProtoLibrary")
+
 package(
     default_visibility = [
+        "//java/com/google/protobuf/contrib/gwt:__subpackages__",
+        "//java/com/google/protobuf/contrib/j2cl:__subpackages__",
+        "//javatests/com/google/protobuf/contrib/j2cl:__subpackages__",
     ],
 )
 

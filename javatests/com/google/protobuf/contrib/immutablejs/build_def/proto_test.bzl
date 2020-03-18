@@ -3,8 +3,8 @@ Helpers for defining tests for immutablejs protobuf.
 """
 
 load("//testing/web/build_defs:jsunit.bzl", "jsunit_test_suite")
-
-
+load("//javascript/tools/jscompiler/builddefs:flags.bzl", "JS_TEST_FLAGS", "VERBOSE_WARNING_FLAGS_STRICT")
+load("@bazel_tools//tools/build_defs/build_test:build_test.bzl", "build_test")
 
 _BROWSERS = ["//testing/web/browsers:chrome-linux"]
 
@@ -48,10 +48,10 @@ def proto_jsunit_test(name, srcs, deps):
         name = name + "_js_binary",
         srcs = srcs,
         defs = VERBOSE_WARNING_FLAGS_STRICT + [
-
+            "--conformance_config=//javascript/closure:conformance_proto.txt",
             "--jscomp_error=conformanceViolations",
         ],
-
+        extra_inputs = ["//javascript/closure:conformance_proto.txt"],
         deps = deps,
     )
 

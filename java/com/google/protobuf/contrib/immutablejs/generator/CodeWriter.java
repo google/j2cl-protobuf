@@ -13,7 +13,7 @@
  */
 package com.google.protobuf.contrib.immutablejs.generator;
 
-import com.google.protos.proto2.compiler.Plugin.CodeGeneratorResponse;
+import com.google.protobuf.compiler.PluginProtos.CodeGeneratorResponse;
 
 /** Writer that is able to handle multiple file in a common base directory or zip file. */
 final class CodeWriter {

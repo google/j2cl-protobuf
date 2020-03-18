@@ -29,13 +29,21 @@ java_binary(
     main_class = "com.google.protobuf.contrib.immutablejs.generator.ImmutableJspbCompiler",
     visibility = ["//visibility:public"],
     runtime_deps = [
+        "//java/com/google/protobuf/contrib/immutablejs/generator",
     ],
 )
 
 # Do not use this target, the target you are looking for is:
-
+# //java/com/google/protobuf/contrib/immutablejs:runtime
 closure_js_library(
     name = "runtime",
     exports = [
+        "//java/com/google/protobuf/contrib/immutablejs/runtime:bytestring",
+        "//java/com/google/protobuf/contrib/immutablejs/runtime:fieldaccessor",
+        "//java/com/google/protobuf/contrib/immutablejs/runtime:internal_message",
+        "//java/com/google/protobuf/contrib/immutablejs/runtime:listview",
+        "//java/com/google/protobuf/contrib/immutablejs/runtime:message",
+        "//javascript/closure:base",
+        "//javascript/closure/math:long",
     ],
 )

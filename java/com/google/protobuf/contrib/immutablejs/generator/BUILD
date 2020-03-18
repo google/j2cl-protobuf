@@ -9,12 +9,16 @@ java_library(
     srcs = glob(["*.java"]),
     resources = glob(["templates/*.vm"]),
     visibility = [
+        "//java/com/google/protobuf/contrib/immutablejs/internal_do_not_use:__pkg__",
+        "//java/com/google/protobuf/contrib/j2cl/generator:__pkg__",
     ],
     deps = [
-        "//net/proto2/compiler/proto:plugin_java_proto",
-        "//net/proto2/proto:descriptor_java_proto",
-        "//third_party/java/auto:auto_value",
-        "//third_party/java/jakarta_velocity",
-        "//third_party/java/jsr305_annotations",
+        "//third_party:auto_value",
+        "//third_party:descriptor_java_proto",
+        "//third_party:guava",
+        "//third_party:jakarta_velocity",
+        "//third_party:jsr305_annotations",
+        "//third_party:plugin_java_proto",
+        "//third_party:protobuf",
     ],
 )

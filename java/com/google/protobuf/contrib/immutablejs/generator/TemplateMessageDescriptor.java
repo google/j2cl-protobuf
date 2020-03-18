@@ -15,7 +15,6 @@ package com.google.protobuf.contrib.immutablejs.generator;
 
 import static com.google.common.base.Preconditions.checkState;
 
-import com.google.apps.jspb.Jspb;
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
 import com.google.protobuf.Descriptors.Descriptor;
@@ -76,24 +75,8 @@ public abstract class TemplateMessageDescriptor {
   }
 
   public String getMessageId() {
-    // I know this looks weird, but that is whats implemented in apps jpsb :(
-    // http://google3/net/proto2/compiler/js/internal/generator.cc?dr&l=2180
-    String messageId = descriptor().getOptions().getExtension(Jspb.messageId);
-    if (!messageId.isEmpty()) {
-      return "'" + messageId + "'";
-    }
-
-    return isResponse(descriptor()) ? "" : "0";
-  }
-
-  private static boolean isResponse(Descriptor descriptor) {
-    if (descriptor.getContainingType() == null
-        && descriptor.getFile().getOptions().getExtension(Jspb.responseProto)) {
-      return true;
-    }
-
-    return !descriptor.getOptions().getExtension(Jspb.messageId).isEmpty();
-  }
+    return "0";
+   }
 
   public int getPivot() {
     int defaultPivot = 500;
@@ -118,9 +101,7 @@ public abstract class TemplateMessageDescriptor {
   private static Stream<Descriptor> getAllMessagesDescriptors(Descriptor message) {
     return Stream.concat(
         Stream.of(message),
-        message
-            .getNestedTypes()
-            .stream()
+        message.getNestedTypes().stream()
             .flatMap(TemplateMessageDescriptor::getAllMessagesDescriptors));
   }
 

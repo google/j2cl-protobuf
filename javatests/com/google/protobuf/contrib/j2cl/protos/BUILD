@@ -1,4 +1,7 @@
+load("//javatests/com/google/protobuf/contrib/j2cl:helpers.bzl", "generate_protos")
+
 package(default_visibility = [
+    "//javatests/com/google/protobuf/contrib/j2cl:__subpackages__",
 ])
 
 licenses(["notice"])  # Apache 2.0
@@ -16,6 +19,7 @@ generate_protos(
 generate_protos(
     name = "enum_alias",
     proto_file = "enum_alias.proto",
+    deps = ["//java/com/google/protobuf/contrib/j2cl:options"],
 )
 
 generate_protos(
@@ -26,6 +30,7 @@ generate_protos(
 generate_protos(
     name = "oneofs",
     proto_file = "oneofs.proto",
+    deps = ["//java/com/google/protobuf/contrib/j2cl:options"],
 )
 
 generate_protos(
@@ -41,6 +46,7 @@ generate_protos(
 generate_protos(
     name = "native_enum",
     proto_file = "native_enum.proto",
+    deps = ["//java/com/google/protobuf/contrib/j2cl:options"],
 )
 
 generate_protos(
@@ -51,4 +57,5 @@ generate_protos(
 generate_protos(
     name = "sparse",
     proto_file = "sparse.proto",
+    deps = ["//java/com/google/protobuf/contrib/j2cl:options"],
 )

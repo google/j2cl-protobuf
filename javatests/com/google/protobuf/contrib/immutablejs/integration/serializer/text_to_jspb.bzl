@@ -2,7 +2,7 @@
 Converts text protos to Apps JSPB protos.
 """
 
-
+load("@io_bazel_rules_closure//closure:defs.bzl", "closure_js_library")
 
 def proto_data_jspb(name, src, proto_name, proto_deps):
     """
@@ -27,7 +27,7 @@ def proto_data_jspb(name, src, proto_name, proto_deps):
         name = name + "_java_binary",
         runtime_deps = [
             ":" + name + "_java_proto_library",
-
+            "//javatests/com/google/protobuf/contrib/immutablejs/integration/serializer:ProtoToJspb",
         ],
         main_class = "com.google.protobuf.contrib.immutablejs.integration.serializer.ProtoToJspb",
     )
@@ -66,5 +66,5 @@ def goog_module_proto_jspb_data(name, src, proto_name, proto_deps, goog_module):
     closure_js_library(
         name = name,
         srcs = [":" + name + ".module.js"],
-
+        deps = ["//javascript/closure:base"],
     )

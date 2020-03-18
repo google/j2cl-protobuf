@@ -1,5 +1,7 @@
 package(
     default_visibility = [
+        "//javatests/com/google/protobuf/contrib/immutablejs:__subpackages__",
+        "//javatests/com/google/protobuf/contrib/j2cl:__subpackages__",
     ],
 )
 
@@ -10,7 +12,10 @@ java_library(
     testonly = 1,
     srcs = ["GoldenFilesBaseTest.java"],
     deps = [
-        "//third_party/java/auto:auto_value",
-        "//third_party/java/junit",
+        "//java/com/google/devtools/build/runtime:runfiles",
+        "//java/com/google/testing/util",
+        "//third_party:auto_value",
+        "//third_party:guava",
+        "//third_party:junit",
     ],
 )

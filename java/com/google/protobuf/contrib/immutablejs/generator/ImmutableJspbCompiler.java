@@ -20,8 +20,8 @@ import com.google.protobuf.DescriptorProtos.FileDescriptorProto;
 import com.google.protobuf.Descriptors.DescriptorValidationException;
 import com.google.protobuf.Descriptors.FileDescriptor;
 import com.google.protobuf.ExtensionRegistry;
-import com.google.protos.proto2.compiler.Plugin.CodeGeneratorRequest;
-import com.google.protos.proto2.compiler.Plugin.CodeGeneratorResponse;
+import com.google.protobuf.compiler.PluginProtos.CodeGeneratorRequest;
+import com.google.protobuf.compiler.PluginProtos.CodeGeneratorResponse;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -30,9 +30,7 @@ import java.util.Map;
 public class ImmutableJspbCompiler {
 
   public static void main(String[] args) throws IOException, DescriptorValidationException {
-    CodeGeneratorRequest request =
-        CodeGeneratorRequest.parseFrom(System.in, ExtensionRegistry.getGeneratedRegistry());
-
+    CodeGeneratorRequest request = CodeGeneratorRequest.parseFrom(System.in);
 
     Map<String, FileDescriptor> fileDescriptors = Maps.newHashMap();
     CodeGeneratorResponse.Builder response = CodeGeneratorResponse.newBuilder();

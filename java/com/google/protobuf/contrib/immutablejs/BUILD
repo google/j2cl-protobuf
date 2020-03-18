@@ -14,23 +14,21 @@ bzl_library(
     srcs = ["immutable_js_proto_library.bzl"],
     deps = [
         "@bazel_skylib//lib:dicts",
+        "@bazel_tools//tools/build_defs/js:checkable_provider",
+        "@bazel_tools//tools/build_defs/js_toolchain",
     ],
 )
 
 closure_js_library(
     name = "runtime",
     exports = [
+        "//java/com/google/protobuf/contrib/immutablejs/runtime:bytestring",
+        "//java/com/google/protobuf/contrib/immutablejs/runtime:listview",
+        "//java/com/google/protobuf/contrib/immutablejs/runtime:message",
     ],
 )
 
 closure_js_library(
     name = "debug",
-)
-
-# bazel_osx_p4deps specifies that set of dependencies needed to run Bazel on OS X.
-# Consumed by "blazel" (bazel for Google3) tests.
-filegroup(
-    name = "bazel_osx_p4deps",
-    testonly = 1,
-    srcs = glob(["**"]),
+    exports = ["//java/com/google/protobuf/contrib/immutablejs/debug"],
 )

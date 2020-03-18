@@ -2,6 +2,9 @@ load("@io_bazel_rules_closure//closure:defs.bzl", "closure_js_library")
 
 package(
     default_visibility = [
+        "//java/com/google/protobuf/contrib/immutablejs:__subpackages__",
+        "//javatests/com/google/protobuf/contrib/immutablejs:__subpackages__",
+        "//javatests/com/google/protobuf/contrib/j2cl:__subpackages__",
     ],
 )
 
@@ -11,6 +14,7 @@ closure_js_library(
     name = "defines",
     srcs = ["defines.js"],
     deps = [
+        "//javascript/closure:base",
     ],
 )
 
@@ -19,6 +23,8 @@ closure_js_library(
     srcs = ["internal_checks.js"],
     deps = [
         ":defines",
+        "//javascript/closure:base",
+        "//javascript/closure/math:long",
     ],
 )
 
@@ -26,6 +32,7 @@ closure_js_library(
     name = "equivalence",
     srcs = ["equivalence.js"],
     deps = [
+        "//javascript/closure:base",
     ],
 )
 
@@ -34,6 +41,7 @@ closure_js_library(
     srcs = ["hashing.js"],
     deps = [
         ":internal_checks",
+        "//javascript/closure:base",
     ],
 )
 
@@ -47,6 +55,8 @@ closure_js_library(
         ":hashing",
         ":internal_checks",
         ":listview",
+        "//javascript/closure:base",
+        "//javascript/closure/math:long",
     ],
 )
 
@@ -55,6 +65,7 @@ closure_js_library(
     srcs = ["listview.js"],
     deps = [
         ":internal_checks",
+        "//javascript/closure:base",
     ],
 )
 
@@ -64,6 +75,8 @@ closure_js_library(
     deps = [
         ":hashing",
         ":internal_checks",
+        "//javascript/closure:base",
+        "//javascript/closure/crypt:base64",
     ],
 )
 
@@ -74,6 +87,8 @@ closure_js_library(
         ":bytestring",
         ":internal_checks",
         ":listview",
+        "//javascript/closure:base",
+        "//javascript/closure/math:long",
     ],
 )
 
@@ -82,6 +97,8 @@ closure_js_library(
     srcs = ["message.js"],
     deps = [
         ":listview",
+        "//javascript/closure:base",
+        "//javascript/closure/math:long",
     ],
 )
 
@@ -94,5 +111,8 @@ closure_js_library(
         ":jspbkernel",
         ":listview",
         ":message",
+        "//javascript/closure:base",
+        "//javascript/closure/math:long",
+        "//javascript/closure/reflect",
     ],
 )

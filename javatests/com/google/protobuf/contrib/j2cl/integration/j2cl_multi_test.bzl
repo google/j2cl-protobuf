@@ -6,7 +6,7 @@
 """
 
 load("@com_google_j2cl//build_defs:rules.bzl", "j2cl_test")
-
+load("@bazel_tools//tools/build_defs/label:def.bzl", "absolute_label")
 
 def j2cl_multi_test(name, test_class, srcs, deps = [], proto_deps = [], generate_java_test = True):
     deps = deps + [
@@ -17,12 +17,12 @@ def j2cl_multi_test(name, test_class, srcs, deps = [], proto_deps = [], generate
     j2cl_proto_deps = [x + "_j2cl_proto_new" for x in proto_deps]
     j2cl_deps = (
         [absolute_label(x) + "-j2cl" for x in deps] +
-
+        ["//java/com/google/protobuf/contrib/j2cl:runtime"] +
         j2cl_proto_deps
     )
 
     java_proto_deps = [x + "_java_proto" for x in proto_deps]
-
+    java_deps = deps + ["//java/com/google/protobuf"] + java_proto_deps
 
     j2cl_test(
         name = name,

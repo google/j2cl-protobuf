@@ -1,6 +1,10 @@
+load("@bazel_tools//tools/build_defs/js/jspb_proto_library:rules.bzl", "jspb_proto_library")
+load("//java/com/google/protobuf/contrib/immutablejs:immutable_js_proto_library.bzl", "immutable_js_proto_library")
+
 # Contains protos that are needed for testing.
 package(
     default_visibility = [
+        "//javatests/com/google/protobuf/contrib/immutablejs:__subpackages__",
     ],
 )
 
@@ -9,6 +13,7 @@ licenses(["notice"])  # Apache 2.0
 proto_library(
     name = "accessors",
     srcs = ["accessors.proto"],
+    deps = ["//java/com/google/apps/jspb:jspb_proto"],
 )
 
 immutable_js_proto_library(
@@ -141,6 +146,7 @@ immutable_js_proto_library(
 proto_library(
     name = "pivot",
     srcs = ["pivot.proto"],
+    deps = ["//java/com/google/apps/jspb:jspb_proto"],
 )
 
 immutable_js_proto_library(
@@ -166,6 +172,7 @@ immutable_js_proto_library(
 proto_library(
     name = "message_id",
     srcs = ["message_id.proto"],
+    deps = ["//java/com/google/apps/jspb:jspb_proto"],
 )
 
 immutable_js_proto_library(

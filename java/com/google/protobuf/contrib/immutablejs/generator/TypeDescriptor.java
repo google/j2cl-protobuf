@@ -13,8 +13,6 @@
  */
 package com.google.protobuf.contrib.immutablejs.generator;
 
-import com.google.apps.jspb.Jspb;
-import com.google.apps.jspb.Jspb.JsType;
 import com.google.auto.value.AutoValue;
 import com.google.auto.value.extension.memoized.Memoized;
 import com.google.common.io.Files;
@@ -51,11 +49,7 @@ public abstract class TypeDescriptor {
       case INT:
         return createPrimitive("number", "Int");
       case LONG:
-        if (fieldDescriptor.getOptions().getExtension(Jspb.jstype) == JsType.STRING) {
-          return LONG;
-        } else {
-          return INT52_LONG;
-        }
+        return LONG;
       case BYTE_STRING:
         return BYTE_STRING;
       case ENUM:

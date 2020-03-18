@@ -1,4 +1,5 @@
 load("//devtools/python/blaze:pytype.bzl", "pytype_binary")
+load("//javatests/com/google/protobuf/contrib/j2cl:helpers.bzl", "copy_source_jar")
 
 licenses(["notice"])  # Apache 2.0
 
@@ -66,6 +67,8 @@ java_test(
         ":sparse-multiple-files.zip",
     ],
     deps = [
+        "//java/com/google/protobuf/contrib/immutablejs/testing:golden_files_base_test",
+        "//java/com/google/testing/testsize:annotations",
         "//third_party/java/junit",
     ],
 )

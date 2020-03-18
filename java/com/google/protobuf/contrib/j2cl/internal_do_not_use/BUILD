@@ -27,5 +27,6 @@ java_binary(
     main_class = "com.google.protobuf.contrib.j2cl.generator.J2CLProtobufCompiler",
     visibility = ["//visibility:public"],
     runtime_deps = [
+        "//java/com/google/protobuf/contrib/j2cl/generator",
     ],
 )

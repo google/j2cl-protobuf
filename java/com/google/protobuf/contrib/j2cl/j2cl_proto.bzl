@@ -6,7 +6,7 @@
 
   Example usage:
 
-
+   load("//java/com/google/protobuf/contrib/j2cl:j2cl_proto.bzl", "j2cl_proto_library")
 
    proto_library(
        name = "accessor",
@@ -28,7 +28,7 @@ load(
     "j2cl_common",
 )
 load(
-
+    "//java/com/google/protobuf/contrib/immutablejs:immutable_js_proto_library.bzl",
     "ImmutableJspbInfo",
     "immutable_js_proto_library_aspect",
 )
@@ -167,7 +167,7 @@ _j2cl_proto_library_aspect = aspect(
                 Label("@com_google_j2cl//build_defs/internal_do_not_use:jre"),
                 Label("//third_party/java/gwt:gwt-jsinterop-annotations-j2cl"),
                 Label("//third_party/java/jsinterop:jsinterop-base-j2cl"),
-
+                Label("//java/com/google/protobuf/contrib/gwt:j2cl"),
             ],
         ),
         "_protocol_compiler": attr.label(
@@ -178,7 +178,7 @@ _j2cl_proto_library_aspect = aspect(
         "_protoc_gen_j2cl": attr.label(
             executable = True,
             cfg = "host",
-
+            default = Label("//java/com/google/protobuf/contrib/j2cl/internal_do_not_use:J2CLProtobufCompiler"),
         ),
         "_jar": attr.label(
             executable = True,

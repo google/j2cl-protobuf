@@ -18,7 +18,7 @@ Usage:
 """
 
 load("@bazel_skylib//lib:dicts.bzl", "dicts")
-
+load("@bazel_tools//tools/build_defs/js:checkable_provider.bzl", "js_attrs", "js_checkable_provider")
 
 # DO NOT USE OR WE WILL BREAK YOU ON PURPOSE
 # This is only exported for only particular use cases and you should talk to us
@@ -104,7 +104,7 @@ immutable_js_proto_library_aspect = aspect(
             executable = True,
             cfg = "host",
             default = Label(
-
+                "//java/com/google/protobuf/contrib/immutablejs/internal_do_not_use:ImmutableJspbCompiler",
             ),
         ),
         "_clang_format": attr.label(
@@ -116,7 +116,7 @@ immutable_js_proto_library_aspect = aspect(
         ),
         "_runtime_deps": attr.label_list(
             default = [
-
+                Label("//java/com/google/protobuf/contrib/immutablejs/internal_do_not_use:runtime"),
             ],
         ),
     }),

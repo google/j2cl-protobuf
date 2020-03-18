@@ -1,6 +1,7 @@
 # Public targets for j2cl proto
 
 load("//third_party/java/j2cl:j2cl_library.bzl", "j2cl_library")
+load("@bazel_tools//tools/build_defs/testing:bzl_library.bzl", "bzl_library")
 
 licenses(["notice"])  # Apache 2.0
 
@@ -8,8 +9,11 @@ j2cl_library(
     name = "runtime",
     visibility = [
         "//:__subpackages__",
+        "//java/com/google/protobuf/contrib/gwt:__pkg__",
     ],
     exports = [
+        "//java/com/google/protobuf/contrib/j2cl/runtime",
+        "//java/com/google/protobuf/contrib/j2cl/runtime:jspb-utils",
     ],
 )
 
