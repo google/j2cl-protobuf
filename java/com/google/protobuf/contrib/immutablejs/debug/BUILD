@@ -13,9 +13,8 @@ closure_js_library(
     srcs = ["debug.js"],
     deps = [
         "//java/com/google/protobuf/contrib/immutablejs:runtime",
-        "//javascript/closure:base",
-        "//javascript/closure/asserts",
-        "//javascript/closure/math:long",
-        "//javascript/closure/object",
+        "//third_party:closure_asserts",
+        "//third_party:closure_math_long",
+        "//third_party:closure_object",
     ],
 )
