@@ -13,9 +13,6 @@ licenses(["notice"])  # Apache 2.0
 closure_js_library(
     name = "defines",
     srcs = ["defines.js"],
-    deps = [
-        "//javascript/closure:base",
-    ],
 )
 
 closure_js_library(
@@ -23,26 +20,19 @@ closure_js_library(
     srcs = ["internal_checks.js"],
     deps = [
         ":defines",
-        "//javascript/closure:base",
-        "//javascript/closure/math:long",
+        "//third_party:closure_math_long",
     ],
 )
 
 closure_js_library(
     name = "equivalence",
     srcs = ["equivalence.js"],
-    deps = [
-        "//javascript/closure:base",
-    ],
 )
 
 closure_js_library(
     name = "hashing",
     srcs = ["hashing.js"],
-    deps = [
-        ":internal_checks",
-        "//javascript/closure:base",
-    ],
+    deps = [":internal_checks"],
 )
 
 closure_js_library(
@@ -55,18 +45,14 @@ closure_js_library(
         ":hashing",
         ":internal_checks",
         ":listview",
-        "//javascript/closure:base",
-        "//javascript/closure/math:long",
+        "//third_party:closure_math_long",
     ],
 )
 
 closure_js_library(
     name = "listview",
     srcs = ["listview.js"],
-    deps = [
-        ":internal_checks",
-        "//javascript/closure:base",
-    ],
+    deps = [":internal_checks"],
 )
 
 closure_js_library(
@@ -75,8 +61,7 @@ closure_js_library(
     deps = [
         ":hashing",
         ":internal_checks",
-        "//javascript/closure:base",
-        "//javascript/closure/crypt:base64",
+        "//third_party:closure_crypt_base64",
     ],
 )
 
@@ -87,8 +72,7 @@ closure_js_library(
         ":bytestring",
         ":internal_checks",
         ":listview",
-        "//javascript/closure:base",
-        "//javascript/closure/math:long",
+        "//third_party:closure_math_long",
     ],
 )
 
@@ -97,8 +81,7 @@ closure_js_library(
     srcs = ["message.js"],
     deps = [
         ":listview",
-        "//javascript/closure:base",
-        "//javascript/closure/math:long",
+        "//third_party:closure_math_long",
     ],
 )
 
@@ -111,8 +94,7 @@ closure_js_library(
         ":jspbkernel",
         ":listview",
         ":message",
-        "//javascript/closure:base",
-        "//javascript/closure/math:long",
-        "//javascript/closure/reflect",
+        "//third_party:closure_math_long",
+        "//third_party:closure_reflect",
     ],
 )

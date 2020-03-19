@@ -51,3 +51,28 @@ java_proto_library(
     name = "plugin_java_proto",
     deps = ["@com_google_protobuf//:compiler_plugin_proto"],
 )
+
+alias(
+    name = "closure_math_long",
+    actual = "@io_bazel_rules_closure//closure/library/math:long",
+)
+
+alias(
+    name = "closure_asserts",
+    actual = "@io_bazel_rules_closure//closure/library/asserts",
+)
+
+alias(
+    name = "closure_object",
+    actual = "@io_bazel_rules_closure//closure/library/object",
+)
+
+alias(
+    name = "closure_reflect",
+    actual = "@io_bazel_rules_closure//closure/library/reflect",
+)
+
+alias(
+    name = "closure_crypt_base64",
+    actual = "@io_bazel_rules_closure//closure/library/crypt:base64",
+)
