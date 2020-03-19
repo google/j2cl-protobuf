@@ -43,7 +43,6 @@ closure_js_library(
         "//java/com/google/protobuf/contrib/immutablejs/runtime:internal_message",
         "//java/com/google/protobuf/contrib/immutablejs/runtime:listview",
         "//java/com/google/protobuf/contrib/immutablejs/runtime:message",
-        "//javascript/closure:base",
-        "//javascript/closure/math:long",
+        "//third_party:closure_math_long",
     ],
 )
