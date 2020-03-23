@@ -9,16 +9,6 @@ package(
 
 licenses(["notice"])  # Apache 2.0
 
-bzl_library(
-    name = "immutable_js_bzl",
-    srcs = ["immutable_js_proto_library.bzl"],
-    deps = [
-        "@bazel_skylib//lib:dicts",
-        "@bazel_tools//tools/build_defs/js:checkable_provider",
-        "@bazel_tools//tools/build_defs/js_toolchain",
-    ],
-)
-
 closure_js_library(
     name = "runtime",
     exports = [
