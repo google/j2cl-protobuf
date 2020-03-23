@@ -18,9 +18,9 @@ Usage:
 """
 
 load("@bazel_skylib//lib:dicts.bzl", "dicts")
-load(":immutable_js_common.bzl", "create_js_provider", "js_attrs")
+load("@bazel_tools//tools/build_defs/js:checkable_provider.bzl", "js_attrs", "js_checkable_provider")
 
-# DO NOT USE
+# DO NOT USE OR WE WILL BREAK YOU ON PURPOSE
 # This is only exported for only particular use cases and you should talk to us
 # to verify your use case.
 ImmutableJspbInfo = provider(fields = ["js", "_private_"])
@@ -76,9 +76,10 @@ def _immutable_js_proto_library_aspect_impl(target, ctx):
     deps = [dep[ImmutableJspbInfo].js for dep in ctx.rule.attr.deps]
     exports = [dep[ImmutableJspbInfo].js for dep in ctx.rule.attr.exports]
 
-    js_provider = create_js_provider(
+    js_provider = js_checkable_provider(
         ctx,
         srcs = out_srcs,
+        check_level = "OFF",
         deps = deps + [d[JsInfo] for d in ctx.attr._runtime_deps],
         exports = (deps if not srcs else []) + exports,
         # Seems like this works around b/34608532 but not sure how...
@@ -97,7 +98,7 @@ immutable_js_proto_library_aspect = aspect(
         "_protocol_compiler": attr.label(
             executable = True,
             cfg = "host",
-            default = Label("//third_party:protocol_compiler"),
+            default = Label("//net/proto2/compiler/public:protocol_compiler"),
         ),
         "_protoc_gen_immutable_js": attr.label(
             executable = True,
@@ -128,11 +129,12 @@ def _immutable_js_proto_library_rule_impl(ctx):
         fail("Only one deps entry allowed")
     dep = ctx.attr.deps[0]
 
-    # Create a new js provider to create a blaze level ExtraAction, so
+    # Create a new js_common.provider to create a blaze level ExtraAction, so
     # that this rule gets indexed by Cymbals table.
-    js_provider = create_js_provider(
+    js_provider = js_checkable_provider(
         ctx,
         exports = [dep[ImmutableJspbInfo].js],
+        deps_mgmt = "closure",
     )
     runfiles = dep[ImmutableJspbInfo]._private_.runfiles
 
