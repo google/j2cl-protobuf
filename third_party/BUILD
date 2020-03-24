@@ -53,6 +53,18 @@ java_proto_library(
 )
 
 alias(
+    name = "protocol_compiler",
+    actual = "@com_google_protobuf//:protoc",
+    visibility = ["//visibility:public"],
+)
+
+alias(
+    name = "clang-format",
+    actual = "@io_bazel_rules_closure//third_party/llvm/llvm/tools/clang:clang-format",
+    visibility = ["//visibility:public"],
+)
+
+alias(
     name = "closure_math_long",
     actual = "@io_bazel_rules_closure//closure/library/math:long",
 )
