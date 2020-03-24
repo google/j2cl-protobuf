@@ -76,3 +76,8 @@ alias(
     name = "closure_crypt_base64",
     actual = "@io_bazel_rules_closure//closure/library/crypt:base64",
 )
+
+alias(
+    name = "runfiles",
+    actual = "@bazel_tools//tools/java/runfiles",
+)

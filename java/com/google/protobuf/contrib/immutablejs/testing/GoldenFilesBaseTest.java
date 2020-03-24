@@ -24,7 +24,7 @@ import com.google.common.collect.Sets;
 import com.google.common.collect.Sets.SetView;
 import com.google.common.io.ByteStreams;
 import com.google.common.io.MoreFiles;
-import com.google.devtools.build.runtime.RunfilesPaths;
+import com.google.devtools.build.runfiles.Runfiles;
 import com.google.testing.util.DiffUtil;
 import java.io.IOException;
 import java.io.StringWriter;
@@ -32,6 +32,7 @@ import java.io.Writer;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.Set;
 import java.util.stream.StreamSupport;
@@ -128,9 +129,7 @@ public abstract class GoldenFilesBaseTest extends TestCase {
 
   private ImmutableSet<GeneratedFile> loadFilesFromDir(String relativePath, String postfix)
       throws Exception {
-    Path path =
-        RunfilesPaths.resolvePackageRelativePath(
-            "third_party/java_src/j2cl_proto/javatests", getClass(), relativePath);
+    Path path = getRunfileLocation(getClass(), relativePath);
     try (DirectoryStream<Path> stream = Files.newDirectoryStream(path)) {
       return StreamSupport.stream(stream.spliterator(), false)
           .map(p -> readFile(p, postfix))
@@ -152,9 +151,7 @@ public abstract class GoldenFilesBaseTest extends TestCase {
 
   private static ImmutableSet<GeneratedFile> loadZipFiles(String protoName, Class<?> testClass)
       throws IOException {
-    Path path =
-        RunfilesPaths.resolvePackageRelativePath(
-            "third_party/java_src/j2cl_proto/javatests", testClass, protoName + ".zip");
+    Path path = getRunfileLocation(testClass, protoName + ".zip");
     try (ZipFile zipFile = new ZipFile(path.toFile())) {
       return Collections.list(zipFile.entries()).stream()
           .map(e -> readZipContent(zipFile, e))
@@ -170,5 +167,14 @@ public abstract class GoldenFilesBaseTest extends TestCase {
     } catch (IOException e) {
       throw new RuntimeException(e);
     }
+  }
+
+  private static Path getRunfileLocation(Class<?> clazz, String relativePath) {
+    String packagePath = clazz.getPackage().getName().replace('.', '/');
+    return getTestRootLocation().resolve(Paths.get(packagePath, relativePath));
+  }
+
+  private static Path getTestRootLocation() {
+    return Runfiles.create().rlocation("javatests");
   }
 }
