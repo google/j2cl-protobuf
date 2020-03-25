@@ -24,8 +24,6 @@ import com.google.common.collect.Sets;
 import com.google.common.collect.Sets.SetView;
 import com.google.common.io.ByteStreams;
 import com.google.common.io.MoreFiles;
-import com.google.devtools.build.runfiles.Runfiles;
-import com.google.testing.util.DiffUtil;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
@@ -175,6 +173,6 @@ public abstract class GoldenFilesBaseTest extends TestCase {
   }
 
   private static Path getTestRootLocation() {
-    return Runfiles.create().rlocation("javatests");
+    return com.google.devtools.build.runfiles.Runfiles.create().rlocation("javatests");
   }
 }

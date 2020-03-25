@@ -10,9 +10,8 @@ licenses(["notice"])  # Apache 2.0
 java_library(
     name = "golden_files_base_test",
     testonly = 1,
-    srcs = ["GoldenFilesBaseTest.java"],
+    srcs = glob(["*.java"]),
     deps = [
-        "//java/com/google/testing/util",
         "//third_party:auto_value",
         "//third_party:guava",
         "//third_party:junit",
