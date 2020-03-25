@@ -109,9 +109,7 @@ immutable_js_proto_library_aspect = aspect(
         "_clang_format": attr.label(
             executable = True,
             cfg = "host",
-            default = Label(
-                "//third_party/crosstool/google3_users:stable_clang-format",
-            ),
+            default = Label("//third_party:clang-format"),
         ),
         "_runtime_deps": attr.label_list(
             default = [
