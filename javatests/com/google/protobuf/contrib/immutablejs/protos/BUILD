@@ -1,4 +1,3 @@
-load("@bazel_tools//tools/build_defs/js/jspb_proto_library:rules.bzl", "jspb_proto_library")
 load("//java/com/google/protobuf/contrib/immutablejs:immutable_js_proto_library.bzl", "immutable_js_proto_library")
 
 # Contains protos that are needed for testing.
@@ -13,16 +12,10 @@ licenses(["notice"])  # Apache 2.0
 proto_library(
     name = "accessors",
     srcs = ["accessors.proto"],
-    deps = ["//java/com/google/apps/jspb:jspb_proto"],
 )
 
 immutable_js_proto_library(
     name = "accessors_immutable_js_proto",
-    deps = [":accessors"],
-)
-
-jspb_proto_library(
-    name = "accessors_jspb_proto",
     deps = [":accessors"],
 )
 
@@ -46,11 +39,6 @@ immutable_js_proto_library(
     deps = [":ambiguous_fields"],
 )
 
-jspb_proto_library(
-    name = "ambiguous_fields_jspb_proto",
-    deps = [":ambiguous_fields"],
-)
-
 proto_library(
     name = "comments",
     srcs = ["comments.proto"],
@@ -58,11 +46,6 @@ proto_library(
 
 immutable_js_proto_library(
     name = "comments_immutable_js_proto",
-    deps = [":comments"],
-)
-
-jspb_proto_library(
-    name = "comments_jspb_proto",
     deps = [":comments"],
 )
 
@@ -146,16 +129,10 @@ immutable_js_proto_library(
 proto_library(
     name = "pivot",
     srcs = ["pivot.proto"],
-    deps = ["//java/com/google/apps/jspb:jspb_proto"],
 )
 
 immutable_js_proto_library(
     name = "pivot_immutable_js_proto",
-    deps = [":pivot"],
-)
-
-jspb_proto_library(
-    name = "pivot_jspb_proto",
     deps = [":pivot"],
 )
 
@@ -172,7 +149,6 @@ immutable_js_proto_library(
 proto_library(
     name = "message_id",
     srcs = ["message_id.proto"],
-    deps = ["//java/com/google/apps/jspb:jspb_proto"],
 )
 
 immutable_js_proto_library(
