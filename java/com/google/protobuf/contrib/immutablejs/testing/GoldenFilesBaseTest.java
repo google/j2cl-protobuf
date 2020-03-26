@@ -173,6 +173,11 @@ public abstract class GoldenFilesBaseTest extends TestCase {
   }
 
   private static Path getTestRootLocation() {
-    return com.google.devtools.build.runfiles.Runfiles.create().rlocation("javatests");
+    try {
+      return Paths.get(
+          com.google.devtools.build.runfiles.Runfiles.create().rlocation("javatests"));
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
   }
 }
