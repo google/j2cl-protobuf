@@ -30,33 +30,33 @@ final class JavaQualifiedNames {
 
   /** Returns the Java name for a proto field. */
   public static String getFieldName(
-      Descriptors.FieldDescriptor field, boolean capitializeFirstLetter) {
+      Descriptors.FieldDescriptor field, boolean capitalizeFirstLetter) {
     String fieldName = field.getName();
     if (SPECIAL_CASES.containsKey(fieldName)) {
       String output = SPECIAL_CASES.get(fieldName);
-      if (capitializeFirstLetter) {
+      if (capitalizeFirstLetter) {
         return output;
       } else {
         return ((char) (output.charAt(0) + ('a' - 'A'))) + output.substring(1);
       }
     }
-    return underscoresToCamelCase(fieldName, capitializeFirstLetter);
+    return underscoresToCamelCase(fieldName, capitalizeFirstLetter);
   }
 
   /** Converts underscore field names to camel case, while preserving camel case field names. */
-  public static String underscoresToCamelCase(String input, boolean capitializeNextLetter) {
+  public static String underscoresToCamelCase(String input, boolean capitalizeNextLetter) {
     StringBuilder result = new StringBuilder();
     for (int i = 0; i < input.length(); i++) {
       char ch = input.charAt(i);
       if ('a' <= ch && ch <= 'z') {
-        if (capitializeNextLetter) {
+        if (capitalizeNextLetter) {
           result.append((char) (ch + ('A' - 'a')));
         } else {
           result.append(ch);
         }
-        capitializeNextLetter = false;
+        capitalizeNextLetter = false;
       } else if ('A' <= ch && ch <= 'Z') {
-        if (i == 0 && !capitializeNextLetter) {
+        if (i == 0 && !capitalizeNextLetter) {
           // Force first letter to lower-case unless explicitly told to
           // capitalize it.
           result.append((char) (ch + ('a' - 'A')));
@@ -64,12 +64,12 @@ final class JavaQualifiedNames {
           // Capital letters after the first are left as-is.
           result.append(ch);
         }
-        capitializeNextLetter = false;
+        capitalizeNextLetter = false;
       } else if ('0' <= ch && ch <= '9') {
         result.append(ch);
-        capitializeNextLetter = true;
+        capitalizeNextLetter = true;
       } else {
-        capitializeNextLetter = true;
+        capitalizeNextLetter = true;
       }
     }
     return result.toString();
