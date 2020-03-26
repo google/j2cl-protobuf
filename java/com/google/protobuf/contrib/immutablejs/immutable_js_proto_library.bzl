@@ -77,7 +77,8 @@ def _immutable_js_proto_library_aspect_impl(target, ctx):
     js_provider = create_js_provider(
         ctx,
         srcs = out_srcs,
-        deps = deps + [d[JsInfo] for d in ctx.attr._runtime_deps],
+        deps = deps,
+        runtime_deps = ctx.attr._runtime_deps,
         exports = (deps if not srcs else []) + exports,
         # Seems like this works around b/34608532 but not sure how...
         aspect_name = "_immutable_js_proto_library_aspect",
