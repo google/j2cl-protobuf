@@ -17,8 +17,6 @@ syntax = "proto2";
 
 package protobuf.contrib.immutablejs.protos;
 
-import "java/com/google/apps/jspb/jspb.proto";
-
 option java_multiple_files = true;
 
 message TestProto {
@@ -35,11 +33,9 @@ message TestProto {
   repeated int32 repeated_int = 6;
 
   // int64 fields
-
-  optional int64 optional_long = 7 [(jspb.jstype) = STRING];
-  optional int64 optional_long_with_default = 8
-      [default = 3000000000, (jspb.jstype) = STRING];
-  repeated int64 repeated_long = 9 [(jspb.jstype) = STRING];
+  optional int64 optional_long = 7;
+  optional int64 optional_long_with_default = 8 [default = 3000000000];
+  repeated int64 repeated_long = 9;
 
   // int64 fields (int52)
 

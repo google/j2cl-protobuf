@@ -15,7 +15,7 @@ syntax = "proto2";
 
 package com.google.protobuf.contrib.immutablejs.protos;
 
-import "third_party/java_src/j2cl_proto/javatests/com/google/protobuf/contrib/immutablejs/protos/leaf.proto";
+import "javatests/com/google/protobuf/contrib/immutablejs/protos/leaf.proto";
 
 message Parent {
   optional Leaf leaf = 1;
