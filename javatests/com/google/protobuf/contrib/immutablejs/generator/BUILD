@@ -1,5 +1,4 @@
 # Golden files tests
-load("//devtools/python/blaze:pytype.bzl", "pytype_binary")
 
 licenses(["notice"])  # Apache 2.0
 
@@ -21,21 +20,13 @@ java_library(
         "//javatests/com/google/protobuf/contrib/immutablejs/protos:proto-with-dashes_immutable_js_proto",
     ],
     deps = [
-        "//java/com/google/common/collect",
         "//java/com/google/protobuf/contrib/immutablejs/testing:golden_files_base_test",
-        "//java/com/google/testing/testsize:annotations",
-        "//third_party/java/junit",
+        "//third_party:guava",
+        "//third_party:junit",
     ],
 )
 
 java_test(
     name = "GoldenFileTest",
     runtime_deps = [":tests"],
-)
-
-pytype_binary(
-    name = "update_golden_files",
-    srcs = ["update_golden_files.py"],
-    python_version = "PY2",
-    deps = ["//third_party/py/absl:app"],
 )

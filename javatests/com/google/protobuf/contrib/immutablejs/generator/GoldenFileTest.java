@@ -15,11 +15,8 @@ package com.google.protobuf.contrib.immutablejs.generator;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.protobuf.contrib.immutablejs.testing.GoldenFilesBaseTest;
-import com.google.testing.testsize.MediumTest;
-import com.google.testing.testsize.MediumTestAttribute;
 
 /** Run tests that compares the generated files against golden files. */
-@MediumTest(MediumTestAttribute.FILE)
 public class GoldenFileTest extends GoldenFilesBaseTest {
 
   @Override

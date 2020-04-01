@@ -45,8 +45,8 @@ def _immutable_js_proto_library_aspect_impl(target, ctx):
 
         js_files=$(find {output} -name '*.js')
         chmod -R 664 $js_files
-        {clang_format} -i $js_files
-      """.format(
+        {clang_format} -style=Google -i $js_files
+        """.format(
             clang_format = ctx.executable._clang_format.path,
             output = output.path,
             protoc = ctx.executable._protocol_compiler.path,
