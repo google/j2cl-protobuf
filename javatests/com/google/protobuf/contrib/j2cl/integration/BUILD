@@ -3,7 +3,7 @@ load("//javascript/tools/jscompiler/builddefs:flags.bzl", "VERBOSE_WARNING_FLAGS
 load("//javatests/com/google/protobuf/contrib/j2cl/integration:j2cl_multi_test.bzl", "j2cl_multi_test")
 load("//third_party/java/j2cl:j2cl_library.bzl", "j2cl_library")
 load("@com_google_j2cl//build_defs:rules.bzl", "J2CL_OPTIMIZED_DEFS")
-load("@bazel_tools//tools/build_defs/build_test:build_test.bzl", "build_test")
+load("@bazel_skylib//rules:build_test.bzl", "build_test")
 
 licenses(["notice"])  # Apache 2.0
 

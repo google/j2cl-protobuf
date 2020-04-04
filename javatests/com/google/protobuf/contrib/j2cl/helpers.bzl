@@ -7,7 +7,7 @@ since the name depends on the content of the proto file.
 
 load("//java/com/google/protobuf/contrib/j2cl:j2cl_proto.bzl", j2cl_proto_library = "new_j2cl_proto_library")
 load("//java/com/google/protobuf/contrib/immutablejs:immutable_js_proto_library.bzl", "immutable_js_proto_library")
-load("@bazel_tools//tools/build_defs/build_test:build_test.bzl", "build_test")
+load("@bazel_skylib//rules:build_test.bzl", "build_test")
 
 def generate_protos(name, proto_file, deps = []):
     native.proto_library(

@@ -4,7 +4,7 @@ Helpers for defining tests for immutablejs protobuf.
 
 load("//testing/web/build_defs:jsunit.bzl", "jsunit_test_suite")
 load("//javascript/tools/jscompiler/builddefs:flags.bzl", "JS_TEST_FLAGS", "VERBOSE_WARNING_FLAGS_STRICT")
-load("@bazel_tools//tools/build_defs/build_test:build_test.bzl", "build_test")
+load("@bazel_skylib//rules:build_test.bzl", "build_test")
 
 _BROWSERS = ["//testing/web/browsers:chrome-linux"]
 
