@@ -99,7 +99,7 @@ def _j2cl_proto_library_aspect_impl(target, ctx):
             java_format = ctx.executable._google_java_formatter.path,
         )
 
-        resolved_inputs, resolved_command, input_manifest = ctx.resolve_command(
+        resolved_tools, resolved_command, input_manifest = ctx.resolve_command(
             command = protoc_command,
             tools = [
                 ctx.attr._protocol_compiler,
@@ -111,7 +111,8 @@ def _j2cl_proto_library_aspect_impl(target, ctx):
 
         ctx.actions.run_shell(
             command = resolved_command,
-            inputs = depset(resolved_inputs, transitive = [transitive_srcs]),
+            inputs = transitive_srcs,
+            tools = resolved_tools,
             outputs = [jar_archive],
             input_manifests = input_manifest,
             progress_message = "Generating J2CL proto files",
