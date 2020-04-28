@@ -1,71 +1,7 @@
 # Integration tests for immutable protos
 load("//javatests/com/google/protobuf/contrib/immutablejs/build_def:proto_test.bzl", "proto_jsunit_test")
-load("//javatests/com/google/protobuf/contrib/immutablejs/integration/serializer:text_to_jspb.bzl", "goog_module_proto_jspb_data")
 
 licenses(["notice"])  # Apache 2.0
-
-goog_module_proto_jspb_data(
-    name = "accessor_data",
-    src = "accessor_data.txt",
-    goog_module = "testdata.Accessor1",
-    proto_deps = ["//javatests/com/google/protobuf/contrib/immutablejs/protos:accessors"],
-    proto_name = "protobuf.contrib.immutablejs.protos.TestProto",
-)
-
-proto_jsunit_test(
-    name = "accessor_test",
-    srcs = [
-        "accessor_test.js",
-    ],
-    deps = [
-        ":accessor_data",
-        "//java/com/google/protobuf/contrib/immutablejs:runtime",
-        "//javascript/closure:base",
-        "//javascript/closure/math:long",
-        "//javascript/closure/testing:asserts",
-        "//javascript/closure/testing:testsuite",
-        "//javatests/com/google/protobuf/contrib/immutablejs/protos:accessors_immutable_js_proto",
-        "//javatests/com/google/protobuf/contrib/immutablejs/testing:proto_asserts",
-    ],
-)
-
-proto_jsunit_test(
-    name = "apps_jspb_interop_test",
-    srcs = [
-        "apps_jspb_interop_test.js",
-    ],
-    deps = [
-        ":accessor_data",
-        "//java/com/google/protobuf/contrib/immutablejs:runtime",
-        "//javascript/closure:base",
-        "//javascript/closure/math:long",
-        "//javascript/closure/testing:asserts",
-        "//javascript/closure/testing:testsuite",
-        "//javatests/com/google/protobuf/contrib/immutablejs/protos:accessors_immutable_js_proto",
-        "//javatests/com/google/protobuf/contrib/immutablejs/protos:accessors_jspb_proto",
-        "//javatests/com/google/protobuf/contrib/immutablejs/testing:proto_asserts",
-    ],
-)
-
-# This test simply reruns accessor_test with an indirect proto reference.
-# This makes sure that we do not get a strict deps violation and that
-# exporting of srcless proto libraries is working fine.
-proto_jsunit_test(
-    name = "indirection_test",
-    srcs = [
-        "accessor_test.js",
-    ],
-    deps = [
-        ":accessor_data",
-        "//java/com/google/protobuf/contrib/immutablejs:runtime",
-        "//javascript/closure:base",
-        "//javascript/closure/math:long",
-        "//javascript/closure/testing:asserts",
-        "//javascript/closure/testing:testsuite",
-        "//javatests/com/google/protobuf/contrib/immutablejs/protos:accessors_indirection_immutable_js_proto",
-        "//javatests/com/google/protobuf/contrib/immutablejs/testing:proto_asserts",
-    ],
-)
 
 proto_jsunit_test(
     name = "boolean_fields_test",
@@ -74,11 +10,11 @@ proto_jsunit_test(
     ],
     deps = [
         "//java/com/google/protobuf/contrib/immutablejs:runtime",
-        "//javascript/closure:base",
-        "//javascript/closure/testing:asserts",
-        "//javascript/closure/testing:testsuite",
+        "//java/com/google/protobuf/contrib/immutablejs/runtime:internal_checks",
         "//javatests/com/google/protobuf/contrib/immutablejs/protos:accessors_immutable_js_proto",
         "//javatests/com/google/protobuf/contrib/immutablejs/testing:proto_asserts",
+        "//third_party:closure_testing_asserts",
+        "//third_party:closure_testsuite",
     ],
 )
 
@@ -89,11 +25,10 @@ proto_jsunit_test(
     ],
     deps = [
         "//java/com/google/protobuf/contrib/immutablejs:runtime",
-        "//javascript/closure:base",
-        "//javascript/closure/testing:asserts",
-        "//javascript/closure/testing:testsuite",
         "//javatests/com/google/protobuf/contrib/immutablejs/protos:accessors_immutable_js_proto",
         "//javatests/com/google/protobuf/contrib/immutablejs/testing:proto_asserts",
+        "//third_party:closure_testing_asserts",
+        "//third_party:closure_testsuite",
     ],
 )
 
@@ -104,11 +39,11 @@ proto_jsunit_test(
     ],
     deps = [
         "//java/com/google/protobuf/contrib/immutablejs:runtime",
-        "//javascript/closure:base",
-        "//javascript/closure/testing:asserts",
-        "//javascript/closure/testing:testsuite",
+        "//java/com/google/protobuf/contrib/immutablejs/runtime:internal_checks",
         "//javatests/com/google/protobuf/contrib/immutablejs/protos:accessors_immutable_js_proto",
         "//javatests/com/google/protobuf/contrib/immutablejs/testing:proto_asserts",
+        "//third_party:closure_testing_asserts",
+        "//third_party:closure_testsuite",
     ],
 )
 
@@ -119,11 +54,11 @@ proto_jsunit_test(
     ],
     deps = [
         "//java/com/google/protobuf/contrib/immutablejs:runtime",
-        "//javascript/closure:base",
-        "//javascript/closure/testing:asserts",
-        "//javascript/closure/testing:testsuite",
+        "//java/com/google/protobuf/contrib/immutablejs/runtime:internal_checks",
         "//javatests/com/google/protobuf/contrib/immutablejs/protos:accessors_immutable_js_proto",
         "//javatests/com/google/protobuf/contrib/immutablejs/testing:proto_asserts",
+        "//third_party:closure_testing_asserts",
+        "//third_party:closure_testsuite",
     ],
 )
 
@@ -134,11 +69,11 @@ proto_jsunit_test(
     ],
     deps = [
         "//java/com/google/protobuf/contrib/immutablejs:runtime",
-        "//javascript/closure:base",
-        "//javascript/closure/testing:asserts",
-        "//javascript/closure/testing:testsuite",
+        "//java/com/google/protobuf/contrib/immutablejs/runtime:internal_checks",
         "//javatests/com/google/protobuf/contrib/immutablejs/protos:accessors_immutable_js_proto",
         "//javatests/com/google/protobuf/contrib/immutablejs/testing:proto_asserts",
+        "//third_party:closure_testing_asserts",
+        "//third_party:closure_testsuite",
     ],
 )
 
@@ -149,11 +84,11 @@ proto_jsunit_test(
     ],
     deps = [
         "//java/com/google/protobuf/contrib/immutablejs:runtime",
-        "//javascript/closure:base",
-        "//javascript/closure/testing:asserts",
-        "//javascript/closure/testing:testsuite",
+        "//java/com/google/protobuf/contrib/immutablejs/runtime:internal_checks",
         "//javatests/com/google/protobuf/contrib/immutablejs/protos:accessors_immutable_js_proto",
         "//javatests/com/google/protobuf/contrib/immutablejs/testing:proto_asserts",
+        "//third_party:closure_testing_asserts",
+        "//third_party:closure_testsuite",
     ],
 )
 
@@ -164,11 +99,11 @@ proto_jsunit_test(
     ],
     deps = [
         "//java/com/google/protobuf/contrib/immutablejs:runtime",
-        "//javascript/closure:base",
-        "//javascript/closure/testing:asserts",
-        "//javascript/closure/testing:testsuite",
+        "//java/com/google/protobuf/contrib/immutablejs/runtime:internal_checks",
         "//javatests/com/google/protobuf/contrib/immutablejs/protos:accessors_immutable_js_proto",
         "//javatests/com/google/protobuf/contrib/immutablejs/testing:proto_asserts",
+        "//third_party:closure_testing_asserts",
+        "//third_party:closure_testsuite",
     ],
 )
 
@@ -179,12 +114,12 @@ proto_jsunit_test(
     ],
     deps = [
         "//java/com/google/protobuf/contrib/immutablejs:runtime",
-        "//javascript/closure:base",
-        "//javascript/closure/math:long",
-        "//javascript/closure/testing:asserts",
-        "//javascript/closure/testing:testsuite",
+        "//java/com/google/protobuf/contrib/immutablejs/runtime:defines",
         "//javatests/com/google/protobuf/contrib/immutablejs/protos:accessors_immutable_js_proto",
         "//javatests/com/google/protobuf/contrib/immutablejs/testing:proto_asserts",
+        "//third_party:closure_math_long",
+        "//third_party:closure_testing_asserts",
+        "//third_party:closure_testsuite",
     ],
 )
 
@@ -195,12 +130,11 @@ proto_jsunit_test(
     ],
     deps = [
         "//java/com/google/protobuf/contrib/immutablejs:runtime",
-        "//javascript/closure:base",
-        "//javascript/closure/math:long",
-        "//javascript/closure/testing:asserts",
-        "//javascript/closure/testing:testsuite",
         "//javatests/com/google/protobuf/contrib/immutablejs/protos:accessors_immutable_js_proto",
         "//javatests/com/google/protobuf/contrib/immutablejs/testing:proto_asserts",
+        "//third_party:closure_math_long",
+        "//third_party:closure_testing_asserts",
+        "//third_party:closure_testsuite",
     ],
 )
 
@@ -211,11 +145,11 @@ proto_jsunit_test(
     ],
     deps = [
         "//java/com/google/protobuf/contrib/immutablejs:runtime",
-        "//javascript/closure:base",
-        "//javascript/closure/testing:asserts",
-        "//javascript/closure/testing:testsuite",
+        "//java/com/google/protobuf/contrib/immutablejs/runtime:internal_checks",
         "//javatests/com/google/protobuf/contrib/immutablejs/protos:accessors_immutable_js_proto",
         "//javatests/com/google/protobuf/contrib/immutablejs/testing:proto_asserts",
+        "//third_party:closure_testing_asserts",
+        "//third_party:closure_testsuite",
     ],
 )
 
@@ -225,10 +159,9 @@ proto_jsunit_test(
         "message_default_instance_test.js",
     ],
     deps = [
-        "//javascript/closure:base",
-        "//javascript/closure/testing:asserts",
-        "//javascript/closure/testing:testsuite",
         "//javatests/com/google/protobuf/contrib/immutablejs/protos:equals_immutable_js_proto",
+        "//third_party:closure_testing_asserts",
+        "//third_party:closure_testsuite",
     ],
 )
 
@@ -238,24 +171,10 @@ proto_jsunit_test(
         "message_equality_test.js",
     ],
     deps = [
-        "//javascript/closure:base",
-        "//javascript/closure/testing:asserts",
-        "//javascript/closure/testing:testsuite",
         "//javatests/com/google/protobuf/contrib/immutablejs/protos:equals_immutable_js_proto",
         "//javatests/com/google/protobuf/contrib/immutablejs/testing:proto_asserts",
-    ],
-)
-
-proto_jsunit_test(
-    name = "message_id_test",
-    srcs = [
-        "message_id_test.js",
-    ],
-    deps = [
-        "//javascript/closure:base",
-        "//javascript/closure/testing:asserts",
-        "//javascript/closure/testing:testsuite",
-        "//javatests/com/google/protobuf/contrib/immutablejs/protos:message_id_immutable_js_proto",
+        "//third_party:closure_testing_asserts",
+        "//third_party:closure_testsuite",
     ],
 )
 
@@ -266,11 +185,10 @@ proto_jsunit_test(
     ],
     deps = [
         "//java/com/google/protobuf/contrib/immutablejs:runtime",
-        "//javascript/closure:base",
-        "//javascript/closure/testing:asserts",
-        "//javascript/closure/testing:testsuite",
         "//javatests/com/google/protobuf/contrib/immutablejs/protos:oneofs_immutable_js_proto",
         "//javatests/com/google/protobuf/contrib/immutablejs/testing:proto_asserts",
+        "//third_party:closure_testing_asserts",
+        "//third_party:closure_testsuite",
     ],
 )
 
@@ -281,11 +199,11 @@ proto_jsunit_test(
     ],
     deps = [
         "//java/com/google/protobuf/contrib/immutablejs:runtime",
-        "//javascript/closure:base",
-        "//javascript/closure/testing:asserts",
-        "//javascript/closure/testing:testsuite",
+        "//java/com/google/protobuf/contrib/immutablejs/runtime:internal_checks",
         "//javatests/com/google/protobuf/contrib/immutablejs/protos:accessors_immutable_js_proto",
         "//javatests/com/google/protobuf/contrib/immutablejs/testing:proto_asserts",
+        "//third_party:closure_testing_asserts",
+        "//third_party:closure_testsuite",
     ],
 )
 
@@ -296,38 +214,12 @@ proto_jsunit_test(
     ],
     deps = [
         "//java/com/google/protobuf/contrib/immutablejs:runtime",
-        "//javascript/closure:base",
-        "//javascript/closure/math:long",
-        "//javascript/closure/testing:asserts",
-        "//javascript/closure/testing:testsuite",
         "//javatests/com/google/protobuf/contrib/immutablejs/protos:accessors_immutable_js_proto",
         "//javatests/com/google/protobuf/contrib/immutablejs/protos:extensions_immutable_js_proto",
         "//javatests/com/google/protobuf/contrib/immutablejs/testing:proto_asserts",
-    ],
-)
-
-goog_module_proto_jspb_data(
-    name = "extensions_data",
-    src = "extensions_data.txt",
-    goog_module = "testdata.Extensions1",
-    proto_deps = ["//javatests/com/google/protobuf/contrib/immutablejs/protos:extensions"],
-    proto_name = "protobuf.contrib.immutablejs.protos.Base",
-)
-
-proto_jsunit_test(
-    name = "extensions_test",
-    srcs = [
-        "extensions_test.js",
-    ],
-    deps = [
-        ":extensions_data",
-        "//java/com/google/protobuf/contrib/immutablejs:runtime",
-        "//javascript/closure:base",
-        "//javascript/closure/math:long",
-        "//javascript/closure/testing:asserts",
-        "//javascript/closure/testing:testsuite",
-        "//javatests/com/google/protobuf/contrib/immutablejs/protos:extensions_immutable_js_proto",
-        "//javatests/com/google/protobuf/contrib/immutablejs/testing:proto_asserts",
+        "//third_party:closure_math_long",
+        "//third_party:closure_testing_asserts",
+        "//third_party:closure_testsuite",
     ],
 )
 
@@ -338,27 +230,9 @@ proto_jsunit_test(
     ],
     deps = [
         "//java/com/google/protobuf/contrib/immutablejs:runtime",
-        "//javascript/closure:base",
-        "//javascript/closure/testing:asserts",
-        "//javascript/closure/testing:testsuite",
         "//javatests/com/google/protobuf/contrib/immutablejs/protos:cycle_reference_immutable_js_proto",
         "//javatests/com/google/protobuf/contrib/immutablejs/testing:proto_asserts",
-    ],
-)
-
-proto_jsunit_test(
-    name = "pivot_test",
-    srcs = [
-        "pivot_test.js",
-    ],
-    deps = [
-        "//java/com/google/protobuf/contrib/immutablejs:runtime",
-        "//javascript/closure:base",
-        "//javascript/closure/math:long",
-        "//javascript/closure/testing:asserts",
-        "//javascript/closure/testing:testsuite",
-        "//javatests/com/google/protobuf/contrib/immutablejs/protos:pivot_immutable_js_proto",
-        "//javatests/com/google/protobuf/contrib/immutablejs/protos:pivot_jspb_proto",
-        "//javatests/com/google/protobuf/contrib/immutablejs/testing:proto_asserts",
+        "//third_party:closure_testing_asserts",
+        "//third_party:closure_testsuite",
     ],
 )

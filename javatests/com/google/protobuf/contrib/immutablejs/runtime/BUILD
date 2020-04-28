@@ -8,9 +8,9 @@ proto_jsunit_test(
     deps = [
         "//java/com/google/protobuf/contrib/immutablejs/runtime:bytestring",
         "//java/com/google/protobuf/contrib/immutablejs/runtime:internal_checks",
-        "//javascript/closure:base",
-        "//javascript/closure/testing:asserts",
-        "//javascript/closure/testing:testsuite",
+        "//third_party:closure_crypt_base64",
+        "//third_party:closure_testing_asserts",
+        "//third_party:closure_testsuite",
     ],
 )
 
@@ -20,10 +20,9 @@ proto_jsunit_test(
     deps = [
         "//java/com/google/protobuf/contrib/immutablejs/runtime:defines",
         "//java/com/google/protobuf/contrib/immutablejs/runtime:equivalence",
-        "//javascript/closure:base",
-        "//javascript/closure/math:long",
-        "//javascript/closure/testing:asserts",
-        "//javascript/closure/testing:testsuite",
+        "//third_party:closure_math_long",
+        "//third_party:closure_testing_asserts",
+        "//third_party:closure_testsuite",
     ],
 )
 
@@ -34,11 +33,11 @@ proto_jsunit_test(
         "//java/com/google/protobuf/contrib/immutablejs/runtime:bytestring",
         "//java/com/google/protobuf/contrib/immutablejs/runtime:defines",
         "//java/com/google/protobuf/contrib/immutablejs/runtime:fieldaccessor",
+        "//java/com/google/protobuf/contrib/immutablejs/runtime:internal_checks",
         "//java/com/google/protobuf/contrib/immutablejs/runtime:listview",
-        "//javascript/closure:base",
-        "//javascript/closure/math:long",
-        "//javascript/closure/testing:asserts",
-        "//javascript/closure/testing:testsuite",
+        "//third_party:closure_math_long",
+        "//third_party:closure_testing_asserts",
+        "//third_party:closure_testsuite",
     ],
 )
 
@@ -48,9 +47,8 @@ proto_jsunit_test(
     deps = [
         "//java/com/google/protobuf/contrib/immutablejs/runtime:defines",
         "//java/com/google/protobuf/contrib/immutablejs/runtime:hashing",
-        "//javascript/closure:base",
-        "//javascript/closure/testing:asserts",
-        "//javascript/closure/testing:testsuite",
+        "//third_party:closure_testing_asserts",
+        "//third_party:closure_testsuite",
     ],
 )
 
@@ -61,8 +59,7 @@ proto_jsunit_test(
         "//java/com/google/protobuf/contrib/immutablejs/runtime:bytestring",
         "//java/com/google/protobuf/contrib/immutablejs/runtime:listview",
         "//java/com/google/protobuf/contrib/immutablejs/runtime:message",
-        "//javascript/closure:base",
-        "//javascript/closure/testing:asserts",
-        "//javascript/closure/testing:testsuite",
+        "//third_party:closure_testing_asserts",
+        "//third_party:closure_testsuite",
     ],
 )

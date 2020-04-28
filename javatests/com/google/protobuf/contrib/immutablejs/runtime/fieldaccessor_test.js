@@ -24,7 +24,7 @@ const FieldAccessor = goog.require('proto.im.internal.FieldAccessor');
 const ListView = goog.require('proto.im.ListView');
 const Long = goog.require('goog.math.Long');
 const testSuite = goog.require('goog.testing.testSuite');
-const {isCheckType, isCheckIndex, isCheckLongDataLoss} = goog.require('proto.im.internal.internalChecks');
+const {isCheckIndex, isCheckLongDataLoss, isCheckType} = goog.require('proto.im.internal.internalChecks');
 
 
 class FieldAccessorTest {

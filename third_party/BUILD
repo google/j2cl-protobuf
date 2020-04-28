@@ -85,6 +85,16 @@ alias(
 )
 
 alias(
+    name = "closure_testsuite",
+    actual = "@io_bazel_rules_closure//closure/library/testing:testsuite",
+)
+
+alias(
+    name = "closure_testing_asserts",
+    actual = "@io_bazel_rules_closure//closure/library/testing:asserts",
+)
+
+alias(
     name = "closure_crypt_base64",
     actual = "@io_bazel_rules_closure//closure/library/crypt:base64",
 )
@@ -92,4 +102,9 @@ alias(
 alias(
     name = "runfiles",
     actual = "@bazel_tools//tools/java/runfiles",
+)
+
+alias(
+    name = "args4j",
+    actual = "//third_party/java/args4j",
 )

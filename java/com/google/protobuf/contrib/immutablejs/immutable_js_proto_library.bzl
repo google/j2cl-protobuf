@@ -18,7 +18,7 @@ Usage:
 """
 
 load("@bazel_skylib//lib:dicts.bzl", "dicts")
-load(":immutable_js_common.bzl", "create_js_provider", "js_attrs")
+load(":immutable_js_common.bzl", "create_js_lib_struct", "create_js_provider", "js_attrs")
 
 # DO NOT USE
 # This is only exported for only particular use cases and you should talk to us
@@ -116,6 +116,11 @@ immutable_js_proto_library_aspect = aspect(
                 Label("//java/com/google/protobuf/contrib/immutablejs/internal_do_not_use:runtime"),
             ],
         ),
+        "_jar": attr.label(
+            cfg = "host",
+            executable = True,
+            default = Label("@bazel_tools//tools/jdk:jar"),
+        ),
     }),
     fragments = ["js"],
     provides = [ImmutableJspbInfo],
@@ -134,10 +139,12 @@ def _immutable_js_proto_library_rule_impl(ctx):
     )
     runfiles = dep[ImmutableJspbInfo]._private_.runfiles
 
-    return [
-        DefaultInfo(runfiles = ctx.runfiles(transitive_files = runfiles)),
-        js_provider,
-    ]
+    return create_js_lib_struct(
+        js_provider = js_provider,
+        extra_providers = [
+            DefaultInfo(runfiles = ctx.runfiles(transitive_files = runfiles)),
+        ],
+    )
 
 immutable_js_proto_library = rule(
     implementation = _immutable_js_proto_library_rule_impl,
