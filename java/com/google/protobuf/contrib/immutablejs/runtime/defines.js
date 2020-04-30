@@ -14,6 +14,7 @@
 
 /**
  * @fileoverview Configuration file for proto settings.
+ * @suppress {lintChecks}
  */
 goog.provide('proto.im.defines');
 
