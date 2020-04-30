@@ -1,11 +1,14 @@
-# J2CL Protobuf
+# J2CL Protobuf  &middot; [![Build Status](https://secure.travis-ci.org/google/j2cl-protobuf.png?branch=master)](http://travis-ci.org/google/j2cl-protobuf)
 
-This repository contains the source code of the implementation of
-[Protocol Buffers](https://developers.google.com/protocol-buffers)
-for [J2CL](http://j2cl.io).
+This repository contains [J2CL](http://j2cl.io) compatible implementation of
+[Protocol Buffers](https://developers.google.com/protocol-buffers).
 
-This repository aims to provide the source code for now. Build/Tests support
-will be added later on.
+J2CL protobuf implementation emulates and closely follows most of the official
+Java APIs to help share your Java code in different platforms.
+The implementation is also well optimized for Web. It doesn't use reflection and
+provides seamless communication between Java and JavaScript by sharing the same
+underlying protobuf object instances.
+
 
 Contributing
 ------------
