@@ -300,7 +300,7 @@ class JspbKernel {
   clearField(fieldNumber) {
     const index = this.adjustIndex_(fieldNumber);
     const rawJson = this.getStorageFor_(index);
-    rawJson[index] = null;
+    delete rawJson[index];
   }
 
   /**
