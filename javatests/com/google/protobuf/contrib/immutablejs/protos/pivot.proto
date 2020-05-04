@@ -20,6 +20,7 @@ option java_multiple_files = true;
 message Pivot {
 
   optional string payload = 1;
+  optional string payload2 = 501;  // Passes beyond default pivot.
 
   extensions 1000 to 10000;
 }

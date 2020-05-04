@@ -30,7 +30,7 @@ const cachedMsgKey = '$jspb_cached_msg_';
  * @return {boolean}
  */
 function hasExtensionObject(data) {
-  if (data.length && data.length > 0) {
+  if (data.length > 0) {
     // Look at the data to see if there is a extension object
     const lastObject = data[data.length - 1];
     if (lastObject && typeof lastObject === 'object' &&
@@ -48,11 +48,12 @@ function hasExtensionObject(data) {
  */
 function calculatePivot(data, suggestedPivot) {
   if (hasExtensionObject(data)) {
+    // Reuse the existing pivot
     return data.length - 1;
   }
 
   if (suggestedPivot > 0) {
-    return suggestedPivot;
+    return Math.max(suggestedPivot, data.length);
   }
 
   return Number.MAX_VALUE;
