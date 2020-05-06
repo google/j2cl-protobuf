@@ -44,16 +44,17 @@ function hasExtensionObject(data) {
 /**
  * @param {!Array<*>} data
  * @param {number} suggestedPivot
+ * @param {number} messageOffset
  * @return {number}
  */
-function calculatePivot(data, suggestedPivot) {
+function calculatePivot(data, suggestedPivot, messageOffset) {
   if (hasExtensionObject(data)) {
     // Reuse the existing pivot
     return data.length - 1;
   }
 
   if (suggestedPivot > 0) {
-    return Math.max(suggestedPivot, data.length);
+    return Math.max(suggestedPivot, data.length - messageOffset);
   }
 
   return Number.MAX_VALUE;
@@ -88,8 +89,8 @@ class JspbKernel {
    * @return {!JspbKernel}
    */
   static create(data, suggestedPivot, messageId) {
-    const pivot = calculatePivot(data, suggestedPivot);
     const messageOffset = messageId ? 0 : -1;
+    const pivot = calculatePivot(data, suggestedPivot, messageOffset);
     // Assign message id if its not present
     if (messageId && !data[0]) {
       data[0] = messageId;

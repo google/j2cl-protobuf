@@ -16,7 +16,9 @@ goog.module('proto.im.integration.PivotTest');
 goog.setTestOnly();
 
 const MutablePivot = goog.require('proto.protobuf.contrib.immutablejs.protos.Pivot');
+const MutablePivotWithoutExtension = goog.require('proto.protobuf.contrib.immutablejs.protos.PivotWithoutExtension');
 const Pivot = goog.require('improto.protobuf.contrib.immutablejs.protos.Pivot');
+const PivotWithoutExtension = goog.require('improto.protobuf.contrib.immutablejs.protos.PivotWithoutExtension');
 const mutablePivotExtension = goog.require('proto.protobuf.contrib.immutablejs.protos.pivotExtension');
 const pivot = goog.require('improto.protobuf.contrib.immutablejs.protos.pivot');
 const testSuite = goog.require('goog.testing.testSuite');
@@ -58,6 +60,21 @@ class PivotTest {
     assertEqualsForProto('parent2', p.getPayload2());
     assertEqualsForProto(
         'child', p.getExtension(pivot.pivotExtension).getPayload());
+  }
+
+  testParse_noMessageId() {
+    const data = [];
+    data[0] = 'parent1';
+    data[500] = 'parent2';
+    const serialized = JSON.stringify(data);
+
+    const m = MutablePivotWithoutExtension.deserialize(serialized);
+    assertEqualsForProto('parent1', m.getPayload());
+    assertEqualsForProto('parent2', m.getPayload2());
+
+    const p = PivotWithoutExtension.parse(serialized);
+    assertEqualsForProto('parent1', p.getPayload());
+    assertEqualsForProto('parent2', p.getPayload2());
   }
 
   testInteropWithAppsJspb_fromImmutable() {
