@@ -1,7 +1,6 @@
 # Public targets for j2cl proto
 
 load("//third_party/java/j2cl:j2cl_library.bzl", "j2cl_library")
-load("@bazel_tools//tools/build_defs/testing:bzl_library.bzl", "bzl_library")
 
 licenses(["notice"])  # Apache 2.0
 
@@ -30,10 +29,4 @@ java_proto_library(
     name = "options_java_proto",
     visibility = ["//visibility:public"],
     deps = [":options"],
-)
-
-bzl_library(
-    name = "j2cl_proto_provider_bzl",
-    srcs = ["j2cl_proto_provider.bzl"],
-    visibility = ["//visibility:public"],
 )
