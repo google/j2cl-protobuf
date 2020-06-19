@@ -15,13 +15,15 @@ syntax = "proto2";
 
 package j2cl;
 
-import "net/proto2/proto/descriptor.proto";
+option java_package = "com.google.protos.j2cl";
 
-extend proto2.EnumOptions {
+import "google/protobuf/descriptor.proto";
+
+extend google.protobuf.EnumOptions {
   optional J2clEnumOptions enum_options = 13373;
 }
 
-extend proto2.OneofOptions {
+extend google.protobuf.OneofOptions {
   optional J2clOneofOptions oneof_options = 13374;
 }
 

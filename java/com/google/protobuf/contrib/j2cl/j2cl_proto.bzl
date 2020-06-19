@@ -164,17 +164,17 @@ _j2cl_proto_library_aspect = aspect(
         "_j2cl_proto_implicit_deps": attr.label_list(
             default = [
                 # Blessed by J2CL team. This is needed for J2CL provider and J2CL provider API is
-                # only avaiable for proto. Other should never depend on J2CL internals.
+                # only available for proto. Other should never depend on J2CL internals.
                 Label("@com_google_j2cl//build_defs/internal_do_not_use:jre"),
-                Label("//third_party/java/gwt:gwt-jsinterop-annotations-j2cl"),
-                Label("//third_party/java/jsinterop:jsinterop-base-j2cl"),
-                Label("//java/com/google/protobuf/contrib/gwt:j2cl"),
+                Label("//third_party:gwt-jsinterop-annotations-j2cl"),
+                Label("//third_party:jsinterop-base-j2cl"),
+                Label("//third_party:j2cl_proto_runtime"),
             ],
         ),
         "_protocol_compiler": attr.label(
             executable = True,
             cfg = "host",
-            default = Label("//net/proto2/compiler/public:protocol_compiler"),
+            default = Label("//third_party:protocol_compiler"),
         ),
         "_protoc_gen_j2cl": attr.label(
             executable = True,
@@ -184,12 +184,12 @@ _j2cl_proto_library_aspect = aspect(
         "_jar": attr.label(
             executable = True,
             cfg = "host",
-            default = Label("//third_party/java/jdk/jar:jar"),
+            default = Label("@bazel_tools//tools/jdk:jar"),
         ),
         "_google_java_formatter": attr.label(
             cfg = "host",
             executable = True,
-            default = Label("//third_party/java/google_java_format:google_java_format"),
+            default = Label("//third_party:google_java_format"),
         ),
     }),
     fragments = ["java", "js"],

@@ -15,12 +15,14 @@ syntax = "proto2";
 
 package protobuf.contrib.j2cl.options;
 
-import "net/proto2/proto/descriptor.proto";
+option java_package = "com.google.protos.protobuf.contrib.j2cl.options";
 
-extend proto2.EnumOptions {
+import "google/protobuf/descriptor.proto";
+
+extend google.protobuf.EnumOptions {
   optional bool generate_js_enum = 13371;
 }
 
-extend proto2.OneofOptions {
+extend google.protobuf.OneofOptions {
   optional bool generate_js_case_enum = 13372;
 }

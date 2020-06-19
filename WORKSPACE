@@ -18,3 +18,6 @@ load_j2cl_repo_deps()
 load("@com_google_j2cl//build_defs:rules.bzl", "setup_j2cl_workspace")
 
 setup_j2cl_workspace()
+
+load(":repository.bzl", "load_j2cl_proto_repo_deps")
+load_j2cl_proto_repo_deps()

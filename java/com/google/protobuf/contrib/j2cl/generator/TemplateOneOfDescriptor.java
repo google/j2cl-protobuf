@@ -18,7 +18,7 @@ import com.google.common.base.Ascii;
 import com.google.protobuf.Descriptors.Descriptor;
 import com.google.protobuf.Descriptors.FieldDescriptor;
 import com.google.protobuf.Descriptors.OneofDescriptor;
-import com.google.protobuf.contrib.JavaQualifiedNames;
+import com.google.protobuf.contrib.immutablejs.generator.JavaQualifiedNames;
 import com.google.protos.j2cl.Options;
 import com.google.protos.protobuf.contrib.j2cl.options.JsEnum;
 import java.util.ArrayList;

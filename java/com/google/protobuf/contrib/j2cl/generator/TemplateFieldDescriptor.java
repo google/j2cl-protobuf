@@ -18,7 +18,7 @@ import static com.google.common.base.Preconditions.checkState;
 import com.google.auto.value.AutoValue;
 import com.google.protobuf.Descriptors.FieldDescriptor;
 import com.google.protobuf.Descriptors.FieldDescriptor.JavaType;
-import com.google.protobuf.contrib.JavaQualifiedNames;
+import com.google.protobuf.contrib.immutablejs.generator.JavaQualifiedNames;
 import com.google.protobuf.contrib.immutablejs.generator.JavaScriptQualifiedNames;
 
 /** Describes a protobuf field type. */

@@ -1,5 +1,7 @@
 # Description:
 #   Thirdparty dependencies indirection for bazel.
+load("@com_google_j2cl//build_defs:rules.bzl", "j2cl_import")
+
 package(
     default_visibility = ["//:__subpackages__"],
     licenses = ["notice"],  # Apache 2.0
@@ -19,6 +21,11 @@ java_library(
 alias(
     name = "jsr305_annotations",
     actual = "@com_google_code_findbugs_jsr305",
+)
+
+j2cl_import(
+    name = "jsr305_annotations-j2cl",
+    jar = ":jsr305_annotations",
 )
 
 alias(
@@ -56,6 +63,11 @@ alias(
     name = "protocol_compiler",
     actual = "@com_google_protobuf//:protoc",
     visibility = ["//visibility:public"],
+)
+
+alias(
+    name = "protobuf_descriptor",
+    actual = "@com_google_protobuf//:descriptor_proto",
 )
 
 alias(
@@ -107,4 +119,29 @@ alias(
 alias(
     name = "args4j",
     actual = "//third_party/java/args4j",
+)
+
+alias(
+    name = "gwt-jsinterop-annotations-j2cl",
+    actual = "@com_google_jsinterop_annotations-j2cl//:jsinterop-annotations-j2cl",
+    visibility = ["//visibility:public"],
+)
+
+alias(
+    name = "jsinterop-base-j2cl",
+    actual = "@com_google_jsinterop_base//:jsinterop-base-j2cl",
+    visibility = ["//visibility:public"],
+)
+
+java_binary(
+    name = "google_java_format",
+    main_class = "com.google.googlejavaformat.java.Main",
+    visibility = ["//visibility:public"],
+    runtime_deps = ["@com_google_google_java_format//jar"],
+)
+
+alias(
+    name = "j2cl_proto_runtime",
+    actual = "//java/com/google/protobuf/contrib/j2cl:runtime",
+    visibility = ["//visibility:public"],
 )

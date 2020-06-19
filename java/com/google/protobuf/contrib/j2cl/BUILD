@@ -1,6 +1,6 @@
 # Public targets for j2cl proto
 
-load("//third_party/java/j2cl:j2cl_library.bzl", "j2cl_library")
+load("@com_google_j2cl//build_defs:rules.bzl", "j2cl_library")
 
 licenses(["notice"])  # Apache 2.0
 
@@ -19,10 +19,8 @@ j2cl_library(
 proto_library(
     name = "options",
     srcs = ["options.proto"],
-    cc_api_version = 2,
-    compatible_with = ["//buildenv/target:non_prod"],
     visibility = ["//visibility:public"],
-    deps = ["//net/proto2/proto:descriptor"],
+    deps = ["//third_party:protobuf_descriptor"],
 )
 
 java_proto_library(

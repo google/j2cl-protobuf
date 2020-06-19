@@ -34,7 +34,7 @@ public class J2CLProtobufCompiler {
 
   public static void main(String[] args) throws IOException, DescriptorValidationException {
     CodeGeneratorRequest request =
-        CodeGeneratorRequest.parseFrom(System.in, ExtensionRegistry.getGeneratedRegistry());
+        CodeGeneratorRequest.parseFrom(System.in);
 
     Map<String, FileDescriptor> fileDescriptors = Maps.newHashMap();
     CodeGeneratorResponse.Builder response = CodeGeneratorResponse.newBuilder();

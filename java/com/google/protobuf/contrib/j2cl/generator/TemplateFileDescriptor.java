@@ -17,7 +17,7 @@ import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
 import com.google.common.io.Files;
 import com.google.protobuf.Descriptors.FileDescriptor;
-import com.google.protobuf.contrib.JavaQualifiedNames;
+import com.google.protobuf.contrib.immutablejs.generator.JavaQualifiedNames;
 import java.util.List;
 
 /** Represents a protobuf file descriptor. */

@@ -17,7 +17,7 @@ import static com.google.common.base.Preconditions.checkState;
 
 import com.google.protobuf.Descriptors.Descriptor;
 import com.google.protobuf.Descriptors.GenericDescriptor;
-import com.google.protobuf.contrib.JavaQualifiedNames;
+import com.google.protobuf.contrib.immutablejs.generator.JavaQualifiedNames;
 
 /** A base class for proto template type descriptors. */
 abstract class AbstractTemplateTypeDescriptor {
