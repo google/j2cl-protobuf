@@ -24,6 +24,11 @@ import com.google.testing.testsize.MediumTestAttribute;
 @MediumTest(MediumTestAttribute.FILE)
 public class GoldenFileTest extends GoldenFilesBaseTest {
 
+  @Override
+  protected String getProtoOutputDir(String protoName) {
+    return "../protos/" + protoName + "_j2cl_proto_for_testing_do_not_use";
+  }
+
   public void testAccessors() throws Exception {
     doGoldenTest("accessor");
   }

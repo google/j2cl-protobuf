@@ -22,20 +22,15 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.common.collect.Sets.SetView;
-import com.google.common.io.ByteStreams;
+import com.google.common.collect.Streams;
 import com.google.common.io.MoreFiles;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
-import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Collections;
 import java.util.Set;
-import java.util.stream.StreamSupport;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipFile;
 import junit.framework.TestCase;
 
 /** Base class for golden file tests */
@@ -54,12 +49,10 @@ public abstract class GoldenFilesBaseTest extends TestCase {
     abstract String getContent();
   }
 
-  protected ImmutableSet<GeneratedFile> loadGoldenFiles(String protoName) throws Exception {
-    return loadZipFiles(protoName, getClass());
-  }
+  protected abstract String getProtoOutputDir(String protoName);
 
   protected void doGoldenTest(String protoName) throws Exception {
-    ImmutableSet<GeneratedFile> generatedFiles = loadGoldenFiles(protoName);
+    ImmutableSet<GeneratedFile> generatedFiles = loadFilesFromDir(getProtoOutputDir(protoName), "");
     ImmutableSet<GeneratedFile> goldenFiles =
         loadFilesFromDir("golden_files/" + protoName + "/", ".txt");
 
@@ -121,18 +114,15 @@ public abstract class GoldenFilesBaseTest extends TestCase {
     return true;
   }
 
-  protected ImmutableSet<GeneratedFile> loadFilesFromDir(String relativePath) throws Exception {
-    return loadFilesFromDir(relativePath, "");
-  }
-
   private ImmutableSet<GeneratedFile> loadFilesFromDir(String relativePath, String postfix)
       throws Exception {
-    Path path = getRunfileLocation(getClass(), relativePath);
-    try (DirectoryStream<Path> stream = Files.newDirectoryStream(path)) {
-      return StreamSupport.stream(stream.spliterator(), false)
-          .map(p -> readFile(p, postfix))
-          .collect(ImmutableSet.toImmutableSet());
-    }
+    Path path = getRunfileLocation(getClass(), relativePath).toRealPath();
+    Iterable<Path> stream = MoreFiles.fileTraverser().breadthFirst(path);
+    return Streams.stream(stream)
+        .filter(Files::isRegularFile)
+        .filter(p -> !p.toString().contains("MANIFEST"))
+        .map(p -> readFile(p, postfix))
+        .collect(ImmutableSet.toImmutableSet());
   }
 
   private static GeneratedFile readFile(Path p, String postfix) {
@@ -142,26 +132,6 @@ public abstract class GoldenFilesBaseTest extends TestCase {
       assertTrue(name, name.endsWith(postfix));
       name = name.substring(0, name.length() - postfix.length());
       return GeneratedFile.create(name, content);
-    } catch (IOException e) {
-      throw new RuntimeException(e);
-    }
-  }
-
-  private static ImmutableSet<GeneratedFile> loadZipFiles(String protoName, Class<?> testClass)
-      throws IOException {
-    Path path = getRunfileLocation(testClass, protoName + ".zip");
-    try (ZipFile zipFile = new ZipFile(path.toFile())) {
-      return Collections.list(zipFile.entries()).stream()
-          .map(e -> readZipContent(zipFile, e))
-          .collect(ImmutableSet.toImmutableSet());
-    }
-  }
-
-  private static GeneratedFile readZipContent(ZipFile zipFile, ZipEntry entry) {
-    try {
-      byte[] bytes = ByteStreams.toByteArray(zipFile.getInputStream(entry));
-      String content = new String(bytes, UTF_8);
-      return GeneratedFile.create(entry.getName(), content);
     } catch (IOException e) {
       throw new RuntimeException(e);
     }

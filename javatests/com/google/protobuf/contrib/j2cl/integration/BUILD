@@ -190,12 +190,12 @@ closure_js_binary(
     defs = COMFORMANCE_CHECK_FLAGS,
     extra_inputs = ["//javascript/closure:conformance_proto.txt"],
     deps = [
-        "//javatests/com/google/protobuf/contrib/j2cl/protos:accessor_j2cl_proto_new",
-        "//javatests/com/google/protobuf/contrib/j2cl/protos:ambiguous_fields_j2cl_proto_new",
-        "//javatests/com/google/protobuf/contrib/j2cl/protos:extensions_j2cl_proto_new",
-        "//javatests/com/google/protobuf/contrib/j2cl/protos:native_enum_j2cl_proto_new",
-        "//javatests/com/google/protobuf/contrib/j2cl/protos:oneofs_j2cl_proto_new",
-        "//javatests/com/google/protobuf/contrib/j2cl/protos:sparse_j2cl_proto_new",
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:accessor_j2cl_proto",
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:ambiguous_fields_j2cl_proto",
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:extensions_j2cl_proto",
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:native_enum_j2cl_proto",
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:oneofs_j2cl_proto",
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:sparse_j2cl_proto",
     ],
 )
 

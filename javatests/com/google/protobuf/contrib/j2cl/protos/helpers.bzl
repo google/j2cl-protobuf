@@ -40,33 +40,35 @@ def generate_protos(name, proto_file, deps = []):
     )
 
     j2cl_proto_library(
-        name = name + "_j2cl_proto_new",
+        name = name + "_j2cl_proto",
         deps = [":" + name],
     )
 
-    _flatten_jar(
-        name = name,
-        file = ":" + name + "_j2cl_proto_new_for_testing_do_not_use.srcjar",
+    native.filegroup(
+        name = name + "_out",
+        srcs = [":" + name + "_j2cl_proto"],
+        output_group = "for_testing_do_not_use",
     )
 
     j2cl_proto_library(
-        name = name + "-multiple-files_j2cl_proto_new",
+        name = name + "-multiple-files_j2cl_proto",
         deps = [":" + name + "_multiple_files"],
     )
 
-    _flatten_jar(
-        name = name + "-multiple-files",
-        file = ":" + name + "-multiple-files_j2cl_proto_new_for_testing_do_not_use.srcjar",
+    native.filegroup(
+        name = name + "-multiple-files_out",
+        srcs = [":" + name + "-multiple-files_j2cl_proto"],
+        output_group = "for_testing_do_not_use",
     )
 
     j2cl_proto_library(
-        name = name + "_indirect-j2cl-proto",
+        name = name + "_indirect-j2cl_proto",
         deps = [":" + name + "_indirect"],
     )
 
     build_test(
-        name = name + "_indrect-j2cl-proto_build_test",
-        targets = [":" + name + "_indirect-j2cl-proto"],
+        name = name + "_indrect-j2cl_proto_build_test",
+        targets = [":" + name + "_indirect-j2cl_proto"],
     )
 
 def _generate_multifile_proto(original_proto_name):
@@ -79,27 +81,4 @@ def _generate_multifile_proto(original_proto_name):
             "cat $(SRCS) |",
             "sed -e 's/\\/\\/\\ REMOVED_BY_GENRULE\\ //g' $(SRCS) > $@",
         ]),
-    )
-
-def _flatten_jar(name, file):
-    cmd = """
-       mkdir -p tmp
-       unzip -jq -d tmp $(SRCS)
-       zip -jq $(OUTS) tmp/*.java
-       rm -r tmp
-    """
-
-    native.genrule(
-        name = name + "_extract",
-        srcs = [file],
-        outs = [name + ".zip"],
-        cmd = cmd,
-    )
-
-def copy_source_jar(name):
-    native.genrule(
-        name = name + "_genrule",
-        srcs = ["//javatests/com/google/protobuf/contrib/j2cl/protos:" + name],
-        outs = [name],
-        cmd = "cat $(SRCS) > $@",
     )

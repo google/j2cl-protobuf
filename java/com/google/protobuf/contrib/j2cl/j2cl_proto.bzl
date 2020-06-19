@@ -69,9 +69,9 @@ def _j2cl_proto_library_aspect_impl(target, ctx):
     transitive_runfiles = [target[ImmutableJspbInfo]._private_.runfiles]
     transitive_runfiles += [dep[J2clProtoInfo]._private_.runfiles for dep in ctx.rule.attr.deps]
 
-    jar_archive = _new_jar(ctx, name)
-
+    jar_archive = None
     if srcs:
+        jar_archive = _new_jar(ctx, name)
         protoc_command_template = """
           set -e -o pipefail
 
@@ -132,11 +132,6 @@ def _j2cl_proto_library_aspect_impl(target, ctx):
         )
 
     else:
-        ctx.actions.run_shell(
-            command = "touch %s" % jar_archive.path,
-            outputs = [jar_archive],
-        )
-
         # Considers deps as exports in no srcs case.
         j2cl_provider = j2cl_common.compile(
             ctx,
@@ -201,12 +196,20 @@ def _j2cl_proto_library_rule_impl(ctx):
 
     j2cl_proto_info = ctx.attr.deps[0][J2clProtoInfo]
 
+    output = []
     srcjar = j2cl_proto_info._private_.srcjar
-    ctx.actions.run_shell(
-        command = "cp %s %s" % (srcjar.path, ctx.outputs.srcjar.path),
-        inputs = [srcjar],
-        outputs = [ctx.outputs.srcjar],
-    )
+    if srcjar:
+        output = ctx.actions.declare_directory(ctx.label.name + "_for_testing_do_not_use")
+        ctx.actions.run_shell(
+            inputs = [srcjar],
+            outputs = [output],
+            command = (
+                "mkdir -p %s && " % output.path +
+                "%s x %s -d %s" % (ctx.executable._zip.path, srcjar.path, output.path)
+            ),
+            tools = [ctx.executable._zip],
+        )
+        output = [output]
 
     # This is a workaround to b/35847804 to make sure the zip ends up in the runfiles.
     # We are doing this transitively since we need to workaround the issue for the files generated
@@ -217,6 +220,7 @@ def _j2cl_proto_library_rule_impl(ctx):
         j2cl_info = j2cl_proto_info._private_.j2cl_info,
         extra_providers = [
             DefaultInfo(runfiles = ctx.runfiles(transitive_files = runfiles)),
+            OutputGroupInfo(for_testing_do_not_use = output),
         ],
     )
 
@@ -232,9 +236,11 @@ new_j2cl_proto_library = rule(
             providers = [ProtoInfo],
             aspects = [immutable_js_proto_library_aspect, _j2cl_proto_library_aspect],
         ),
+        "_zip": attr.label(
+            cfg = "host",
+            executable = True,
+            default = Label("@bazel_tools//tools/zip:zipper"),
+        ),
     },
     fragments = ["js"],
-    outputs = {
-        "srcjar": "%{name}_for_testing_do_not_use.srcjar",
-    },
 )

@@ -1,4 +1,4 @@
-load("//javatests/com/google/protobuf/contrib/j2cl:helpers.bzl", "generate_protos")
+load(":helpers.bzl", "generate_protos")
 
 package(default_visibility = [
     "//javatests/com/google/protobuf/contrib/j2cl:__subpackages__",

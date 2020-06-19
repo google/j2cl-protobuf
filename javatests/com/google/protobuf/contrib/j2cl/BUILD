@@ -9,6 +9,6 @@ sh_test(
         "third_party/java_src/j2cl_proto/javatests/com/google/protobuf/contrib/j2cl/protos/enum_alias-improto",
         "third_party/java_src/j2cl_proto/javatests/com/google/protobuf/contrib/j2cl/protos/enum_alias-j2cl.js.zip",
     ],
-    data = ["//javatests/com/google/protobuf/contrib/j2cl/protos:enum_alias_j2cl_proto_new"],
+    data = ["//javatests/com/google/protobuf/contrib/j2cl/protos:enum_alias_j2cl_proto"],
     deps = ["//util/shell/gbash"],
 )
