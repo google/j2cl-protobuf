@@ -16,6 +16,7 @@ package com.google.protobuf.contrib.immutablejs.generator;
 import com.google.auto.value.AutoValue;
 import com.google.auto.value.extension.memoized.Memoized;
 import com.google.common.io.Files;
+import com.google.protobuf.DescriptorProtos.FieldOptions.JSType;
 import com.google.protobuf.Descriptors.Descriptor;
 import com.google.protobuf.Descriptors.EnumDescriptor;
 import com.google.protobuf.Descriptors.FieldDescriptor;
@@ -49,6 +50,9 @@ public abstract class TypeDescriptor {
       case INT:
         return createPrimitive("number", "Int");
       case LONG:
+        if (fieldDescriptor.getOptions().getJstype() != JSType.JS_STRING) {
+          return INT52_LONG;
+        }
         return LONG;
       case BYTE_STRING:
         return BYTE_STRING;

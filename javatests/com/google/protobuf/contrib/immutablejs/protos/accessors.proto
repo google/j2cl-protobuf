@@ -33,9 +33,11 @@ message TestProto {
   repeated int32 repeated_int = 6;
 
   // int64 fields
-  optional int64 optional_long = 7;
-  optional int64 optional_long_with_default = 8 [default = 3000000000];
-  repeated int64 repeated_long = 9;
+
+  optional int64 optional_long = 7 [jstype = JS_STRING];
+  optional int64 optional_long_with_default = 8
+      [default = 3000000000, jstype = JS_STRING];
+  repeated int64 repeated_long = 9 [jstype = JS_STRING];
 
   // int64 fields (int52)
 
