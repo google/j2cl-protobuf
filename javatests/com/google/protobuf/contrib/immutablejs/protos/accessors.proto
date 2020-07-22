@@ -87,6 +87,11 @@ message TestProto {
   optional bytes optional_bytes_with_default = 29 [default = "a bytey default"];
   repeated bytes repeated_bytes = 30;
 
+  // unsigned fields.
+
+  optional uint32 optional_uint32 = 31;
+  optional uint64 optional_uint64 = 32 [jstype = JS_STRING];
+
   // message fields.
 
   message NestedMessage {

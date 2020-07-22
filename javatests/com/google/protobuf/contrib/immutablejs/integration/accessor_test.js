@@ -94,6 +94,10 @@ class AccessorTest {
     assertEqualsForProto(
         [6, 7], repeatedByteStringListView.get(2).toByteArray());
 
+    // Repro for b/160739199. Uncomment after fixed.
+    // assertEqualsForProto(2147483653, testProto.getOptionalUint32());
+    // assertEqualsForProto(Long.fromString("9223372036854775809"), testProto.getOptionalUint64());
+
     assertEqualsForProto('p1', testProto.getOptionalMessage().getPayload());
     assertEqualsForProto(3, testProto.getRepeatedMessageCount());
     const repeatedMessageListView = testProto.getRepeatedMessageList();
