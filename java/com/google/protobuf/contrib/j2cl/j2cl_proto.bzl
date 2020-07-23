@@ -158,9 +158,6 @@ _j2cl_proto_library_aspect = aspect(
     attrs = dict(J2CL_TOOLCHAIN_ATTRS, **{
         "_j2cl_proto_implicit_deps": attr.label_list(
             default = [
-                # Blessed by J2CL team. This is needed for J2CL provider and J2CL provider API is
-                # only available for proto. Other should never depend on J2CL internals.
-                Label("@com_google_j2cl//build_defs/internal_do_not_use:jre"),
                 Label("//third_party:gwt-jsinterop-annotations-j2cl"),
                 Label("//third_party:jsinterop-base-j2cl"),
                 Label("//third_party:j2cl_proto_runtime"),
