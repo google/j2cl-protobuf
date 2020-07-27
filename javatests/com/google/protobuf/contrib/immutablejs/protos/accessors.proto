@@ -95,7 +95,12 @@ message TestProto {
   // message fields.
 
   message NestedMessage {
+    message DoublyNestedMessage {
+      optional string foo = 22;
+    }
+
     optional string payload = 1;
+    optional DoublyNestedMessage errata = 2;
   }
   optional NestedMessage optional_message = 26;
   repeated NestedMessage repeated_message = 27;

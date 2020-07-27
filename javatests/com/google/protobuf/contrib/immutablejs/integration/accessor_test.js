@@ -96,7 +96,8 @@ class AccessorTest {
 
     // Repro for b/160739199. Uncomment after fixed.
     // assertEqualsForProto(2147483653, testProto.getOptionalUint32());
-    // assertEqualsForProto(Long.fromString("9223372036854775809"), testProto.getOptionalUint64());
+    // assertEqualsForProto(Long.fromString("9223372036854775809"),
+    // testProto.getOptionalUint64());
 
     assertEqualsForProto('p1', testProto.getOptionalMessage().getPayload());
     assertEqualsForProto(3, testProto.getRepeatedMessageCount());
@@ -161,6 +162,14 @@ class AccessorTest {
     const parseFunction = testProto.getParserForType();
     const testProto1 = parseFunction(jspbDataAsString);
     assertEqualsForProto(testProto, testProto1);
+  }
+
+  testFieldNumbers() {
+    assertEquals(6, TestProto.REPEATED_INT_FIELD_NUMBER);
+    assertEquals(16, TestProto.OPTIONAL_ENUM_FIELD_NUMBER);
+    assertEquals(2, TestProto.NestedMessage.ERRATA_FIELD_NUMBER);
+    assertEquals(
+        22, TestProto.NestedMessage.DoublyNestedMessage.FOO_FIELD_NUMBER);
   }
 }
 

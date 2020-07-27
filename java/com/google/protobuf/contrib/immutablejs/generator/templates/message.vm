@@ -90,6 +90,9 @@ $messageName = class $message.type.name extends proto_im_InternalMessage {
 
 #end
 }
+#foreach ($field in $message.fields)
+  ${messageName}.${field.fieldNumberName}_FIELD_NUMBER = $field.number;
+#end
 
 #foreach($oneOfDescriptor in $message.oneOfs)
 #parse('oneof.vm')

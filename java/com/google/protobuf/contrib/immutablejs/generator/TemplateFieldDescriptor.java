@@ -16,6 +16,7 @@ package com.google.protobuf.contrib.immutablejs.generator;
 import static com.google.common.base.Preconditions.checkState;
 
 import com.google.auto.value.AutoValue;
+import com.google.common.base.Ascii;
 import com.google.common.io.BaseEncoding;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.Descriptors.EnumValueDescriptor;
@@ -51,6 +52,10 @@ public abstract class TemplateFieldDescriptor {
   public String getName() {
     return JavaScriptQualifiedNames.getFieldName(
         protoFieldDescriptor(), !protoFieldDescriptor().isExtension());
+  }
+
+  public String getFieldNumberName() {
+    return Ascii.toUpperCase(protoFieldDescriptor().getName());
   }
 
   public boolean isRepeated() {
