@@ -13,9 +13,7 @@
  */
 package com.google.protobuf.contrib.j2cl.integration;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
+import static com.google.common.truth.Truth.assertThat;
 
 import com.google.protobuf.contrib.j2cl.protos.Accessor.TestProto;
 import org.junit.Test;
@@ -30,15 +28,15 @@ public class BuilderCloneTest {
     TestProto.Builder builder2 = builder1.clone();
 
     // Make sure they are both identical
-    assertEquals(builder1.build(), builder2.build());
+    assertThat(builder2.build()).isEqualTo(builder1.build());
 
     // change the first builder
     builder1.setOptionalString("foo");
 
     // Assert that the first has changed, but not the second
-    assertNotEquals(builder1.build(), builder2.build());
-    assertEquals("foo", builder1.getOptionalString());
-    assertEquals("", builder2.getOptionalString());
-    assertFalse(builder2.hasOptionalString());
+    assertThat(builder2.build()).isNotEqualTo(builder1.build());
+    assertThat(builder1.getOptionalString()).isEqualTo("foo");
+    assertThat(builder2.getOptionalString()).isEmpty();
+    assertThat(builder2.hasOptionalString()).isFalse();
   }
 }

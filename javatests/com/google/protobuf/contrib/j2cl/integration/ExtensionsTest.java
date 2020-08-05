@@ -14,10 +14,7 @@
 package com.google.protobuf.contrib.j2cl.integration;
 
 import static com.google.common.truth.Truth.assertThat;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
 
 import com.google.protobuf.ByteString;
 import com.google.protobuf.ExtensionLite;
@@ -40,17 +37,17 @@ public class ExtensionsTest {
   @Test
   public void testSingleBooleanExtension_get_hasExtension() {
     Base.Builder baseBuilder = Base.newBuilder();
-    assertFalse(baseBuilder.hasExtension(Primitives.singleBoolExtension));
-    assertFalse(baseBuilder.build().hasExtension(Primitives.singleBoolExtension));
-    assertFalse(baseBuilder.getExtension(Primitives.singleBoolExtension));
-    assertFalse(baseBuilder.build().getExtension(Primitives.singleBoolExtension));
+    assertThat(baseBuilder.hasExtension(Primitives.singleBoolExtension)).isFalse();
+    assertThat(baseBuilder.build().hasExtension(Primitives.singleBoolExtension)).isFalse();
+    assertThat(baseBuilder.getExtension(Primitives.singleBoolExtension)).isFalse();
+    assertThat(baseBuilder.build().getExtension(Primitives.singleBoolExtension)).isFalse();
 
     baseBuilder.setExtension(Primitives.singleBoolExtension, true);
-    assertTrue(baseBuilder.hasExtension(Primitives.singleBoolExtension));
-    assertTrue(baseBuilder.build().hasExtension(Primitives.singleBoolExtension));
+    assertThat(baseBuilder.hasExtension(Primitives.singleBoolExtension)).isTrue();
+    assertThat(baseBuilder.build().hasExtension(Primitives.singleBoolExtension)).isTrue();
 
-    assertTrue(baseBuilder.getExtension(Primitives.singleBoolExtension));
-    assertTrue(baseBuilder.build().getExtension(Primitives.singleBoolExtension));
+    assertThat(baseBuilder.getExtension(Primitives.singleBoolExtension)).isTrue();
+    assertThat(baseBuilder.build().getExtension(Primitives.singleBoolExtension)).isTrue();
   }
 
   @Test
@@ -60,22 +57,24 @@ public class ExtensionsTest {
 
     baseBuilder.clearExtension(Primitives.singleBoolExtension);
 
-    assertFalse(baseBuilder.hasExtension(Primitives.singleBoolExtension));
-    assertFalse(baseBuilder.build().hasExtension(Primitives.singleBoolExtension));
+    assertThat(baseBuilder.hasExtension(Primitives.singleBoolExtension)).isFalse();
+    assertThat(baseBuilder.build().hasExtension(Primitives.singleBoolExtension)).isFalse();
   }
 
   @Test
   public void testRepeatedBooleanExtension_count_get() {
     Base.Builder baseBuilder = Base.newBuilder();
-    assertEquals(0, baseBuilder.getExtensionCount(Primitives.repeatedBoolExtension));
-    assertEquals(0, baseBuilder.build().getExtensionCount(Primitives.repeatedBoolExtension));
+    assertThat(baseBuilder.getExtensionCount(Primitives.repeatedBoolExtension)).isEqualTo(0);
+    assertThat(baseBuilder.build().getExtensionCount(Primitives.repeatedBoolExtension))
+        .isEqualTo(0);
 
     assertThat(baseBuilder.getExtension(Primitives.repeatedBoolExtension)).isEmpty();
     assertThat(baseBuilder.build().getExtension(Primitives.repeatedBoolExtension)).isEmpty();
 
     baseBuilder.setExtension(Primitives.repeatedBoolExtension, Arrays.asList(true, true));
-    assertEquals(2, baseBuilder.getExtensionCount(Primitives.repeatedBoolExtension));
-    assertEquals(2, baseBuilder.build().getExtensionCount(Primitives.repeatedBoolExtension));
+    assertThat(baseBuilder.getExtensionCount(Primitives.repeatedBoolExtension)).isEqualTo(2);
+    assertThat(baseBuilder.build().getExtensionCount(Primitives.repeatedBoolExtension))
+        .isEqualTo(2);
 
     assertThat(baseBuilder.getExtension(Primitives.repeatedBoolExtension))
         .containsExactly(true, true);
@@ -94,10 +93,10 @@ public class ExtensionsTest {
 
     baseBuilder.setExtension(Primitives.repeatedBoolExtension, Arrays.asList(true, false));
 
-    assertTrue(baseBuilder.getExtension(Primitives.repeatedBoolExtension, 0));
-    assertTrue(baseBuilder.build().getExtension(Primitives.repeatedBoolExtension, 0));
-    assertFalse(baseBuilder.getExtension(Primitives.repeatedBoolExtension, 1));
-    assertFalse(baseBuilder.build().getExtension(Primitives.repeatedBoolExtension, 1));
+    assertThat(baseBuilder.getExtension(Primitives.repeatedBoolExtension, 0)).isTrue();
+    assertThat(baseBuilder.build().getExtension(Primitives.repeatedBoolExtension, 0)).isTrue();
+    assertThat(baseBuilder.getExtension(Primitives.repeatedBoolExtension, 1)).isFalse();
+    assertThat(baseBuilder.build().getExtension(Primitives.repeatedBoolExtension, 1)).isFalse();
   }
 
   @Test
@@ -147,25 +146,28 @@ public class ExtensionsTest {
 
     baseBuilder.clearExtension(Primitives.repeatedBoolExtension);
 
-    assertEquals(0, baseBuilder.getExtensionCount(Primitives.repeatedBoolExtension));
-    assertEquals(0, baseBuilder.build().getExtensionCount(Primitives.repeatedBoolExtension));
+    assertThat(baseBuilder.getExtensionCount(Primitives.repeatedBoolExtension)).isEqualTo(0);
+    assertThat(baseBuilder.build().getExtensionCount(Primitives.repeatedBoolExtension))
+        .isEqualTo(0);
   }
 
   @Test
   public void testSingleByteStringExtension_get_hasExtension() {
     Base.Builder baseBuilder = Base.newBuilder();
-    assertFalse(baseBuilder.hasExtension(Primitives.singleByteStringExtension));
-    assertFalse(baseBuilder.build().hasExtension(Primitives.singleByteStringExtension));
-    assertEquals(ByteString.EMPTY, baseBuilder.getExtension(Primitives.singleByteStringExtension));
-    assertEquals(
-        ByteString.EMPTY, baseBuilder.build().getExtension(Primitives.singleByteStringExtension));
+    assertThat(baseBuilder.hasExtension(Primitives.singleByteStringExtension)).isFalse();
+    assertThat(baseBuilder.build().hasExtension(Primitives.singleByteStringExtension)).isFalse();
+    assertThat(baseBuilder.getExtension(Primitives.singleByteStringExtension))
+        .isEqualTo(ByteString.EMPTY);
+    assertThat(baseBuilder.build().getExtension(Primitives.singleByteStringExtension))
+        .isEqualTo(ByteString.EMPTY);
 
     baseBuilder.setExtension(Primitives.singleByteStringExtension, bs(1));
-    assertTrue(baseBuilder.hasExtension(Primitives.singleByteStringExtension));
-    assertTrue(baseBuilder.build().hasExtension(Primitives.singleByteStringExtension));
+    assertThat(baseBuilder.hasExtension(Primitives.singleByteStringExtension)).isTrue();
+    assertThat(baseBuilder.build().hasExtension(Primitives.singleByteStringExtension)).isTrue();
 
-    assertEquals(bs(1), baseBuilder.getExtension(Primitives.singleByteStringExtension));
-    assertEquals(bs(1), baseBuilder.build().getExtension(Primitives.singleByteStringExtension));
+    assertThat(baseBuilder.getExtension(Primitives.singleByteStringExtension)).isEqualTo(bs(1));
+    assertThat(baseBuilder.build().getExtension(Primitives.singleByteStringExtension))
+        .isEqualTo(bs(1));
   }
 
   @Test
@@ -176,21 +178,23 @@ public class ExtensionsTest {
 
     baseBuilder.clearExtension(Primitives.singleByteStringExtension);
 
-    assertFalse(baseBuilder.hasExtension(Primitives.singleByteStringExtension));
-    assertFalse(baseBuilder.build().hasExtension(Primitives.singleByteStringExtension));
+    assertThat(baseBuilder.hasExtension(Primitives.singleByteStringExtension)).isFalse();
+    assertThat(baseBuilder.build().hasExtension(Primitives.singleByteStringExtension)).isFalse();
   }
 
   @Test
   public void testRepeatedByteStringExtension_count_get() {
     Base.Builder baseBuilder = Base.newBuilder();
-    assertEquals(0, baseBuilder.getExtensionCount(Primitives.repeatedByteStringExtension));
-    assertEquals(0, baseBuilder.build().getExtensionCount(Primitives.repeatedByteStringExtension));
+    assertThat(baseBuilder.getExtensionCount(Primitives.repeatedByteStringExtension)).isEqualTo(0);
+    assertThat(baseBuilder.build().getExtensionCount(Primitives.repeatedByteStringExtension))
+        .isEqualTo(0);
     assertThat(baseBuilder.getExtension(Primitives.repeatedByteStringExtension)).isEmpty();
     assertThat(baseBuilder.build().getExtension(Primitives.repeatedByteStringExtension)).isEmpty();
 
     baseBuilder.setExtension(Primitives.repeatedByteStringExtension, Arrays.asList(bs(1), bs(2)));
-    assertEquals(2, baseBuilder.getExtensionCount(Primitives.repeatedByteStringExtension));
-    assertEquals(2, baseBuilder.build().getExtensionCount(Primitives.repeatedByteStringExtension));
+    assertThat(baseBuilder.getExtensionCount(Primitives.repeatedByteStringExtension)).isEqualTo(2);
+    assertThat(baseBuilder.build().getExtensionCount(Primitives.repeatedByteStringExtension))
+        .isEqualTo(2);
 
     assertThat(baseBuilder.getExtension(Primitives.repeatedByteStringExtension))
         .containsExactly(bs(1), bs(2))
@@ -212,12 +216,14 @@ public class ExtensionsTest {
 
     baseBuilder.setExtension(Primitives.repeatedByteStringExtension, Arrays.asList(bs(1), bs(2)));
 
-    assertEquals(bs(1), baseBuilder.getExtension(Primitives.repeatedByteStringExtension, 0));
-    assertEquals(
-        bs(1), baseBuilder.build().getExtension(Primitives.repeatedByteStringExtension, 0));
-    assertEquals(bs(2), baseBuilder.getExtension(Primitives.repeatedByteStringExtension, 1));
-    assertEquals(
-        bs(2), baseBuilder.build().getExtension(Primitives.repeatedByteStringExtension, 1));
+    assertThat(baseBuilder.getExtension(Primitives.repeatedByteStringExtension, 0))
+        .isEqualTo(bs(1));
+    assertThat(baseBuilder.build().getExtension(Primitives.repeatedByteStringExtension, 0))
+        .isEqualTo(bs(1));
+    assertThat(baseBuilder.getExtension(Primitives.repeatedByteStringExtension, 1))
+        .isEqualTo(bs(2));
+    assertThat(baseBuilder.build().getExtension(Primitives.repeatedByteStringExtension, 1))
+        .isEqualTo(bs(2));
   }
 
   @Test
@@ -267,24 +273,29 @@ public class ExtensionsTest {
 
     baseBuilder.clearExtension(Primitives.repeatedByteStringExtension);
 
-    assertEquals(0, baseBuilder.getExtensionCount(Primitives.repeatedByteStringExtension));
-    assertEquals(0, baseBuilder.build().getExtensionCount(Primitives.repeatedByteStringExtension));
+    assertThat(baseBuilder.getExtensionCount(Primitives.repeatedByteStringExtension)).isEqualTo(0);
+    assertThat(baseBuilder.build().getExtensionCount(Primitives.repeatedByteStringExtension))
+        .isEqualTo(0);
   }
 
   @Test
   public void testSingleDoubleExtension_get_hasExtension() {
     Base.Builder baseBuilder = Base.newBuilder();
-    assertFalse(baseBuilder.hasExtension(Primitives.singleDoubleExtension));
-    assertFalse(baseBuilder.build().hasExtension(Primitives.singleDoubleExtension));
-    assertEquals(0d, baseBuilder.getExtension(Primitives.singleDoubleExtension), 0.0001d);
-    assertEquals(0d, baseBuilder.build().getExtension(Primitives.singleDoubleExtension), 0.0001d);
+    assertThat(baseBuilder.hasExtension(Primitives.singleDoubleExtension)).isFalse();
+    assertThat(baseBuilder.build().hasExtension(Primitives.singleDoubleExtension)).isFalse();
+    assertThat(baseBuilder.getExtension(Primitives.singleDoubleExtension)).isWithin(0.0001d).of(0d);
+    assertThat(baseBuilder.build().getExtension(Primitives.singleDoubleExtension))
+        .isWithin(0.0001d)
+        .of(0d);
 
     baseBuilder.setExtension(Primitives.singleDoubleExtension, 1d);
-    assertTrue(baseBuilder.hasExtension(Primitives.singleDoubleExtension));
-    assertTrue(baseBuilder.build().hasExtension(Primitives.singleDoubleExtension));
+    assertThat(baseBuilder.hasExtension(Primitives.singleDoubleExtension)).isTrue();
+    assertThat(baseBuilder.build().hasExtension(Primitives.singleDoubleExtension)).isTrue();
 
-    assertEquals(1d, baseBuilder.getExtension(Primitives.singleDoubleExtension), 0.0001d);
-    assertEquals(1d, baseBuilder.build().getExtension(Primitives.singleDoubleExtension), 0.0001d);
+    assertThat(baseBuilder.getExtension(Primitives.singleDoubleExtension)).isWithin(0.0001d).of(1d);
+    assertThat(baseBuilder.build().getExtension(Primitives.singleDoubleExtension))
+        .isWithin(0.0001d)
+        .of(1d);
   }
 
   @Test
@@ -294,21 +305,23 @@ public class ExtensionsTest {
 
     baseBuilder.clearExtension(Primitives.singleDoubleExtension);
 
-    assertFalse(baseBuilder.hasExtension(Primitives.singleDoubleExtension));
-    assertFalse(baseBuilder.build().hasExtension(Primitives.singleDoubleExtension));
+    assertThat(baseBuilder.hasExtension(Primitives.singleDoubleExtension)).isFalse();
+    assertThat(baseBuilder.build().hasExtension(Primitives.singleDoubleExtension)).isFalse();
   }
 
   @Test
   public void testRepeatedDoubleExtension_count_get() {
     Base.Builder baseBuilder = Base.newBuilder();
-    assertEquals(0, baseBuilder.getExtensionCount(Primitives.repeatedDoubleExtension));
-    assertEquals(0, baseBuilder.build().getExtensionCount(Primitives.repeatedDoubleExtension));
+    assertThat(baseBuilder.getExtensionCount(Primitives.repeatedDoubleExtension)).isEqualTo(0);
+    assertThat(baseBuilder.build().getExtensionCount(Primitives.repeatedDoubleExtension))
+        .isEqualTo(0);
     assertThat(baseBuilder.getExtension(Primitives.repeatedDoubleExtension)).isEmpty();
     assertThat(baseBuilder.build().getExtension(Primitives.repeatedDoubleExtension)).isEmpty();
 
     baseBuilder.setExtension(Primitives.repeatedDoubleExtension, Arrays.asList(1d, 2d));
-    assertEquals(2, baseBuilder.getExtensionCount(Primitives.repeatedDoubleExtension));
-    assertEquals(2, baseBuilder.build().getExtensionCount(Primitives.repeatedDoubleExtension));
+    assertThat(baseBuilder.getExtensionCount(Primitives.repeatedDoubleExtension)).isEqualTo(2);
+    assertThat(baseBuilder.build().getExtensionCount(Primitives.repeatedDoubleExtension))
+        .isEqualTo(2);
 
     assertThat(baseBuilder.getExtension(Primitives.repeatedDoubleExtension))
         .containsExactly(1d, 2d)
@@ -329,12 +342,18 @@ public class ExtensionsTest {
 
     baseBuilder.setExtension(Primitives.repeatedDoubleExtension, Arrays.asList(1d, 2d));
 
-    assertEquals(1d, baseBuilder.getExtension(Primitives.repeatedDoubleExtension, 0), 0.0001d);
-    assertEquals(
-        1d, baseBuilder.build().getExtension(Primitives.repeatedDoubleExtension, 0), 0.0001d);
-    assertEquals(2d, baseBuilder.getExtension(Primitives.repeatedDoubleExtension, 1), 0.0001d);
-    assertEquals(
-        2d, baseBuilder.build().getExtension(Primitives.repeatedDoubleExtension, 1), 0.0001d);
+    assertThat(baseBuilder.getExtension(Primitives.repeatedDoubleExtension, 0))
+        .isWithin(0.0001d)
+        .of(1d);
+    assertThat(baseBuilder.build().getExtension(Primitives.repeatedDoubleExtension, 0))
+        .isWithin(0.0001d)
+        .of(1d);
+    assertThat(baseBuilder.getExtension(Primitives.repeatedDoubleExtension, 1))
+        .isWithin(0.0001d)
+        .of(2d);
+    assertThat(baseBuilder.build().getExtension(Primitives.repeatedDoubleExtension, 1))
+        .isWithin(0.0001d)
+        .of(2d);
   }
 
   @Test
@@ -384,45 +403,48 @@ public class ExtensionsTest {
 
     baseBuilder.clearExtension(Primitives.repeatedDoubleExtension);
 
-    assertEquals(0, baseBuilder.getExtensionCount(Primitives.repeatedDoubleExtension));
-    assertEquals(0, baseBuilder.build().getExtensionCount(Primitives.repeatedDoubleExtension));
+    assertThat(baseBuilder.getExtensionCount(Primitives.repeatedDoubleExtension)).isEqualTo(0);
+    assertThat(baseBuilder.build().getExtensionCount(Primitives.repeatedDoubleExtension))
+        .isEqualTo(0);
   }
 
   @Test
   public void testSingleEnumExtension_get_hasExtension() {
     Base.Builder baseBuilder = Base.newBuilder();
-    assertFalse(baseBuilder.hasExtension(Primitives.singleEnumExtension));
-    assertFalse(baseBuilder.build().hasExtension(Primitives.singleEnumExtension));
-    assertEquals(TestEnum.DEFAULT, baseBuilder.getExtension(Primitives.singleEnumExtension));
-    assertEquals(
-        TestEnum.DEFAULT, baseBuilder.build().getExtension(Primitives.singleEnumExtension));
+    assertThat(baseBuilder.hasExtension(Primitives.singleEnumExtension)).isFalse();
+    assertThat(baseBuilder.build().hasExtension(Primitives.singleEnumExtension)).isFalse();
+    assertThat(baseBuilder.getExtension(Primitives.singleEnumExtension))
+        .isEqualTo(TestEnum.DEFAULT);
+    assertThat(baseBuilder.build().getExtension(Primitives.singleEnumExtension))
+        .isEqualTo(TestEnum.DEFAULT);
 
     baseBuilder.setExtension(Primitives.singleEnumExtension, TestEnum.GREEN);
-    assertTrue(baseBuilder.hasExtension(Primitives.singleEnumExtension));
-    assertTrue(baseBuilder.build().hasExtension(Primitives.singleEnumExtension));
+    assertThat(baseBuilder.hasExtension(Primitives.singleEnumExtension)).isTrue();
+    assertThat(baseBuilder.build().hasExtension(Primitives.singleEnumExtension)).isTrue();
 
-    assertEquals(TestEnum.GREEN, baseBuilder.getExtension(Primitives.singleEnumExtension));
-    assertEquals(TestEnum.GREEN, baseBuilder.build().getExtension(Primitives.singleEnumExtension));
+    assertThat(baseBuilder.getExtension(Primitives.singleEnumExtension)).isEqualTo(TestEnum.GREEN);
+    assertThat(baseBuilder.build().getExtension(Primitives.singleEnumExtension))
+        .isEqualTo(TestEnum.GREEN);
   }
 
   @Test
   public void testSingleEnumExtension_get_hasExtensionNativeEnum() {
     MainMessage.Builder baseBuilder = MainMessage.newBuilder();
-    assertFalse(baseBuilder.hasExtension(NativeEnum.topLevelNativeEnum));
-    assertFalse(baseBuilder.build().hasExtension(NativeEnum.topLevelNativeEnum));
-    assertEquals(
-        TopLevelNativeEnum.UNKNOWN, baseBuilder.getExtension(NativeEnum.topLevelNativeEnum));
-    assertEquals(
-        TopLevelNativeEnum.UNKNOWN,
-        baseBuilder.build().getExtension(NativeEnum.topLevelNativeEnum));
+    assertThat(baseBuilder.hasExtension(NativeEnum.topLevelNativeEnum)).isFalse();
+    assertThat(baseBuilder.build().hasExtension(NativeEnum.topLevelNativeEnum)).isFalse();
+    assertThat(baseBuilder.getExtension(NativeEnum.topLevelNativeEnum))
+        .isEqualTo(TopLevelNativeEnum.UNKNOWN);
+    assertThat(baseBuilder.build().getExtension(NativeEnum.topLevelNativeEnum))
+        .isEqualTo(TopLevelNativeEnum.UNKNOWN);
 
     baseBuilder.setExtension(NativeEnum.topLevelNativeEnum, TopLevelNativeEnum.TWO);
-    assertTrue(baseBuilder.hasExtension(NativeEnum.topLevelNativeEnum));
-    assertTrue(baseBuilder.build().hasExtension(NativeEnum.topLevelNativeEnum));
+    assertThat(baseBuilder.hasExtension(NativeEnum.topLevelNativeEnum)).isTrue();
+    assertThat(baseBuilder.build().hasExtension(NativeEnum.topLevelNativeEnum)).isTrue();
 
-    assertEquals(TopLevelNativeEnum.TWO, baseBuilder.getExtension(NativeEnum.topLevelNativeEnum));
-    assertEquals(
-        TopLevelNativeEnum.TWO, baseBuilder.build().getExtension(NativeEnum.topLevelNativeEnum));
+    assertThat(baseBuilder.getExtension(NativeEnum.topLevelNativeEnum))
+        .isEqualTo(TopLevelNativeEnum.TWO);
+    assertThat(baseBuilder.build().getExtension(NativeEnum.topLevelNativeEnum))
+        .isEqualTo(TopLevelNativeEnum.TWO);
   }
 
   @Test
@@ -432,8 +454,8 @@ public class ExtensionsTest {
 
     baseBuilder.clearExtension(Primitives.singleEnumExtension);
 
-    assertFalse(baseBuilder.hasExtension(Primitives.singleEnumExtension));
-    assertFalse(baseBuilder.build().hasExtension(Primitives.singleEnumExtension));
+    assertThat(baseBuilder.hasExtension(Primitives.singleEnumExtension)).isFalse();
+    assertThat(baseBuilder.build().hasExtension(Primitives.singleEnumExtension)).isFalse();
   }
 
   @Test
@@ -443,23 +465,25 @@ public class ExtensionsTest {
 
     baseBuilder.clearExtension(NativeEnum.topLevelNativeEnum);
 
-    assertFalse(baseBuilder.hasExtension(NativeEnum.topLevelNativeEnum));
-    assertFalse(baseBuilder.build().hasExtension(NativeEnum.topLevelNativeEnum));
+    assertThat(baseBuilder.hasExtension(NativeEnum.topLevelNativeEnum)).isFalse();
+    assertThat(baseBuilder.build().hasExtension(NativeEnum.topLevelNativeEnum)).isFalse();
   }
 
   @Test
   public void testRepeatedEnumExtension_count_get() {
     Base.Builder baseBuilder = Base.newBuilder();
-    assertEquals(0, baseBuilder.getExtensionCount(Primitives.repeatedEnumExtension));
-    assertEquals(0, baseBuilder.build().getExtensionCount(Primitives.repeatedEnumExtension));
+    assertThat(baseBuilder.getExtensionCount(Primitives.repeatedEnumExtension)).isEqualTo(0);
+    assertThat(baseBuilder.build().getExtensionCount(Primitives.repeatedEnumExtension))
+        .isEqualTo(0);
 
     assertThat(baseBuilder.getExtension(Primitives.repeatedEnumExtension)).isEmpty();
     assertThat(baseBuilder.build().getExtension(Primitives.repeatedEnumExtension)).isEmpty();
 
     baseBuilder.setExtension(
         Primitives.repeatedEnumExtension, Arrays.asList(TestEnum.GREEN, TestEnum.RED));
-    assertEquals(2, baseBuilder.getExtensionCount(Primitives.repeatedEnumExtension));
-    assertEquals(2, baseBuilder.build().getExtensionCount(Primitives.repeatedEnumExtension));
+    assertThat(baseBuilder.getExtensionCount(Primitives.repeatedEnumExtension)).isEqualTo(2);
+    assertThat(baseBuilder.build().getExtensionCount(Primitives.repeatedEnumExtension))
+        .isEqualTo(2);
 
     assertThat(baseBuilder.getExtension(Primitives.repeatedEnumExtension))
         .containsExactly(TestEnum.GREEN, TestEnum.RED)
@@ -481,12 +505,14 @@ public class ExtensionsTest {
     baseBuilder.setExtension(
         Primitives.repeatedEnumExtension, Arrays.asList(TestEnum.GREEN, TestEnum.RED));
 
-    assertEquals(TestEnum.GREEN, baseBuilder.getExtension(Primitives.repeatedEnumExtension, 0));
-    assertEquals(
-        TestEnum.GREEN, baseBuilder.build().getExtension(Primitives.repeatedEnumExtension, 0));
-    assertEquals(TestEnum.RED, baseBuilder.getExtension(Primitives.repeatedEnumExtension, 1));
-    assertEquals(
-        TestEnum.RED, baseBuilder.build().getExtension(Primitives.repeatedEnumExtension, 1));
+    assertThat(baseBuilder.getExtension(Primitives.repeatedEnumExtension, 0))
+        .isEqualTo(TestEnum.GREEN);
+    assertThat(baseBuilder.build().getExtension(Primitives.repeatedEnumExtension, 0))
+        .isEqualTo(TestEnum.GREEN);
+    assertThat(baseBuilder.getExtension(Primitives.repeatedEnumExtension, 1))
+        .isEqualTo(TestEnum.RED);
+    assertThat(baseBuilder.build().getExtension(Primitives.repeatedEnumExtension, 1))
+        .isEqualTo(TestEnum.RED);
   }
 
   @Test
@@ -539,26 +565,33 @@ public class ExtensionsTest {
 
     baseBuilder.clearExtension(Primitives.repeatedEnumExtension);
 
-    assertEquals(0, baseBuilder.getExtensionCount(Primitives.repeatedEnumExtension));
-    assertEquals(0, baseBuilder.build().getExtensionCount(Primitives.repeatedEnumExtension));
+    assertThat(baseBuilder.getExtensionCount(Primitives.repeatedEnumExtension)).isEqualTo(0);
+    assertThat(baseBuilder.build().getExtensionCount(Primitives.repeatedEnumExtension))
+        .isEqualTo(0);
   }
 
   @Test
   public void testSingleFloatExtension_get_hasExtension() {
     Base.Builder baseBuilder = Base.newBuilder();
-    assertFalse(baseBuilder.hasExtension(Primitives.singleFloatExtension));
-    assertFalse(baseBuilder.build().hasExtension(Primitives.singleFloatExtension));
-    assertEquals(0f, (float) baseBuilder.getExtension(Primitives.singleFloatExtension), 0.0001f);
-    assertEquals(
-        0f, (float) baseBuilder.build().getExtension(Primitives.singleFloatExtension), 0.0001f);
+    assertThat(baseBuilder.hasExtension(Primitives.singleFloatExtension)).isFalse();
+    assertThat(baseBuilder.build().hasExtension(Primitives.singleFloatExtension)).isFalse();
+    assertThat((float) baseBuilder.getExtension(Primitives.singleFloatExtension))
+        .isWithin(0.0001f)
+        .of(0f);
+    assertThat((float) baseBuilder.build().getExtension(Primitives.singleFloatExtension))
+        .isWithin(0.0001f)
+        .of(0f);
 
     baseBuilder.setExtension(Primitives.singleFloatExtension, 1f);
-    assertTrue(baseBuilder.hasExtension(Primitives.singleFloatExtension));
-    assertTrue(baseBuilder.build().hasExtension(Primitives.singleFloatExtension));
+    assertThat(baseBuilder.hasExtension(Primitives.singleFloatExtension)).isTrue();
+    assertThat(baseBuilder.build().hasExtension(Primitives.singleFloatExtension)).isTrue();
 
-    assertEquals(1f, (float) baseBuilder.getExtension(Primitives.singleFloatExtension), 0.0001f);
-    assertEquals(
-        1f, (float) baseBuilder.build().getExtension(Primitives.singleFloatExtension), 0.0001f);
+    assertThat((float) baseBuilder.getExtension(Primitives.singleFloatExtension))
+        .isWithin(0.0001f)
+        .of(1f);
+    assertThat((float) baseBuilder.build().getExtension(Primitives.singleFloatExtension))
+        .isWithin(0.0001f)
+        .of(1f);
   }
 
   @Test
@@ -568,23 +601,25 @@ public class ExtensionsTest {
 
     baseBuilder.clearExtension(Primitives.singleFloatExtension);
 
-    assertFalse(baseBuilder.hasExtension(Primitives.singleFloatExtension));
-    assertFalse(baseBuilder.build().hasExtension(Primitives.singleFloatExtension));
+    assertThat(baseBuilder.hasExtension(Primitives.singleFloatExtension)).isFalse();
+    assertThat(baseBuilder.build().hasExtension(Primitives.singleFloatExtension)).isFalse();
   }
 
   @Test
   public void testRepeatedFloatExtension_count_get() {
     Base.Builder baseBuilder = Base.newBuilder();
-    assertEquals(0, baseBuilder.getExtensionCount(Primitives.repeatedFloatExtension));
-    assertEquals(0, baseBuilder.build().getExtensionCount(Primitives.repeatedFloatExtension));
+    assertThat(baseBuilder.getExtensionCount(Primitives.repeatedFloatExtension)).isEqualTo(0);
+    assertThat(baseBuilder.build().getExtensionCount(Primitives.repeatedFloatExtension))
+        .isEqualTo(0);
 
     assertThat(baseBuilder.getExtension(Primitives.repeatedFloatExtension)).isEmpty();
     assertThat(baseBuilder.build().getExtension(Primitives.repeatedFloatExtension)).isEmpty();
 
     baseBuilder.setExtension(Primitives.repeatedFloatExtension, Arrays.asList(1f, 2f));
 
-    assertEquals(2, baseBuilder.getExtensionCount(Primitives.repeatedFloatExtension));
-    assertEquals(2, baseBuilder.build().getExtensionCount(Primitives.repeatedFloatExtension));
+    assertThat(baseBuilder.getExtensionCount(Primitives.repeatedFloatExtension)).isEqualTo(2);
+    assertThat(baseBuilder.build().getExtensionCount(Primitives.repeatedFloatExtension))
+        .isEqualTo(2);
 
     assertThat(baseBuilder.getExtension(Primitives.repeatedFloatExtension))
         .containsExactly(1f, 2f)
@@ -605,12 +640,18 @@ public class ExtensionsTest {
 
     baseBuilder.setExtension(Primitives.repeatedFloatExtension, Arrays.asList(1f, 2f));
 
-    assertEquals(1f, baseBuilder.getExtension(Primitives.repeatedFloatExtension, 0), 0.0001f);
-    assertEquals(
-        1f, baseBuilder.build().getExtension(Primitives.repeatedFloatExtension, 0), 0.0001f);
-    assertEquals(2f, baseBuilder.getExtension(Primitives.repeatedFloatExtension, 1), 0.0001f);
-    assertEquals(
-        2f, baseBuilder.build().getExtension(Primitives.repeatedFloatExtension, 1), 0.0001f);
+    assertThat(baseBuilder.getExtension(Primitives.repeatedFloatExtension, 0))
+        .isWithin(0.0001f)
+        .of(1f);
+    assertThat(baseBuilder.build().getExtension(Primitives.repeatedFloatExtension, 0))
+        .isWithin(0.0001f)
+        .of(1f);
+    assertThat(baseBuilder.getExtension(Primitives.repeatedFloatExtension, 1))
+        .isWithin(0.0001f)
+        .of(2f);
+    assertThat(baseBuilder.build().getExtension(Primitives.repeatedFloatExtension, 1))
+        .isWithin(0.0001f)
+        .of(2f);
   }
 
   @Test
@@ -660,24 +701,27 @@ public class ExtensionsTest {
 
     baseBuilder.clearExtension(Primitives.repeatedFloatExtension);
 
-    assertEquals(0, baseBuilder.getExtensionCount(Primitives.repeatedFloatExtension));
-    assertEquals(0, baseBuilder.build().getExtensionCount(Primitives.repeatedFloatExtension));
+    assertThat(baseBuilder.getExtensionCount(Primitives.repeatedFloatExtension)).isEqualTo(0);
+    assertThat(baseBuilder.build().getExtensionCount(Primitives.repeatedFloatExtension))
+        .isEqualTo(0);
   }
 
   @Test
   public void testSingleIntExtension_get_hasExtension() {
     Base.Builder baseBuilder = Base.newBuilder();
-    assertFalse(baseBuilder.hasExtension(Primitives.singleInt32Extension));
-    assertFalse(baseBuilder.build().hasExtension(Primitives.singleInt32Extension));
-    assertEquals(0, (int) baseBuilder.getExtension(Primitives.singleInt32Extension));
-    assertEquals(0, (int) baseBuilder.build().getExtension(Primitives.singleInt32Extension));
+    assertThat(baseBuilder.hasExtension(Primitives.singleInt32Extension)).isFalse();
+    assertThat(baseBuilder.build().hasExtension(Primitives.singleInt32Extension)).isFalse();
+    assertThat((int) baseBuilder.getExtension(Primitives.singleInt32Extension)).isEqualTo(0);
+    assertThat((int) baseBuilder.build().getExtension(Primitives.singleInt32Extension))
+        .isEqualTo(0);
 
     baseBuilder.setExtension(Primitives.singleInt32Extension, 1);
-    assertTrue(baseBuilder.hasExtension(Primitives.singleInt32Extension));
-    assertTrue(baseBuilder.build().hasExtension(Primitives.singleInt32Extension));
+    assertThat(baseBuilder.hasExtension(Primitives.singleInt32Extension)).isTrue();
+    assertThat(baseBuilder.build().hasExtension(Primitives.singleInt32Extension)).isTrue();
 
-    assertEquals(1, (int) baseBuilder.getExtension(Primitives.singleInt32Extension));
-    assertEquals(1, (int) baseBuilder.build().getExtension(Primitives.singleInt32Extension));
+    assertThat((int) baseBuilder.getExtension(Primitives.singleInt32Extension)).isEqualTo(1);
+    assertThat((int) baseBuilder.build().getExtension(Primitives.singleInt32Extension))
+        .isEqualTo(1);
   }
 
   @Test
@@ -687,21 +731,23 @@ public class ExtensionsTest {
 
     baseBuilder.clearExtension(Primitives.singleInt32Extension);
 
-    assertFalse(baseBuilder.hasExtension(Primitives.singleInt32Extension));
-    assertFalse(baseBuilder.build().hasExtension(Primitives.singleInt32Extension));
+    assertThat(baseBuilder.hasExtension(Primitives.singleInt32Extension)).isFalse();
+    assertThat(baseBuilder.build().hasExtension(Primitives.singleInt32Extension)).isFalse();
   }
 
   @Test
   public void testRepeatedIntExtension_count_get() {
     Base.Builder baseBuilder = Base.newBuilder();
-    assertEquals(0, baseBuilder.getExtensionCount(Primitives.repeatedInt32Extension));
-    assertEquals(0, baseBuilder.build().getExtensionCount(Primitives.repeatedInt32Extension));
+    assertThat(baseBuilder.getExtensionCount(Primitives.repeatedInt32Extension)).isEqualTo(0);
+    assertThat(baseBuilder.build().getExtensionCount(Primitives.repeatedInt32Extension))
+        .isEqualTo(0);
     assertThat(baseBuilder.getExtension(Primitives.repeatedInt32Extension)).isEmpty();
     assertThat(baseBuilder.build().getExtension(Primitives.repeatedInt32Extension)).isEmpty();
 
     baseBuilder.setExtension(Primitives.repeatedInt32Extension, Arrays.asList(1, 2));
-    assertEquals(2, baseBuilder.getExtensionCount(Primitives.repeatedInt32Extension));
-    assertEquals(2, baseBuilder.build().getExtensionCount(Primitives.repeatedInt32Extension));
+    assertThat(baseBuilder.getExtensionCount(Primitives.repeatedInt32Extension)).isEqualTo(2);
+    assertThat(baseBuilder.build().getExtensionCount(Primitives.repeatedInt32Extension))
+        .isEqualTo(2);
 
     assertThat(baseBuilder.getExtension(Primitives.repeatedInt32Extension))
         .containsExactly(1, 2)
@@ -722,10 +768,12 @@ public class ExtensionsTest {
 
     baseBuilder.setExtension(Primitives.repeatedInt32Extension, Arrays.asList(1, 2));
 
-    assertEquals(1, (int) baseBuilder.getExtension(Primitives.repeatedInt32Extension, 0));
-    assertEquals(1, (int) baseBuilder.build().getExtension(Primitives.repeatedInt32Extension, 0));
-    assertEquals(2, (int) baseBuilder.getExtension(Primitives.repeatedInt32Extension, 1));
-    assertEquals(2, (int) baseBuilder.build().getExtension(Primitives.repeatedInt32Extension, 1));
+    assertThat((int) baseBuilder.getExtension(Primitives.repeatedInt32Extension, 0)).isEqualTo(1);
+    assertThat((int) baseBuilder.build().getExtension(Primitives.repeatedInt32Extension, 0))
+        .isEqualTo(1);
+    assertThat((int) baseBuilder.getExtension(Primitives.repeatedInt32Extension, 1)).isEqualTo(2);
+    assertThat((int) baseBuilder.build().getExtension(Primitives.repeatedInt32Extension, 1))
+        .isEqualTo(2);
   }
 
   @Test
@@ -774,24 +822,27 @@ public class ExtensionsTest {
 
     baseBuilder.clearExtension(Primitives.repeatedInt32Extension);
 
-    assertEquals(0, baseBuilder.getExtensionCount(Primitives.repeatedInt32Extension));
-    assertEquals(0, baseBuilder.build().getExtensionCount(Primitives.repeatedInt32Extension));
+    assertThat(baseBuilder.getExtensionCount(Primitives.repeatedInt32Extension)).isEqualTo(0);
+    assertThat(baseBuilder.build().getExtensionCount(Primitives.repeatedInt32Extension))
+        .isEqualTo(0);
   }
 
   @Test
   public void testSingleLongExtension_get_hasExtension() {
     Base.Builder baseBuilder = Base.newBuilder();
-    assertFalse(baseBuilder.hasExtension(Primitives.singleInt64Extension));
-    assertFalse(baseBuilder.build().hasExtension(Primitives.singleInt64Extension));
-    assertEquals(0L, (long) baseBuilder.getExtension(Primitives.singleInt64Extension));
-    assertEquals(0L, (long) baseBuilder.build().getExtension(Primitives.singleInt64Extension));
+    assertThat(baseBuilder.hasExtension(Primitives.singleInt64Extension)).isFalse();
+    assertThat(baseBuilder.build().hasExtension(Primitives.singleInt64Extension)).isFalse();
+    assertThat((long) baseBuilder.getExtension(Primitives.singleInt64Extension)).isEqualTo(0L);
+    assertThat((long) baseBuilder.build().getExtension(Primitives.singleInt64Extension))
+        .isEqualTo(0L);
 
     baseBuilder.setExtension(Primitives.singleInt64Extension, 1L);
-    assertTrue(baseBuilder.hasExtension(Primitives.singleInt64Extension));
-    assertTrue(baseBuilder.build().hasExtension(Primitives.singleInt64Extension));
+    assertThat(baseBuilder.hasExtension(Primitives.singleInt64Extension)).isTrue();
+    assertThat(baseBuilder.build().hasExtension(Primitives.singleInt64Extension)).isTrue();
 
-    assertEquals(1L, (long) baseBuilder.getExtension(Primitives.singleInt64Extension));
-    assertEquals(1L, (long) baseBuilder.build().getExtension(Primitives.singleInt64Extension));
+    assertThat((long) baseBuilder.getExtension(Primitives.singleInt64Extension)).isEqualTo(1L);
+    assertThat((long) baseBuilder.build().getExtension(Primitives.singleInt64Extension))
+        .isEqualTo(1L);
   }
 
   @Test
@@ -801,23 +852,25 @@ public class ExtensionsTest {
 
     baseBuilder.clearExtension(Primitives.singleInt64Extension);
 
-    assertFalse(baseBuilder.hasExtension(Primitives.singleInt64Extension));
-    assertFalse(baseBuilder.build().hasExtension(Primitives.singleInt64Extension));
+    assertThat(baseBuilder.hasExtension(Primitives.singleInt64Extension)).isFalse();
+    assertThat(baseBuilder.build().hasExtension(Primitives.singleInt64Extension)).isFalse();
   }
 
   @Test
   public void testRepeatedLongExtension_count_get() {
     Base.Builder baseBuilder = Base.newBuilder();
-    assertEquals(0, baseBuilder.getExtensionCount(Primitives.repeatedInt64Extension));
-    assertEquals(0, baseBuilder.build().getExtensionCount(Primitives.repeatedInt64Extension));
+    assertThat(baseBuilder.getExtensionCount(Primitives.repeatedInt64Extension)).isEqualTo(0);
+    assertThat(baseBuilder.build().getExtensionCount(Primitives.repeatedInt64Extension))
+        .isEqualTo(0);
 
     assertThat(baseBuilder.getExtension(Primitives.repeatedInt64Extension)).isEmpty();
     assertThat(baseBuilder.build().getExtension(Primitives.repeatedInt64Extension)).isEmpty();
 
     baseBuilder.setExtension(Primitives.repeatedInt64Extension, Arrays.asList(1L, 2L));
 
-    assertEquals(2, baseBuilder.getExtensionCount(Primitives.repeatedInt64Extension));
-    assertEquals(2, baseBuilder.build().getExtensionCount(Primitives.repeatedInt64Extension));
+    assertThat(baseBuilder.getExtensionCount(Primitives.repeatedInt64Extension)).isEqualTo(2);
+    assertThat(baseBuilder.build().getExtensionCount(Primitives.repeatedInt64Extension))
+        .isEqualTo(2);
 
     assertThat(baseBuilder.getExtension(Primitives.repeatedInt64Extension))
         .containsExactly(1L, 2L)
@@ -838,10 +891,12 @@ public class ExtensionsTest {
 
     baseBuilder.setExtension(Primitives.repeatedInt64Extension, Arrays.asList(1L, 2L));
 
-    assertEquals(1L, (long) baseBuilder.getExtension(Primitives.repeatedInt64Extension, 0));
-    assertEquals(1L, (long) baseBuilder.build().getExtension(Primitives.repeatedInt64Extension, 0));
-    assertEquals(2L, (long) baseBuilder.getExtension(Primitives.repeatedInt64Extension, 1));
-    assertEquals(2L, (long) baseBuilder.build().getExtension(Primitives.repeatedInt64Extension, 1));
+    assertThat((long) baseBuilder.getExtension(Primitives.repeatedInt64Extension, 0)).isEqualTo(1L);
+    assertThat((long) baseBuilder.build().getExtension(Primitives.repeatedInt64Extension, 0))
+        .isEqualTo(1L);
+    assertThat((long) baseBuilder.getExtension(Primitives.repeatedInt64Extension, 1)).isEqualTo(2L);
+    assertThat((long) baseBuilder.build().getExtension(Primitives.repeatedInt64Extension, 1))
+        .isEqualTo(2L);
   }
 
   @Test
@@ -891,28 +946,30 @@ public class ExtensionsTest {
 
     baseBuilder.clearExtension(Primitives.repeatedInt64Extension);
 
-    assertEquals(0, baseBuilder.getExtensionCount(Primitives.repeatedInt64Extension));
-    assertEquals(0, baseBuilder.build().getExtensionCount(Primitives.repeatedInt64Extension));
+    assertThat(baseBuilder.getExtensionCount(Primitives.repeatedInt64Extension)).isEqualTo(0);
+    assertThat(baseBuilder.build().getExtensionCount(Primitives.repeatedInt64Extension))
+        .isEqualTo(0);
   }
 
   @Test
   public void testSingleMessageExtension_get_hasExtension() {
     Base.Builder baseBuilder = Base.newBuilder();
-    assertFalse(baseBuilder.hasExtension(Recursive.recursiveOptional));
-    assertFalse(baseBuilder.build().hasExtension(Recursive.recursiveOptional));
-    assertTrue(
-        Base.newBuilder().build().equals(baseBuilder.getExtension(Recursive.recursiveOptional)));
-    assertTrue(
-        Base.newBuilder()
-            .build()
-            .equals(baseBuilder.build().getExtension(Recursive.recursiveOptional)));
+    assertThat(baseBuilder.hasExtension(Recursive.recursiveOptional)).isFalse();
+    assertThat(baseBuilder.build().hasExtension(Recursive.recursiveOptional)).isFalse();
+    assertThat(
+            Base.getDefaultInstance().equals(baseBuilder.getExtension(Recursive.recursiveOptional)))
+        .isTrue();
+    assertThat(
+            Base.getDefaultInstance()
+                .equals(baseBuilder.build().getExtension(Recursive.recursiveOptional)))
+        .isTrue();
 
     baseBuilder.setExtension(Recursive.recursiveOptional, base(1));
-    assertTrue(baseBuilder.hasExtension(Recursive.recursiveOptional));
-    assertTrue(baseBuilder.build().hasExtension(Recursive.recursiveOptional));
+    assertThat(baseBuilder.hasExtension(Recursive.recursiveOptional)).isTrue();
+    assertThat(baseBuilder.build().hasExtension(Recursive.recursiveOptional)).isTrue();
 
-    assertEquals(base(1), baseBuilder.getExtension(Recursive.recursiveOptional));
-    assertEquals(base(1), baseBuilder.build().getExtension(Recursive.recursiveOptional));
+    assertThat(baseBuilder.getExtension(Recursive.recursiveOptional)).isEqualTo(base(1));
+    assertThat(baseBuilder.build().getExtension(Recursive.recursiveOptional)).isEqualTo(base(1));
   }
 
   @Test
@@ -922,21 +979,21 @@ public class ExtensionsTest {
 
     baseBuilder.clearExtension(Recursive.recursiveOptional);
 
-    assertFalse(baseBuilder.hasExtension(Recursive.recursiveOptional));
-    assertFalse(baseBuilder.build().hasExtension(Recursive.recursiveOptional));
+    assertThat(baseBuilder.hasExtension(Recursive.recursiveOptional)).isFalse();
+    assertThat(baseBuilder.build().hasExtension(Recursive.recursiveOptional)).isFalse();
   }
 
   @Test
   public void testRepeatedMessageExtension_count_get() {
     Base.Builder baseBuilder = Base.newBuilder();
-    assertEquals(0, baseBuilder.getExtensionCount(Recursive.recursiveRepeated));
-    assertEquals(0, baseBuilder.build().getExtensionCount(Recursive.recursiveRepeated));
+    assertThat(baseBuilder.getExtensionCount(Recursive.recursiveRepeated)).isEqualTo(0);
+    assertThat(baseBuilder.build().getExtensionCount(Recursive.recursiveRepeated)).isEqualTo(0);
     assertThat(baseBuilder.getExtension(Recursive.recursiveRepeated)).isEmpty();
     assertThat(baseBuilder.build().getExtension(Recursive.recursiveRepeated)).isEmpty();
 
     baseBuilder.setExtension(Recursive.recursiveRepeated, Arrays.asList(base(1), base(2)));
-    assertEquals(2, baseBuilder.getExtensionCount(Recursive.recursiveRepeated));
-    assertEquals(2, baseBuilder.build().getExtensionCount(Recursive.recursiveRepeated));
+    assertThat(baseBuilder.getExtensionCount(Recursive.recursiveRepeated)).isEqualTo(2);
+    assertThat(baseBuilder.build().getExtensionCount(Recursive.recursiveRepeated)).isEqualTo(2);
 
     assertThat(baseBuilder.getExtension(Recursive.recursiveRepeated))
         .containsExactly(base(1), base(2))
@@ -956,10 +1013,10 @@ public class ExtensionsTest {
 
     baseBuilder.setExtension(Recursive.recursiveRepeated, Arrays.asList(base(1), base(2)));
 
-    assertEquals(base(1), baseBuilder.getExtension(Recursive.recursiveRepeated, 0));
-    assertEquals(base(1), baseBuilder.build().getExtension(Recursive.recursiveRepeated, 0));
-    assertEquals(base(2), baseBuilder.getExtension(Recursive.recursiveRepeated, 1));
-    assertEquals(base(2), baseBuilder.build().getExtension(Recursive.recursiveRepeated, 1));
+    assertThat(baseBuilder.getExtension(Recursive.recursiveRepeated, 0)).isEqualTo(base(1));
+    assertThat(baseBuilder.build().getExtension(Recursive.recursiveRepeated, 0)).isEqualTo(base(1));
+    assertThat(baseBuilder.getExtension(Recursive.recursiveRepeated, 1)).isEqualTo(base(2));
+    assertThat(baseBuilder.build().getExtension(Recursive.recursiveRepeated, 1)).isEqualTo(base(2));
   }
 
   @Test
@@ -1008,24 +1065,24 @@ public class ExtensionsTest {
 
     baseBuilder.clearExtension(Recursive.recursiveRepeated);
 
-    assertEquals(0, baseBuilder.getExtensionCount(Recursive.recursiveRepeated));
-    assertEquals(0, baseBuilder.build().getExtensionCount(Recursive.recursiveRepeated));
+    assertThat(baseBuilder.getExtensionCount(Recursive.recursiveRepeated)).isEqualTo(0);
+    assertThat(baseBuilder.build().getExtensionCount(Recursive.recursiveRepeated)).isEqualTo(0);
   }
 
   @Test
   public void testSingleStringExtension_get_hasExtension() {
     Base.Builder baseBuilder = Base.newBuilder();
-    assertFalse(baseBuilder.hasExtension(Primitives.singleStringExtension));
-    assertFalse(baseBuilder.build().hasExtension(Primitives.singleStringExtension));
-    assertEquals("", baseBuilder.getExtension(Primitives.singleStringExtension));
-    assertEquals("", baseBuilder.build().getExtension(Primitives.singleStringExtension));
+    assertThat(baseBuilder.hasExtension(Primitives.singleStringExtension)).isFalse();
+    assertThat(baseBuilder.build().hasExtension(Primitives.singleStringExtension)).isFalse();
+    assertThat(baseBuilder.getExtension(Primitives.singleStringExtension)).isEmpty();
+    assertThat(baseBuilder.build().getExtension(Primitives.singleStringExtension)).isEmpty();
 
     baseBuilder.setExtension(Primitives.singleStringExtension, "1");
-    assertTrue(baseBuilder.hasExtension(Primitives.singleStringExtension));
-    assertTrue(baseBuilder.build().hasExtension(Primitives.singleStringExtension));
+    assertThat(baseBuilder.hasExtension(Primitives.singleStringExtension)).isTrue();
+    assertThat(baseBuilder.build().hasExtension(Primitives.singleStringExtension)).isTrue();
 
-    assertEquals("1", baseBuilder.getExtension(Primitives.singleStringExtension));
-    assertEquals("1", baseBuilder.build().getExtension(Primitives.singleStringExtension));
+    assertThat(baseBuilder.getExtension(Primitives.singleStringExtension)).isEqualTo("1");
+    assertThat(baseBuilder.build().getExtension(Primitives.singleStringExtension)).isEqualTo("1");
   }
 
   @Test
@@ -1035,22 +1092,24 @@ public class ExtensionsTest {
 
     baseBuilder.clearExtension(Primitives.singleStringExtension);
 
-    assertFalse(baseBuilder.hasExtension(Primitives.singleStringExtension));
-    assertFalse(baseBuilder.build().hasExtension(Primitives.singleStringExtension));
+    assertThat(baseBuilder.hasExtension(Primitives.singleStringExtension)).isFalse();
+    assertThat(baseBuilder.build().hasExtension(Primitives.singleStringExtension)).isFalse();
   }
 
   @Test
   public void testRepeatedStringExtension_count_get() {
     Base.Builder baseBuilder = Base.newBuilder();
-    assertEquals(0, baseBuilder.getExtensionCount(Primitives.repeatedStringExtension));
-    assertEquals(0, baseBuilder.build().getExtensionCount(Primitives.repeatedStringExtension));
+    assertThat(baseBuilder.getExtensionCount(Primitives.repeatedStringExtension)).isEqualTo(0);
+    assertThat(baseBuilder.build().getExtensionCount(Primitives.repeatedStringExtension))
+        .isEqualTo(0);
 
     assertThat(baseBuilder.getExtension(Primitives.repeatedStringExtension)).isEmpty();
     assertThat(baseBuilder.build().getExtension(Primitives.repeatedStringExtension)).isEmpty();
 
     baseBuilder.setExtension(Primitives.repeatedStringExtension, Arrays.asList("1", "2"));
-    assertEquals(2, baseBuilder.getExtensionCount(Primitives.repeatedStringExtension));
-    assertEquals(2, baseBuilder.build().getExtensionCount(Primitives.repeatedStringExtension));
+    assertThat(baseBuilder.getExtensionCount(Primitives.repeatedStringExtension)).isEqualTo(2);
+    assertThat(baseBuilder.build().getExtensionCount(Primitives.repeatedStringExtension))
+        .isEqualTo(2);
 
     assertThat(baseBuilder.getExtension(Primitives.repeatedStringExtension))
         .containsExactly("1", "2")
@@ -1071,10 +1130,12 @@ public class ExtensionsTest {
 
     baseBuilder.setExtension(Primitives.repeatedStringExtension, Arrays.asList("1", "2"));
 
-    assertEquals("1", baseBuilder.getExtension(Primitives.repeatedStringExtension, 0));
-    assertEquals("1", baseBuilder.build().getExtension(Primitives.repeatedStringExtension, 0));
-    assertEquals("2", baseBuilder.getExtension(Primitives.repeatedStringExtension, 1));
-    assertEquals("2", baseBuilder.build().getExtension(Primitives.repeatedStringExtension, 1));
+    assertThat(baseBuilder.getExtension(Primitives.repeatedStringExtension, 0)).isEqualTo("1");
+    assertThat(baseBuilder.build().getExtension(Primitives.repeatedStringExtension, 0))
+        .isEqualTo("1");
+    assertThat(baseBuilder.getExtension(Primitives.repeatedStringExtension, 1)).isEqualTo("2");
+    assertThat(baseBuilder.build().getExtension(Primitives.repeatedStringExtension, 1))
+        .isEqualTo("2");
   }
 
   @Test
@@ -1124,8 +1185,9 @@ public class ExtensionsTest {
 
     baseBuilder.clearExtension(Primitives.repeatedStringExtension);
 
-    assertEquals(0, baseBuilder.getExtensionCount(Primitives.repeatedStringExtension));
-    assertEquals(0, baseBuilder.build().getExtensionCount(Primitives.repeatedStringExtension));
+    assertThat(baseBuilder.getExtensionCount(Primitives.repeatedStringExtension)).isEqualTo(0);
+    assertThat(baseBuilder.build().getExtensionCount(Primitives.repeatedStringExtension))
+        .isEqualTo(0);
   }
 
   @Test
@@ -1137,8 +1199,8 @@ public class ExtensionsTest {
 
     baseBuilder.setExtension(ext, Arrays.asList("1", "2"));
     baseBuilder.clearExtension(ext);
-    assertEquals(0, baseBuilder.getExtensionCount(ext));
-    assertEquals(0, baseBuilder.build().getExtensionCount(ext));
+    assertThat(baseBuilder.getExtensionCount(ext)).isEqualTo(0);
+    assertThat(baseBuilder.build().getExtensionCount(ext)).isEqualTo(0);
   }
 
   private boolean checkIndex() {

@@ -14,11 +14,7 @@
 package com.google.protobuf.contrib.j2cl.integration;
 
 import static com.google.common.truth.Truth.assertThat;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
 
 import com.google.protobuf.contrib.j2cl.protos.Accessor.TestProto;
 import java.util.Arrays;
@@ -33,30 +29,30 @@ public class StringFieldsTest {
 
   @Test
   public void testOptionalFieldNoDefault_defaultInstance() {
-    assertFalse(TestProto.newBuilder().build().hasOptionalString());
-    assertEquals("", TestProto.newBuilder().build().getOptionalString());
+    assertThat(TestProto.getDefaultInstance().hasOptionalString()).isFalse();
+    assertThat(TestProto.getDefaultInstance().getOptionalString()).isEqualTo("");
   }
 
   @Test
   public void testOptionalFieldNoDefault_setValue() {
     TestProto.Builder builder = TestProto.newBuilder().setOptionalString("two");
-    assertTrue(builder.hasOptionalString());
-    assertEquals("two", builder.getOptionalString());
+    assertThat(builder.hasOptionalString()).isTrue();
+    assertThat(builder.getOptionalString()).isEqualTo("two");
 
     TestProto proto = builder.build();
-    assertTrue(proto.hasOptionalString());
-    assertEquals("two", proto.getOptionalString());
+    assertThat(proto.hasOptionalString()).isTrue();
+    assertThat(proto.getOptionalString()).isEqualTo("two");
   }
 
   @Test
   public void testOptionalFieldNoDefault_setDefaultValue() {
     TestProto.Builder builder = TestProto.newBuilder().setOptionalString("");
-    assertTrue(builder.hasOptionalString());
-    assertEquals("", builder.getOptionalString());
+    assertThat(builder.hasOptionalString()).isTrue();
+    assertThat(builder.getOptionalString()).isEmpty();
 
     TestProto proto = builder.build();
-    assertTrue(proto.hasOptionalString());
-    assertEquals("", proto.getOptionalString());
+    assertThat(proto.hasOptionalString()).isTrue();
+    assertThat(proto.getOptionalString()).isEmpty();
   }
 
   @Test
@@ -64,46 +60,46 @@ public class StringFieldsTest {
     TestProto startProto = TestProto.newBuilder().setOptionalString("two").build();
     TestProto.Builder builder = startProto.toBuilder();
     builder.clearOptionalString();
-    assertFalse(builder.hasOptionalString());
+    assertThat(builder.hasOptionalString()).isFalse();
 
     TestProto proto = builder.build();
-    assertFalse(proto.hasOptionalString());
+    assertThat(proto.hasOptionalString()).isFalse();
   }
 
   @Test
   public void testOptionalFieldWithDefault_defaultInstance() {
-    assertFalse(TestProto.newBuilder().build().hasOptionalStringWithDefault());
-    assertEquals(
-        PROTO_DEFAULT_VALUE, TestProto.newBuilder().build().getOptionalStringWithDefault());
+    assertThat(TestProto.getDefaultInstance().hasOptionalStringWithDefault()).isFalse();
+    assertThat(TestProto.getDefaultInstance().getOptionalStringWithDefault())
+        .isEqualTo(PROTO_DEFAULT_VALUE);
   }
 
   @Test
   public void testOptionalFieldWithDefault_setValue() {
     TestProto.Builder builder = TestProto.newBuilder().setOptionalStringWithDefault("two");
-    assertTrue(builder.hasOptionalStringWithDefault());
-    assertEquals("two", builder.getOptionalStringWithDefault());
+    assertThat(builder.hasOptionalStringWithDefault()).isTrue();
+    assertThat(builder.getOptionalStringWithDefault()).isEqualTo("two");
 
     TestProto proto = builder.build();
-    assertTrue(proto.hasOptionalStringWithDefault());
-    assertEquals("two", proto.getOptionalStringWithDefault());
+    assertThat(proto.hasOptionalStringWithDefault()).isTrue();
+    assertThat(proto.getOptionalStringWithDefault()).isEqualTo("two");
   }
 
   @Test
   public void testOptionalFieldWithDefault_setDefaultValue() {
     TestProto.Builder builder =
         TestProto.newBuilder().setOptionalStringWithDefault(PROTO_DEFAULT_VALUE);
-    assertTrue(builder.hasOptionalStringWithDefault());
-    assertEquals(PROTO_DEFAULT_VALUE, builder.getOptionalStringWithDefault());
+    assertThat(builder.hasOptionalStringWithDefault()).isTrue();
+    assertThat(builder.getOptionalStringWithDefault()).isEqualTo(PROTO_DEFAULT_VALUE);
 
     TestProto proto = builder.build();
-    assertTrue(proto.hasOptionalStringWithDefault());
-    assertEquals(PROTO_DEFAULT_VALUE, proto.getOptionalStringWithDefault());
+    assertThat(proto.hasOptionalStringWithDefault()).isTrue();
+    assertThat(proto.getOptionalStringWithDefault()).isEqualTo(PROTO_DEFAULT_VALUE);
   }
 
   @Test
   public void testRepeatedField_defaultInstance() {
-    assertEquals(0, TestProto.newBuilder().build().getRepeatedStringCount());
-    assertEquals(0, TestProto.newBuilder().build().getRepeatedStringList().size());
+    assertThat(TestProto.getDefaultInstance().getRepeatedStringCount()).isEqualTo(0);
+    assertThat(TestProto.newBuilder().build().getRepeatedStringCount()).isEqualTo(0);
 
     assertThrows(Exception.class, () -> TestProto.newBuilder().build().getRepeatedString(0));
   }
@@ -173,32 +169,32 @@ public class StringFieldsTest {
             .addRepeatedString("three")
             .build();
     TestProto.Builder builder = startProto.toBuilder();
-    assertEquals(5, builder.getRepeatedStringCount());
+    assertThat(builder.getRepeatedStringCount()).isEqualTo(5);
 
-    assertEquals("two", builder.getRepeatedString(0));
-    assertEquals("five", builder.getRepeatedString(1));
-    assertEquals("one", builder.getRepeatedString(2));
-    assertEquals("two", builder.getRepeatedString(3));
-    assertEquals("three", builder.getRepeatedString(4));
+    assertThat(builder.getRepeatedString(0)).isEqualTo("two");
+    assertThat(builder.getRepeatedString(1)).isEqualTo("five");
+    assertThat(builder.getRepeatedString(2)).isEqualTo("one");
+    assertThat(builder.getRepeatedString(3)).isEqualTo("two");
+    assertThat(builder.getRepeatedString(4)).isEqualTo("three");
 
     if (InternalChecks.isCheckIndex()) {
       assertThrows(Exception.class, () -> builder.getRepeatedString(5));
     } else {
-      assertNull(builder.getRepeatedString(5));
+      assertThat(builder.getRepeatedString(5)).isNull();
     }
 
     TestProto proto = builder.build();
-    assertEquals(5, proto.getRepeatedStringCount());
-    assertEquals("two", proto.getRepeatedString(0));
-    assertEquals("five", proto.getRepeatedString(1));
-    assertEquals("one", proto.getRepeatedString(2));
-    assertEquals("two", proto.getRepeatedString(3));
-    assertEquals("three", proto.getRepeatedString(4));
+    assertThat(proto.getRepeatedStringCount()).isEqualTo(5);
+    assertThat(proto.getRepeatedString(0)).isEqualTo("two");
+    assertThat(proto.getRepeatedString(1)).isEqualTo("five");
+    assertThat(proto.getRepeatedString(2)).isEqualTo("one");
+    assertThat(proto.getRepeatedString(3)).isEqualTo("two");
+    assertThat(proto.getRepeatedString(4)).isEqualTo("three");
 
     if (InternalChecks.isCheckIndex()) {
       assertThrows(Exception.class, () -> proto.getRepeatedString(5));
     } else {
-      assertNull(proto.getRepeatedString(5));
+      assertThat(proto.getRepeatedString(5)).isNull();
     }
   }
 
@@ -214,11 +210,11 @@ public class StringFieldsTest {
             .build();
 
     TestProto.Builder builder = startProto.toBuilder().clearRepeatedString();
-    assertEquals(0, builder.getRepeatedStringCount());
-    assertEquals(0, builder.getRepeatedStringList().size());
+    assertThat(builder.getRepeatedStringCount()).isEqualTo(0);
+    assertThat(builder.getRepeatedStringList()).isEmpty();
 
     TestProto proto = builder.build();
-    assertEquals(0, proto.getRepeatedStringCount());
-    assertEquals(0, proto.getRepeatedStringList().size());
+    assertThat(proto.getRepeatedStringCount()).isEqualTo(0);
+    assertThat(proto.getRepeatedStringCount()).isEqualTo(0);
   }
 }

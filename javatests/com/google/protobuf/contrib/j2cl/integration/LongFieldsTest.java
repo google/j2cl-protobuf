@@ -14,10 +14,7 @@
 package com.google.protobuf.contrib.j2cl.integration;
 
 import static com.google.common.truth.Truth.assertThat;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
 
 import com.google.protobuf.contrib.j2cl.protos.Accessor.TestProto;
 import java.util.Arrays;
@@ -32,30 +29,30 @@ public class LongFieldsTest {
 
   @Test
   public void testOptionalFieldNoDefault_defaultInstance() {
-    assertFalse(TestProto.newBuilder().build().hasOptionalLong());
-    assertEquals(0L, TestProto.newBuilder().build().getOptionalLong());
+    assertThat(TestProto.getDefaultInstance().hasOptionalLong()).isFalse();
+    assertThat(TestProto.getDefaultInstance().getOptionalLong()).isEqualTo(0L);
   }
 
   @Test
   public void testOptionalFieldNoDefault_setValue() {
     TestProto.Builder builder = TestProto.newBuilder().setOptionalLong(8964L);
-    assertTrue(builder.hasOptionalLong());
-    assertEquals(8964L, builder.getOptionalLong());
+    assertThat(builder.hasOptionalLong()).isTrue();
+    assertThat(builder.getOptionalLong()).isEqualTo(8964L);
 
     TestProto proto = builder.build();
-    assertTrue(proto.hasOptionalLong());
-    assertEquals(8964L, proto.getOptionalLong());
+    assertThat(proto.hasOptionalLong()).isTrue();
+    assertThat(proto.getOptionalLong()).isEqualTo(8964L);
   }
 
   @Test
   public void testOptionalFieldNoDefault_setDefaultValue() {
     TestProto.Builder builder = TestProto.newBuilder().setOptionalLong(0L);
-    assertTrue(builder.hasOptionalLong());
-    assertEquals(0L, builder.getOptionalLong());
+    assertThat(builder.hasOptionalLong()).isTrue();
+    assertThat(builder.getOptionalLong()).isEqualTo(0L);
 
     TestProto proto = builder.build();
-    assertTrue(proto.hasOptionalLong());
-    assertEquals(0L, proto.getOptionalLong());
+    assertThat(proto.hasOptionalLong()).isTrue();
+    assertThat(proto.getOptionalLong()).isEqualTo(0L);
   }
 
   @Test
@@ -64,45 +61,46 @@ public class LongFieldsTest {
 
     TestProto.Builder builder = startProto.toBuilder();
     builder.clearOptionalLong();
-    assertFalse(builder.hasOptionalLong());
+    assertThat(builder.hasOptionalLong()).isFalse();
 
     TestProto proto = builder.build();
-    assertFalse(proto.hasOptionalLong());
+    assertThat(proto.hasOptionalLong()).isFalse();
   }
 
   @Test
   public void testOptionalFieldWithDefault_defaultInstance() {
-    assertFalse(TestProto.newBuilder().build().hasOptionalLongWithDefault());
-    assertEquals(DEFAULT_PROTO_VALUE, TestProto.newBuilder().build().getOptionalLongWithDefault());
+    assertThat(TestProto.getDefaultInstance().hasOptionalLongWithDefault()).isFalse();
+    assertThat(TestProto.getDefaultInstance().getOptionalLongWithDefault())
+        .isEqualTo(DEFAULT_PROTO_VALUE);
   }
 
   @Test
   public void testOptionalFieldWithDefault_setValue() {
     TestProto.Builder builder = TestProto.newBuilder().setOptionalLongWithDefault(-4000000000L);
-    assertTrue(builder.hasOptionalLongWithDefault());
-    assertEquals(-4000000000L, builder.getOptionalLongWithDefault());
+    assertThat(builder.hasOptionalLongWithDefault()).isTrue();
+    assertThat(builder.getOptionalLongWithDefault()).isEqualTo(-4000000000L);
 
     TestProto proto = builder.build();
-    assertTrue(proto.hasOptionalLongWithDefault());
-    assertEquals(-4000000000L, proto.getOptionalLongWithDefault());
+    assertThat(proto.hasOptionalLongWithDefault()).isTrue();
+    assertThat(proto.getOptionalLongWithDefault()).isEqualTo(-4000000000L);
   }
 
   @Test
   public void testOptionalFieldWithDefault_setDefaultValue() {
     TestProto.Builder builder =
         TestProto.newBuilder().setOptionalLongWithDefault(DEFAULT_PROTO_VALUE);
-    assertTrue(builder.hasOptionalLongWithDefault());
-    assertEquals(DEFAULT_PROTO_VALUE, builder.getOptionalLongWithDefault());
+    assertThat(builder.hasOptionalLongWithDefault()).isTrue();
+    assertThat(builder.getOptionalLongWithDefault()).isEqualTo(DEFAULT_PROTO_VALUE);
 
     TestProto proto = builder.build();
-    assertTrue(proto.hasOptionalLongWithDefault());
-    assertEquals(DEFAULT_PROTO_VALUE, proto.getOptionalLongWithDefault());
+    assertThat(proto.hasOptionalLongWithDefault()).isTrue();
+    assertThat(proto.getOptionalLongWithDefault()).isEqualTo(DEFAULT_PROTO_VALUE);
   }
 
   @Test
   public void testRepeatedField_defaultInstance() {
-    assertEquals(0, TestProto.newBuilder().build().getRepeatedLongCount());
-    assertEquals(0, TestProto.newBuilder().build().getRepeatedLongList().size());
+    assertThat(TestProto.getDefaultInstance().getRepeatedLongCount()).isEqualTo(0);
+    assertThat(TestProto.newBuilder().build().getRepeatedLongCount()).isEqualTo(0);
     assertThrows(Exception.class, () -> TestProto.newBuilder().build().getRepeatedLong(0));
   }
 
@@ -171,21 +169,21 @@ public class LongFieldsTest {
             .addRepeatedLong(-2L)
             .addRepeatedLong(-3L);
 
-    assertEquals(5, builder.getRepeatedLongCount());
-    assertEquals(13L, builder.getRepeatedLong(0));
-    assertEquals(24000000000L, builder.getRepeatedLong(1));
-    assertEquals(-1L, builder.getRepeatedLong(2));
-    assertEquals(-2L, builder.getRepeatedLong(3));
-    assertEquals(-3L, builder.getRepeatedLong(4));
+    assertThat(builder.getRepeatedLongCount()).isEqualTo(5);
+    assertThat(builder.getRepeatedLong(0)).isEqualTo(13L);
+    assertThat(builder.getRepeatedLong(1)).isEqualTo(24000000000L);
+    assertThat(builder.getRepeatedLong(2)).isEqualTo(-1L);
+    assertThat(builder.getRepeatedLong(3)).isEqualTo(-2L);
+    assertThat(builder.getRepeatedLong(4)).isEqualTo(-3L);
     assertThrows(Exception.class, () -> builder.getRepeatedLong(5));
 
     TestProto proto = builder.build();
-    assertEquals(5, proto.getRepeatedLongCount());
-    assertEquals(13L, proto.getRepeatedLong(0));
-    assertEquals(24000000000L, proto.getRepeatedLong(1));
-    assertEquals(-1L, proto.getRepeatedLong(2));
-    assertEquals(-2L, proto.getRepeatedLong(3));
-    assertEquals(-3L, proto.getRepeatedLong(4));
+    assertThat(proto.getRepeatedLongCount()).isEqualTo(5);
+    assertThat(proto.getRepeatedLong(0)).isEqualTo(13L);
+    assertThat(proto.getRepeatedLong(1)).isEqualTo(24000000000L);
+    assertThat(proto.getRepeatedLong(2)).isEqualTo(-1L);
+    assertThat(proto.getRepeatedLong(3)).isEqualTo(-2L);
+    assertThat(proto.getRepeatedLong(4)).isEqualTo(-3L);
     assertThrows(Exception.class, () -> proto.getRepeatedLong(5));
   }
 
@@ -200,11 +198,11 @@ public class LongFieldsTest {
             .addRepeatedLong(-3L)
             .build();
     TestProto.Builder builder = startProto.toBuilder().clearRepeatedLong();
-    assertEquals(0, builder.getRepeatedLongCount());
-    assertEquals(0, builder.getRepeatedLongList().size());
+    assertThat(builder.getRepeatedLongCount()).isEqualTo(0);
+    assertThat(builder.getRepeatedLongList()).isEmpty();
 
     TestProto proto = builder.build();
-    assertEquals(0, proto.getRepeatedLongCount());
-    assertEquals(0, proto.getRepeatedLongList().size());
+    assertThat(proto.getRepeatedLongCount()).isEqualTo(0);
+    assertThat(proto.getRepeatedLongCount()).isEqualTo(0);
   }
 }

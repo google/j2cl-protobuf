@@ -14,10 +14,7 @@
 package com.google.protobuf.contrib.j2cl.integration;
 
 import static com.google.common.truth.Truth.assertThat;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
 
 import com.google.protobuf.ByteString;
 import com.google.protobuf.contrib.j2cl.protos.Accessor.TestProto;
@@ -34,30 +31,30 @@ public class ByteStringFieldsTest {
 
   @Test
   public void testOptionalFieldNoDefault_defaultInstance() {
-    assertEquals(ByteString.EMPTY, TestProto.newBuilder().build().getOptionalBytes());
-    assertFalse(TestProto.newBuilder().build().hasOptionalBytes());
+    assertThat(TestProto.getDefaultInstance().getOptionalBytes()).isEqualTo(ByteString.EMPTY);
+    assertThat(TestProto.getDefaultInstance().hasOptionalBytes()).isFalse();
   }
 
   @Test
   public void testOptionalFieldNoDefault_setTestBytes() {
     TestProto.Builder builder = TestProto.newBuilder().setOptionalBytes(TEST_STRING);
-    assertTrue(builder.hasOptionalBytes());
-    assertTrue(TEST_STRING.equals(builder.getOptionalBytes()));
+    assertThat(builder.hasOptionalBytes()).isTrue();
+    assertThat(TEST_STRING.equals(builder.getOptionalBytes())).isTrue();
 
     TestProto proto = builder.build();
-    assertTrue(proto.hasOptionalBytes());
-    assertTrue(TEST_STRING.equals(proto.getOptionalBytes()));
+    assertThat(proto.hasOptionalBytes()).isTrue();
+    assertThat(TEST_STRING.equals(proto.getOptionalBytes())).isTrue();
   }
 
   @Test
   public void testOptionalFieldNoDefault_setEmptyBytes() {
     TestProto.Builder builder = TestProto.newBuilder().setOptionalBytes(ByteString.EMPTY);
-    assertTrue(builder.hasOptionalBytes());
-    assertEquals(ByteString.EMPTY, builder.getOptionalBytes());
+    assertThat(builder.hasOptionalBytes()).isTrue();
+    assertThat(builder.getOptionalBytes()).isEqualTo(ByteString.EMPTY);
 
     TestProto proto = builder.build();
-    assertTrue(proto.hasOptionalBytes());
-    assertEquals(ByteString.EMPTY, proto.getOptionalBytes());
+    assertThat(proto.hasOptionalBytes()).isTrue();
+    assertThat(proto.getOptionalBytes()).isEqualTo(ByteString.EMPTY);
   }
 
   @Test
@@ -66,45 +63,46 @@ public class ByteStringFieldsTest {
 
     TestProto.Builder builder = startProto.toBuilder();
     builder.clearOptionalBytes();
-    assertFalse(builder.hasOptionalBytes());
+    assertThat(builder.hasOptionalBytes()).isFalse();
 
     TestProto proto = builder.build();
-    assertFalse(proto.hasOptionalBytes());
+    assertThat(proto.hasOptionalBytes()).isFalse();
   }
 
   @Test
   public void testOptionalFieldWithDefault_defaultInstance() {
-    assertEquals(DEFAULT_VALUE, TestProto.newBuilder().build().getOptionalBytesWithDefault());
+    assertThat(TestProto.getDefaultInstance().getOptionalBytesWithDefault())
+        .isEqualTo(DEFAULT_VALUE);
 
-    assertFalse(TestProto.newBuilder().build().hasOptionalBytesWithDefault());
+    assertThat(TestProto.getDefaultInstance().hasOptionalBytesWithDefault()).isFalse();
   }
 
   @Test
   public void testOptionalFieldWithDefault_setDefault() {
     TestProto.Builder builder = TestProto.newBuilder().setOptionalBytesWithDefault(DEFAULT_VALUE);
-    assertTrue(builder.hasOptionalBytesWithDefault());
-    assertEquals(DEFAULT_VALUE, builder.getOptionalBytesWithDefault());
+    assertThat(builder.hasOptionalBytesWithDefault()).isTrue();
+    assertThat(builder.getOptionalBytesWithDefault()).isEqualTo(DEFAULT_VALUE);
 
     TestProto proto = builder.build();
-    assertTrue(proto.hasOptionalBytesWithDefault());
-    assertEquals(DEFAULT_VALUE, proto.getOptionalBytesWithDefault());
+    assertThat(proto.hasOptionalBytesWithDefault()).isTrue();
+    assertThat(proto.getOptionalBytesWithDefault()).isEqualTo(DEFAULT_VALUE);
   }
 
   @Test
   public void testOptionalFieldWithDefault_clear() {
     TestProto.Builder builder = TestProto.newBuilder().setOptionalBytesWithDefault(TEST_STRING);
-    assertTrue(builder.hasOptionalBytesWithDefault());
-    assertEquals(TEST_STRING, builder.getOptionalBytesWithDefault());
+    assertThat(builder.hasOptionalBytesWithDefault()).isTrue();
+    assertThat(builder.getOptionalBytesWithDefault()).isEqualTo(TEST_STRING);
 
     TestProto proto = builder.build();
-    assertTrue(proto.hasOptionalBytesWithDefault());
-    assertEquals(TEST_STRING, proto.getOptionalBytesWithDefault());
+    assertThat(proto.hasOptionalBytesWithDefault()).isTrue();
+    assertThat(proto.getOptionalBytesWithDefault()).isEqualTo(TEST_STRING);
   }
 
   @Test
   public void testRepeatedField_defaultInstance() {
-    assertEquals(0, TestProto.newBuilder().build().getRepeatedBytesCount());
-    assertEquals(0, TestProto.newBuilder().build().getRepeatedBytesList().size());
+    assertThat(TestProto.getDefaultInstance().getRepeatedBytesCount()).isEqualTo(0);
+    assertThat(TestProto.newBuilder().build().getRepeatedBytesCount()).isEqualTo(0);
     assertThrows(Exception.class, () -> TestProto.newBuilder().build().getRepeatedBytes(0));
   }
 
@@ -112,13 +110,13 @@ public class ByteStringFieldsTest {
   public void testRepeatedField_add() {
     TestProto.Builder builder =
         TestProto.newBuilder().addRepeatedBytes(TEST_STRING).addRepeatedBytes(ByteString.EMPTY);
-    assertEquals(2, builder.getRepeatedBytesCount());
+    assertThat(builder.getRepeatedBytesCount()).isEqualTo(2);
     assertThat(Arrays.asList(TEST_STRING, ByteString.EMPTY))
         .containsExactlyElementsIn(builder.getRepeatedBytesList())
         .inOrder();
 
     TestProto proto = builder.build();
-    assertEquals(2, proto.getRepeatedBytesCount());
+    assertThat(proto.getRepeatedBytesCount()).isEqualTo(2);
     assertThat(Arrays.asList(TEST_STRING, ByteString.EMPTY))
         .containsExactlyElementsIn(proto.getRepeatedBytesList())
         .inOrder();
@@ -197,19 +195,19 @@ public class ByteStringFieldsTest {
             .addRepeatedBytes(ByteString.EMPTY)
             .addRepeatedBytes(ByteString.EMPTY);
 
-    assertEquals(3, builder.getRepeatedBytesCount());
-    assertEquals(TEST_STRING, builder.getRepeatedBytes(0));
-    assertEquals(ByteString.EMPTY, builder.getRepeatedBytes(1));
-    assertEquals(ByteString.EMPTY, builder.getRepeatedBytes(2));
+    assertThat(builder.getRepeatedBytesCount()).isEqualTo(3);
+    assertThat(builder.getRepeatedBytes(0)).isEqualTo(TEST_STRING);
+    assertThat(builder.getRepeatedBytes(1)).isEqualTo(ByteString.EMPTY);
+    assertThat(builder.getRepeatedBytes(2)).isEqualTo(ByteString.EMPTY);
     if (InternalChecks.isCheckIndex()) {
       assertThrows(Exception.class, () -> builder.getRepeatedBytes(3));
     }
 
     TestProto proto = builder.build();
-    assertEquals(3, proto.getRepeatedBytesCount());
-    assertEquals(TEST_STRING, proto.getRepeatedBytes(0));
-    assertEquals(ByteString.EMPTY, proto.getRepeatedBytes(1));
-    assertEquals(ByteString.EMPTY, proto.getRepeatedBytes(2));
+    assertThat(proto.getRepeatedBytesCount()).isEqualTo(3);
+    assertThat(proto.getRepeatedBytes(0)).isEqualTo(TEST_STRING);
+    assertThat(proto.getRepeatedBytes(1)).isEqualTo(ByteString.EMPTY);
+    assertThat(proto.getRepeatedBytes(2)).isEqualTo(ByteString.EMPTY);
 
     if (InternalChecks.isCheckIndex()) {
       assertThrows(Exception.class, () -> proto.getRepeatedBytes(3));
@@ -226,11 +224,11 @@ public class ByteStringFieldsTest {
             .build();
 
     TestProto.Builder builder = startProto.toBuilder().clearRepeatedBytes();
-    assertEquals(0, builder.getRepeatedBytesCount());
-    assertEquals(0, builder.getRepeatedBytesList().size());
+    assertThat(builder.getRepeatedBytesCount()).isEqualTo(0);
+    assertThat(builder.getRepeatedBytesList()).isEmpty();
 
     TestProto proto = builder.build();
-    assertEquals(0, proto.getRepeatedBytesCount());
-    assertEquals(0, proto.getRepeatedBytesList().size());
+    assertThat(proto.getRepeatedBytesCount()).isEqualTo(0);
+    assertThat(proto.getRepeatedBytesCount()).isEqualTo(0);
   }
 }

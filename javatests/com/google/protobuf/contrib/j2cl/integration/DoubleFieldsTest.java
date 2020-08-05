@@ -14,10 +14,7 @@
 package com.google.protobuf.contrib.j2cl.integration;
 
 import static com.google.common.truth.Truth.assertThat;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
 
 import com.google.protobuf.contrib.j2cl.protos.Accessor.TestProto;
 import java.util.Arrays;
@@ -32,30 +29,30 @@ public class DoubleFieldsTest {
 
   @Test
   public void testOptionalFieldNoDefault_defaultInstance() {
-    assertEquals(0, TestProto.newBuilder().build().getOptionalDouble(), DELTA);
-    assertFalse(TestProto.newBuilder().build().hasOptionalDouble());
+    assertThat(TestProto.getDefaultInstance().getOptionalDouble()).isWithin(DELTA).of(0);
+    assertThat(TestProto.getDefaultInstance().hasOptionalDouble()).isFalse();
   }
 
   @Test
   public void testOptionalFieldNoDefault_setValue() {
     TestProto.Builder builder = TestProto.newBuilder().setOptionalDouble(89.64d);
-    assertTrue(builder.hasOptionalDouble());
-    assertEquals(89.64d, builder.getOptionalDouble(), DELTA);
+    assertThat(builder.hasOptionalDouble()).isTrue();
+    assertThat(builder.getOptionalDouble()).isWithin(DELTA).of(89.64d);
 
     TestProto proto = builder.build();
-    assertTrue(proto.hasOptionalDouble());
-    assertEquals(89.64d, proto.getOptionalDouble(), DELTA);
+    assertThat(proto.hasOptionalDouble()).isTrue();
+    assertThat(proto.getOptionalDouble()).isWithin(DELTA).of(89.64d);
   }
 
   @Test
   public void testOptionalFieldNoDefault_setDefault() {
     TestProto.Builder builder = TestProto.newBuilder().setOptionalDouble(0d);
-    assertTrue(builder.hasOptionalDouble());
-    assertEquals(0d, builder.getOptionalDouble(), DELTA);
+    assertThat(builder.hasOptionalDouble()).isTrue();
+    assertThat(builder.getOptionalDouble()).isWithin(DELTA).of(0d);
 
     TestProto proto = builder.build();
-    assertTrue(proto.hasOptionalDouble());
-    assertEquals(0d, proto.getOptionalDouble(), DELTA);
+    assertThat(proto.hasOptionalDouble()).isTrue();
+    assertThat(proto.getOptionalDouble()).isWithin(DELTA).of(0d);
   }
 
   @Test
@@ -64,47 +61,49 @@ public class DoubleFieldsTest {
 
     // Test clear
     TestProto.Builder builder = startProto.toBuilder();
-    assertTrue(builder.hasOptionalDouble());
+    assertThat(builder.hasOptionalDouble()).isTrue();
     builder.clearOptionalDouble();
-    assertFalse(builder.hasOptionalDouble());
+    assertThat(builder.hasOptionalDouble()).isFalse();
 
     TestProto proto = builder.build();
-    assertFalse(proto.hasOptionalDouble());
+    assertThat(proto.hasOptionalDouble()).isFalse();
   }
 
   @Test
   public void testOptionalFieldWithDefault_defaultInstance() {
-    assertEquals(2.46d, TestProto.newBuilder().build().getOptionalDoubleWithDefault(), DELTA);
-    assertFalse(TestProto.newBuilder().build().hasOptionalDoubleWithDefault());
+    assertThat(TestProto.getDefaultInstance().getOptionalDoubleWithDefault())
+        .isWithin(DELTA)
+        .of(2.46d);
+    assertThat(TestProto.getDefaultInstance().hasOptionalDoubleWithDefault()).isFalse();
   }
 
   @Test
   public void testOptionalFieldWithDefault_setDefaultValue() {
     TestProto.Builder builder =
         TestProto.newBuilder().setOptionalDoubleWithDefault(PROTO_DEFAULT_FLOAT);
-    assertTrue(builder.hasOptionalDoubleWithDefault());
-    assertEquals(PROTO_DEFAULT_FLOAT, builder.getOptionalDoubleWithDefault(), DELTA);
+    assertThat(builder.hasOptionalDoubleWithDefault()).isTrue();
+    assertThat(builder.getOptionalDoubleWithDefault()).isWithin(DELTA).of(PROTO_DEFAULT_FLOAT);
 
     TestProto proto = builder.build();
-    assertTrue(proto.hasOptionalDoubleWithDefault());
-    assertEquals(PROTO_DEFAULT_FLOAT, proto.getOptionalDoubleWithDefault(), DELTA);
+    assertThat(proto.hasOptionalDoubleWithDefault()).isTrue();
+    assertThat(proto.getOptionalDoubleWithDefault()).isWithin(DELTA).of(PROTO_DEFAULT_FLOAT);
   }
 
   @Test
   public void testOptionalFieldWithDefault_setValue() {
     TestProto.Builder builder = TestProto.newBuilder().setOptionalDoubleWithDefault(246);
-    assertTrue(builder.hasOptionalDoubleWithDefault());
-    assertEquals(246, builder.getOptionalDoubleWithDefault(), DELTA);
+    assertThat(builder.hasOptionalDoubleWithDefault()).isTrue();
+    assertThat(builder.getOptionalDoubleWithDefault()).isWithin(DELTA).of(246);
 
     TestProto proto = builder.build();
-    assertTrue(proto.hasOptionalDoubleWithDefault());
-    assertEquals(246, proto.getOptionalDoubleWithDefault(), DELTA);
+    assertThat(proto.hasOptionalDoubleWithDefault()).isTrue();
+    assertThat(proto.getOptionalDoubleWithDefault()).isWithin(DELTA).of(246);
   }
 
   @Test
   public void testRepeatedField_defaultInstance() {
-    assertEquals(0, TestProto.newBuilder().build().getRepeatedDoubleCount());
-    assertEquals(0, TestProto.newBuilder().build().getRepeatedDoubleList().size());
+    assertThat(TestProto.getDefaultInstance().getRepeatedDoubleCount()).isEqualTo(0);
+    assertThat(TestProto.newBuilder().build().getRepeatedDoubleCount()).isEqualTo(0);
 
     assertThrows(Exception.class, () -> TestProto.newBuilder().build().getRepeatedDouble(0));
   }
@@ -172,12 +171,12 @@ public class DoubleFieldsTest {
             .addRepeatedDouble(-2d)
             .addRepeatedDouble(-3d);
 
-    assertEquals(5, builder.getRepeatedDoubleCount());
-    assertEquals(1.324d, builder.getRepeatedDouble(0), DELTA);
-    assertEquals(24d, builder.getRepeatedDouble(1), DELTA);
-    assertEquals(-1d, builder.getRepeatedDouble(2), DELTA);
-    assertEquals(-2d, builder.getRepeatedDouble(3), DELTA);
-    assertEquals(-3d, builder.getRepeatedDouble(4), DELTA);
+    assertThat(builder.getRepeatedDoubleCount()).isEqualTo(5);
+    assertThat(builder.getRepeatedDouble(0)).isWithin(DELTA).of(1.324d);
+    assertThat(builder.getRepeatedDouble(1)).isWithin(DELTA).of(24d);
+    assertThat(builder.getRepeatedDouble(2)).isWithin(DELTA).of(-1d);
+    assertThat(builder.getRepeatedDouble(3)).isWithin(DELTA).of(-2d);
+    assertThat(builder.getRepeatedDouble(4)).isWithin(DELTA).of(-3d);
     if (InternalChecks.isCheckIndex()) {
       assertThrows(Exception.class, () -> builder.getRepeatedDouble(5));
     } else {
@@ -185,11 +184,11 @@ public class DoubleFieldsTest {
     }
 
     TestProto proto = builder.build();
-    assertEquals(1.324d, proto.getRepeatedDouble(0), DELTA);
-    assertEquals(24d, proto.getRepeatedDouble(1), DELTA);
-    assertEquals(-1d, proto.getRepeatedDouble(2), DELTA);
-    assertEquals(-2d, proto.getRepeatedDouble(3), DELTA);
-    assertEquals(-3d, proto.getRepeatedDouble(4), DELTA);
+    assertThat(proto.getRepeatedDouble(0)).isWithin(DELTA).of(1.324d);
+    assertThat(proto.getRepeatedDouble(1)).isWithin(DELTA).of(24d);
+    assertThat(proto.getRepeatedDouble(2)).isWithin(DELTA).of(-1d);
+    assertThat(proto.getRepeatedDouble(3)).isWithin(DELTA).of(-2d);
+    assertThat(proto.getRepeatedDouble(4)).isWithin(DELTA).of(-3d);
     if (InternalChecks.isCheckIndex()) {
       assertThrows(Exception.class, () -> proto.getRepeatedDouble(5));
     } else {
@@ -209,11 +208,11 @@ public class DoubleFieldsTest {
             .build();
 
     TestProto.Builder builder = startProto.toBuilder().clearRepeatedDouble();
-    assertEquals(0, builder.getRepeatedDoubleCount());
-    assertEquals(0, builder.getRepeatedDoubleList().size());
+    assertThat(builder.getRepeatedDoubleCount()).isEqualTo(0);
+    assertThat(builder.getRepeatedDoubleList()).isEmpty();
 
     TestProto proto = builder.build();
-    assertEquals(0, proto.getRepeatedDoubleCount());
-    assertEquals(0, proto.getRepeatedDoubleList().size());
+    assertThat(proto.getRepeatedDoubleCount()).isEqualTo(0);
+    assertThat(proto.getRepeatedDoubleCount()).isEqualTo(0);
   }
 }

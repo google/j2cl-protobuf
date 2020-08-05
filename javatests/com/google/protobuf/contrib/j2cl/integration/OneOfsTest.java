@@ -13,10 +13,8 @@
  */
 package com.google.protobuf.contrib.j2cl.integration;
 
+import static com.google.common.truth.Truth.assertThat;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
 
 import com.google.protos.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithNativeOneOfs;
 import com.google.protos.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs;
@@ -32,20 +30,20 @@ public final class OneOfsTest {
     TestProtoWithOneOfs.Builder builder = TestProtoWithOneOfs.newBuilder().setRequiredString("str");
     TestProtoWithOneOfs proto = builder.build();
 
-    assertEquals("str", proto.getRequiredString());
-    assertEquals("str", builder.getRequiredString());
-    assertEquals(TestProtoWithOneOfs.AOneofCase.AONEOF_NOT_SET, proto.getAOneofCase());
-    assertEquals(TestProtoWithOneOfs.AOneofCase.AONEOF_NOT_SET, builder.getAOneofCase());
-    assertEquals(
-        TestProtoWithOneOfs.AnotherOneofCase.ANOTHERONEOF_NOT_SET, proto.getAnotherOneofCase());
-    assertEquals(
-        TestProtoWithOneOfs.AnotherOneofCase.ANOTHERONEOF_NOT_SET, builder.getAnotherOneofCase());
-    assertEquals(
-        TestProtoWithOneOfs.TestNestedProtoWithOneOfs.ANestedOneofCase.ANESTEDONEOF_NOT_SET,
-        proto.getNestedProtoWithOneofs().getANestedOneofCase());
-    assertEquals(
-        TestProtoWithOneOfs.TestNestedProtoWithOneOfs.ANestedOneofCase.ANESTEDONEOF_NOT_SET,
-        builder.getNestedProtoWithOneofs().getANestedOneofCase());
+    assertThat(proto.getRequiredString()).isEqualTo("str");
+    assertThat(builder.getRequiredString()).isEqualTo("str");
+    assertThat(proto.getAOneofCase()).isEqualTo(TestProtoWithOneOfs.AOneofCase.AONEOF_NOT_SET);
+    assertThat(builder.getAOneofCase()).isEqualTo(TestProtoWithOneOfs.AOneofCase.AONEOF_NOT_SET);
+    assertThat(proto.getAnotherOneofCase())
+        .isEqualTo(TestProtoWithOneOfs.AnotherOneofCase.ANOTHERONEOF_NOT_SET);
+    assertThat(builder.getAnotherOneofCase())
+        .isEqualTo(TestProtoWithOneOfs.AnotherOneofCase.ANOTHERONEOF_NOT_SET);
+    assertThat(proto.getNestedProtoWithOneofs().getANestedOneofCase())
+        .isEqualTo(
+            TestProtoWithOneOfs.TestNestedProtoWithOneOfs.ANestedOneofCase.ANESTEDONEOF_NOT_SET);
+    assertThat(builder.getNestedProtoWithOneofs().getANestedOneofCase())
+        .isEqualTo(
+            TestProtoWithOneOfs.TestNestedProtoWithOneOfs.ANestedOneofCase.ANESTEDONEOF_NOT_SET);
   }
 
   @Test
@@ -53,8 +51,10 @@ public final class OneOfsTest {
     TestProtoWithNativeOneOfs.Builder builder = TestProtoWithNativeOneOfs.newBuilder();
     TestProtoWithNativeOneOfs proto = builder.build();
 
-    assertEquals(TestProtoWithNativeOneOfs.AOneofCase.AONEOF_NOT_SET, proto.getAOneofCase());
-    assertEquals(TestProtoWithNativeOneOfs.AOneofCase.AONEOF_NOT_SET, builder.getAOneofCase());
+    assertThat(proto.getAOneofCase())
+        .isEqualTo(TestProtoWithNativeOneOfs.AOneofCase.AONEOF_NOT_SET);
+    assertThat(builder.getAOneofCase())
+        .isEqualTo(TestProtoWithNativeOneOfs.AOneofCase.AONEOF_NOT_SET);
   }
 
   @Test
@@ -65,20 +65,20 @@ public final class OneOfsTest {
             .setABool(true); // member of a_oneof
     TestProtoWithOneOfs proto = builder.build();
 
-    assertEquals(TestProtoWithOneOfs.AOneofCase.A_BOOL, proto.getAOneofCase());
-    assertEquals(TestProtoWithOneOfs.AOneofCase.A_BOOL, builder.getAOneofCase());
-    assertTrue(proto.getABool());
-    assertTrue(builder.getABool());
-    assertEquals(
-        TestProtoWithOneOfs.AnotherOneofCase.ANOTHERONEOF_NOT_SET, proto.getAnotherOneofCase());
-    assertEquals(
-        TestProtoWithOneOfs.AnotherOneofCase.ANOTHERONEOF_NOT_SET, builder.getAnotherOneofCase());
-    assertEquals(
-        TestProtoWithOneOfs.TestNestedProtoWithOneOfs.ANestedOneofCase.ANESTEDONEOF_NOT_SET,
-        proto.getNestedProtoWithOneofs().getANestedOneofCase());
-    assertEquals(
-        TestProtoWithOneOfs.TestNestedProtoWithOneOfs.ANestedOneofCase.ANESTEDONEOF_NOT_SET,
-        builder.getNestedProtoWithOneofs().getANestedOneofCase());
+    assertThat(proto.getAOneofCase()).isEqualTo(TestProtoWithOneOfs.AOneofCase.A_BOOL);
+    assertThat(builder.getAOneofCase()).isEqualTo(TestProtoWithOneOfs.AOneofCase.A_BOOL);
+    assertThat(proto.getABool()).isTrue();
+    assertThat(builder.getABool()).isTrue();
+    assertThat(proto.getAnotherOneofCase())
+        .isEqualTo(TestProtoWithOneOfs.AnotherOneofCase.ANOTHERONEOF_NOT_SET);
+    assertThat(builder.getAnotherOneofCase())
+        .isEqualTo(TestProtoWithOneOfs.AnotherOneofCase.ANOTHERONEOF_NOT_SET);
+    assertThat(proto.getNestedProtoWithOneofs().getANestedOneofCase())
+        .isEqualTo(
+            TestProtoWithOneOfs.TestNestedProtoWithOneOfs.ANestedOneofCase.ANESTEDONEOF_NOT_SET);
+    assertThat(builder.getNestedProtoWithOneofs().getANestedOneofCase())
+        .isEqualTo(
+            TestProtoWithOneOfs.TestNestedProtoWithOneOfs.ANestedOneofCase.ANESTEDONEOF_NOT_SET);
   }
 
   @Test
@@ -87,10 +87,10 @@ public final class OneOfsTest {
         TestProtoWithNativeOneOfs.newBuilder().setAFloat(2.5f); // member of a_oneof
     TestProtoWithNativeOneOfs proto = builder.build();
 
-    assertEquals(TestProtoWithNativeOneOfs.AOneofCase.A_FLOAT, proto.getAOneofCase());
-    assertEquals(TestProtoWithNativeOneOfs.AOneofCase.A_FLOAT, builder.getAOneofCase());
-    assertEquals(2.5f, proto.getAFloat(), 0.0001f);
-    assertEquals(2.5f, builder.getAFloat(), 0.0001f);
+    assertThat(proto.getAOneofCase()).isEqualTo(TestProtoWithNativeOneOfs.AOneofCase.A_FLOAT);
+    assertThat(builder.getAOneofCase()).isEqualTo(TestProtoWithNativeOneOfs.AOneofCase.A_FLOAT);
+    assertThat(proto.getAFloat()).isWithin(0.0001f).of(2.5f);
+    assertThat(builder.getAFloat()).isWithin(0.0001f).of(2.5f);
   }
 
   @Test
@@ -102,20 +102,20 @@ public final class OneOfsTest {
             .clearABool(); // member of a_oneof
     TestProtoWithOneOfs proto = builder.build();
 
-    assertEquals("str", proto.getRequiredString());
-    assertEquals("str", builder.getRequiredString());
-    assertEquals(TestProtoWithOneOfs.AOneofCase.AONEOF_NOT_SET, proto.getAOneofCase());
-    assertEquals(TestProtoWithOneOfs.AOneofCase.AONEOF_NOT_SET, builder.getAOneofCase());
-    assertEquals(
-        TestProtoWithOneOfs.AnotherOneofCase.ANOTHERONEOF_NOT_SET, proto.getAnotherOneofCase());
-    assertEquals(
-        TestProtoWithOneOfs.AnotherOneofCase.ANOTHERONEOF_NOT_SET, builder.getAnotherOneofCase());
-    assertEquals(
-        TestProtoWithOneOfs.TestNestedProtoWithOneOfs.ANestedOneofCase.ANESTEDONEOF_NOT_SET,
-        proto.getNestedProtoWithOneofs().getANestedOneofCase());
-    assertEquals(
-        TestProtoWithOneOfs.TestNestedProtoWithOneOfs.ANestedOneofCase.ANESTEDONEOF_NOT_SET,
-        builder.getNestedProtoWithOneofs().getANestedOneofCase());
+    assertThat(proto.getRequiredString()).isEqualTo("str");
+    assertThat(builder.getRequiredString()).isEqualTo("str");
+    assertThat(proto.getAOneofCase()).isEqualTo(TestProtoWithOneOfs.AOneofCase.AONEOF_NOT_SET);
+    assertThat(builder.getAOneofCase()).isEqualTo(TestProtoWithOneOfs.AOneofCase.AONEOF_NOT_SET);
+    assertThat(proto.getAnotherOneofCase())
+        .isEqualTo(TestProtoWithOneOfs.AnotherOneofCase.ANOTHERONEOF_NOT_SET);
+    assertThat(builder.getAnotherOneofCase())
+        .isEqualTo(TestProtoWithOneOfs.AnotherOneofCase.ANOTHERONEOF_NOT_SET);
+    assertThat(proto.getNestedProtoWithOneofs().getANestedOneofCase())
+        .isEqualTo(
+            TestProtoWithOneOfs.TestNestedProtoWithOneOfs.ANestedOneofCase.ANESTEDONEOF_NOT_SET);
+    assertThat(builder.getNestedProtoWithOneofs().getANestedOneofCase())
+        .isEqualTo(
+            TestProtoWithOneOfs.TestNestedProtoWithOneOfs.ANestedOneofCase.ANESTEDONEOF_NOT_SET);
   }
 
   @Test
@@ -126,8 +126,10 @@ public final class OneOfsTest {
             .clearAFloat(); // member of a_oneof
     TestProtoWithNativeOneOfs proto = builder.build();
 
-    assertEquals(TestProtoWithNativeOneOfs.AOneofCase.AONEOF_NOT_SET, proto.getAOneofCase());
-    assertEquals(TestProtoWithNativeOneOfs.AOneofCase.AONEOF_NOT_SET, builder.getAOneofCase());
+    assertThat(proto.getAOneofCase())
+        .isEqualTo(TestProtoWithNativeOneOfs.AOneofCase.AONEOF_NOT_SET);
+    assertThat(builder.getAOneofCase())
+        .isEqualTo(TestProtoWithNativeOneOfs.AOneofCase.AONEOF_NOT_SET);
   }
 
   @Test
@@ -140,31 +142,31 @@ public final class OneOfsTest {
             .setAFloat(2.5f); // member of a_oneof
     TestProtoWithOneOfs proto = builder.build();
 
-    assertEquals(TestProtoWithOneOfs.AOneofCase.A_FLOAT, proto.getAOneofCase());
-    assertEquals(TestProtoWithOneOfs.AOneofCase.A_FLOAT, builder.getAOneofCase());
-    assertEquals(2.5f, proto.getAFloat(), 0.0001f);
-    assertEquals(2.5f, builder.getAFloat(), 0.0001f);
+    assertThat(proto.getAOneofCase()).isEqualTo(TestProtoWithOneOfs.AOneofCase.A_FLOAT);
+    assertThat(builder.getAOneofCase()).isEqualTo(TestProtoWithOneOfs.AOneofCase.A_FLOAT);
+    assertThat(proto.getAFloat()).isWithin(0.0001f).of(2.5f);
+    assertThat(builder.getAFloat()).isWithin(0.0001f).of(2.5f);
 
-    assertFalse(proto.hasDoubleWithDefault());
-    assertFalse(builder.hasDoubleWithDefault());
+    assertThat(proto.hasDoubleWithDefault()).isFalse();
+    assertThat(builder.hasDoubleWithDefault()).isFalse();
     assertEquals(2.46 /* default value */, proto.getDoubleWithDefault(), 0.0001);
     assertEquals(2.46 /* default value */, builder.getDoubleWithDefault(), 0.0001);
 
-    assertFalse(proto.hasABool());
-    assertFalse(builder.hasABool());
+    assertThat(proto.hasABool()).isFalse();
+    assertThat(builder.hasABool()).isFalse();
     assertEquals(false /* default value */, proto.getABool());
     assertEquals(false /* default value */, builder.getABool());
 
-    assertEquals(
-        TestProtoWithOneOfs.AnotherOneofCase.ANOTHERONEOF_NOT_SET, proto.getAnotherOneofCase());
-    assertEquals(
-        TestProtoWithOneOfs.AnotherOneofCase.ANOTHERONEOF_NOT_SET, builder.getAnotherOneofCase());
-    assertEquals(
-        TestProtoWithOneOfs.TestNestedProtoWithOneOfs.ANestedOneofCase.ANESTEDONEOF_NOT_SET,
-        proto.getNestedProtoWithOneofs().getANestedOneofCase());
-    assertEquals(
-        TestProtoWithOneOfs.TestNestedProtoWithOneOfs.ANestedOneofCase.ANESTEDONEOF_NOT_SET,
-        builder.getNestedProtoWithOneofs().getANestedOneofCase());
+    assertThat(proto.getAnotherOneofCase())
+        .isEqualTo(TestProtoWithOneOfs.AnotherOneofCase.ANOTHERONEOF_NOT_SET);
+    assertThat(builder.getAnotherOneofCase())
+        .isEqualTo(TestProtoWithOneOfs.AnotherOneofCase.ANOTHERONEOF_NOT_SET);
+    assertThat(proto.getNestedProtoWithOneofs().getANestedOneofCase())
+        .isEqualTo(
+            TestProtoWithOneOfs.TestNestedProtoWithOneOfs.ANestedOneofCase.ANESTEDONEOF_NOT_SET);
+    assertThat(builder.getNestedProtoWithOneofs().getANestedOneofCase())
+        .isEqualTo(
+            TestProtoWithOneOfs.TestNestedProtoWithOneOfs.ANestedOneofCase.ANESTEDONEOF_NOT_SET);
   }
 
   @Test
@@ -175,11 +177,11 @@ public final class OneOfsTest {
             .setAFloat(2.5f); // member of a_oneof
     TestProtoWithNativeOneOfs proto = builder.build();
 
-    assertEquals(TestProtoWithNativeOneOfs.AOneofCase.A_FLOAT, proto.getAOneofCase());
-    assertEquals(TestProtoWithNativeOneOfs.AOneofCase.A_FLOAT, builder.getAOneofCase());
+    assertThat(proto.getAOneofCase()).isEqualTo(TestProtoWithNativeOneOfs.AOneofCase.A_FLOAT);
+    assertThat(builder.getAOneofCase()).isEqualTo(TestProtoWithNativeOneOfs.AOneofCase.A_FLOAT);
 
-    assertEquals(2.5f, proto.getAFloat(), 0.0001f);
-    assertEquals(2.5f, builder.getAFloat(), 0.0001f);
+    assertThat(proto.getAFloat()).isWithin(0.0001f).of(2.5f);
+    assertThat(builder.getAFloat()).isWithin(0.0001f).of(2.5f);
   }
 
   @Test
@@ -193,27 +195,27 @@ public final class OneOfsTest {
             .clearAFloat(); // member of a_oneof
     TestProtoWithOneOfs proto = builder.build();
 
-    assertEquals(TestProtoWithOneOfs.AOneofCase.AONEOF_NOT_SET, proto.getAOneofCase());
+    assertThat(proto.getAOneofCase()).isEqualTo(TestProtoWithOneOfs.AOneofCase.AONEOF_NOT_SET);
 
-    assertFalse(proto.hasAFloat());
+    assertThat(proto.hasAFloat()).isFalse();
     assertEquals(0f /* default value */, proto.getAFloat(), 0.0001f);
 
-    assertFalse(proto.hasDoubleWithDefault());
+    assertThat(proto.hasDoubleWithDefault()).isFalse();
     assertEquals(2.46 /* default value */, proto.getDoubleWithDefault(), 0.0001);
 
-    assertFalse(proto.hasABool());
+    assertThat(proto.hasABool()).isFalse();
     assertEquals(false /* default value */, proto.getABool());
 
-    assertEquals(
-        TestProtoWithOneOfs.AnotherOneofCase.ANOTHERONEOF_NOT_SET, proto.getAnotherOneofCase());
-    assertEquals(
-        TestProtoWithOneOfs.AnotherOneofCase.ANOTHERONEOF_NOT_SET, builder.getAnotherOneofCase());
-    assertEquals(
-        TestProtoWithOneOfs.TestNestedProtoWithOneOfs.ANestedOneofCase.ANESTEDONEOF_NOT_SET,
-        proto.getNestedProtoWithOneofs().getANestedOneofCase());
-    assertEquals(
-        TestProtoWithOneOfs.TestNestedProtoWithOneOfs.ANestedOneofCase.ANESTEDONEOF_NOT_SET,
-        builder.getNestedProtoWithOneofs().getANestedOneofCase());
+    assertThat(proto.getAnotherOneofCase())
+        .isEqualTo(TestProtoWithOneOfs.AnotherOneofCase.ANOTHERONEOF_NOT_SET);
+    assertThat(builder.getAnotherOneofCase())
+        .isEqualTo(TestProtoWithOneOfs.AnotherOneofCase.ANOTHERONEOF_NOT_SET);
+    assertThat(proto.getNestedProtoWithOneofs().getANestedOneofCase())
+        .isEqualTo(
+            TestProtoWithOneOfs.TestNestedProtoWithOneOfs.ANestedOneofCase.ANESTEDONEOF_NOT_SET);
+    assertThat(builder.getNestedProtoWithOneofs().getANestedOneofCase())
+        .isEqualTo(
+            TestProtoWithOneOfs.TestNestedProtoWithOneOfs.ANestedOneofCase.ANESTEDONEOF_NOT_SET);
   }
 
   @Test
@@ -225,18 +227,19 @@ public final class OneOfsTest {
             .clearAFloat(); // member of a_oneof
     TestProtoWithNativeOneOfs proto = builder.build();
 
-    assertEquals(TestProtoWithNativeOneOfs.AOneofCase.AONEOF_NOT_SET, proto.getAOneofCase());
+    assertThat(proto.getAOneofCase())
+        .isEqualTo(TestProtoWithNativeOneOfs.AOneofCase.AONEOF_NOT_SET);
 
-    assertFalse(proto.hasAFloat());
+    assertThat(proto.hasAFloat()).isFalse();
     assertEquals(0f /* default value */, proto.getAFloat(), 0.0001f);
 
-    assertFalse(proto.hasADouble());
+    assertThat(proto.hasADouble()).isFalse();
     assertEquals(0.0 /* default value */, proto.getADouble(), 0.0001);
   }
 
   @Test
   public void testForNumberWithUnknownValue() {
-    assertNull(TestProtoWithOneOfs.AOneofCase.forNumber(100));
+    assertThat(TestProtoWithOneOfs.AOneofCase.forNumber(100)).isNull();
   }
 
   // Unknown values with native oneof case enums are tested in EnumGenerationTest since the behavior

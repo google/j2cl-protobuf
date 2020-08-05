@@ -14,10 +14,7 @@
 package com.google.protobuf.contrib.j2cl.integration;
 
 import static com.google.common.truth.Truth.assertThat;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
 
 import com.google.protobuf.contrib.j2cl.protos.Accessor.TestProto;
 import com.google.protobuf.contrib.j2cl.protos.Accessor.TestProto.NestedMessage;
@@ -32,10 +29,10 @@ public final class MessageFieldsTest {
 
   @Test
   public void testOptionalField_defaultInstance() {
-    assertFalse(TestProto.newBuilder().hasOptionalMessage());
-    assertFalse(TestProto.newBuilder().build().hasOptionalMessage());
-    assertFalse(TestProto.newBuilder().getOptionalMessage().hasPayload());
-    assertFalse(TestProto.newBuilder().build().getOptionalMessage().hasPayload());
+    assertThat(TestProto.newBuilder().hasOptionalMessage()).isFalse();
+    assertThat(TestProto.getDefaultInstance().hasOptionalMessage()).isFalse();
+    assertThat(TestProto.newBuilder().getOptionalMessage().hasPayload()).isFalse();
+    assertThat(TestProto.getDefaultInstance().getOptionalMessage().hasPayload()).isFalse();
   }
 
   @Test
@@ -43,12 +40,12 @@ public final class MessageFieldsTest {
     TestProto.Builder builder =
         TestProto.newBuilder()
             .setOptionalMessage(NestedMessage.newBuilder().setPayload("payload").build());
-    assertTrue(builder.hasOptionalMessage());
-    assertEquals("payload", builder.getOptionalMessage().getPayload());
+    assertThat(builder.hasOptionalMessage()).isTrue();
+    assertThat(builder.getOptionalMessage().getPayload()).isEqualTo("payload");
 
     TestProto proto = builder.build();
-    assertTrue(proto.hasOptionalMessage());
-    assertEquals("payload", proto.getOptionalMessage().getPayload());
+    assertThat(proto.hasOptionalMessage()).isTrue();
+    assertThat(proto.getOptionalMessage().getPayload()).isEqualTo("payload");
   }
 
   @Test
@@ -59,20 +56,20 @@ public final class MessageFieldsTest {
             .build();
 
     TestProto.Builder builder = startProto.toBuilder();
-    assertTrue(builder.hasOptionalMessage());
-    assertEquals("payload", builder.getOptionalMessage().getPayload());
+    assertThat(builder.hasOptionalMessage()).isTrue();
+    assertThat(builder.getOptionalMessage().getPayload()).isEqualTo("payload");
 
     builder.setOptionalMessage(NestedMessage.newBuilder().setPayload("payload_new").build());
 
-    assertTrue(builder.hasOptionalMessage());
-    assertEquals("payload_new", builder.getOptionalMessage().getPayload());
+    assertThat(builder.hasOptionalMessage()).isTrue();
+    assertThat(builder.getOptionalMessage().getPayload()).isEqualTo("payload_new");
 
     TestProto proto = builder.build();
-    assertTrue(proto.hasOptionalMessage());
-    assertEquals("payload_new", proto.getOptionalMessage().getPayload());
+    assertThat(proto.hasOptionalMessage()).isTrue();
+    assertThat(proto.getOptionalMessage().getPayload()).isEqualTo("payload_new");
 
-    assertTrue(startProto.hasOptionalMessage());
-    assertEquals("payload", startProto.getOptionalMessage().getPayload());
+    assertThat(startProto.hasOptionalMessage()).isTrue();
+    assertThat(startProto.getOptionalMessage().getPayload()).isEqualTo("payload");
   }
 
   @Test
@@ -82,18 +79,18 @@ public final class MessageFieldsTest {
             .setOptionalMessage(NestedMessage.newBuilder().setPayload("payload").build());
 
     builder.clearOptionalMessage();
-    assertFalse(builder.hasOptionalMessage());
-    assertEquals("", builder.getOptionalMessage().getPayload());
+    assertThat(builder.hasOptionalMessage()).isFalse();
+    assertThat(builder.getOptionalMessage().getPayload()).isEmpty();
 
     TestProto proto = builder.build();
-    assertFalse(proto.hasOptionalMessage());
-    assertEquals("", proto.getOptionalMessage().getPayload());
+    assertThat(proto.hasOptionalMessage()).isFalse();
+    assertThat(proto.getOptionalMessage().getPayload()).isEmpty();
   }
 
   @Test
   public void testRepeatedField_defaultValue() {
     TestProto proto = TestProto.newBuilder().build();
-    assertEquals(0, proto.getRepeatedMessageCount());
+    assertThat(proto.getRepeatedMessageCount()).isEqualTo(0);
     assertThat(proto.getRepeatedMessageList()).isEmpty();
   }
 
@@ -104,19 +101,19 @@ public final class MessageFieldsTest {
             .addRepeatedMessage(NestedMessage.newBuilder().setPayload("one").build())
             .addRepeatedMessage(NestedMessage.newBuilder().setPayload("two").build());
     List<NestedMessage> nestedList = builder.getRepeatedMessageList();
-    assertEquals(2, nestedList.size());
-    assertEquals("one", nestedList.get(0).getPayload());
-    assertEquals("two", nestedList.get(1).getPayload());
-    assertEquals("one", builder.getRepeatedMessage(0).getPayload());
-    assertEquals("two", builder.getRepeatedMessage(1).getPayload());
+    assertThat(nestedList).hasSize(2);
+    assertThat(nestedList.get(0).getPayload()).isEqualTo("one");
+    assertThat(nestedList.get(1).getPayload()).isEqualTo("two");
+    assertThat(builder.getRepeatedMessage(0).getPayload()).isEqualTo("one");
+    assertThat(builder.getRepeatedMessage(1).getPayload()).isEqualTo("two");
 
     TestProto proto = builder.build();
     nestedList = proto.getRepeatedMessageList();
-    assertEquals(2, nestedList.size());
-    assertEquals("one", nestedList.get(0).getPayload());
-    assertEquals("two", nestedList.get(1).getPayload());
-    assertEquals("one", proto.getRepeatedMessage(0).getPayload());
-    assertEquals("two", proto.getRepeatedMessage(1).getPayload());
+    assertThat(nestedList).hasSize(2);
+    assertThat(nestedList.get(0).getPayload()).isEqualTo("one");
+    assertThat(nestedList.get(1).getPayload()).isEqualTo("two");
+    assertThat(proto.getRepeatedMessage(0).getPayload()).isEqualTo("one");
+    assertThat(proto.getRepeatedMessage(1).getPayload()).isEqualTo("two");
   }
 
   @Test
@@ -128,20 +125,20 @@ public final class MessageFieldsTest {
                     NestedMessage.newBuilder().setPayload("one").build(),
                     NestedMessage.newBuilder().setPayload("two").build()));
     List<NestedMessage> nestedList = builder.getRepeatedMessageList();
-    assertEquals(2, nestedList.size());
-    assertEquals("one", nestedList.get(0).getPayload());
-    assertEquals("two", nestedList.get(1).getPayload());
-    assertEquals("one", builder.getRepeatedMessage(0).getPayload());
-    assertEquals("two", builder.getRepeatedMessage(1).getPayload());
+    assertThat(nestedList).hasSize(2);
+    assertThat(nestedList.get(0).getPayload()).isEqualTo("one");
+    assertThat(nestedList.get(1).getPayload()).isEqualTo("two");
+    assertThat(builder.getRepeatedMessage(0).getPayload()).isEqualTo("one");
+    assertThat(builder.getRepeatedMessage(1).getPayload()).isEqualTo("two");
 
     TestProto proto = builder.build();
     nestedList = proto.getRepeatedMessageList();
-    assertEquals(2, nestedList.size());
-    assertEquals("one", nestedList.get(0).getPayload());
-    assertEquals("two", nestedList.get(1).getPayload());
+    assertThat(nestedList).hasSize(2);
+    assertThat(nestedList.get(0).getPayload()).isEqualTo("one");
+    assertThat(nestedList.get(1).getPayload()).isEqualTo("two");
 
-    assertEquals("one", proto.getRepeatedMessage(0).getPayload());
-    assertEquals("two", proto.getRepeatedMessage(1).getPayload());
+    assertThat(proto.getRepeatedMessage(0).getPayload()).isEqualTo("one");
+    assertThat(proto.getRepeatedMessage(1).getPayload()).isEqualTo("two");
   }
 
   @Test
@@ -159,21 +156,21 @@ public final class MessageFieldsTest {
             .toBuilder()
             .setRepeatedMessage(1, NestedMessage.newBuilder().setPayload("another two").build());
     List<NestedMessage> nestedList = builder.getRepeatedMessageList();
-    assertEquals(2, nestedList.size());
-    assertEquals("one", nestedList.get(0).getPayload());
-    assertEquals("another two", nestedList.get(1).getPayload());
+    assertThat(nestedList).hasSize(2);
+    assertThat(nestedList.get(0).getPayload()).isEqualTo("one");
+    assertThat(nestedList.get(1).getPayload()).isEqualTo("another two");
 
-    assertEquals("one", builder.getRepeatedMessage(0).getPayload());
-    assertEquals("another two", builder.getRepeatedMessage(1).getPayload());
+    assertThat(builder.getRepeatedMessage(0).getPayload()).isEqualTo("one");
+    assertThat(builder.getRepeatedMessage(1).getPayload()).isEqualTo("another two");
 
     TestProto proto = builder.build();
     nestedList = proto.getRepeatedMessageList();
-    assertEquals(2, nestedList.size());
-    assertEquals("one", nestedList.get(0).getPayload());
-    assertEquals("another two", nestedList.get(1).getPayload());
+    assertThat(nestedList).hasSize(2);
+    assertThat(nestedList.get(0).getPayload()).isEqualTo("one");
+    assertThat(nestedList.get(1).getPayload()).isEqualTo("another two");
 
-    assertEquals("one", proto.getRepeatedMessage(0).getPayload());
-    assertEquals("another two", proto.getRepeatedMessage(1).getPayload());
+    assertThat(proto.getRepeatedMessage(0).getPayload()).isEqualTo("one");
+    assertThat(proto.getRepeatedMessage(1).getPayload()).isEqualTo("another two");
   }
 
   @Test
@@ -206,11 +203,11 @@ public final class MessageFieldsTest {
             .build();
 
     TestProto.Builder builder = startProto.toBuilder().clearRepeatedMessage();
-    assertEquals(0, builder.getRepeatedMessageCount());
+    assertThat(builder.getRepeatedMessageCount()).isEqualTo(0);
     assertThat(builder.getRepeatedMessageList()).isEmpty();
 
     TestProto proto = builder.build();
-    assertEquals(0, proto.getRepeatedMessageCount());
+    assertThat(proto.getRepeatedMessageCount()).isEqualTo(0);
     assertThat(proto.getRepeatedMessageList()).isEmpty();
   }
 
@@ -225,11 +222,11 @@ public final class MessageFieldsTest {
     TestProto proto = TestProto.newBuilder(startProto).build();
 
     List<NestedMessage> nestedList = proto.getRepeatedMessageList();
-    assertEquals(2, nestedList.size());
-    assertEquals("one", nestedList.get(0).getPayload());
-    assertEquals("two", nestedList.get(1).getPayload());
-    assertEquals("one", proto.getRepeatedMessage(0).getPayload());
-    assertEquals("two", proto.getRepeatedMessage(1).getPayload());
+    assertThat(nestedList).hasSize(2);
+    assertThat(nestedList.get(0).getPayload()).isEqualTo("one");
+    assertThat(nestedList.get(1).getPayload()).isEqualTo("two");
+    assertThat(proto.getRepeatedMessage(0).getPayload()).isEqualTo("one");
+    assertThat(proto.getRepeatedMessage(1).getPayload()).isEqualTo("two");
   }
 
   @Test
@@ -239,7 +236,7 @@ public final class MessageFieldsTest {
             .setOptionalMessage(NestedMessage.newBuilder().setPayload("one"))
             .build();
 
-    assertEquals("one", startProto.getOptionalMessage().getPayload());
+    assertThat(startProto.getOptionalMessage().getPayload()).isEqualTo("one");
   }
 
   @Test
@@ -250,15 +247,15 @@ public final class MessageFieldsTest {
             .addRepeatedMessage(TestProto.NestedMessage.newBuilder().setPayload("two"));
 
     List<NestedMessage> nestedList = builder.getRepeatedMessageList();
-    assertEquals(2, nestedList.size());
-    assertEquals("one", nestedList.get(0).getPayload());
-    assertEquals("two", nestedList.get(1).getPayload());
+    assertThat(nestedList).hasSize(2);
+    assertThat(nestedList.get(0).getPayload()).isEqualTo("one");
+    assertThat(nestedList.get(1).getPayload()).isEqualTo("two");
 
     TestProto proto = builder.build();
     nestedList = proto.getRepeatedMessageList();
-    assertEquals(2, nestedList.size());
-    assertEquals("one", nestedList.get(0).getPayload());
-    assertEquals("two", nestedList.get(1).getPayload());
+    assertThat(nestedList).hasSize(2);
+    assertThat(nestedList.get(0).getPayload()).isEqualTo("one");
+    assertThat(nestedList.get(1).getPayload()).isEqualTo("two");
   }
 
   @Test
@@ -272,14 +269,14 @@ public final class MessageFieldsTest {
     builder.setRepeatedMessage(1, TestProto.NestedMessage.newBuilder().setPayload("four"));
 
     List<NestedMessage> nestedList = builder.getRepeatedMessageList();
-    assertEquals(2, nestedList.size());
-    assertEquals("three", nestedList.get(0).getPayload());
-    assertEquals("four", nestedList.get(1).getPayload());
+    assertThat(nestedList).hasSize(2);
+    assertThat(nestedList.get(0).getPayload()).isEqualTo("three");
+    assertThat(nestedList.get(1).getPayload()).isEqualTo("four");
 
     TestProto proto = builder.build();
     nestedList = proto.getRepeatedMessageList();
-    assertEquals(2, nestedList.size());
-    assertEquals("three", nestedList.get(0).getPayload());
-    assertEquals("four", nestedList.get(1).getPayload());
+    assertThat(nestedList).hasSize(2);
+    assertThat(nestedList.get(0).getPayload()).isEqualTo("three");
+    assertThat(nestedList.get(1).getPayload()).isEqualTo("four");
   }
 }

@@ -14,10 +14,7 @@
 package com.google.protobuf.contrib.j2cl.integration;
 
 import static com.google.common.truth.Truth.assertThat;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
 
 import com.google.protobuf.contrib.j2cl.protos.Accessor.TestProto;
 import java.util.Arrays;
@@ -32,30 +29,30 @@ public class IntFieldsTest {
 
   @Test
   public void testOptionalFieldNoDefault_defaultInstance() {
-    assertEquals(0, TestProto.newBuilder().build().getOptionalInt());
-    assertFalse(TestProto.newBuilder().build().hasOptionalInt());
+    assertThat(TestProto.getDefaultInstance().getOptionalInt()).isEqualTo(0);
+    assertThat(TestProto.getDefaultInstance().hasOptionalInt()).isFalse();
   }
 
   @Test
   public void testOptionalFieldNoDefault_setValue() {
     TestProto.Builder builder = TestProto.newBuilder().setOptionalInt(8964);
-    assertTrue(builder.hasOptionalInt());
-    assertEquals(8964, builder.getOptionalInt());
+    assertThat(builder.hasOptionalInt()).isTrue();
+    assertThat(builder.getOptionalInt()).isEqualTo(8964);
 
     TestProto proto = builder.build();
-    assertTrue(proto.hasOptionalInt());
-    assertEquals(8964, proto.getOptionalInt());
+    assertThat(proto.hasOptionalInt()).isTrue();
+    assertThat(proto.getOptionalInt()).isEqualTo(8964);
   }
 
   @Test
   public void testOptionalFieldNoDefault_setDefaultValue() {
     TestProto.Builder builder = TestProto.newBuilder().setOptionalInt(0);
-    assertTrue(builder.hasOptionalInt());
-    assertEquals(0, builder.getOptionalInt());
+    assertThat(builder.hasOptionalInt()).isTrue();
+    assertThat(builder.getOptionalInt()).isEqualTo(0);
 
     TestProto proto = builder.build();
-    assertTrue(proto.hasOptionalInt());
-    assertEquals(0, proto.getOptionalInt());
+    assertThat(proto.hasOptionalInt()).isTrue();
+    assertThat(proto.getOptionalInt()).isEqualTo(0);
   }
 
   @Test
@@ -64,55 +61,56 @@ public class IntFieldsTest {
 
     TestProto.Builder builder = startProto.toBuilder();
     builder.clearOptionalInt();
-    assertFalse(builder.hasOptionalInt());
+    assertThat(builder.hasOptionalInt()).isFalse();
 
     TestProto proto = builder.build();
-    assertFalse(proto.hasOptionalInt());
+    assertThat(proto.hasOptionalInt()).isFalse();
   }
 
   @Test
   public void testOptionalFieldWithDefault_setDefaultValue() {
-    assertEquals(PROTO_DEFAULT_VALUE, TestProto.newBuilder().build().getOptionalIntWithDefault());
-    assertFalse(TestProto.newBuilder().build().hasOptionalIntWithDefault());
+    assertThat(TestProto.getDefaultInstance().getOptionalIntWithDefault())
+        .isEqualTo(PROTO_DEFAULT_VALUE);
+    assertThat(TestProto.getDefaultInstance().hasOptionalIntWithDefault()).isFalse();
 
     TestProto.Builder builder =
         TestProto.newBuilder().setOptionalIntWithDefault(PROTO_DEFAULT_VALUE);
-    assertTrue(builder.hasOptionalIntWithDefault());
-    assertEquals(PROTO_DEFAULT_VALUE, builder.getOptionalIntWithDefault());
+    assertThat(builder.hasOptionalIntWithDefault()).isTrue();
+    assertThat(builder.getOptionalIntWithDefault()).isEqualTo(PROTO_DEFAULT_VALUE);
 
     TestProto proto = builder.build();
-    assertTrue(proto.hasOptionalIntWithDefault());
-    assertEquals(PROTO_DEFAULT_VALUE, proto.getOptionalIntWithDefault());
+    assertThat(proto.hasOptionalIntWithDefault()).isTrue();
+    assertThat(proto.getOptionalIntWithDefault()).isEqualTo(PROTO_DEFAULT_VALUE);
   }
 
   @Test
   public void testOptionalFieldWithDefault_setValue() {
     TestProto.Builder builder = TestProto.newBuilder().setOptionalIntWithDefault(246);
-    assertTrue(builder.hasOptionalIntWithDefault());
-    assertEquals(246, builder.getOptionalIntWithDefault());
+    assertThat(builder.hasOptionalIntWithDefault()).isTrue();
+    assertThat(builder.getOptionalIntWithDefault()).isEqualTo(246);
 
     TestProto proto = builder.build();
-    assertTrue(proto.hasOptionalIntWithDefault());
-    assertEquals(246, proto.getOptionalIntWithDefault());
+    assertThat(proto.hasOptionalIntWithDefault()).isTrue();
+    assertThat(proto.getOptionalIntWithDefault()).isEqualTo(246);
   }
 
   @Test
   public void testRepeatedField_defaultInstance() {
-    assertEquals(0, TestProto.newBuilder().build().getRepeatedIntCount());
-    assertEquals(0, TestProto.newBuilder().build().getRepeatedIntList().size());
+    assertThat(TestProto.getDefaultInstance().getRepeatedIntCount()).isEqualTo(0);
+    assertThat(TestProto.newBuilder().build().getRepeatedIntCount()).isEqualTo(0);
     assertThrows(Exception.class, () -> TestProto.newBuilder().build().getRepeatedInt(0));
   }
 
   @Test
   public void testRepeatedField_add() {
     TestProto.Builder builder = TestProto.newBuilder().addRepeatedInt(13).addRepeatedInt(24);
-    assertEquals(2, builder.getRepeatedIntCount());
+    assertThat(builder.getRepeatedIntCount()).isEqualTo(2);
     assertThat(Arrays.<Integer>asList(13, 24))
         .containsExactlyElementsIn(builder.getRepeatedIntList())
         .inOrder();
 
     TestProto proto = builder.build();
-    assertEquals(2, proto.getRepeatedIntCount());
+    assertThat(proto.getRepeatedIntCount()).isEqualTo(2);
     assertThat(Arrays.<Integer>asList(13, 24))
         .containsExactlyElementsIn(proto.getRepeatedIntList())
         .inOrder();
@@ -164,29 +162,29 @@ public class IntFieldsTest {
             .addRepeatedInt(-2)
             .addRepeatedInt(-3);
 
-    assertEquals(5, builder.getRepeatedIntCount());
-    assertEquals(13, builder.getRepeatedInt(0));
-    assertEquals(24, builder.getRepeatedInt(1));
-    assertEquals(-1, builder.getRepeatedInt(2));
-    assertEquals(-2, builder.getRepeatedInt(3));
-    assertEquals(-3, builder.getRepeatedInt(4));
+    assertThat(builder.getRepeatedIntCount()).isEqualTo(5);
+    assertThat(builder.getRepeatedInt(0)).isEqualTo(13);
+    assertThat(builder.getRepeatedInt(1)).isEqualTo(24);
+    assertThat(builder.getRepeatedInt(2)).isEqualTo(-1);
+    assertThat(builder.getRepeatedInt(3)).isEqualTo(-2);
+    assertThat(builder.getRepeatedInt(4)).isEqualTo(-3);
     if (InternalChecks.isCheckIndex()) {
       assertThrows(Exception.class, () -> builder.getRepeatedInt(5));
     } else {
-      assertEquals(0, builder.getRepeatedInt(5));
+      assertThat(builder.getRepeatedInt(5)).isEqualTo(0);
     }
 
     TestProto proto = builder.build();
-    assertEquals(5, proto.getRepeatedIntCount());
-    assertEquals(13, proto.getRepeatedInt(0));
-    assertEquals(24, proto.getRepeatedInt(1));
-    assertEquals(-1, proto.getRepeatedInt(2));
-    assertEquals(-2, proto.getRepeatedInt(3));
-    assertEquals(-3, proto.getRepeatedInt(4));
+    assertThat(proto.getRepeatedIntCount()).isEqualTo(5);
+    assertThat(proto.getRepeatedInt(0)).isEqualTo(13);
+    assertThat(proto.getRepeatedInt(1)).isEqualTo(24);
+    assertThat(proto.getRepeatedInt(2)).isEqualTo(-1);
+    assertThat(proto.getRepeatedInt(3)).isEqualTo(-2);
+    assertThat(proto.getRepeatedInt(4)).isEqualTo(-3);
     if (InternalChecks.isCheckIndex()) {
       assertThrows(Exception.class, () -> proto.getRepeatedInt(5));
     } else {
-      assertEquals(0, proto.getRepeatedInt(5));
+      assertThat(proto.getRepeatedInt(5)).isEqualTo(0);
     }
   }
 
@@ -202,11 +200,11 @@ public class IntFieldsTest {
             .build();
 
     TestProto.Builder builder = startProto.toBuilder().clearRepeatedInt();
-    assertEquals(0, builder.getRepeatedIntCount());
-    assertEquals(0, builder.getRepeatedIntList().size());
+    assertThat(builder.getRepeatedIntCount()).isEqualTo(0);
+    assertThat(builder.getRepeatedIntList()).isEmpty();
 
     TestProto proto = builder.build();
-    assertEquals(0, proto.getRepeatedIntCount());
-    assertEquals(0, proto.getRepeatedIntList().size());
+    assertThat(proto.getRepeatedIntCount()).isEqualTo(0);
+    assertThat(proto.getRepeatedIntCount()).isEqualTo(0);
   }
 }

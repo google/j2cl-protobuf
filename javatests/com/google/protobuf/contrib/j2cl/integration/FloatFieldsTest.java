@@ -14,10 +14,7 @@
 package com.google.protobuf.contrib.j2cl.integration;
 
 import static com.google.common.truth.Truth.assertThat;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
 
 import com.google.protobuf.contrib.j2cl.protos.Accessor.TestProto;
 import java.util.Arrays;
@@ -32,30 +29,30 @@ public class FloatFieldsTest {
 
   @Test
   public void testOptionalFieldNoDefault_defaultInstance() {
-    assertEquals(0, TestProto.newBuilder().build().getOptionalFloat(), DELTA);
-    assertFalse(TestProto.newBuilder().build().hasOptionalFloat());
+    assertThat(TestProto.getDefaultInstance().getOptionalFloat()).isWithin(DELTA).of(0);
+    assertThat(TestProto.getDefaultInstance().hasOptionalFloat()).isFalse();
   }
 
   @Test
   public void testOptionalFieldNoDefault_setValue() {
     TestProto.Builder builder = TestProto.newBuilder().setOptionalFloat(89.64f);
-    assertTrue(builder.hasOptionalFloat());
-    assertEquals(89.64f, builder.getOptionalFloat(), DELTA);
+    assertThat(builder.hasOptionalFloat()).isTrue();
+    assertThat(builder.getOptionalFloat()).isWithin(DELTA).of(89.64f);
 
     TestProto proto = builder.build();
-    assertTrue(proto.hasOptionalFloat());
-    assertEquals(89.64f, proto.getOptionalFloat(), DELTA);
+    assertThat(proto.hasOptionalFloat()).isTrue();
+    assertThat(proto.getOptionalFloat()).isWithin(DELTA).of(89.64f);
   }
 
   @Test
   public void testOptionalFieldNoDefault_setDefault() {
     TestProto.Builder builder = TestProto.newBuilder().setOptionalFloat(0f);
-    assertTrue(builder.hasOptionalFloat());
-    assertEquals(0f, builder.getOptionalFloat(), DELTA);
+    assertThat(builder.hasOptionalFloat()).isTrue();
+    assertThat(builder.getOptionalFloat()).isWithin(DELTA).of(0f);
 
     TestProto proto = builder.build();
-    assertTrue(proto.hasOptionalFloat());
-    assertEquals(0f, proto.getOptionalFloat(), DELTA);
+    assertThat(proto.hasOptionalFloat()).isTrue();
+    assertThat(proto.getOptionalFloat()).isWithin(DELTA).of(0f);
   }
 
   @Test
@@ -64,48 +61,49 @@ public class FloatFieldsTest {
 
     // Test clear
     TestProto.Builder builder = startProto.toBuilder();
-    assertTrue(builder.hasOptionalFloat());
+    assertThat(builder.hasOptionalFloat()).isTrue();
     builder.clearOptionalFloat();
-    assertFalse(builder.hasOptionalFloat());
+    assertThat(builder.hasOptionalFloat()).isFalse();
 
     TestProto proto = builder.build();
-    assertFalse(proto.hasOptionalFloat());
+    assertThat(proto.hasOptionalFloat()).isFalse();
   }
 
   @Test
   public void testOptionalFieldWithDefault_defaultInstance() {
-    assertEquals(
-        PROTO_DEFAULT_FLOAT, TestProto.newBuilder().build().getOptionalFloatWithDefault(), DELTA);
-    assertFalse(TestProto.newBuilder().build().hasOptionalFloatWithDefault());
+    assertThat(TestProto.getDefaultInstance().getOptionalFloatWithDefault())
+        .isWithin(DELTA)
+        .of(PROTO_DEFAULT_FLOAT);
+    assertThat(TestProto.getDefaultInstance().hasOptionalFloatWithDefault()).isFalse();
   }
 
   @Test
   public void testOptionalFieldWithDefault_setDefaultValue() {
     TestProto.Builder builder =
         TestProto.newBuilder().setOptionalFloatWithDefault(PROTO_DEFAULT_FLOAT);
-    assertTrue(builder.hasOptionalFloatWithDefault());
-    assertEquals(PROTO_DEFAULT_FLOAT, builder.getOptionalFloatWithDefault(), DELTA);
+    assertThat(builder.hasOptionalFloatWithDefault()).isTrue();
+    assertThat(builder.getOptionalFloatWithDefault()).isWithin(DELTA).of(PROTO_DEFAULT_FLOAT);
 
     TestProto proto = builder.build();
-    assertTrue(proto.hasOptionalFloatWithDefault());
-    assertEquals(PROTO_DEFAULT_FLOAT, proto.getOptionalFloatWithDefault(), DELTA);
+    assertThat(proto.hasOptionalFloatWithDefault()).isTrue();
+    assertThat(proto.getOptionalFloatWithDefault()).isWithin(DELTA).of(PROTO_DEFAULT_FLOAT);
   }
 
   @Test
   public void testOptionalFieldWithDefault_setValue() {
     TestProto.Builder builder = TestProto.newBuilder().setOptionalFloatWithDefault(246f);
-    assertTrue(builder.hasOptionalFloatWithDefault());
-    assertEquals(246f, builder.getOptionalFloatWithDefault(), DELTA);
+    assertThat(builder.hasOptionalFloatWithDefault()).isTrue();
+    assertThat(builder.getOptionalFloatWithDefault()).isWithin(DELTA).of(246f);
 
     TestProto proto = builder.build();
-    assertTrue(proto.hasOptionalFloatWithDefault());
-    assertEquals(246f, proto.getOptionalFloatWithDefault(), DELTA);
+    assertThat(proto.hasOptionalFloatWithDefault()).isTrue();
+    assertThat(proto.getOptionalFloatWithDefault()).isWithin(DELTA).of(246f);
   }
 
   @Test
   public void testRepeatedField_defaultInstance() {
-    assertEquals(0, TestProto.newBuilder().build().getRepeatedFloatCount());
-    assertEquals(0, TestProto.newBuilder().build().getRepeatedFloatList().size());
+    assertThat(TestProto.getDefaultInstance().getRepeatedFloatCount()).isEqualTo(0);
+    assertThat(TestProto.newBuilder().build().getRepeatedFloatCount()).isEqualTo(0);
 
     assertThrows(Exception.class, () -> TestProto.newBuilder().build().getRepeatedFloat(0));
   }
@@ -173,12 +171,12 @@ public class FloatFieldsTest {
             .addRepeatedFloat(-2f)
             .addRepeatedFloat(-3f);
 
-    assertEquals(5, builder.getRepeatedFloatCount());
-    assertEquals(1.324f, builder.getRepeatedFloat(0), DELTA);
-    assertEquals(24f, builder.getRepeatedFloat(1), DELTA);
-    assertEquals(-1f, builder.getRepeatedFloat(2), DELTA);
-    assertEquals(-2f, builder.getRepeatedFloat(3), DELTA);
-    assertEquals(-3f, builder.getRepeatedFloat(4), DELTA);
+    assertThat(builder.getRepeatedFloatCount()).isEqualTo(5);
+    assertThat(builder.getRepeatedFloat(0)).isWithin(DELTA).of(1.324f);
+    assertThat(builder.getRepeatedFloat(1)).isWithin(DELTA).of(24f);
+    assertThat(builder.getRepeatedFloat(2)).isWithin(DELTA).of(-1f);
+    assertThat(builder.getRepeatedFloat(3)).isWithin(DELTA).of(-2f);
+    assertThat(builder.getRepeatedFloat(4)).isWithin(DELTA).of(-3f);
     if (InternalChecks.isCheckIndex()) {
       assertThrows(Exception.class, () -> builder.getRepeatedFloat(5));
     } else {
@@ -186,11 +184,11 @@ public class FloatFieldsTest {
     }
 
     TestProto proto = builder.build();
-    assertEquals(1.324f, proto.getRepeatedFloat(0), DELTA);
-    assertEquals(24f, proto.getRepeatedFloat(1), DELTA);
-    assertEquals(-1f, proto.getRepeatedFloat(2), DELTA);
-    assertEquals(-2f, proto.getRepeatedFloat(3), DELTA);
-    assertEquals(-3f, proto.getRepeatedFloat(4), DELTA);
+    assertThat(proto.getRepeatedFloat(0)).isWithin(DELTA).of(1.324f);
+    assertThat(proto.getRepeatedFloat(1)).isWithin(DELTA).of(24f);
+    assertThat(proto.getRepeatedFloat(2)).isWithin(DELTA).of(-1f);
+    assertThat(proto.getRepeatedFloat(3)).isWithin(DELTA).of(-2f);
+    assertThat(proto.getRepeatedFloat(4)).isWithin(DELTA).of(-3f);
     if (InternalChecks.isCheckIndex()) {
       assertThrows(Exception.class, () -> proto.getRepeatedFloat(5));
     } else {
@@ -210,11 +208,11 @@ public class FloatFieldsTest {
             .build();
 
     TestProto.Builder builder = startProto.toBuilder().clearRepeatedFloat();
-    assertEquals(0, builder.getRepeatedFloatCount());
-    assertEquals(0, builder.getRepeatedFloatList().size());
+    assertThat(builder.getRepeatedFloatCount()).isEqualTo(0);
+    assertThat(builder.getRepeatedFloatList()).isEmpty();
 
     TestProto proto = builder.build();
-    assertEquals(0, proto.getRepeatedFloatCount());
-    assertEquals(0, proto.getRepeatedFloatList().size());
+    assertThat(proto.getRepeatedFloatCount()).isEqualTo(0);
+    assertThat(proto.getRepeatedFloatCount()).isEqualTo(0);
   }
 }
