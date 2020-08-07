@@ -13,7 +13,7 @@
  */
 package com.google.protobuf.contrib.j2cl.integration;
 
-import static org.junit.Assert.assertEquals;
+import static com.google.common.truth.Truth.assertThat;
 
 import com.google.protobuf.contrib.j2cl.protos.Sparse.DenseEnum;
 import com.google.protobuf.contrib.j2cl.protos.Sparse.NativeEnum;
@@ -37,53 +37,56 @@ public final class EnumGenerationTest {
 
   @Test
   public void testSparse_unknownValue() throws Exception {
-    assertEquals(SparseEnum.UNKNOWN, LocalTestProto.parse("[2]").getSparseEnum());
-    assertEquals(SparseEnum.UNKNOWN, LocalTestProto.parse("[-1]").getSparseEnum());
-    assertEquals(SparseEnum.UNKNOWN, LocalTestProto.parse("[100]").getSparseEnum());
+    assertThat(LocalTestProto.parse("[2]").getSparseEnum()).isEqualTo(SparseEnum.UNKNOWN);
+    assertThat(LocalTestProto.parse("[-1]").getSparseEnum()).isEqualTo(SparseEnum.UNKNOWN);
+    assertThat(LocalTestProto.parse("[100]").getSparseEnum()).isEqualTo(SparseEnum.UNKNOWN);
   }
 
   @Test
   public void testSparse_knownValues() throws Exception {
-    assertEquals(SparseEnum.TEN, LocalTestProto.parse("[10]").getSparseEnum());
-    assertEquals(SparseEnum.TWENTY, LocalTestProto.parse("[20]").getSparseEnum());
+    assertThat(LocalTestProto.parse("[10]").getSparseEnum()).isEqualTo(SparseEnum.TEN);
+    assertThat(LocalTestProto.parse("[20]").getSparseEnum()).isEqualTo(SparseEnum.TWENTY);
   }
 
   @Test
   public void testDense_unknownValue() throws Exception {
-    assertEquals(DenseEnum.DEFAULT, LocalTestProto.parse("[null, -1]").getDenseEnum());
-    assertEquals(DenseEnum.DEFAULT, LocalTestProto.parse("[null, 7]").getDenseEnum());
+    assertThat(LocalTestProto.parse("[null, -1]").getDenseEnum()).isEqualTo(DenseEnum.DEFAULT);
+    assertThat(LocalTestProto.parse("[null, 7]").getDenseEnum()).isEqualTo(DenseEnum.DEFAULT);
   }
 
   @Test
   public void testDense_knownValues() throws Exception {
-    assertEquals(DenseEnum.DEFAULT, LocalTestProto.parse("[null, 0]").getDenseEnum());
-    assertEquals(DenseEnum.ONE, LocalTestProto.parse("[null, 1]").getDenseEnum());
-    assertEquals(DenseEnum.TWO, LocalTestProto.parse("[null, 2]").getDenseEnum());
-    assertEquals(DenseEnum.THREE, LocalTestProto.parse("[null, 3]").getDenseEnum());
-    assertEquals(DenseEnum.FOUR, LocalTestProto.parse("[null, 4]").getDenseEnum());
-    assertEquals(DenseEnum.FIVE, LocalTestProto.parse("[null, 5]").getDenseEnum());
-    assertEquals(DenseEnum.SIX, LocalTestProto.parse("[null, 6]").getDenseEnum());
+    assertThat(LocalTestProto.parse("[null, 0]").getDenseEnum()).isEqualTo(DenseEnum.DEFAULT);
+    assertThat(LocalTestProto.parse("[null, 1]").getDenseEnum()).isEqualTo(DenseEnum.ONE);
+    assertThat(LocalTestProto.parse("[null, 2]").getDenseEnum()).isEqualTo(DenseEnum.TWO);
+    assertThat(LocalTestProto.parse("[null, 3]").getDenseEnum()).isEqualTo(DenseEnum.THREE);
+    assertThat(LocalTestProto.parse("[null, 4]").getDenseEnum()).isEqualTo(DenseEnum.FOUR);
+    assertThat(LocalTestProto.parse("[null, 5]").getDenseEnum()).isEqualTo(DenseEnum.FIVE);
+    assertThat(LocalTestProto.parse("[null, 6]").getDenseEnum()).isEqualTo(DenseEnum.SIX);
   }
 
   @Test
   public void testNativeEnum_knownValues() throws Exception {
-    assertEquals(NativeEnum.NATIVE_ONE, LocalTestProto.parse("[null, null, 1]").getNativeEnum());
-    assertEquals(NativeEnum.NATIVE_TWO, LocalTestProto.parse("[null, null, 2]").getNativeEnum());
-    assertEquals(NativeEnum.NATIVE_THREE, LocalTestProto.parse("[null, null, 3]").getNativeEnum());
+    assertThat(LocalTestProto.parse("[null, null, 1]").getNativeEnum())
+        .isEqualTo(NativeEnum.NATIVE_ONE);
+    assertThat(LocalTestProto.parse("[null, null, 2]").getNativeEnum())
+        .isEqualTo(NativeEnum.NATIVE_TWO);
+    assertThat(LocalTestProto.parse("[null, null, 3]").getNativeEnum())
+        .isEqualTo(NativeEnum.NATIVE_THREE);
   }
 
   @Test
   public void testNativeEnum_unknownValues() throws Exception {
     // Since this is a @JsEnum we are not applying filtering to unknown values, so we will see
     // unknown values leak into Java.
-    assertEquals(-1, LocalTestProto.parse("[null, null, -1]").getNativeEnum().getNumber());
-    assertEquals(10, LocalTestProto.parse("[null, null, 10]").getNativeEnum().getNumber());
+    assertThat(LocalTestProto.parse("[null, null, -1]").getNativeEnum().getNumber()).isEqualTo(-1);
+    assertThat(LocalTestProto.parse("[null, null, 10]").getNativeEnum().getNumber()).isEqualTo(10);
   }
 
   @Test
   public void testNativeOneofEnum_unknownValues() throws Exception {
     // This differs from the JVM version, which will return null for these cases.
-    assertEquals(-1.0, TestProtoWithNativeOneOfs.AOneofCase.forNumber(-1));
-    assertEquals(100.0, TestProtoWithNativeOneOfs.AOneofCase.forNumber(100));
+    assertThat(TestProtoWithNativeOneOfs.AOneofCase.forNumber(-1)).isEqualTo(-1.0);
+    assertThat(TestProtoWithNativeOneOfs.AOneofCase.forNumber(100)).isEqualTo(100.0);
   }
 }
