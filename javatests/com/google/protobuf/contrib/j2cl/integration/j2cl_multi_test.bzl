@@ -7,6 +7,7 @@
 
 load("@com_google_j2cl//build_defs:rules.bzl", "j2cl_test")
 load("@bazel_tools//tools/build_defs/label:def.bzl", "absolute_label")
+load("//devtools/build_cleaner/skylark:build_defs.bzl", "register_extension_info")
 
 def j2cl_multi_test(name, test_class, srcs, deps = [], proto_deps = [], generate_java_test = True):
     deps = deps + [
@@ -61,3 +62,8 @@ def j2cl_multi_test(name, test_class, srcs, deps = [], proto_deps = [], generate
             test_class = test_class,
             deps = java_deps,
         )
+
+register_extension_info(
+    extension = j2cl_multi_test,
+    label_regex_for_dep = "{extension_name}(_java)?",
+)
