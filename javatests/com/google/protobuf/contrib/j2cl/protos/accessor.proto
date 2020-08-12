@@ -15,7 +15,7 @@
 // Tests for fields accessors of different types.
 syntax = "proto2";
 
-package protobuf.contrib.gwt.testing.testdata;
+package protobuf.contrib.j2cl.protos;
 
 option java_package = "com.google.protobuf.contrib.j2cl.protos";
 
@@ -46,20 +46,6 @@ message TestProto {
   optional double optional_double = 13;
   optional double optional_double_with_default = 14 [default = 2.46];
   repeated double repeated_double = 15;
-
-  // enum fields.
-  enum TestEnum {
-    UNKNOWN = 0;
-    ONE = 1;
-    TWO = 2;
-    THREE = 3;
-    FOUR = 4;
-    FIVE = 5;
-    SIX = 6;
-  }
-  optional TestEnum optional_enum = 16;
-  optional TestEnum optional_enum_with_default = 17 [default = THREE];
-  repeated TestEnum repeated_enum = 18;
 
   // string fields.
   optional string optional_string = 19;

@@ -1,0 +1,69 @@
+syntax = "proto2";
+
+package protobuf.contrib.j2cl.protos;
+
+import "third_party/java_src/j2cl_proto/java/com/google/protobuf/contrib/j2cl/options.proto";
+
+option java_package = "com.google.protobuf.contrib.j2cl.protos";
+
+// REMOVED_BY_GENRULE option java_multiple_files = true;
+
+message EnumTestProto {
+  optional TestEnum optional_enum = 1;
+  optional TestEnum optional_enum_with_default = 2 [default = ONE];
+  repeated TestEnum repeated_enum = 3;
+  optional NativeEnum optional_native_enum = 4;
+  repeated NativeEnum repeated_native_enum = 5;
+  optional TopLevelNativeEnum optional_top_level_native_enum = 6;
+  repeated TopLevelNativeEnum repeated_top_level_native_enum = 7;
+
+  enum TestEnum {
+    DEFAULT = 0;
+    ONE = 1;
+    TWO = 2;
+    THREE = 3;
+  }
+
+  enum SparseEnum {
+    SPARSE_DEFAULT = 0;
+    SPARSE_TEN = 10;
+    SPARSE_TWENTY = 20;
+  }
+
+  enum NativeEnum {
+    option (.j2cl.enum_options).generate_js_enum = true;
+
+    NATIVE_DEFAULT = 0;
+    NATIVE_ONE = 1;
+    NATIVE_TWO = 2;
+    NATIVE_THREE = 3;
+  }
+}
+
+enum TopLevelNativeEnum {
+  option (.j2cl.enum_options).generate_js_enum = true;
+
+  DEFAULT = 0;
+  ONE = 1;
+  TWO = 2;
+  THREE = 3;
+}
+
+message Aliased {
+  enum TestEnum {
+    option allow_alias = true;
+
+    DEFAULT = 0;
+    ORIGINAL = 1;
+    ALIAS = 1;
+  }
+
+  enum NativeEnum {
+    option (.j2cl.enum_options).generate_js_enum = true;
+    option allow_alias = true;
+
+    NATIVE_DEFAULT = 0;
+    NATIVE_ORIGINAL = 1;
+    NATIVE_ALIAS = 1;
+  }
+}

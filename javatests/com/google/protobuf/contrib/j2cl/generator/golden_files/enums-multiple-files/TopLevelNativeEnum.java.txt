@@ -6,13 +6,10 @@ package com.google.protobuf.contrib.j2cl.protos;
     namespace = "improto.protobuf.contrib.j2cl.protos",
     hasCustomValue = true)
 public enum TopLevelNativeEnum {
-  UNKNOWN,
+  DEFAULT,
   ONE,
   TWO,
-  THREE,
-  FOUR,
-  FIVE,
-  SIX;
+  THREE;
 
   @jsinterop.annotations.JsOverlay
   public static final TopLevelNativeEnum forNumber(int i) {
@@ -26,13 +23,10 @@ public enum TopLevelNativeEnum {
     return value;
   }
 
-  @jsinterop.annotations.JsOverlay public static final int UNKNOWN_VALUE = 0;
+  @jsinterop.annotations.JsOverlay public static final int DEFAULT_VALUE = 0;
   @jsinterop.annotations.JsOverlay public static final int ONE_VALUE = 1;
   @jsinterop.annotations.JsOverlay public static final int TWO_VALUE = 2;
   @jsinterop.annotations.JsOverlay public static final int THREE_VALUE = 3;
-  @jsinterop.annotations.JsOverlay public static final int FOUR_VALUE = 4;
-  @jsinterop.annotations.JsOverlay public static final int FIVE_VALUE = 5;
-  @jsinterop.annotations.JsOverlay public static final int SIX_VALUE = 6;
 
   // DO NOT REFER TO FROM NON GENERATED CODE! SUBJECT TO CHANGE!
   // Native closure enum representation

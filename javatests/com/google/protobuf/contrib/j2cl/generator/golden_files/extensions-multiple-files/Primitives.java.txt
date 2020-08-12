@@ -7,6 +7,107 @@ package com.google.protobuf.contrib.j2cl.protos;
 public final class Primitives
     extends com.google.protobuf.GeneratedMessageLite<Primitives, Primitives.Builder> {
 
+  public enum TestEnum implements com.google.protobuf.ProtocolMessageEnum {
+    DEFAULT(0),
+    GREEN(1),
+    BLUE(2),
+    RED(3);
+
+    TestEnum(int value) {
+      this.value = value;
+    }
+
+    private static TestEnum[] cachedValues;
+
+    public static final TestEnum forNumber(int i) {
+      if (cachedValues == null) {
+        cachedValues = values();
+      }
+      return cachedValues[i];
+    }
+
+    private int value;
+
+    public final int getNumber() {
+      return value;
+    }
+
+    public static final int DEFAULT_VALUE = 0;
+
+    public static final int GREEN_VALUE = 1;
+
+    public static final int BLUE_VALUE = 2;
+
+    public static final int RED_VALUE = 3;
+
+    // DO NOT REFER TO FROM NON GENERATED CODE! SUBJECT TO CHANGE!
+    // Native closure enum representation
+    @jsinterop.annotations.JsType(
+        isNative = true,
+        name = "Primitives.TestEnum",
+        namespace = "improto.protobuf.contrib.j2cl.protos")
+    public static final class Internal_ClosureEnum {
+      @jsinterop.annotations.JsOverlay
+      public static final Internal_ClosureEnum toClosureValue(TestEnum enumInstance) {
+        return jsinterop.base.Js.uncheckedCast((double) enumInstance.getNumber());
+      }
+
+      @jsinterop.annotations.JsOverlay
+      public static final TestEnum toEnum(Object closureEnum) {
+        int i = jsinterop.base.Js.asInt(closureEnum);
+        TestEnum value = TestEnum.forNumber(i);
+        return value == null ? DEFAULT : value;
+      }
+    }
+  }
+
+  @jsinterop.annotations.JsEnum(
+      isNative = true,
+      name = "Primitives.NativeEnum",
+      namespace = "improto.protobuf.contrib.j2cl.protos",
+      hasCustomValue = true)
+  public enum NativeEnum {
+    NATIVE_DEFAULT,
+    NATIVE_GREEN,
+    NATIVE_BLUE,
+    NATIVE_RED;
+
+    @jsinterop.annotations.JsOverlay
+    public static final NativeEnum forNumber(int i) {
+      return jsinterop.base.Js.uncheckedCast((double) i);
+    }
+
+    private int value;
+
+    @jsinterop.annotations.JsOverlay
+    public final int getNumber() {
+      return value;
+    }
+
+    @jsinterop.annotations.JsOverlay public static final int NATIVE_DEFAULT_VALUE = 0;
+    @jsinterop.annotations.JsOverlay public static final int NATIVE_GREEN_VALUE = 1;
+    @jsinterop.annotations.JsOverlay public static final int NATIVE_BLUE_VALUE = 2;
+    @jsinterop.annotations.JsOverlay public static final int NATIVE_RED_VALUE = 3;
+
+    // DO NOT REFER TO FROM NON GENERATED CODE! SUBJECT TO CHANGE!
+    // Native closure enum representation
+    @jsinterop.annotations.JsType(
+        isNative = true,
+        name = "Primitives.NativeEnum",
+        namespace = "improto.protobuf.contrib.j2cl.protos")
+    public static final class Internal_ClosureEnum {
+      @jsinterop.annotations.JsOverlay
+      public static final Internal_ClosureEnum toClosureValue(NativeEnum enumInstance) {
+        return jsinterop.base.Js.uncheckedCast((double) enumInstance.getNumber());
+      }
+
+      @jsinterop.annotations.JsOverlay
+      public static final NativeEnum toEnum(Object closureEnum) {
+        return jsinterop.base.Js.uncheckedCast(closureEnum);
+      }
+    }
+  }
+
   protected Primitives() {}
 
   public static final native Primitives getDefaultInstance();
@@ -118,13 +219,34 @@ public final class Primitives
   @jsinterop.annotations.JsOverlay
   public static final com.google.protobuf.ExtensionLite<
           com.google.protobuf.contrib.j2cl.protos.Base,
-          com.google.protobuf.contrib.j2cl.protos.TestEnum>
+          com.google.protobuf.contrib.j2cl.protos.Primitives.TestEnum>
       singleEnumExtension =
           com.google.protobuf.GeneratedMessageLite.Internal_.createSingleEnumExtension(
               internal_singleEnumExtension,
-              v -> com.google.protobuf.contrib.j2cl.protos.TestEnum.Internal_ClosureEnum.toEnum(v),
               v ->
-                  com.google.protobuf.contrib.j2cl.protos.TestEnum.Internal_ClosureEnum
+                  com.google.protobuf.contrib.j2cl.protos.Primitives.TestEnum.Internal_ClosureEnum
+                      .toEnum(v),
+              v ->
+                  com.google.protobuf.contrib.j2cl.protos.Primitives.TestEnum.Internal_ClosureEnum
+                      .toClosureValue(v));
+
+  @jsinterop.annotations.JsProperty(name = "singleNativeEnumExtension")
+  private static com.google.protobuf.GeneratedMessageLite.Internal_.ExtensionFieldInfo<
+          com.google.protobuf.contrib.j2cl.protos.Base, ?>
+      internal_singleNativeEnumExtension;
+
+  @jsinterop.annotations.JsOverlay
+  public static final com.google.protobuf.ExtensionLite<
+          com.google.protobuf.contrib.j2cl.protos.Base,
+          com.google.protobuf.contrib.j2cl.protos.Primitives.NativeEnum>
+      singleNativeEnumExtension =
+          com.google.protobuf.GeneratedMessageLite.Internal_.createSingleEnumExtension(
+              internal_singleNativeEnumExtension,
+              v ->
+                  com.google.protobuf.contrib.j2cl.protos.Primitives.NativeEnum.Internal_ClosureEnum
+                      .toEnum(v),
+              v ->
+                  com.google.protobuf.contrib.j2cl.protos.Primitives.NativeEnum.Internal_ClosureEnum
                       .toClosureValue(v));
 
   @jsinterop.annotations.JsProperty(name = "repeatedBoolExtension")
@@ -220,13 +342,15 @@ public final class Primitives
   @jsinterop.annotations.JsOverlay
   public static final com.google.protobuf.ExtensionLite<
           com.google.protobuf.contrib.j2cl.protos.Base,
-          java.util.List<com.google.protobuf.contrib.j2cl.protos.TestEnum>>
+          java.util.List<com.google.protobuf.contrib.j2cl.protos.Primitives.TestEnum>>
       repeatedEnumExtension =
           com.google.protobuf.GeneratedMessageLite.Internal_.createRepeatedEnumExtension(
               internal_repeatedEnumExtension,
-              v -> com.google.protobuf.contrib.j2cl.protos.TestEnum.Internal_ClosureEnum.toEnum(v),
               v ->
-                  com.google.protobuf.contrib.j2cl.protos.TestEnum.Internal_ClosureEnum
+                  com.google.protobuf.contrib.j2cl.protos.Primitives.TestEnum.Internal_ClosureEnum
+                      .toEnum(v),
+              v ->
+                  com.google.protobuf.contrib.j2cl.protos.Primitives.TestEnum.Internal_ClosureEnum
                       .toClosureValue(v));
 
   public static native Builder newBuilder();

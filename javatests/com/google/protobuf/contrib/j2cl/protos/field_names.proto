@@ -15,7 +15,7 @@
 // LINT: LEGACY_NAMES
 syntax = "proto2";
 
-package javatests.com.google.protobuf.contrib.j2cl.protos;
+package protobuf.contrib.j2cl.protos;
 
 option java_package = "com.google.protobuf.contrib.j2cl.protos";
 

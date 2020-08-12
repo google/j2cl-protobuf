@@ -15,6 +15,8 @@ syntax = "proto2";
 
 package protobuf.contrib.j2cl.protos;
 
+import "third_party/java_src/j2cl_proto/java/com/google/protobuf/contrib/j2cl/options.proto";
+
 option java_package = "com.google.protobuf.contrib.j2cl.protos";
 
 // REMOVED_BY_GENRULE option java_multiple_files = true;
@@ -37,14 +39,23 @@ message Base {
   extensions 100 to 299;
 }
 
-enum TestEnum {
-  DEFAULT = 0;
-  GREEN = 1;
-  BLUE = 2;
-  RED = 3;
-}
-
 message Primitives {
+  enum TestEnum {
+    DEFAULT = 0;
+    GREEN = 1;
+    BLUE = 2;
+    RED = 3;
+  }
+
+  enum NativeEnum {
+    option (.j2cl.enum_options).generate_js_enum = true;
+
+    NATIVE_DEFAULT = 0;
+    NATIVE_GREEN = 1;
+    NATIVE_BLUE = 2;
+    NATIVE_RED = 3;
+  }
+
   // primitive single extensions.
   extend Base {
     optional bool single_bool_extension = 101;
@@ -71,6 +82,7 @@ message Primitives {
   }
   extend Base {
     optional TestEnum single_enum_extension = 108;
+    optional NativeEnum single_native_enum_extension = 109;
   }
 
   // primitive repeated extensions.

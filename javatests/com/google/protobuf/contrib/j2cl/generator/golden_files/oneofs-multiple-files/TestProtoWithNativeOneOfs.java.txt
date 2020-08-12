@@ -1,4 +1,4 @@
-package com.google.protos.protobuf.contrib.j2cl.protos;
+package com.google.protobuf.contrib.j2cl.protos;
 
 @jsinterop.annotations.JsType(
     isNative = true,

@@ -72,9 +72,7 @@ j2cl_multi_test(
     name = "EnumFieldsTest",
     srcs = ["EnumFieldsTest.java"],
     proto_deps = [
-        "//javatests/com/google/protobuf/contrib/j2cl/protos:accessor",
-        "//javatests/com/google/protobuf/contrib/j2cl/protos:enum_alias",
-        "//javatests/com/google/protobuf/contrib/j2cl/protos:native_enum",
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:enums",
     ],
     test_class = "com.google.protobuf.contrib.j2cl.integration.EnumFieldsTest",
     deps = [
@@ -83,14 +81,27 @@ j2cl_multi_test(
 )
 
 j2cl_multi_test(
-    name = "EnumGenerationTest",
-    srcs = ["EnumGenerationTest.java"],
+    name = "EnumNativeForNumberTest",
+    srcs = ["EnumNativeForNumberTest.java"],
     generate_java_test = False,
     proto_deps = [
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:enums",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:oneofs",
-        "//javatests/com/google/protobuf/contrib/j2cl/protos:sparse",
     ],
-    test_class = "com.google.protobuf.contrib.j2cl.integration.EnumGenerationTest",
+    test_class = "com.google.protobuf.contrib.j2cl.integration.EnumNativeForNumberTest",
+    deps = [
+        "//third_party/java/gwt:gwt-jsinterop-annotations",
+    ],
+)
+
+j2cl_multi_test(
+    name = "EnumParseTest",
+    srcs = ["EnumParseTest.java"],
+    generate_java_test = False,
+    proto_deps = [
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:enums",
+    ],
+    test_class = "com.google.protobuf.contrib.j2cl.integration.EnumParseTest",
     deps = [
         "//third_party/java/gwt:gwt-jsinterop-annotations",
     ],
@@ -101,7 +112,6 @@ j2cl_multi_test(
     srcs = ["ExtensionsTest.java"],
     proto_deps = [
         "//javatests/com/google/protobuf/contrib/j2cl/protos:extensions",
-        "//javatests/com/google/protobuf/contrib/j2cl/protos:native_enum",
     ],
     test_class = "com.google.protobuf.contrib.j2cl.integration.ExtensionsTest",
     deps = [
@@ -192,10 +202,12 @@ closure_js_binary(
     deps = [
         "//javatests/com/google/protobuf/contrib/j2cl/protos:accessor_j2cl_proto",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:ambiguous_fields_j2cl_proto",
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:empty_package_j2cl_proto",
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:enums_j2cl_proto",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:extensions_j2cl_proto",
-        "//javatests/com/google/protobuf/contrib/j2cl/protos:native_enum_j2cl_proto",
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:field_names_j2cl_proto",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:oneofs_j2cl_proto",
-        "//javatests/com/google/protobuf/contrib/j2cl/protos:sparse_j2cl_proto",
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:proto-with-dashes_j2cl_proto",
     ],
 )
 

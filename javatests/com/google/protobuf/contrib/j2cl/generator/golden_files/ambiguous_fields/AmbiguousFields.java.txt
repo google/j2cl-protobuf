@@ -3,7 +3,7 @@ package com.google.protobuf.contrib.j2cl.protos;
 @jsinterop.annotations.JsType(
     isNative = true,
     name = "ambiguous_fields",
-    namespace = "improto.javatests.com.google.protobuf.contrib.j2cl.protos")
+    namespace = "improto.protobuf.contrib.j2cl.protos")
 public final class AmbiguousFields {
 
   private AmbiguousFields() {}
@@ -11,7 +11,7 @@ public final class AmbiguousFields {
   @jsinterop.annotations.JsType(
       isNative = true,
       name = "Internal",
-      namespace = "improto.javatests.com.google.protobuf.contrib.j2cl.protos")
+      namespace = "improto.protobuf.contrib.j2cl.protos")
   public static final class Internal
       extends com.google.protobuf.GeneratedMessageLite<Internal, Internal.Builder> {
 
@@ -52,7 +52,7 @@ public final class AmbiguousFields {
   @jsinterop.annotations.JsType(
       isNative = true,
       name = "MyMessage",
-      namespace = "improto.javatests.com.google.protobuf.contrib.j2cl.protos")
+      namespace = "improto.protobuf.contrib.j2cl.protos")
   public static final class MyMessage
       extends com.google.protobuf.GeneratedMessageLite<MyMessage, MyMessage.Builder> {
 
@@ -286,7 +286,7 @@ public final class AmbiguousFields {
   @jsinterop.annotations.JsType(
       isNative = true,
       name = "RepeatedExtensionField",
-      namespace = "improto.javatests.com.google.protobuf.contrib.j2cl.protos")
+      namespace = "improto.protobuf.contrib.j2cl.protos")
   public static final class RepeatedExtensionField
       extends com.google.protobuf.GeneratedMessageLite<
           RepeatedExtensionField, RepeatedExtensionField.Builder> {

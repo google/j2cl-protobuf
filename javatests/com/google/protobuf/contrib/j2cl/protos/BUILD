@@ -17,14 +17,15 @@ generate_protos(
 )
 
 generate_protos(
-    name = "enum_alias",
-    proto_file = "enum_alias.proto",
+    name = "enums",
+    proto_file = "enums.proto",
     deps = ["//java/com/google/protobuf/contrib/j2cl:options"],
 )
 
 generate_protos(
     name = "extensions",
     proto_file = "extensions.proto",
+    deps = ["//java/com/google/protobuf/contrib/j2cl:options"],
 )
 
 generate_protos(
@@ -44,18 +45,6 @@ generate_protos(
 )
 
 generate_protos(
-    name = "native_enum",
-    proto_file = "native_enum.proto",
-    deps = ["//java/com/google/protobuf/contrib/j2cl:options"],
-)
-
-generate_protos(
     name = "proto-with-dashes",
     proto_file = "proto-with-dashes.proto",
-)
-
-generate_protos(
-    name = "sparse",
-    proto_file = "sparse.proto",
-    deps = ["//java/com/google/protobuf/contrib/j2cl:options"],
 )

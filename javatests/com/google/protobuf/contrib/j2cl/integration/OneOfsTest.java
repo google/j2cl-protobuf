@@ -16,8 +16,8 @@ package com.google.protobuf.contrib.j2cl.integration;
 import static com.google.common.truth.Truth.assertThat;
 import static org.junit.Assert.assertEquals;
 
-import com.google.protos.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithNativeOneOfs;
-import com.google.protos.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs;
+import com.google.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithNativeOneOfs;
+import com.google.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;

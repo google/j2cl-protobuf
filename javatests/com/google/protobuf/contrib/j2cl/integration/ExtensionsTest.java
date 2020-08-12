@@ -20,11 +20,9 @@ import com.google.protobuf.ByteString;
 import com.google.protobuf.ExtensionLite;
 import com.google.protobuf.contrib.j2cl.protos.Extensions.Base;
 import com.google.protobuf.contrib.j2cl.protos.Extensions.Primitives;
+import com.google.protobuf.contrib.j2cl.protos.Extensions.Primitives.NativeEnum;
+import com.google.protobuf.contrib.j2cl.protos.Extensions.Primitives.TestEnum;
 import com.google.protobuf.contrib.j2cl.protos.Extensions.Recursive;
-import com.google.protobuf.contrib.j2cl.protos.Extensions.TestEnum;
-import com.google.protobuf.contrib.j2cl.protos.NativeEnum;
-import com.google.protobuf.contrib.j2cl.protos.NativeEnum.MainMessage;
-import com.google.protobuf.contrib.j2cl.protos.NativeEnum.TopLevelNativeEnum;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.Test;
@@ -429,22 +427,22 @@ public class ExtensionsTest {
 
   @Test
   public void testSingleEnumExtension_get_hasExtensionNativeEnum() {
-    MainMessage.Builder baseBuilder = MainMessage.newBuilder();
-    assertThat(baseBuilder.hasExtension(NativeEnum.topLevelNativeEnum)).isFalse();
-    assertThat(baseBuilder.build().hasExtension(NativeEnum.topLevelNativeEnum)).isFalse();
-    assertThat(baseBuilder.getExtension(NativeEnum.topLevelNativeEnum))
-        .isEqualTo(TopLevelNativeEnum.UNKNOWN);
-    assertThat(baseBuilder.build().getExtension(NativeEnum.topLevelNativeEnum))
-        .isEqualTo(TopLevelNativeEnum.UNKNOWN);
+    Base.Builder baseBuilder = Base.newBuilder();
+    assertThat(baseBuilder.hasExtension(Primitives.singleNativeEnumExtension)).isFalse();
+    assertThat(baseBuilder.build().hasExtension(Primitives.singleNativeEnumExtension)).isFalse();
+    assertThat(baseBuilder.getExtension(Primitives.singleNativeEnumExtension))
+        .isEqualTo(NativeEnum.NATIVE_DEFAULT);
+    assertThat(baseBuilder.build().getExtension(Primitives.singleNativeEnumExtension))
+        .isEqualTo(NativeEnum.NATIVE_DEFAULT);
 
-    baseBuilder.setExtension(NativeEnum.topLevelNativeEnum, TopLevelNativeEnum.TWO);
-    assertThat(baseBuilder.hasExtension(NativeEnum.topLevelNativeEnum)).isTrue();
-    assertThat(baseBuilder.build().hasExtension(NativeEnum.topLevelNativeEnum)).isTrue();
+    baseBuilder.setExtension(Primitives.singleNativeEnumExtension, NativeEnum.NATIVE_GREEN);
+    assertThat(baseBuilder.hasExtension(Primitives.singleNativeEnumExtension)).isTrue();
+    assertThat(baseBuilder.build().hasExtension(Primitives.singleNativeEnumExtension)).isTrue();
 
-    assertThat(baseBuilder.getExtension(NativeEnum.topLevelNativeEnum))
-        .isEqualTo(TopLevelNativeEnum.TWO);
-    assertThat(baseBuilder.build().getExtension(NativeEnum.topLevelNativeEnum))
-        .isEqualTo(TopLevelNativeEnum.TWO);
+    assertThat(baseBuilder.getExtension(Primitives.singleNativeEnumExtension))
+        .isEqualTo(NativeEnum.NATIVE_GREEN);
+    assertThat(baseBuilder.build().getExtension(Primitives.singleNativeEnumExtension))
+        .isEqualTo(NativeEnum.NATIVE_GREEN);
   }
 
   @Test
@@ -460,13 +458,13 @@ public class ExtensionsTest {
 
   @Test
   public void testSingleEnumExtension_clearNativeEnum() {
-    MainMessage.Builder baseBuilder = MainMessage.newBuilder();
-    baseBuilder.setExtension(NativeEnum.topLevelNativeEnum, TopLevelNativeEnum.TWO);
+    Base.Builder baseBuilder = Base.newBuilder();
+    baseBuilder.setExtension(Primitives.singleNativeEnumExtension, NativeEnum.NATIVE_GREEN);
 
-    baseBuilder.clearExtension(NativeEnum.topLevelNativeEnum);
+    baseBuilder.clearExtension(Primitives.singleNativeEnumExtension);
 
-    assertThat(baseBuilder.hasExtension(NativeEnum.topLevelNativeEnum)).isFalse();
-    assertThat(baseBuilder.build().hasExtension(NativeEnum.topLevelNativeEnum)).isFalse();
+    assertThat(baseBuilder.hasExtension(Primitives.singleNativeEnumExtension)).isFalse();
+    assertThat(baseBuilder.build().hasExtension(Primitives.singleNativeEnumExtension)).isFalse();
   }
 
   @Test

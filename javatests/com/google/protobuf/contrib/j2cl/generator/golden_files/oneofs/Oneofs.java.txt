@@ -1,4 +1,4 @@
-package com.google.protos.protobuf.contrib.j2cl.protos;
+package com.google.protobuf.contrib.j2cl.protos;
 
 @jsinterop.annotations.JsType(
     isNative = true,
@@ -502,9 +502,9 @@ public final class Oneofs {
     public native boolean hasAnEnum();
 
     @jsinterop.annotations.JsOverlay
-    public final com.google.protos.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs.TestEnum
+    public final com.google.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs.TestEnum
         getAnEnum() {
-      return com.google.protos.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs.TestEnum
+      return com.google.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs.TestEnum
           .Internal_ClosureEnum.toEnum(internal_getAnEnum());
     }
 
@@ -527,15 +527,14 @@ public final class Oneofs {
     public native boolean hasNestedProto();
 
     @jsinterop.annotations.JsMethod(name = "getNestedProto")
-    public native com.google.protos.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs
-            .TestNestedProto
+    public native com.google.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs.TestNestedProto
         getNestedProto();
 
     @jsinterop.annotations.JsMethod(name = "hasNestedProtoWithOneofs")
     public native boolean hasNestedProtoWithOneofs();
 
     @jsinterop.annotations.JsMethod(name = "getNestedProtoWithOneofs")
-    public native com.google.protos.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs
+    public native com.google.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs
             .TestNestedProtoWithOneOfs
         getNestedProtoWithOneofs();
 
@@ -681,10 +680,9 @@ public final class Oneofs {
       public native boolean hasAnEnum();
 
       @jsinterop.annotations.JsOverlay
-      public final com.google.protos.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs
-              .TestEnum
+      public final com.google.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs.TestEnum
           getAnEnum() {
-        return com.google.protos.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs.TestEnum
+        return com.google.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs.TestEnum
             .Internal_ClosureEnum.toEnum(internal_getAnEnum());
       }
 
@@ -696,16 +694,15 @@ public final class Oneofs {
 
       @jsinterop.annotations.JsOverlay
       public final Builder setAnEnum(
-          com.google.protos.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs.TestEnum
-              value) {
+          com.google.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs.TestEnum value) {
         return internal_setAnEnum(
-            com.google.protos.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs.TestEnum
+            com.google.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs.TestEnum
                 .Internal_ClosureEnum.toClosureValue(value));
       }
 
       @jsinterop.annotations.JsMethod(name = "setAnEnum")
       private native Builder internal_setAnEnum(
-          com.google.protos.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs.TestEnum
+          com.google.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs.TestEnum
                   .Internal_ClosureEnum
               value);
 
@@ -737,7 +734,7 @@ public final class Oneofs {
       public native boolean hasNestedProto();
 
       @jsinterop.annotations.JsMethod(name = "getNestedProto")
-      public native com.google.protos.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs
+      public native com.google.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs
               .TestNestedProto
           getNestedProto();
 
@@ -746,20 +743,18 @@ public final class Oneofs {
 
       @jsinterop.annotations.JsMethod(name = "setNestedProto")
       public native Builder setNestedProto(
-          com.google.protos.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs.TestNestedProto
-              value);
+          com.google.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs.TestNestedProto value);
 
       @jsinterop.annotations.JsMethod(name = "setNestedProto")
       public native Builder setNestedProto(
-          com.google.protos.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs.TestNestedProto
-                  .Builder
+          com.google.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs.TestNestedProto.Builder
               builder);
 
       @jsinterop.annotations.JsMethod(name = "hasNestedProtoWithOneofs")
       public native boolean hasNestedProtoWithOneofs();
 
       @jsinterop.annotations.JsMethod(name = "getNestedProtoWithOneofs")
-      public native com.google.protos.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs
+      public native com.google.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs
               .TestNestedProtoWithOneOfs
           getNestedProtoWithOneofs();
 
@@ -768,13 +763,13 @@ public final class Oneofs {
 
       @jsinterop.annotations.JsMethod(name = "setNestedProtoWithOneofs")
       public native Builder setNestedProtoWithOneofs(
-          com.google.protos.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs
+          com.google.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs
                   .TestNestedProtoWithOneOfs
               value);
 
       @jsinterop.annotations.JsMethod(name = "setNestedProtoWithOneofs")
       public native Builder setNestedProtoWithOneofs(
-          com.google.protos.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs
+          com.google.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs
                   .TestNestedProtoWithOneOfs.Builder
               builder);
 
