@@ -18,6 +18,8 @@ import static com.google.common.truth.Truth.assertThat;
 import com.google.protobuf.contrib.j2cl.protos.Enums.EnumTestProto;
 import com.google.protobuf.contrib.j2cl.protos.Enums.EnumTestProto.NativeEnum;
 import com.google.protobuf.contrib.j2cl.protos.Enums.EnumTestProto.TestEnum;
+import com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto;
+import com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum;
 import jsinterop.annotations.JsMethod;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,6 +32,11 @@ public final class EnumParseTest {
   // Js method here.
   @JsMethod(namespace = "improto.protobuf.contrib.j2cl.protos.EnumTestProto")
   private static native EnumTestProto parse(String json);
+
+  // Since we currently have no way to instantiate a J2CL proto in Java code we simply use the
+  // Js method here.
+  @JsMethod(namespace = "improto.protobuf.contrib.j2cl.protos.Proto3EnumTestProto", name = "parse")
+  private static native Proto3EnumTestProto parseProto3(String json);
 
   @Test
   public void testParse() throws Exception {
@@ -55,6 +62,7 @@ public final class EnumParseTest {
   public void testParse_unknownValue() throws Exception {
     assertThat(parse("[-1]").getOptionalEnum()).isEqualTo(TestEnum.DEFAULT);
     assertThat(parse("[100]").getOptionalEnum()).isEqualTo(TestEnum.DEFAULT);
+    // TODO(b/164151419): This value should be TestEnum.ONE.
     assertThat(parse("[null,-1]").getOptionalEnumWithDefault()).isEqualTo(TestEnum.DEFAULT);
     assertThat(parse("[null,100]").getOptionalEnumWithDefault()).isEqualTo(TestEnum.DEFAULT);
     assertThat(parse("[null,null,[-1]]").getRepeatedEnumList())
@@ -62,6 +70,14 @@ public final class EnumParseTest {
         .inOrder();
     assertThat(parse("[null,null,[100]]").getRepeatedEnumList())
         .containsExactly(TestEnum.DEFAULT)
+        .inOrder();
+    assertThat(parseProto3("[-1]").getOptionalEnum()).isEqualTo(Proto3TestEnum.UNRECOGNIZED);
+    assertThat(parseProto3("[100]").getOptionalEnum()).isEqualTo(Proto3TestEnum.UNRECOGNIZED);
+    assertThat(parseProto3("[null,[-1]]").getRepeatedEnumList())
+        .containsExactly(Proto3TestEnum.UNRECOGNIZED)
+        .inOrder();
+    assertThat(parseProto3("[null,[100]]").getRepeatedEnumList())
+        .containsExactly(Proto3TestEnum.UNRECOGNIZED)
         .inOrder();
 
     // Since these are @JsEnum we are not applying filtering to unknown values, so we will see
@@ -72,6 +88,14 @@ public final class EnumParseTest {
         .containsExactly(-1.0)
         .inOrder();
     assertThat(parse("[null,null,null,null,[100]]").getRepeatedNativeEnumList())
+        .containsExactly(100.0)
+        .inOrder();
+    assertThat(parseProto3("[null,null,-1]").getOptionalNativeEnum()).isEqualTo(-1.0);
+    assertThat(parseProto3("[null,null,100]").getOptionalNativeEnum()).isEqualTo(100.0);
+    assertThat(parseProto3("[null,null,null,[-1]]").getRepeatedNativeEnumList())
+        .containsExactly(-1.0)
+        .inOrder();
+    assertThat(parseProto3("[null,null,null,[100]]").getRepeatedNativeEnumList())
         .containsExactly(100.0)
         .inOrder();
   }

@@ -73,6 +73,7 @@ j2cl_multi_test(
     srcs = ["EnumFieldsTest.java"],
     proto_deps = [
         "//javatests/com/google/protobuf/contrib/j2cl/protos:enums",
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:proto3_enums",
     ],
     test_class = "com.google.protobuf.contrib.j2cl.integration.EnumFieldsTest",
     deps = [
@@ -87,6 +88,8 @@ j2cl_multi_test(
     proto_deps = [
         "//javatests/com/google/protobuf/contrib/j2cl/protos:enums",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:oneofs",
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:proto3_enums",
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:proto3_oneofs",
     ],
     test_class = "com.google.protobuf.contrib.j2cl.integration.EnumNativeForNumberTest",
     deps = [
@@ -100,6 +103,7 @@ j2cl_multi_test(
     generate_java_test = False,
     proto_deps = [
         "//javatests/com/google/protobuf/contrib/j2cl/protos:enums",
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:proto3_enums",
     ],
     test_class = "com.google.protobuf.contrib.j2cl.integration.EnumParseTest",
     deps = [
@@ -176,7 +180,10 @@ j2cl_multi_test(
 j2cl_multi_test(
     name = "OneOfsTest",
     srcs = ["OneOfsTest.java"],
-    proto_deps = ["//javatests/com/google/protobuf/contrib/j2cl/protos:oneofs"],
+    proto_deps = [
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:oneofs",
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:proto3_oneofs",
+    ],
     test_class = "com.google.protobuf.contrib.j2cl.integration.OneOfsTest",
 )
 
@@ -208,6 +215,8 @@ closure_js_binary(
         "//javatests/com/google/protobuf/contrib/j2cl/protos:field_names_j2cl_proto",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:oneofs_j2cl_proto",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:proto-with-dashes_j2cl_proto",
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:proto3_enums_j2cl_proto",
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:proto3_oneofs_j2cl_proto",
     ],
 )
 

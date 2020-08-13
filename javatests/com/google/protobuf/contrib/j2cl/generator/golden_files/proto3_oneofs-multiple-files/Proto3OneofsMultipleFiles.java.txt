@@ -1,0 +1,10 @@
+package com.google.protobuf.contrib.j2cl.protos;
+
+@jsinterop.annotations.JsType(
+    isNative = true,
+    name = "proto3_oneofs.multiple_files",
+    namespace = "improto.protobuf.contrib.j2cl.protos")
+public final class Proto3OneofsMultipleFiles {
+
+  private Proto3OneofsMultipleFiles() {}
+}

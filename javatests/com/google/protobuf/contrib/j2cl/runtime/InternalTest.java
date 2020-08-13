@@ -139,4 +139,17 @@ public class InternalTest {
     assertThrows(UnsupportedOperationException.class, () -> consumer.accept(list));
     assertThat(list).containsExactlyElementsIn(originalContent).inOrder();
   }
+
+  @Test
+  public void testCheckUnrecognized() {
+    // Checks that do not fail so no expecetion is thrown.
+    GeneratedMessageLite.Internal_.checkUnrecognized(0);
+    GeneratedMessageLite.Internal_.checkUnrecognized(1);
+    GeneratedMessageLite.Internal_.checkUnrecognized(100);
+    GeneratedMessageLite.Internal_.checkUnrecognized(-100);
+
+    // Verify that an exception is thrown.
+    assertThrows(
+        IllegalArgumentException.class, () -> GeneratedMessageLite.Internal_.checkUnrecognized(-1));
+  }
 }

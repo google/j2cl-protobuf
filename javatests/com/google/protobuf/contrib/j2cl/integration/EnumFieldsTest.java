@@ -21,6 +21,10 @@ import com.google.protobuf.contrib.j2cl.protos.Enums.EnumTestProto;
 import com.google.protobuf.contrib.j2cl.protos.Enums.EnumTestProto.NativeEnum;
 import com.google.protobuf.contrib.j2cl.protos.Enums.EnumTestProto.SparseEnum;
 import com.google.protobuf.contrib.j2cl.protos.Enums.EnumTestProto.TestEnum;
+import com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto;
+import com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3NativeEnum;
+import com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3SparseEnum;
+import com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum;
 import java.util.Arrays;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,6 +37,8 @@ public class EnumFieldsTest {
   public void testOptionalFieldNoDefault_defaultInstance() {
     assertThat(EnumTestProto.getDefaultInstance().hasOptionalEnum()).isFalse();
     assertThat(EnumTestProto.getDefaultInstance().getOptionalEnum()).isEqualTo(TestEnum.DEFAULT);
+    assertThat(Proto3EnumTestProto.getDefaultInstance().getOptionalEnum())
+        .isEqualTo(Proto3TestEnum.DEFAULT);
   }
 
   @Test
@@ -40,6 +46,8 @@ public class EnumFieldsTest {
     assertThat(EnumTestProto.getDefaultInstance().hasOptionalNativeEnum()).isFalse();
     assertThat(EnumTestProto.getDefaultInstance().getOptionalNativeEnum())
         .isEqualTo(NativeEnum.NATIVE_DEFAULT);
+    assertThat(Proto3EnumTestProto.getDefaultInstance().getOptionalNativeEnum())
+        .isEqualTo(Proto3NativeEnum.NATIVE_DEFAULT);
   }
 
   @Test
@@ -398,6 +406,42 @@ public class EnumFieldsTest {
   }
 
   @Test
+  public void testValues() throws Exception {
+    assertThat(TestEnum.values())
+        .asList()
+        .containsExactly(TestEnum.DEFAULT, TestEnum.ONE, TestEnum.TWO, TestEnum.THREE)
+        .inOrder();
+    assertThat(SparseEnum.values())
+        .asList()
+        .containsExactly(SparseEnum.SPARSE_DEFAULT, SparseEnum.SPARSE_TEN, SparseEnum.SPARSE_TWENTY)
+        .inOrder();
+    // TODO(b/164155998): Make this test pass.
+    // assertThat(Aliased.TestEnum.values())
+    //     .asList()
+    //     .containsExactly(
+    //         Aliased.TestEnum.DEFAULT, Aliased.TestEnum.ORIGINAL, Aliased.TestEnum.ALIAS)
+    //     .inOrder();
+    assertThat(Proto3TestEnum.values())
+        .asList()
+        .containsExactly(
+            Proto3TestEnum.DEFAULT,
+            Proto3TestEnum.ONE,
+            Proto3TestEnum.TWO,
+            Proto3TestEnum.THREE,
+            Proto3TestEnum.UNRECOGNIZED)
+        .inOrder();
+    assertThat(Proto3SparseEnum.values())
+        .asList()
+        .containsExactly(
+            Proto3SparseEnum.SPARSE_DEFAULT,
+            Proto3SparseEnum.SPARSE_TEN,
+            Proto3SparseEnum.SPARSE_TWENTY,
+            Proto3SparseEnum.UNRECOGNIZED)
+        .inOrder();
+    // Note that native enums doesn't provide values() method.
+  }
+
+  @Test
   public void testGetNumber() throws Exception {
     assertThat(TestEnum.DEFAULT.getNumber()).isEqualTo(0);
     assertThat(TestEnum.ONE.getNumber()).isEqualTo(1);
@@ -418,6 +462,21 @@ public class EnumFieldsTest {
     assertThat(Aliased.NativeEnum.NATIVE_DEFAULT.getNumber()).isEqualTo(0);
     assertThat(Aliased.NativeEnum.NATIVE_ORIGINAL.getNumber()).isEqualTo(1);
     assertThat(Aliased.NativeEnum.NATIVE_ALIAS.getNumber()).isEqualTo(1);
+
+    assertThat(Proto3TestEnum.DEFAULT.getNumber()).isEqualTo(0);
+    assertThat(Proto3TestEnum.ONE.getNumber()).isEqualTo(1);
+    assertThat(Proto3TestEnum.TWO.getNumber()).isEqualTo(2);
+    assertThrows(IllegalArgumentException.class, Proto3TestEnum.UNRECOGNIZED::getNumber);
+
+    assertThat(Proto3SparseEnum.SPARSE_DEFAULT.getNumber()).isEqualTo(0);
+    assertThat(Proto3SparseEnum.SPARSE_TEN.getNumber()).isEqualTo(10);
+    assertThat(Proto3SparseEnum.SPARSE_TWENTY.getNumber()).isEqualTo(20);
+    assertThrows(IllegalArgumentException.class, Proto3SparseEnum.UNRECOGNIZED::getNumber);
+
+    // There is no UNRECOGNIZED value even for proto3 native enums
+    assertThat(Proto3NativeEnum.NATIVE_DEFAULT.getNumber()).isEqualTo(0);
+    assertThat(Proto3NativeEnum.NATIVE_ONE.getNumber()).isEqualTo(1);
+    assertThat(Proto3NativeEnum.NATIVE_TWO.getNumber()).isEqualTo(2);
   }
 
   @Test
@@ -441,6 +500,18 @@ public class EnumFieldsTest {
     assertThat(Aliased.NativeEnum.forNumber(0)).isEqualTo(Aliased.NativeEnum.NATIVE_DEFAULT);
     assertThat(Aliased.NativeEnum.forNumber(1)).isEqualTo(Aliased.NativeEnum.NATIVE_ORIGINAL);
     assertThat(Aliased.NativeEnum.forNumber(1)).isEqualTo(Aliased.NativeEnum.NATIVE_ORIGINAL);
+
+    assertThat(Proto3TestEnum.forNumber(0)).isEqualTo(Proto3TestEnum.DEFAULT);
+    assertThat(Proto3TestEnum.forNumber(1)).isEqualTo(Proto3TestEnum.ONE);
+    assertThat(Proto3TestEnum.forNumber(2)).isEqualTo(Proto3TestEnum.TWO);
+
+    assertThat(Proto3SparseEnum.forNumber(0)).isEqualTo(Proto3SparseEnum.SPARSE_DEFAULT);
+    assertThat(Proto3SparseEnum.forNumber(10)).isEqualTo(Proto3SparseEnum.SPARSE_TEN);
+    assertThat(Proto3SparseEnum.forNumber(20)).isEqualTo(Proto3SparseEnum.SPARSE_TWENTY);
+
+    assertThat(Proto3NativeEnum.forNumber(0)).isEqualTo(Proto3NativeEnum.NATIVE_DEFAULT);
+    assertThat(Proto3NativeEnum.forNumber(1)).isEqualTo(Proto3NativeEnum.NATIVE_ONE);
+    assertThat(Proto3NativeEnum.forNumber(2)).isEqualTo(Proto3NativeEnum.NATIVE_TWO);
   }
 
   @Test
@@ -454,7 +525,13 @@ public class EnumFieldsTest {
     assertThat(Aliased.TestEnum.forNumber(-1)).isNull();
     assertThat(Aliased.TestEnum.forNumber(100)).isNull();
 
-    // Note that enum field with unknown value is tested NativeEnumForNumberTest. Unlike that class
-    // this is tested both in J2CL and JVM and ensures consistent forNumber behavior.
+    assertThat(Proto3TestEnum.forNumber(-1)).isNull();
+    assertThat(Proto3TestEnum.forNumber(100)).isNull();
+
+    assertThat(Proto3SparseEnum.forNumber(-1)).isNull();
+    assertThat(Proto3SparseEnum.forNumber(100)).isNull();
+
+    // Unknown values with native enums are tested in EnumNativeForNumberTest since the behavior
+    // differs between J2CL and JVM.
   }
 }
