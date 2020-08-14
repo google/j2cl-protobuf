@@ -17,8 +17,6 @@ import static com.google.common.truth.Truth.assertThat;
 
 import com.google.protobuf.contrib.j2cl.protos.Enums.EnumTestProto.NativeEnum;
 import com.google.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithNativeOneOfs;
-import com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3NativeEnum;
-import com.google.protobuf.contrib.j2cl.protos.Proto3Oneofs.Proto3TestProtoWithNativeOneOfs;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -33,8 +31,6 @@ public final class EnumNativeForNumberTest {
     // unknown values leak into Java.
     assertThat(NativeEnum.forNumber(-1)).isEqualTo(-1.0);
     assertThat(NativeEnum.forNumber(100)).isEqualTo(100.0);
-    assertThat(Proto3NativeEnum.forNumber(-1)).isEqualTo(-1.0);
-    assertThat(Proto3NativeEnum.forNumber(100)).isEqualTo(100.0);
   }
 
   @Test
@@ -42,7 +38,5 @@ public final class EnumNativeForNumberTest {
     // This differs from the JVM version, which will return null for these cases.
     assertThat(TestProtoWithNativeOneOfs.AOneofCase.forNumber(-1)).isEqualTo(-1.0);
     assertThat(TestProtoWithNativeOneOfs.AOneofCase.forNumber(100)).isEqualTo(100.0);
-    assertThat(Proto3TestProtoWithNativeOneOfs.AOneofCase.forNumber(-1)).isEqualTo(-1.0);
-    assertThat(Proto3TestProtoWithNativeOneOfs.AOneofCase.forNumber(100)).isEqualTo(100.0);
   }
 }

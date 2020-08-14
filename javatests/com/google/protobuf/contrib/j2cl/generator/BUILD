@@ -20,10 +20,6 @@ java_test(
         "//javatests/com/google/protobuf/contrib/j2cl/protos:oneofs-multiple-files_out",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:proto-with-dashes_out",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:proto-with-dashes-multiple-files_out",
-        "//javatests/com/google/protobuf/contrib/j2cl/protos:proto3_enums_out",
-        "//javatests/com/google/protobuf/contrib/j2cl/protos:proto3_enums-multiple-files_out",
-        "//javatests/com/google/protobuf/contrib/j2cl/protos:proto3_oneofs_out",
-        "//javatests/com/google/protobuf/contrib/j2cl/protos:proto3_oneofs-multiple-files_out",
     ],
     deps = [
         "//java/com/google/protobuf/contrib/immutablejs/testing:golden_files_base_test",

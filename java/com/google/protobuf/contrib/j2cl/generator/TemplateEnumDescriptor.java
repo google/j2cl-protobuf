@@ -19,7 +19,6 @@ import com.google.auto.value.AutoValue;
 import com.google.protobuf.Descriptors.Descriptor;
 import com.google.protobuf.Descriptors.EnumDescriptor;
 import com.google.protobuf.Descriptors.EnumValueDescriptor;
-import com.google.protobuf.Descriptors.FileDescriptor.Syntax;
 import com.google.protos.j2cl.Options;
 import com.google.protos.protobuf.contrib.j2cl.options.JsEnum;
 import java.util.HashSet;
@@ -65,14 +64,5 @@ public abstract class TemplateEnumDescriptor extends AbstractTemplateTypeDescrip
       }
     }
     return true;
-  }
-
-  /** Returns true if this enum should have a value of UNRECOGNIZED in the generated code. */
-  public boolean hasUnrecognizedValue() {
-    return !isJsEnum() && isProto3();
-  }
-
-  private boolean isProto3() {
-    return descriptor().getFile().getSyntax().equals(Syntax.PROTO3);
   }
 }

@@ -99,9 +99,4 @@ public abstract class TemplateOneOfDescriptor extends AbstractTemplateTypeDescri
   public OneOfField asField() {
     return new AutoValue_TemplateOneOfDescriptor_OneOfField(this);
   }
-
-  /** Always returns {@code false} because oneof enums don't have an UNRECOGNIZED value. */
-  public boolean hasUnrecognizedValue() {
-    return false;
-  }
 }

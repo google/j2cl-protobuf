@@ -18,8 +18,6 @@ import static org.junit.Assert.assertEquals;
 
 import com.google.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithNativeOneOfs;
 import com.google.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs;
-import com.google.protobuf.contrib.j2cl.protos.Proto3Oneofs.Proto3TestProtoWithNativeOneOfs;
-import com.google.protobuf.contrib.j2cl.protos.Proto3Oneofs.Proto3TestProtoWithOneOfs;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -57,40 +55,6 @@ public final class OneOfsTest {
         .isEqualTo(TestProtoWithNativeOneOfs.AOneofCase.AONEOF_NOT_SET);
     assertThat(builder.getAOneofCase())
         .isEqualTo(TestProtoWithNativeOneOfs.AOneofCase.AONEOF_NOT_SET);
-  }
-
-  @Test
-  public void testNothingSetProto3() {
-    Proto3TestProtoWithOneOfs.Builder builder = Proto3TestProtoWithOneOfs.newBuilder();
-    Proto3TestProtoWithOneOfs proto = builder.build();
-
-    assertThat(proto.getAOneofCase())
-        .isEqualTo(Proto3TestProtoWithOneOfs.AOneofCase.AONEOF_NOT_SET);
-    assertThat(builder.getAOneofCase())
-        .isEqualTo(Proto3TestProtoWithOneOfs.AOneofCase.AONEOF_NOT_SET);
-    assertThat(proto.getAnotherOneofCase())
-        .isEqualTo(Proto3TestProtoWithOneOfs.AnotherOneofCase.ANOTHERONEOF_NOT_SET);
-    assertThat(builder.getAnotherOneofCase())
-        .isEqualTo(Proto3TestProtoWithOneOfs.AnotherOneofCase.ANOTHERONEOF_NOT_SET);
-    assertThat(proto.getNestedProtoWithOneofs().getANestedOneofCase())
-        .isEqualTo(
-            Proto3TestProtoWithOneOfs.TestNestedProtoWithOneOfs.ANestedOneofCase
-                .ANESTEDONEOF_NOT_SET);
-    assertThat(builder.getNestedProtoWithOneofs().getANestedOneofCase())
-        .isEqualTo(
-            Proto3TestProtoWithOneOfs.TestNestedProtoWithOneOfs.ANestedOneofCase
-                .ANESTEDONEOF_NOT_SET);
-  }
-
-  @Test
-  public void testNothingSetProto3NativeEnum() {
-    Proto3TestProtoWithNativeOneOfs.Builder builder = Proto3TestProtoWithNativeOneOfs.newBuilder();
-    Proto3TestProtoWithNativeOneOfs proto = builder.build();
-
-    assertThat(proto.getAOneofCase())
-        .isEqualTo(Proto3TestProtoWithNativeOneOfs.AOneofCase.AONEOF_NOT_SET);
-    assertThat(builder.getAOneofCase())
-        .isEqualTo(Proto3TestProtoWithNativeOneOfs.AOneofCase.AONEOF_NOT_SET);
   }
 
   @Test
@@ -276,8 +240,8 @@ public final class OneOfsTest {
   @Test
   public void testForNumberWithUnknownValue() {
     assertThat(TestProtoWithOneOfs.AOneofCase.forNumber(100)).isNull();
-    assertThat(Proto3TestProtoWithOneOfs.AOneofCase.forNumber(100)).isNull();
-    // Unknown values with native oneof cases are tested in EnumNativeForNumberTest since the
-    // behavior differs between J2CL and JVM.
   }
+
+  // Unknown values with native oneof case enums are tested in EnumGenerationTest since the behavior
+  // differs between J2CL and JVM.
 }

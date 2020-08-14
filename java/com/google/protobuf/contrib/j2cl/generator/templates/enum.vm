@@ -27,11 +27,7 @@ package $enumDescriptor.package;
   public enum $enumDescriptor.name implements com.google.protobuf.ProtocolMessageEnum {
 
   #foreach($value in $enumDescriptor.values)
-    ${value.name}(${value.number})#if ($foreach.hasNext || $enumDescriptor.hasUnrecognizedValue()),#else;#end
-  #end
-  ## The UNRECOGNIZED value should always be the last value.
-  #if ($enumDescriptor.hasUnrecognizedValue())
-    UNRECOGNIZED(-1);
+    ${value.name}(${value.number})#if ($foreach.hasNext),#else;#end
   #end
 
   ${enumDescriptor.name}(int value) {
@@ -65,9 +61,6 @@ package $enumDescriptor.package;
 
   $maybeJsOverlay
   public final int getNumber() {
-    #if ($enumDescriptor.hasUnrecognizedValue())
-      com.google.protobuf.GeneratedMessageLite.Internal_.checkUnrecognized(value);
-    #end
     return value;
   }
 
@@ -92,11 +85,7 @@ package $enumDescriptor.package;
     #else
       int i = jsinterop.base.Js.asInt(closureEnum);
       $enumDescriptor.name value = ${enumDescriptor.name}.forNumber(i);
-      #if ($enumDescriptor.hasUnrecognizedValue())
-        return value == null ? UNRECOGNIZED : value;
-      #else
-        return value == null ? $enumDescriptor.values.get(0).name : value;
-      #end
+      return value == null ? $enumDescriptor.values.get(0).name : value;
     #end
     }
   }
