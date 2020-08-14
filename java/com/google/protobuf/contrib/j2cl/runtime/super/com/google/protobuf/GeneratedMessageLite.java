@@ -455,5 +455,15 @@ public abstract class GeneratedMessageLite<
             ExtensionFieldInfo<M, ?> extensionFieldInfo) {
       return new GeneratedRepeatedExtension<M, String>(extensionFieldInfo);
     }
+
+    /**
+     * Assumes that the given value is the value of a proto3 enum, if the value corresponds to the
+     * {@code UNRECOGNIZED} value then this method will throw an exception.
+     */
+    public static void checkUnrecognized(int value) {
+      if (value == -1) {
+        throw new IllegalArgumentException("Can't get the number of an unknown enum value.");
+      }
+    }
   }
 }

@@ -72,4 +72,20 @@ public class GoldenFileTest extends GoldenFilesBaseTest {
   public void testOneOfsMultipleFiles() throws Exception {
     doGoldenTest("oneofs-multiple-files");
   }
+
+  public void testProto3Enums() throws Exception {
+    doGoldenTest("proto3_enums");
+  }
+
+  public void testProto3EnumsMultipleFiles() throws Exception {
+    doGoldenTest("proto3_enums-multiple-files");
+  }
+
+  public void testProto3Oneofs() throws Exception {
+    doGoldenTest("proto3_oneofs");
+  }
+
+  public void testProto3OneofsMultipleFiles() throws Exception {
+    doGoldenTest("proto3_oneofs-multiple-files");
+  }
 }
