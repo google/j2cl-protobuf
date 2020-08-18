@@ -115,56 +115,24 @@ public final class FieldNames {
 
     public native Builder toBuilder();
 
-    @jsinterop.annotations.JsOverlay
-    public static final int PRIMITIVE_LOWER_CASE_UNDERSCORE_FIELD_NUMBER = 1;
-
-    @jsinterop.annotations.JsOverlay
-    public static final int PRIMITIVELOWERCASECAMEL_FIELD_NUMBER = 2;
-
-    @jsinterop.annotations.JsOverlay
-    public static final int PRIMITIVEUPPERCASECAMEL_FIELD_NUMBER = 3;
-
-    @jsinterop.annotations.JsOverlay
-    public static final int REPEATED_PRIMITIVE_LOWER_CASE_UNDERSCORE_FIELD_NUMBER = 4;
-
-    @jsinterop.annotations.JsOverlay
-    public static final int REPEATEDPRIMITIVELOWERCASECAMEL_FIELD_NUMBER = 5;
-
-    @jsinterop.annotations.JsOverlay
-    public static final int REPEATEDPRIMITIVEUPPERCASECAMEL_FIELD_NUMBER = 6;
-
-    @jsinterop.annotations.JsOverlay
-    public static final int ENUM_LOWER_CASE_UNDERSCORE_FIELD_NUMBER = 7;
-
-    @jsinterop.annotations.JsOverlay public static final int ENUMLOWERCASECAMEL_FIELD_NUMBER = 8;
-    @jsinterop.annotations.JsOverlay public static final int ENUMUPPERCASECAMEL_FIELD_NUMBER = 9;
-
-    @jsinterop.annotations.JsOverlay
-    public static final int REPEATED_ENUM_LOWER_CASE_UNDERSCORE_FIELD_NUMBER = 10;
-
-    @jsinterop.annotations.JsOverlay
-    public static final int REPEATEDENUMLOWERCASECAMEL_FIELD_NUMBER = 11;
-
-    @jsinterop.annotations.JsOverlay
-    public static final int REPEATEDENUMUPPERCASECAMEL_FIELD_NUMBER = 12;
-
-    @jsinterop.annotations.JsOverlay
-    public static final int MESSAGE_LOWER_CASE_UNDERSCORE_FIELD_NUMBER = 13;
-
-    @jsinterop.annotations.JsOverlay
-    public static final int MESSAGELOWERCASECAMEL_FIELD_NUMBER = 14;
-
-    @jsinterop.annotations.JsOverlay
-    public static final int MESSAGEUPPERCASECAMEL_FIELD_NUMBER = 15;
-
-    @jsinterop.annotations.JsOverlay
-    public static final int REPEATED_MESSAGE_LOWER_CASE_UNDERSCORE_FIELD_NUMBER = 16;
-
-    @jsinterop.annotations.JsOverlay
-    public static final int REPEATEDMESSAGELOWERCASECAMEL_FIELD_NUMBER = 17;
-
-    @jsinterop.annotations.JsOverlay
-    public static final int REPEATEDMESSAGEUPPERCASECAMEL_FIELD_NUMBER = 18;
+    public static int PRIMITIVE_LOWER_CASE_UNDERSCORE_FIELD_NUMBER;
+    public static int PRIMITIVELOWERCASECAMEL_FIELD_NUMBER;
+    public static int PRIMITIVEUPPERCASECAMEL_FIELD_NUMBER;
+    public static int REPEATED_PRIMITIVE_LOWER_CASE_UNDERSCORE_FIELD_NUMBER;
+    public static int REPEATEDPRIMITIVELOWERCASECAMEL_FIELD_NUMBER;
+    public static int REPEATEDPRIMITIVEUPPERCASECAMEL_FIELD_NUMBER;
+    public static int ENUM_LOWER_CASE_UNDERSCORE_FIELD_NUMBER;
+    public static int ENUMLOWERCASECAMEL_FIELD_NUMBER;
+    public static int ENUMUPPERCASECAMEL_FIELD_NUMBER;
+    public static int REPEATED_ENUM_LOWER_CASE_UNDERSCORE_FIELD_NUMBER;
+    public static int REPEATEDENUMLOWERCASECAMEL_FIELD_NUMBER;
+    public static int REPEATEDENUMUPPERCASECAMEL_FIELD_NUMBER;
+    public static int MESSAGE_LOWER_CASE_UNDERSCORE_FIELD_NUMBER;
+    public static int MESSAGELOWERCASECAMEL_FIELD_NUMBER;
+    public static int MESSAGEUPPERCASECAMEL_FIELD_NUMBER;
+    public static int REPEATED_MESSAGE_LOWER_CASE_UNDERSCORE_FIELD_NUMBER;
+    public static int REPEATEDMESSAGELOWERCASECAMEL_FIELD_NUMBER;
+    public static int REPEATEDMESSAGEUPPERCASECAMEL_FIELD_NUMBER;
 
     @jsinterop.annotations.JsMethod(name = "hasPrimitiveLowerCaseUnderscore")
     public native boolean hasPrimitiveLowerCaseUnderscore();

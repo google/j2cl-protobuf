@@ -43,8 +43,7 @@ public final $descriptor.name getDefaultInstanceForType() {
 public native Builder toBuilder();
 
 #foreach ($field in $descriptor.fields)
-  @jsinterop.annotations.JsOverlay
-  public static final int ${field.fieldNumberName}_FIELD_NUMBER = $field.number;
+  public static int ${field.fieldNumberName}_FIELD_NUMBER;
 #end
 
 ## render fields

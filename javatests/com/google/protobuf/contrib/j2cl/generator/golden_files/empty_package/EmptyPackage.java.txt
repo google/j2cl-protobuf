@@ -20,7 +20,7 @@ public final class EmptyPackage {
 
     public native Builder toBuilder();
 
-    @jsinterop.annotations.JsOverlay public static final int PAYLOAD_FIELD_NUMBER = 1;
+    public static int PAYLOAD_FIELD_NUMBER;
 
     @jsinterop.annotations.JsMethod(name = "hasPayload")
     public native boolean hasPayload();

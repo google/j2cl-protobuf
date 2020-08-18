@@ -64,8 +64,8 @@ public final class Proto3TestProtoWithNativeOneOfs
 
   public native Builder toBuilder();
 
-  @jsinterop.annotations.JsOverlay public static final int A_FLOAT_FIELD_NUMBER = 10;
-  @jsinterop.annotations.JsOverlay public static final int A_DOUBLE_FIELD_NUMBER = 14;
+  public static int A_FLOAT_FIELD_NUMBER;
+  public static int A_DOUBLE_FIELD_NUMBER;
 
   @jsinterop.annotations.JsMethod(name = "hasAFloat")
   public native boolean hasAFloat();

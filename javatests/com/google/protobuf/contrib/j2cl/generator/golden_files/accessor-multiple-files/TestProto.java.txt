@@ -22,7 +22,7 @@ public final class TestProto
 
     public native Builder toBuilder();
 
-    @jsinterop.annotations.JsOverlay public static final int PAYLOAD_FIELD_NUMBER = 1;
+    public static int PAYLOAD_FIELD_NUMBER;
 
     @jsinterop.annotations.JsMethod(name = "hasPayload")
     public native boolean hasPayload();
@@ -76,50 +76,29 @@ public final class TestProto
 
   public native Builder toBuilder();
 
-  @jsinterop.annotations.JsOverlay public static final int OPTIONAL_BOOL_FIELD_NUMBER = 1;
-
-  @jsinterop.annotations.JsOverlay
-  public static final int OPTIONAL_BOOL_WITH_DEFAULT_FIELD_NUMBER = 2;
-
-  @jsinterop.annotations.JsOverlay public static final int REPEATED_BOOL_FIELD_NUMBER = 3;
-  @jsinterop.annotations.JsOverlay public static final int OPTIONAL_INT_FIELD_NUMBER = 4;
-
-  @jsinterop.annotations.JsOverlay
-  public static final int OPTIONAL_INT_WITH_DEFAULT_FIELD_NUMBER = 5;
-
-  @jsinterop.annotations.JsOverlay public static final int REPEATED_INT_FIELD_NUMBER = 6;
-  @jsinterop.annotations.JsOverlay public static final int OPTIONAL_LONG_FIELD_NUMBER = 7;
-
-  @jsinterop.annotations.JsOverlay
-  public static final int OPTIONAL_LONG_WITH_DEFAULT_FIELD_NUMBER = 8;
-
-  @jsinterop.annotations.JsOverlay public static final int REPEATED_LONG_FIELD_NUMBER = 9;
-  @jsinterop.annotations.JsOverlay public static final int OPTIONAL_FLOAT_FIELD_NUMBER = 10;
-
-  @jsinterop.annotations.JsOverlay
-  public static final int OPTIONAL_FLOAT_WITH_DEFAULT_FIELD_NUMBER = 11;
-
-  @jsinterop.annotations.JsOverlay public static final int REPEATED_FLOAT_FIELD_NUMBER = 12;
-  @jsinterop.annotations.JsOverlay public static final int OPTIONAL_DOUBLE_FIELD_NUMBER = 13;
-
-  @jsinterop.annotations.JsOverlay
-  public static final int OPTIONAL_DOUBLE_WITH_DEFAULT_FIELD_NUMBER = 14;
-
-  @jsinterop.annotations.JsOverlay public static final int REPEATED_DOUBLE_FIELD_NUMBER = 15;
-  @jsinterop.annotations.JsOverlay public static final int OPTIONAL_STRING_FIELD_NUMBER = 19;
-
-  @jsinterop.annotations.JsOverlay
-  public static final int OPTIONAL_STRING_WITH_DEFAULT_FIELD_NUMBER = 20;
-
-  @jsinterop.annotations.JsOverlay public static final int REPEATED_STRING_FIELD_NUMBER = 21;
-  @jsinterop.annotations.JsOverlay public static final int OPTIONAL_BYTES_FIELD_NUMBER = 28;
-
-  @jsinterop.annotations.JsOverlay
-  public static final int OPTIONAL_BYTES_WITH_DEFAULT_FIELD_NUMBER = 29;
-
-  @jsinterop.annotations.JsOverlay public static final int REPEATED_BYTES_FIELD_NUMBER = 30;
-  @jsinterop.annotations.JsOverlay public static final int OPTIONAL_MESSAGE_FIELD_NUMBER = 26;
-  @jsinterop.annotations.JsOverlay public static final int REPEATED_MESSAGE_FIELD_NUMBER = 27;
+  public static int OPTIONAL_BOOL_FIELD_NUMBER;
+  public static int OPTIONAL_BOOL_WITH_DEFAULT_FIELD_NUMBER;
+  public static int REPEATED_BOOL_FIELD_NUMBER;
+  public static int OPTIONAL_INT_FIELD_NUMBER;
+  public static int OPTIONAL_INT_WITH_DEFAULT_FIELD_NUMBER;
+  public static int REPEATED_INT_FIELD_NUMBER;
+  public static int OPTIONAL_LONG_FIELD_NUMBER;
+  public static int OPTIONAL_LONG_WITH_DEFAULT_FIELD_NUMBER;
+  public static int REPEATED_LONG_FIELD_NUMBER;
+  public static int OPTIONAL_FLOAT_FIELD_NUMBER;
+  public static int OPTIONAL_FLOAT_WITH_DEFAULT_FIELD_NUMBER;
+  public static int REPEATED_FLOAT_FIELD_NUMBER;
+  public static int OPTIONAL_DOUBLE_FIELD_NUMBER;
+  public static int OPTIONAL_DOUBLE_WITH_DEFAULT_FIELD_NUMBER;
+  public static int REPEATED_DOUBLE_FIELD_NUMBER;
+  public static int OPTIONAL_STRING_FIELD_NUMBER;
+  public static int OPTIONAL_STRING_WITH_DEFAULT_FIELD_NUMBER;
+  public static int REPEATED_STRING_FIELD_NUMBER;
+  public static int OPTIONAL_BYTES_FIELD_NUMBER;
+  public static int OPTIONAL_BYTES_WITH_DEFAULT_FIELD_NUMBER;
+  public static int REPEATED_BYTES_FIELD_NUMBER;
+  public static int OPTIONAL_MESSAGE_FIELD_NUMBER;
+  public static int REPEATED_MESSAGE_FIELD_NUMBER;
 
   @jsinterop.annotations.JsMethod(name = "hasOptionalBool")
   public native boolean hasOptionalBool();

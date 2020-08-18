@@ -228,20 +228,13 @@ public final class Enums {
 
     public native Builder toBuilder();
 
-    @jsinterop.annotations.JsOverlay public static final int OPTIONAL_ENUM_FIELD_NUMBER = 1;
-
-    @jsinterop.annotations.JsOverlay
-    public static final int OPTIONAL_ENUM_WITH_DEFAULT_FIELD_NUMBER = 2;
-
-    @jsinterop.annotations.JsOverlay public static final int REPEATED_ENUM_FIELD_NUMBER = 3;
-    @jsinterop.annotations.JsOverlay public static final int OPTIONAL_NATIVE_ENUM_FIELD_NUMBER = 4;
-    @jsinterop.annotations.JsOverlay public static final int REPEATED_NATIVE_ENUM_FIELD_NUMBER = 5;
-
-    @jsinterop.annotations.JsOverlay
-    public static final int OPTIONAL_TOP_LEVEL_NATIVE_ENUM_FIELD_NUMBER = 6;
-
-    @jsinterop.annotations.JsOverlay
-    public static final int REPEATED_TOP_LEVEL_NATIVE_ENUM_FIELD_NUMBER = 7;
+    public static int OPTIONAL_ENUM_FIELD_NUMBER;
+    public static int OPTIONAL_ENUM_WITH_DEFAULT_FIELD_NUMBER;
+    public static int REPEATED_ENUM_FIELD_NUMBER;
+    public static int OPTIONAL_NATIVE_ENUM_FIELD_NUMBER;
+    public static int REPEATED_NATIVE_ENUM_FIELD_NUMBER;
+    public static int OPTIONAL_TOP_LEVEL_NATIVE_ENUM_FIELD_NUMBER;
+    public static int REPEATED_TOP_LEVEL_NATIVE_ENUM_FIELD_NUMBER;
 
     @jsinterop.annotations.JsMethod(name = "hasOptionalEnum")
     public native boolean hasOptionalEnum();

@@ -71,7 +71,7 @@ public final class AmbiguousFields {
 
       public native Builder toBuilder();
 
-      @jsinterop.annotations.JsOverlay public static final int X_FIELD_NUMBER = 5;
+      public static int X_FIELD_NUMBER;
 
       @jsinterop.annotations.JsMethod(name = "hasX")
       public native boolean hasX();
@@ -129,7 +129,7 @@ public final class AmbiguousFields {
 
       public native Builder toBuilder();
 
-      @jsinterop.annotations.JsOverlay public static final int X_FIELD_NUMBER = 6;
+      public static int X_FIELD_NUMBER;
 
       @jsinterop.annotations.JsMethod(name = "hasX")
       public native boolean hasX();
@@ -183,10 +183,10 @@ public final class AmbiguousFields {
 
     public native Builder toBuilder();
 
-    @jsinterop.annotations.JsOverlay public static final int CLASS_FIELD_NUMBER = 1;
-    @jsinterop.annotations.JsOverlay public static final int CACHED_SIZE_FIELD_NUMBER = 2;
-    @jsinterop.annotations.JsOverlay public static final int SERIALIZED_SIZE_FIELD_NUMBER = 3;
-    @jsinterop.annotations.JsOverlay public static final int EXTENSION_FIELD_NUMBER = 4;
+    public static int CLASS_FIELD_NUMBER;
+    public static int CACHED_SIZE_FIELD_NUMBER;
+    public static int SERIALIZED_SIZE_FIELD_NUMBER;
+    public static int EXTENSION_FIELD_NUMBER;
 
     @jsinterop.annotations.JsMethod(name = "hasClass_")
     public native boolean hasClass_();
@@ -302,8 +302,8 @@ public final class AmbiguousFields {
 
     public native Builder toBuilder();
 
-    @jsinterop.annotations.JsOverlay public static final int EXTENSION_FIELD_NUMBER = 1;
-    @jsinterop.annotations.JsOverlay public static final int CLASS_FIELD_NUMBER = 2;
+    public static int EXTENSION_FIELD_NUMBER;
+    public static int CLASS_FIELD_NUMBER;
 
     @jsinterop.annotations.JsMethod(name = "getExtension_Count")
     public native int getExtensionCount();

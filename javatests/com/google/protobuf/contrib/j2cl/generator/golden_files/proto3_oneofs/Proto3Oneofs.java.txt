@@ -219,7 +219,7 @@ public final class Proto3Oneofs {
 
       public native Builder toBuilder();
 
-      @jsinterop.annotations.JsOverlay public static final int A_STRING_FIELD_NUMBER = 1;
+      public static int A_STRING_FIELD_NUMBER;
 
       @jsinterop.annotations.JsMethod(name = "hasAString")
       public native boolean hasAString();
@@ -332,9 +332,9 @@ public final class Proto3Oneofs {
 
       public native Builder toBuilder();
 
-      @jsinterop.annotations.JsOverlay public static final int A_BOOL_FIELD_NUMBER = 1;
-      @jsinterop.annotations.JsOverlay public static final int AN_INT_FIELD_NUMBER = 7;
-      @jsinterop.annotations.JsOverlay public static final int OPTIONAL_FLOAT_FIELD_NUMBER = 2;
+      public static int A_BOOL_FIELD_NUMBER;
+      public static int AN_INT_FIELD_NUMBER;
+      public static int OPTIONAL_FLOAT_FIELD_NUMBER;
 
       @jsinterop.annotations.JsMethod(name = "hasABool")
       public native boolean hasABool();
@@ -441,22 +441,19 @@ public final class Proto3Oneofs {
 
     public native Builder toBuilder();
 
-    @jsinterop.annotations.JsOverlay public static final int A_BOOL_FIELD_NUMBER = 1;
-    @jsinterop.annotations.JsOverlay public static final int AN_INT_FIELD_NUMBER = 4;
-    @jsinterop.annotations.JsOverlay public static final int A_LONG_FIELD_NUMBER = 7;
-    @jsinterop.annotations.JsOverlay public static final int A_FLOAT_FIELD_NUMBER = 10;
-    @jsinterop.annotations.JsOverlay public static final int A_DOUBLE_FIELD_NUMBER = 14;
-    @jsinterop.annotations.JsOverlay public static final int AN_ENUM_FIELD_NUMBER = 16;
-    @jsinterop.annotations.JsOverlay public static final int A_STRING_FIELD_NUMBER = 19;
-    @jsinterop.annotations.JsOverlay public static final int SOME_BYTES_FIELD_NUMBER = 20;
-    @jsinterop.annotations.JsOverlay public static final int NESTED_PROTO_FIELD_NUMBER = 26;
-
-    @jsinterop.annotations.JsOverlay
-    public static final int NESTED_PROTO_WITH_ONEOFS_FIELD_NUMBER = 27;
-
-    @jsinterop.annotations.JsOverlay public static final int OPTIONAL_BOOL_FIELD_NUMBER = 2;
-    @jsinterop.annotations.JsOverlay public static final int OPTIONAL_STRING_FIELD_NUMBER = 3;
-    @jsinterop.annotations.JsOverlay public static final int REPEATED_INT_FIELD_NUMBER = 8;
+    public static int A_BOOL_FIELD_NUMBER;
+    public static int AN_INT_FIELD_NUMBER;
+    public static int A_LONG_FIELD_NUMBER;
+    public static int A_FLOAT_FIELD_NUMBER;
+    public static int A_DOUBLE_FIELD_NUMBER;
+    public static int AN_ENUM_FIELD_NUMBER;
+    public static int A_STRING_FIELD_NUMBER;
+    public static int SOME_BYTES_FIELD_NUMBER;
+    public static int NESTED_PROTO_FIELD_NUMBER;
+    public static int NESTED_PROTO_WITH_ONEOFS_FIELD_NUMBER;
+    public static int OPTIONAL_BOOL_FIELD_NUMBER;
+    public static int OPTIONAL_STRING_FIELD_NUMBER;
+    public static int REPEATED_INT_FIELD_NUMBER;
 
     @jsinterop.annotations.JsMethod(name = "hasABool")
     public native boolean hasABool();
@@ -897,8 +894,8 @@ public final class Proto3Oneofs {
 
     public native Builder toBuilder();
 
-    @jsinterop.annotations.JsOverlay public static final int A_FLOAT_FIELD_NUMBER = 10;
-    @jsinterop.annotations.JsOverlay public static final int A_DOUBLE_FIELD_NUMBER = 14;
+    public static int A_FLOAT_FIELD_NUMBER;
+    public static int A_DOUBLE_FIELD_NUMBER;
 
     @jsinterop.annotations.JsMethod(name = "hasAFloat")
     public native boolean hasAFloat();

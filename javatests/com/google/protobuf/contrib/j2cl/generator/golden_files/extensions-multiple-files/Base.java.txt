@@ -68,14 +68,14 @@ public final class Base extends com.google.protobuf.GeneratedMessageLite<Base, B
 
   public native Builder toBuilder();
 
-  @jsinterop.annotations.JsOverlay public static final int OPTIONAL_LONG_FIELD_NUMBER = 1;
-  @jsinterop.annotations.JsOverlay public static final int REPEATED_STRING_FIELD_NUMBER = 3;
-  @jsinterop.annotations.JsOverlay public static final int OPTIONAL_ENUM_FIELD_NUMBER = 4;
-  @jsinterop.annotations.JsOverlay public static final int OPTIONAL_INT_FIELD_NUMBER = 5;
-  @jsinterop.annotations.JsOverlay public static final int OPTIONAL_MESSAGE_FIELD_NUMBER = 6;
-  @jsinterop.annotations.JsOverlay public static final int REPEATED_MESSAGE_FIELD_NUMBER = 7;
-  @jsinterop.annotations.JsOverlay public static final int OPTIONAL_BOOL_FIELD_NUMBER = 8;
-  @jsinterop.annotations.JsOverlay public static final int REPEATED_BOOL_FIELD_NUMBER = 9;
+  public static int OPTIONAL_LONG_FIELD_NUMBER;
+  public static int REPEATED_STRING_FIELD_NUMBER;
+  public static int OPTIONAL_ENUM_FIELD_NUMBER;
+  public static int OPTIONAL_INT_FIELD_NUMBER;
+  public static int OPTIONAL_MESSAGE_FIELD_NUMBER;
+  public static int REPEATED_MESSAGE_FIELD_NUMBER;
+  public static int OPTIONAL_BOOL_FIELD_NUMBER;
+  public static int REPEATED_BOOL_FIELD_NUMBER;
 
   @jsinterop.annotations.JsMethod(name = "hasOptionalLong")
   public native boolean hasOptionalLong();
