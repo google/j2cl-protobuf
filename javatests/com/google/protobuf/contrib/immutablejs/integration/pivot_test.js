@@ -16,10 +16,13 @@ goog.module('proto.im.integration.PivotTest');
 goog.setTestOnly();
 
 const MutablePivot = goog.require('proto.protobuf.contrib.immutablejs.protos.Pivot');
-const MutablePivotWithoutExtension = goog.require('proto.protobuf.contrib.immutablejs.protos.PivotWithoutExtension');
+const MutablePivotWithoutMessageId = goog.require('proto.protobuf.contrib.immutablejs.protos.PivotWithoutMessageId');
+const MutablePivotWithoutMessageIdAndExtension = goog.require('proto.protobuf.contrib.immutablejs.protos.PivotWithoutMessageIdAndExtension');
 const Pivot = goog.require('improto.protobuf.contrib.immutablejs.protos.Pivot');
-const PivotWithoutExtension = goog.require('improto.protobuf.contrib.immutablejs.protos.PivotWithoutExtension');
+const PivotWithoutMessageId = goog.require('improto.protobuf.contrib.immutablejs.protos.PivotWithoutMessageId');
+const PivotWithoutMessageIdAndExtension = goog.require('improto.protobuf.contrib.immutablejs.protos.PivotWithoutMessageIdAndExtension');
 const mutablePivotExtension = goog.require('proto.protobuf.contrib.immutablejs.protos.pivotExtension');
+const mutablePivotNoMsgidExtension = goog.require('proto.protobuf.contrib.immutablejs.protos.pivotNoMsgidExtension');
 const pivot = goog.require('improto.protobuf.contrib.immutablejs.protos.pivot');
 const testSuite = goog.require('goog.testing.testSuite');
 const {assertEqualsForProto} = goog.require('proto.im.proto_asserts');
@@ -63,16 +66,47 @@ class PivotTest {
   }
 
   testParse_noMessageId() {
+    {
+      const data = [];
+      data[0] = 'parent';
+      const serialized = JSON.stringify(data);
+
+      const m = MutablePivotWithoutMessageId.deserialize(serialized);
+      assertEqualsForProto('parent', m.getPayload());
+
+      const p = PivotWithoutMessageId.parse(serialized);
+      assertEqualsForProto('parent', p.getPayload());
+    }
+
+    {
+      const data = [];
+      data[0] = 'parent';
+      data[1] = {1000: ['child']};
+      const serialized = JSON.stringify(data);
+
+      const m = MutablePivotWithoutMessageId.deserialize(serialized);
+      assertEqualsForProto('parent', m.getPayload());
+      assertEqualsForProto(
+          'child', m.getExtension(mutablePivotNoMsgidExtension).getPayload());
+
+      const p = PivotWithoutMessageId.parse(serialized);
+      assertEqualsForProto('parent', p.getPayload());
+      assertEqualsForProto(
+          'child', p.getExtension(pivot.pivotNoMsgidExtension).getPayload());
+    }
+  }
+
+  testParse_noMessageIdAndExtension() {
     const data = [];
     data[0] = 'parent1';
     data[500] = 'parent2';
     const serialized = JSON.stringify(data);
 
-    const m = MutablePivotWithoutExtension.deserialize(serialized);
+    const m = MutablePivotWithoutMessageIdAndExtension.deserialize(serialized);
     assertEqualsForProto('parent1', m.getPayload());
     assertEqualsForProto('parent2', m.getPayload2());
 
-    const p = PivotWithoutExtension.parse(serialized);
+    const p = PivotWithoutMessageIdAndExtension.parse(serialized);
     assertEqualsForProto('parent1', p.getPayload());
     assertEqualsForProto('parent2', p.getPayload2());
   }

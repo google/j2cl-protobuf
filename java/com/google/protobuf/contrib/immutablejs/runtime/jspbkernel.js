@@ -112,7 +112,7 @@ class JspbKernel {
   /**
    * @param {!Array<*>} data The array holding protobuf data conforming to the
    *     JSPB wireformat.
-   * @param {number} pivot The pivot value after which fields are found
+   * @param {number} pivot The index in the array after which fields are placed
    *     in the extension object.
    * @param {number} messageOffset The apps framework message id.
    * @private
@@ -196,19 +196,19 @@ class JspbKernel {
    * @private
    */
   adjustIndex_(fieldNumber) {
-    return fieldNumber < this.pivot_ ? fieldNumber + this.messageOffset_ :
-                                       fieldNumber;
+    const adjustedIndex = fieldNumber + this.messageOffset_;
+    return adjustedIndex < this.pivot_ ? adjustedIndex : fieldNumber;
   }
 
   /**
-   * Selects either the data object or the extension object based on the field
-   * number.
-   * @param {number} fieldNumber The field number.
+   * Selects either the data object or the extension object based on the
+   * adjusted index.
+   * @param {number} adjustedIndex is adjusted field number with #adjustIndex_.
    * @return {!Object<number, *>}
    * @private
    */
-  getStorageFor_(fieldNumber) {
-    if (fieldNumber < this.pivot_) {
+  getStorageFor_(adjustedIndex) {
+    if (adjustedIndex < this.pivot_) {
       return this.data_;
     } else {
       let extension = this.data_[this.pivot_];

@@ -25,11 +25,21 @@ message Pivot {
   extensions 1000 to 10000;
 }
 
-message PivotWithoutExtension {
+message PivotWithoutMessageId {
+  optional string payload = 1;
+
+  extensions 1000 to 10000;
+}
+
+message PivotWithoutMessageIdAndExtension {
   optional string payload = 1;
   optional string payload2 = 501;  // Passes beyond default pivot.
 }
 
 extend Pivot {
   optional Pivot pivot_extension = 1000;
+}
+
+extend PivotWithoutMessageId {
+  optional PivotWithoutMessageId pivot_no_msgid_extension = 1000;
 }
