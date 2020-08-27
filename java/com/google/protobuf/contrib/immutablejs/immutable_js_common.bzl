@@ -27,7 +27,7 @@ def create_js_lib_struct(js_provider, extra_providers = []):
         exports = js_provider.exports,
     )
 
-def js_attrs(ignore = None):
+def js_attrs():
   return CLOSURE_JS_TOOLCHAIN_ATTRS
 
 # Temporary hack as JsChecker do not support tree artifact yet.

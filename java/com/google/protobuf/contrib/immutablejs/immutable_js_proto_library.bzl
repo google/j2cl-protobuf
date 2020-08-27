@@ -92,7 +92,7 @@ def _immutable_js_proto_library_aspect_impl(target, ctx):
 immutable_js_proto_library_aspect = aspect(
     implementation = _immutable_js_proto_library_aspect_impl,
     attr_aspects = ["deps", "exports"],
-    attrs = dicts.add(js_attrs("_immutable_js_proto_library_aspect"), {
+    attrs = dicts.add(js_attrs(), {
         "_protocol_compiler": attr.label(
             executable = True,
             cfg = "host",
