@@ -80,8 +80,8 @@ def _immutable_js_proto_library_aspect_impl(target, ctx):
         deps = deps,
         runtime_deps = ctx.attr._runtime_deps,
         exports = (deps if not srcs else []) + exports,
-        # Seems like this works around b/34608532 but not sure how...
-        aspect_name = "_immutable_js_proto_library_aspect",
+        # Use unique artifact suffix to avoid conflicts with other aspects on the same target.
+        artifact_suffix = "_immutable_js_proto_library_aspect",
     )
 
     return [ImmutableJspbInfo(

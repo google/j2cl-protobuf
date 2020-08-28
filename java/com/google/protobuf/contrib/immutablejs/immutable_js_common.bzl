@@ -7,7 +7,7 @@ load(
     "create_closure_js_library",
 )
 
-def create_js_provider(ctx, srcs = [], deps = [], runtime_deps = [], exports = [], aspect_name = None):
+def create_js_provider(ctx, srcs = [], deps = [], runtime_deps = [], exports = [], artifact_suffix = None):
     """ Creates a js provider from provided sources, deps and exports. """
 
     srcs = _create_zip_output(ctx, srcs) if srcs else []
