@@ -9,13 +9,7 @@ licenses(["notice"])  # Apache 2.0
 
 j2cl_library(
     name = "runtime",
-    srcs = glob(
-        ["super/com/google/protobuf/*.java"],
-        exclude = [
-            "super/com/google/protobuf/ExtensionRegistryLite.java",
-            "super/com/google/protobuf/ExtensionRegistry.java",
-        ],
-    ),
+    srcs = glob(["super/com/google/protobuf/*.java"]),
     deps = [
         "//java/com/google/protobuf/contrib/immutablejs:runtime",
         "//third_party:gwt-jsinterop-annotations-j2cl",
