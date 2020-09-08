@@ -34,19 +34,6 @@ load(
 )
 load(":j2cl_proto_provider.bzl", "J2clProtoInfo")
 
-def _new_jar(ctx, name):
-    """Create a new file object for a jar archive.
-
-    Args:
-      ctx: The current rule context.
-      name: The name of the directory (relative to the current rule's package)
-        that should be stored in this archive.
-
-    Returns:
-      A file object for the archive.
-    """
-    return ctx.actions.declare_file(name + ".srcjar")
-
 def _unarchived_jar_path(path):
     """Get the path of the unarchived directory.
 
@@ -61,7 +48,7 @@ def _unarchived_jar_path(path):
     return path[0:-7]
 
 def _j2cl_proto_library_aspect_impl(target, ctx):
-    name = ctx.label.name + "-j2cl"
+    artifact_suffix = "-j2cl"
     srcs = target[ProtoInfo].direct_sources
     transitive_srcs = target[ProtoInfo].transitive_sources
     deps = [target[ImmutableJspbInfo].js]
@@ -71,7 +58,7 @@ def _j2cl_proto_library_aspect_impl(target, ctx):
 
     jar_archive = None
     if srcs:
-        jar_archive = _new_jar(ctx, name)
+        jar_archive = ctx.actions.declare_file(ctx.label.name + artifact_suffix + ".srcjar")
         protoc_command_template = """
           set -e -o pipefail
 
@@ -126,17 +113,17 @@ def _j2cl_proto_library_aspect_impl(target, ctx):
 
         j2cl_provider = j2cl_common.compile(
             ctx,
-            name = name,
             srcs = [jar_archive],
             deps = deps + runtime_deps,
+            artifact_suffix = artifact_suffix,
         )
 
     else:
         # Considers deps as exports in no srcs case.
         j2cl_provider = j2cl_common.compile(
             ctx,
-            name = name,
             exports = deps,
+            artifact_suffix = artifact_suffix,
         )
 
     js = j2cl_common.get_jsinfo_provider(j2cl_provider)
