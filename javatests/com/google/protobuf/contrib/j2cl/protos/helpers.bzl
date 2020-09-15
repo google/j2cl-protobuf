@@ -34,7 +34,7 @@ def generate_protos(name, proto_file, deps = []):
         deps = [":" + name],
     )
 
-    native.java_proto_library(
+    native.java_lite_proto_library(
         name = name + "_java_proto",
         deps = [":" + name],
     )
