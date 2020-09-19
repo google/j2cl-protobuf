@@ -18,6 +18,7 @@ import static com.google.common.base.Preconditions.checkState;
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
 import com.google.protobuf.Descriptors.Descriptor;
+import com.google.protobuf.Descriptors.FieldDescriptor;
 import java.util.Optional;
 import java.util.stream.Stream;
 
@@ -83,16 +84,15 @@ public abstract class TemplateMessageDescriptor {
 
     // find max field number
     Optional<Integer> optionalMaxField =
-        descriptor().getFields().stream().map(f -> f.getNumber()).max(Integer::compare);
+        descriptor().getFields().stream().map(FieldDescriptor::getNumber).max(Integer::compare);
 
     if (!optionalMaxField.isPresent()) {
       return defaultPivot;
     }
 
     int maxField = optionalMaxField.get();
-
     if (descriptor().isExtendable() || maxField >= defaultPivot) {
-      return ((maxField + 1) < defaultPivot) ? maxField + 1 : defaultPivot;
+      return Math.min(maxField + 1, defaultPivot);
     }
 
     return -1;
