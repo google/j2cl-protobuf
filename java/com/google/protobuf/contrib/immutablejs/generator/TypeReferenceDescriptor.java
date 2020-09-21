@@ -19,9 +19,9 @@ import com.google.auto.value.AutoValue;
 @AutoValue
 public abstract class TypeReferenceDescriptor {
 
-  abstract TypeDescriptor context();
+  public abstract TypeDescriptor context();
 
-  abstract TypeDescriptor target();
+  public abstract TypeDescriptor target();
 
   public boolean needsImport() {
     return !target().getModuleName().isEmpty() && !target().hasSameParent(context());

@@ -2,18 +2,15 @@ package(
     default_visibility = ["//visibility:private"],
 )
 
-licenses(["notice"])  # Apache 2.0
+licenses(["notice"])
 
 java_library(
-    name = "generator",
+    name = "runtime",
     srcs = glob(["*.java"]),
     resources = glob(["templates/*.vm"]),
-    visibility = [
-        "//java/com/google/protobuf/contrib/immutablejs/generator:__subpackages__",
-        "//java/com/google/protobuf/contrib/immutablejs/internal_do_not_use:__pkg__",
-        "//java/com/google/protobuf/contrib/j2cl/generator:__pkg__",
-    ],
     deps = [
+        "//java/com/google/protobuf/contrib/immutablejs/generator",
+        "//third_party:args4j",
         "//third_party:auto_value",
         "//third_party:descriptor_java_proto",
         "//third_party:guava",
@@ -22,4 +19,11 @@ java_library(
         "//third_party:plugin_java_proto",
         "//third_party:protobuf",
     ],
+)
+
+java_binary(
+    name = "RuntimeGenerator",
+    main_class = "com.google.protobuf.contrib.immutablejs.generator.runtime.RuntimeGenerator",
+    visibility = ["//java/com/google/protobuf/contrib/immutablejs/runtime:__pkg__"],
+    runtime_deps = [":runtime"],
 )

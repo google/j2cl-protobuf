@@ -1,0 +1,197 @@
+#foreach ($type in $primitiveTypes)
+#set ($valueType = $type.expression)
+#set ($stem = $type.target().stem)
+
+  //////////////////////////////////////////////////////////////////////////////
+  //
+  // ${stem} accessors for builder start
+  //
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+   * @param {number} fieldNumber
+   * @param {!${valueType}} value
+   * @protected
+   * @return {BUILDER}
+   */
+  internal_add${stem}Element(fieldNumber, value) {
+    this.kernel_.add${stem}Element(fieldNumber, value);
+    return this;
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {!Iterable<!${valueType}>} value
+   * @protected
+   * @return {BUILDER}
+   */
+  internal_addAll${stem}Elements(fieldNumber, value) {
+    this.kernel_.addAll${stem}Elements(fieldNumber, value);
+    return this;
+  }
+
+
+  /**
+   * @param {number} fieldNumber
+   * @param {!${valueType}} value
+   * @protected
+   * @return {BUILDER}
+   */
+  internal_set${stem}Field(fieldNumber, value) {
+    this.kernel_.set${stem}Field(fieldNumber, value);
+    return this;
+  }
+
+
+  /**
+   * @param {number} fieldNumber
+   * @param {!Iterable<!${valueType}>} value
+   * @protected
+   * @return {BUILDER}
+   */
+  internal_set${stem}Iterable(fieldNumber, value) {
+    this.kernel_.set${stem}Iterable(fieldNumber, value);
+    return this;
+  }
+
+
+  /**
+   * @param {number} fieldNumber
+   * @param {number} elementIndex
+   * @param {!${valueType}} value
+   * @protected
+   * @return {BUILDER}
+   */
+  internal_set${stem}Element(fieldNumber, elementIndex, value) {
+    this.kernel_.set${stem}Element(fieldNumber, elementIndex, value);
+    return this;
+  }
+
+
+  //////////////////////////////////////////////////////////////////////////////
+  //
+  // ${stem} accessors for builder stop
+  //
+  //////////////////////////////////////////////////////////////////////////////
+
+#end
+
+  //////////////////////////////////////////////////////////////////////////////
+  //
+  // Message accessors for builder start
+  //
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+   * @param {number} fieldNumber
+   * @param {!InternalMessage|!InternalMessage.Builder} value
+   * @protected
+   * @return {BUILDER}
+   */
+  internal_addMessageElement(fieldNumber, value) {
+    if (value instanceof Message.Builder) {
+      value = value.build();
+    }
+    this.kernel_.addMessageElement(fieldNumber, value.kernel_);
+    return this;
+  }
+
+
+  /**
+   * @param {number} fieldNumber
+   * @param {!Iterable<T>} values
+   * @protected
+   * @template T
+   * @return {BUILDER}
+   */
+  internal_addAllMessageElements(fieldNumber, values) {
+    for (const value of values) {
+      this.internal_addMessageElement(fieldNumber, value);
+    }
+    return this;
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {function(new:T, !Array<*>)} ctor
+   * @protected
+   * @template T
+   * @return {T}
+   */
+  internal_getMessageField(fieldNumber, ctor) {
+    return this.kernel_.getMessageField(fieldNumber, ctor);
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {function(new:T, !Array<*>)} ctor
+   * @protected
+   * @template T
+   * @return {!Iterable<T>}
+   */
+  internal_getRepeatedMessageField(fieldNumber, ctor) {
+    return this.kernel_.getRepeatedMessageField(fieldNumber, ctor);
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {number} elementIndex
+   * @param {function(new:T, !Array<*>)} ctor
+   * @protected
+   * @template T
+   * @return {T}
+   */
+  internal_getMessageElement(fieldNumber, elementIndex, ctor) {
+    return this.kernel_.getMessageElement(fieldNumber, elementIndex, ctor);
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {!InternalMessage|!InternalMessage.Builder} value
+   * @protected
+   * @return {BUILDER}
+   */
+  internal_setMessageField(fieldNumber, value) {
+    if (value instanceof Message.Builder) {
+      value = value.build();
+    }
+    this.kernel_.setMessageField(fieldNumber, value.kernel_);
+    return this;
+  }
+
+
+  /**
+   * @param {number} fieldNumber
+   * @param {!Iterable<!InternalMessage>} value
+   * @protected
+   * @return {BUILDER}
+   */
+  internal_setMessageIterable(fieldNumber, value) {
+    this.internal_clearField(fieldNumber);
+    for (const message of value) {
+      this.internal_addMessageElement(fieldNumber, message);
+    }
+    return this;
+  }
+
+
+  /**
+   * @param {number} fieldNumber
+   * @param {number} elementIndex
+   * @param {!InternalMessage|!InternalMessage.Builder} value
+   * @protected
+   * @return {BUILDER}
+   */
+  internal_setMessageElement(fieldNumber, elementIndex, value) {
+    if (value instanceof Message.Builder) {
+      value = value.build();
+    }
+    this.kernel_.setMessageElement(fieldNumber, elementIndex, value.kernel_);
+    return this;
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+  //
+  // Message accessors for builder stop
+  //
+  //////////////////////////////////////////////////////////////////////////////

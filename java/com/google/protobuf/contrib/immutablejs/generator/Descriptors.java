@@ -20,11 +20,15 @@ import com.google.common.collect.ImmutableList;
 import java.util.stream.Stream;
 
 /** Utility methods for protobuf Descriptors. */
-final class Descriptors {
+public final class Descriptors {
   public static ImmutableList<ImportDescriptor> calculateImports(
       Stream<TemplateFieldDescriptor> fields) {
+    return calculateImportsForTypes(fields.flatMap(TemplateFieldDescriptor::getImports));
+  }
+
+  public static ImmutableList<ImportDescriptor> calculateImportsForTypes(
+      Stream<TypeReferenceDescriptor> fields) {
     return fields
-        .flatMap(TemplateFieldDescriptor::getImports)
         .filter(TypeReferenceDescriptor::needsImport)
         .map(TypeReferenceDescriptor::target)
         .map(TypeDescriptor::createImport)

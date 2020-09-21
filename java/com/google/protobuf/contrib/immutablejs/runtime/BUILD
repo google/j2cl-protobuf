@@ -35,9 +35,18 @@ closure_js_library(
     deps = [":internal_checks"],
 )
 
+genrule(
+    name = "gen_jspbkernel",
+    srcs = [],
+    outs = ["jspbkernel.js"],
+    cmd = "$(location //java/com/google/protobuf/contrib/immutablejs/generator/runtime:RuntimeGenerator) -runtimeClass jspb_kernel -output \"$@\"",
+    tools = ["//java/com/google/protobuf/contrib/immutablejs/generator/runtime:RuntimeGenerator"],
+    visibility = ["//visibility:private"],
+)
+
 closure_js_library(
     name = "jspbkernel",
-    srcs = ["jspbkernel.js"],
+    srcs = [":gen_jspbkernel"],
     deps = [
         ":bytestring",
         ":equivalence",
@@ -85,9 +94,18 @@ closure_js_library(
     ],
 )
 
+genrule(
+    name = "gen_internal_message",
+    srcs = [],
+    outs = ["internal_message.js"],
+    cmd = "$(location //java/com/google/protobuf/contrib/immutablejs/generator/runtime:RuntimeGenerator) -runtimeClass internal_message -output \"$@\"",
+    tools = ["//java/com/google/protobuf/contrib/immutablejs/generator/runtime:RuntimeGenerator"],
+    visibility = ["//visibility:private"],
+)
+
 closure_js_library(
     name = "internal_message",
-    srcs = ["internal_message.js"],
+    srcs = [":gen_internal_message"],
     deps = [
         ":bytestring",
         ":internal_checks",

@@ -33,22 +33,31 @@ public abstract class TypeDescriptor {
 
   private static final String MODULE_NAME_PREFIX = "improto.";
 
-  static final TypeDescriptor LONG = createClosureType("goog.math.Long", "Long");
-  static final TypeDescriptor INT52_LONG = createClosureType("goog.math.Long", "Int52Long");
-  static final TypeDescriptor BYTE_STRING = createClosureType("proto.im.ByteString", "ByteString");
-  static final TypeDescriptor LIST_VIEW = createClosureType("proto.im.ListView", "List");
+  public static final TypeDescriptor BOOLEAN = createPrimitive("boolean", "Boolean");
+  public static final TypeDescriptor STRING = createPrimitive("string", "String");
+  public static final TypeDescriptor FLOAT = createPrimitive("number", "Double");
+  public static final TypeDescriptor INT = createPrimitive("number", "Int");
+  public static final TypeDescriptor LONG = createClosureType("goog.math.Long", "Long");
+  public static final TypeDescriptor INT52_LONG = createClosureType("goog.math.Long", "Int52Long");
+  public static final TypeDescriptor BYTE_STRING =
+      createClosureType("proto.im.ByteString", "ByteString");
+  public static final TypeDescriptor LIST_VIEW = createClosureType("proto.im.ListView", "List");
+  public static final TypeDescriptor INTERNAL_MESSAGE =
+      createClosureType("proto.im.internal.InternalMessage", /* stem= */ "");
+  public static final TypeDescriptor JSPB_KERNEL =
+      createClosureType("proto.im.JspbKernel", /* stem= */ "");
 
   public static TypeDescriptor create(FieldDescriptor fieldDescriptor) {
     switch (fieldDescriptor.getJavaType()) {
       case BOOLEAN:
-        return createPrimitive("boolean", "Boolean");
+        return BOOLEAN;
       case STRING:
-        return createPrimitive("string", "String");
+        return STRING;
       case DOUBLE:
       case FLOAT:
-        return createPrimitive("number", "Double");
+        return FLOAT;
       case INT:
-        return createPrimitive("number", "Int");
+        return INT;
       case LONG:
         if (fieldDescriptor.getOptions().getJstype() != JSType.JS_STRING) {
           return INT52_LONG;
@@ -97,7 +106,7 @@ public abstract class TypeDescriptor {
     return newBuilder().setStem(stem).setName(primitiveType).setModuleName("").build();
   }
 
-  private static TypeDescriptor createClosureType(String closureType, String stem) {
+  public static TypeDescriptor createClosureType(String closureType, String stem) {
     return newBuilder().setStem(stem).setName(closureType).setModuleName(closureType).build();
   }
 

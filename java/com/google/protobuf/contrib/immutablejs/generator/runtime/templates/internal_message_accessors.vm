@@ -1,0 +1,101 @@
+#foreach ($type in $primitiveTypes)
+#set ($valueType = $type.expression)
+#set ($stem = $type.target().stem)
+
+  //////////////////////////////////////////////////////////////////////////////
+  //
+  // ${stem} accessors start
+  //
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+   * @param {number} fieldNumber
+   * @protected
+   * @return {!${valueType}}
+   */
+  internal_get${stem}Field(fieldNumber) {
+    return this.kernel_.get${stem}Field(fieldNumber);
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {!${valueType}} defaultValue
+   * @protected
+   * @return {!${valueType}}
+   */
+  internal_get${stem}FieldWithDefault(fieldNumber, defaultValue) {
+    return this.kernel_.get${stem}FieldWithDefault(fieldNumber, defaultValue);
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @protected
+   * @return {!ListView<!${valueType}>}
+   */
+  internal_getRepeated${stem}Field(fieldNumber) {
+    return this.kernel_.getRepeated${stem}Field(fieldNumber);
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {number} elementIndex
+   * @protected
+   * @return {!${valueType}}
+   */
+  internal_get${stem}Element(fieldNumber, elementIndex) {
+    return this.kernel_.get${stem}Element(fieldNumber, elementIndex);
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+  //
+  // ${stem} accessors stop
+  //
+  //////////////////////////////////////////////////////////////////////////////
+
+#end
+
+  //////////////////////////////////////////////////////////////////////////////
+  //
+  // Message accessors start
+  //
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+   * @param {number} fieldNumber
+   * @param {function(new:T, !Array<*>)} ctor
+   * @protected
+   * @template T
+   * @return {T}
+   */
+  internal_getMessageField(fieldNumber, ctor) {
+    return this.kernel_.getMessageField(fieldNumber, ctor);
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {function(new:T, !Array<*>)} ctor
+   * @protected
+   * @template T
+   * @return {!ListView<T>}
+   */
+  internal_getRepeatedMessageField(fieldNumber, ctor) {
+    return this.kernel_.getRepeatedMessageField(fieldNumber, ctor);
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {number} elementIndex
+   * @param {function(new:T, !Array<*>)} ctor
+   * @protected
+   * @template T
+   * @return {T}
+   */
+  internal_getMessageElement(fieldNumber, elementIndex, ctor) {
+    return this.kernel_.getMessageElement(fieldNumber, elementIndex, ctor);
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+  //
+  // Message accessors stop
+  //
+  //////////////////////////////////////////////////////////////////////////////

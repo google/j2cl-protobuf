@@ -625,6 +625,25 @@ class FieldAccessor {
   /**
    * @param {!Object<number, *>} rawJson
    * @param {number} fieldNumber
+   * @param {!Long} defaultValue
+   * @return {!Long}
+   */
+  static getInt52LongWithDefault(rawJson, fieldNumber, defaultValue) {
+    return FieldAccessor.getLongWithDefault(rawJson, fieldNumber, defaultValue);
+  }
+
+  /**
+   * @param {!Object<number, *>} rawJson
+   * @param {number} fieldNumber
+   * @return {!Long}
+   */
+  static getInt52Long(rawJson, fieldNumber) {
+    return FieldAccessor.getLong(rawJson, fieldNumber);
+  }
+
+  /**
+   * @param {!Object<number, *>} rawJson
+   * @param {number} fieldNumber
    * @param {!Long} value
    */
   static setInt52Long(rawJson, fieldNumber, value) {
@@ -642,6 +661,16 @@ class FieldAccessor {
   static getLongElement(rawJson, fieldNumber, elementIndex) {
     const value = FieldAccessor.getElement_(rawJson, fieldNumber, elementIndex);
     return FieldAccessor.convertToLong_(value);
+  }
+
+  /**
+   * @param {!Object<number, *>} rawJson
+   * @param {number} fieldNumber
+   * @param {number} elementIndex
+   * @return {!Long}
+   */
+  static getInt52LongElement(rawJson, fieldNumber, elementIndex) {
+    return FieldAccessor.getLongElement(rawJson, fieldNumber, elementIndex);
   }
 
   /**
@@ -722,6 +751,15 @@ class FieldAccessor {
   static getLongListView(rawJson, fieldNumber) {
     return FieldAccessor.createListView_(
         rawJson, fieldNumber, FieldAccessor.getLong);
+  }
+
+  /**
+   * @param {!Object<number, *>} rawJson
+   * @param {number} fieldNumber
+   * @return {!ListView<!Long>}
+   */
+  static getInt52LongListView(rawJson, fieldNumber) {
+    return FieldAccessor.getLongListView(rawJson, fieldNumber);
   }
 
   /**

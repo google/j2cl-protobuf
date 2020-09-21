@@ -20,9 +20,9 @@ import org.apache.velocity.runtime.RuntimeConstants;
 import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 
 /** Utility methods for using Apache Velocity. */
-final class VelocityUtil {
+public final class VelocityUtil {
 
-  static VelocityEngine createEngine() {
+  public static VelocityEngine createEngine() {
     return createEngine(new Properties());
   }
 

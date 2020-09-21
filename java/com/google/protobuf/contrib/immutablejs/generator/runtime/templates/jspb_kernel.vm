@@ -1,0 +1,387 @@
+// Copyright 2019 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     https://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+goog.module('proto.im.JspbKernel');
+
+const Equivalence = goog.require('proto.im.internal.Equivalence');
+const FieldAccessor = goog.require('proto.im.internal.FieldAccessor');
+const Hashing = goog.require('proto.im.internal.Hashing');
+const ListView = goog.require('proto.im.ListView');
+const internalChecks = goog.require('proto.im.internal.internalChecks');
+
+#parse('imports.vm')
+
+## A dollar-sign literal to be used in places where on would want to escape it.
+## Unfortunately VTL only allows backslash escaping of valid VTL references. To
+## escape something that looks like a VTL variable reference but isn't defined
+## you need to used a dummy variable. See:
+## https://velocity.apache.org/engine/1.7/user-guide.html#escaping-invalid-vtl-references
+#set( $D = '$' )
+
+/** @private @const */
+const cachedMsgKey = '${D}jspb_cached_msg_';
+
+/**
+ * @param {!Array} data
+ * @return {boolean}
+ */
+function hasExtensionObject(data) {
+  if (data.length > 0) {
+    // Look at the data to see if there is a extension object
+    const lastObject = data[data.length - 1];
+    if (lastObject && typeof lastObject === 'object' &&
+        !Array.isArray(lastObject)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+/**
+ * @param {!Array<*>} data
+ * @param {number} suggestedPivot
+ * @param {number} messageOffset
+ * @return {number}
+ */
+function calculatePivot(data, suggestedPivot, messageOffset) {
+  if (hasExtensionObject(data)) {
+    // Reuse the existing pivot
+    return data.length - 1;
+  }
+
+  if (suggestedPivot > 0) {
+    return Math.max(suggestedPivot, data.length - messageOffset);
+  }
+
+  return Number.MAX_VALUE;
+}
+
+/**
+ * @param {!Object<number, ?>} data
+ */
+function cloneRepeatedFields_(data) {
+  for (const key in data) {
+    const value = data[+key];
+    if (Array.isArray(value) && !(cachedMsgKey in value)) {
+      // Note that for submessages that are not instantiated, there might not
+      // a cached msg (e.g. a parsed Message where getter is not called yet).
+      // Those are OK to copy since we don't care about referential equality
+      // if the message is not instantiated yet.
+      data[+key] = value.slice();
+    }
+  }
+}
+
+/**
+ * @final
+ */
+class JspbKernel {
+  /**
+   * @param {!Array<*>} data The array holding protobuf data conforming to the
+   *     JSPB wireformat.
+   * @param {number} suggestedPivot The pivot value after which fields are found
+   *     in the extension object.
+   * @param {string|number} messageId The apps framework message id.
+   * @return {!JspbKernel}
+   */
+  static create(data, suggestedPivot, messageId) {
+    const messageOffset = messageId ? 0 : -1;
+    const pivot = calculatePivot(data, suggestedPivot, messageOffset);
+    // Assign message id if its not present
+    if (messageId && !data[0]) {
+      data[0] = messageId;
+    }
+    return new JspbKernel(data, pivot, messageOffset);
+  }
+
+  /**
+   * @param {function(new:MESSAGE, !Array<*>)} ctor
+   * @param {!Array<?>} data
+   * @return {MESSAGE}
+   * @template MESSAGE
+   */
+  static fromArray(ctor, data) {
+    const cache = /** @type {!Object} */ (data);
+    return cache[cachedMsgKey] || (cache[cachedMsgKey] = new ctor(data));
+  }
+
+  /**
+   * @param {!Array<*>} data The array holding protobuf data conforming to the
+   *     JSPB wireformat.
+   * @param {number} pivot The index in the array after which fields are placed
+   *     in the extension object.
+   * @param {number} messageOffset The apps framework message id.
+   * @private
+   */
+  constructor(data, pivot, messageOffset) {
+    /** @private @const {!Array<*>} */
+    this.data_ = data;
+    /** @private @const {number} */
+    this.pivot_ = pivot;
+    /** @private @const {number} */
+    this.messageOffset_ = messageOffset;
+
+    /** @private */
+    this.hash_ = 0;
+  }
+
+  /**
+   * Returns a shallow copied new message.
+   * @param {function(new:MESSAGE, !Array<*>)} ctor
+   * @return {MESSAGE}
+   * @template MESSAGE
+   */
+  shallowCopy(ctor) {
+    const newData = this.data_.slice();
+    // Note that we only need to clone the repeated fields since submessages are
+    // not modifiable with the builder.
+    cloneRepeatedFields_(newData);
+
+    // Last field in the array might be an extension object
+    // For extenions we need to clone the object itself and its repeated fields.
+    if (hasExtensionObject(newData)) {
+      const clonedExtension =
+          Object.assign({}, /** @type {!Object} */ (newData.pop()));
+      cloneRepeatedFields_(clonedExtension);
+      newData.push(clonedExtension);
+    }
+
+    return JspbKernel.fromArray(ctor, newData);
+  }
+
+
+
+  freeze() {
+    internalChecks.freezeObject(this.data_);
+  }
+
+  /**
+   * @return {string}
+   */
+  serialize() {
+    return JSON.stringify(this.data_);
+  }
+
+  /**
+   * @param {!JspbKernel} other
+   * @return {boolean}
+   */
+  equals(other) {
+    if (this === other) {
+      return true;
+    }
+
+    return Equivalence.equivalence(this.data_, other.data_);
+  }
+
+  /**
+   * @return {number}
+   */
+  hashCode() {
+    if (this.hash_ === 0) {
+      this.hash_ = Hashing.hash(this.data_);
+    }
+    return this.hash_;
+  }
+
+  /**
+   * Adjust index based on whether we are accessing array or the extension
+   * object.
+   * @param {number} fieldNumber The field number.
+   * @return {number}
+   * @private
+   */
+  adjustIndex_(fieldNumber) {
+    const adjustedIndex = fieldNumber + this.messageOffset_;
+    return adjustedIndex < this.pivot_ ? adjustedIndex : fieldNumber;
+  }
+
+  /**
+   * Selects either the data object or the extension object based on the
+   * adjusted index.
+   * @param {number} adjustedIndex is adjusted field number with #adjustIndex_.
+   * @return {!Object<number, *>}
+   * @private
+   */
+  getStorageFor_(adjustedIndex) {
+    if (adjustedIndex < this.pivot_) {
+      return this.data_;
+    } else {
+      let extension = this.data_[this.pivot_];
+      if (!extension) {
+        extension = this.data_[this.pivot_] = {};
+      }
+      return /** @type {!Object<number, *>} */ (extension);
+    }
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @return {boolean}
+   */
+  hasField(fieldNumber) {
+    const index = this.adjustIndex_(fieldNumber);
+    const rawJson = this.getStorageFor_(index);
+    return FieldAccessor.hasField(rawJson, index);
+  }
+
+
+  /**
+   * @param {number} fieldNumber
+   * @return {number}
+   */
+  getRepeatedFieldCount(fieldNumber) {
+    const index = this.adjustIndex_(fieldNumber);
+    const rawJson = this.getStorageFor_(index);
+    return FieldAccessor.getRepeatedFieldCount(rawJson, index);
+  }
+
+
+  /**
+   * @param {number} fieldNumber
+   * @param {function(!Object<number, *>, number):T} accessorFn
+   * @private
+   * @return {T}
+   * @template T
+   */
+  getField_(fieldNumber, accessorFn) {
+    const index = this.adjustIndex_(fieldNumber);
+    const rawJson = this.getStorageFor_(index);
+    return accessorFn(rawJson, index);
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {T} defaultValue
+   * @param {function(!Object<number, *>, number, T):T} accessorFn
+   * @private
+   * @return {T}
+   * @template T
+   */
+  getFieldWithDefault_(fieldNumber, defaultValue, accessorFn) {
+    const index = this.adjustIndex_(fieldNumber);
+    const rawJson = this.getStorageFor_(index);
+    return accessorFn(rawJson, index, defaultValue);
+  }
+
+
+  /**
+   * @param {number} fieldNumber
+   * @param {function(!Object<number, *>, number):T} accessorFn
+   * @private
+   * @return {T}
+   * @template T
+   */
+  getRepeatedField_(fieldNumber, accessorFn) {
+    const index = this.adjustIndex_(fieldNumber);
+    const rawJson = this.getStorageFor_(index);
+    return accessorFn(rawJson, index);
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {number} elementIndex
+   * @param {function(!Object<number, *>, number, number):T} accessorFn
+   * @private
+   * @return {T}
+   * @template T
+   */
+  getElement_(fieldNumber, elementIndex, accessorFn) {
+    const index = this.adjustIndex_(fieldNumber);
+    const rawJson = this.getStorageFor_(index);
+    return accessorFn(rawJson, index, elementIndex);
+  }
+
+  /**
+   * @param {number} fieldNumber
+   */
+  clearField(fieldNumber) {
+    const index = this.adjustIndex_(fieldNumber);
+    const rawJson = this.getStorageFor_(index);
+    delete rawJson[index];
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {T} value
+   * @param {function(!Object<number, *>, number, T)} accessorFn
+   * @private
+   * @template T
+   */
+  addElement_(fieldNumber, value, accessorFn) {
+    const index = this.adjustIndex_(fieldNumber);
+    const rawJson = this.getStorageFor_(index);
+    accessorFn(rawJson, index, value);
+  }
+
+
+  /**
+   * @param {number} fieldNumber
+   * @param {T} value
+   * @param {function(!Object<number, *>, number, T)} accessorFn
+   * @private
+   * @template T
+   */
+  addAllElements_(fieldNumber, value, accessorFn) {
+    const index = this.adjustIndex_(fieldNumber);
+    const rawJson = this.getStorageFor_(index);
+    accessorFn(rawJson, index, value);
+  }
+
+
+  /**
+   * @param {number} fieldNumber
+   * @param {T} value
+   * @param {function(!Object<number, *>, number, T)} accessorFn
+   * @private
+   * @template T
+   */
+  setField_(fieldNumber, value, accessorFn) {
+    const index = this.adjustIndex_(fieldNumber);
+    const rawJson = this.getStorageFor_(index);
+    accessorFn(rawJson, index, value);
+  }
+
+
+  /**
+   * @param {number} fieldNumber
+   * @param {number} elementIndex
+   * @param {T} value
+   * @param {function(!Object<number, *>, number, number, T)} accessorFn
+   * @private
+   * @template T
+   */
+  setElement_(fieldNumber, elementIndex, value, accessorFn) {
+    const index = this.adjustIndex_(fieldNumber);
+    const rawJson = this.getStorageFor_(index);
+    accessorFn(rawJson, index, elementIndex, value);
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {!Iterable<T>} value
+   * @param {function(!Object<number, *>, number, !Iterable<T>)} accessorFn
+   * @private
+   * @template T
+   */
+  setIterable_(fieldNumber, value, accessorFn) {
+    const index = this.adjustIndex_(fieldNumber);
+    const rawJson = this.getStorageFor_(index);
+    accessorFn(rawJson, index, value);
+  }
+
+  #parse('jspb_kernel_accessors.vm')
+}
+
+exports = JspbKernel;
+

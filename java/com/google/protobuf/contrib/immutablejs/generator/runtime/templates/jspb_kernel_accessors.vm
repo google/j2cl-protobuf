@@ -1,0 +1,207 @@
+#foreach ($type in $primitiveTypes)
+#set ($valueType = $type.expression)
+#set ($stem = $type.target().stem)
+
+  //////////////////////////////////////////////////////////////////////////////
+  //
+  // ${stem} accessors start
+  //
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+   * @param {number} fieldNumber
+   * @return {!${valueType}}
+   */
+  get${stem}Field(fieldNumber) {
+    return this.getField_(fieldNumber, FieldAccessor.get${stem});
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {!${valueType}} defaultValue
+   * @return {!${valueType}}
+   */
+  get${stem}FieldWithDefault(fieldNumber, defaultValue) {
+    return this.getFieldWithDefault_(
+        fieldNumber, defaultValue, FieldAccessor.get${stem}WithDefault);
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @return {!ListView<!${valueType}>}
+   */
+  getRepeated${stem}Field(fieldNumber) {
+    return this.getRepeatedField_(
+        fieldNumber, FieldAccessor.get${stem}ListView);
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {number} elementIndex
+   * @return {!${valueType}}
+   */
+  get${stem}Element(fieldNumber, elementIndex) {
+    return this.getElement_(
+        fieldNumber, elementIndex, FieldAccessor.get${stem}Element);
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+  //
+  // ${stem} accessors stop
+  //
+  //////////////////////////////////////////////////////////////////////////////
+
+  //////////////////////////////////////////////////////////////////////////////
+  //
+  // ${stem} accessors for builder start
+  //
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+   * @param {number} fieldNumber
+   * @param {!${valueType}} value
+   */
+  add${stem}Element(fieldNumber, value) {
+    this.addElement_(fieldNumber, value, FieldAccessor.add${stem}Element);
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {!Iterable<!${valueType}>} value
+   */
+  addAll${stem}Elements(fieldNumber, value) {
+    this.addAllElements_(
+        fieldNumber, value, FieldAccessor.addAll${stem}Elements);
+  }
+
+
+  /**
+   * @param {number} fieldNumber
+   * @param {!${valueType}} value
+   */
+  set${stem}Field(fieldNumber, value) {
+    this.setField_(fieldNumber, value, FieldAccessor.set${stem});
+  }
+
+
+  /**
+   * @param {number} fieldNumber
+   * @param {!Iterable<!${valueType}>} value
+   */
+  set${stem}Iterable(fieldNumber, value) {
+    this.setIterable_(fieldNumber, value, FieldAccessor.set${stem}Iterable);
+  }
+
+
+  /**
+   * @param {number} fieldNumber
+   * @param {number} elementIndex
+   * @param {!${valueType}} value
+   */
+  set${stem}Element(fieldNumber, elementIndex, value) {
+    this.setElement_(
+        fieldNumber, elementIndex, value, FieldAccessor.set${stem}Element);
+  }
+
+
+  //////////////////////////////////////////////////////////////////////////////
+  //
+  // ${stem} accessors for builder stop
+  //
+  //////////////////////////////////////////////////////////////////////////////
+
+#end
+
+  //////////////////////////////////////////////////////////////////////////////
+  //
+  // Message accessors start
+  //
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+   * @param {number} fieldNumber
+   * @param {function(new:T, !Array<*>)} ctor
+   * @template T
+   * @return {T}
+   */
+  getMessageField(fieldNumber, ctor) {
+    const instanceCreator = data => JspbKernel.fromArray(ctor, data);
+    return this.getField_(
+        fieldNumber, (a, i) => FieldAccessor.getMessage(a, i, instanceCreator));
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {function(new:T, !Array<*>)} ctor
+   * @template T
+   * @return {!ListView<T>}
+   */
+  getRepeatedMessageField(fieldNumber, ctor) {
+    const instanceCreator = data => JspbKernel.fromArray(ctor, data);
+    return this.getRepeatedField_(
+        fieldNumber,
+        (data, fieldNumber) => FieldAccessor.getMessageListView(
+            data, fieldNumber, instanceCreator));
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {number} elementIndex
+   * @param {function(new:T, !Array<*>)} ctor
+   * @template T
+   * @return {T}
+   */
+  getMessageElement(fieldNumber, elementIndex, ctor) {
+    const instanceCreator = data => JspbKernel.fromArray(ctor, data);
+    return this.getElement_(
+        fieldNumber, elementIndex,
+        (data, fieldNumber, index) => FieldAccessor.getMessageElement(
+            data, fieldNumber, index, instanceCreator));
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+  //
+  // Message accessors stop
+  //
+  //////////////////////////////////////////////////////////////////////////////
+
+  //////////////////////////////////////////////////////////////////////////////
+  //
+  // Message accessors for builder start
+  //
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+   * @param {number} fieldNumber
+   * @param {!JspbKernel} value
+   */
+  addMessageElement(fieldNumber, value) {
+    this.addElement_(fieldNumber, value.data_, FieldAccessor.addMessageElement);
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {!JspbKernel} value
+   */
+  setMessageField(fieldNumber, value) {
+    this.setField_(
+        fieldNumber, value, (data, index) => data[index] = value.data_);
+  }
+
+
+  /**
+   * @param {number} fieldNumber
+   * @param {number} elementIndex
+   * @param {!JspbKernel} value
+   */
+  setMessageElement(fieldNumber, elementIndex, value) {
+    this.setElement_(
+        fieldNumber, elementIndex, value.data_,
+        FieldAccessor.setMessageElement);
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+  //
+  // Message accessors for builder stop
+  //
+  //////////////////////////////////////////////////////////////////////////////

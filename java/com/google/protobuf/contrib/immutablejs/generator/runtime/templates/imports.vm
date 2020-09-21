@@ -1,0 +1,5 @@
+// Generated imports start.
+#foreach ($import in $imports)
+const ${import.importName} = goog.require('${import.moduleName}');
+#end
+// Generated imports stop.
