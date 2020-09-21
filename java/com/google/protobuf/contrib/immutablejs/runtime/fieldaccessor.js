@@ -163,7 +163,7 @@ class FieldAccessor {
   /**
    * @param {!Object<number, *>} rawJson
    * @param {number} fieldNumber
-   * @param {boolean | number} value
+   * @param {boolean} value
    */
   static setBoolean(rawJson, fieldNumber, value) {
     internalChecks.checkTypeBoolean(value);

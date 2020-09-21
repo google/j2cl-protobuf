@@ -96,13 +96,14 @@ class FieldAccessorTest {
     assertThrows(() => FieldAccessor.getBoolean(fields, 2));
     assertThrows(() => FieldAccessor.getBoolean(fields, 3));
     assertThrows(() => FieldAccessor.getBoolean(fields, 4));
-    assertThrows(() => FieldAccessor.setBoolean(fields, 1, 1));
-    assertThrows(() => FieldAccessor.setBoolean(fields, 1, 0));
     assertThrows(
-        () => FieldAccessor.setBoolean(fields, 1, /** @type {boolean} */ ({})));
+        () => FieldAccessor.setBoolean(fields, 1, /** @type {?} */ (1)));
     assertThrows(
-        () => FieldAccessor.setBoolean(
-            fields, 1, /** @type {boolean} */ (/** @type {*} */ ([]))));
+        () => FieldAccessor.setBoolean(fields, 1, /** @type {?} */ (0)));
+    assertThrows(
+        () => FieldAccessor.setBoolean(fields, 1, /** @type {?} */ ({})));
+    assertThrows(
+        () => FieldAccessor.setBoolean(fields, 1, /** @type {?} */ ([])));
   }
 
   testSingleBooleanTypeChecksDisabled() {
@@ -119,17 +120,16 @@ class FieldAccessorTest {
     assertTrue(FieldAccessor.getBoolean(fields, 4));
 
 
-    FieldAccessor.setBoolean(fields, 5, 1);
+    FieldAccessor.setBoolean(fields, 5, /** @type {?} */ (1));
     assertEquals(1, fields[5]);
 
-    FieldAccessor.setBoolean(fields, 6, 0);
+    FieldAccessor.setBoolean(fields, 6, /** @type {?} */ (0));
     assertEquals(0, fields[6]);
 
-    FieldAccessor.setBoolean(fields, 7, /** @type {boolean} */ ({}));
+    FieldAccessor.setBoolean(fields, 7, /** @type {?} */ ({}));
     assertEquals(1, fields[7]);
 
-    FieldAccessor.setBoolean(
-        fields, 8, /** @type {boolean} */ (/** @type {*} */ ([])));
+    FieldAccessor.setBoolean(fields, 8, /** @type {?} */ ([]));
     assertEquals(1, fields[8]);
   }
 
