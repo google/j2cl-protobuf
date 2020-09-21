@@ -118,7 +118,7 @@ alias(
 
 alias(
     name = "args4j",
-    actual = "//third_party/java/args4j",
+    actual = "@args4j",
 )
 
 alias(
