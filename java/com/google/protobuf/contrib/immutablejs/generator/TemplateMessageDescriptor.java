@@ -108,4 +108,8 @@ public abstract class TemplateMessageDescriptor {
   public String getProtoFileComments() {
     return Descriptors.getProtoFileComments(descriptor());
   }
+
+  public boolean isDeprecated() {
+    return descriptor().getOptions().getDeprecated();
+  }
 }

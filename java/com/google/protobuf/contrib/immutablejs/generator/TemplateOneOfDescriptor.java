@@ -38,6 +38,10 @@ public abstract class TemplateOneOfDescriptor {
     public int getNumber() {
       return fieldDescriptor().getNumber();
     }
+
+    public boolean isDeprecated() {
+      return fieldDescriptor().getOptions().getDeprecated();
+    }
   }
 
   public static TemplateOneOfDescriptor create(

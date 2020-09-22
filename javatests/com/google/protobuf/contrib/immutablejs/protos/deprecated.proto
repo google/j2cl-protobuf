@@ -1,0 +1,52 @@
+// Copyright 2020 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     https://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+// Test proto with many pieces deprecated for golden files tests.
+syntax = "proto2";
+
+package protobuf.contrib.immutablejs.protos;
+
+option java_multiple_files = true;
+
+message DeprecatedProto {
+  option deprecated = true;
+
+  optional string deprecated_optional_field = 1 [deprecated = true];
+  optional string optional_field = 2;
+
+  optional string deprecated_repeated_field = 3 [deprecated = true];
+  optional string repeated_field = 4;
+
+  enum DeprecatedEnum {
+    option deprecated = true;
+
+    DEPRECATED_FIRST_VALUE = 1 [deprecated = true];
+    SECOND_VALUE = 2;
+  }
+
+  enum NotDeprecatedEnum {
+    FIRST_VALUE = 1;
+    DEPRECATED_SECOND_VALUE = 2 [deprecated = true];
+  }
+
+  oneof OneOfWithDeprecatedFields {
+    string deprecated_oneof_field = 5 [deprecated = true];
+    string oneof_field = 6;
+  }
+
+  message NotDeprecatedInnerMessage {
+    optional string deprecated_optional_field = 1 [deprecated = true];
+    optional string optional_field = 2;
+  }
+}

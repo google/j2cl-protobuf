@@ -20,6 +20,9 @@ const $import.importName = goog.require('$import.moduleName');
  * @struct
  * @final
  * @extends {proto_im_InternalMessage<!${messageName}, !${messageName}.Builder>}
+#if ($message.isDeprecated())
+ * @deprecated
+#end
  */
 #if ($message.type.isTopLevel())
 class $messageName extends proto_im_InternalMessage {

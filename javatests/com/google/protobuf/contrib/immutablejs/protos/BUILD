@@ -50,6 +50,16 @@ immutable_js_proto_library(
 )
 
 proto_library(
+    name = "deprecated",
+    srcs = ["deprecated.proto"],
+)
+
+immutable_js_proto_library(
+    name = "deprecated_immutable_js_proto",
+    deps = [":deprecated"],
+)
+
+proto_library(
     name = "empty_package",
     srcs = ["empty_package.proto"],
 )

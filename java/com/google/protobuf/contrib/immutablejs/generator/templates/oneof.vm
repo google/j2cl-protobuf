@@ -5,6 +5,9 @@
 $oneOfDescriptor.localTypeName = {
 ${oneOfDescriptor.defaultOneOfEntry}: 0,
 #foreach ($field in $oneOfDescriptor.fields)
+  #if ($field.isDeprecated())
+  /** @deprecated */
+  #end
   $field.name : $field.number,
 #end
 };

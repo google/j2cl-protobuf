@@ -8,9 +8,15 @@ goog.module('$enumDescriptor.type.moduleName');
 /**
  * $!enumDescriptor.protoFileComments
  * @enum {number}
+#if ($enumDescriptor.isDeprecated())
+ * @deprecated
+#end
  */
 #if ($enumDescriptor.type.isTopLevel())const#end $enumDescriptor.type.localName = {
 #foreach($enumValue in $enumDescriptor.enumValues)
+  #if ($enumValue.getOptions().getDeprecated())
+  /** @deprecated */
+  #end
   ${enumValue.name}: ${enumValue.number}#if(!$foreach.last),#end
 
 #end
