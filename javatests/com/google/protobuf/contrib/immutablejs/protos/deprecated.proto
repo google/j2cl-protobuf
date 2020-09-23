@@ -25,8 +25,8 @@ message DeprecatedProto {
   optional string deprecated_optional_field = 1 [deprecated = true];
   optional string optional_field = 2;
 
-  optional string deprecated_repeated_field = 3 [deprecated = true];
-  optional string repeated_field = 4;
+  repeated string deprecated_repeated_field = 3 [deprecated = true];
+  repeated string repeated_field = 4;
 
   enum DeprecatedEnum {
     option deprecated = true;

@@ -200,4 +200,8 @@ public abstract class TemplateFieldDescriptor {
   public String getProtoFileComments() {
     return Descriptors.getProtoFileComments(protoFieldDescriptor());
   }
+
+  public boolean isDeprecated() {
+    return protoFieldDescriptor().getOptions().getDeprecated();
+  }
 }

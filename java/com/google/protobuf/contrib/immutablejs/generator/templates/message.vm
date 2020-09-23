@@ -131,6 +131,9 @@ ${messageName}.Builder = class extends proto_im_InternalMessage.Builder {
 #set ($addAllType = "#if($field.isMessage())!Iterable<$elementType>|!Iterable<${elementType}.Builder>#{else}!Iterable<$elementType>#end")
   /**
    * @return {number}
+#if ($field.isDeprecated())
+   * @deprecated
+#end
    */
   get${field.name}Count() {
     return this.message.get${field.name}Count();
@@ -139,6 +142,9 @@ ${messageName}.Builder = class extends proto_im_InternalMessage.Builder {
   /**
    * @param {number} index
    * @return {${elementType}}
+#if ($field.isDeprecated())
+   * @deprecated
+#end
    */
   get${field.name}(index) {
     return this.message.get${field.name}(index);
@@ -147,6 +153,9 @@ ${messageName}.Builder = class extends proto_im_InternalMessage.Builder {
   /**
    * $!field.protoFileComments
    * @return {${listType}}
+#if ($field.isDeprecated())
+   * @deprecated
+#end
    */
   get${field.name}List() {
     return this.message.get${field.name}List();
@@ -156,6 +165,9 @@ ${messageName}.Builder = class extends proto_im_InternalMessage.Builder {
    * @param {number} index
    * @param {${elementSetType}} value
    * @return {!${messageName}.Builder}
+#if ($field.isDeprecated())
+   * @deprecated
+#end
    */
   set${field.name}(index, value) {
     return this.internal_set${field.stem}Element($field.number, index, value);
@@ -165,6 +177,9 @@ ${messageName}.Builder = class extends proto_im_InternalMessage.Builder {
    * $!field.protoFileComments
    * @param {${elementSetType}} value
    * @return {!${messageName}.Builder}
+#if ($field.isDeprecated())
+   * @deprecated
+#end
    */
   add${field.name}(value) {
     return this.internal_add${field.stem}Element($field.number, value);
@@ -174,6 +189,9 @@ ${messageName}.Builder = class extends proto_im_InternalMessage.Builder {
    * $!field.protoFileComments
    * @param {$addAllType} values
    * @return {!${messageName}.Builder}
+#if ($field.isDeprecated())
+   * @deprecated
+#end
    */
   addAll${field.name}(values) {
     return this.internal_addAll${field.stem}Elements($field.number, values);
@@ -183,6 +201,9 @@ ${messageName}.Builder = class extends proto_im_InternalMessage.Builder {
 #set ($valueSetType = "#if($field.isMessage())$valueType|${valueType}.Builder#{else}$valueType#end")
   /**
    * @return {boolean}
+#if ($field.isDeprecated())
+   * @deprecated
+#end
    */
   has${field.name}() {
     return this.message.has${field.name}();
@@ -191,6 +212,9 @@ ${messageName}.Builder = class extends proto_im_InternalMessage.Builder {
   /**
    * $!field.protoFileComments
    * @return {${valueType}}
+#if ($field.isDeprecated())
+   * @deprecated
+#end
    */
   get${field.name}() {
     return this.message.get${field.name}();
@@ -200,6 +224,9 @@ ${messageName}.Builder = class extends proto_im_InternalMessage.Builder {
    * $!field.protoFileComments
    * @param {${valueSetType}} value
    * @return {!${messageName}.Builder}
+#if ($field.isDeprecated())
+   * @deprecated
+#end
    */
   set${field.name}(value) {
 #if ($field.isOneOf())
@@ -211,6 +238,9 @@ ${messageName}.Builder = class extends proto_im_InternalMessage.Builder {
 
   /**
    * @return {!${messageName}.Builder}
+#if ($field.isDeprecated())
+   * @deprecated
+#end
    */
   clear${field.name}() {
     return this.internal_clearField($field.number);

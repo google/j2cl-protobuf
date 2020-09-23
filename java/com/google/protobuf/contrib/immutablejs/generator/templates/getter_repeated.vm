@@ -2,6 +2,9 @@
 #set ($elementType = $field.elementJsDoc)
   /**
    * @return {number}
+#if ($field.isDeprecated())
+   * @deprecated
+#end
    */
   get${field.name}Count() {
     return this.internal_getRepeatedFieldCount($field.number);
@@ -10,6 +13,9 @@
   /**
    * @param {number} index
    * @return {${elementType}}
+#if ($field.isDeprecated())
+   * @deprecated
+#end
    */
   get${field.name}(index) {
 #if ($field.isMessage())
@@ -24,6 +30,9 @@
   /**
    * $!field.protoFileComments
    * @return {${listType}}
+#if ($field.isDeprecated())
+   * @deprecated
+#end
    */
   get${field.name}List() {
 #if ($field.isMessage())

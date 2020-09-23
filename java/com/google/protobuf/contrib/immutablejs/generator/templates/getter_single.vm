@@ -1,6 +1,9 @@
 #set ($valueType = $field.jsDoc)
   /**
    * @return {boolean}
+#if ($field.isDeprecated())
+   * @deprecated
+#end
    */
   has${field.name}() {
     return this.internal_hasField($field.number);
@@ -9,6 +12,9 @@
   /**
    * $!field.protoFileComments
    * @return {${valueType}}
+#if ($field.isDeprecated())
+   * @deprecated
+#end
    */
   get${field.name}() {
 #if ($field.isMessage())
