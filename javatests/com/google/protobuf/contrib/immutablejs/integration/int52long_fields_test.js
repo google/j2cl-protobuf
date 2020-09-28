@@ -251,6 +251,25 @@ class Int52LongFieldsTest {
       assertThrows(
           () => TestProto.newBuilder().setOptionalInt52Long(
               Long.fromNumber(-Math.pow(2, 53))));
+
+      // Also verify that default JsType (non-set) is consistent with INT52
+
+      assertThrows(
+          () => TestProto.newBuilder().setOptionalDefaultLong(
+              Long.fromNumber(Math.pow(2, 53))));
+      assertThrows(
+          () => TestProto.newBuilder().setOptionalDefaultLong(
+              Long.fromNumber(-Math.pow(2, 53))));
+    } else {
+      const two_53 = Long.fromString('9007199254740992');
+      const two_53_plus_1 = Long.fromString('9007199254740993');
+      builder.setOptionalInt52Long(two_53_plus_1);
+      assertEqualsForProto(two_53, builder.getOptionalInt52Long());
+
+      // Also verify that default JsType (non-set) is consistent with INT52
+
+      builder.setOptionalDefaultLong(two_53_plus_1);
+      assertEqualsForProto(two_53, builder.getOptionalDefaultLong());
     }
   }
 
@@ -286,7 +305,7 @@ class Int52LongFieldsTest {
   }
 
   checkLongDataLoss() {
-    return defines.CHECK_LONG_DATA_LOSS;
+    return defines.CHECKED_MODE__DO_NOT_USE_INTERNAL;
   }
 }
 

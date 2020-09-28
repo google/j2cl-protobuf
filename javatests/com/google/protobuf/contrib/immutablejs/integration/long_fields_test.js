@@ -215,6 +215,18 @@ class LongFieldsTest {
     assertEqualsForProto(0, proto.getRepeatedLongCount());
     assertEqualsForProto(0, proto.getRepeatedLongList().size());
   }
+
+  testNoDataLoss() {
+    const builder = TestProto.newBuilder().setOptionalLongWithDefault(
+        Long.fromNumber(Math.pow(2, 63)));
+    assertEqualsForProto(
+        Long.fromNumber(Math.pow(2, 63)), builder.getOptionalLongWithDefault());
+
+    builder.setOptionalLongWithDefault(Long.fromNumber(-Math.pow(2, 63)));
+    assertEqualsForProto(
+        Long.fromNumber(-Math.pow(2, 63)),
+        builder.getOptionalLongWithDefault());
+  }
 }
 
 testSuite(new LongFieldsTest());

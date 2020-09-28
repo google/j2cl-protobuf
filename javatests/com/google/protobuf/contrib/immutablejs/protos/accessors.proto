@@ -41,9 +41,14 @@ message TestProto {
 
   // int64 fields (int52)
 
-  optional int64 optional_int52long = 50;
-  optional int64 optional_int52long_with_default = 51 [default = 30000];
-  repeated int64 repeated_int52long = 52;
+  optional int64 optional_int52long = 50 [jstype = JS_NUMBER];
+  optional int64 optional_int52long_with_default = 51
+      [default = 30000, jstype = JS_NUMBER];
+  repeated int64 repeated_int52long = 52 [jstype = JS_NUMBER];
+
+  // int64 fields (default)
+
+  optional int64 optional_default_long = 53;
 
   // float fields
 
