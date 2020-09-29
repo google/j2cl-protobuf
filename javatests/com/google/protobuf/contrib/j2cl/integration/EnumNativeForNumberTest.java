@@ -25,6 +25,7 @@ import org.junit.runners.JUnit4;
 
 /** This tests {@code forNumber} behavior for native enums that differ from JVM version */
 @RunWith(JUnit4.class)
+@SuppressWarnings("TruthIncompatibleType") // intentional
 public final class EnumNativeForNumberTest {
 
   @Test
