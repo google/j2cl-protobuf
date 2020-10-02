@@ -59,6 +59,7 @@ public final class EnumParseTest {
   }
 
   @Test
+  @SuppressWarnings("TruthIncompatibleType") // intentional
   public void testParse_unknownValue() throws Exception {
     assertThat(parse("[-1]").getOptionalEnum()).isEqualTo(TestEnum.DEFAULT);
     assertThat(parse("[100]").getOptionalEnum()).isEqualTo(TestEnum.DEFAULT);
