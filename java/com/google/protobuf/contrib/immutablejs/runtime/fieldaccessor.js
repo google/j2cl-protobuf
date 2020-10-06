@@ -28,7 +28,6 @@
 goog.module('proto.im.internal.FieldAccessor');
 
 const ByteString = goog.require('proto.im.ByteString');
-const ListView = goog.require('proto.im.ListView');
 const Long = goog.require('goog.math.Long');
 const internalChecks = goog.require('proto.im.internal.internalChecks');
 
@@ -42,11 +41,12 @@ class FieldAccessor {
    * @param {!Object<number, *>} rawJson
    * @param {number} fieldNumber
    * @return {!Array<*>}
-   * @private
    */
-  static ensureRepeatedFieldPresent_(rawJson, fieldNumber) {
-    rawJson[fieldNumber] = rawJson[fieldNumber] || [];
-    return /** @type {!Array<*>} */ (rawJson[fieldNumber]);
+  static ensureRepeatedFieldPresent(rawJson, fieldNumber) {
+    if (!rawJson[fieldNumber]) {
+      rawJson[fieldNumber] = [];
+    }
+    return internalChecks.checkTypeArray(rawJson[fieldNumber]);
   }
 
   /**
@@ -56,84 +56,6 @@ class FieldAccessor {
    */
   static hasField(rawJson, fieldNumber) {
     return rawJson[fieldNumber] != null;
-  }
-
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {number} elementIndex
-   * @return {*}
-   * @private
-   */
-  static getElement_(rawJson, fieldNumber, elementIndex) {
-    const maybeArray = rawJson[fieldNumber];
-    const array = internalChecks.checkTypeArray(maybeArray);
-    internalChecks.checkIndex(elementIndex, array.length);
-    return array[elementIndex];
-  }
-
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {!Iterable<T>} values
-   * @param {function(!Object<number, *>, number, T)} addFn
-   * @template T
-   * @private
-   */
-  static addAllElements_(rawJson, fieldNumber, values, addFn) {
-    for (const value of values) {
-      addFn(rawJson, fieldNumber, value);
-    }
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {number} elementIndex
-   * @param {?} value
-   * @private
-   */
-  static setElement_(rawJson, fieldNumber, elementIndex, value) {
-    const array =
-        FieldAccessor.ensureRepeatedFieldPresent_(rawJson, fieldNumber);
-    internalChecks.checkIndex(elementIndex, array.length);
-    array[elementIndex] = value;
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {function(!Object<number, *>, number): T} accessorFn
-   * @return {!ListView<T>}
-   * @private
-   * @template T
-   */
-  static createListView_(rawJson, fieldNumber, accessorFn) {
-    const maybeArray = rawJson[fieldNumber];
-    if (maybeArray == null) {
-      return BaseListView_.EMPTY;
-    }
-    const array = internalChecks.checkTypeArray(maybeArray);
-    if (array.length === 0) {
-      return BaseListView_.EMPTY;
-    }
-    return new BaseListView_(array, accessorFn);
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @return {number}
-   */
-  static getRepeatedFieldCount(rawJson, fieldNumber) {
-    const maybeArray = rawJson[fieldNumber];
-    if (maybeArray == null) {
-      return 0;
-    }
-    const array = internalChecks.checkTypeArray(maybeArray);
-    return array.length;
   }
 
   /**
@@ -170,75 +92,6 @@ class FieldAccessor {
     rawJson[fieldNumber] = value ? 1 : 0;
   }
 
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {!Iterable<boolean>} value
-   */
-  static setBooleanIterable(rawJson, fieldNumber, value) {
-    rawJson[fieldNumber] = [];
-    FieldAccessor.addAllBooleanElements(rawJson, fieldNumber, value);
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {number} elementIndex
-   * @return {boolean}
-   */
-  static getBooleanElement(rawJson, fieldNumber, elementIndex) {
-    const value = FieldAccessor.getElement_(rawJson, fieldNumber, elementIndex);
-    internalChecks.checkBooleanRepresentation(value);
-    return !!value;
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {!Iterable<boolean>} values
-   */
-  static addAllBooleanElements(rawJson, fieldNumber, values) {
-    FieldAccessor.addAllElements_(
-        rawJson, fieldNumber, values, FieldAccessor.addBooleanElement);
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {boolean} value
-   */
-  static addBooleanElement(rawJson, fieldNumber, value) {
-    const array =
-        FieldAccessor.ensureRepeatedFieldPresent_(rawJson, fieldNumber);
-    internalChecks.checkTypeBoolean(value);
-    array.push(value ? 1 : 0);
-  }
-
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {number} elementIndex
-   * @param {boolean} value
-   */
-  static setBooleanElement(rawJson, fieldNumber, elementIndex, value) {
-    internalChecks.checkTypeBoolean(value);
-    FieldAccessor.setElement_(
-        rawJson, fieldNumber, elementIndex, value ? 1 : 0);
-  }
-
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @return {!ListView<boolean>}
-   */
-  static getBooleanListView(rawJson, fieldNumber) {
-    return FieldAccessor.createListView_(
-        rawJson, fieldNumber, FieldAccessor.getBoolean);
-  }
-
   /**
    * @param {!Object<number, *>} rawJson
    * @param {number} fieldNumber
@@ -273,73 +126,6 @@ class FieldAccessor {
   static setByteString(rawJson, fieldNumber, value) {
     internalChecks.checkType(value instanceof ByteString);
     rawJson[fieldNumber] = value.toBase64String();
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {number} elementIndex
-   * @return {!ByteString}
-   */
-  static getByteStringElement(rawJson, fieldNumber, elementIndex) {
-    const value = FieldAccessor.getElement_(rawJson, fieldNumber, elementIndex);
-    return ByteString.fromBase64String(internalChecks.checkTypeString(value));
-  }
-
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {!Iterable<!ByteString>} values
-   */
-  static addAllByteStringElements(rawJson, fieldNumber, values) {
-    FieldAccessor.addAllElements_(
-        rawJson, fieldNumber, values, FieldAccessor.addByteStringElement);
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {!ByteString} value
-   */
-  static addByteStringElement(rawJson, fieldNumber, value) {
-    const array =
-        FieldAccessor.ensureRepeatedFieldPresent_(rawJson, fieldNumber);
-    internalChecks.checkType(value instanceof ByteString);
-    array.push(value.toBase64String());
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {number} elementIndex
-   * @param {!ByteString} value
-   */
-  static setByteStringElement(rawJson, fieldNumber, elementIndex, value) {
-    internalChecks.checkType(value instanceof ByteString);
-    FieldAccessor.setElement_(
-        rawJson, fieldNumber, elementIndex, value.toBase64String());
-  }
-
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @return {!ListView<!ByteString>}
-   */
-  static getByteStringListView(rawJson, fieldNumber) {
-    return FieldAccessor.createListView_(
-        rawJson, fieldNumber, FieldAccessor.getByteString);
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {!Iterable<!ByteString>} value
-   */
-  static setByteStringIterable(rawJson, fieldNumber, value) {
-    rawJson[fieldNumber] = [];
-    FieldAccessor.addAllByteStringElements(rawJson, fieldNumber, value);
   }
 
   /**
@@ -382,67 +168,6 @@ class FieldAccessor {
   }
 
   /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {number} elementIndex
-   * @return {number}
-   */
-  static getDoubleElement(rawJson, fieldNumber, elementIndex) {
-    const value = FieldAccessor.getElement_(rawJson, fieldNumber, elementIndex);
-    internalChecks.checkDoubleRepresentation(value);
-    // Doubles can arrive as strings (NaN, Infinity, -Infinity) or actual
-    // JavaScript numbers, this ensures we coerce to a number here.
-    return +value;
-  }
-
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {!Iterable<number>} values
-   */
-  static addAllDoubleElements(rawJson, fieldNumber, values) {
-    FieldAccessor.addAllElements_(
-        rawJson, fieldNumber, values, FieldAccessor.addDoubleElement);
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {number} value
-   */
-  static addDoubleElement(rawJson, fieldNumber, value) {
-    const array =
-        FieldAccessor.ensureRepeatedFieldPresent_(rawJson, fieldNumber);
-    internalChecks.checkTypeNumber(value);
-    array.push(FieldAccessor.serializeDouble_(value));
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {number} elementIndex
-   * @param {number} value
-   */
-  static setDoubleElement(rawJson, fieldNumber, elementIndex, value) {
-    internalChecks.checkTypeNumber(value);
-    FieldAccessor.setElement_(
-        rawJson, fieldNumber, elementIndex,
-        FieldAccessor.serializeDouble_(value));
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @return {!ListView<number>}
-   */
-  static getDoubleListView(rawJson, fieldNumber) {
-    return FieldAccessor.createListView_(
-        rawJson, fieldNumber, FieldAccessor.getDouble);
-  }
-
-
-  /**
    * @param {number} value
    * @returns {number|string}
    * @private
@@ -459,16 +184,6 @@ class FieldAccessor {
       return '-Infinity';
     }
     return 'NaN';
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {!Iterable<number>} value
-   */
-  static setDoubleIterable(rawJson, fieldNumber, value) {
-    rawJson[fieldNumber] = [];
-    FieldAccessor.addAllDoubleElements(rawJson, fieldNumber, value);
   }
 
   /**
@@ -504,69 +219,6 @@ class FieldAccessor {
    */
   static setInt(rawJson, fieldNumber, value) {
     rawJson[fieldNumber] = internalChecks.checkTypeInt(value);
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {number} elementIndex
-   * @return {number}
-   */
-  static getIntElement(rawJson, fieldNumber, elementIndex) {
-    const value = FieldAccessor.getElement_(rawJson, fieldNumber, elementIndex);
-    return internalChecks.checkTypeInt(value);
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {!Iterable<number>} values
-   */
-  static addAllIntElements(rawJson, fieldNumber, values) {
-    FieldAccessor.addAllElements_(
-        rawJson, fieldNumber, values, FieldAccessor.addIntElement);
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {number} value
-   */
-  static addIntElement(rawJson, fieldNumber, value) {
-    const array =
-        FieldAccessor.ensureRepeatedFieldPresent_(rawJson, fieldNumber);
-    array.push(internalChecks.checkTypeInt(value));
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {number} elementIndex
-   * @param {number} value
-   */
-  static setIntElement(rawJson, fieldNumber, elementIndex, value) {
-    FieldAccessor.setElement_(
-        rawJson, fieldNumber, elementIndex, internalChecks.checkTypeInt(value));
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @return {!ListView<number>}
-   */
-  static getIntListView(rawJson, fieldNumber) {
-    return FieldAccessor.createListView_(
-        rawJson, fieldNumber, FieldAccessor.getInt);
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {!Iterable<number>} value
-   */
-  static setIntIterable(rawJson, fieldNumber, value) {
-    rawJson[fieldNumber] = [];
-    FieldAccessor.addAllIntElements(rawJson, fieldNumber, value);
   }
 
   /**
@@ -655,136 +307,6 @@ class FieldAccessor {
   /**
    * @param {!Object<number, *>} rawJson
    * @param {number} fieldNumber
-   * @param {number} elementIndex
-   * @return {!Long}
-   */
-  static getLongElement(rawJson, fieldNumber, elementIndex) {
-    const value = FieldAccessor.getElement_(rawJson, fieldNumber, elementIndex);
-    return FieldAccessor.convertToLong_(value);
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {number} elementIndex
-   * @return {!Long}
-   */
-  static getInt52LongElement(rawJson, fieldNumber, elementIndex) {
-    return FieldAccessor.getLongElement(rawJson, fieldNumber, elementIndex);
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {!Iterable<!Long>} values
-   */
-  static addAllLongElements(rawJson, fieldNumber, values) {
-    FieldAccessor.addAllElements_(
-        rawJson, fieldNumber, values, FieldAccessor.addLongElement);
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {!Iterable<!Long>} values
-   */
-  static addAllInt52LongElements(rawJson, fieldNumber, values) {
-    FieldAccessor.addAllElements_(
-        rawJson, fieldNumber, values, FieldAccessor.addInt52LongElement);
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {!Long} value
-   */
-  static addLongElement(rawJson, fieldNumber, value) {
-    const array =
-        FieldAccessor.ensureRepeatedFieldPresent_(rawJson, fieldNumber);
-    internalChecks.checkType(value instanceof Long);
-    array.push(value.toString());
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {!Long} value
-   */
-  static addInt52LongElement(rawJson, fieldNumber, value) {
-    const array =
-        FieldAccessor.ensureRepeatedFieldPresent_(rawJson, fieldNumber);
-    internalChecks.checkType(value instanceof Long);
-    internalChecks.checkLongSafeRange(value);
-    array.push(value.toNumber());
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {number} elementIndex
-   * @param {!Long} value
-   */
-  static setLongElement(rawJson, fieldNumber, elementIndex, value) {
-    internalChecks.checkType(value instanceof Long);
-    FieldAccessor.setElement_(
-        rawJson, fieldNumber, elementIndex, value.toString());
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {number} elementIndex
-   * @param {!Long} value
-   */
-  static setInt52LongElement(rawJson, fieldNumber, elementIndex, value) {
-    internalChecks.checkType(value instanceof Long);
-    internalChecks.checkLongSafeRange(value);
-    FieldAccessor.setElement_(
-        rawJson, fieldNumber, elementIndex, value.toNumber());
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @return {!ListView<!Long>}
-   */
-  static getLongListView(rawJson, fieldNumber) {
-    return FieldAccessor.createListView_(
-        rawJson, fieldNumber, FieldAccessor.getLong);
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @return {!ListView<!Long>}
-   */
-  static getInt52LongListView(rawJson, fieldNumber) {
-    return FieldAccessor.getLongListView(rawJson, fieldNumber);
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {!Iterable<!Long>} value
-   */
-  static setLongIterable(rawJson, fieldNumber, value) {
-    rawJson[fieldNumber] = [];
-    FieldAccessor.addAllLongElements(rawJson, fieldNumber, value);
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {!Iterable<!Long>} value
-   */
-  static setInt52LongIterable(rawJson, fieldNumber, value) {
-    rawJson[fieldNumber] = [];
-    FieldAccessor.addAllInt52LongElements(rawJson, fieldNumber, value);
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
    * @param {function(!Object<number, *>): !MESSAGE} instanceCreator
    * @return {!MESSAGE}
    * @template MESSAGE
@@ -802,64 +324,6 @@ class FieldAccessor {
   static setMessage(rawJson, fieldNumber, value) {
     internalChecks.checkTypeArray(value);
     rawJson[fieldNumber] = value;
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {number} elementIndex
-   * @param {function(!Object<number, *>): !MESSAGE} instanceCreator
-   * @return {!MESSAGE}
-   * @template MESSAGE
-   */
-  static getMessageElement(
-      rawJson, fieldNumber, elementIndex, instanceCreator) {
-    const value = FieldAccessor.getElement_(rawJson, fieldNumber, elementIndex);
-    return instanceCreator(internalChecks.checkTypeArray(value));
-  }
-
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {function(!Object<number, *>): !MESSAGE} instanceCreator
-   * @return {!ListView<!MESSAGE>}
-   * @template MESSAGE
-   */
-  static getMessageListView(rawJson, fieldNumber, instanceCreator) {
-    return FieldAccessor.createListView_(
-        rawJson, fieldNumber, (data, index) => {
-          let maybeArray = data[index];
-          if (maybeArray == null) {
-            maybeArray = [];
-          }
-          const array = internalChecks.checkTypeArray(maybeArray);
-          return instanceCreator(array);
-        });
-  }
-
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {number} elementIndex
-   * @param {!Object<number, *>} value
-   */
-  static setMessageElement(rawJson, fieldNumber, elementIndex, value) {
-    internalChecks.checkTypeArray(value);
-    FieldAccessor.setElement_(rawJson, fieldNumber, elementIndex, value);
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {!Object<number, *>} value
-   */
-  static addMessageElement(rawJson, fieldNumber, value) {
-    const array =
-        FieldAccessor.ensureRepeatedFieldPresent_(rawJson, fieldNumber);
-    internalChecks.checkTypeArray(value);
-    array.push(value);
   }
 
   /**
@@ -897,142 +361,6 @@ class FieldAccessor {
     internalChecks.checkTypeString(value);
     rawJson[fieldNumber] = String(value);
   }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {number} elementIndex
-   * @return {string}
-   */
-  static getStringElement(rawJson, fieldNumber, elementIndex) {
-    const value = FieldAccessor.getElement_(rawJson, fieldNumber, elementIndex);
-    return internalChecks.checkTypeString(value);
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {!Iterable<string>} values
-   */
-  static addAllStringElements(rawJson, fieldNumber, values) {
-    FieldAccessor.addAllElements_(
-        rawJson, fieldNumber, values, FieldAccessor.addStringElement);
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {string} value
-   */
-  static addStringElement(rawJson, fieldNumber, value) {
-    const array =
-        FieldAccessor.ensureRepeatedFieldPresent_(rawJson, fieldNumber);
-    internalChecks.checkTypeString(value);
-    array.push(String(value));
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {number} elementIndex
-   * @param {string} value
-   */
-  static setStringElement(rawJson, fieldNumber, elementIndex, value) {
-    internalChecks.checkTypeString(value);
-    FieldAccessor.setElement_(
-        rawJson, fieldNumber, elementIndex, String(value));
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @return {!ListView<string>}
-   */
-  static getStringListView(rawJson, fieldNumber) {
-    return FieldAccessor.createListView_(
-        rawJson, fieldNumber, FieldAccessor.getString);
-  }
-
-  /**
-   * @param {!Object<number, *>} rawJson
-   * @param {number} fieldNumber
-   * @param {!Iterable<string>} value
-   */
-  static setStringIterable(rawJson, fieldNumber, value) {
-    rawJson[fieldNumber] = [];
-    FieldAccessor.addAllStringElements(rawJson, fieldNumber, value);
-  }
 }
-
-
-
-/**
- * @template T
- * @implements {ListView<T>}
- * @private
- */
-class BaseListView_ {
-  /**
-   * @param {!Array<?>} array
-   * @param {function(!Object<number, *>, number):T} accessorFn
-   */
-  constructor(array, accessorFn) {
-    /** @private {!Array<?>} */
-    this.array_ = array;
-    /** @private {function(!Object<number, *>, number):T} */
-    this.accessorFn_ = accessorFn;
-  }
-
-  /**
-   * @override
-   * @param {number} index
-   * @return {T}
-   */
-  get(index) {
-    internalChecks.checkIndex(index, this.size());
-    return this.accessorFn_(this.array_, index);
-  }
-
-  /**
-   * @override
-   * @return {number}
-   */
-  size() {
-    return this.array_.length;
-  }
-
-
-  /**
-   * @override
-   * @return {!Array<T>}
-   */
-  toArray() {
-    if (Array.from) {
-      return Array.from(
-          this.array_, (v, i) => this.accessorFn_(this.array_, i));
-    }
-
-    let newArray = new Array(this.size());
-    for (let i = 0; i < newArray.length; i++) {
-      newArray[i] = this.get(i);
-    }
-    return newArray;
-  }
-
-  /**
-   * @return {!Iterator<T>}
-   */
-  [Symbol.iterator]() {
-    return ListView.toIterator(this);
-  }
-}
-
-/**
- * @type {!ListView<?>}
- * @const
- */
-BaseListView_.EMPTY = new BaseListView_([], function(array, index) {
-  throw new Error('Index out of bounds');
-});
 
 exports = FieldAccessor;

@@ -143,15 +143,24 @@ public class EnumFieldsTest {
   public void testRepeatedField_defaultInstance() {
     assertThat(EnumTestProto.getDefaultInstance().getRepeatedEnumCount()).isEqualTo(0);
     assertThat(EnumTestProto.newBuilder().build().getRepeatedEnumCount()).isEqualTo(0);
-    assertThrows(Exception.class, () -> EnumTestProto.newBuilder().build().getRepeatedEnum(0));
+    if (InternalChecks.isCheckIndex()) {
+      assertThrows(Exception.class, () -> EnumTestProto.newBuilder().build().getRepeatedEnum(0));
+    } else {
+      AssertionError error =
+          assertThrows(
+              AssertionError.class, () -> EnumTestProto.newBuilder().build().getRepeatedEnum(0));
+      assertThat(error).hasCauseThat().isInstanceOf(ClassCastException.class);
+    }
   }
 
   @Test
   public void testRepeatedField_defaultInstanceNativeEnum() {
     assertThat(EnumTestProto.getDefaultInstance().getRepeatedNativeEnumCount()).isEqualTo(0);
     assertThat(EnumTestProto.newBuilder().build().getRepeatedNativeEnumCount()).isEqualTo(0);
-    assertThrows(
-        Exception.class, () -> EnumTestProto.newBuilder().build().getRepeatedNativeEnum(0));
+    if (InternalChecks.isCheckIndex()) {
+      assertThrows(
+          Exception.class, () -> EnumTestProto.newBuilder().build().getRepeatedNativeEnum(0));
+    }
   }
 
   @Test
@@ -312,7 +321,8 @@ public class EnumFieldsTest {
     if (InternalChecks.isCheckIndex()) {
       assertThrows(Exception.class, () -> builder.getRepeatedEnum(5));
     } else {
-      assertThat(builder.getRepeatedEnum(5)).isEqualTo(TestEnum.DEFAULT);
+      AssertionError error = assertThrows(AssertionError.class, () -> builder.getRepeatedEnum(5));
+      assertThat(error).hasCauseThat().isInstanceOf(ClassCastException.class);
     }
 
     EnumTestProto proto = builder.build();
@@ -325,7 +335,8 @@ public class EnumFieldsTest {
     if (InternalChecks.isCheckIndex()) {
       assertThrows(Exception.class, () -> proto.getRepeatedEnum(5));
     } else {
-      assertThat(proto.getRepeatedEnum(5)).isEqualTo(TestEnum.DEFAULT);
+      AssertionError error = assertThrows(AssertionError.class, () -> proto.getRepeatedEnum(5));
+      assertThat(error).hasCauseThat().isInstanceOf(ClassCastException.class);
     }
   }
 
@@ -347,8 +358,6 @@ public class EnumFieldsTest {
     assertThat(builder.getRepeatedNativeEnum(4)).isEqualTo(NativeEnum.NATIVE_THREE);
     if (InternalChecks.isCheckIndex()) {
       assertThrows(Exception.class, () -> builder.getRepeatedNativeEnum(5));
-    } else {
-      assertThat(builder.getRepeatedNativeEnum(5)).isEqualTo(NativeEnum.NATIVE_DEFAULT);
     }
 
     EnumTestProto proto = builder.build();
@@ -360,8 +369,6 @@ public class EnumFieldsTest {
     assertThat(proto.getRepeatedNativeEnum(4)).isEqualTo(NativeEnum.NATIVE_THREE);
     if (InternalChecks.isCheckIndex()) {
       assertThrows(Exception.class, () -> proto.getRepeatedNativeEnum(5));
-    } else {
-      assertThat(proto.getRepeatedNativeEnum(5)).isEqualTo(NativeEnum.NATIVE_DEFAULT);
     }
   }
 

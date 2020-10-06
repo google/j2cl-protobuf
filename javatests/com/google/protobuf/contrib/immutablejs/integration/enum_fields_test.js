@@ -97,7 +97,11 @@ class EnumFieldsTest {
         0, TestProto.newBuilder().build().getRepeatedEnumCount());
     assertEqualsForProto(
         0, TestProto.newBuilder().build().getRepeatedEnumList().size());
-    assertThrows(() => TestProto.newBuilder().build().getRepeatedEnum(0));
+    if (isCheckIndex()) {
+      assertThrows(() => TestProto.newBuilder().build().getRepeatedEnum(0));
+    } else {
+      assertUndefined(TestProto.newBuilder().build().getRepeatedEnum(0));
+    }
   }
 
   testRepeatedField_add() {
@@ -188,8 +192,7 @@ class EnumFieldsTest {
     if (isCheckIndex()) {
       assertThrows(() => builder.getRepeatedEnum(5));
     } else {
-      assertEqualsForProto(
-          TestProto.TestEnum.UNKNOWN, builder.getRepeatedEnum(5));
+      assertUndefined(builder.getRepeatedEnum(5));
     }
 
     const proto = builder.build();
@@ -202,8 +205,7 @@ class EnumFieldsTest {
     if (isCheckIndex()) {
       assertThrows(() => proto.getRepeatedEnum(5));
     } else {
-      assertEqualsForProto(
-          TestProto.TestEnum.UNKNOWN, proto.getRepeatedEnum(5));
+      assertUndefined(proto.getRepeatedEnum(5));
     }
   }
 

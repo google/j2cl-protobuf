@@ -26,6 +26,14 @@ const {checkIndex, isCheckIndex} = goog.require('proto.im.internal.internalCheck
  */
 class ListView {
   /**
+   * Returns an empty ListView.
+   * @return {!ListView<?>}
+   */
+  static empty() {
+    return EMPTY_VIEW;
+  }
+
+  /**
    * Returns a copy of an array as a ListView.
    * @param {!Array<T>} array
    * @return {!ListView<T>}
@@ -134,5 +142,8 @@ class ArrayListView {
     return ListView.toIterator(this);
   }
 }
+
+/** @const {!ListView<?>} */
+const EMPTY_VIEW = new ArrayListView(Object.freeze([]));
 
 exports = ListView;

@@ -105,7 +105,9 @@ public class FloatFieldsTest {
     assertThat(TestProto.getDefaultInstance().getRepeatedFloatCount()).isEqualTo(0);
     assertThat(TestProto.newBuilder().build().getRepeatedFloatCount()).isEqualTo(0);
 
-    assertThrows(Exception.class, () -> TestProto.newBuilder().build().getRepeatedFloat(0));
+    if (InternalChecks.isCheckIndex()) {
+      assertThrows(Exception.class, () -> TestProto.newBuilder().build().getRepeatedFloat(0));
+    }
   }
 
   @Test
@@ -179,8 +181,6 @@ public class FloatFieldsTest {
     assertThat(builder.getRepeatedFloat(4)).isWithin(DELTA).of(-3f);
     if (InternalChecks.isCheckIndex()) {
       assertThrows(Exception.class, () -> builder.getRepeatedFloat(5));
-    } else {
-      assertThat(builder.getRepeatedFloat(5)).isNaN();
     }
 
     TestProto proto = builder.build();
@@ -191,8 +191,6 @@ public class FloatFieldsTest {
     assertThat(proto.getRepeatedFloat(4)).isWithin(DELTA).of(-3f);
     if (InternalChecks.isCheckIndex()) {
       assertThrows(Exception.class, () -> proto.getRepeatedFloat(5));
-    } else {
-      assertThat(proto.getRepeatedFloat(5)).isNaN();
     }
   }
 

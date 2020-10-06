@@ -101,7 +101,11 @@ public class StringFieldsTest {
     assertThat(TestProto.getDefaultInstance().getRepeatedStringCount()).isEqualTo(0);
     assertThat(TestProto.newBuilder().build().getRepeatedStringCount()).isEqualTo(0);
 
-    assertThrows(Exception.class, () -> TestProto.newBuilder().build().getRepeatedString(0));
+    if (InternalChecks.isCheckIndex()) {
+      assertThrows(Exception.class, () -> TestProto.newBuilder().build().getRepeatedString(0));
+    } else {
+      assertThat(TestProto.newBuilder().build().getRepeatedString(0)).isNull();
+    }
   }
 
   @Test

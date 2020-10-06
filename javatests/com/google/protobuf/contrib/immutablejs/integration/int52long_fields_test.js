@@ -22,6 +22,7 @@ const TestProto = goog.require('improto.protobuf.contrib.immutablejs.protos.Test
 const defines = goog.require('proto.im.defines');
 const testSuite = goog.require('goog.testing.testSuite');
 const {assertEqualsForProto} = goog.require('proto.im.proto_asserts');
+const {isCheckIndex} = goog.require('proto.im.internal.internalChecks');
 
 
 const DEFAULT_PROTO_VALUE = Long.fromString('30000');
@@ -109,7 +110,12 @@ class Int52LongFieldsTest {
         0, TestProto.newBuilder().build().getRepeatedInt52LongCount());
     assertEqualsForProto(
         0, TestProto.newBuilder().build().getRepeatedInt52LongList().size());
-    assertThrows(() => TestProto.newBuilder().build().getRepeatedInt52Long(0));
+    if (isCheckIndex()) {
+      assertThrows(
+          () => TestProto.newBuilder().build().getRepeatedInt52Long(0));
+    } else {
+      assertUndefined(TestProto.newBuilder().build().getRepeatedInt52Long(0));
+    }
   }
 
   testRepeatedField_add() {
@@ -198,7 +204,11 @@ class Int52LongFieldsTest {
         Long.fromString('-2'), builder.getRepeatedInt52Long(3));
     assertEqualsForProto(
         Long.fromString('-3'), builder.getRepeatedInt52Long(4));
-    assertThrows(() => builder.getRepeatedInt52Long(5));
+    if (isCheckIndex()) {
+      assertThrows(() => builder.getRepeatedInt52Long(5));
+    } else {
+      assertUndefined(builder.getRepeatedInt52Long(5));
+    }
 
     const proto = builder.build();
     assertEqualsForProto(5, proto.getRepeatedInt52LongCount());
@@ -207,7 +217,11 @@ class Int52LongFieldsTest {
     assertEqualsForProto(Long.fromString('-1'), proto.getRepeatedInt52Long(2));
     assertEqualsForProto(Long.fromString('-2'), proto.getRepeatedInt52Long(3));
     assertEqualsForProto(Long.fromString('-3'), proto.getRepeatedInt52Long(4));
-    assertThrows(() => proto.getRepeatedInt52Long(5));
+    if (isCheckIndex()) {
+      assertThrows(() => proto.getRepeatedInt52Long(5));
+    } else {
+      assertUndefined(proto.getRepeatedInt52Long(5));
+    }
   }
 
   testRepeatedField_clear() {

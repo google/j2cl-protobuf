@@ -162,15 +162,16 @@
 
   /**
    * @param {number} fieldNumber
-   * @param {!Iterable<!InternalMessage>} value
+   * @param {!Iterable<!InternalMessage>} values
    * @protected
    * @return {BUILDER}
    */
-  internal_setMessageIterable(fieldNumber, value) {
-    this.internal_clearField(fieldNumber);
-    for (const message of value) {
-      this.internal_addMessageElement(fieldNumber, message);
+  internal_setMessageIterable(fieldNumber, values) {
+    const kernels = [];
+    for (const value of values) {
+      kernels.push(value.kernel_);
     }
+    this.kernel_.setMessageIterable(fieldNumber, kernels);
     return this;
   }
 

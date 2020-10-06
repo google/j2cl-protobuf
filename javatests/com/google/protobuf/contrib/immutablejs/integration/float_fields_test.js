@@ -98,7 +98,11 @@ class FloatFieldsTest {
         0, TestProto.newBuilder().build().getRepeatedFloatCount());
     assertEqualsForProto(
         0, TestProto.newBuilder().build().getRepeatedFloatList().size());
-    assertThrows(() => TestProto.newBuilder().build().getRepeatedFloat(0));
+    if (isCheckIndex()) {
+      assertThrows(() => TestProto.newBuilder().build().getRepeatedFloat(0));
+    } else {
+      assertUndefined(TestProto.newBuilder().build().getRepeatedFloat(0));
+    }
   }
 
   testRepeatedField_add() {
@@ -165,7 +169,7 @@ class FloatFieldsTest {
     if (isCheckIndex()) {
       assertThrows(() => builder.getRepeatedFloat(5));
     } else {
-      assertNaN(builder.getRepeatedFloat(5));
+      assertUndefined(builder.getRepeatedFloat(5));
     }
 
     const proto = builder.build();
@@ -179,7 +183,7 @@ class FloatFieldsTest {
     if (isCheckIndex()) {
       assertThrows(() => proto.getRepeatedFloat(5));
     } else {
-      assertNaN(proto.getRepeatedFloat(5));
+      assertUndefined(proto.getRepeatedFloat(5));
     }
   }
 

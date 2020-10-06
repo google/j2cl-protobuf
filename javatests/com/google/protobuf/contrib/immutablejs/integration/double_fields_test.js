@@ -102,7 +102,11 @@ class DoubleFieldsTest {
     assertEqualsForProto(
         0, TestProto.newBuilder().build().getRepeatedDoubleList().size());
 
-    assertThrows(() => TestProto.newBuilder().build().getRepeatedDouble(0));
+    if (isCheckIndex()) {
+      assertThrows(() => TestProto.newBuilder().build().getRepeatedDouble(0));
+    } else {
+      assertUndefined(TestProto.newBuilder().build().getRepeatedDouble(0));
+    }
   }
 
   testRepeatedField_add() {
@@ -169,7 +173,7 @@ class DoubleFieldsTest {
     if (isCheckIndex()) {
       assertThrows(() => builder.getRepeatedDouble(5));
     } else {
-      assertNaN(builder.getRepeatedDouble(5));
+      assertUndefined(builder.getRepeatedDouble(5));
     }
 
     const proto = builder.build();
@@ -181,7 +185,7 @@ class DoubleFieldsTest {
     if (isCheckIndex()) {
       assertThrows(() => proto.getRepeatedDouble(5));
     } else {
-      assertNaN(proto.getRepeatedDouble(5));
+      assertUndefined(proto.getRepeatedDouble(5));
     }
   }
 

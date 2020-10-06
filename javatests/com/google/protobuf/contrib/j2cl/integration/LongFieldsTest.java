@@ -101,7 +101,12 @@ public class LongFieldsTest {
   public void testRepeatedField_defaultInstance() {
     assertThat(TestProto.getDefaultInstance().getRepeatedLongCount()).isEqualTo(0);
     assertThat(TestProto.newBuilder().build().getRepeatedLongCount()).isEqualTo(0);
-    assertThrows(Exception.class, () -> TestProto.newBuilder().build().getRepeatedLong(0));
+    assertThrows(
+        Exception.class,
+        () -> {
+          @SuppressWarnings("UnusedVariable")
+          Long willFailToBox = TestProto.newBuilder().build().getRepeatedLong(0);
+        });
   }
 
   @Test
@@ -175,7 +180,12 @@ public class LongFieldsTest {
     assertThat(builder.getRepeatedLong(2)).isEqualTo(-1L);
     assertThat(builder.getRepeatedLong(3)).isEqualTo(-2L);
     assertThat(builder.getRepeatedLong(4)).isEqualTo(-3L);
-    assertThrows(Exception.class, () -> builder.getRepeatedLong(5));
+    assertThrows(
+        Exception.class,
+        () -> {
+          @SuppressWarnings("UnusedVariable")
+          Long willFailToBox = builder.getRepeatedLong(5);
+        });
 
     TestProto proto = builder.build();
     assertThat(proto.getRepeatedLongCount()).isEqualTo(5);
@@ -184,7 +194,12 @@ public class LongFieldsTest {
     assertThat(proto.getRepeatedLong(2)).isEqualTo(-1L);
     assertThat(proto.getRepeatedLong(3)).isEqualTo(-2L);
     assertThat(proto.getRepeatedLong(4)).isEqualTo(-3L);
-    assertThrows(Exception.class, () -> proto.getRepeatedLong(5));
+    assertThrows(
+        Exception.class,
+        () -> {
+          @SuppressWarnings("UnusedVariable")
+          Long willFailToBox = proto.getRepeatedLong(5);
+        });
   }
 
   @Test

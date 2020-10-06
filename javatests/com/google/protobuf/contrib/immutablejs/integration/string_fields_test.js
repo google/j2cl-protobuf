@@ -102,7 +102,11 @@ class StringFieldsTest {
     assertEqualsForProto(
         0, TestProto.newBuilder().build().getRepeatedStringList().size());
 
-    assertThrows(() => TestProto.newBuilder().build().getRepeatedString(0));
+    if (isCheckIndex()) {
+      assertThrows(() => TestProto.newBuilder().build().getRepeatedString(0));
+    } else {
+      assertUndefined(TestProto.newBuilder().build().getRepeatedString(0));
+    }
   }
 
   testRepeatedField_add() {

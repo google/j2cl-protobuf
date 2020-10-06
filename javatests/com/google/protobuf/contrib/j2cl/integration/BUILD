@@ -148,6 +148,9 @@ j2cl_multi_test(
     srcs = ["LongFieldsTest.java"],
     proto_deps = ["//javatests/com/google/protobuf/contrib/j2cl/protos:accessor"],
     test_class = "com.google.protobuf.contrib.j2cl.integration.LongFieldsTest",
+    deps = [
+        ":checks",
+    ],
 )
 
 j2cl_multi_test(

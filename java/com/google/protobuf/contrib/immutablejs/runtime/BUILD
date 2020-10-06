@@ -53,6 +53,7 @@ closure_js_library(
         ":fieldaccessor",
         ":hashing",
         ":internal_checks",
+        ":internal_list",
         ":listview",
         "//third_party:closure_math_long",
     ],
@@ -80,7 +81,6 @@ closure_js_library(
     deps = [
         ":bytestring",
         ":internal_checks",
-        ":listview",
         "//third_party:closure_math_long",
     ],
 )
@@ -101,6 +101,16 @@ genrule(
     cmd = "$(location //java/com/google/protobuf/contrib/immutablejs/generator/runtime:RuntimeGenerator) -runtimeClass internal_message -output \"$@\"",
     tools = ["//java/com/google/protobuf/contrib/immutablejs/generator/runtime:RuntimeGenerator"],
     visibility = ["//visibility:private"],
+)
+
+closure_js_library(
+    name = "internal_list",
+    srcs = [":internal_list.js"],
+    deps = [
+        ":internal_checks",
+        ":listview",
+        "//third_party:closure_asserts",
+    ],
 )
 
 closure_js_library(

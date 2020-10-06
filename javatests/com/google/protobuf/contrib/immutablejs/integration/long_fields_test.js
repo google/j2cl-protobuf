@@ -21,6 +21,7 @@ const Long = goog.require('goog.math.Long');
 const TestProto = goog.require('improto.protobuf.contrib.immutablejs.protos.TestProto');
 const testSuite = goog.require('goog.testing.testSuite');
 const {assertEqualsForProto} = goog.require('proto.im.proto_asserts');
+const {isCheckIndex} = goog.require('proto.im.internal.internalChecks');
 
 
 const DEFAULT_PROTO_VALUE = Long.fromString('3000000000');
@@ -103,7 +104,11 @@ class LongFieldsTest {
         0, TestProto.newBuilder().build().getRepeatedLongCount());
     assertEqualsForProto(
         0, TestProto.newBuilder().build().getRepeatedLongList().size());
-    assertThrows(() => TestProto.newBuilder().build().getRepeatedLong(0));
+    if (isCheckIndex()) {
+      assertThrows(() => TestProto.newBuilder().build().getRepeatedLong(0));
+    } else {
+      assertUndefined(TestProto.newBuilder().build().getRepeatedLong(0));
+    }
   }
 
   testRepeatedField_add() {
@@ -186,7 +191,11 @@ class LongFieldsTest {
     assertEqualsForProto(Long.fromString('-1'), builder.getRepeatedLong(2));
     assertEqualsForProto(Long.fromString('-2'), builder.getRepeatedLong(3));
     assertEqualsForProto(Long.fromString('-3'), builder.getRepeatedLong(4));
-    assertThrows(() => builder.getRepeatedLong(5));
+    if (isCheckIndex()) {
+      assertThrows(() => builder.getRepeatedLong(5));
+    } else {
+      assertUndefined(builder.getRepeatedLong(5));
+    }
 
     const proto = builder.build();
     assertEquals(5, proto.getRepeatedLongCount());
@@ -195,7 +204,11 @@ class LongFieldsTest {
     assertEqualsForProto(Long.fromString('-1'), proto.getRepeatedLong(2));
     assertEqualsForProto(Long.fromString('-2'), proto.getRepeatedLong(3));
     assertEqualsForProto(Long.fromString('-3'), proto.getRepeatedLong(4));
-    assertThrows(() => proto.getRepeatedLong(5));
+    if (isCheckIndex()) {
+      assertThrows(() => proto.getRepeatedLong(5));
+    } else {
+      assertUndefined(proto.getRepeatedLong(5));
+    }
   }
 
   testRepeatedField_clear() {

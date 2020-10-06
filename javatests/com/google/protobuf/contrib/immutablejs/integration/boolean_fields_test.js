@@ -87,7 +87,11 @@ class BooleanFieldsTest {
     assertEqualsForProto(
         0, TestProto.newBuilder().build().getRepeatedBoolList().size());
 
-    assertThrows(() => TestProto.newBuilder().build().getRepeatedBool(3));
+    if (isCheckIndex()) {
+      assertThrows(() => TestProto.newBuilder().build().getRepeatedBool(3));
+    } else {
+      assertUndefined(TestProto.newBuilder().build().getRepeatedBool(3));
+    }
   }
 
   testRepeatedField_add() {
@@ -132,7 +136,7 @@ class BooleanFieldsTest {
     if (isCheckIndex()) {
       assertThrows(() => builder.getRepeatedBool(3));
     } else {
-      assertEqualsForProto(false, builder.getRepeatedBool(3));
+      assertUndefined(builder.getRepeatedBool(3));
     }
 
     const proto2 = builder.build();
@@ -142,7 +146,7 @@ class BooleanFieldsTest {
     if (isCheckIndex()) {
       assertThrows(() => proto2.getRepeatedBool(3));
     } else {
-      assertEqualsForProto(false, proto2.getRepeatedBool(3));
+      assertUndefined(proto2.getRepeatedBool(3));
     }
   }
 
@@ -159,7 +163,7 @@ class BooleanFieldsTest {
     if (isCheckIndex()) {
       assertThrows(() => builder.getRepeatedBool(3));
     } else {
-      assertEqualsForProto(false, builder.getRepeatedBool(3));
+      assertUndefined(builder.getRepeatedBool(3));
     }
 
     const proto = builder.build();
@@ -170,7 +174,7 @@ class BooleanFieldsTest {
     if (isCheckIndex()) {
       assertThrows(() => proto.getRepeatedBool(3));
     } else {
-      assertEqualsForProto(false, proto.getRepeatedBool(3));
+      assertUndefined(proto.getRepeatedBool(3));
     }
   }
 

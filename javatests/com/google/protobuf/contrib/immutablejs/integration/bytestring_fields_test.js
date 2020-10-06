@@ -119,7 +119,11 @@ class ByteStringFieldsTest {
         0, TestProto.newBuilder().build().getRepeatedBytesCount());
     assertEqualsForProto(
         0, TestProto.newBuilder().build().getRepeatedBytesList().size());
-    assertThrows(() => TestProto.newBuilder().build().getRepeatedBytes(0));
+    if (isCheckIndex()) {
+      assertThrows(() => TestProto.newBuilder().build().getRepeatedBytes(0));
+    } else {
+      assertUndefined(TestProto.newBuilder().build().getRepeatedBytes(0));
+    }
   }
 
   testRepeatedField_add() {

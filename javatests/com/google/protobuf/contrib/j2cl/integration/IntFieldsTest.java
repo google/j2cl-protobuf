@@ -98,7 +98,10 @@ public class IntFieldsTest {
   public void testRepeatedField_defaultInstance() {
     assertThat(TestProto.getDefaultInstance().getRepeatedIntCount()).isEqualTo(0);
     assertThat(TestProto.newBuilder().build().getRepeatedIntCount()).isEqualTo(0);
-    assertThrows(Exception.class, () -> TestProto.newBuilder().build().getRepeatedInt(0));
+
+    if (InternalChecks.isCheckIndex()) {
+      assertThrows(Exception.class, () -> TestProto.newBuilder().build().getRepeatedInt(0));
+    }
   }
 
   @Test
@@ -170,8 +173,6 @@ public class IntFieldsTest {
     assertThat(builder.getRepeatedInt(4)).isEqualTo(-3);
     if (InternalChecks.isCheckIndex()) {
       assertThrows(Exception.class, () -> builder.getRepeatedInt(5));
-    } else {
-      assertThat(builder.getRepeatedInt(5)).isEqualTo(0);
     }
 
     TestProto proto = builder.build();
@@ -183,8 +184,6 @@ public class IntFieldsTest {
     assertThat(proto.getRepeatedInt(4)).isEqualTo(-3);
     if (InternalChecks.isCheckIndex()) {
       assertThrows(Exception.class, () -> proto.getRepeatedInt(5));
-    } else {
-      assertThat(proto.getRepeatedInt(5)).isEqualTo(0);
     }
   }
 

@@ -103,7 +103,11 @@ public class ByteStringFieldsTest {
   public void testRepeatedField_defaultInstance() {
     assertThat(TestProto.getDefaultInstance().getRepeatedBytesCount()).isEqualTo(0);
     assertThat(TestProto.newBuilder().build().getRepeatedBytesCount()).isEqualTo(0);
-    assertThrows(Exception.class, () -> TestProto.newBuilder().build().getRepeatedBytes(0));
+    if (InternalChecks.isCheckIndex()) {
+      assertThrows(Exception.class, () -> TestProto.newBuilder().build().getRepeatedBytes(0));
+    } else {
+      assertThat(TestProto.newBuilder().build().getRepeatedBytes(0)).isNull();
+    }
   }
 
   @Test
@@ -201,6 +205,8 @@ public class ByteStringFieldsTest {
     assertThat(builder.getRepeatedBytes(2)).isEqualTo(ByteString.EMPTY);
     if (InternalChecks.isCheckIndex()) {
       assertThrows(Exception.class, () -> builder.getRepeatedBytes(3));
+    } else {
+      assertThat(builder.getRepeatedBytes(3)).isNull();
     }
 
     TestProto proto = builder.build();
@@ -211,6 +217,8 @@ public class ByteStringFieldsTest {
 
     if (InternalChecks.isCheckIndex()) {
       assertThrows(Exception.class, () -> proto.getRepeatedBytes(3));
+    } else {
+      assertThat(proto.getRepeatedBytes(3)).isNull();
     }
   }
 

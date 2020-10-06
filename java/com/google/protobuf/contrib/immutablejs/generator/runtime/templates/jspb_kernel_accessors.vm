@@ -31,8 +31,7 @@
    * @return {!ListView<!${valueType}>}
    */
   getRepeated${stem}Field(fieldNumber) {
-    return this.getRepeatedField_(
-        fieldNumber, FieldAccessor.get${stem}ListView);
+    return this.getRepeatedField_(fieldNumber, FieldAccessor.get${stem});
   }
 
   /**
@@ -42,7 +41,7 @@
    */
   get${stem}Element(fieldNumber, elementIndex) {
     return this.getElement_(
-        fieldNumber, elementIndex, FieldAccessor.get${stem}Element);
+        fieldNumber, elementIndex, FieldAccessor.get${stem});
   }
 
   //////////////////////////////////////////////////////////////////////////////
@@ -62,16 +61,15 @@
    * @param {!${valueType}} value
    */
   add${stem}Element(fieldNumber, value) {
-    this.addElement_(fieldNumber, value, FieldAccessor.add${stem}Element);
+    this.addElement_(fieldNumber, value, FieldAccessor.set${stem});
   }
 
   /**
    * @param {number} fieldNumber
-   * @param {!Iterable<!${valueType}>} value
+   * @param {!Iterable<!${valueType}>} values
    */
-  addAll${stem}Elements(fieldNumber, value) {
-    this.addAllElements_(
-        fieldNumber, value, FieldAccessor.addAll${stem}Elements);
+  addAll${stem}Elements(fieldNumber, values) {
+    this.addAllElements_(fieldNumber, values, FieldAccessor.set${stem});
   }
 
 
@@ -86,10 +84,10 @@
 
   /**
    * @param {number} fieldNumber
-   * @param {!Iterable<!${valueType}>} value
+   * @param {!Iterable<!${valueType}>} values
    */
-  set${stem}Iterable(fieldNumber, value) {
-    this.setIterable_(fieldNumber, value, FieldAccessor.set${stem}Iterable);
+  set${stem}Iterable(fieldNumber, values) {
+    this.setIterable_(fieldNumber, values, FieldAccessor.set${stem});
   }
 
 
@@ -100,7 +98,7 @@
    */
   set${stem}Element(fieldNumber, elementIndex, value) {
     this.setElement_(
-        fieldNumber, elementIndex, value, FieldAccessor.set${stem}Element);
+        fieldNumber, elementIndex, value, FieldAccessor.set${stem});
   }
 
 
@@ -139,9 +137,7 @@
   getRepeatedMessageField(fieldNumber, ctor) {
     const instanceCreator = data => JspbKernel.fromArray(ctor, data);
     return this.getRepeatedField_(
-        fieldNumber,
-        (data, fieldNumber) => FieldAccessor.getMessageListView(
-            data, fieldNumber, instanceCreator));
+        fieldNumber, (a, i) => FieldAccessor.getMessage(a, i, instanceCreator));
   }
 
   /**
@@ -155,8 +151,7 @@
     const instanceCreator = data => JspbKernel.fromArray(ctor, data);
     return this.getElement_(
         fieldNumber, elementIndex,
-        (data, fieldNumber, index) => FieldAccessor.getMessageElement(
-            data, fieldNumber, index, instanceCreator));
+        (a, i) => FieldAccessor.getMessage(a, i, instanceCreator));
   }
 
   //////////////////////////////////////////////////////////////////////////////
@@ -176,7 +171,7 @@
    * @param {!JspbKernel} value
    */
   addMessageElement(fieldNumber, value) {
-    this.addElement_(fieldNumber, value.data_, FieldAccessor.addMessageElement);
+    this.addElement_(fieldNumber, value, messageFieldWriter);
   }
 
   /**
@@ -184,8 +179,7 @@
    * @param {!JspbKernel} value
    */
   setMessageField(fieldNumber, value) {
-    this.setField_(
-        fieldNumber, value, (data, index) => data[index] = value.data_);
+    this.setField_(fieldNumber, value, messageFieldWriter);
   }
 
 
@@ -195,9 +189,15 @@
    * @param {!JspbKernel} value
    */
   setMessageElement(fieldNumber, elementIndex, value) {
-    this.setElement_(
-        fieldNumber, elementIndex, value.data_,
-        FieldAccessor.setMessageElement);
+    this.setElement_(fieldNumber, elementIndex, value, messageFieldWriter);
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {!Iterable<!JspbKernel>} values
+   */
+  setMessageIterable(fieldNumber, values) {
+    this.setIterable_(fieldNumber, values, messageFieldWriter);
   }
 
   //////////////////////////////////////////////////////////////////////////////

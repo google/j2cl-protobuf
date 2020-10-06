@@ -92,7 +92,11 @@ public class BooleanFieldsTest {
     assertThat(TestProto.getDefaultInstance().getRepeatedBoolCount()).isEqualTo(0);
     assertThat(TestProto.newBuilder().build().getRepeatedBoolCount()).isEqualTo(0);
 
-    assertThrows(Exception.class, () -> TestProto.newBuilder().build().getRepeatedBool(3));
+    if (InternalChecks.isCheckIndex()) {
+      assertThrows(Exception.class, () -> TestProto.newBuilder().build().getRepeatedBool(3));
+    } else {
+      assertThat(TestProto.newBuilder().build().getRepeatedBool(3)).isNull();
+    }
   }
 
   @Test
@@ -156,7 +160,7 @@ public class BooleanFieldsTest {
     if (InternalChecks.isCheckIndex()) {
       assertThrows(Exception.class, () -> builder.getRepeatedBool(3));
     } else {
-      assertThat(builder.getRepeatedBool(3)).isFalse();
+      assertThat(builder.getRepeatedBool(3)).isNull();
     }
 
     TestProto proto = builder.build();
@@ -167,7 +171,7 @@ public class BooleanFieldsTest {
     if (InternalChecks.isCheckIndex()) {
       assertThrows(Exception.class, () -> proto.getRepeatedBool(3));
     } else {
-      assertThat(proto.getRepeatedBool(3)).isFalse();
+      assertThat(proto.getRepeatedBool(3)).isNull();
     }
   }
 

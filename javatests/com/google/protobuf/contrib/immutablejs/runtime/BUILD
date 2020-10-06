@@ -53,6 +53,18 @@ proto_jsunit_test(
 )
 
 proto_jsunit_test(
+    name = "internal_list_test",
+    srcs = ["internal_list_test.js"],
+    deps = [
+        "//java/com/google/protobuf/contrib/immutablejs/runtime:fieldaccessor",
+        "//java/com/google/protobuf/contrib/immutablejs/runtime:internal_checks",
+        "//java/com/google/protobuf/contrib/immutablejs/runtime:internal_list",
+        "//third_party:closure_testing_asserts",
+        "//third_party:closure_testsuite",
+    ],
+)
+
+proto_jsunit_test(
     name = "listview_test",
     srcs = ["listview_test.js"],
     deps = [

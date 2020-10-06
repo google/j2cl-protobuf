@@ -97,7 +97,11 @@ class IntFieldsTest {
         0, TestProto.newBuilder().build().getRepeatedIntCount());
     assertEqualsForProto(
         0, TestProto.newBuilder().build().getRepeatedIntList().size());
-    assertThrows(() => TestProto.newBuilder().build().getRepeatedInt(0));
+    if (isCheckIndex()) {
+      assertThrows(() => TestProto.newBuilder().build().getRepeatedInt(0));
+    } else {
+      assertUndefined(TestProto.newBuilder().build().getRepeatedInt(0));
+    }
   }
 
   testRepeatedField_add() {
@@ -171,7 +175,7 @@ class IntFieldsTest {
     if (isCheckIndex()) {
       assertThrows(() => builder.getRepeatedInt(5));
     } else {
-      assertEqualsForProto(0, builder.getRepeatedInt(5));
+      assertUndefined(builder.getRepeatedInt(5));
     }
 
 
@@ -185,7 +189,7 @@ class IntFieldsTest {
     if (isCheckIndex()) {
       assertThrows(() => proto.getRepeatedInt(5));
     } else {
-      assertEqualsForProto(0, proto.getRepeatedInt(5));
+      assertUndefined(proto.getRepeatedInt(5));
     }
   }
 

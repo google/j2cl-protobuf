@@ -15,6 +15,7 @@ goog.module('proto.im.JspbKernel');
 
 const Equivalence = goog.require('proto.im.internal.Equivalence');
 const FieldAccessor = goog.require('proto.im.internal.FieldAccessor');
+const InternalList = goog.require('proto.im.internal.InternalList');
 const Hashing = goog.require('proto.im.internal.Hashing');
 const ListView = goog.require('proto.im.ListView');
 const internalChecks = goog.require('proto.im.internal.internalChecks');
@@ -30,6 +31,9 @@ const internalChecks = goog.require('proto.im.internal.internalChecks');
 
 /** @private @const */
 const cachedMsgKey = '${D}jspb_cached_msg_';
+
+/** @private @const */
+const cachedListKey = '${D}jspb_cached_list_';
 
 /**
  * @param {!Array} data
@@ -241,9 +245,17 @@ class JspbKernel {
    * @return {number}
    */
   getRepeatedFieldCount(fieldNumber) {
+    return this.hasField(fieldNumber) ? this.getInternalList_(fieldNumber).size() : 0;
+  }
+
+
+  /**
+   * @param {number} fieldNumber
+   */
+  clearField(fieldNumber) {
     const index = this.adjustIndex_(fieldNumber);
     const rawJson = this.getStorageFor_(index);
-    return FieldAccessor.getRepeatedFieldCount(rawJson, index);
+    delete rawJson[index];
   }
 
 
@@ -279,63 +291,54 @@ class JspbKernel {
    * @param {number} fieldNumber
    * @param {function(!Object<number, *>, number):T} accessorFn
    * @private
-   * @return {T}
+   * @return {!ListView<T>}
    * @template T
    */
   getRepeatedField_(fieldNumber, accessorFn) {
-    const index = this.adjustIndex_(fieldNumber);
-    const rawJson = this.getStorageFor_(index);
-    return accessorFn(rawJson, index);
+    if (!this.hasField(fieldNumber)) {
+      return /** @type {!ListView<T>} */ (ListView.empty());
+    }
+    const list = this.getInternalList_(fieldNumber);
+    list.setAccessor(accessorFn);
+    return list;
   }
 
   /**
    * @param {number} fieldNumber
    * @param {number} elementIndex
-   * @param {function(!Object<number, *>, number, number):T} accessorFn
+   * @param {function(!Object<number, *>, number):T} accessorFn
    * @private
    * @return {T}
    * @template T
    */
   getElement_(fieldNumber, elementIndex, accessorFn) {
-    const index = this.adjustIndex_(fieldNumber);
-    const rawJson = this.getStorageFor_(index);
-    return accessorFn(rawJson, index, elementIndex);
-  }
-
-  /**
-   * @param {number} fieldNumber
-   */
-  clearField(fieldNumber) {
-    const index = this.adjustIndex_(fieldNumber);
-    const rawJson = this.getStorageFor_(index);
-    delete rawJson[index];
+    return this.getRepeatedField_(fieldNumber, accessorFn).get(elementIndex);
   }
 
   /**
    * @param {number} fieldNumber
    * @param {T} value
-   * @param {function(!Object<number, *>, number, T)} accessorFn
+   * @param {function(!Object<number, *>, number, T)} setterFn
    * @private
    * @template T
    */
-  addElement_(fieldNumber, value, accessorFn) {
-    const index = this.adjustIndex_(fieldNumber);
-    const rawJson = this.getStorageFor_(index);
-    accessorFn(rawJson, index, value);
+  addElement_(fieldNumber, value, setterFn) {
+    const list = this.getInternalList_(fieldNumber);
+    list.add(value, setterFn);
   }
 
 
   /**
    * @param {number} fieldNumber
-   * @param {T} value
-   * @param {function(!Object<number, *>, number, T)} accessorFn
+   * @param {!Iterable<T>} values
+   * @param {function(!Object<number, *>, number, T)} setterFn
    * @private
    * @template T
    */
-  addAllElements_(fieldNumber, value, accessorFn) {
-    const index = this.adjustIndex_(fieldNumber);
-    const rawJson = this.getStorageFor_(index);
-    accessorFn(rawJson, index, value);
+  addAllElements_(fieldNumber, values, setterFn) {
+    for (const value of values) {
+      this.addElement_(fieldNumber, value, setterFn);
+    }
   }
 
 
@@ -357,30 +360,52 @@ class JspbKernel {
    * @param {number} fieldNumber
    * @param {number} elementIndex
    * @param {T} value
-   * @param {function(!Object<number, *>, number, number, T)} accessorFn
+   * @param {function(!Object<number, *>, number, T)} setterFn
    * @private
    * @template T
    */
-  setElement_(fieldNumber, elementIndex, value, accessorFn) {
-    const index = this.adjustIndex_(fieldNumber);
-    const rawJson = this.getStorageFor_(index);
-    accessorFn(rawJson, index, elementIndex, value);
+  setElement_(fieldNumber, elementIndex, value, setterFn) {
+    const list = this.getInternalList_(fieldNumber);
+    list.set(elementIndex, value, setterFn);
   }
 
   /**
    * @param {number} fieldNumber
-   * @param {!Iterable<T>} value
-   * @param {function(!Object<number, *>, number, !Iterable<T>)} accessorFn
+   * @param {!Iterable<T>} values
+   * @param {function(!Object<number, *>, number, T)} setterFn
    * @private
    * @template T
    */
-  setIterable_(fieldNumber, value, accessorFn) {
+  setIterable_(fieldNumber, values, setterFn) {
+    const list = this.getInternalList_(fieldNumber);
+    list.setIterable(values, setterFn);
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @return {!InternalList<T>}
+   * @private
+   * @template T
+   */
+  getInternalList_(fieldNumber) {
     const index = this.adjustIndex_(fieldNumber);
     const rawJson = this.getStorageFor_(index);
-    accessorFn(rawJson, index, value);
+    const array = FieldAccessor.ensureRepeatedFieldPresent(rawJson, index);
+    const field = rawJson[index];
+    return /** @type {!InternalList<T>} */ (
+        field[cachedListKey] || (field[cachedListKey] = new InternalList(array)));
   }
 
   #parse('jspb_kernel_accessors.vm')
+}
+
+/**
+ * @param {!Object<number, *>} dataToUpdate
+ * @param {number} fieldNumber
+ * @param {!JspbKernel} value
+ */
+function messageFieldWriter(dataToUpdate, fieldNumber, value) {
+  dataToUpdate[fieldNumber] = value.data_;
 }
 
 exports = JspbKernel;

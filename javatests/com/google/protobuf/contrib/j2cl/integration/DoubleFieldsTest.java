@@ -105,7 +105,11 @@ public class DoubleFieldsTest {
     assertThat(TestProto.getDefaultInstance().getRepeatedDoubleCount()).isEqualTo(0);
     assertThat(TestProto.newBuilder().build().getRepeatedDoubleCount()).isEqualTo(0);
 
-    assertThrows(Exception.class, () -> TestProto.newBuilder().build().getRepeatedDouble(0));
+    if (InternalChecks.isCheckIndex()) {
+      assertThrows(Exception.class, () -> TestProto.newBuilder().build().getRepeatedDouble(0));
+    } else {
+      assertThat(TestProto.newBuilder().build().getRepeatedDouble(0)).isNull();
+    }
   }
 
   @Test
@@ -180,7 +184,7 @@ public class DoubleFieldsTest {
     if (InternalChecks.isCheckIndex()) {
       assertThrows(Exception.class, () -> builder.getRepeatedDouble(5));
     } else {
-      assertThat(builder.getRepeatedDouble(5)).isNaN();
+      assertThat(builder.getRepeatedDouble(5)).isNull();
     }
 
     TestProto proto = builder.build();
@@ -192,7 +196,7 @@ public class DoubleFieldsTest {
     if (InternalChecks.isCheckIndex()) {
       assertThrows(Exception.class, () -> proto.getRepeatedDouble(5));
     } else {
-      assertThat(proto.getRepeatedDouble(5)).isNaN();
+      assertThat(proto.getRepeatedDouble(5)).isNull();
     }
   }
 
