@@ -54,6 +54,7 @@ closure_js_library(
         ":hashing",
         ":internal_checks",
         ":internal_list",
+        ":internal_mutablelistview",
         ":listview",
         "//third_party:closure_math_long",
     ],
@@ -108,9 +109,16 @@ closure_js_library(
     srcs = [":internal_list.js"],
     deps = [
         ":internal_checks",
+        ":internal_mutablelistview",
         ":listview",
         "//third_party:closure_asserts",
     ],
+)
+
+closure_js_library(
+    name = "internal_mutablelistview",
+    srcs = [":internal_mutablelistview.js"],
+    deps = [":listview"],
 )
 
 closure_js_library(

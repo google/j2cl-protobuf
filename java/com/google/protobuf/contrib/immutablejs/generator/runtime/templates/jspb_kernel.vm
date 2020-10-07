@@ -16,6 +16,7 @@ goog.module('proto.im.JspbKernel');
 const Equivalence = goog.require('proto.im.internal.Equivalence');
 const FieldAccessor = goog.require('proto.im.internal.FieldAccessor');
 const InternalList = goog.require('proto.im.internal.InternalList');
+const InternalMutableListView = goog.require('proto.im.internal.InternalMutableListView');
 const Hashing = goog.require('proto.im.internal.Hashing');
 const ListView = goog.require('proto.im.ListView');
 const internalChecks = goog.require('proto.im.internal.internalChecks');
@@ -239,7 +240,6 @@ class JspbKernel {
     return FieldAccessor.hasField(rawJson, index);
   }
 
-
   /**
    * @param {number} fieldNumber
    * @return {number}
@@ -247,7 +247,6 @@ class JspbKernel {
   getRepeatedFieldCount(fieldNumber) {
     return this.hasField(fieldNumber) ? this.getInternalList_(fieldNumber).size() : 0;
   }
-
 
   /**
    * @param {number} fieldNumber
@@ -286,62 +285,6 @@ class JspbKernel {
     return accessorFn(rawJson, index, defaultValue);
   }
 
-
-  /**
-   * @param {number} fieldNumber
-   * @param {function(!Object<number, *>, number):T} accessorFn
-   * @private
-   * @return {!ListView<T>}
-   * @template T
-   */
-  getRepeatedField_(fieldNumber, accessorFn) {
-    if (!this.hasField(fieldNumber)) {
-      return /** @type {!ListView<T>} */ (ListView.empty());
-    }
-    const list = this.getInternalList_(fieldNumber);
-    list.setAccessor(accessorFn);
-    return list;
-  }
-
-  /**
-   * @param {number} fieldNumber
-   * @param {number} elementIndex
-   * @param {function(!Object<number, *>, number):T} accessorFn
-   * @private
-   * @return {T}
-   * @template T
-   */
-  getElement_(fieldNumber, elementIndex, accessorFn) {
-    return this.getRepeatedField_(fieldNumber, accessorFn).get(elementIndex);
-  }
-
-  /**
-   * @param {number} fieldNumber
-   * @param {T} value
-   * @param {function(!Object<number, *>, number, T)} setterFn
-   * @private
-   * @template T
-   */
-  addElement_(fieldNumber, value, setterFn) {
-    const list = this.getInternalList_(fieldNumber);
-    list.add(value, setterFn);
-  }
-
-
-  /**
-   * @param {number} fieldNumber
-   * @param {!Iterable<T>} values
-   * @param {function(!Object<number, *>, number, T)} setterFn
-   * @private
-   * @template T
-   */
-  addAllElements_(fieldNumber, values, setterFn) {
-    for (const value of values) {
-      this.addElement_(fieldNumber, value, setterFn);
-    }
-  }
-
-
   /**
    * @param {number} fieldNumber
    * @param {T} value
@@ -353,32 +296,6 @@ class JspbKernel {
     const index = this.adjustIndex_(fieldNumber);
     const rawJson = this.getStorageFor_(index);
     accessorFn(rawJson, index, value);
-  }
-
-
-  /**
-   * @param {number} fieldNumber
-   * @param {number} elementIndex
-   * @param {T} value
-   * @param {function(!Object<number, *>, number, T)} setterFn
-   * @private
-   * @template T
-   */
-  setElement_(fieldNumber, elementIndex, value, setterFn) {
-    const list = this.getInternalList_(fieldNumber);
-    list.set(elementIndex, value, setterFn);
-  }
-
-  /**
-   * @param {number} fieldNumber
-   * @param {!Iterable<T>} values
-   * @param {function(!Object<number, *>, number, T)} setterFn
-   * @private
-   * @template T
-   */
-  setIterable_(fieldNumber, values, setterFn) {
-    const list = this.getInternalList_(fieldNumber);
-    list.setIterable(values, setterFn);
   }
 
   /**
@@ -394,6 +311,35 @@ class JspbKernel {
     const field = rawJson[index];
     return /** @type {!InternalList<T>} */ (
         field[cachedListKey] || (field[cachedListKey] = new InternalList(array)));
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {function(!Object<number, *>, number):T} accessorFn
+   * @return {!ListView<T>}
+   * @private
+   * @template T
+   */
+  getListView_(fieldNumber, accessorFn) {
+    if (!this.hasField(fieldNumber)) {
+      return /** @type {!ListView<T>} */ (ListView.empty());
+    }
+    const list = this.getInternalList_(fieldNumber);
+    list.setAccessor(accessorFn);
+    return list;
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {function(!Object<number, *>, number, T)} setterFn
+   * @return {!InternalMutableListView<T>}
+   * @private
+   * @template T
+   */
+  getMutableListView_(fieldNumber, setterFn) {
+    const list = this.getInternalList_(fieldNumber);
+    list.setSetter(setterFn);
+    return list;
   }
 
   #parse('jspb_kernel_accessors.vm')

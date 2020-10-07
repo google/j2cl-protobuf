@@ -64,7 +64,8 @@ class InternalListTest {
   testSet() {
     const underlyingArray = ['a', 'b', 'c'];
     const /** !InternalList<string> */ list = new InternalList(underlyingArray);
-    list.set(1, 'd', FieldAccessor.setString);
+    list.setSetter(FieldAccessor.setString);
+    list.set(1, 'd');
 
     assertArrayEquals(['a', 'd', 'c'], underlyingArray);
   }
@@ -74,7 +75,8 @@ class InternalListTest {
       return;
     }
     const /** !InternalList<string> */ list = new InternalList(['a', 'b', 'c']);
-    assertThrows(() => list.set(3, 'd', FieldAccessor.setString));
+    list.setSetter(FieldAccessor.setString);
+    assertThrows(() => list.set(3, 'd'));
   }
 
   testSet_outOfBounds_withCheckIndexDisabled_allowsHoles() {
@@ -83,7 +85,8 @@ class InternalListTest {
     }
     const underlyingArray = ['a', 'b', 'c'];
     const /** !InternalList<string> */ list = new InternalList(underlyingArray);
-    list.set(4, 'd', FieldAccessor.setString);
+    list.setSetter(FieldAccessor.setString);
+    list.set(4, 'd');
 
     assertArrayEquals(['a', 'b', 'c', undefined, 'd'], underlyingArray);
     // Index 3 ends up with an empty string as a result of
@@ -96,7 +99,8 @@ class InternalListTest {
   testSetIterable() {
     const underlyingArray = ['a', 'b', 'c'];
     const /** !InternalList<string> */ list = new InternalList(underlyingArray);
-    list.setIterable(['d', 'e', 'f'], FieldAccessor.setString);
+    list.setSetter(FieldAccessor.setString);
+    list.setIterable(['d', 'e', 'f']);
 
     assertArrayEquals(['d', 'e', 'f'], underlyingArray);
   }
@@ -104,8 +108,9 @@ class InternalListTest {
   testAdd() {
     const underlyingArray = ['a', 'b', 'c'];
     const /** !InternalList<string> */ list = new InternalList(underlyingArray);
-    list.add('d', FieldAccessor.setString);
-    list.add('e', FieldAccessor.setString);
+    list.setSetter(FieldAccessor.setString);
+    list.add('d');
+    list.add('e');
 
     assertArrayEquals(['a', 'b', 'c', 'd', 'e'], underlyingArray);
   }
@@ -117,7 +122,8 @@ class InternalListTest {
     const firstCopy = list.toArray();
     assertArrayEquals(['a', 'b', 'c'], firstCopy);
 
-    list.add('d', FieldAccessor.setString);
+    list.setSetter(FieldAccessor.setString);
+    list.add('d');
     const secondCopy = list.toArray();
     assertArrayEquals(['a', 'b', 'c'], firstCopy);
     assertArrayEquals(['a', 'b', 'c', 'd'], secondCopy);

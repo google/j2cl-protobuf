@@ -14,13 +14,14 @@
 
 goog.module('proto.im.internal.InternalList');
 
+const InternalMutableListView = goog.require('proto.im.internal.InternalMutableListView');
 const ListView = goog.require('proto.im.ListView');
 const {assertExists} = goog.require('goog.asserts');
 const {checkIndex} = goog.require('proto.im.internal.internalChecks');
 
 /**
  * @final
- * @implements {ListView<T>}
+ * @implements {InternalMutableListView<T>}
  * @template T
  */
 class InternalList {
@@ -33,6 +34,9 @@ class InternalList {
 
     /** @private {(function(!Object<number, *>, number): T)|undefined} */
     this.accessorFn_;
+
+    /** @private {(function(!Object<number, *>, number, T))|undefined} */
+    this.setterFn_;
   }
 
   /**
@@ -40,6 +44,13 @@ class InternalList {
    */
   setAccessor(accessorFn) {
     this.accessorFn_ = accessorFn;
+  }
+
+  /**
+   * @param {function(!Object<number, *>, number, T)} setterFn
+   */
+  setSetter(setterFn) {
+    this.setterFn_ = setterFn;
   }
 
   /** @override */
@@ -53,32 +64,34 @@ class InternalList {
     return withinRange ? accessorFn(this.jsonArray_, index) : undefined;
   }
 
-  /**
-   * @param {number} index
-   * @param {T} value
-   * @param {function(!Object<number, *>, number, T)} setterFn
-   */
-  set(index, value, setterFn) {
+  /** @override */
+  set(index, value) {
     checkIndex(index, this.size());
+    const setterFn = assertExists(
+        this.setterFn_,
+        'setterFn must be set before values can be retrieved. ' +
+            'Are you missing a call to setSetter?');
     setterFn(this.jsonArray_, index, value);
   }
 
-  /**
-   * @param {!Iterable<T>} values
-   * @param {function(!Object<number, *>, number, T)} setterFn
-   */
-  setIterable(values, setterFn) {
+  /** @override */
+  setIterable(values) {
+    const setterFn = assertExists(
+        this.setterFn_,
+        'setterFn must be set before values can be retrieved. ' +
+            'Are you missing a call to setSetter?');
     this.jsonArray_.length = 0;
     for (const value of values) {
       setterFn(this.jsonArray_, this.size(), value);
     }
   }
 
-  /**
-   * @param {T} value
-   * @param {function(!Object<number, *>, number, T)} setterFn
-   */
-  add(value, setterFn) {
+  /** @override */
+  add(value) {
+    const setterFn = assertExists(
+        this.setterFn_,
+        'setterFn must be set before values can be retrieved. ' +
+            'Are you missing a call to setSetter?');
     setterFn(this.jsonArray_, this.size(), value);
   }
 

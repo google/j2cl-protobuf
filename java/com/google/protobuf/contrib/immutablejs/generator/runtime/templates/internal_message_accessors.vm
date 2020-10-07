@@ -43,7 +43,7 @@
    * @return {!${valueType}}
    */
   internal_get${stem}Element(fieldNumber, elementIndex) {
-    return this.kernel_.get${stem}Element(fieldNumber, elementIndex);
+    return this.kernel_.getRepeated${stem}Field(fieldNumber).get(elementIndex);
   }
 
   //////////////////////////////////////////////////////////////////////////////
@@ -91,7 +91,8 @@
    * @return {T}
    */
   internal_getMessageElement(fieldNumber, elementIndex, ctor) {
-    return this.kernel_.getMessageElement(fieldNumber, elementIndex, ctor);
+    return this.kernel_.getRepeatedMessageField(fieldNumber, ctor)
+        .get(elementIndex);
   }
 
   //////////////////////////////////////////////////////////////////////////////
