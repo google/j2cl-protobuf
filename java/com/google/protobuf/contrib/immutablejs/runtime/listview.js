@@ -40,7 +40,7 @@ class ListView {
    * @template T
    */
   static copyOf(array) {
-    return new ArrayListView(array);
+    return new ArrayListView(array.slice());
   }
 
   /**
@@ -106,7 +106,7 @@ class ArrayListView {
    */
   constructor(array) {
     /** @private {!Array<T>} */
-    this.array_ = array.slice();
+    this.array_ = array;
   }
 
   /**
