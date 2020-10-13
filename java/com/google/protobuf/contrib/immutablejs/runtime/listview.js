@@ -84,16 +84,10 @@ class ListView {
    * Returns a new array containing the items of the list.
    * @return {!Array<T>}
    */
-  toArray() {};
-}
+  toArray() {}
 
-// Not all browsers have support for Symbols and thus we add the method
-// conditionally
-if (!!goog.global.Symbol && !!goog.global.Symbol.iterator) {
-  /**
-   * @return {!Iterator<T>}
-   */
-  ListView.prototype[Symbol.iterator] = () => {};
+  /** @return {!Iterator<T>} */
+  [Symbol.iterator]() {}
 }
 
 /**
