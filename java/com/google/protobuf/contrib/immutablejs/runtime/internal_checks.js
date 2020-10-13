@@ -190,6 +190,35 @@ function checkTypeBoolean(value) {
   throw new Error('Not a boolean: ' + value);
 }
 
+/**
+ * @param {*} value
+ * @return {!Array<*>}
+ */
+function checkTypeMapEntry(value) {
+  if (CHECK_TYPE && checkTypeArray(value).length != 2) {
+    throw new Error('Not a map entry: ' + value);
+  }
+  return /** @type {!Array<*>} */ (value);
+}
+
+/**
+ * @param {*} value
+ * @return {string|number|boolean}
+ */
+function checkTypeMapKey(value) {
+  if (CHECK_TYPE) {
+    switch (typeof value) {
+      case 'number':
+      case 'string':
+      case 'boolean':
+        break;
+      default:
+        throw new Error('Not a valid map key type: ' + value);
+    }
+  }
+  return /** @type {string|number|boolean} */ (value);
+}
+
 
 // About coersion for integers:
 // Integer handling truncates to 32 bit signed integers.
@@ -283,6 +312,8 @@ exports = {
   checkTypeArray,
   checkTypeBoolean,
   checkTypeInt,
+  checkTypeMapEntry,
+  checkTypeMapKey,
   checkTypeNumber,
   checkTypeString,
   freezeObject,

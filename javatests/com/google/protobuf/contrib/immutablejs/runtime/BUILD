@@ -65,12 +65,36 @@ proto_jsunit_test(
 )
 
 proto_jsunit_test(
+    name = "internal_map_test",
+    srcs = ["internal_map_test.js"],
+    deps = [
+        "//java/com/google/protobuf/contrib/immutablejs/runtime:fieldaccessor",
+        "//java/com/google/protobuf/contrib/immutablejs/runtime:internal_map",
+        "//third_party:closure_math_long",
+        "//third_party:closure_testing_asserts",
+        "//third_party:closure_testsuite",
+    ],
+)
+
+proto_jsunit_test(
     name = "listview_test",
     srcs = ["listview_test.js"],
     deps = [
         "//java/com/google/protobuf/contrib/immutablejs/runtime:bytestring",
         "//java/com/google/protobuf/contrib/immutablejs/runtime:listview",
         "//java/com/google/protobuf/contrib/immutablejs/runtime:message",
+        "//third_party:closure_testing_asserts",
+        "//third_party:closure_testsuite",
+    ],
+)
+
+proto_jsunit_test(
+    name = "mapview_test",
+    srcs = ["mapview_test.js"],
+    deps = [
+        "//java/com/google/protobuf/contrib/immutablejs/runtime:mapview",
+        "//java/com/google/protobuf/contrib/immutablejs/runtime:message",
+        "//third_party:closure_math_long",
         "//third_party:closure_testing_asserts",
         "//third_party:closure_testsuite",
     ],

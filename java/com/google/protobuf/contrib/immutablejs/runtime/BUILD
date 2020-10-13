@@ -87,6 +87,11 @@ closure_js_library(
 )
 
 closure_js_library(
+    name = "mapview",
+    srcs = ["mapview.js"],
+)
+
+closure_js_library(
     name = "message",
     srcs = ["message.js"],
     deps = [
@@ -116,9 +121,24 @@ closure_js_library(
 )
 
 closure_js_library(
+    name = "internal_map",
+    srcs = ["internal_map.js"],
+    deps = [
+        ":internal_checks",
+        ":internal_mutablemapview",
+    ],
+)
+
+closure_js_library(
     name = "internal_mutablelistview",
     srcs = [":internal_mutablelistview.js"],
     deps = [":listview"],
+)
+
+closure_js_library(
+    name = "internal_mutablemapview",
+    srcs = [":internal_mutablemapview.js"],
+    deps = [":mapview"],
 )
 
 closure_js_library(
