@@ -17,8 +17,11 @@ const Equivalence = goog.require('proto.im.internal.Equivalence');
 const FieldAccessor = goog.require('proto.im.internal.FieldAccessor');
 const InternalList = goog.require('proto.im.internal.InternalList');
 const InternalMutableListView = goog.require('proto.im.internal.InternalMutableListView');
+const InternalMutableMapView = goog.require('proto.im.internal.InternalMutableMapView');
 const Hashing = goog.require('proto.im.internal.Hashing');
+const InternalMap = goog.require('proto.im.internal.InternalMap');
 const ListView = goog.require('proto.im.ListView');
+const MapView = goog.require('proto.im.MapView');
 const internalChecks = goog.require('proto.im.internal.internalChecks');
 
 #parse('imports.vm')
@@ -35,6 +38,9 @@ const cachedMsgKey = '${D}jspb_cached_msg_';
 
 /** @private @const */
 const cachedListKey = '${D}jspb_cached_list_';
+
+/** @private @const */
+const cachedMapKey = '${D}jspb_cached_map_';
 
 /**
  * @param {!Array} data
@@ -116,8 +122,7 @@ class JspbKernel {
    * @template MESSAGE
    */
   static fromArray(ctor, data) {
-    const cache = /** @type {!Object} */ (data);
-    return cache[cachedMsgKey] || (cache[cachedMsgKey] = new ctor(data));
+    return JspbKernel.getOrCache_(data, cachedMsgKey, () => new ctor(data));
   }
 
   /**
@@ -231,6 +236,20 @@ class JspbKernel {
   }
 
   /**
+   * Returns a cached value for a field and key, or creates and caches the
+   * value.
+   * @param {!Object} fieldJson
+   * @param {string} cacheKey
+   * @param {function(!Object):T} factory
+   * @return {T}
+   * @template T
+   * @private
+   */
+  static getOrCache_(fieldJson, cacheKey, factory) {
+    return fieldJson[cacheKey] || (fieldJson[cacheKey] = factory(fieldJson));
+  }
+
+  /**
    * @param {number} fieldNumber
    * @return {boolean}
    */
@@ -300,17 +319,27 @@ class JspbKernel {
 
   /**
    * @param {number} fieldNumber
+   * @return {!Object<string|number, *>}
+   * @private
+   */
+  getInternalRepeatedField_(fieldNumber) {
+    const index = this.adjustIndex_(fieldNumber);
+    const rawJson = this.getStorageFor_(index);
+    FieldAccessor.ensureRepeatedFieldPresent(rawJson, index);
+    return /** @type {!Object<string|number, *>} */ (rawJson[index]);
+  }
+
+  /**
+   * @param {number} fieldNumber
    * @return {!InternalList<T>}
    * @private
    * @template T
    */
   getInternalList_(fieldNumber) {
-    const index = this.adjustIndex_(fieldNumber);
-    const rawJson = this.getStorageFor_(index);
-    const array = FieldAccessor.ensureRepeatedFieldPresent(rawJson, index);
-    const field = rawJson[index];
+    const field = this.getInternalRepeatedField_(fieldNumber);
     return /** @type {!InternalList<T>} */ (
-        field[cachedListKey] || (field[cachedListKey] = new InternalList(array)));
+        JspbKernel.getOrCache_(field, cachedListKey,
+            () => new InternalList(internalChecks.checkTypeArray(field))));
   }
 
   /**
@@ -340,6 +369,64 @@ class JspbKernel {
     const list = this.getInternalList_(fieldNumber);
     list.setSetter(setterFn);
     return list;
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {function(!Object<number, *>, number): KEY} keyAccessorFn
+   * @param {function(!Object<number, *>, number, KEY): void} keySetterFn
+   * @param {function(!Object<number, *>, number): VALUE} valueAccessorFn
+   * @param {function(!Object<number, *>, number, VALUE): void} valueSetterFn
+   * @return {!InternalMap<KEY, VALUE>}
+   * @private
+   * @template KEY, VALUE
+   */
+  getInternalMap_(
+      fieldNumber, keyAccessorFn, keySetterFn, valueAccessorFn, valueSetterFn) {
+    const field = this.getInternalRepeatedField_(fieldNumber);
+    const map = JspbKernel.getOrCache_(field, cachedMapKey,
+        () => new InternalMap(
+            internalChecks.checkTypeArray(field), keyAccessorFn, keySetterFn,
+            valueAccessorFn, valueSetterFn));
+    return /** @type {!InternalMap<KEY, VALUE>} */ (map);
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {function(!Object<number, *>, number): KEY} keyAccessorFn
+   * @param {function(!Object<number, *>, number, KEY): void} keySetterFn
+   * @param {function(!Object<number, *>, number): VALUE} valueAccessorFn
+   * @param {function(!Object<number, *>, number, VALUE): void} valueSetterFn
+   * @return {!MapView<KEY, VALUE>}
+   * @private
+   * @template KEY, VALUE
+   */
+  getMapView_(
+      fieldNumber, keyAccessorFn, keySetterFn, valueAccessorFn, valueSetterFn) {
+    if (!this.hasField(fieldNumber)) {
+      return /** @type {!MapView<KEY, VALUE>} */ (MapView.empty());
+    }
+    return this.getInternalMap_(
+        fieldNumber, keyAccessorFn, keySetterFn, valueAccessorFn,
+        valueSetterFn);
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {function(!Object<number, *>, number): KEY} keyAccessorFn
+   * @param {function(!Object<number, *>, number, KEY): void} keySetterFn
+   * @param {function(!Object<number, *>, number): VALUE} valueAccessorFn
+   * @param {function(!Object<number, *>, number, VALUE): void} valueSetterFn
+   * @return {!InternalMutableMapView<KEY, VALUE>}
+   * @private
+   * @template KEY, VALUE
+   */
+  getMutableMapView_(
+      fieldNumber, keyAccessorFn, keySetterFn, valueAccessorFn, valueSetterFn) {
+    const map = this.getInternalMap_(
+        fieldNumber, keyAccessorFn, keySetterFn, valueAccessorFn,
+        valueSetterFn);
+    return map;
   }
 
   #parse('jspb_kernel_accessors.vm')

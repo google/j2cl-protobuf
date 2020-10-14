@@ -43,6 +43,26 @@ final class RuntimeGenerator {
           TypeDescriptor.INT52_LONG,
           TypeDescriptor.BYTE_STRING);
 
+  private static final ImmutableSet<TypeDescriptor> mapKeyDescriptors =
+      ImmutableSet.of(
+          TypeDescriptor.BOOLEAN,
+          TypeDescriptor.STRING,
+          TypeDescriptor.UINT,
+          TypeDescriptor.INT,
+          TypeDescriptor.INT52_LONG,
+          TypeDescriptor.LONG);
+
+  private static final ImmutableSet<TypeDescriptor> mapValueDescriptors =
+      ImmutableSet.of(
+          TypeDescriptor.BOOLEAN,
+          TypeDescriptor.STRING,
+          TypeDescriptor.FLOAT,
+          TypeDescriptor.UINT,
+          TypeDescriptor.INT,
+          TypeDescriptor.INT52_LONG,
+          TypeDescriptor.LONG,
+          TypeDescriptor.BYTE_STRING);
+
   private final RuntimeGeneratorOptions options;
   private final VelocityEngine velocityEngine = VelocityUtil.createEngine();
 
@@ -55,11 +75,26 @@ final class RuntimeGenerator {
         primitiveDescriptors.stream()
             .map(options.getRuntimeClass()::createTypeReferenceFor)
             .collect(toImmutableSet());
-    ImmutableSet<TypeReferenceDescriptor> allDescriptors = primitiveTypes;
+    ImmutableSet<TypeReferenceDescriptor> mapKeyTypes =
+        mapKeyDescriptors.stream()
+            .map(options.getRuntimeClass()::createTypeReferenceFor)
+            .collect(toImmutableSet());
+    ImmutableSet<TypeReferenceDescriptor> mapValueTypes =
+        mapValueDescriptors.stream()
+            .map(options.getRuntimeClass()::createTypeReferenceFor)
+            .collect(toImmutableSet());
+    ImmutableSet<TypeReferenceDescriptor> allDescriptors =
+        ImmutableSet.<TypeReferenceDescriptor>builder()
+            .addAll(primitiveTypes)
+            .addAll(mapKeyTypes)
+            .addAll(mapValueTypes)
+            .build();
     ImmutableList<ImportDescriptor> imports =
         Descriptors.calculateImportsForTypes(allDescriptors.stream());
     VelocityContext velocityContext = new VelocityContext();
     velocityContext.put("primitiveTypes", primitiveTypes);
+    velocityContext.put("mapKeyTypes", mapKeyTypes);
+    velocityContext.put("mapValueTypes", mapValueTypes);
     velocityContext.put("imports", imports);
 
     try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(options.getOutput()), UTF_8)) {

@@ -204,3 +204,129 @@
   // Message accessors for builder stop
   //
   //////////////////////////////////////////////////////////////////////////////
+
+#foreach ($key in $mapKeyTypes)
+#set ($keyType = $key.expression)
+#set ($keyStem = $key.target().stem)
+
+#foreach ($value in $mapValueTypes)
+#set ($valueType = $value.expression)
+#set ($valueStem = $value.target().stem)
+
+  //////////////////////////////////////////////////////////////////////////////
+  //
+  // Map accessors for builder with (key=${keyStem}, value=${valueStem}) start
+  //
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+   * @param {number} fieldNumber
+   * @param {!${keyType}} key
+   * @protected
+   * @return {BUILDER}
+   */
+  internal_removeMap${keyStem}Key${valueStem}Value(fieldNumber, key) {
+    this.kernel_.getMutableMapView${keyStem}Key${valueStem}Value(fieldNumber)
+        .remove(key);
+    return this;
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {!${keyType}} key
+   * @param {!${valueType}} value
+   * @protected
+   * @return {BUILDER}
+   */
+  internal_putMap${keyStem}Key${valueStem}Value(fieldNumber, key, value) {
+    this.kernel_.getMutableMapView${keyStem}Key${valueStem}Value(fieldNumber)
+        .set(key, value);
+    return this;
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {!Map<!${keyType}, !${valueType}>|!MapView<!${keyType}, !${valueType}>} values
+   * @protected
+   * @return {BUILDER}
+   */
+  internal_putAllMap${keyStem}Key${valueStem}Value(fieldNumber, values) {
+    for (const [key, value] of values) {
+      this.kernel_.getMutableMapView${keyStem}Key${valueStem}Value(fieldNumber)
+          .set(key, value);
+    }
+    return this;
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+  //
+  // Map accessors for builder with (key=${keyStem}, value=${valueStem}) stop
+  //
+  //////////////////////////////////////////////////////////////////////////////
+
+#end
+
+#set ($valueType = "INVALID")
+#set ($valueStem = "INVALID")
+
+  //////////////////////////////////////////////////////////////////////////////
+  //
+  // Map accessors for builder with (key=${keyStem}, value=Message) start
+  //
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+   * @param {number} fieldNumber
+   * @param {!${keyType}} key
+   * @param {function(new:T, !Array<*>)} ctor
+   * @protected
+   * @template T
+   * @return {BUILDER}
+   */
+  internal_removeMap${keyStem}KeyMessageValue(fieldNumber, key, ctor) {
+    this.kernel_.getMutableMapView${keyStem}KeyMessageValue(
+        fieldNumber, ctor, (message) => message.kernel_)
+        .remove(key);
+    return this;
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {!${keyType}} key
+   * @param {!InternalMessage} value
+   * @param {function(new:T, !Array<*>)} ctor
+   * @protected
+   * @template T
+   * @return {BUILDER}
+   */
+  internal_putMap${keyStem}KeyMessageValue(fieldNumber, key, value, ctor) {
+    this.kernel_.getMutableMapView${keyStem}KeyMessageValue(
+        fieldNumber, ctor, kernelProvider)
+        .set(key, value);
+    return this;
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {!Map<!${keyType}, !InternalMessage>|!MapView<!${keyType}, !InternalMessage>} values
+   * @param {function(new:T, !Array<*>)} ctor
+   * @protected
+   * @template T
+   * @return {BUILDER}
+   */
+  internal_putAllMap${keyStem}KeyMessageValue(fieldNumber, values, ctor) {
+    for (const [key, value] of values) {
+      this.kernel_.getMutableMapView${keyStem}KeyMessageValue(
+          fieldNumber, ctor, kernelProvider)
+          .set(key, value);
+    }
+    return this;
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+  //
+  // Map accessors for builder with (key=${keyStem}, value=Message) stop
+  //
+  //////////////////////////////////////////////////////////////////////////////
+
+#end

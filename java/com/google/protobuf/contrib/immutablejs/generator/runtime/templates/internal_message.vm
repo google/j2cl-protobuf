@@ -36,6 +36,7 @@ const ByteString = goog.require('proto.im.ByteString');
 const JspbKernel = goog.require('proto.im.JspbKernel');
 const ListView = goog.require('proto.im.ListView');
 const Long = goog.require('goog.math.Long');
+const MapView = goog.require('proto.im.MapView');
 const Message = goog.require('proto.im.Message');
 const internalChecks = goog.require('proto.im.internal.internalChecks');
 const reflect = goog.require('goog.reflect');
@@ -834,6 +835,42 @@ InternalMessage.ExtensionFieldInfo = class {
     return this.addAccessor_;
   }
 };
+
+/**
+ * @param {!MapView<KEY, VALUE>} mapView
+ * @param {KEY} key
+ * @return {VALUE}
+ * @throws If key is not present in map.
+ * @template KEY, VALUE
+ */
+function getMapValueOrThrow(mapView, key) {
+  const value = mapView.get(key);
+  if (value === undefined) {
+    throw new Error('Key \'' + key + '\' not present in map.');
+  }
+  return value;
+}
+
+/**
+ * @param {!MapView<KEY, VALUE>} mapView
+ * @param {KEY} key
+ * @param {VALUE} defaultValue
+ * @return {VALUE}
+ * @throws If key is not present in map.
+ * @template KEY, VALUE
+ */
+function getMapValueOrDefault(mapView, key, defaultValue) {
+  const value = mapView.get(key);
+  return value !== undefined ? value : defaultValue;
+}
+
+/**
+ * @param {!InternalMessage} message
+ * @return {!JspbKernel}
+ */
+function kernelProvider(message) {
+  return message.kernel_;
+}
 
 /**
  * @const {!Object<number, !InternalMessage>}

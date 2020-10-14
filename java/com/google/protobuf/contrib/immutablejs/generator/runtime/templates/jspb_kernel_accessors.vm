@@ -134,3 +134,119 @@
   // Message accessors for builder stop
   //
   //////////////////////////////////////////////////////////////////////////////
+
+
+#foreach ($key in $mapKeyTypes)
+#set ($keyType = $key.expression)
+#set ($keyStem = $key.target().stem)
+
+#foreach ($value in $mapValueTypes)
+#set ($valueType = $value.expression)
+#set ($valueStem = $value.target().stem)
+
+  //////////////////////////////////////////////////////////////////////////////
+  //
+  // Map accessors with (key=${keyStem}, value=${valueStem}) start
+  //
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+   * @param {number} fieldNumber
+   * @return {!MapView<!${keyType}, !${valueType}>}
+   */
+  getMapView${keyStem}Key${valueStem}Value(fieldNumber) {
+    return this.getMapView_(
+        fieldNumber, FieldAccessor.get${keyStem}, FieldAccessor.set${keyStem},
+        FieldAccessor.get${valueStem}, FieldAccessor.set${valueStem});
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+  //
+  // Map accessors with (key=${keyStem}, value=${valueStem}) stop
+  //
+  //////////////////////////////////////////////////////////////////////////////
+
+  //////////////////////////////////////////////////////////////////////////////
+  //
+  // Map accessors for builder with (key=${keyStem}, value=${valueStem}) start
+  //
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+   * @param {number} fieldNumber
+   * @return {!InternalMutableMapView<!${keyType}, !${valueType}>}
+   */
+  getMutableMapView${keyStem}Key${valueStem}Value(fieldNumber) {
+    return this.getMutableMapView_(
+        fieldNumber, FieldAccessor.get${keyStem}, FieldAccessor.set${keyStem},
+        FieldAccessor.get${valueStem}, FieldAccessor.set${valueStem});
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+  //
+  // Map accessors for builder with (key=${keyStem}, value=${valueStem}) stop
+  //
+  //////////////////////////////////////////////////////////////////////////////
+
+#end
+
+#set ($valueType = "INVALID")
+#set ($valueStem = "INVALID")
+
+  //////////////////////////////////////////////////////////////////////////////
+  //
+  // Map accessors with (key=${keyStem}, value=Message) start
+  //
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+   * @param {number} fieldNumber
+   * @param {function(new:T, !Array<*>)} ctor
+   * @param {function(T):!JspbKernel} kernelProvider
+   * @return {!MapView<!${keyType}, T>}
+   * @template T
+   */
+  getMapView${keyStem}KeyMessageValue(fieldNumber, ctor, kernelProvider) {
+    const instanceCreator = data => JspbKernel.fromArray(ctor, data);
+    return this.getMapView_(
+        fieldNumber, FieldAccessor.get${keyStem}, FieldAccessor.set${keyStem},
+        (a, i) => FieldAccessor.getMessage(a, i, instanceCreator),
+        (dataToUpdate, fieldNumber, value) => messageFieldWriter(
+            dataToUpdate, fieldNumber, kernelProvider(value)));
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+  //
+  // Map accessors with (key=${keyStem}, value=Message) stop
+  //
+  //////////////////////////////////////////////////////////////////////////////
+
+  //////////////////////////////////////////////////////////////////////////////
+  //
+  // Map accessors for builder with (key=${keyStem}, value=Message) start
+  //
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+   * @param {number} fieldNumber
+   * @param {function(new:T, !Array<*>)} ctor
+   * @param {function(T):!JspbKernel} kernelProvider
+   * @return {!InternalMutableMapView<!${keyType}, T>}
+   * @template T
+   */
+  getMutableMapView${keyStem}KeyMessageValue(fieldNumber, ctor, kernelProvider) {
+    const instanceCreator = data => JspbKernel.fromArray(ctor, data);
+    return this.getMutableMapView_(
+        fieldNumber, FieldAccessor.get${keyStem}, FieldAccessor.set${keyStem},
+        (a, i) => FieldAccessor.getMessage(a, i, instanceCreator),
+        (dataToUpdate, fieldNumber, value) => messageFieldWriter(
+            dataToUpdate, fieldNumber, kernelProvider(value)));
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+  //
+  // Map accessors for builder with (key=${keyStem}, value=Message) stop
+  //
+  //////////////////////////////////////////////////////////////////////////////
+
+#end

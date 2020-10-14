@@ -100,3 +100,174 @@
   // Message accessors stop
   //
   //////////////////////////////////////////////////////////////////////////////
+
+#foreach ($key in $mapKeyTypes)
+#set ($keyType = $key.expression)
+#set ($keyStem = $key.target().stem)
+
+#foreach ($value in $mapValueTypes)
+#set ($valueType = $value.expression)
+#set ($valueStem = $value.target().stem)
+
+  //////////////////////////////////////////////////////////////////////////////
+  //
+  // Map accessors with (key=${keyStem}, value=${valueStem}) start
+  //
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+   * @param {number} fieldNumber
+   * @return {number}
+   * @protected
+   */
+  internal_getMap${keyStem}Key${valueStem}ValueEntriesCount(fieldNumber) {
+    return this.kernel_.getMapView${keyStem}Key${valueStem}Value(fieldNumber)
+        .size();
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {!${keyType}} key
+   * @return {boolean}
+   * @protected
+   */
+  internal_mapContains${keyStem}Key${valueStem}Value(fieldNumber, key) {
+    return this.kernel_.getMapView${keyStem}Key${valueStem}Value(fieldNumber)
+        .has(key);
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {!${keyType}} key
+   * @return {!${valueType}}
+   * @throws Error if the key is not present in the map.
+   * @protected
+   */
+  internal_getMap${keyStem}Key${valueStem}ValueOrThrow(fieldNumber, key) {
+    return getMapValueOrThrow(
+        this.kernel_.getMapView${keyStem}Key${valueStem}Value(fieldNumber),
+        key);
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {!${keyType}} key
+   * @param {!${valueType}} defaultValue
+   * @return {!${valueType}}
+   * @protected
+   */
+  internal_getMap${keyStem}Key${valueStem}ValueWithDefault(
+      fieldNumber, key, defaultValue) {
+    return getMapValueOrDefault(
+        this.kernel_.getMapView${keyStem}Key${valueStem}Value(fieldNumber),
+        key,
+        defaultValue);
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @return {!MapView<!${keyType}, !${valueType}>}
+   * @protected
+   */
+  internal_get${keyStem}Key${valueStem}ValueMap(fieldNumber) {
+    return this.kernel_.getMapView${keyStem}Key${valueStem}Value(fieldNumber);
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+  //
+  // Map accessors with (key=${keyStem}, value=${valueStem}) stop
+  //
+  //////////////////////////////////////////////////////////////////////////////
+
+#end
+
+## Set valueType/valueStem to something obvious incase they're mistakenly used
+## below. Message-based fields have a special signature that doesn't match other
+## supported field types.
+#set ($valueType = "INVALID")
+#set ($valueStem = "INVALID")
+
+  //////////////////////////////////////////////////////////////////////////////
+  //
+  // Map accessors with (key=${keyStem}, value=Message) start
+  //
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+   * @param {number} fieldNumber
+   * @param {function(new:T, !Array<*>)} ctor
+   * @return {number}
+   * @protected
+   * @template T
+   */
+  internal_getMap${keyStem}KeyMessageValueEntriesCount(fieldNumber, ctor) {
+    return this.kernel_.getMapView${keyStem}KeyMessageValue(
+        fieldNumber, ctor, kernelProvider).size();
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {!${keyType}} key
+   * @param {function(new:T, !Array<*>)} ctor
+   * @return {boolean}
+   * @protected
+   * @template T
+   */
+  internal_mapContains${keyStem}KeyMessageValue(fieldNumber, key, ctor) {
+    return this.kernel_.getMapView${keyStem}KeyMessageValue(
+        fieldNumber, ctor, kernelProvider).has(key);
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {!${keyType}} key
+   * @return {T}
+   * @param {function(new:T, !Array<*>)} ctor
+   * @throws Error if the key is not present in the map.
+   * @protected
+   * @template T
+   */
+  internal_getMap${keyStem}KeyMessageValueOrThrow(fieldNumber, key, ctor) {
+    return getMapValueOrThrow(
+        this.kernel_.getMapView${keyStem}KeyMessageValue(
+            fieldNumber, ctor, kernelProvider),
+        key);
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {!${keyType}} key
+   * @param {T} defaultValue
+   * @param {function(new:T, !Array<*>)} ctor
+   * @return {T}
+   * @protected
+   * @template T
+   */
+  internal_getMap${keyStem}KeyMessageValueWithDefault(
+      fieldNumber, key, defaultValue, ctor) {
+    return getMapValueOrDefault(
+        this.kernel_.getMapView${keyStem}KeyMessageValue(
+            fieldNumber, ctor, kernelProvider),
+        key,
+        defaultValue);
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {function(new:T, !Array<*>)} ctor
+   * @return {!MapView<!${keyType}, T>}
+   * @protected
+   * @template T
+   */
+  internal_get${keyStem}KeyMessageValueMap(fieldNumber, ctor) {
+    return this.kernel_.getMapView${keyStem}KeyMessageValue(
+        fieldNumber, ctor, kernelProvider);
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+  //
+  // Map accessors with (key=${keyStem}, value=Message) stop
+  //
+  //////////////////////////////////////////////////////////////////////////////
+
+#end
