@@ -37,6 +37,7 @@ public abstract class TypeDescriptor {
   public static final TypeDescriptor STRING = createPrimitive("string", "String");
   public static final TypeDescriptor FLOAT = createPrimitive("number", "Double");
   public static final TypeDescriptor INT = createPrimitive("number", "Int");
+  public static final TypeDescriptor UINT = createPrimitive("number", "UInt");
   public static final TypeDescriptor LONG = createClosureType("goog.math.Long", "Long");
   public static final TypeDescriptor INT52_LONG = createClosureType("goog.math.Long", "Int52Long");
   public static final TypeDescriptor BYTE_STRING =
@@ -57,6 +58,9 @@ public abstract class TypeDescriptor {
       case FLOAT:
         return FLOAT;
       case INT:
+        if (fieldDescriptor.getType() == FieldDescriptor.Type.UINT32) {
+          return UINT;
+        }
         return INT;
       case LONG:
         if (fieldDescriptor.getOptions().getJstype() != JSType.JS_STRING) {

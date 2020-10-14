@@ -273,6 +273,71 @@ class FieldAccessorTest {
     assertEquals(0, fields[1]);
   }
 
+  testUInt32() {
+    const fields = {};
+    assertEquals(3, FieldAccessor.getUIntWithDefault(fields, 3, 3));
+    assertEquals(0, FieldAccessor.getUInt(fields, 3));
+
+    fields[4] = 2;
+    assertEquals(2, FieldAccessor.getUIntWithDefault(fields, 4, 0));
+    assertEquals(2, FieldAccessor.getUInt(fields, 4));
+
+    fields[3] = 4294967295;
+    assertEquals(-1, FieldAccessor.getUIntWithDefault(fields, 3, 0));
+    assertEquals(-1, FieldAccessor.getUInt(fields, 3));
+
+    FieldAccessor.setUInt(fields, 0, 1);
+    assertEquals(1, fields[0]);
+  }
+
+  testUIntTypeChecksEnabled() {
+    if (!isCheckType()) {
+      return;
+    }
+
+    const fields = [NaN, Infinity, -Infinity, {}, [], true, false, 1.1];
+
+    assertThrows(() => FieldAccessor.getUInt(fields, 0));
+    assertThrows(() => FieldAccessor.getUInt(fields, 1));
+    assertThrows(() => FieldAccessor.getUInt(fields, 2));
+    assertThrows(() => FieldAccessor.getUInt(fields, 3));
+    assertThrows(() => FieldAccessor.getUInt(fields, 4));
+    assertThrows(() => FieldAccessor.getUInt(fields, 5));
+    assertThrows(() => FieldAccessor.getUInt(fields, 6));
+    assertThrows(() => FieldAccessor.getUInt(fields, 7));
+    assertThrows(() => FieldAccessor.setUInt(fields, 0, 1.1));
+    assertThrows(() => FieldAccessor.setUInt(fields, 0, 4294967295));
+    assertThrows(
+        () => FieldAccessor.setUInt(
+            fields, 0, /** @type{number} */ (/** @type {*} */ ({}))));
+  }
+
+  testUIntTypeChecksDisabled() {
+    if (isCheckType()) {
+      return;
+    }
+
+    const fields = [NaN, Infinity, -Infinity, {}, [], true, false, 1.1];
+    assertEquals(0, FieldAccessor.getUInt(fields, 0));
+    assertEquals(0, FieldAccessor.getUInt(fields, 1));
+    assertEquals(0, FieldAccessor.getUInt(fields, 2));
+    assertEquals(0, FieldAccessor.getUInt(fields, 3));
+    assertEquals(0, FieldAccessor.getUInt(fields, 4));
+    assertEquals(1, FieldAccessor.getUInt(fields, 5));
+    assertEquals(0, FieldAccessor.getUInt(fields, 6));
+    assertEquals(1, FieldAccessor.getUInt(fields, 7));
+
+    FieldAccessor.setUInt(fields, 0, 1.1);
+    assertEquals(1, fields[0]);
+
+    FieldAccessor.setUInt(fields, 2, 4294967295);
+    assertEquals(-1, fields[2]);
+
+    FieldAccessor.setUInt(
+        fields, 1, /** @type{number} */ (/** @type {*} */ ({})));
+    assertEquals(0, fields[1]);
+  }
+
   testLongTypeChecksEnabled() {
     if (!isCheckType()) {
       return;

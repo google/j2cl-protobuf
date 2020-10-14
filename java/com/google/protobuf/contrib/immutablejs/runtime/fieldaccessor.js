@@ -222,6 +222,44 @@ class FieldAccessor {
   }
 
   /**
+   * @param {!Object<number, *>} rawJson
+   * @param {number} fieldNumber
+   * @param {number} defaultValue
+   * @return {number}
+   */
+  static getUIntWithDefault(rawJson, fieldNumber, defaultValue) {
+    const value = rawJson[fieldNumber];
+    if (value != null) {
+      internalChecks.checkUIntRepresentation(value);
+      // We coerce unsigned integer to 32 bit signed integers since that is how
+      // immutable js proto exposes Uint32.
+      return /** @type {number} */ (value) << 0;
+    }
+    return defaultValue;
+  }
+
+
+  /**
+   * @param {!Object<number, *>} rawJson
+   * @param {number} fieldNumber
+   * @return {number}
+   */
+  static getUInt(rawJson, fieldNumber) {
+    return FieldAccessor.getUIntWithDefault(rawJson, fieldNumber, 0);
+  }
+
+
+  /**
+   * @param {!Object<number, *>} rawJson
+   * @param {number} fieldNumber
+   * @param {number} value
+   * @return {void}
+   */
+  static setUInt(rawJson, fieldNumber, value) {
+    rawJson[fieldNumber] = internalChecks.checkTypeInt(value);
+  }
+
+  /**
    *
    * @param {*} value
    * @return {!Long}

@@ -221,10 +221,9 @@ function checkTypeMapKey(value) {
 
 
 // About coersion for integers:
-// Integer handling truncates to 32 bit signed integers.
-// This is a deliberate choice to make this work nicely with Java on the
-// server side and client side (J2CL). Serializers will have to error out on
-// unsigned integers UINTs that are bigger than 31 bits.
+// Int32/Uint32 handling truncates to 32 bit signed integers.
+// This is a deliberate choice, since this repsentation allows using bitwise
+// operations and also consistent with Java protos.
 
 /**
  * @param {*} value
@@ -242,6 +241,29 @@ function checkTypeInt(value) {
   }
   throw new Error('Not a 32 bit integer: ' + value);
 }
+
+/**
+ * @param {*} value
+ */
+function checkUIntRepresentation(value) {
+  if (!CHECK_TYPE) {
+    return;
+  }
+
+  const valueAsNumber = checkTypeNumber(value);
+  if ((valueAsNumber | 0) === value) {
+    // valid 32 bit signed integer
+    return;
+  }
+
+  if ((valueAsNumber >>> 0) === value) {
+    // valid 32 bit unsigned integer
+    return;
+  }
+
+  throw new Error('Not a signed/unsigned 32 bit integer: ' + value);
+}
+
 
 
 /**
@@ -316,6 +338,7 @@ exports = {
   checkTypeMapKey,
   checkTypeNumber,
   checkTypeString,
+  checkUIntRepresentation,
   freezeObject,
   isCheckType,
   isCheckIndex,

@@ -38,6 +38,7 @@ final class RuntimeGenerator {
           TypeDescriptor.STRING,
           TypeDescriptor.FLOAT,
           TypeDescriptor.INT,
+          TypeDescriptor.UINT,
           TypeDescriptor.LONG,
           TypeDescriptor.INT52_LONG,
           TypeDescriptor.BYTE_STRING);

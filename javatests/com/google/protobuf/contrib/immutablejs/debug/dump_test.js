@@ -38,7 +38,8 @@ class DumpTest {
           'repeatedEnumList': [],
           'repeatedStringList': [],
           'repeatedBytesList': [],
-          'repeatedMessageList': []
+          'repeatedMessageList': [],
+          'repeatedUint32List': []
         },
         debug.dump(TestProto.getDefaultInstance()));
   }
@@ -59,6 +60,11 @@ class DumpTest {
             .addRepeatedInt(6)
             .addRepeatedInt(12)
             .addRepeatedInt(24)
+            .setOptionalUint32(675)
+            .setOptionalUint32WithDefault(775)
+            .addRepeatedUint32(600)
+            .addRepeatedUint32(800)
+            .addRepeatedUint32(900)
             .setOptionalLong(Long.fromNumber(666))
             .setOptionalLongWithDefault(Long.fromString('88902389724'))
             .addRepeatedLong(Long.fromNumber(777))
@@ -104,6 +110,9 @@ class DumpTest {
           'optionalInt': 666,
           'optionalIntWithDefault': 777,
           'repeatedIntList': [6, 12, 24],
+          'optionalUint32': 675,
+          'optionalUint32WithDefault': 775,
+          'repeatedUint32List': [600, 800, 900],
           'optionalLong': '666',
           'optionalLongWithDefault': '88902389724',
           'repeatedLongList': ['777', '8283'],
