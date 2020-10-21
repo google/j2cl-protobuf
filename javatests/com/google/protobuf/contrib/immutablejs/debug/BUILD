@@ -9,9 +9,9 @@ proto_jsunit_test(
         "//java/com/google/protobuf/contrib/immutablejs:debug",
         "//java/com/google/protobuf/contrib/immutablejs:runtime",
         "//javascript/closure:base",
-        "//javascript/closure/math:long",
-        "//javascript/closure/testing:asserts",
-        "//javascript/closure/testing:testsuite",
         "//javatests/com/google/protobuf/contrib/immutablejs/protos:accessors_immutable_js_proto",
+        "//third_party/javascript/closure/math:long",
+        "//third_party/javascript/closure/testing:asserts",
+        "//third_party/javascript/closure/testing:testsuite",
     ],
 )
