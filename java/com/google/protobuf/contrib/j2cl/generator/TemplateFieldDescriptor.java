@@ -85,6 +85,10 @@ public abstract class TemplateFieldDescriptor {
     return isRepeated() ? "getter_repeated.vm" : "getter_single.vm";
   }
 
+  public String builderTemplate() {
+    return isRepeated() ? "builder_repeated.vm" : "builder_single.vm";
+  }
+
   public String getName() {
     return JavaQualifiedNames.getFieldName(fieldDescriptor(), !fieldDescriptor().isExtension());
   }

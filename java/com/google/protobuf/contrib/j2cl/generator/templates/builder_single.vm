@@ -1,0 +1,16 @@
+#if (${field.isEnum()})
+  @jsinterop.annotations.JsOverlay
+  public final Builder set${field.name}(${field.unboxedType} value) {
+    return internal_set${field.name}(${field.unboxedType}.Internal_ClosureEnum.toClosureValue(value));
+  }
+
+  @jsinterop.annotations.JsMethod(name = "set${field.jsName}")
+  private native Builder internal_set${field.name}(${field.unboxedType}.Internal_ClosureEnum value);
+#else
+  @jsinterop.annotations.JsMethod(name = "set${field.jsName}")
+  public native Builder set${field.name}(${field.unboxedType} value);
+#end
+#if (${field.isMessage()})
+  @jsinterop.annotations.JsMethod(name = "set${field.jsName}")
+  public native Builder set${field.name}(${field.unboxedType}.Builder builder);
+#end

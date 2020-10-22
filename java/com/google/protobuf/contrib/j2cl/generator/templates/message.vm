@@ -90,62 +90,7 @@ public static final class Builder extends
   @jsinterop.annotations.JsMethod(name = "clear${field.jsName}")
   public native Builder clear${field.name}();
 
-  #if (${field.isRepeated()})
-    #if (${field.isEnum()})
-      @jsinterop.annotations.JsOverlay
-      public final Builder set${field.name}(int index, ${field.unboxedType} value) {
-        return internal_set${field.name}(index, ${field.unboxedType}.Internal_ClosureEnum.toClosureValue(value));
-      }
-
-      @jsinterop.annotations.JsMethod(name = "set${field.jsName}")
-      private native Builder internal_set${field.name}(int index, ${field.unboxedType}.Internal_ClosureEnum value);
-
-      @jsinterop.annotations.JsOverlay
-      public final Builder add${field.name}(${field.unboxedType} value) {
-        return internal_add${field.name}(${field.unboxedType}.Internal_ClosureEnum.toClosureValue(value));
-      }
-
-      @jsinterop.annotations.JsMethod(name = "add${field.jsName}")
-      private native Builder internal_add${field.name}(${field.unboxedType}.Internal_ClosureEnum value);
-    #else
-
-      @jsinterop.annotations.JsMethod(name = "add${field.jsName}")
-      public native Builder add${field.name}(${field.unboxedType} value);
-
-      @jsinterop.annotations.JsMethod(name = "set${field.jsName}")
-      public native Builder set${field.name}(int index, ${field.unboxedType} value);
-
-      #if (${field.isMessage()})
-        @jsinterop.annotations.JsMethod(name = "add${field.jsName}")
-        public native Builder add${field.name}(${field.unboxedType}.Builder builder);
-
-        @jsinterop.annotations.JsMethod(name = "set${field.jsName}")
-        public native Builder set${field.name}(int index, ${field.unboxedType}.Builder builder);
-      #end
-    #end
-    @jsinterop.annotations.JsOverlay
-    public final Builder addAll${field.name}(java.lang.Iterable<${field.boxedType}> values) {
-      com.google.protobuf.GeneratedMessageLite.Internal_.addAll(values, this::add${field.name});
-      return this;
-    }
-  #else
-    #if (${field.isEnum()})
-      @jsinterop.annotations.JsOverlay
-      public final Builder set${field.name}(${field.unboxedType} value) {
-        return internal_set${field.name}(${field.unboxedType}.Internal_ClosureEnum.toClosureValue(value));
-      }
-
-      @jsinterop.annotations.JsMethod(name = "set${field.jsName}")
-      private native Builder internal_set${field.name}(${field.unboxedType}.Internal_ClosureEnum value);
-    #else
-      @jsinterop.annotations.JsMethod(name = "set${field.jsName}")
-      public native Builder set${field.name}(${field.unboxedType} value);
-    #end
-    #if (${field.isMessage()})
-      @jsinterop.annotations.JsMethod(name = "set${field.jsName}")
-      public native Builder set${field.name}(${field.unboxedType}.Builder builder);
-    #end
-  #end
+  #parse("$field.builderTemplate()")
 
 #end
 ##render one of getters for builder
