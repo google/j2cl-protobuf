@@ -1,0 +1,81 @@
+## TODO(b/171708241): Stop generating the repeated field view of map fields.
+#parse('getter_repeated.vm')
+
+#set ($mapType = $field.mapJsDoc)
+#set ($key = $field.mapKey)
+#set ($value = $field.mapValue)
+
+#set ($lastParameter = "")
+#if ($value.isMessage())
+#set ($lastParameter = ",  $value.type.cycleSafeExpression")
+#end
+
+#macro( maybeCast $toType )
+#if ($value.isEnum())
+/** @type {${toType}} */ ($!bodyContent)
+#else
+$!bodyContent
+#end
+#end
+
+## TODO(b/171708241): Generate the Map count method once we stop generating the
+## repeated field version.
+##  /**
+##   * $!field.protoFileComments
+##   * @return {number}
+###if ($field.isDeprecated())
+##   * @deprecated
+###end
+##   */
+##  get${field.name}Count() {
+##    return this.internal_getMap${key.stem}Key${value.stem}ValueEntriesCount(${field.number}${lastParameter});
+##  }
+
+  /**
+   * $!field.protoFileComments
+   * @return {${mapType}}
+#if ($field.isDeprecated())
+   * @deprecated
+#end
+   */
+  get${field.name}Map() {
+    return #@maybeCast($mapType)this.internal_get${key.stem}Key${value.stem}ValueMap($field.number${lastParameter})#end;
+  }
+
+  /**
+   * $!field.protoFileComments
+   * @param {${key.jsDoc}} key
+   * @param {${value.jsDoc}} defaultValue
+   * @return {${value.jsDoc}}
+#if ($field.isDeprecated())
+   * @deprecated
+#end
+   */
+  get${field.name}OrDefault(key, defaultValue) {
+    return #@maybeCast($value.jsDoc)this.internal_getMap${key.stem}Key${value.stem}ValueWithDefault($field.number, key, defaultValue${lastParameter})#end;
+  }
+
+  /**
+   * $!field.protoFileComments
+   * @param {${key.jsDoc}} key
+   * @return {${value.jsDoc}}
+   * @throws Error if the key is not present in the map.
+#if ($field.isDeprecated())
+   * @deprecated
+#end
+   */
+  get${field.name}OrThrow(key) {
+    return #@maybeCast($value.jsDoc)this.internal_getMap${key.stem}Key${value.stem}ValueOrThrow($field.number, key${lastParameter})#end;
+  }
+
+  /**
+   * $!field.protoFileComments
+   * @param {${key.jsDoc}} key
+   * @return {boolean}
+#if ($field.isDeprecated())
+   * @deprecated
+#end
+   */
+  contains${field.name}(key) {
+    return this.internal_mapContains${key.stem}Key${value.stem}Value($field.number, key${lastParameter});
+  }

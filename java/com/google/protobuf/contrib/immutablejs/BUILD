@@ -13,6 +13,7 @@ closure_js_library(
     exports = [
         "//java/com/google/protobuf/contrib/immutablejs/runtime:bytestring",
         "//java/com/google/protobuf/contrib/immutablejs/runtime:listview",
+        "//java/com/google/protobuf/contrib/immutablejs/runtime:mapview",
         "//java/com/google/protobuf/contrib/immutablejs/runtime:message",
     ],
 )

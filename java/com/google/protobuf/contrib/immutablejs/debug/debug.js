@@ -97,6 +97,28 @@ function dump_(thing) {
           ctor.prototype.hasOwnProperty(name.replace('Count', ''))) {
         continue;
       }
+      // Handle map fields.
+      // We say that a field foo is a map if the prototype contains:
+      // 1. getFooOrThrow()/getFooOrDefault();
+      // 2. getFooCount();
+      // 3. getFooMap();
+      // We only care about getFooMap() for printing so we just process that
+      // one.
+      if (name.endsWith('OrThrow') &&
+          ctor.prototype.hasOwnProperty(name.replace('OrThrow', 'OrDefault')) &&
+          ctor.prototype.hasOwnProperty(name.replace('OrThrow', 'Count'))) {
+        continue;
+      }
+      if (name.endsWith('OrDefault') &&
+          ctor.prototype.hasOwnProperty(name.replace('OrDefault', 'OrThrow')) &&
+          ctor.prototype.hasOwnProperty(name.replace('OrDefault', 'Count'))) {
+        continue;
+      }
+      if (name.endsWith('Count') &&
+          ctor.prototype.hasOwnProperty(name.replace('Count', 'OrThrow')) &&
+          ctor.prototype.hasOwnProperty(name.replace('Count', 'OrDefault'))) {
+        continue;
+      }
       const hasName = 'has' + match[1];
       // Cast because we need to do dict access on the object.
       const message = /** @type{!Object} */ (thing);

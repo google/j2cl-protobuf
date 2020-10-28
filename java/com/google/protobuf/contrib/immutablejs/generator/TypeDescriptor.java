@@ -43,6 +43,7 @@ public abstract class TypeDescriptor {
   public static final TypeDescriptor BYTE_STRING =
       createClosureType("proto.im.ByteString", "ByteString");
   public static final TypeDescriptor LIST_VIEW = createClosureType("proto.im.ListView", "List");
+  public static final TypeDescriptor MAP_VIEW = createClosureType("proto.im.MapView", "Map");
   public static final TypeDescriptor INTERNAL_MESSAGE =
       createClosureType("proto.im.internal.InternalMessage", /* stem= */ "");
   public static final TypeDescriptor JSPB_KERNEL =

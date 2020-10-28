@@ -124,6 +124,132 @@ ${messageName}.Builder = class extends proto_im_InternalMessage.Builder {
   }
 
 #foreach($field in $message.fields)
+#if ($field.isMap())
+#set ($mapViewType = $field.mapJsDoc)
+#set ($key = $field.mapKey)
+#set ($value = $field.mapValue)
+
+#set ($internalMapValueType = $value.jsDoc)
+#set ($lastParameter = "")
+
+#if ($value.isMessage())
+#set ($lastParameter = ",  $value.type.cycleSafeExpression")
+#set ($internalMapValueType = "!proto_im_InternalMessage")
+#end
+#if ($value.isEnum())
+#set ($internalMapValueType = "!number")
+#end
+
+#set ($putAllType = "!Map<${key.jsDoc}, ${value.jsDoc}>|${mapViewType}")
+#set ($internalPutAllType = "!Map<${key.jsDoc},${internalMapValueType}>|!proto_im_MapView<${key.jsDoc},${internalMapValueType}>")
+
+
+## TODO(b/171708241): Generate the Map count method once we stop generating the
+## repeated field version.
+##  /**
+##   * $!field.protoFileComments
+##   * @return {number}
+###if ($field.isDeprecated())
+##   * @deprecated
+###end
+##   */
+##  get${field.name}Count() {
+##    return this.message.get${field.name}Count();
+##  }
+
+  /**
+   * $!field.protoFileComments
+   * @return {${mapViewType}}
+#if ($field.isDeprecated())
+   * @deprecated
+#end
+   */
+  get${field.name}Map() {
+    return this.message.get${field.name}Map();
+  }
+
+  /**
+   * $!field.protoFileComments
+   * @param {${key.jsDoc}} key
+   * @param {${value.jsDoc}} defaultValue
+   * @return {${value.jsDoc}}
+#if ($field.isDeprecated())
+   * @deprecated
+#end
+   */
+  get${field.name}OrDefault(key, defaultValue) {
+    return this.message.get${field.name}OrDefault(key, defaultValue);
+  }
+
+  /**
+   * $!field.protoFileComments
+   * @param {${key.jsDoc}} key
+   * @return {${value.jsDoc}}
+   * @throws Error if the key is not present in the map.
+#if ($field.isDeprecated())
+   * @deprecated
+#end
+   */
+  get${field.name}OrThrow(key) {
+    return this.message.get${field.name}OrThrow(key);
+  }
+
+  /**
+   * $!field.protoFileComments
+   * @param {${key.jsDoc}} key
+   * @return {boolean}
+#if ($field.isDeprecated())
+   * @deprecated
+#end
+   */
+  contains${field.name}(key) {
+    return this.message.contains${field.name}(key);
+  }
+
+  /**
+   * $!field.protoFileComments
+   * @param {${key.jsDoc}} key
+   * @return {!${messageName}.Builder}
+#if ($field.isDeprecated())
+   * @deprecated
+#end
+   */
+  remove${field.name}(key) {
+    this.internal_removeMap${key.stem}Key${value.stem}Value(${field.number}, key${lastParameter});
+    return this;
+  }
+
+  /**
+   * $!field.protoFileComments
+   * @param {${key.jsDoc}} key
+   * @param {${value.jsDoc}} value
+   * @return {!${messageName}.Builder}
+#if ($field.isDeprecated())
+   * @deprecated
+#end
+   */
+  put${field.name}(key, value) {
+    this.internal_putMap${key.stem}Key${value.stem}Value(${field.number}, key, value${lastParameter});
+    return this;
+  }
+
+  /**
+   * $!field.protoFileComments
+   * @param {${putAllType}} entries
+   * @return {!${messageName}.Builder}
+#if ($field.isDeprecated())
+   * @deprecated
+#end
+   */
+  putAll${field.name}(entries) {
+    this.internal_putAllMap${key.stem}Key${value.stem}Value(
+        ${field.number},
+        /** @type {${internalPutAllType}} */ (entries)${lastParameter});
+    return this;
+  }
+
+## TODO(b/171708241): This should be an else-if.
+#end
 #if ($field.isRepeated())
 #set ($listType = $field.jsDoc)
 #set ($elementType = $field.elementJsDoc)

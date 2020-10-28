@@ -46,6 +46,7 @@ public abstract class TemplateMessageDescriptor {
     checkState(getType().isTopLevel());
     return getAllMessagesDescriptors(descriptor())
         .map(TemplateMessageDescriptor::create)
+        // TODO(b/171708241): Filter out MapEntry submessages.
         .collect(ImmutableList.toImmutableList());
   }
 

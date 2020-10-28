@@ -1,0 +1,226 @@
+// Copyright 2020 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     https://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+goog.module('proto.im.testdata.MapsAllVariantsTest');
+goog.setTestOnly('proto.im.testdata.MapsAllVariantsTest');
+
+const ByteString = goog.require('proto.im.ByteString');
+const ImmutableMessage = goog.require('proto.im.Message');
+const ImmutableProto = goog.require('improto.protobuf.contrib.immutablejs.protos.MapTestProto');
+const Long = goog.require('goog.math.Long');
+const MapView = goog.require('proto.im.MapView');
+const testSuite = goog.require('goog.testing.testSuite');
+const {assertEqualsForProto} = goog.require('proto.im.proto_asserts');
+
+class MapsAllVariantsTest {
+
+#foreach ($keyType in $keyTypes)
+#set ($keyStem = $keyType.stem)
+#foreach ($valueType in $valueTypes)
+#set ($valueStem = $valueType.stem)
+#set ($beanSuffix = $keyStem + "Key" + $valueStem + "Value")
+
+  testMapBuilder_${beanSuffix}_put() {
+    #renderImmutableValues()
+
+    const message = ImmutableProto.newBuilder()
+        .put${beanSuffix}(key1, value1)
+        .put${beanSuffix}(key2, value2)
+        .build();
+
+    assertEquals(2, message.get${beanSuffix}Count());
+    assertEqualsForProto(value1, message.get${beanSuffix}OrThrow(key1));
+    assertEqualsForProto(value2, message.get${beanSuffix}OrThrow(key2));
+  }
+
+  testMapBuilder_${beanSuffix}_putAll_withMap() {
+    #renderImmutableValues()
+
+    const entries = [
+      [key1, value1],
+      [key2, value2],
+    ];
+    const message = ImmutableProto.newBuilder()
+        .putAll${beanSuffix}(new Map(entries))
+        .build();
+
+    assertEquals(2, message.get${beanSuffix}Count());
+    assertEqualsForProto(value1, message.get${beanSuffix}OrThrow(key1));
+    assertEqualsForProto(value2, message.get${beanSuffix}OrThrow(key2));
+  }
+
+  testMapBuilder_${beanSuffix}_putAll_withMapView() {
+    #renderImmutableValues()
+
+    const entries = [
+      [key1, value1],
+      [key2, value2],
+    ];
+    const message = ImmutableProto.newBuilder()
+        .putAll${beanSuffix}(MapView.copyOf(new Map(entries)))
+        .build();
+
+    assertEquals(2, message.get${beanSuffix}Count());
+    assertEqualsForProto(value1, message.get${beanSuffix}OrThrow(key1));
+    assertEqualsForProto(value2, message.get${beanSuffix}OrThrow(key2));
+  }
+
+  testMapBuilder_${beanSuffix}_remove() {
+    #renderImmutableValues()
+
+    const message = ImmutableProto.newBuilder()
+        .put${beanSuffix}(key1, value1)
+        .put${beanSuffix}(key2, value2)
+        .remove${beanSuffix}(key1)
+        .build();
+
+    assertEquals(1, message.get${beanSuffix}Count());
+    assertFalse(message.contains${beanSuffix}(key1));
+    assertTrue(message.contains${beanSuffix}(key2));
+  }
+
+  testMapBuilder_${beanSuffix}_clear() {
+    #renderImmutableValues()
+
+    const message = ImmutableProto.newBuilder()
+        .put${beanSuffix}(key1, value1)
+        .put${beanSuffix}(key2, value2)
+        .clear${beanSuffix}()
+        .build();
+
+    assertEquals(0, message.get${beanSuffix}Count());
+    assertFalse(message.contains${beanSuffix}(key1));
+    assertFalse(message.contains${beanSuffix}(key2));
+  }
+
+  testMapBuilder_${beanSuffix}_getOrThrow() {
+    #renderImmutableValues()
+
+    const builder = ImmutableProto.newBuilder()
+        .put${beanSuffix}(key1, value1);
+
+    assertEqualsForProto(value1, builder.get${beanSuffix}OrThrow(key1));
+    const error = assertThrows(() => builder.get${beanSuffix}OrThrow(key2));
+    assertEquals('Key \'' + key2 + '\' not present in map.', error.message);
+  }
+
+  testMapBuilder_${beanSuffix}_getOrDefault() {
+    #renderImmutableValues()
+
+    const builder = ImmutableProto.newBuilder()
+        .put${beanSuffix}(key1, value1);
+
+    assertEqualsForProto(value1, builder.get${beanSuffix}OrDefault(key1, value2));
+    // Specifically check for instance equality as the default value should be
+    // returned directly.
+    const defaultValue = value2;
+    assertEquals(
+        defaultValue,
+        builder.get${beanSuffix}OrDefault(
+            key2, defaultValue));
+  }
+
+  testMapBuilder_${beanSuffix}_getMap() {
+    #renderImmutableValues()
+
+    const builder = ImmutableProto.newBuilder()
+        .put${beanSuffix}(key1, value1)
+        .put${beanSuffix}(key2, value2);
+
+    const mapView = builder.get${beanSuffix}Map();
+
+    assertEquals(2, mapView.size());
+    assertEqualsForProto(value1, mapView.get(key1));
+    assertEqualsForProto(value2, mapView.get(key2));
+  }
+
+  testMapBuilder_${beanSuffix}_contains() {
+    #renderImmutableValues()
+
+    const builder = ImmutableProto.newBuilder()
+        .put${beanSuffix}(key1, value1);
+
+    assertTrue(builder.contains${beanSuffix}(key1));
+    assertFalse(builder.contains${beanSuffix}(key2));
+  }
+
+  testMap_${beanSuffix}_getOrThrow() {
+    #renderImmutableValues()
+
+    const message = ImmutableProto.newBuilder()
+        .put${beanSuffix}(key1, value1)
+        .build();
+
+    assertEqualsForProto(value1, message.get${beanSuffix}OrThrow(key1));
+    const error = assertThrows(() => message.get${beanSuffix}OrThrow(key2));
+    assertEquals('Key \'' + key2 + '\' not present in map.', error.message);
+  }
+
+  testMap_${beanSuffix}_getOrDefault() {
+    #renderImmutableValues()
+
+    const message = ImmutableProto.newBuilder()
+        .put${beanSuffix}(key1, value1)
+        .build();
+
+    assertEqualsForProto(
+        value1,
+        message.get${beanSuffix}OrDefault(key1, value2));
+    // Specifically check for instance equality as the default value should be
+    // returned directly.
+    const defaultValue = value2;
+    assertEquals(
+        defaultValue,
+        message.get${beanSuffix}OrDefault(
+            key2, defaultValue));
+  }
+
+  testMap_${beanSuffix}_getMap() {
+    #renderImmutableValues()
+
+    const message = ImmutableProto.newBuilder()
+        .put${beanSuffix}(key1, value1)
+        .put${beanSuffix}(key2, value2)
+        .build();
+
+    const mapView = message.get${beanSuffix}Map();
+
+    assertEquals(2, mapView.size());
+    assertEqualsForProto(value1, mapView.get(key1));
+    assertEqualsForProto(value2, mapView.get(key2));
+  }
+
+  testMap_${beanSuffix}_contains() {
+    #renderImmutableValues()
+
+    const message = ImmutableProto.newBuilder()
+        .put${beanSuffix}(key1, value1)
+        .build();
+
+    assertTrue(message.contains${beanSuffix}(key1));
+    assertFalse(message.contains${beanSuffix}(key2));
+  }
+
+#end
+#end
+}
+
+testSuite(new MapsAllVariantsTest());
+
+#macro ( renderImmutableValues )
+    const key1 = ${keyType.renderImmutableValue(0)};
+    const value1 = ${valueType.renderImmutableValue(0)};
+    const key2 = ${keyType.renderImmutableValue(1)};
+    const value2 = ${valueType.renderImmutableValue(1)};
+#end

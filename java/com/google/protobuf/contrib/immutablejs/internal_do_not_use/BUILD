@@ -42,6 +42,7 @@ closure_js_library(
         "//java/com/google/protobuf/contrib/immutablejs/runtime:fieldaccessor",
         "//java/com/google/protobuf/contrib/immutablejs/runtime:internal_message",
         "//java/com/google/protobuf/contrib/immutablejs/runtime:listview",
+        "//java/com/google/protobuf/contrib/immutablejs/runtime:mapview",
         "//java/com/google/protobuf/contrib/immutablejs/runtime:message",
         "//third_party:closure_math_long",
     ],

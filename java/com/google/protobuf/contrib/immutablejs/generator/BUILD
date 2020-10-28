@@ -12,6 +12,7 @@ java_library(
         "//java/com/google/protobuf/contrib/immutablejs/generator:__subpackages__",
         "//java/com/google/protobuf/contrib/immutablejs/internal_do_not_use:__pkg__",
         "//java/com/google/protobuf/contrib/j2cl/generator:__pkg__",
+        "//javatests/com/google/protobuf/contrib/immutablejs/integration/generator:__pkg__",
     ],
     deps = [
         "//third_party:auto_value",

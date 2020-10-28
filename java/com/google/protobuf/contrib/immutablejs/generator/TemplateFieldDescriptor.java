@@ -17,6 +17,7 @@ import static com.google.common.base.Preconditions.checkState;
 
 import com.google.auto.value.AutoValue;
 import com.google.common.base.Ascii;
+import com.google.common.collect.ImmutableSet;
 import com.google.common.io.BaseEncoding;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.Descriptors.EnumValueDescriptor;
@@ -59,7 +60,12 @@ public abstract class TemplateFieldDescriptor {
   }
 
   public boolean isRepeated() {
+    // TODO(b/171708241): consider repeated and maps distinct types.
     return protoFieldDescriptor().isRepeated();
+  }
+
+  public boolean isMap() {
+    return protoFieldDescriptor().isMapField();
   }
 
   public boolean isMessage() {
@@ -110,14 +116,26 @@ public abstract class TemplateFieldDescriptor {
   }
 
   public Stream<TypeReferenceDescriptor> getImports() {
-    return Stream.concat(
-        // Extension objects are typed with the proto they extend, so that extension can only be
-        // used on protos they actually extend. In order for the JsDoc to be correct we need to
-        // import the type of the extended proto.
-        protoFieldDescriptor().isExtension() ? Stream.of(createExtensionReference()) : Stream.of(),
-        isRepeated()
-            ? Stream.of(getType(), TypeDescriptor.LIST_VIEW.createReference(enclosingType()))
-            : Stream.of(getType()));
+    ImmutableSet.Builder<TypeReferenceDescriptor> imports =
+        ImmutableSet.<TypeReferenceDescriptor>builder().add(getType());
+    if (protoFieldDescriptor().isExtension()) {
+      // Extension objects are typed with the proto they extend, so that extension can only be
+      // used on protos they actually extend. In order for the JsDoc to be correct we need to
+      // import the type of the extended proto.
+      imports.add(createExtensionReference());
+    }
+
+    if (isMap()) {
+      imports.add(
+          TypeDescriptor.MAP_VIEW.createReference(enclosingType()),
+          getMapKey().getType(),
+          getMapValue().getType());
+    }
+    if (isRepeated()) {
+      imports.add(TypeDescriptor.LIST_VIEW.createReference(enclosingType()));
+    }
+
+    return imports.build().stream();
   }
 
   private static String calculateDefaultByteStringValue(ByteString defaultValue) {
@@ -182,13 +200,42 @@ public abstract class TemplateFieldDescriptor {
     return builder.toString();
   }
 
+  public String getMapJsDoc() {
+    // TODO(b/171708241): Collapse this into getJsDoc when we don't need to support both the map
+    // view and repeated field view.
+    checkState(isMap());
+    return String.format(
+        "!%s<!%s, !%s>",
+        TypeDescriptor.MAP_VIEW.createReference(enclosingType()).getExpression(),
+        getMapKey().getType().getExpression(),
+        getMapValue().getType().getExpression());
+  }
+
   public String getElementJsDoc() {
     checkState(isRepeated());
     return "!" + getType().getExpression();
   }
 
   public String getTemplate() {
-    return isRepeated() ? "getter_repeated.vm" : "getter_single.vm";
+    if (isMap()) {
+      return "getter_map.vm";
+    } else if (isRepeated()) {
+      return "getter_repeated.vm";
+    } else {
+      return "getter_single.vm";
+    }
+  }
+
+  public TemplateFieldDescriptor getMapKey() {
+    checkState(isMap());
+    return TemplateFieldDescriptor.create(
+        enclosingType(), protoFieldDescriptor().getMessageType().findFieldByName("key"));
+  }
+
+  public TemplateFieldDescriptor getMapValue() {
+    checkState(isMap());
+    return TemplateFieldDescriptor.create(
+        enclosingType(), protoFieldDescriptor().getMessageType().findFieldByName("value"));
   }
 
   private TypeReferenceDescriptor createExtensionReference() {

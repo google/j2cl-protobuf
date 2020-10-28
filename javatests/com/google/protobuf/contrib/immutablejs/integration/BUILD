@@ -155,6 +155,41 @@ proto_jsunit_test(
     ],
 )
 
+genrule(
+    name = "maps_all_variants_test_gen",
+    outs = ["maps_all_variants_test.js"],
+    cmd = "$(location //javatests/com/google/protobuf/contrib/immutablejs/integration/generator:MapsAllVariantsTestGenerator) -output $@",
+    tools = ["//javatests/com/google/protobuf/contrib/immutablejs/integration/generator:MapsAllVariantsTestGenerator"],
+)
+
+proto_jsunit_test(
+    name = "maps_all_variants_test",
+    srcs = [
+        "maps_all_variants_test.js",
+    ],
+    deps = [
+        "//java/com/google/protobuf/contrib/immutablejs:runtime",
+        "//javatests/com/google/protobuf/contrib/immutablejs/protos:maps_immutable_js_proto",
+        "//javatests/com/google/protobuf/contrib/immutablejs/testing:proto_asserts",
+        "//third_party:closure_math_long",
+        "//third_party:closure_testing_asserts",
+        "//third_party:closure_testsuite",
+    ],
+)
+
+proto_jsunit_test(
+    name = "maps_test",
+    srcs = [
+        "maps_test.js",
+    ],
+    deps = [
+        "//java/com/google/protobuf/contrib/immutablejs:runtime",
+        "//javatests/com/google/protobuf/contrib/immutablejs/protos:maps_immutable_js_proto",
+        "//third_party:closure_testing_asserts",
+        "//third_party:closure_testsuite",
+    ],
+)
+
 proto_jsunit_test(
     name = "message_fields_test",
     srcs = [

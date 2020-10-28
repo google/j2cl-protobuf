@@ -127,6 +127,16 @@ immutable_js_proto_library(
 )
 
 proto_library(
+    name = "maps",
+    srcs = ["maps.proto"],
+)
+
+immutable_js_proto_library(
+    name = "maps_immutable_js_proto",
+    deps = [":maps"],
+)
+
+proto_library(
     name = "oneofs",
     srcs = ["oneofs.proto"],
 )
