@@ -65,6 +65,10 @@ public class GoldenFileTest extends GoldenFilesBaseTest {
     doGoldenTest("field_names");
   }
 
+  public void testMaps() throws Exception {
+    doGoldenTest("maps");
+  }
+
   public void testOneOfs() throws Exception {
     doGoldenTest("oneofs");
   }

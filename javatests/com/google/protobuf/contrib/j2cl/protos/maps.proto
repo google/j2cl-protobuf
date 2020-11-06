@@ -1,0 +1,117 @@
+// Copyright 2020 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     https://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+syntax = "proto2";
+
+package protobuf.contrib.j2cl.protos;
+
+// REMOVED_BY_GENRULE option java_multiple_files = true;
+
+option java_package = "com.google.protobuf.contrib.j2cl.protos";
+
+message MapTestProto {
+  enum TestEnum {
+    UNKNOWN = 0;
+    A = 1;
+    B = 2;
+    C = 3;
+  }
+
+  message NestedMessage {
+    optional string foo = 1;
+  }
+
+  // int32 keys
+  map<int32, bool> int32_key_bool_value = 1;
+  map<int32, int32> int32_key_int32_value = 2;
+  map<int32, int64> int32_key_int64_value = 3;
+  map<int32, float> int32_key_float_value = 4;
+  map<int32, double> int32_key_double_value = 5;
+  map<int32, string> int32_key_string_value = 6;
+  map<int32, bytes> int32_key_bytes_value = 7;
+  map<int32, uint32> int32_key_uint32_value = 8;
+  map<int32, uint64> int32_key_uint64_value = 9;
+  map<int32, TestEnum> int32_key_enum_value = 10;
+  map<int32, NestedMessage> int32_key_message_value = 11;
+  reserved 12 to 20;
+
+  // int64 keys
+  map<int64, bool> int64_key_bool_value = 21;
+  map<int64, int32> int64_key_int32_value = 22;
+  map<int64, int64> int64_key_int64_value = 23;
+  map<int64, float> int64_key_float_value = 24;
+  map<int64, double> int64_key_double_value = 25;
+  map<int64, string> int64_key_string_value = 26;
+  map<int64, bytes> int64_key_bytes_value = 27;
+  map<int64, uint32> int64_key_uint32_value = 28;
+  map<int64, uint64> int64_key_uint64_value = 29;
+  map<int64, TestEnum> int64_key_enum_value = 30;
+  map<int64, NestedMessage> int64_key_message_value = 31;
+  reserved 32 to 40;
+
+  // uint64 keys
+  map<uint64, bool> uint64_key_bool_value = 41;
+  map<uint64, int32> uint64_key_int32_value = 42;
+  map<uint64, int64> uint64_key_int64_value = 43;
+  map<uint64, float> uint64_key_float_value = 44;
+  map<uint64, double> uint64_key_double_value = 45;
+  map<uint64, string> uint64_key_string_value = 46;
+  map<uint64, bytes> uint64_key_bytes_value = 47;
+  map<uint64, uint32> uint64_key_uint32_value = 48;
+  map<uint64, uint64> uint64_key_uint64_value = 49;
+  map<uint64, TestEnum> uint64_key_enum_value = 50;
+  map<uint64, NestedMessage> uint64_key_message_value = 51;
+  reserved 52 to 60;
+
+  // uint32 keys
+  map<uint32, bool> uint32_key_bool_value = 61;
+  map<uint32, int32> uint32_key_int32_value = 62;
+  map<uint32, int64> uint32_key_int64_value = 63;
+  map<uint32, float> uint32_key_float_value = 64;
+  map<uint32, double> uint32_key_double_value = 65;
+  map<uint32, string> uint32_key_string_value = 66;
+  map<uint32, bytes> uint32_key_bytes_value = 67;
+  map<uint32, uint32> uint32_key_uint32_value = 68;
+  map<uint32, uint64> uint32_key_uint64_value = 69;
+  map<uint32, TestEnum> uint32_key_enum_value = 70;
+  map<uint32, NestedMessage> uint32_key_message_value = 71;
+  reserved 72 to 80;
+
+  // string keys
+  map<string, bool> string_key_bool_value = 81;
+  map<string, int32> string_key_int32_value = 82;
+  map<string, int64> string_key_int64_value = 83;
+  map<string, float> string_key_float_value = 84;
+  map<string, double> string_key_double_value = 85;
+  map<string, string> string_key_string_value = 86;
+  map<string, bytes> string_key_bytes_value = 87;
+  map<string, uint32> string_key_uint32_value = 88;
+  map<string, uint64> string_key_uint64_value = 89;
+  map<string, TestEnum> string_key_enum_value = 90;
+  map<string, NestedMessage> string_key_message_value = 91;
+  reserved 92 to 100;
+
+  // bool keys
+  map<bool, bool> bool_key_bool_value = 101;
+  map<bool, int32> bool_key_int32_value = 102;
+  map<bool, int64> bool_key_int64_value = 103;
+  map<bool, float> bool_key_float_value = 104;
+  map<bool, double> bool_key_double_value = 105;
+  map<bool, string> bool_key_string_value = 106;
+  map<bool, bytes> bool_key_bytes_value = 107;
+  map<bool, uint32> bool_key_uint32_value = 108;
+  map<bool, uint64> bool_key_uint64_value = 109;
+  map<bool, TestEnum> bool_key_enum_value = 110;
+  map<bool, NestedMessage> bool_key_message_value = 111;
+  reserved 112 to 120;
+}

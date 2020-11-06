@@ -153,6 +153,33 @@ j2cl_multi_test(
     ],
 )
 
+genrule(
+    name = "maps_all_variants_test_gen",
+    outs = ["MapsAllVariantsTest.java"],
+    cmd = "$(location //javatests/com/google/protobuf/contrib/j2cl/integration/generator:MapsAllVariantsTestGenerator) -output $@",
+    tools = ["//javatests/com/google/protobuf/contrib/j2cl/integration/generator:MapsAllVariantsTestGenerator"],
+)
+
+j2cl_multi_test(
+    name = "MapsAllVariantsTest",
+    srcs = ["MapsAllVariantsTest.java"],
+    proto_deps = ["//javatests/com/google/protobuf/contrib/j2cl/protos:maps"],
+    test_class = "com.google.protobuf.contrib.j2cl.integration.MapsAllVariantsTest",
+    deps = [
+        ":checks",
+    ],
+)
+
+j2cl_multi_test(
+    name = "MapsTest",
+    srcs = ["MapsTest.java"],
+    proto_deps = ["//javatests/com/google/protobuf/contrib/j2cl/protos:maps"],
+    test_class = "com.google.protobuf.contrib.j2cl.integration.MapsTest",
+    deps = [
+        ":checks",
+    ],
+)
+
 j2cl_multi_test(
     name = "MessageEqualityTest",
     srcs = ["MessageEqualityTest.java"],

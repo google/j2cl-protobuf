@@ -1,0 +1,32 @@
+## TODO(b/171708241): Stop generating the repeated field view of map fields.
+#parse ('builder_repeated.vm')
+
+#set ($keyField = $field.keyField);
+#set ($valueField = $field.valueField);
+
+#if (${valueField.isEnum()})
+  @jsinterop.annotations.JsOverlay
+  public final Builder put${field.name}(${keyField.unboxedType} key, ${valueField.unboxedType} value) {
+    return internal_put${field.name}(key, ${valueField.unboxedType}.Internal_ClosureEnum.toClosureValue(value));
+  }
+
+  @jsinterop.annotations.JsMethod(name = "put${field.jsName}")
+  private native Builder internal_put${field.name}(${keyField.unboxedType} key, ${valueField.unboxedType}.Internal_ClosureEnum value);
+
+#else
+
+  @jsinterop.annotations.JsMethod(name = "put${field.jsName}")
+  public native Builder put${field.name}(${keyField.unboxedType} key, ${valueField.unboxedType} value);
+
+#end
+  @jsinterop.annotations.JsOverlay
+  public final Builder putAll${field.name}(java.util.Map<${keyField.boxedType}, ${valueField.boxedType}> values) {
+    com.google.protobuf.GeneratedMessageLite.Internal_.putAll(values, this::put${field.name});
+    return this;
+  }
+
+  @jsinterop.annotations.JsMethod(name = "remove${field.jsName}")
+  public native Builder remove${field.name}(${keyField.unboxedType} key);
+
+
+

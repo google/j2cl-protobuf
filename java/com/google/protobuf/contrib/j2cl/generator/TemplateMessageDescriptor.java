@@ -60,10 +60,9 @@ public abstract class TemplateMessageDescriptor extends AbstractTemplateTypeDesc
   }
 
   public List<TemplateMessageDescriptor> getMessages() {
-    return descriptor()
-        .getNestedTypes()
-        .stream()
+    return descriptor().getNestedTypes().stream()
         .map(TemplateMessageDescriptor::create)
+        // TODO(b/171708241): Filter out MapEntry submessages.
         .collect(ImmutableList.toImmutableList());
   }
 

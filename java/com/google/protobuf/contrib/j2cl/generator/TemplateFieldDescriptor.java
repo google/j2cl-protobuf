@@ -16,6 +16,7 @@ package com.google.protobuf.contrib.j2cl.generator;
 import static com.google.common.base.Preconditions.checkState;
 
 import com.google.auto.value.AutoValue;
+import com.google.common.base.Ascii;
 import com.google.protobuf.Descriptors.FieldDescriptor;
 import com.google.protobuf.Descriptors.FieldDescriptor.JavaType;
 import com.google.protobuf.contrib.immutablejs.generator.JavaQualifiedNames;
@@ -78,15 +79,32 @@ public abstract class TemplateFieldDescriptor {
   public abstract String getUnboxedType();
 
   public boolean isRepeated() {
+    // TODO(b/171708241): consider repeated and maps distinct types.
     return fieldDescriptor().isRepeated();
   }
 
+  public boolean isMap() {
+    return fieldDescriptor().isMapField();
+  }
+
   public String getterTemplate() {
-    return isRepeated() ? "getter_repeated.vm" : "getter_single.vm";
+    if (isMap()) {
+      return "getter_map.vm";
+    } else if (isRepeated()) {
+      return "getter_repeated.vm";
+    } else {
+      return "getter_single.vm";
+    }
   }
 
   public String builderTemplate() {
-    return isRepeated() ? "builder_repeated.vm" : "builder_single.vm";
+    if (isMap()) {
+      return "builder_map.vm";
+    } else if (isRepeated()) {
+      return "builder_repeated.vm";
+    } else {
+      return "builder_single.vm";
+    }
   }
 
   public String getName() {
@@ -114,6 +132,10 @@ public abstract class TemplateFieldDescriptor {
     return fieldDescriptor().getJavaType() == JavaType.MESSAGE;
   }
 
+  public boolean isNullable() {
+    return getBoxedType().equals(getUnboxedType());
+  }
+
   public boolean needsConversion() {
     switch (getUnboxedType()) {
       case "float":
@@ -128,5 +150,31 @@ public abstract class TemplateFieldDescriptor {
   public String getExtendedMessage() {
     checkState(fieldDescriptor().isExtension());
     return JavaQualifiedNames.getQualifiedName(fieldDescriptor().getContainingType());
+  }
+
+  public String getFieldConverterNativeType() {
+    return needsConversion() ? "java.lang.Object" : getBoxedType();
+  }
+
+  public String getFieldConverter() {
+    if (!needsConversion()) {
+      return "";
+    } else if (isEnum()) {
+      return String.format("(d) -> %s.Internal_ClosureEnum.toEnum(d)", getUnboxedType());
+    } else {
+      return String.format(
+          "com.google.protobuf.GeneratedMessageLite.Internal_.%s_TYPE_CONVERTER",
+          Ascii.toUpperCase(getUnboxedType()));
+    }
+  }
+
+  public TemplateFieldDescriptor getKeyField() {
+    checkState(isMap(), "Field key type only exists for map fields.");
+    return create(fieldDescriptor().getMessageType().findFieldByName("key"));
+  }
+
+  public TemplateFieldDescriptor getValueField() {
+    checkState(isMap(), "Field value type only exists for map fields.");
+    return create(fieldDescriptor().getMessageType().findFieldByName("value"));
   }
 }

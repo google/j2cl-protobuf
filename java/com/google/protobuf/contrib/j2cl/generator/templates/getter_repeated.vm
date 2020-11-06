@@ -3,20 +3,13 @@ public native int get${field.name}Count();
 
 #parse('getter.vm')
 
-#if ($field.needsConversion())
-  #set ($nativeListType = "java.lang.Object")
-  #if (${field.isEnum()})
-    #set ($conversion = ", (d) -> ${field.unboxedType}.Internal_ClosureEnum.toEnum(d)")
-  #else
-    #set ($conversion = ", com.google.protobuf.GeneratedMessageLite.Internal_.${field.unboxedType.toUpperCase()}_TYPE_CONVERTER")
-  #end
-#else
-  #set ($nativeListType = $field.boxedType)
-  #set ($conversion = "")
+#set ($conversion = "")
+#if (!$field.fieldConverter.empty)
+  #set ($conversion = ", ${field.fieldConverter}")
 #end
 
 @jsinterop.annotations.JsMethod(name = "get${field.jsName}List")
-private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<${nativeListType}> internal_get${field.name}List();
+private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<${field.fieldConverterNativeType}> internal_get${field.name}List();
 
 @jsinterop.annotations.JsOverlay
 public final java.util.List<${field.boxedType}> get${field.name}List() {

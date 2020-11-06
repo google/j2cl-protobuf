@@ -41,6 +41,11 @@ generate_protos(
 )
 
 generate_protos(
+    name = "maps",
+    proto_file = "maps.proto",
+)
+
+generate_protos(
     name = "proto3_oneofs",
     proto_file = "proto3_oneofs.proto",
     deps = ["//java/com/google/protobuf/contrib/j2cl:options"],

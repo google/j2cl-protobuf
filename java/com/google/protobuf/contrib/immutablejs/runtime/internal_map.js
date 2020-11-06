@@ -70,6 +70,9 @@ class InternalMap {
 
   /** @override */
   get(key) {
+    if (key == null) {
+      throw new TypeError('Null keys are not supported');
+    }
     const entry = this.getMapEntryByKey_(key);
     if (entry === undefined) {
       return undefined;
@@ -79,6 +82,10 @@ class InternalMap {
 
   /** @override */
   set(key, value) {
+    if (key == null) {
+      throw new TypeError('Null keys are not supported');
+    }
+
     if (this.isMalformed_()) {
       this.fixMalformedMap_();
     }
@@ -95,6 +102,9 @@ class InternalMap {
 
   /** @override */
   remove(key) {
+    if (key == null) {
+      throw new TypeError('Null keys are not supported');
+    }
     if (this.isMalformed_()) {
       this.fixMalformedMap_();
     }
@@ -125,7 +135,7 @@ class InternalMap {
 
   /** @override */
   has(key) {
-    return this.indexMap_.has(this.toCacheKey_(key));
+    return key != null && this.indexMap_.has(this.toCacheKey_(key));
   }
 
   /** @override */

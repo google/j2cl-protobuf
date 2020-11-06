@@ -51,10 +51,9 @@ public abstract class TemplateFileDescriptor {
   }
 
   public List<TemplateMessageDescriptor> getMessages() {
-    return fileDescriptor()
-        .getMessageTypes()
-        .stream()
+    return fileDescriptor().getMessageTypes().stream()
         .map(TemplateMessageDescriptor::create)
+        // TODO(b/171708241): Filter out MapEntry submessages.
         .collect(ImmutableList.toImmutableList());
   }
 

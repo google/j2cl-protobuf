@@ -33,6 +33,16 @@ class InternalMapTest {
     assertFalse(map.has('other'));
   }
 
+  testHas_nullKey_returnFalse() {
+    const mapEntries =
+        [['firstKey', 'firstValue'], ['secondKey', 'secondValue']];
+    const map = new InternalMap(
+        mapEntries, FieldAccessor.getString, FieldAccessor.setString,
+        FieldAccessor.getString, FieldAccessor.setString);
+
+    assertFalse(map.has(/** @type {?} */ (null)));
+  }
+
   testGet() {
     const mapEntries =
         [['firstKey', 'firstValue'], ['secondKey', 'secondValue']];
@@ -43,6 +53,16 @@ class InternalMapTest {
     assertEquals('firstValue', map.get('firstKey'));
     assertEquals('secondValue', map.get('secondKey'));
     assertUndefined(map.get('other'));
+  }
+
+  testGet_withNullKey_throws() {
+    const mapEntries =
+        [['firstKey', 'firstValue'], ['secondKey', 'secondValue']];
+    const map = new InternalMap(
+        mapEntries, FieldAccessor.getString, FieldAccessor.setString,
+        FieldAccessor.getString, FieldAccessor.setString);
+
+    assertThrows(() => map.get(/** @type {?} */ (null)));
   }
 
   testGet_withDuplicatedKey_lastOccuranceReturned() {
@@ -322,6 +342,18 @@ class InternalMapTest {
     assertEquals(3, map.size());
   }
 
+  testSet_withNullKey_throws() {
+    const mapEntries = [
+      ['firstKey', 'firstValue'],
+      ['secondKey', 'secondValue'],
+    ];
+    const map = new InternalMap(
+        mapEntries, FieldAccessor.getString, FieldAccessor.setString,
+        FieldAccessor.getString, FieldAccessor.setString);
+
+    assertThrows(() => map.set(/** @type {?} */ (null), 'foo'));
+  }
+
   testSet_withRelatedDuplicateKey_removesDuplicatesAndUpdates() {
     const mapEntries = [
       ['firstKey', 'firstValue'],
@@ -364,6 +396,19 @@ class InternalMapTest {
         mapEntries);
     assertEquals('newValue', map.get('firstKey'));
     assertEquals(2, map.size());
+  }
+
+  testRemove_withNullKey_throws() {
+    const mapEntries = [
+      ['secondKey', 'firstValue'],
+      ['secondKey', 'secondValue'],
+      ['firstKey', 'duplicateValue'],
+    ];
+    const map = new InternalMap(
+        mapEntries, FieldAccessor.getString, FieldAccessor.setString,
+        FieldAccessor.getString, FieldAccessor.setString);
+
+    assertThrows(() => map.remove(/** @type {?} */ (null)));
   }
 
   testRemove_withoutDuplicates_elementRemoved() {

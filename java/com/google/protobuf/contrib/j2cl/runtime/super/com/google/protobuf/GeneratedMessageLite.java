@@ -17,12 +17,23 @@ import com.google.protobuf.GeneratedMessageLite.Internal_.ExtensionFieldInfo;
 import com.google.protobuf.GeneratedMessageLite.Internal_.ListView;
 import com.google.protobuf.GeneratedMessageLite.Internal_.TypeConverter;
 import java.util.AbstractList;
+import java.util.AbstractMap;
+import java.util.AbstractMap.SimpleImmutableEntry;
+import java.util.AbstractSet;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.NoSuchElementException;
 import java.util.RandomAccess;
+import java.util.Set;
 import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
+import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
+import jsinterop.base.JsArrayLike;
 
 /** Baseclass for all J2CL protos */
 @SuppressWarnings("unchecked")
@@ -159,7 +170,7 @@ public abstract class GeneratedMessageLite<
     final TypeConverter<E, Object> writeConverter;
 
     private GeneratedExtension(ExtensionFieldInfo<M, ?> extensionFieldInfo) {
-      this(extensionFieldInfo, val -> (E) val, val -> val);
+      this(extensionFieldInfo, Internal_.noopConverter(), Internal_.noopConverter());
     }
 
     private GeneratedExtension(
@@ -202,7 +213,7 @@ public abstract class GeneratedMessageLite<
     final TypeConverter<E, Object> indexWriteConverter;
 
     GeneratedRepeatedExtension(ExtensionFieldInfo<M, ?> extensionFieldInfo) {
-      this(extensionFieldInfo, val -> (E) val, val -> val);
+      this(extensionFieldInfo, Internal_.noopConverter(), Internal_.noopConverter());
     }
 
     GeneratedRepeatedExtension(
@@ -277,6 +288,17 @@ public abstract class GeneratedMessageLite<
       }
     }
 
+    /** Simple put function used to implement putAll in a generic way. */
+    public interface PutFunction<K, V> {
+      void put(K key, V value);
+    }
+
+    public static <K, V> void putAll(Map<K, V> values, PutFunction<K, V> putFunction) {
+      for (Entry<K, V> entry : values.entrySet()) {
+        putFunction.put(entry.getKey(), entry.getValue());
+      }
+    }
+
     /** Immutable JS proto's representation of a repeated field */
     @JsType(isNative = true, namespace = "proto.im")
     public interface ListView<T> {
@@ -303,6 +325,223 @@ public abstract class GeneratedMessageLite<
           });
     }
 
+    public static final <T, B> List<B> createList(
+        final ListView<T> listView, TypeConverter<? super T, B> converter) {
+      return Collections.unmodifiableList(
+          new RandomAccessList<B>() {
+            @Override
+            public B get(int index) {
+              return converter.convert(listView.get(index));
+            }
+
+            @Override
+            public int size() {
+              return listView.size();
+            }
+          });
+    }
+
+    /** Immutable JS proto's representation of a map field. */
+    @JsType(isNative = true, namespace = "proto.im")
+    public interface MapView<K, V> {
+      int size();
+
+      boolean has(K key);
+
+      V get(K key);
+
+      JsIterator<JsArrayLike<?>> entries();
+    }
+
+    @JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "Iterator")
+    interface JsIterator<T> {
+      IterableResult<T> next();
+
+      @JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "IIterableResult")
+      interface IterableResult<T> {
+        @JsProperty
+        T getValue();
+
+        @JsProperty
+        boolean isDone();
+      }
+    }
+
+    /** Wraps a {@link JsIterator} adapting it to the {@link Iterator} API. */
+    private static class JsIteratorAdapter<T> implements Iterator<T> {
+
+      private final JsIterator<T> jsIterator;
+      private JsIterator.IterableResult<T> cachedNext;
+
+      private JsIteratorAdapter(JsIterator<T> jsIterator) {
+        this.jsIterator = jsIterator;
+      }
+
+      private JsIterator.IterableResult<T> maybeAdvance() {
+        if (cachedNext == null) {
+          cachedNext = jsIterator.next();
+        }
+        return cachedNext;
+      }
+
+      @Override
+      public boolean hasNext() {
+        return !maybeAdvance().isDone();
+      }
+
+      @Override
+      public T next() {
+        JsIterator.IterableResult<T> value = maybeAdvance();
+        if (value.isDone()) {
+          throw new NoSuchElementException();
+        }
+        cachedNext = null;
+        return value.getValue();
+      }
+    }
+
+    /** Wraps a {@link Iterator} applying a {@type TypeConverter} to each value. */
+    private static class TypeConverterIterator<T, V> implements Iterator<V> {
+
+      private final Iterator<T> delegate;
+      private final TypeConverter<T, V> converter;
+
+      private TypeConverterIterator(Iterator<T> delegate, TypeConverter<T, V> converter) {
+        this.delegate = delegate;
+        this.converter = converter;
+      }
+
+      @Override
+      public boolean hasNext() {
+        return delegate.hasNext();
+      }
+
+      @Override
+      public V next() {
+        return converter.convert(delegate.next());
+      }
+    }
+
+    private static class MapViewAdapter<JS_KEY, JS_VALUE, JAVA_KEY, JAVA_VALUE>
+        extends AbstractMap<JAVA_KEY, JAVA_VALUE> {
+
+      private final MapView<JS_KEY, JS_VALUE> mapView;
+      private final TypeConverter<? super JS_KEY, JAVA_KEY> keyConverter;
+      private final TypeConverter<? super JAVA_KEY, ?> keyWriteConverter;
+      private final TypeConverter<? super JS_VALUE, JAVA_VALUE> valueConverter;
+      private Set<Map.Entry<JAVA_KEY, JAVA_VALUE>> entriesSet;
+
+      private MapViewAdapter(
+          MapView<JS_KEY, JS_VALUE> mapView,
+          TypeConverter<? super JS_KEY, JAVA_KEY> keyConverter,
+          TypeConverter<? super JAVA_KEY, ?> keyWriteConverter,
+          TypeConverter<? super JS_VALUE, JAVA_VALUE> valueConverter) {
+        this.mapView = mapView;
+        this.keyConverter = keyConverter;
+        this.keyWriteConverter = keyWriteConverter;
+        this.valueConverter = valueConverter;
+      }
+
+      private JS_KEY toJsKey(JAVA_KEY key) {
+        // The writer TypeConverter aren't typed accurately to avoid boxing. To workaround this we
+        // leave the key type we're converting to unbounded and use and unchecked cast to force the
+        // converted value to the JS key type. This generally isn't safe, but since this class is
+        // only constructed by generated code we can ensure that the types match up in codegen.
+        return Js.uncheckedCast(keyWriteConverter.convert(key));
+      }
+
+      @Override
+      public boolean containsKey(Object key) {
+        if (key == null) {
+          return false;
+        }
+        return mapView.has(toJsKey((JAVA_KEY) key));
+      }
+
+      @Override
+      public JAVA_VALUE get(Object key) {
+        if (key == null) {
+          return null;
+        }
+        return valueConverter.convert(mapView.get(toJsKey((JAVA_KEY) key)));
+      }
+
+      @Override
+      public Set<Entry<JAVA_KEY, JAVA_VALUE>> entrySet() {
+        if (entriesSet == null) {
+          entriesSet = createEntrySet();
+        }
+        return entriesSet;
+      }
+
+      private Set<Map.Entry<JAVA_KEY, JAVA_VALUE>> createEntrySet() {
+        return Collections.unmodifiableSet(
+            new AbstractSet<Entry<JAVA_KEY, JAVA_VALUE>>() {
+              @Override
+              public Iterator<Entry<JAVA_KEY, JAVA_VALUE>> iterator() {
+                return new TypeConverterIterator<>(
+                    new JsIteratorAdapter<>(mapView.entries()),
+                    (entry) ->
+                        new SimpleImmutableEntry<>(
+                            keyConverter.convert((JS_KEY) entry.getAt(0)),
+                            valueConverter.convert((JS_VALUE) entry.getAt(1))));
+              }
+
+              @Override
+              public int size() {
+                return mapView.size();
+              }
+            });
+      }
+    }
+
+    public static final <JS_VALUE, JAVA_VALUE> Map<String, JAVA_VALUE> createStringKeyedMap(
+        MapView<String, JS_VALUE> mapView,
+        TypeConverter<? super JS_VALUE, JAVA_VALUE> valueConverter) {
+      return createMap(mapView, noopConverter(), noopConverter(), valueConverter);
+    }
+
+    public static final <V> Map<String, V> createStringKeyedMap(MapView<String, V> mapView) {
+      return createStringKeyedMap(mapView, noopConverter());
+    }
+
+    public static final <JS_VALUE, JAVA_VALUE> Map<Integer, JAVA_VALUE> createIntKeyedMap(
+        MapView<?, JS_VALUE> mapView, TypeConverter<? super JS_VALUE, JAVA_VALUE> valueConverter) {
+      return createMap(mapView, INT_TYPE_CONVERTER, INT_WRITE_TYPE_CONVERTER, valueConverter);
+    }
+
+    public static final <V> Map<Integer, V> createIntKeyedMap(MapView<?, V> mapView) {
+      return createIntKeyedMap(mapView, noopConverter());
+    }
+
+    public static final <JS_VALUE, JAVA_VALUE> Map<Long, JAVA_VALUE> createLongKeyedMap(
+        MapView<?, JS_VALUE> mapView, TypeConverter<? super JS_VALUE, JAVA_VALUE> valueConverter) {
+      return createMap(mapView, LONG_TYPE_CONVERTER, LONG_WRITE_TYPE_CONVERTER, valueConverter);
+    }
+
+    public static final <V> Map<Long, V> createLongKeyedMap(MapView<?, V> mapView) {
+      return createLongKeyedMap(mapView, noopConverter());
+    }
+
+    public static final <JS_VALUE, JAVA_VALUE> Map<Boolean, JAVA_VALUE> createBooleanKeyedMap(
+        MapView<Boolean, JS_VALUE> mapView,
+        TypeConverter<? super JS_VALUE, JAVA_VALUE> valueConverter) {
+      return createMap(mapView, noopConverter(), noopConverter(), valueConverter);
+    }
+
+    public static final <V> Map<Boolean, V> createBooleanKeyedMap(MapView<Boolean, V> mapView) {
+      return createBooleanKeyedMap(mapView, noopConverter());
+    }
+
+    private static final <JS_KEY, JS_VALUE, JAVA_KEY, JAVA_VALUE>
+        Map<JAVA_KEY, JAVA_VALUE> createMap(
+            MapView<JS_KEY, JS_VALUE> mapView,
+            TypeConverter<? super JS_KEY, JAVA_KEY> keyConverter,
+            TypeConverter<? super JAVA_KEY, ?> keyWriteConverter,
+            TypeConverter<? super JS_VALUE, JAVA_VALUE> valueConverter) {
+      return new MapViewAdapter<>(mapView, keyConverter, keyWriteConverter, valueConverter);
+    }
+
     /** Converts between unboxed and boxed types */
     public interface TypeConverter<T, B> {
       B convert(T t);
@@ -321,20 +560,8 @@ public abstract class GeneratedMessageLite<
     public static final TypeConverter<Long, Object> LONG_WRITE_TYPE_CONVERTER =
         d -> Js.asAny(d.longValue());
 
-    public static final <T, B> List<B> createList(
-        final ListView<T> listView, TypeConverter<? super T, B> converter) {
-      return Collections.unmodifiableList(
-          new RandomAccessList<B>() {
-            @Override
-            public B get(int index) {
-              return converter.convert(listView.get(index));
-            }
-
-            @Override
-            public int size() {
-              return listView.size();
-            }
-          });
+    public static final <T, V> TypeConverter<T, V> noopConverter() {
+      return (value) -> (V) value;
     }
 
     public static <M extends GeneratedMessageLite<M, ?>>

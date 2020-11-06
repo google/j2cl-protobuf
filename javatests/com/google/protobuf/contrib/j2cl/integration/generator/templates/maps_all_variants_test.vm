@@ -1,0 +1,349 @@
+/*
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ */
+package com.google.protobuf.contrib.j2cl.integration;
+
+import static com.google.common.truth.Truth.assertThat;
+import static org.junit.Assert.assertThrows;
+
+import com.google.protobuf.ByteString;
+import com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto;
+import java.util.HashMap;
+import java.util.Map;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
+
+@RunWith(JUnit4.class)
+public final class MapsAllVariantsTest {
+
+  private static final <K, V> Map<K,V> mapOf(K key1, V value1, K key2, V value2) {
+    HashMap<K, V> map = new HashMap<>();
+    map.put(key1, value1);
+    map.put(key2, value2);
+    return map;
+  }
+
+#foreach ($keyType in $keyTypes)
+#foreach ($valueType in $valueTypes)
+#set ($beanSuffix = "${keyType.stem}Key${valueType.stem}Value")
+
+  @Test
+  public void testMap_${beanSuffix}_getOrThrow_whenKeyPresent_returnsCorrespondingValue() {
+    MapTestProto proto = MapTestProto.newBuilder()
+        .put${beanSuffix}(${keyType.renderValue(0)}, ${valueType.renderValue(0)})
+        .build();
+
+    assertThat(proto.get${beanSuffix}OrThrow(${keyType.renderValue(0)}))
+        .isEqualTo(${valueType.renderValue(0)});
+  }
+
+  @Test
+  public void testMap_${beanSuffix}_getOrThrow_whenKeyMissing_throws() {
+    MapTestProto proto = MapTestProto.newBuilder()
+        .put${beanSuffix}(${keyType.renderValue(0)}, ${valueType.renderValue(0)})
+        .build();
+
+    assertThrows(
+        RuntimeException.class,
+        () -> proto.get${beanSuffix}OrThrow(${keyType.renderValue(1)}));
+  }
+
+#if ($keyType.isNullable())
+  @Test
+  public void testMap_${beanSuffix}_getOrThrow_withNullKey_throws() {
+    MapTestProto proto = MapTestProto.newBuilder()
+        .put${beanSuffix}(${keyType.renderValue(0)}, ${valueType.renderValue(0)})
+        .build();
+
+    assertThrows(
+        RuntimeException.class,
+        () -> proto.get${beanSuffix}OrThrow(null));
+  }
+#end
+
+  @Test
+  public void testMap_${beanSuffix}_getOrDefault_whenKeyPresent_returnsCorrespondingValue() {
+    MapTestProto proto = MapTestProto.newBuilder()
+        .put${beanSuffix}(${keyType.renderValue(0)}, ${valueType.renderValue(0)})
+        .build();
+
+    assertThat(
+        proto.get${beanSuffix}OrDefault(
+            ${keyType.renderValue(0)}, ${valueType.renderValue(2)}))
+        .isEqualTo(${valueType.renderValue(0)});
+  }
+
+  @Test
+  public void testMap_${beanSuffix}_getOrDefault_whenKeyMissing_returnsDefaultValue() {
+    MapTestProto proto = MapTestProto.newBuilder()
+        .put${beanSuffix}(${keyType.renderValue(0)}, ${valueType.renderValue(0)})
+        .build();
+
+    assertThat(
+        proto.get${beanSuffix}OrDefault(
+            ${keyType.renderValue(1)}, ${valueType.renderValue(2)}))
+        .isEqualTo(${valueType.renderValue(2)});
+  }
+
+#if ($keyType.isNullable())
+  @Test
+  public void testMap_${beanSuffix}_getOrDefault_withNullKey_throws() {
+    MapTestProto proto = MapTestProto.newBuilder()
+        .put${beanSuffix}(${keyType.renderValue(0)}, ${valueType.renderValue(0)})
+        .build();
+
+    assertThrows(
+        RuntimeException.class,
+        () -> proto.get${beanSuffix}OrDefault(null, ${valueType.renderValue(2)}));
+  }
+#end
+
+  @Test
+  public void testMap_${beanSuffix}_getCount_whenUnset_returnsZero() {
+    MapTestProto proto = MapTestProto.getDefaultInstance();
+
+    assertThat(proto.get${beanSuffix}Count()).isEqualTo(0);
+  }
+
+  @Test
+  public void testMap_${beanSuffix}_getCount_whenPopulated_returnsNumberOfEntries() {
+    MapTestProto proto = MapTestProto.newBuilder()
+        .put${beanSuffix}(${keyType.renderValue(0)}, ${valueType.renderValue(0)})
+        .put${beanSuffix}(${keyType.renderValue(1)}, ${valueType.renderValue(1)})
+        .build();
+
+    assertThat(proto.get${beanSuffix}Count()).isEqualTo(2);
+  }
+
+  @Test
+  public void testMap_${beanSuffix}_getMap_whenUnset_returnsEmptyMap() {
+    MapTestProto proto = MapTestProto.getDefaultInstance();
+
+    assertThat(proto.get${beanSuffix}Map()).isEmpty();
+  }
+
+  @Test
+  public void testMap_${beanSuffix}_getMap_whenPopulated_containsSameEntries() {
+    MapTestProto proto = MapTestProto.newBuilder()
+        .put${beanSuffix}(${keyType.renderValue(0)}, ${valueType.renderValue(0)})
+        .put${beanSuffix}(${keyType.renderValue(1)}, ${valueType.renderValue(1)})
+        .build();
+
+    assertThat(proto.get${beanSuffix}Map())
+        .containsExactly(
+            ${keyType.renderValue(0)}, ${valueType.renderValue(0)},
+            ${keyType.renderValue(1)}, ${valueType.renderValue(1)});
+  }
+
+  @Test
+  public void testMap_${beanSuffix}_contains_whenKeyPresent_returnsTrue() {
+    MapTestProto proto = MapTestProto.newBuilder()
+        .put${beanSuffix}(${keyType.renderValue(0)}, ${valueType.renderValue(0)})
+        .build();
+
+    assertThat(proto.contains${beanSuffix}(${keyType.renderValue(0)})).isTrue();
+  }
+
+  @Test
+  public void testMap_${beanSuffix}_contains_whenKeyMissing_returnsFalse() {
+    MapTestProto proto = MapTestProto.newBuilder()
+        .put${beanSuffix}(${keyType.renderValue(0)}, ${valueType.renderValue(0)})
+        .build();
+
+    assertThat(proto.contains${beanSuffix}(${keyType.renderValue(1)})).isFalse();
+  }
+
+  @Test
+  public void testBuilder_${beanSuffix}_getOrThrow_whenKeyPresent_returnsCorrespondingValue() {
+    MapTestProto.Builder builder = MapTestProto.newBuilder()
+        .put${beanSuffix}(${keyType.renderValue(0)}, ${valueType.renderValue(0)});
+
+    assertThat(builder.get${beanSuffix}OrThrow(${keyType.renderValue(0)}))
+        .isEqualTo(${valueType.renderValue(0)});
+  }
+
+  @Test
+  public void testBuilder_${beanSuffix}_getOrThrow_whenKeyMissing_throws() {
+    MapTestProto.Builder builder = MapTestProto.newBuilder()
+        .put${beanSuffix}(${keyType.renderValue(0)}, ${valueType.renderValue(0)});
+
+    assertThrows(
+        RuntimeException.class,
+        () -> builder.get${beanSuffix}OrThrow(${keyType.renderValue(1)}));
+  }
+
+#if ($keyType.isNullable())
+  @Test
+  public void testBuilder_${beanSuffix}_getOrThrow_withNullKey_throws() {
+    MapTestProto.Builder builder = MapTestProto.newBuilder()
+        .put${beanSuffix}(${keyType.renderValue(0)}, ${valueType.renderValue(0)});
+
+    assertThrows(
+        RuntimeException.class,
+        () -> builder.get${beanSuffix}OrThrow(null));
+  }
+#end
+
+  @Test
+  public void testBuilder_${beanSuffix}_getOrDefault_whenKeyPresent_returnsCorrespondingValue() {
+    MapTestProto.Builder builder = MapTestProto.newBuilder()
+        .put${beanSuffix}(${keyType.renderValue(0)}, ${valueType.renderValue(0)});
+
+    assertThat(
+        builder.get${beanSuffix}OrDefault(
+            ${keyType.renderValue(0)}, ${valueType.renderValue(2)}))
+        .isEqualTo(${valueType.renderValue(0)});
+  }
+
+  @Test
+  public void testBuilder_${beanSuffix}_getOrDefault_whenKeyMissing_returnsDefaultValue() {
+    MapTestProto.Builder builder = MapTestProto.newBuilder()
+        .put${beanSuffix}(${keyType.renderValue(0)}, ${valueType.renderValue(0)});
+
+    assertThat(
+        builder.get${beanSuffix}OrDefault(
+            ${keyType.renderValue(1)}, ${valueType.renderValue(2)}))
+        .isEqualTo(${valueType.renderValue(2)});
+  }
+
+#if ($keyType.isNullable())
+  @Test
+  public void testBuilder_${beanSuffix}_getOrDefault_withNullKey_throws() {
+    MapTestProto.Builder builder = MapTestProto.newBuilder()
+        .put${beanSuffix}(${keyType.renderValue(0)}, ${valueType.renderValue(0)});
+
+    assertThrows(
+        RuntimeException.class,
+        () -> builder.get${beanSuffix}OrDefault(null, ${valueType.renderValue(2)}));
+  }
+#end
+
+  @Test
+  public void testBuilder_${beanSuffix}_getCount_whenUnset_returnsZero() {
+    MapTestProto.Builder builder = MapTestProto.newBuilder();
+
+    assertThat(builder.get${beanSuffix}Count()).isEqualTo(0);
+  }
+
+  @Test
+  public void testBuilder_${beanSuffix}_getCount_whenPopulated_returnsNumberOfEntries() {
+    MapTestProto.Builder builder = MapTestProto.newBuilder()
+        .put${beanSuffix}(${keyType.renderValue(0)}, ${valueType.renderValue(0)})
+        .put${beanSuffix}(${keyType.renderValue(1)}, ${valueType.renderValue(1)});
+
+    assertThat(builder.get${beanSuffix}Count()).isEqualTo(2);
+  }
+
+  @Test
+  public void testBuilder_${beanSuffix}_getMap_whenUnset_returnsEmptyMap() {
+    MapTestProto.Builder builder = MapTestProto.newBuilder();
+
+    assertThat(builder.get${beanSuffix}Map()).isEmpty();
+  }
+
+  @Test
+  public void testBuilder_${beanSuffix}_getMap_whenPopulated_containsSameEntries() {
+    MapTestProto.Builder builder = MapTestProto.newBuilder()
+        .put${beanSuffix}(${keyType.renderValue(0)}, ${valueType.renderValue(0)})
+        .put${beanSuffix}(${keyType.renderValue(1)}, ${valueType.renderValue(1)});
+
+    assertThat(builder.get${beanSuffix}Map()).containsExactly(
+        ${keyType.renderValue(0)}, ${valueType.renderValue(0)},
+        ${keyType.renderValue(1)}, ${valueType.renderValue(1)});
+  }
+
+  @Test
+  public void testBuilder_${beanSuffix}_contains_whenKeyPresent_returnsTrue() {
+    MapTestProto.Builder builder = MapTestProto.newBuilder()
+        .put${beanSuffix}(${keyType.renderValue(0)}, ${valueType.renderValue(0)});
+
+    assertThat(builder.contains${beanSuffix}(${keyType.renderValue(0)})).isTrue();
+  }
+
+  @Test
+  public void testBuilder_${beanSuffix}_contains_whenKeyMissing_returnsFalse() {
+    MapTestProto.Builder builder = MapTestProto.newBuilder()
+        .put${beanSuffix}(${keyType.renderValue(0)}, ${valueType.renderValue(0)});
+
+    assertThat(builder.contains${beanSuffix}(${keyType.renderValue(1)})).isFalse();
+  }
+
+  @Test
+  public void testBuilder_${beanSuffix}_put_putsEntriesIntoMap() {
+    MapTestProto proto = MapTestProto.newBuilder()
+        .put${beanSuffix}(${keyType.renderValue(0)}, ${valueType.renderValue(0)})
+        .put${beanSuffix}(${keyType.renderValue(1)}, ${valueType.renderValue(1)})
+        .put${beanSuffix}(${keyType.renderValue(0)}, ${valueType.renderValue(2)})
+        .build();
+
+    assertThat(proto.get${beanSuffix}Count()).isEqualTo(2);
+    assertThat(proto.get${beanSuffix}Map()).containsExactly(
+        ${keyType.renderValue(0)}, ${valueType.renderValue(2)},
+        ${keyType.renderValue(1)}, ${valueType.renderValue(1)});
+  }
+
+  @Test
+  public void testBuilder_${beanSuffix}_putAll_putsEntriesIntoMap() {
+    MapTestProto proto = MapTestProto.newBuilder()
+        .putAll${beanSuffix}(
+            mapOf(
+                ${keyType.renderValue(0)}, ${valueType.renderValue(0)},
+                ${keyType.renderValue(1)}, ${valueType.renderValue(1)}))
+        .build();
+
+    assertThat(proto.get${beanSuffix}Count()).isEqualTo(2);
+    assertThat(proto.get${beanSuffix}Map()).containsExactly(
+        ${keyType.renderValue(0)}, ${valueType.renderValue(0)},
+        ${keyType.renderValue(1)}, ${valueType.renderValue(1)});
+  }
+
+  @Test
+  public void testBuilder_${beanSuffix}_putAll_withNoEntries_doesntSetField() {
+    MapTestProto proto = MapTestProto.newBuilder()
+        .putAll${beanSuffix}(new HashMap<>())
+        .build();
+
+    assertThat(proto.get${beanSuffix}Count()).isEqualTo(0);
+    assertThat(proto.get${beanSuffix}Map()).isEmpty();
+  }
+
+  @Test
+  public void testBuilder_${beanSuffix}_remove_removesEntry() {
+    MapTestProto proto = MapTestProto.newBuilder()
+        .put${beanSuffix}(${keyType.renderValue(0)}, ${valueType.renderValue(0)})
+        .put${beanSuffix}(${keyType.renderValue(1)}, ${valueType.renderValue(1)})
+        .remove${beanSuffix}(${keyType.renderValue(0)})
+        .build();
+
+    assertThat(proto.get${beanSuffix}Count()).isEqualTo(1);
+    assertThat(proto.get${beanSuffix}Map()).containsExactly(
+        ${keyType.renderValue(1)}, ${valueType.renderValue(1)});
+  }
+
+  @Test
+  public void testBuilder_${beanSuffix}_clear_emptiesMap() {
+    MapTestProto proto = MapTestProto.newBuilder()
+        .put${beanSuffix}(${keyType.renderValue(0)}, ${valueType.renderValue(0)})
+        .put${beanSuffix}(${keyType.renderValue(1)}, ${valueType.renderValue(1)})
+        .clear${beanSuffix}()
+        .build();
+
+    assertThat(proto.get${beanSuffix}Count()).isEqualTo(0);
+    assertThat(proto.get${beanSuffix}Map()).isEmpty();
+  }
+
+#end
+#end
+}
