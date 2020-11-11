@@ -223,13 +223,6 @@ class InternalMessage extends Message {
   }
 
   /**
-   * @private
-   */
-  freeze_() {
-    this.kernel_.freeze();
-  }
-
-  /**
    * Returns a shallow copied new message.
    * @return {MESSAGE}
    * @private
@@ -289,9 +282,7 @@ InternalMessage.Builder = class extends Message.Builder {
    */
   build() {
     // Clone the message so further modifications in builder doesn't reflect.
-    const m = this.message.shallowCopy_();
-    m.freeze_();
-    return m;
+    return this.message.shallowCopy_();
   }
 
   /**

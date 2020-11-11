@@ -170,11 +170,6 @@ class JspbKernel {
   }
 
 
-
-  freeze() {
-    internalChecks.freezeObject(this.data_);
-  }
-
   /**
    * @return {string}
    */

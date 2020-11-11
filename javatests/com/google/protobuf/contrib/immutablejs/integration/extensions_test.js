@@ -216,6 +216,12 @@ class ExtensionsTest {
         baseProto.getExtension(extensions.standaloneDoubleExtension).toArray());
   }
 
+  testUnitializedExtension() {
+    const baseProto = Base.newBuilder().build();
+    assertEqualsForProto(
+        false, baseProto.getExtension(Primitives.singleBoolExtension));
+  }
+
   testSingleBooleanExtension_get_hasExtension() {
     const baseBuilder = Base.newBuilder();
     assertEqualsForProto(
