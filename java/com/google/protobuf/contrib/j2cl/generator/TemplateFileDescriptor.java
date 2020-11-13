@@ -13,6 +13,8 @@
  */
 package com.google.protobuf.contrib.j2cl.generator;
 
+import static com.google.common.base.Predicates.not;
+
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
 import com.google.common.io.Files;
@@ -53,7 +55,7 @@ public abstract class TemplateFileDescriptor {
   public List<TemplateMessageDescriptor> getMessages() {
     return fileDescriptor().getMessageTypes().stream()
         .map(TemplateMessageDescriptor::create)
-        // TODO(b/171708241): Filter out MapEntry submessages.
+        .filter(not(TemplateMessageDescriptor::isMapEntry))
         .collect(ImmutableList.toImmutableList());
   }
 

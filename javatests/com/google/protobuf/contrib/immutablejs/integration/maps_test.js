@@ -23,8 +23,7 @@ class MapsTest {
     const serialized = `[null,null,null,null,null,[[1,"foo"],[1,"bar"]]]`;
     const immutable = ImmutableProto.parse(serialized);
 
-    // TODO(b/171708241): The count should be 1 when using the map count method.
-    assertEquals(2, immutable.getInt32KeyStringValueCount());
+    assertEquals(1, immutable.getInt32KeyStringValueCount());
     assertEquals('bar', immutable.getInt32KeyStringValueOrThrow(1));
     assertEquals('bar', immutable.getInt32KeyStringValueMap().get(1));
   }

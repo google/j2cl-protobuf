@@ -14,6 +14,7 @@
 package com.google.protobuf.contrib.immutablejs.generator;
 
 import static com.google.common.base.Preconditions.checkState;
+import static com.google.common.base.Predicates.not;
 
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
@@ -46,7 +47,7 @@ public abstract class TemplateMessageDescriptor {
     checkState(getType().isTopLevel());
     return getAllMessagesDescriptors(descriptor())
         .map(TemplateMessageDescriptor::create)
-        // TODO(b/171708241): Filter out MapEntry submessages.
+        .filter(not(TemplateMessageDescriptor::isMapEntry))
         .collect(ImmutableList.toImmutableList());
   }
 
@@ -112,5 +113,9 @@ public abstract class TemplateMessageDescriptor {
 
   public boolean isDeprecated() {
     return descriptor().getOptions().getDeprecated();
+  }
+
+  private boolean isMapEntry() {
+    return descriptor().getOptions().getMapEntry();
   }
 }

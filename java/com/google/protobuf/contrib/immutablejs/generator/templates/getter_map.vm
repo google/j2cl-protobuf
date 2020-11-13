@@ -1,7 +1,4 @@
-## TODO(b/171708241): Stop generating the repeated field view of map fields.
-#parse('getter_repeated.vm')
-
-#set ($mapType = $field.mapJsDoc)
+#set ($mapType = $field.jsDoc)
 #set ($key = $field.mapKey)
 #set ($value = $field.mapValue)
 
@@ -18,18 +15,16 @@ $!bodyContent
 #end
 #end
 
-## TODO(b/171708241): Generate the Map count method once we stop generating the
-## repeated field version.
-##  /**
-##   * $!field.protoFileComments
-##   * @return {number}
-###if ($field.isDeprecated())
-##   * @deprecated
-###end
-##   */
-##  get${field.name}Count() {
-##    return this.internal_getMap${key.stem}Key${value.stem}ValueEntriesCount(${field.number}${lastParameter});
-##  }
+ /**
+  * $!field.protoFileComments
+  * @return {number}
+#if ($field.isDeprecated())
+  * @deprecated
+#end
+  */
+ get${field.name}Count() {
+   return this.internal_getMap${key.stem}Key${value.stem}ValueEntriesCount(${field.number}${lastParameter});
+ }
 
   /**
    * $!field.protoFileComments

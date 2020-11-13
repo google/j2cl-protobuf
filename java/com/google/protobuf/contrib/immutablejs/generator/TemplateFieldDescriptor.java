@@ -60,8 +60,7 @@ public abstract class TemplateFieldDescriptor {
   }
 
   public boolean isRepeated() {
-    // TODO(b/171708241): consider repeated and maps distinct types.
-    return protoFieldDescriptor().isRepeated();
+    return protoFieldDescriptor().isRepeated() && !isMap();
   }
 
   public boolean isMap() {
@@ -179,6 +178,16 @@ public abstract class TemplateFieldDescriptor {
   }
 
   public String getJsDoc() {
+    // Map fields are typed dramatically different as they cannot be repeated or participate in
+    // extensions. Handle them specially first.
+    if (isMap()) {
+      return String.format(
+          "!%s<!%s, !%s>",
+          TypeDescriptor.MAP_VIEW.createReference(enclosingType()).getExpression(),
+          getMapKey().getType().getExpression(),
+          getMapValue().getType().getExpression());
+    }
+
     StringBuilder builder = new StringBuilder();
     if (protoFieldDescriptor().isExtension()) {
       builder.append("!").append(createExtensionReference().getExpression());
@@ -198,17 +207,6 @@ public abstract class TemplateFieldDescriptor {
       builder.append(">");
     }
     return builder.toString();
-  }
-
-  public String getMapJsDoc() {
-    // TODO(b/171708241): Collapse this into getJsDoc when we don't need to support both the map
-    // view and repeated field view.
-    checkState(isMap());
-    return String.format(
-        "!%s<!%s, !%s>",
-        TypeDescriptor.MAP_VIEW.createReference(enclosingType()).getExpression(),
-        getMapKey().getType().getExpression(),
-        getMapValue().getType().getExpression());
   }
 
   public String getElementJsDoc() {

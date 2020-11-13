@@ -125,7 +125,7 @@ ${messageName}.Builder = class extends proto_im_InternalMessage.Builder {
 
 #foreach($field in $message.fields)
 #if ($field.isMap())
-#set ($mapViewType = $field.mapJsDoc)
+#set ($mapViewType = $field.jsDoc)
 #set ($key = $field.mapKey)
 #set ($value = $field.mapValue)
 
@@ -143,19 +143,16 @@ ${messageName}.Builder = class extends proto_im_InternalMessage.Builder {
 #set ($putAllType = "!Map<${key.jsDoc}, ${value.jsDoc}>|${mapViewType}")
 #set ($internalPutAllType = "!Map<${key.jsDoc},${internalMapValueType}>|!proto_im_MapView<${key.jsDoc},${internalMapValueType}>")
 
-
-## TODO(b/171708241): Generate the Map count method once we stop generating the
-## repeated field version.
-##  /**
-##   * $!field.protoFileComments
-##   * @return {number}
-###if ($field.isDeprecated())
-##   * @deprecated
-###end
-##   */
-##  get${field.name}Count() {
-##    return this.message.get${field.name}Count();
-##  }
+ /**
+  * $!field.protoFileComments
+  * @return {number}
+#if ($field.isDeprecated())
+  * @deprecated
+#end
+  */
+ get${field.name}Count() {
+   return this.message.get${field.name}Count();
+ }
 
   /**
    * $!field.protoFileComments
@@ -248,9 +245,7 @@ ${messageName}.Builder = class extends proto_im_InternalMessage.Builder {
     return this;
   }
 
-## TODO(b/171708241): This should be an else-if.
-#end
-#if ($field.isRepeated())
+#elseif ($field.isRepeated())
 #set ($listType = $field.jsDoc)
 #set ($elementType = $field.elementJsDoc)
 #set ($elementSetType = "#if($field.isMessage())$elementType|${elementType}.Builder#{else}$elementType#end")

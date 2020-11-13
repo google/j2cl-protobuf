@@ -1,6 +1,3 @@
-## TODO(b/171708241): Stop generating the repeated field view of map fields.
-#parse ('getter_repeated.vm')
-
 #set ($keyField = $field.keyField)
 #set ($valueField = $field.valueField)
 #set ($valueFieldJsType = ${valueField.unboxedType})
@@ -8,10 +5,8 @@
 #set ($valueFieldJsType = "${valueFieldJsType}.Internal_ClosureEnum")
 #end
 
-## TODO(b/171708241): Generate the Map count method once we stop generating the
-## repeated field version.
-##@jsinterop.annotations.JsMethod(name = "get${field.jsName}Count")
-##public native int get${field.name}Count();
+@jsinterop.annotations.JsMethod(name = "get${field.jsName}Count")
+public native int get${field.name}Count();
 
 @jsinterop.annotations.JsMethod(name = "contains${field.jsName}")
 public native boolean contains${field.name}(${keyField.unboxedType} key);

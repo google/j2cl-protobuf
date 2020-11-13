@@ -79,8 +79,7 @@ public abstract class TemplateFieldDescriptor {
   public abstract String getUnboxedType();
 
   public boolean isRepeated() {
-    // TODO(b/171708241): consider repeated and maps distinct types.
-    return fieldDescriptor().isRepeated();
+    return fieldDescriptor().isRepeated() && !isMap();
   }
 
   public boolean isMap() {

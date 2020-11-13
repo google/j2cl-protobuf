@@ -13,6 +13,8 @@
  */
 package com.google.protobuf.contrib.j2cl.generator;
 
+import static com.google.common.base.Predicates.not;
+
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
 import com.google.protobuf.Descriptors.Descriptor;
@@ -31,6 +33,10 @@ public abstract class TemplateMessageDescriptor extends AbstractTemplateTypeDesc
   @Override
   Descriptor getContainingType() {
     return descriptor().getContainingType();
+  }
+
+  boolean isMapEntry() {
+    return descriptor().getOptions().getMapEntry();
   }
 
   public boolean isTopLevelMessage() {
@@ -62,7 +68,7 @@ public abstract class TemplateMessageDescriptor extends AbstractTemplateTypeDesc
   public List<TemplateMessageDescriptor> getMessages() {
     return descriptor().getNestedTypes().stream()
         .map(TemplateMessageDescriptor::create)
-        // TODO(b/171708241): Filter out MapEntry submessages.
+        .filter(not(TemplateMessageDescriptor::isMapEntry))
         .collect(ImmutableList.toImmutableList());
   }
 
