@@ -15,6 +15,5 @@ closure_js_library(
         "//java/com/google/protobuf/contrib/immutablejs:runtime",
         "//third_party:closure_asserts",
         "//third_party:closure_math_long",
-        "//third_party:closure_object",
     ],
 )
