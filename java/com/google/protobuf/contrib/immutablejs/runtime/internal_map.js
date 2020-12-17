@@ -14,7 +14,7 @@
 goog.module('proto.im.internal.InternalMap');
 
 const InternalMutableMapView = goog.require('proto.im.internal.InternalMutableMapView');
-const {checkIndex, checkTypeArray, checkTypeMapEntry, checkTypeMapKey, checkTypeNumber} = goog.require('proto.im.internal.internalChecks');
+const {checkIndex, checkTypeArray, checkTypeMapEntry, checkTypeMapKey} = goog.require('proto.im.internal.internalChecks');
 
 /**
  * Provides a mutable Map wrapper around map field data.
@@ -256,8 +256,8 @@ class InternalMap {
     // wiping out caching that the kernel may have stubbed on.
     const originalData = this.jsonArray_.splice(0, this.jsonArray_.length);
     for (const [key, index] of this.indexMap_.entries()) {
-      this.jsonArray_.push(
-          checkTypeMapEntry(originalData[checkTypeNumber(index)]));
+      // Index should be typed number but JsCompiler doesn't support tuples.
+      this.jsonArray_.push(originalData[/** @type {number}*/ (index)]);
       this.indexMap_.set(key, this.jsonArray_.length - 1);
     }
   }
