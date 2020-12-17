@@ -1,4 +1,4 @@
-# J2CL Protobuf  &middot; [![Build Status](https://github.com/google/j2cl-protobuf/workflows/build%20and%20test/badge.svg)
+# J2CL Protobuf  &middot; ![Build Status](https://github.com/google/j2cl-protobuf/workflows/build%20and%20tests/badge.svg)
 
 This repository contains [J2CL](http://j2cl.io) compatible implementation of
 [Protocol Buffers](https://developers.google.com/protocol-buffers).
