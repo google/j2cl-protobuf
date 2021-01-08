@@ -114,8 +114,7 @@
 
   /**
    * @param {number} fieldNumber
-   * @template T
-   * @return {!InternalMutableListView<T>}
+   * @return {!InternalMutableListView<!JspbKernel>}
    */
   getMutableRepeatedMessageField(fieldNumber) {
     return this.getMutableListView_(fieldNumber, messageFieldWriter);

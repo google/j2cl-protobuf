@@ -249,7 +249,7 @@ ${messageName}.Builder = class extends proto_im_InternalMessage.Builder {
 #set ($listType = $field.jsDoc)
 #set ($elementType = $field.elementJsDoc)
 #set ($elementSetType = "#if($field.isMessage())$elementType|${elementType}.Builder#{else}$elementType#end")
-#set ($addAllType = "#if($field.isMessage())!Iterable<$elementType>|!Iterable<${elementType}.Builder>#{else}!Iterable<$elementType>#end")
+#set ($addAllType = "#if($field.isMessage())!Iterable<$elementType|${elementType}.Builder>#{else}!Iterable<$elementType>#end")
   /**
    * @return {number}
 #if ($field.isDeprecated())

@@ -104,9 +104,8 @@
 
   /**
    * @param {number} fieldNumber
-   * @param {!Iterable<T>} values
+   * @param {!Iterable<!InternalMessage|!InternalMessage.Builder>} values
    * @protected
-   * @template T
    * @return {BUILDER}
    */
   internal_addAllMessageElements(fieldNumber, values) {
@@ -278,9 +277,8 @@
   /**
    * @param {number} fieldNumber
    * @param {!${keyType}} key
-   * @param {function(new:T, !Array<*>)} ctor
+   * @param {function(new:InternalMessage, !Array<*>)} ctor
    * @protected
-   * @template T
    * @return {BUILDER}
    */
   internal_removeMap${keyStem}KeyMessageValue(fieldNumber, key, ctor) {
@@ -294,9 +292,8 @@
    * @param {number} fieldNumber
    * @param {!${keyType}} key
    * @param {!InternalMessage} value
-   * @param {function(new:T, !Array<*>)} ctor
+   * @param {function(new:InternalMessage, !Array<*>)} ctor
    * @protected
-   * @template T
    * @return {BUILDER}
    */
   internal_putMap${keyStem}KeyMessageValue(fieldNumber, key, value, ctor) {
@@ -309,9 +306,8 @@
   /**
    * @param {number} fieldNumber
    * @param {!Map<!${keyType}, !InternalMessage>|!MapView<!${keyType}, !InternalMessage>} values
-   * @param {function(new:T, !Array<*>)} ctor
+   * @param {function(new:InternalMessage, !Array<*>)} ctor
    * @protected
-   * @template T
    * @return {BUILDER}
    */
   internal_putAllMap${keyStem}KeyMessageValue(fieldNumber, values, ctor) {
