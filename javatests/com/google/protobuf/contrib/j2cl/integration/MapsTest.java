@@ -267,4 +267,14 @@ public final class MapsTest {
             new SimpleImmutableEntry<>("buzz", "bazz"),
             new SimpleImmutableEntry<>("dupe", "bar"));
   }
+
+  @Test
+  public void testMap_toBuilder_originalIsNotModified() {
+    MapTestProto original = MapTestProto.newBuilder().putInt32KeyInt32Value(1, 1).build();
+
+    assertThat(original.getInt32KeyInt32ValueMap()).containsExactly(1, 1);
+    assertThat(original.toBuilder().putInt32KeyInt32Value(1, 2).build().getInt32KeyInt32ValueMap())
+        .containsExactly(1, 2);
+    assertThat(original.getInt32KeyInt32ValueMap()).containsExactly(1, 1);
+  }
 }

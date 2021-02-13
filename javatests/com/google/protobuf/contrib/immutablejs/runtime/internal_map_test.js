@@ -320,6 +320,24 @@ class InternalMapTest {
     assertEquals(2, map.size());
   }
 
+  testSet_keyAlreadyPresent_isReplacedKeepingOriginalUntouched() {
+    // See b/180108984.
+    const originalEntry = ['firstKey', 'firstValue'];
+    const mapEntries = [
+      originalEntry,
+    ];
+    const map = new InternalMap(
+        mapEntries, FieldAccessor.getString, FieldAccessor.setString,
+        FieldAccessor.getString, FieldAccessor.setString);
+
+    map.set('firstKey', 'newValue');
+
+    assertArrayEquals([['firstKey', 'newValue']], mapEntries);
+    assertEquals('newValue', map.get('firstKey'));
+    assertEquals(1, map.size());
+    assertArrayEquals(['firstKey', 'firstValue'], originalEntry);
+  }
+
   testSet_keyNotPresent_isAdded() {
     const mapEntries = [
       ['firstKey', 'firstValue'],

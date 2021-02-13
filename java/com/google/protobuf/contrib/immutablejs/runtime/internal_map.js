@@ -90,14 +90,17 @@ class InternalMap {
       this.fixMalformedMap_();
     }
 
-    let entry = this.getMapEntryByKey_(key);
-    if (entry === undefined) {
-      entry = [];
-      this.jsonArray_.push(entry);
-      this.indexMap_.set(this.toCacheKey_(key), this.jsonArray_.length - 1);
+    const newEntry = [];
+    const cacheKey = this.toCacheKey_(key);
+    const index = this.indexMap_.get(cacheKey);
+    if (index === undefined) {
+      this.jsonArray_.push(newEntry);
+      this.indexMap_.set(cacheKey, this.jsonArray_.length - 1);
+    } else {
+      this.jsonArray_[index] = newEntry;
     }
-    this.keySetterFn_(entry, key);
-    this.valueSetterFn_(entry, value);
+    this.keySetterFn_(newEntry, key);
+    this.valueSetterFn_(newEntry, value);
   }
 
   /** @override */
