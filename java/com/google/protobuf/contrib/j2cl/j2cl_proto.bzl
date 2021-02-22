@@ -169,6 +169,7 @@ _j2cl_proto_library_aspect = aspect(
             cfg = "host",
             executable = True,
             default = Label("//third_party:google_java_format"),
+            allow_files = True,
         ),
     }),
     fragments = ["java", "js"],
