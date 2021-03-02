@@ -12,8 +12,8 @@ generate_protos(
 )
 
 generate_protos(
-    name = "ambiguous_fields",
-    proto_file = "ambiguous_fields.proto",
+    name = "ambiguous_names",
+    proto_file = "ambiguous_names.proto",
 )
 
 generate_protos(

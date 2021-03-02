@@ -37,8 +37,8 @@ public class GoldenFileTest extends GoldenFilesBaseTest {
     doGoldenTest("accessor-multiple-files");
   }
 
-  public void testAmbiguousFields() throws Exception {
-    doGoldenTest("ambiguous_fields");
+  public void testAmbiguousNames() throws Exception {
+    doGoldenTest("ambiguous_names");
   }
 
   public void testEmptyPackage() throws Exception {

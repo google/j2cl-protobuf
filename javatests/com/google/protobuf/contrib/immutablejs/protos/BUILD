@@ -30,13 +30,13 @@ immutable_js_proto_library(
 )
 
 proto_library(
-    name = "ambiguous_fields",
-    srcs = ["ambiguous_fields.proto"],
+    name = "ambiguous_names",
+    srcs = ["ambiguous_names.proto"],
 )
 
 immutable_js_proto_library(
-    name = "ambiguous_fields_immutable_js_proto",
-    deps = [":ambiguous_fields"],
+    name = "ambiguous_names_immutable_js_proto",
+    deps = [":ambiguous_names"],
 )
 
 proto_library(

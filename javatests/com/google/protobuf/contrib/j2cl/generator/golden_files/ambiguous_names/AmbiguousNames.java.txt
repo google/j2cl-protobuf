@@ -2,11 +2,11 @@ package com.google.protobuf.contrib.j2cl.protos;
 
 @jsinterop.annotations.JsType(
     isNative = true,
-    name = "ambiguous_fields",
+    name = "ambiguous_names",
     namespace = "improto.protobuf.contrib.j2cl.protos")
-public final class AmbiguousFields {
+public final class AmbiguousNames {
 
-  private AmbiguousFields() {}
+  private AmbiguousNames() {}
 
   @jsinterop.annotations.JsType(
       isNative = true,
@@ -422,26 +422,146 @@ public final class AmbiguousFields {
     }
   }
 
+  @jsinterop.annotations.JsType(
+      isNative = true,
+      name = "Array",
+      namespace = "improto.protobuf.contrib.j2cl.protos")
+  public static final class Array
+      extends com.google.protobuf.GeneratedMessageLite<Array, Array.Builder> {
+
+    protected Array() {}
+
+    public static final native Array getDefaultInstance();
+
+    @jsinterop.annotations.JsOverlay
+    public final Array getDefaultInstanceForType() {
+      return getDefaultInstance();
+    }
+
+    public native Builder toBuilder();
+
+    public static native Builder newBuilder();
+
+    public static native Builder newBuilder(Array prototype);
+
+    @jsinterop.annotations.JsType(isNative = true)
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageLite.Builder<Array, Builder> {
+
+      protected Builder() {}
+
+      @jsinterop.annotations.JsOverlay
+      public final Array getDefaultInstanceForType() {
+        return getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public native Array build();
+
+      @java.lang.Override
+      public native Builder clone();
+    }
+  }
+
+  @jsinterop.annotations.JsType(
+      isNative = true,
+      name = "Object",
+      namespace = "improto.protobuf.contrib.j2cl.protos")
+  public static final class Object
+      extends com.google.protobuf.GeneratedMessageLite<Object, Object.Builder> {
+
+    @jsinterop.annotations.JsType(isNative = true)
+    public static final class Array
+        extends com.google.protobuf.GeneratedMessageLite<Array, Array.Builder> {
+
+      protected Array() {}
+
+      public static final native Array getDefaultInstance();
+
+      @jsinterop.annotations.JsOverlay
+      public final Array getDefaultInstanceForType() {
+        return getDefaultInstance();
+      }
+
+      public native Builder toBuilder();
+
+      public static native Builder newBuilder();
+
+      public static native Builder newBuilder(Array prototype);
+
+      @jsinterop.annotations.JsType(isNative = true)
+      public static final class Builder
+          extends com.google.protobuf.GeneratedMessageLite.Builder<Array, Builder> {
+
+        protected Builder() {}
+
+        @jsinterop.annotations.JsOverlay
+        public final Array getDefaultInstanceForType() {
+          return getDefaultInstance();
+        }
+
+        @java.lang.Override
+        public native Array build();
+
+        @java.lang.Override
+        public native Builder clone();
+      }
+    }
+
+    protected Object() {}
+
+    public static final native Object getDefaultInstance();
+
+    @jsinterop.annotations.JsOverlay
+    public final Object getDefaultInstanceForType() {
+      return getDefaultInstance();
+    }
+
+    public native Builder toBuilder();
+
+    public static native Builder newBuilder();
+
+    public static native Builder newBuilder(Object prototype);
+
+    @jsinterop.annotations.JsType(isNative = true)
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageLite.Builder<Object, Builder> {
+
+      protected Builder() {}
+
+      @jsinterop.annotations.JsOverlay
+      public final Object getDefaultInstanceForType() {
+        return getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public native Object build();
+
+      @java.lang.Override
+      public native Builder clone();
+    }
+  }
+
   @jsinterop.annotations.JsProperty(name = "class_")
   private static com.google.protobuf.GeneratedMessageLite.Internal_.ExtensionFieldInfo<
-          com.google.protobuf.contrib.j2cl.protos.AmbiguousFields.MyMessage, ?>
+          com.google.protobuf.contrib.j2cl.protos.AmbiguousNames.MyMessage, ?>
       internal_class_;
 
   @jsinterop.annotations.JsOverlay
   public static final com.google.protobuf.ExtensionLite<
-          com.google.protobuf.contrib.j2cl.protos.AmbiguousFields.MyMessage, java.lang.String>
+          com.google.protobuf.contrib.j2cl.protos.AmbiguousNames.MyMessage, java.lang.String>
       class_ =
           com.google.protobuf.GeneratedMessageLite.Internal_.createSingleStringExtension(
               internal_class_);
 
   @jsinterop.annotations.JsProperty(name = "extension_")
   private static com.google.protobuf.GeneratedMessageLite.Internal_.ExtensionFieldInfo<
-          com.google.protobuf.contrib.j2cl.protos.AmbiguousFields.MyMessage, ?>
+          com.google.protobuf.contrib.j2cl.protos.AmbiguousNames.MyMessage, ?>
       internal_extension;
 
   @jsinterop.annotations.JsOverlay
   public static final com.google.protobuf.ExtensionLite<
-          com.google.protobuf.contrib.j2cl.protos.AmbiguousFields.MyMessage, java.lang.String>
+          com.google.protobuf.contrib.j2cl.protos.AmbiguousNames.MyMessage, java.lang.String>
       extension =
           com.google.protobuf.GeneratedMessageLite.Internal_.createSingleStringExtension(
               internal_extension);

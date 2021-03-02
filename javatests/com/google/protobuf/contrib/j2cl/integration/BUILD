@@ -241,7 +241,7 @@ closure_js_binary(
     extra_inputs = ["//javascript/closure:conformance_proto.txt"],
     deps = [
         "//javatests/com/google/protobuf/contrib/j2cl/protos:accessor_j2cl_proto",
-        "//javatests/com/google/protobuf/contrib/j2cl/protos:ambiguous_fields_j2cl_proto",
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:ambiguous_names_j2cl_proto",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:empty_package_j2cl_proto",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:enums_j2cl_proto",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:extensions_j2cl_proto",

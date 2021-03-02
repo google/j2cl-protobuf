@@ -145,8 +145,17 @@ public abstract class TypeDescriptor {
     return getParent().map(p -> create(p).getTopLevelTypeDescriptor()).orElse(this);
   }
 
-  public final String getLocalName() {
-    return getTopLevelTypeDescriptor().getName() + getRelativeName();
+  @Memoized
+  public String getLocalName() {
+    String localName =
+        isTopLevel() ? getName() : getTopLevelTypeDescriptor().getLocalName() + getRelativeName();
+
+    if (JsReservedWords.isReverved(localName) && !getModuleName().isEmpty()) {
+      // Rename non-primtive types that may collide with Closure builtins.
+      localName = "_" + localName;
+    }
+
+    return localName;
   }
 
   public final String getImportName() {

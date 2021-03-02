@@ -289,3 +289,15 @@ proto_jsunit_test(
         "//third_party:closure_testsuite",
     ],
 )
+
+proto_jsunit_test(
+    name = "ambiguous_names_test",
+    srcs = [
+        "ambiguous_names_test.js",
+    ],
+    deps = [
+        "//java/com/google/protobuf/contrib/immutablejs:runtime",
+        "//javatests/com/google/protobuf/contrib/immutablejs/protos:ambiguous_names_immutable_js_proto",
+        "//third_party:closure_testsuite",
+    ],
+)

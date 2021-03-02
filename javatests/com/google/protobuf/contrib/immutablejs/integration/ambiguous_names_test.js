@@ -1,4 +1,4 @@
-// Copyright 2019 Google LLC
+// Copyright 2021 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -11,25 +11,22 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-syntax = "proto2";
 
-package javatests.com.google.protobuf.contrib.j2cl.protos;
+goog.module('proto.im.integration.AmbiguousNamesTest');
+goog.setTestOnly();
 
-option java_package = "com.google.protobuf.contrib.j2cl.protos";
+const Array_ = goog.require('improto.protobuf.contrib.immutablejs.protos.Array');
+const Object_ = goog.require('improto.protobuf.contrib.immutablejs.protos.Object');
+const testSuite = goog.require('goog.testing.testSuite');
 
-message MyMessage {
-  optional string class = 1;
-  optional string cached_size = 2;
-  optional string serialized_size = 3;
-  optional string extension = 4;
-  extensions 10 to 99;
+
+class AmbiguousNamesTest {
+  test() {
+    // Just a smoke test
+    Array_.getDefaultInstance();
+    Object_.getDefaultInstance();
+    Object_.Array.getDefaultInstance();
+  }
 }
-extend MyMessage {
-  optional string class = 11;
-  optional string extension = 12;
-}
 
-message RepeatedExtensionField {
-  repeated string extension = 1;
-  repeated string class = 2;
-}
+testSuite(new AmbiguousNamesTest());

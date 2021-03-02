@@ -395,4 +395,4 @@ ${messageName}.Builder = class extends proto_im_InternalMessage.Builder {
 #parse ("enum.vm")
 #end
 
-exports = $descriptor.type.name;
+exports = $descriptor.type.localName;
