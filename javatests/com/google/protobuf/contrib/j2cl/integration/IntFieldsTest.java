@@ -17,6 +17,7 @@ import static com.google.common.truth.Truth.assertThat;
 import static org.junit.Assert.assertThrows;
 
 import com.google.protobuf.contrib.j2cl.protos.Accessor.TestProto;
+import com.google.protobuf.contrib.j2cl.protos.Proto3Optional.TestProto3;
 import java.util.Arrays;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -92,6 +93,18 @@ public class IntFieldsTest {
     TestProto proto = builder.build();
     assertThat(proto.hasOptionalIntWithDefault()).isTrue();
     assertThat(proto.getOptionalIntWithDefault()).isEqualTo(246);
+  }
+
+  @Test
+  public void testOptionalField_proto3() {
+    assertThat(TestProto3.getDefaultInstance().hasOptionalInt()).isFalse();
+    assertThat(TestProto3.newBuilder().hasOptionalInt()).isFalse();
+
+    TestProto3.Builder builder = TestProto3.newBuilder().setOptionalInt(42);
+    assertThat(builder.hasOptionalInt()).isTrue();
+    assertThat(builder.getOptionalInt()).isEqualTo(42);
+    assertThat(builder.build().hasOptionalInt()).isTrue();
+    assertThat(builder.build().getOptionalInt()).isEqualTo(42);
   }
 
   @Test

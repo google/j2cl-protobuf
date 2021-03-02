@@ -38,6 +38,7 @@ public class J2CLProtobufCompiler {
 
     Map<String, FileDescriptor> fileDescriptors = Maps.newHashMap();
     CodeGeneratorResponse.Builder response = CodeGeneratorResponse.newBuilder();
+    response.setSupportedFeatures(CodeGeneratorResponse.Feature.FEATURE_PROTO3_OPTIONAL_VALUE);
     CodeWriter codeWriter = new CodeWriter(response);
 
     List<String> fileToGenerateList = request.getFileToGenerateList();

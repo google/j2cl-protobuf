@@ -92,4 +92,12 @@ public class GoldenFileTest extends GoldenFilesBaseTest {
   public void testProto3OneofsMultipleFiles() throws Exception {
     doGoldenTest("proto3_oneofs-multiple-files");
   }
+
+  public void testProto3Optional() throws Exception {
+    doGoldenTest("proto3_optional");
+  }
+
+  public void testProto3OptionalMultipleFiles() throws Exception {
+    doGoldenTest("proto3_optional-multiple-files");
+  }
 }

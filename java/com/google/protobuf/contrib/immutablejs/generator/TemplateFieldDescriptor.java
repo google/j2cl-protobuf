@@ -76,13 +76,13 @@ public abstract class TemplateFieldDescriptor {
   }
 
   public boolean isOneOf() {
-    return protoFieldDescriptor().getContainingOneof() != null;
+    return protoFieldDescriptor().getRealContainingOneof() != null;
   }
 
   public String getOneOfName() {
     checkState(isOneOf());
     return TemplateOneOfDescriptor.create(
-            enclosingType(), protoFieldDescriptor().getContainingOneof())
+            enclosingType(), protoFieldDescriptor().getRealContainingOneof())
         .getSimpleName();
   }
 

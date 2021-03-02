@@ -18,9 +18,11 @@ goog.setTestOnly();
 
 const ListView = goog.require('proto.im.ListView');
 const TestProto = goog.require('improto.protobuf.contrib.immutablejs.protos.TestProto');
+const TestProto3 = goog.require('improto.protobuf.contrib.immutablejs.protos.TestProto3');
 const testSuite = goog.require('goog.testing.testSuite');
 const {assertEqualsForProto} = goog.require('proto.im.proto_asserts');
 const {isCheckIndex} = goog.require('proto.im.internal.internalChecks');
+
 
 const PROTO_DEFAULT_VALUE = 135;
 
@@ -90,6 +92,20 @@ class IntFieldsTest {
     const proto = builder.build();
     assertEqualsForProto(true, proto.hasOptionalIntWithDefault());
     assertEqualsForProto(246, proto.getOptionalIntWithDefault());
+  }
+
+  testOptionalField_proto3() {
+    const proto = TestProto3.newBuilder().build();
+    assertEqualsForProto(false, proto.hasOptionalInt());
+    assertEqualsForProto(0, proto.getOptionalInt());
+
+    const builder = TestProto3.newBuilder().setOptionalInt(42);
+    assertEqualsForProto(true, builder.hasOptionalInt());
+    assertEqualsForProto(42, builder.getOptionalInt());
+
+    const proto2 = builder.build();
+    assertEqualsForProto(true, proto2.hasOptionalInt());
+    assertEqualsForProto(42, proto2.getOptionalInt());
   }
 
   testRepeatedField_defaultInstance() {

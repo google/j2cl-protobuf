@@ -165,3 +165,13 @@ immutable_js_proto_library(
     name = "proto-with-dashes_immutable_js_proto",
     deps = [":proto-with-dashes"],
 )
+
+proto_library(
+    name = "proto3_optional",
+    srcs = ["proto3_optional.proto"],
+)
+
+immutable_js_proto_library(
+    name = "proto3_optional_immutable_js_proto",
+    deps = [":proto3_optional"],
+)

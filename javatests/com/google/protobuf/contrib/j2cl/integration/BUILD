@@ -136,7 +136,10 @@ j2cl_multi_test(
 j2cl_multi_test(
     name = "IntFieldsTest",
     srcs = ["IntFieldsTest.java"],
-    proto_deps = ["//javatests/com/google/protobuf/contrib/j2cl/protos:accessor"],
+    proto_deps = [
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:accessor",
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:proto3_optional",
+    ],
     test_class = "com.google.protobuf.contrib.j2cl.integration.IntFieldsTest",
     deps = [
         ":checks",

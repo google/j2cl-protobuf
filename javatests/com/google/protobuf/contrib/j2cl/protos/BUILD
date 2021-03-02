@@ -62,6 +62,11 @@ generate_protos(
 )
 
 generate_protos(
+    name = "proto3_optional",
+    proto_file = "proto3_optional.proto",
+)
+
+generate_protos(
     name = "proto-with-dashes",
     proto_file = "proto-with-dashes.proto",
 )

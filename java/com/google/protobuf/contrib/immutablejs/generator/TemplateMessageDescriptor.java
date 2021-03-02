@@ -64,7 +64,7 @@ public abstract class TemplateMessageDescriptor {
   }
 
   public ImmutableList<TemplateOneOfDescriptor> getOneOfs() {
-    return descriptor().getOneofs().stream()
+    return descriptor().getRealOneofs().stream()
         .map(o -> TemplateOneOfDescriptor.create(getType(), o))
         .collect(ImmutableList.toImmutableList());
   }

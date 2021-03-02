@@ -1,0 +1,71 @@
+package com.google.protobuf.contrib.j2cl.protos;
+
+@jsinterop.annotations.JsType(
+    isNative = true,
+    name = "proto3_optional",
+    namespace = "improto.protobuf.contrib.j2cl.protos")
+public final class Proto3Optional {
+
+  private Proto3Optional() {}
+
+  @jsinterop.annotations.JsType(
+      isNative = true,
+      name = "TestProto3",
+      namespace = "improto.protobuf.contrib.j2cl.protos")
+  public static final class TestProto3
+      extends com.google.protobuf.GeneratedMessageLite<TestProto3, TestProto3.Builder> {
+
+    protected TestProto3() {}
+
+    public static final native TestProto3 getDefaultInstance();
+
+    @jsinterop.annotations.JsOverlay
+    public final TestProto3 getDefaultInstanceForType() {
+      return getDefaultInstance();
+    }
+
+    public native Builder toBuilder();
+
+    public static int OPTIONAL_INT_FIELD_NUMBER;
+
+    @jsinterop.annotations.JsMethod(name = "hasOptionalInt")
+    public native boolean hasOptionalInt();
+
+    @jsinterop.annotations.JsMethod(name = "getOptionalInt")
+    public native int getOptionalInt();
+
+    public static native Builder newBuilder();
+
+    public static native Builder newBuilder(TestProto3 prototype);
+
+    @jsinterop.annotations.JsType(isNative = true)
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageLite.Builder<TestProto3, Builder> {
+
+      protected Builder() {}
+
+      @jsinterop.annotations.JsOverlay
+      public final TestProto3 getDefaultInstanceForType() {
+        return getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public native TestProto3 build();
+
+      @java.lang.Override
+      public native Builder clone();
+
+      @jsinterop.annotations.JsMethod(name = "hasOptionalInt")
+      public native boolean hasOptionalInt();
+
+      @jsinterop.annotations.JsMethod(name = "getOptionalInt")
+      public native int getOptionalInt();
+
+      @jsinterop.annotations.JsMethod(name = "clearOptionalInt")
+      public native Builder clearOptionalInt();
+
+      @jsinterop.annotations.JsMethod(name = "setOptionalInt")
+      public native Builder setOptionalInt(int value);
+    }
+  }
+}

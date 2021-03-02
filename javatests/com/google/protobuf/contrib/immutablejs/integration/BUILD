@@ -101,6 +101,7 @@ proto_jsunit_test(
         "//java/com/google/protobuf/contrib/immutablejs:runtime",
         "//java/com/google/protobuf/contrib/immutablejs/runtime:internal_checks",
         "//javatests/com/google/protobuf/contrib/immutablejs/protos:accessors_immutable_js_proto",
+        "//javatests/com/google/protobuf/contrib/immutablejs/protos:proto3_optional_immutable_js_proto",
         "//javatests/com/google/protobuf/contrib/immutablejs/testing:proto_asserts",
         "//third_party:closure_testing_asserts",
         "//third_party:closure_testsuite",
