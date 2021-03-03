@@ -64,6 +64,7 @@ def _j2cl_proto_library_aspect_impl(target, ctx):
 
           rm -rf {dir}
           mkdir -p {dir}
+          mkdir -p {genfiles}
 
           {protoc} --plugin=protoc-gen-j2cl_protobuf={protoc_plugin} \
                         --proto_path=. \

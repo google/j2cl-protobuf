@@ -37,6 +37,10 @@ def _immutable_js_proto_library_aspect_impl(target, ctx):
         command = """
         set -e -o pipefail
 
+        rm -rf {output}
+        mkdir -p {output}
+        mkdir -p {genfiles}
+
         {protoc} --plugin=protoc-gen-immutable_js_protobuf={protoc_plugin} \
               --proto_path=. \
               --proto_path={genfiles} \
