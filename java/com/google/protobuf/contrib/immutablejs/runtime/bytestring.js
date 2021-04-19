@@ -21,6 +21,8 @@ const Hashing = goog.require('proto.im.internal.Hashing');
 const base64 = goog.require('goog.crypt.base64');
 const {checkType, freezeObject} = goog.require('proto.im.internal.internalChecks');
 
+
+
 /**
  * Immutable sequence of bytes.
  *
@@ -67,6 +69,23 @@ class ByteString {
    */
   toByteArray() {
     return this.ensureBytes_();
+  }
+
+  /**
+   * Returns the number of bytes in the string.
+   * @return {number}
+   */
+  size() {
+    return this.ensureBytes_().length;
+  }
+
+  /**
+   * Returns the byte value at position `index`
+   * @param {number} index
+   * @return {number}
+   */
+  byteAt(index) {
+    return this.ensureBytes_()[index];
   }
 
   /**

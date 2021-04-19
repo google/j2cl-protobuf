@@ -37,6 +37,10 @@ public class ByteString {
 
   public native byte[] toByteArray();
 
+  public native int size();
+
+  public native byte byteAt(int index);
+
   @JsOverlay
   public final String toStringUtf8() {
     // Using the bytes[] contructor is fine, since in J2CL this is UTF-8 by default.
