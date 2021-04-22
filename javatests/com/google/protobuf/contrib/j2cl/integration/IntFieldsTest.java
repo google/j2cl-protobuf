@@ -19,6 +19,7 @@ import static org.junit.Assert.assertThrows;
 import com.google.protobuf.contrib.j2cl.protos.Accessor.TestProto;
 import com.google.protobuf.contrib.j2cl.protos.Proto3Optional.TestProto3;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -218,5 +219,14 @@ public class IntFieldsTest {
     TestProto proto = builder.build();
     assertThat(proto.getRepeatedIntCount()).isEqualTo(0);
     assertThat(proto.getRepeatedIntCount()).isEqualTo(0);
+  }
+
+  @Test
+  public void testRepeatedField_getReturnsImmutableList() {
+    TestProto.Builder builder = TestProto.newBuilder().addRepeatedInt(1);
+    List<Integer> repeatedFieldList = builder.getRepeatedIntList();
+
+    assertThrows(Exception.class, () -> repeatedFieldList.add(2));
+    assertThrows(Exception.class, () -> repeatedFieldList.remove(0));
   }
 }

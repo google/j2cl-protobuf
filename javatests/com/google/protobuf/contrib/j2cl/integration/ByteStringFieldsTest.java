@@ -19,6 +19,7 @@ import static org.junit.Assert.assertThrows;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.contrib.j2cl.protos.Accessor.TestProto;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -238,5 +239,14 @@ public class ByteStringFieldsTest {
     TestProto proto = builder.build();
     assertThat(proto.getRepeatedBytesCount()).isEqualTo(0);
     assertThat(proto.getRepeatedBytesCount()).isEqualTo(0);
+  }
+
+  @Test
+  public void testRepeatedField_getReturnsImmutableList() {
+    TestProto.Builder builder = TestProto.newBuilder().addRepeatedBytes(TEST_STRING);
+    List<ByteString> repeatedFieldList = builder.getRepeatedBytesList();
+
+    assertThrows(Exception.class, () -> repeatedFieldList.add(TEST_STRING));
+    assertThrows(Exception.class, () -> repeatedFieldList.remove(0));
   }
 }

@@ -18,6 +18,7 @@ import static org.junit.Assert.assertThrows;
 
 import com.google.protobuf.contrib.j2cl.protos.Accessor.TestProto;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -219,5 +220,14 @@ public class LongFieldsTest {
     TestProto proto = builder.build();
     assertThat(proto.getRepeatedLongCount()).isEqualTo(0);
     assertThat(proto.getRepeatedLongCount()).isEqualTo(0);
+  }
+
+  @Test
+  public void testRepeatedField_getReturnsImmutableList() {
+    TestProto.Builder builder = TestProto.newBuilder().addRepeatedLong(1);
+    List<Long> repeatedFieldList = builder.getRepeatedLongList();
+
+    assertThrows(Exception.class, () -> repeatedFieldList.add(2L));
+    assertThrows(Exception.class, () -> repeatedFieldList.remove(0));
   }
 }

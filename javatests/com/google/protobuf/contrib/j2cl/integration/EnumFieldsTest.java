@@ -26,6 +26,7 @@ import com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.P
 import com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3SparseEnum;
 import com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -410,6 +411,16 @@ public class EnumFieldsTest {
     EnumTestProto proto = builder.build();
     assertThat(proto.getRepeatedNativeEnumCount()).isEqualTo(0);
     assertThat(proto.getRepeatedNativeEnumCount()).isEqualTo(0);
+  }
+
+  @Test
+  public void testRepeatedField_getReturnsImmutableList() {
+    EnumTestProto.Builder builder =
+        EnumTestProto.newBuilder().addRepeatedNativeEnum(NativeEnum.NATIVE_ONE);
+    List<NativeEnum> repeatedFieldList = builder.getRepeatedNativeEnumList();
+
+    assertThrows(Exception.class, () -> repeatedFieldList.add(NativeEnum.NATIVE_TWO));
+    assertThrows(Exception.class, () -> repeatedFieldList.remove(0));
   }
 
   @Test

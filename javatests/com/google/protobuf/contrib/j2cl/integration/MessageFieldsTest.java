@@ -279,4 +279,17 @@ public final class MessageFieldsTest {
     assertThat(nestedList.get(0).getPayload()).isEqualTo("three");
     assertThat(nestedList.get(1).getPayload()).isEqualTo("four");
   }
+
+  @Test
+  public void testRepeatedField_getReturnsImmutableList() {
+    TestProto.Builder builder =
+        TestProto.newBuilder()
+            .addRepeatedMessage(TestProto.NestedMessage.newBuilder().setPayload("one"));
+    List<NestedMessage> nestedList = builder.getRepeatedMessageList();
+
+    assertThrows(
+        Exception.class,
+        () -> nestedList.add(TestProto.NestedMessage.newBuilder().setPayload("one").build()));
+    assertThrows(Exception.class, () -> nestedList.remove(0));
+  }
 }

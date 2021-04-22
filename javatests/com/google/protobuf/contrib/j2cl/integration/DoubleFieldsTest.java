@@ -18,6 +18,7 @@ import static org.junit.Assert.assertThrows;
 
 import com.google.protobuf.contrib.j2cl.protos.Accessor.TestProto;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -218,5 +219,14 @@ public class DoubleFieldsTest {
     TestProto proto = builder.build();
     assertThat(proto.getRepeatedDoubleCount()).isEqualTo(0);
     assertThat(proto.getRepeatedDoubleCount()).isEqualTo(0);
+  }
+
+  @Test
+  public void testRepeatedField_getReturnsImmutableList() {
+    TestProto.Builder builder = TestProto.newBuilder().addRepeatedDouble(1d);
+    List<Double> repeatedFieldList = builder.getRepeatedDoubleList();
+
+    assertThrows(Exception.class, () -> repeatedFieldList.add(2d));
+    assertThrows(Exception.class, () -> repeatedFieldList.remove(0));
   }
 }

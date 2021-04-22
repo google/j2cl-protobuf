@@ -172,6 +172,7 @@ public final class MapsTest {
         () -> proto.getStringKeyStringValueMap().remove("foo", "bar"));
   }
 
+
   @Test
   public void testMap_clear_throwsUnsupportedOperationException() {
     MapTestProto proto = MapTestProto.newBuilder().putStringKeyStringValue("foo", "bar").build();
@@ -266,6 +267,15 @@ public final class MapsTest {
             new SimpleImmutableEntry<>("newKey", "newValue"),
             new SimpleImmutableEntry<>("buzz", "bazz"),
             new SimpleImmutableEntry<>("dupe", "bar"));
+  }
+
+  @Test
+  public void testMapBuilder_getMap_returnsImmutableMap() {
+    MapTestProto.Builder builder = MapTestProto.newBuilder().putStringKeyStringValue("foo", "bar");
+    Map<String, String> mapField = builder.getStringKeyStringValueMap();
+
+    assertThrows(Exception.class, () -> mapField.put("buzz", "bazz"));
+    assertThrows(Exception.class, () -> mapField.remove("foo"));
   }
 
   @Test

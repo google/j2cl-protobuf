@@ -18,6 +18,7 @@ import static org.junit.Assert.assertThrows;
 
 import com.google.protobuf.contrib.j2cl.protos.Accessor.TestProto;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -186,5 +187,14 @@ public class BooleanFieldsTest {
     TestProto proto2 = builder.build();
     assertThat(proto2.getRepeatedBoolCount()).isEqualTo(0);
     assertThat(proto2.getRepeatedBoolCount()).isEqualTo(0);
+  }
+
+  @Test
+  public void testRepeatedField_getReturnsImmutableList() {
+    TestProto.Builder builder = TestProto.newBuilder().addRepeatedBool(true);
+    List<Boolean> repeatedFieldList = builder.getRepeatedBoolList();
+
+    assertThrows(Exception.class, () -> repeatedFieldList.add(false));
+    assertThrows(Exception.class, () -> repeatedFieldList.remove(0));
   }
 }
