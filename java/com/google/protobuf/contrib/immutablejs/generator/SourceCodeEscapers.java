@@ -26,7 +26,7 @@ import java.util.Map;
  * <p>This is a subset of source code escapers that are in the process of being open-sources as part
  * of guava, see: https://github.com/google/guava/issues/1620
  */
-final class SourceCodeEscapers {
+public final class SourceCodeEscapers {
   private SourceCodeEscapers() {}
 
   // For each xxxEscaper() method, please add links to external reference pages
@@ -37,6 +37,48 @@ final class SourceCodeEscapers {
   private static final char PRINTABLE_ASCII_MAX = 0x7E; // '~'
 
   private static final char[] HEX_DIGITS = "0123456789abcdef".toCharArray();
+
+  /**
+   * Returns an {@link Escaper} instance that escapes special characters in a string so it can
+   * safely be included in either a Java character literal or string literal. This is the preferred
+   * way to escape Java characters for use in String or character literals.
+   *
+   * <p>For more details, see <a href="http://goo.gl/NsGW7">Escape Sequences for Character and
+   * String Literals</a> in The Java Language Specification.
+   */
+  public static Escaper javaCharEscaper() {
+    return JAVA_CHAR_ESCAPER;
+  }
+
+  private static final Escaper JAVA_CHAR_ESCAPER;
+
+  static {
+    Map<Character, String> javaMap = new HashMap<>();
+    javaMap.put('\b', "\\b");
+    javaMap.put('\f', "\\f");
+    javaMap.put('\n', "\\n");
+    javaMap.put('\r', "\\r");
+    javaMap.put('\t', "\\t");
+    javaMap.put('\"', "\\\"");
+    javaMap.put('\\', "\\\\");
+    javaMap.put('\'', "\\'");
+    JAVA_CHAR_ESCAPER = new JavaCharEscaper(javaMap);
+  }
+
+  // This escaper does not produce octal escape sequences.
+  // "Octal escapes are provided for compatibility with C, but can express
+  // only Unicode values \u0000 through \u00FF, so Unicode escapes are
+  // usually preferred."
+  private static class JavaCharEscaper extends ArrayBasedCharEscaper {
+    JavaCharEscaper(Map<Character, String> replacements) {
+      super(replacements, PRINTABLE_ASCII_MIN, PRINTABLE_ASCII_MAX);
+    }
+
+    @Override
+    protected char[] escapeUnsafe(char c) {
+      return asUnicodeHexEscape(c);
+    }
+  }
 
   /**
    * Returns an {@link Escaper} instance that replaces non-ASCII characters in a string with their

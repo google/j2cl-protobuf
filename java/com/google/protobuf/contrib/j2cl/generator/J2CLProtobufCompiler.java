@@ -15,6 +15,7 @@ package com.google.protobuf.contrib.j2cl.generator;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
+import com.google.common.base.Ascii;
 import com.google.common.collect.Maps;
 import com.google.protobuf.DescriptorProtos.FileDescriptorProto;
 import com.google.protobuf.Descriptors.DescriptorValidationException;
@@ -42,6 +43,8 @@ public class J2CLProtobufCompiler {
     CodeWriter codeWriter = new CodeWriter(response);
 
     List<String> fileToGenerateList = request.getFileToGenerateList();
+    ProtoImplementation implementation =
+        ProtoImplementation.fromRequestParameter(request.getParameter());
 
     for (FileDescriptorProto fileDescriptorProto : request.getProtoFileList()) {
       // Look up the imported files from previous file descriptors.  It is sufficient to look at
@@ -66,8 +69,32 @@ public class J2CLProtobufCompiler {
       }
 
       // Generate code based on the current file descriptor.
-      new TemplateRenderer(codeWriter, fileDescriptor).generateCode();
+      new TemplateRenderer(codeWriter, fileDescriptor, implementation).generateCode();
     }
     response.build().writeTo(System.out);
+  }
+
+  /** Proto implementation options. */
+  public enum ProtoImplementation {
+    JSINTEROP(""),
+    JAVA("_java");
+
+    private final String templateSuffix;
+
+    ProtoImplementation(String templateSuffix) {
+      this.templateSuffix = templateSuffix;
+    }
+
+    public String getTemplateSuffix() {
+      return templateSuffix;
+    }
+
+    private static ProtoImplementation fromRequestParameter(String parameter) {
+      if (parameter == null) {
+        throw new NullPointerException("Request parameter cannot be null");
+      }
+
+      return ProtoImplementation.valueOf(Ascii.toUpperCase(parameter));
+    }
   }
 }

@@ -1,0 +1,21 @@
+public Builder add${field.name}(${field.unboxedType} value) {
+  return addRepeatedField(${field.number}, value);
+}
+
+public Builder set${field.name}(int index, ${field.unboxedType} value){
+  return setRepeatedField(${field.number}, index, value);
+}
+
+#if (${field.isMessage()})
+  public Builder add${field.name}(${field.unboxedType}.Builder builder){
+    return add${field.name}(builder.build());
+  }
+
+  public Builder set${field.name}(int index, ${field.unboxedType}.Builder builder){
+    return set${field.name}(index, builder.build());
+  }
+#end
+
+public final Builder addAll${field.name}(java.util.Collection<${field.boxedType}> values) {
+  return addAllRepeatedField(${field.number}, values);
+}

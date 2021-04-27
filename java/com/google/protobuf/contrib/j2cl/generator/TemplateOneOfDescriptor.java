@@ -13,6 +13,7 @@
  */
 package com.google.protobuf.contrib.j2cl.generator;
 
+
 import com.google.auto.value.AutoValue;
 import com.google.common.base.Ascii;
 import com.google.protobuf.Descriptors.Descriptor;
@@ -55,17 +56,32 @@ public abstract class TemplateOneOfDescriptor extends AbstractTemplateTypeDescri
         || descriptor().getOptions().getExtension(Options.oneofOptions).getGenerateJsEnum();
   }
 
+  public List<FieldDescriptor> getFields() {
+    return descriptor().getFields();
+  }
+
   public List<TemplateEnumValueDescriptor> getValues() {
     List<TemplateEnumValueDescriptor> values = new ArrayList<>();
-    String defaultValueName =
-        Ascii.toUpperCase(descriptor().getName().replace("_", "")) + "_NOT_SET";
+    String defaultValueName = getDefaultValueName();
     values.add(TemplateEnumValueDescriptor.create(defaultValueName, 0));
     descriptor().getFields().forEach(e -> values.add(createEnumValue(e)));
     return values;
   }
 
   private static TemplateEnumValueDescriptor createEnumValue(FieldDescriptor fd) {
-    return TemplateEnumValueDescriptor.create(Ascii.toUpperCase(fd.getName()), fd.getNumber());
+    return TemplateEnumValueDescriptor.create(getEnumValueName(fd), fd.getNumber());
+  }
+
+  public static String getEnumValueName(FieldDescriptor oneOfField) {
+    return Ascii.toUpperCase(oneOfField.getName());
+  }
+
+  private String getDefaultValueName() {
+    return Ascii.toUpperCase(descriptor().getName().replace("_", "")) + "_NOT_SET";
+  }
+
+  public String getDefaultValue() {
+    return getName() + "." + getDefaultValueName();
   }
 
   /** Represents a protocol buffer union's getter field */
@@ -93,6 +109,10 @@ public abstract class TemplateOneOfDescriptor extends AbstractTemplateTypeDescri
 
     public boolean isEnum() {
       return true;
+    }
+
+    public String getDefaultValue() {
+      return oneOf().getDefaultValue();
     }
   }
 

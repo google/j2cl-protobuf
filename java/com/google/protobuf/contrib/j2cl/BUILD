@@ -1,8 +1,19 @@
 # Public targets for j2cl proto
 
-load("@com_google_j2cl//build_defs:rules.bzl", "j2cl_library")
+load("@com_google_j2cl//build_defs:rules.bzl", "j2cl_library", "j2wasm_library")
 
 licenses(["notice"])  # Apache 2.0
+
+j2wasm_library(
+    name = "runtime-j2wasm",
+    visibility = [
+        "//:__subpackages__",
+        "//java/com/google/protobuf/contrib/gwt:__pkg__",
+    ],
+    exports = [
+        "//java/com/google/protobuf/contrib/j2cl/runtime:runtime-j2wasm",
+    ],
+)
 
 j2cl_library(
     name = "runtime",

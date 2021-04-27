@@ -1,0 +1,27 @@
+##
+## This file is used to render the outer class and its subclasses when producing
+## a single output file.
+##
+package $fileDescriptor.package;
+
+public final class $fileDescriptor.className {
+
+private ${fileDescriptor.className}() {}
+
+#if (!$fileDescriptor.multipleFiles)
+
+  #foreach ($enumDescriptor in ${fileDescriptor.enums})
+    #parse('enum_java.vm')
+  #end
+
+  #foreach ($descriptor in ${fileDescriptor.messages})
+    #parse ('message_java.vm')
+  #end
+
+#end
+
+## render extensions
+#set ($extensions = $fileDescriptor.extensions)
+#parse('extension_java.vm')
+}
+

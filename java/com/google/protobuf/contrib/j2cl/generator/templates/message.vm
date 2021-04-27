@@ -48,7 +48,7 @@ public native Builder toBuilder();
 
 ## render fields
 #foreach ($field in $descriptor.fields)
-  #parse ("$field.getterTemplate()")
+  #parse ("$field.getterTemplate($templateNameSuffix)")
 #end
 
 ##render one of getters
@@ -85,12 +85,12 @@ public static final class Builder extends
 
 ## render fields for builder
 #foreach ($field in $descriptor.fields)
-  #parse ("$field.getterTemplate()")
+  #parse ("$field.getterTemplate($templateNameSuffix)")
 
   @jsinterop.annotations.JsMethod(name = "clear${field.jsName}")
   public native Builder clear${field.name}();
 
-  #parse("$field.builderTemplate()")
+  #parse("$field.builderTemplate($templateNameSuffix)")
 
 #end
 ##render one of getters for builder

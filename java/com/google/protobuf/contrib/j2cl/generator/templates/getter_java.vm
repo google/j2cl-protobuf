@@ -1,0 +1,9 @@
+#if (${field.isRepeated()})
+  public ${field.unboxedType} get${field.name}(int index){
+    return getRepeatedField(${field.number}, index);
+  }
+#else
+  public ${field.unboxedType} get${field.name}(){
+    return getField(${field.number}, () -> ${field.defaultValue});
+  }
+#end

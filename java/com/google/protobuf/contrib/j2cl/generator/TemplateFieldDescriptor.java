@@ -14,9 +14,14 @@
 package com.google.protobuf.contrib.j2cl.generator;
 
 import static com.google.common.base.Preconditions.checkState;
+import static com.google.common.base.Strings.nullToEmpty;
+import static com.google.protobuf.contrib.immutablejs.generator.SourceCodeEscapers.javaCharEscaper;
 
 import com.google.auto.value.AutoValue;
 import com.google.common.base.Ascii;
+import com.google.common.base.Defaults;
+import com.google.protobuf.ByteString;
+import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Descriptors.FieldDescriptor;
 import com.google.protobuf.Descriptors.FieldDescriptor.JavaType;
 import com.google.protobuf.contrib.immutablejs.generator.JavaQualifiedNames;
@@ -86,24 +91,25 @@ public abstract class TemplateFieldDescriptor {
     return fieldDescriptor().isMapField();
   }
 
-  public String getterTemplate() {
-    if (isMap()) {
-      return "getter_map.vm";
-    } else if (isRepeated()) {
-      return "getter_repeated.vm";
-    } else {
-      return "getter_single.vm";
-    }
+  public boolean isOneOf() {
+    return fieldDescriptor().getRealContainingOneof() != null;
   }
 
-  public String builderTemplate() {
-    if (isMap()) {
-      return "builder_map.vm";
-    } else if (isRepeated()) {
-      return "builder_repeated.vm";
-    } else {
-      return "builder_single.vm";
-    }
+  public String getOneOfName() {
+    checkState(isOneOf());
+    return TemplateOneOfDescriptor.create(fieldDescriptor().getRealContainingOneof()).getName();
+  }
+
+  public String getterTemplate(String templateNameSuffix) {
+    return String.format("getter_%s%s.vm", getTemplateKind(), templateNameSuffix);
+  }
+
+  public String builderTemplate(String templateNameSuffix) {
+    return String.format("builder_%s%s.vm", getTemplateKind(), templateNameSuffix);
+  }
+
+  private String getTemplateKind() {
+    return isMap() ? "map" : isRepeated() ? "repeated" : "single";
   }
 
   public String getName() {
@@ -144,6 +150,46 @@ public abstract class TemplateFieldDescriptor {
       default:
         return isEnum();
     }
+  }
+
+  public String getDefaultValue() {
+    Object defaultValue =
+        fieldDescriptor().hasDefaultValue() ? fieldDescriptor().getDefaultValue() : null;
+
+    switch (fieldDescriptor().getJavaType()) {
+      case BOOLEAN:
+        return String.valueOf(nullToDefault(defaultValue, boolean.class));
+      case INT:
+        return String.valueOf(nullToDefault(defaultValue, int.class));
+      case LONG:
+        return nullToDefault(defaultValue, long.class) + "L";
+      case DOUBLE:
+        return nullToDefault(defaultValue, double.class) + "d";
+      case FLOAT:
+        return nullToDefault(defaultValue, float.class) + "f";
+      case STRING:
+        return "\"" + javaCharEscaper().escape(nullToEmpty((String) defaultValue)) + "\"";
+      case ENUM:
+        String defaultEnumName =
+            defaultValue != null
+                ? ((EnumValueDescriptor) defaultValue).getName()
+                : fieldDescriptor().getEnumType().getValues().get(0).getName();
+        return getUnboxedType() + "." + defaultEnumName;
+      case BYTE_STRING:
+        ByteString defaultByteString = (ByteString) defaultValue;
+        if (defaultByteString != null) {
+          return getUnboxedType() + ".copyFromUtf8(\"" + defaultByteString.toStringUtf8() + "\")";
+        }
+        return "com.google.protobuf.ByteString.EMPTY";
+      case MESSAGE:
+        return getUnboxedType() + ".getDefaultInstance()";
+    }
+
+    throw new AssertionError("Unsupported java type: " + fieldDescriptor().getJavaType());
+  }
+
+  private Object nullToDefault(Object value, Class<?> defaultValueClass) {
+    return value == null ? Defaults.defaultValue(defaultValueClass) : value;
   }
 
   public String getExtendedMessage() {

@@ -1,0 +1,12 @@
+#foreach ($field in $extensions)
+  #if ($field.isRepeated())
+    #set ($extensionType = "java.util.List<${field.boxedType}>")
+    #set ($defaultValue = "new java.util.ArrayList<>()")
+  #else
+    #set ($extensionType = "${field.boxedType}")
+    #set ($defaultValue = "${field.getDefaultValue()}")
+  #end
+
+  public static final com.google.protobuf.ExtensionLite<${field.extendedMessage}, ${extensionType}> $field.name =
+      new com.google.protobuf.GeneratedMessageLite.GeneratedExtension<>($field.number, $defaultValue);
+#end

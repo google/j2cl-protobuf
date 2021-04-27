@@ -1,0 +1,9 @@
+#parse('getter_java.vm')
+
+public int get${field.name}Count(){
+  return getRepeatedFieldCount(${field.number});
+}
+
+public java.util.List<${field.boxedType}> get${field.name}List() {
+  return getFieldList(${field.number});
+}

@@ -14,6 +14,7 @@
 package com.google.protobuf.contrib.j2cl.generator;
 
 import com.google.protobuf.Descriptors.FileDescriptor;
+import com.google.protobuf.contrib.j2cl.generator.J2CLProtobufCompiler.ProtoImplementation;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.nio.charset.StandardCharsets;
@@ -23,12 +24,16 @@ import org.apache.velocity.app.VelocityEngine;
 /** Renders protos using veloctiy templates. */
 // Class should be package protected, but this breaks velocity templating.
 public class TemplateRenderer {
+
   private final FileDescriptor fileDescriptor;
   private final CodeWriter writer;
+  private final String templateNameSuffix;
 
-  public TemplateRenderer(CodeWriter writer, FileDescriptor fileDescriptor) {
+  public TemplateRenderer(
+      CodeWriter writer, FileDescriptor fileDescriptor, ProtoImplementation implementation) {
     this.writer = writer;
     this.fileDescriptor = fileDescriptor;
+    this.templateNameSuffix = implementation.getTemplateSuffix();
   }
 
   /** Generates a J2CL Java class from this generator's given protocol buffer FileDescriptor. */
@@ -44,29 +49,34 @@ public class TemplateRenderer {
 
   private void renderMessage(TemplateMessageDescriptor descriptor) {
     VelocityContext velocityContext = new VelocityContext();
+    velocityContext.put("templateNameSuffix", templateNameSuffix);
     velocityContext.put("descriptor", descriptor);
-    generate(velocityContext, "message.vm", descriptor.getFileName());
+    generate(velocityContext, "message", descriptor.getFileName());
   }
 
   private void renderEnum(TemplateEnumDescriptor descriptor) {
     VelocityContext velocityContext = new VelocityContext();
     velocityContext.put("enumDescriptor", descriptor);
-    generate(velocityContext, "enum.vm", descriptor.getFileName());
+    generate(velocityContext, "enum", descriptor.getFileName());
   }
 
   private void renderFile(TemplateFileDescriptor descriptor) {
     VelocityContext velocityContext = new VelocityContext();
+    velocityContext.put("templateNameSuffix", templateNameSuffix);
     velocityContext.put("fileDescriptor", descriptor);
-    generate(velocityContext, "file.vm", descriptor.getFileName());
+    generate(velocityContext, "file", descriptor.getFileName());
   }
 
   private void generate(VelocityContext velocityContext, String templateName, String fileName) {
     VelocityEngine velocityEngine = VelocityUtil.createEngine();
     StringWriter outputBuffer = new StringWriter();
+
     String templatePath =
         TemplateRenderer.class.getPackage().getName().replace('.', '/')
             + "/templates/"
-            + templateName;
+            + templateName
+            + templateNameSuffix
+            + ".vm";
     if (!velocityEngine.mergeTemplate(
         templatePath, StandardCharsets.UTF_8.name(), velocityContext, outputBuffer)) {
       throw new RuntimeException("Velocity failed to render template");

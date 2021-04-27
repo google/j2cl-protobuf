@@ -1,0 +1,25 @@
+#set ($keyField = $field.keyField)
+#set ($valueField = $field.valueField)
+
+public int get${field.name}Count() {
+  return getFieldMap(${field.number}).size();
+}
+
+public boolean contains${field.name}(${keyField.unboxedType} key) {
+  return getFieldMap(${field.number}).containsKey(key);
+}
+
+public ${valueField.unboxedType} get${field.name}OrThrow(${keyField.unboxedType} key) {
+  return getOrThrow(${field.number}, key);
+}
+
+public ${valueField.unboxedType} get${field.name}OrDefault(
+    ${keyField.unboxedType} key, ${valueField.unboxedType} defaultValue) {
+  return getOrDefault(${field.number}, key, defaultValue);
+}
+
+
+public final java.util.Map<${keyField.boxedType}, ${valueField.boxedType}> get${field.name}Map() {
+  return getFieldMap(${field.number});
+}
+

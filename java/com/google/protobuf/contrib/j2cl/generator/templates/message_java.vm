@@ -1,0 +1,135 @@
+##
+## Renders a given message as either an inner or outer class.
+##
+#set ($static = 'static')
+#if ($descriptor.isTopLevelClass())
+  #set ($static = '')
+package $descriptor.package;
+#end
+
+public $static final class $descriptor.name extends
+com.google.protobuf.GeneratedMessageLite<${descriptor.name}, ${descriptor.name}.Builder> {
+
+## render enums
+#foreach ($enumDescriptor in $descriptor.enums)
+  #parse ('enum_java.vm')
+#end
+
+## render oneofs
+#foreach($enumDescriptor in $descriptor.oneOfs)
+  #parse ('enum_java.vm')
+#end
+
+## render nested messages
+## Note that 'descriptor' below only overrides the value for the local scope of foreach.
+#foreach ($descriptor in $descriptor.messages)
+  #parse ('message_java.vm')
+#end
+#foreach ($field in $descriptor.fields)
+  public static final int ${field.fieldNumberName}_FIELD_NUMBER = ${field.number};
+#end
+
+private static ${descriptor.name} DEFAULT_INSTANCE;
+
+
+private ${descriptor.name}(java.util.Map<java.lang.Integer, java.lang.Object> fields) {
+  super(fields);
+}
+
+public static final ${descriptor.name} getDefaultInstance(){
+  if (DEFAULT_INSTANCE == null) {
+    DEFAULT_INSTANCE = newBuilder().build();
+  }
+  return DEFAULT_INSTANCE;
+}
+
+public final $descriptor.name getDefaultInstanceForType() {
+  return getDefaultInstance();
+}
+
+public Builder toBuilder(){
+  return newBuilder(this);
+}
+
+## render fields
+#foreach ($field in $descriptor.fields)
+  #parse ("$field.getterTemplate($templateNameSuffix)")
+#end
+
+##render one of getters
+## macro for oneof getter
+#macro( oneof_getter $oneof )
+  public ${oneof.name} get${oneof.name}(){
+      #foreach ($field in $oneof.fields)
+          if (hasField($field.number)) {
+            return ${oneof.name}.${oneof.getEnumValueName($field)};
+          }
+      #end
+      return ${oneof.defaultValue};
+    }
+#end
+
+#foreach($oneof in $descriptor.oneOfs)
+  #oneof_getter($oneof)
+#end
+
+## render extensions
+#set ($extensions = $descriptor.extensions)
+#parse('extension_java.vm')
+
+
+public static Builder newBuilder() {
+  return new Builder();
+}
+
+public static Builder newBuilder($descriptor.name prototype) {
+  return new Builder(prototype.fields);
+}
+
+public static final class Builder extends
+    com.google.protobuf.GeneratedMessageLite.Builder<$descriptor.name, Builder> {
+
+  private Builder() {}
+
+  private Builder(java.util.Map<java.lang.Integer, java.lang.Object> fieldsMap) {
+    super(new java.util.HashMap<>(fieldsMap));
+  }
+
+  public final $descriptor.name getDefaultInstanceForType() {
+    return getDefaultInstance();
+  }
+
+  @java.lang.Override
+  public $descriptor.name build() {
+    return new ${descriptor.name}(fields);
+  }
+
+  @java.lang.Override
+  public Builder clone() {
+    return new Builder(fields);
+  }
+
+## render fields for builder
+#foreach ($field in $descriptor.fields)
+  #parse ("$field.getterTemplate($templateNameSuffix)")
+
+  public Builder clear${field.name}() {
+    return removeField(${field.number});
+  }
+
+  #parse("$field.builderTemplate($templateNameSuffix)")
+
+#end
+##render oneof accessors for builder
+#foreach($oneof in $descriptor.oneOfs)
+  #oneof_getter($oneof)
+
+  private Builder clearAll${oneof.name}Fields() {
+     #foreach($field in $oneof.fields)
+       removeField(${field.number});
+     #end
+     return this;
+  }
+#end
+}
+}

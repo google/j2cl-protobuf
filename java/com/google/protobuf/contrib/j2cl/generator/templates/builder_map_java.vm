@@ -1,0 +1,17 @@
+#set ($keyField = $field.keyField);
+#set ($valueField = $field.valueField);
+  public Builder put${field.name}(${keyField.unboxedType} key, ${valueField.unboxedType} value){
+    return putMapField(${field.number}, key, value);
+  }
+
+  public final Builder putAll${field.name}(java.util.Map<${keyField.boxedType}, ${valueField.boxedType}> values) {
+    return putAllMapField(${field.number}, values);
+  }
+
+  public Builder remove${field.name}(${keyField.unboxedType} key) {
+    getFieldMap(${field.number}).remove(key);
+    return this;
+  }
+
+
+

@@ -1,0 +1,57 @@
+##
+## Renders an enum with its standard methods
+##
+#if ($enumDescriptor.isTopLevelClass())
+package $enumDescriptor.package;
+
+#end
+
+public enum $enumDescriptor.name implements com.google.protobuf.ProtocolMessageEnum {
+
+  #foreach($value in $enumDescriptor.values)
+    ${value.name}(${value.number})#if ($foreach.hasNext || $enumDescriptor.hasUnrecognizedValue()),#else;#end
+  #end
+  ## The UNRECOGNIZED value should always be the last value.
+  #if ($enumDescriptor.hasUnrecognizedValue())
+    UNRECOGNIZED(-1);
+  #end
+
+  ${enumDescriptor.name}(int value) {
+      this.value = value;
+  }
+
+  #if ($enumDescriptor.isDense())
+    private static ${enumDescriptor.getName()}[] cachedValues;
+  #end
+  public static final $enumDescriptor.name forNumber(int i) {
+  #if ($enumDescriptor.isDense())
+    if (cachedValues == null) {
+      cachedValues = values();
+    }
+    return cachedValues[i];
+  #else
+    switch(i) {
+    #foreach($value in $enumDescriptor.values)
+      #if (!$value.isAlias())
+        case $value.number: return $value.name;
+      #end
+    #end
+    }
+    return null;
+  #end
+  }
+
+
+  private int value;
+
+  public final int getNumber() {
+    #if ($enumDescriptor.hasUnrecognizedValue())
+      com.google.protobuf.GeneratedMessageLite.Internal_.checkUnrecognized(value);
+    #end
+    return value;
+  }
+
+  #foreach ($value in $enumDescriptor.values)
+    public static final int ${value.name}_VALUE = $value.number;
+  #end
+}

@@ -1,0 +1,12 @@
+public Builder set${field.name}(${field.unboxedType} value){
+  #if (${field.isOneOf()})
+    clearAll${field.oneOfName}Fields();
+  #end
+  return setField(${field.number}, value);
+}
+
+#if (${field.isMessage()})
+  public Builder set${field.name}(${field.unboxedType}.Builder builder){
+    return set${field.name}(builder.build());
+  }
+#end

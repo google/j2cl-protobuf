@@ -1,0 +1,5 @@
+public boolean has${field.name}(){
+  return hasField(${field.number});
+}
+
+#parse('getter_java.vm')
