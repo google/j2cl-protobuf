@@ -14,7 +14,6 @@
 package com.google.protobuf;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -63,7 +62,7 @@ public abstract class GeneratedMessageLite<
       return (B) this;
     }
 
-    protected final <E> B addAllRepeatedField(int fieldNumber, Collection<E> values) {
+    protected final <E> B addAllRepeatedField(int fieldNumber, Iterable<E> values) {
       values.forEach(v -> addRepeatedField(fieldNumber, v));
       return (B) this;
     }

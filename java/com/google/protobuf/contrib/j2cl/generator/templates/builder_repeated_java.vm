@@ -16,6 +16,6 @@ public Builder set${field.name}(int index, ${field.unboxedType} value){
   }
 #end
 
-public final Builder addAll${field.name}(java.util.Collection<${field.boxedType}> values) {
+public final Builder addAll${field.name}(java.lang.Iterable<${field.boxedType}> values) {
   return addAllRepeatedField(${field.number}, values);
 }
