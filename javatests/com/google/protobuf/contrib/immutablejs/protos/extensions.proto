@@ -56,7 +56,7 @@ message Primitives {
     optional int32 single_int32_extension = 103;
   }
   extend Base {
-    optional int32 single_uint32_extension = 109;
+    optional uint32 single_uint32_extension = 109;
   }
   extend Base {
     optional int64 single_int64_extension = 104;
@@ -85,7 +85,7 @@ message Primitives {
     repeated int32 repeated_int32_extension = 143;
   }
   extend Base {
-    repeated int32 repeated_uint32_extension = 149;
+    repeated uint32 repeated_uint32_extension = 149;
   }
   extend Base {
     repeated int64 repeated_int64_extension = 144;

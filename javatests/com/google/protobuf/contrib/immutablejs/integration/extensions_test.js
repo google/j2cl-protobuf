@@ -56,7 +56,7 @@ class ExtensionsTest {
     // Single extensions
     baseBuilder.setExtension(Primitives.singleBoolExtension, true)
         .setExtension(Primitives.singleInt32Extension, 2)
-        .setExtension(Primitives.singleUint32Extension, 7)
+        .setExtension(Primitives.singleUint32Extension, -1)
         .setExtension(Primitives.singleInt64Extension, Long.fromInt(3))
         .setExtension(Primitives.singleStringExtension, '4')
         .setExtension(Primitives.singleDoubleExtension, 5)
@@ -70,7 +70,7 @@ class ExtensionsTest {
         .setExtension(
             Primitives.repeatedInt32Extension, ListView.copyOf([1, 2]))
         .setExtension(
-            Primitives.repeatedUint32Extension, ListView.copyOf([11, 12]))
+            Primitives.repeatedUint32Extension, ListView.copyOf([-1, 12]))
         .setExtension(
             Primitives.repeatedInt64Extension,
             ListView.copyOf([Long.fromInt(3), Long.fromInt(4)]))
@@ -144,7 +144,7 @@ class ExtensionsTest {
     assertEqualsForProto(
         2, baseProto.getExtension(Primitives.singleInt32Extension));
     assertEqualsForProto(
-        7, baseProto.getExtension(Primitives.singleUint32Extension));
+        -1, baseProto.getExtension(Primitives.singleUint32Extension));
     assertEqualsForProto(
         Long.fromInt(3),
         baseProto.getExtension(Primitives.singleInt64Extension));
@@ -165,7 +165,7 @@ class ExtensionsTest {
         [1, 2],
         baseProto.getExtension(Primitives.repeatedInt32Extension).toArray());
     assertEqualsForProto(
-        [11, 12],
+        [-1, 12],
         baseProto.getExtension(Primitives.repeatedUint32Extension).toArray());
     const longArray =
         baseProto.getExtension(Primitives.repeatedInt64Extension).toArray();
