@@ -591,6 +591,42 @@ InternalMessage.ExtensionFieldInfo = class {
   }
 
   /**
+   * Creates a single uint extension info object.
+   * @param {number} fieldNumber
+   * @return {!Message.ExtensionFieldInfo<?, E>}
+   * @template E
+   */
+  static createSingleUIntExtension(fieldNumber) {
+    const getterFunction = message => message.internal_getUIntField(fieldNumber);
+    const setterFunction = (builder, value) =>
+        builder.internal_setUIntField(fieldNumber, value);
+    return new InternalMessage.ExtensionFieldInfo(
+        fieldNumber, getterFunction, setterFunction);
+  }
+
+  /**
+   * Creates a repeated uint extension info object.
+   * @param {number} fieldNumber
+   * @return {!Message.ExtensionFieldInfo<?, !ListView<E>>}
+   * @template E
+   */
+  static createRepeatedUIntExtension(fieldNumber) {
+    const getterFunction = message =>
+        message.internal_getRepeatedUIntField(fieldNumber);
+    const setterFunction = (builder, value) =>
+        builder.internal_setUIntIterable(fieldNumber, value);
+    const getElementFunction = (message, elementIndex) =>
+        message.internal_getUIntElement(fieldNumber, elementIndex);
+    const setElementFunction = (builder, elementIndex, value) =>
+        builder.internal_setUIntElement(fieldNumber, elementIndex, value);
+    const addElementFunction = (builder, value) =>
+        builder.internal_addUIntElement(fieldNumber, value);
+    return new InternalMessage.ExtensionFieldInfo(
+        fieldNumber, getterFunction, setterFunction, getElementFunction,
+        setElementFunction, addElementFunction);
+  }
+
+  /**
    * Creates a single Long extension info object.
    * @param {number} fieldNumber
    * @return {!Message.ExtensionFieldInfo<?, !Long>}
