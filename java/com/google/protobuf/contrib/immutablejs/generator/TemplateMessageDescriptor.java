@@ -79,7 +79,7 @@ public abstract class TemplateMessageDescriptor {
 
   public String getMessageId() {
     return "0";
-   }
+  }
 
   public int getPivot() {
     int defaultPivot = 500;
