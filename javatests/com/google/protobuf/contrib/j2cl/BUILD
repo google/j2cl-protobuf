@@ -13,16 +13,16 @@ sh_test(
     # TODO(b/172518926): Remove zip branch once the switch to tree artifacts is complete.
     args = select({
         ":tree_artifacts_enabled": [
-            "third_party/java_src/j2cl_proto/java/com/google/protobuf/contrib/j2cl/options-improto",
-            "third_party/java_src/j2cl_proto/java/com/google/protobuf/contrib/j2cl/options-j2cl",
-            "third_party/java_src/j2cl_proto/javatests/com/google/protobuf/contrib/j2cl/protos/enums-improto",
-            "third_party/java_src/j2cl_proto/javatests/com/google/protobuf/contrib/j2cl/protos/enums-j2cl",
+            "java/com/google/protobuf/contrib/j2cl/options-improto",
+            "java/com/google/protobuf/contrib/j2cl/options-j2cl",
+            "javatests/com/google/protobuf/contrib/j2cl/protos/enums-improto",
+            "javatests/com/google/protobuf/contrib/j2cl/protos/enums-j2cl",
         ],
         "//conditions:default": [
-            "third_party/java_src/j2cl_proto/java/com/google/protobuf/contrib/j2cl/options-improto",
-            "third_party/java_src/j2cl_proto/java/com/google/protobuf/contrib/j2cl/options-j2cl.js.zip",
-            "third_party/java_src/j2cl_proto/javatests/com/google/protobuf/contrib/j2cl/protos/enums-improto",
-            "third_party/java_src/j2cl_proto/javatests/com/google/protobuf/contrib/j2cl/protos/enums-j2cl.js.zip",
+            "java/com/google/protobuf/contrib/j2cl/options-improto",
+            "java/com/google/protobuf/contrib/j2cl/options-j2cl.js.zip",
+            "javatests/com/google/protobuf/contrib/j2cl/protos/enums-improto",
+            "javatests/com/google/protobuf/contrib/j2cl/protos/enums-j2cl.js.zip",
         ],
     }),
     data = ["//javatests/com/google/protobuf/contrib/j2cl/protos:enums_j2cl_proto"],

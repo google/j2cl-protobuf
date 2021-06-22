@@ -2,7 +2,7 @@ licenses(["notice"])  # Apache 2.0
 
 # To update the golden files, run the following in your client:
 #
-# >>> python third_party/java_src/j2cl_proto/javatests/com/google/protobuf/contrib/update_golden_files.py
+# >>> python javatests/com/google/protobuf/contrib/update_golden_files.py
 java_test(
     name = "GoldenFileTest",
     srcs = [
