@@ -46,7 +46,7 @@ class PivotTest {
   }
 
   testParse() {
-    const data = [];
+    const data = ["my_message_id"];
     data[1] = 'parent1';
     data[501] = 'parent2';
     data[502] = {1000: [, 'child']};
