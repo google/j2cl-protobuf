@@ -14,9 +14,9 @@ sh_test(
     args = select({
         ":tree_artifacts_enabled": [
             "java/com/google/protobuf/contrib/j2cl/options-improto",
-            "java/com/google/protobuf/contrib/j2cl/options-j2cl",
+            "java/com/google/protobuf/contrib/j2cl/options-j2cl.js",
             "javatests/com/google/protobuf/contrib/j2cl/protos/enums-improto",
-            "javatests/com/google/protobuf/contrib/j2cl/protos/enums-j2cl",
+            "javatests/com/google/protobuf/contrib/j2cl/protos/enums-j2cl.js",
         ],
         "//conditions:default": [
             "java/com/google/protobuf/contrib/j2cl/options-improto",
