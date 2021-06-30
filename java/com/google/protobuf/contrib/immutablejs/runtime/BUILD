@@ -2,6 +2,7 @@ load("@io_bazel_rules_closure//closure:defs.bzl", "closure_js_library")
 
 package(
     default_visibility = [
+        "//java/com/google/protobuf/contrib/immutablejs:__pkg__",
         "//java/com/google/protobuf/contrib/immutablejs:__subpackages__",
         "//javatests/com/google/protobuf/contrib/immutablejs:__subpackages__",
         "//javatests/com/google/protobuf/contrib/j2cl:__subpackages__",
@@ -100,6 +101,17 @@ closure_js_library(
     deps = [
         ":listview",
         "//third_party:closure_math_long",
+    ],
+)
+
+closure_js_library(
+    name = "runtime",
+    tags = ["alt_dep=//java/com/google/protobuf/contrib/immutablejs:runtime"],
+    exports = [
+        ":bytestring",
+        ":listview",
+        ":mapview",
+        ":message",
     ],
 )
 
