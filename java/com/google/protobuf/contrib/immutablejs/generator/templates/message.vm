@@ -106,6 +106,14 @@ $messageName = class $message.type.name extends proto_im_InternalMessage {
 #set ($enclosingTypeName = ${messageName})
 #parse('extension.vm')
 // Extensions end
+#if ($message.hasMessageId())
+
+/**
+ * The JsPb id of this message type.
+ * @const {string}
+ */
+${messageName}.messageId = $message.messageId;
+#end
 
 /**
  * @override

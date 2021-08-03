@@ -77,6 +77,10 @@ public abstract class TemplateMessageDescriptor {
             .map(f -> TemplateFieldDescriptor.create(getType(), f)));
   }
 
+  public boolean hasMessageId() {
+    return false;
+  }
+
   public String getMessageId() {
     return "0";
   }
