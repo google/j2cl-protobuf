@@ -33,7 +33,7 @@ const asserts = goog.require('goog.asserts');
  * @return {!Object}
  */
 function dump(message) {
-  if (!goog.DEBUG || COMPILED) {
+  if (!goog.DEBUG) {
     throw new Error('Only use dump when debugging is enabled.');
   }
   /** @type {!Object} */
@@ -77,12 +77,7 @@ function dump_(thing) {
   asserts.assert(thing instanceof Message, 'Only messages expected: ' + thing);
   const ctor = thing.constructor;
   const messageName = ctor.name || ctor.displayName;
-  const object = /** @type{!Object} */ (new class {
-    toString() {
-      return JSON.stringify(this);
-    }
-  });
-  object['$name'] = messageName;
+  const object = {'$name': messageName};
   for (let name of Object.getOwnPropertyNames(ctor.prototype)) {
     const match = /^get([A-Z]\w*)/.exec(name);
     if (match && name != 'getExtension') {
