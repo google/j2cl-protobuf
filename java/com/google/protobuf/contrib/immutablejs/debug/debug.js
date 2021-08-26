@@ -77,7 +77,12 @@ function dump_(thing) {
   asserts.assert(thing instanceof Message, 'Only messages expected: ' + thing);
   const ctor = thing.constructor;
   const messageName = ctor.name || ctor.displayName;
-  const object = {'$name': messageName};
+  const object = /** @type{!Object} */ (new class {
+    toString() {
+      return JSON.stringify(this);
+    }
+  });
+  object['$name'] = messageName;
   for (let name of Object.getOwnPropertyNames(ctor.prototype)) {
     const match = /^get([A-Z]\w*)/.exec(name);
     if (match && name != 'getExtension') {
