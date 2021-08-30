@@ -270,9 +270,9 @@ InternalMessage.Builder = class extends Message.Builder {
   constructor(originalMessage) {
     super();
     /** @protected @const {MESSAGE} */
-    this.message = originalMessage.shallowCopy_();
+    this.internal_message = originalMessage.shallowCopy_();
     /** @private @const {!JspbKernel} */
-    this.kernel_ = this.message.kernel_;
+    this.kernel_ = this.internal_message.kernel_;
   }
 
   /**
@@ -282,7 +282,7 @@ InternalMessage.Builder = class extends Message.Builder {
    */
   build() {
     // Clone the message so further modifications in builder doesn't reflect.
-    return this.message.shallowCopy_();
+    return this.internal_message.shallowCopy_();
   }
 
   /**
@@ -296,7 +296,7 @@ InternalMessage.Builder = class extends Message.Builder {
     // class. It therefore warns about abstract class instantiation. This cast
     // suppresses the warning.
     const ctor = /** @type {function(new:BUILDER, ...?)} */ (this.constructor);
-    return new ctor(this.message);
+    return new ctor(this.internal_message);
   }
 
 
@@ -341,7 +341,7 @@ InternalMessage.Builder = class extends Message.Builder {
    * @override
    */
   getExtension(extensionInfo) {
-    return this.message.getExtension(extensionInfo);
+    return this.internal_message.getExtension(extensionInfo);
   }
 
   /**
@@ -353,7 +353,7 @@ InternalMessage.Builder = class extends Message.Builder {
    * @override
    */
   getExtensionAtIndex(extensionInfo, index) {
-    return this.message.getExtensionAtIndex(extensionInfo, index);
+    return this.internal_message.getExtensionAtIndex(extensionInfo, index);
   }
 
   /**
@@ -364,7 +364,7 @@ InternalMessage.Builder = class extends Message.Builder {
    * @override
    */
   getExtensionCount(extensionInfo) {
-    return this.message.getExtensionCount(extensionInfo);
+    return this.internal_message.getExtensionCount(extensionInfo);
   }
 
   /**
@@ -375,7 +375,7 @@ InternalMessage.Builder = class extends Message.Builder {
    * @override
    */
   hasExtension(extensionInfo) {
-    return this.message.hasExtension(extensionInfo);
+    return this.internal_message.hasExtension(extensionInfo);
   }
 
   /**

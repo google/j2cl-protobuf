@@ -159,7 +159,7 @@ ${messageName}.Builder = class extends proto_im_InternalMessage.Builder {
 #end
   */
  get${field.name}Count() {
-   return this.message.get${field.name}Count();
+   return this.internal_message.get${field.name}Count();
  }
 
   /**
@@ -170,7 +170,7 @@ ${messageName}.Builder = class extends proto_im_InternalMessage.Builder {
 #end
    */
   get${field.name}Map() {
-    return this.message.get${field.name}Map();
+    return this.internal_message.get${field.name}Map();
   }
 
   /**
@@ -183,7 +183,7 @@ ${messageName}.Builder = class extends proto_im_InternalMessage.Builder {
 #end
    */
   get${field.name}OrDefault(key, defaultValue) {
-    return this.message.get${field.name}OrDefault(key, defaultValue);
+    return this.internal_message.get${field.name}OrDefault(key, defaultValue);
   }
 
   /**
@@ -196,7 +196,7 @@ ${messageName}.Builder = class extends proto_im_InternalMessage.Builder {
 #end
    */
   get${field.name}OrThrow(key) {
-    return this.message.get${field.name}OrThrow(key);
+    return this.internal_message.get${field.name}OrThrow(key);
   }
 
   /**
@@ -208,7 +208,7 @@ ${messageName}.Builder = class extends proto_im_InternalMessage.Builder {
 #end
    */
   contains${field.name}(key) {
-    return this.message.contains${field.name}(key);
+    return this.internal_message.contains${field.name}(key);
   }
 
   /**
@@ -265,7 +265,7 @@ ${messageName}.Builder = class extends proto_im_InternalMessage.Builder {
 #end
    */
   get${field.name}Count() {
-    return this.message.get${field.name}Count();
+    return this.internal_message.get${field.name}Count();
   }
 
   /**
@@ -276,7 +276,7 @@ ${messageName}.Builder = class extends proto_im_InternalMessage.Builder {
 #end
    */
   get${field.name}(index) {
-    return this.message.get${field.name}(index);
+    return this.internal_message.get${field.name}(index);
   }
 
   /**
@@ -287,7 +287,7 @@ ${messageName}.Builder = class extends proto_im_InternalMessage.Builder {
 #end
    */
   get${field.name}List() {
-    return this.message.get${field.name}List();
+    return this.internal_message.get${field.name}List();
   }
 
   /**
@@ -335,7 +335,7 @@ ${messageName}.Builder = class extends proto_im_InternalMessage.Builder {
 #end
    */
   has${field.name}() {
-    return this.message.has${field.name}();
+    return this.internal_message.has${field.name}();
   }
 
   /**
@@ -346,7 +346,7 @@ ${messageName}.Builder = class extends proto_im_InternalMessage.Builder {
 #end
    */
   get${field.name}() {
-    return this.message.get${field.name}();
+    return this.internal_message.get${field.name}();
   }
 
   /**
@@ -381,7 +381,7 @@ ${messageName}.Builder = class extends proto_im_InternalMessage.Builder {
    * @return {!$oneOfDescriptor.localTypeName}
    */
   get${oneOfDescriptor.simpleName}() {
-    return this.message.get${oneOfDescriptor.simpleName}();
+    return this.internal_message.get${oneOfDescriptor.simpleName}();
   }
 
   /**
