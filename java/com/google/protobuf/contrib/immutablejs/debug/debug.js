@@ -27,20 +27,15 @@ const asserts = goog.require('goog.asserts');
 /**
  * Turns a proto into a human readable object that can i.e. be written to the
  * console: `console.log(dump(myProto))`.
- * This function makes a best effort and may not work in all cases. It will not
- * work in obfuscated and or optimized code.
+ * This function makes a best effort and may not work in all cases. Since it
+ * will not work in compiled code or non-debug mode, it will fail-fast.
  * @param {!Message} message A Message.
  * @return {!Object}
  */
 function dump(message) {
-  if (!goog.DEBUG) {
-    throw new Error('Only use dump when debugging is enabled.');
+  if (!goog.DEBUG || COMPILED) {
+    throw new Error('Only use dump when debugging is enabled without compilation.');
   }
-  /** @type {!Object} */
-  const object = message;
-  asserts.assert(
-      object['getExtension'],
-      'Only unobfuscated and unoptimized compilation modes supported.');
   // The type when using a Message will be Object but closure sadly doesn't have
   // conditional types to enforce this at compile time.
   return /** @type{!Object} */ (dump_(message));
