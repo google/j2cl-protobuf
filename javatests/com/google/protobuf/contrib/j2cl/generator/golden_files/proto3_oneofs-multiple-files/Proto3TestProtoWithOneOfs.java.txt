@@ -46,7 +46,17 @@ public final class Proto3TestProtoWithOneOfs
     public static final class Internal_ClosureEnum {
       @jsinterop.annotations.JsOverlay
       public static final Internal_ClosureEnum toClosureValue(TestEnum enumInstance) {
-        return jsinterop.base.Js.uncheckedCast((double) enumInstance.getNumber());
+        return toClosureValue(enumInstance.getNumber());
+      }
+
+      @jsinterop.annotations.JsOverlay
+      public static final Internal_ClosureEnum toClosureValue(int value) {
+        return jsinterop.base.Js.uncheckedCast((double) value);
+      }
+
+      @jsinterop.annotations.JsOverlay
+      public static final int toIntValue(Object closureEnum) {
+        return jsinterop.base.Js.asInt(closureEnum);
       }
 
       @jsinterop.annotations.JsOverlay
@@ -115,7 +125,17 @@ public final class Proto3TestProtoWithOneOfs
     public static final class Internal_ClosureEnum {
       @jsinterop.annotations.JsOverlay
       public static final Internal_ClosureEnum toClosureValue(AOneofCase enumInstance) {
-        return jsinterop.base.Js.uncheckedCast((double) enumInstance.getNumber());
+        return toClosureValue(enumInstance.getNumber());
+      }
+
+      @jsinterop.annotations.JsOverlay
+      public static final Internal_ClosureEnum toClosureValue(int value) {
+        return jsinterop.base.Js.uncheckedCast((double) value);
+      }
+
+      @jsinterop.annotations.JsOverlay
+      public static final int toIntValue(Object closureEnum) {
+        return jsinterop.base.Js.asInt(closureEnum);
       }
 
       @jsinterop.annotations.JsOverlay
@@ -184,7 +204,17 @@ public final class Proto3TestProtoWithOneOfs
     public static final class Internal_ClosureEnum {
       @jsinterop.annotations.JsOverlay
       public static final Internal_ClosureEnum toClosureValue(AnotherOneofCase enumInstance) {
-        return jsinterop.base.Js.uncheckedCast((double) enumInstance.getNumber());
+        return toClosureValue(enumInstance.getNumber());
+      }
+
+      @jsinterop.annotations.JsOverlay
+      public static final Internal_ClosureEnum toClosureValue(int value) {
+        return jsinterop.base.Js.uncheckedCast((double) value);
+      }
+
+      @jsinterop.annotations.JsOverlay
+      public static final int toIntValue(Object closureEnum) {
+        return jsinterop.base.Js.asInt(closureEnum);
       }
 
       @jsinterop.annotations.JsOverlay
@@ -301,7 +331,17 @@ public final class Proto3TestProtoWithOneOfs
       public static final class Internal_ClosureEnum {
         @jsinterop.annotations.JsOverlay
         public static final Internal_ClosureEnum toClosureValue(ANestedOneofCase enumInstance) {
-          return jsinterop.base.Js.uncheckedCast((double) enumInstance.getNumber());
+          return toClosureValue(enumInstance.getNumber());
+        }
+
+        @jsinterop.annotations.JsOverlay
+        public static final Internal_ClosureEnum toClosureValue(int value) {
+          return jsinterop.base.Js.uncheckedCast((double) value);
+        }
+
+        @jsinterop.annotations.JsOverlay
+        public static final int toIntValue(Object closureEnum) {
+          return jsinterop.base.Js.asInt(closureEnum);
         }
 
         @jsinterop.annotations.JsOverlay
@@ -490,6 +530,12 @@ public final class Proto3TestProtoWithOneOfs
   @jsinterop.annotations.JsMethod(name = "getAnEnum")
   private native Object internal_getAnEnum();
 
+  @jsinterop.annotations.JsOverlay
+  public final int getAnEnumValue() {
+    return com.google.protobuf.contrib.j2cl.protos.Proto3TestProtoWithOneOfs.TestEnum
+        .Internal_ClosureEnum.toIntValue(internal_getAnEnum());
+  }
+
   @jsinterop.annotations.JsMethod(name = "hasAString")
   public native boolean hasAString();
 
@@ -656,12 +702,25 @@ public final class Proto3TestProtoWithOneOfs
     @jsinterop.annotations.JsMethod(name = "getAnEnum")
     private native Object internal_getAnEnum();
 
+    @jsinterop.annotations.JsOverlay
+    public final int getAnEnumValue() {
+      return com.google.protobuf.contrib.j2cl.protos.Proto3TestProtoWithOneOfs.TestEnum
+          .Internal_ClosureEnum.toIntValue(internal_getAnEnum());
+    }
+
     @jsinterop.annotations.JsMethod(name = "clearAnEnum")
     public native Builder clearAnEnum();
 
     @jsinterop.annotations.JsOverlay
     public final Builder setAnEnum(
         com.google.protobuf.contrib.j2cl.protos.Proto3TestProtoWithOneOfs.TestEnum value) {
+      return internal_setAnEnum(
+          com.google.protobuf.contrib.j2cl.protos.Proto3TestProtoWithOneOfs.TestEnum
+              .Internal_ClosureEnum.toClosureValue(value));
+    }
+
+    @jsinterop.annotations.JsOverlay
+    public final Builder setAnEnumValue(int value) {
       return internal_setAnEnum(
           com.google.protobuf.contrib.j2cl.protos.Proto3TestProtoWithOneOfs.TestEnum
               .Internal_ClosureEnum.toClosureValue(value));

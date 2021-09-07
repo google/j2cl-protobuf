@@ -13,6 +13,13 @@
 
   @jsinterop.annotations.JsMethod(name = "get${field.jsName}")
   private native Object internal_get${field.name}(${paramDec});
+
+  #if (${field.hasEnumValueAccessors()})
+    @jsinterop.annotations.JsOverlay
+    public final int get${field.name}Value(${paramDec}) {
+      return ${field.unboxedType}.Internal_ClosureEnum.toIntValue(internal_get${field.name}(${param}));
+    }
+  #end
 #else
   @jsinterop.annotations.JsMethod(name = "get${field.jsName}")
   public native ${field.unboxedType} get${field.name}(${paramDec});

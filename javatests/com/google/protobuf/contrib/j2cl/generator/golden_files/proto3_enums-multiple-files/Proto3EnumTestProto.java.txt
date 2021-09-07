@@ -52,7 +52,17 @@ public final class Proto3EnumTestProto
     public static final class Internal_ClosureEnum {
       @jsinterop.annotations.JsOverlay
       public static final Internal_ClosureEnum toClosureValue(Proto3TestEnum enumInstance) {
-        return jsinterop.base.Js.uncheckedCast((double) enumInstance.getNumber());
+        return toClosureValue(enumInstance.getNumber());
+      }
+
+      @jsinterop.annotations.JsOverlay
+      public static final Internal_ClosureEnum toClosureValue(int value) {
+        return jsinterop.base.Js.uncheckedCast((double) value);
+      }
+
+      @jsinterop.annotations.JsOverlay
+      public static final int toIntValue(Object closureEnum) {
+        return jsinterop.base.Js.asInt(closureEnum);
       }
 
       @jsinterop.annotations.JsOverlay
@@ -108,7 +118,17 @@ public final class Proto3EnumTestProto
     public static final class Internal_ClosureEnum {
       @jsinterop.annotations.JsOverlay
       public static final Internal_ClosureEnum toClosureValue(Proto3SparseEnum enumInstance) {
-        return jsinterop.base.Js.uncheckedCast((double) enumInstance.getNumber());
+        return toClosureValue(enumInstance.getNumber());
+      }
+
+      @jsinterop.annotations.JsOverlay
+      public static final Internal_ClosureEnum toClosureValue(int value) {
+        return jsinterop.base.Js.uncheckedCast((double) value);
+      }
+
+      @jsinterop.annotations.JsOverlay
+      public static final int toIntValue(Object closureEnum) {
+        return jsinterop.base.Js.asInt(closureEnum);
       }
 
       @jsinterop.annotations.JsOverlay
@@ -157,7 +177,17 @@ public final class Proto3EnumTestProto
     public static final class Internal_ClosureEnum {
       @jsinterop.annotations.JsOverlay
       public static final Internal_ClosureEnum toClosureValue(Proto3NativeEnum enumInstance) {
-        return jsinterop.base.Js.uncheckedCast((double) enumInstance.getNumber());
+        return toClosureValue(enumInstance.getNumber());
+      }
+
+      @jsinterop.annotations.JsOverlay
+      public static final Internal_ClosureEnum toClosureValue(int value) {
+        return jsinterop.base.Js.uncheckedCast((double) value);
+      }
+
+      @jsinterop.annotations.JsOverlay
+      public static final int toIntValue(Object closureEnum) {
+        return jsinterop.base.Js.asInt(closureEnum);
       }
 
       @jsinterop.annotations.JsOverlay
@@ -196,6 +226,12 @@ public final class Proto3EnumTestProto
   @jsinterop.annotations.JsMethod(name = "getOptionalEnum")
   private native Object internal_getOptionalEnum();
 
+  @jsinterop.annotations.JsOverlay
+  public final int getOptionalEnumValue() {
+    return com.google.protobuf.contrib.j2cl.protos.Proto3EnumTestProto.Proto3TestEnum
+        .Internal_ClosureEnum.toIntValue(internal_getOptionalEnum());
+  }
+
   @jsinterop.annotations.JsMethod(name = "getRepeatedEnumCount")
   public native int getRepeatedEnumCount();
 
@@ -208,6 +244,12 @@ public final class Proto3EnumTestProto
 
   @jsinterop.annotations.JsMethod(name = "getRepeatedEnum")
   private native Object internal_getRepeatedEnum(int index);
+
+  @jsinterop.annotations.JsOverlay
+  public final int getRepeatedEnumValue(int index) {
+    return com.google.protobuf.contrib.j2cl.protos.Proto3EnumTestProto.Proto3TestEnum
+        .Internal_ClosureEnum.toIntValue(internal_getRepeatedEnum(index));
+  }
 
   @jsinterop.annotations.JsMethod(name = "getRepeatedEnumList")
   private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Object>
@@ -237,6 +279,12 @@ public final class Proto3EnumTestProto
   @jsinterop.annotations.JsMethod(name = "getOptionalNativeEnum")
   private native Object internal_getOptionalNativeEnum();
 
+  @jsinterop.annotations.JsOverlay
+  public final int getOptionalNativeEnumValue() {
+    return com.google.protobuf.contrib.j2cl.protos.Proto3EnumTestProto.Proto3NativeEnum
+        .Internal_ClosureEnum.toIntValue(internal_getOptionalNativeEnum());
+  }
+
   @jsinterop.annotations.JsMethod(name = "getRepeatedNativeEnumCount")
   public native int getRepeatedNativeEnumCount();
 
@@ -249,6 +297,12 @@ public final class Proto3EnumTestProto
 
   @jsinterop.annotations.JsMethod(name = "getRepeatedNativeEnum")
   private native Object internal_getRepeatedNativeEnum(int index);
+
+  @jsinterop.annotations.JsOverlay
+  public final int getRepeatedNativeEnumValue(int index) {
+    return com.google.protobuf.contrib.j2cl.protos.Proto3EnumTestProto.Proto3NativeEnum
+        .Internal_ClosureEnum.toIntValue(internal_getRepeatedNativeEnum(index));
+  }
 
   @jsinterop.annotations.JsMethod(name = "getRepeatedNativeEnumList")
   private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Object>
@@ -299,12 +353,25 @@ public final class Proto3EnumTestProto
     @jsinterop.annotations.JsMethod(name = "getOptionalEnum")
     private native Object internal_getOptionalEnum();
 
+    @jsinterop.annotations.JsOverlay
+    public final int getOptionalEnumValue() {
+      return com.google.protobuf.contrib.j2cl.protos.Proto3EnumTestProto.Proto3TestEnum
+          .Internal_ClosureEnum.toIntValue(internal_getOptionalEnum());
+    }
+
     @jsinterop.annotations.JsMethod(name = "clearOptionalEnum")
     public native Builder clearOptionalEnum();
 
     @jsinterop.annotations.JsOverlay
     public final Builder setOptionalEnum(
         com.google.protobuf.contrib.j2cl.protos.Proto3EnumTestProto.Proto3TestEnum value) {
+      return internal_setOptionalEnum(
+          com.google.protobuf.contrib.j2cl.protos.Proto3EnumTestProto.Proto3TestEnum
+              .Internal_ClosureEnum.toClosureValue(value));
+    }
+
+    @jsinterop.annotations.JsOverlay
+    public final Builder setOptionalEnumValue(int value) {
       return internal_setOptionalEnum(
           com.google.protobuf.contrib.j2cl.protos.Proto3EnumTestProto.Proto3TestEnum
               .Internal_ClosureEnum.toClosureValue(value));
@@ -328,6 +395,12 @@ public final class Proto3EnumTestProto
 
     @jsinterop.annotations.JsMethod(name = "getRepeatedEnum")
     private native Object internal_getRepeatedEnum(int index);
+
+    @jsinterop.annotations.JsOverlay
+    public final int getRepeatedEnumValue(int index) {
+      return com.google.protobuf.contrib.j2cl.protos.Proto3EnumTestProto.Proto3TestEnum
+          .Internal_ClosureEnum.toIntValue(internal_getRepeatedEnum(index));
+    }
 
     @jsinterop.annotations.JsMethod(name = "getRepeatedEnumList")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Object>
@@ -372,6 +445,21 @@ public final class Proto3EnumTestProto
               .Internal_ClosureEnum.toClosureValue(value));
     }
 
+    @jsinterop.annotations.JsOverlay
+    public final Builder addRepeatedEnumValue(int value) {
+      return internal_addRepeatedEnum(
+          com.google.protobuf.contrib.j2cl.protos.Proto3EnumTestProto.Proto3TestEnum
+              .Internal_ClosureEnum.toClosureValue(value));
+    }
+
+    @jsinterop.annotations.JsOverlay
+    public final Builder setRepeatedEnumValue(int index, int value) {
+      return internal_setRepeatedEnum(
+          index,
+          com.google.protobuf.contrib.j2cl.protos.Proto3EnumTestProto.Proto3TestEnum
+              .Internal_ClosureEnum.toClosureValue(value));
+    }
+
     @jsinterop.annotations.JsMethod(name = "addRepeatedEnum")
     private native Builder internal_addRepeatedEnum(
         com.google.protobuf.contrib.j2cl.protos.Proto3EnumTestProto.Proto3TestEnum
@@ -400,12 +488,25 @@ public final class Proto3EnumTestProto
     @jsinterop.annotations.JsMethod(name = "getOptionalNativeEnum")
     private native Object internal_getOptionalNativeEnum();
 
+    @jsinterop.annotations.JsOverlay
+    public final int getOptionalNativeEnumValue() {
+      return com.google.protobuf.contrib.j2cl.protos.Proto3EnumTestProto.Proto3NativeEnum
+          .Internal_ClosureEnum.toIntValue(internal_getOptionalNativeEnum());
+    }
+
     @jsinterop.annotations.JsMethod(name = "clearOptionalNativeEnum")
     public native Builder clearOptionalNativeEnum();
 
     @jsinterop.annotations.JsOverlay
     public final Builder setOptionalNativeEnum(
         com.google.protobuf.contrib.j2cl.protos.Proto3EnumTestProto.Proto3NativeEnum value) {
+      return internal_setOptionalNativeEnum(
+          com.google.protobuf.contrib.j2cl.protos.Proto3EnumTestProto.Proto3NativeEnum
+              .Internal_ClosureEnum.toClosureValue(value));
+    }
+
+    @jsinterop.annotations.JsOverlay
+    public final Builder setOptionalNativeEnumValue(int value) {
       return internal_setOptionalNativeEnum(
           com.google.protobuf.contrib.j2cl.protos.Proto3EnumTestProto.Proto3NativeEnum
               .Internal_ClosureEnum.toClosureValue(value));
@@ -429,6 +530,12 @@ public final class Proto3EnumTestProto
 
     @jsinterop.annotations.JsMethod(name = "getRepeatedNativeEnum")
     private native Object internal_getRepeatedNativeEnum(int index);
+
+    @jsinterop.annotations.JsOverlay
+    public final int getRepeatedNativeEnumValue(int index) {
+      return com.google.protobuf.contrib.j2cl.protos.Proto3EnumTestProto.Proto3NativeEnum
+          .Internal_ClosureEnum.toIntValue(internal_getRepeatedNativeEnum(index));
+    }
 
     @jsinterop.annotations.JsMethod(name = "getRepeatedNativeEnumList")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Object>
@@ -469,6 +576,21 @@ public final class Proto3EnumTestProto
     public final Builder addRepeatedNativeEnum(
         com.google.protobuf.contrib.j2cl.protos.Proto3EnumTestProto.Proto3NativeEnum value) {
       return internal_addRepeatedNativeEnum(
+          com.google.protobuf.contrib.j2cl.protos.Proto3EnumTestProto.Proto3NativeEnum
+              .Internal_ClosureEnum.toClosureValue(value));
+    }
+
+    @jsinterop.annotations.JsOverlay
+    public final Builder addRepeatedNativeEnumValue(int value) {
+      return internal_addRepeatedNativeEnum(
+          com.google.protobuf.contrib.j2cl.protos.Proto3EnumTestProto.Proto3NativeEnum
+              .Internal_ClosureEnum.toClosureValue(value));
+    }
+
+    @jsinterop.annotations.JsOverlay
+    public final Builder setRepeatedNativeEnumValue(int index, int value) {
+      return internal_setRepeatedNativeEnum(
+          index,
           com.google.protobuf.contrib.j2cl.protos.Proto3EnumTestProto.Proto3NativeEnum
               .Internal_ClosureEnum.toClosureValue(value));
     }

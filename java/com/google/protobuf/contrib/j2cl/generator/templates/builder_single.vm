@@ -3,6 +3,12 @@
   public final Builder set${field.name}(${field.unboxedType} value) {
     return internal_set${field.name}(${field.unboxedType}.Internal_ClosureEnum.toClosureValue(value));
   }
+  #if (${field.hasEnumValueAccessors()})
+    @jsinterop.annotations.JsOverlay
+    public final Builder set${field.name}Value(int value) {
+      return internal_set${field.name}(${field.unboxedType}.Internal_ClosureEnum.toClosureValue(value));
+    }
+  #end
 
   @jsinterop.annotations.JsMethod(name = "set${field.jsName}")
   private native Builder internal_set${field.name}(${field.unboxedType}.Internal_ClosureEnum value);

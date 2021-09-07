@@ -45,7 +45,17 @@ public final class Base extends com.google.protobuf.GeneratedMessageLite<Base, B
     public static final class Internal_ClosureEnum {
       @jsinterop.annotations.JsOverlay
       public static final Internal_ClosureEnum toClosureValue(EmotionalState enumInstance) {
-        return jsinterop.base.Js.uncheckedCast((double) enumInstance.getNumber());
+        return toClosureValue(enumInstance.getNumber());
+      }
+
+      @jsinterop.annotations.JsOverlay
+      public static final Internal_ClosureEnum toClosureValue(int value) {
+        return jsinterop.base.Js.uncheckedCast((double) value);
+      }
+
+      @jsinterop.annotations.JsOverlay
+      public static final int toIntValue(Object closureEnum) {
+        return jsinterop.base.Js.asInt(closureEnum);
       }
 
       @jsinterop.annotations.JsOverlay

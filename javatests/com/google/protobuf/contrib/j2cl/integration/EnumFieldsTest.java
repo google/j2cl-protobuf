@@ -40,6 +40,7 @@ public class EnumFieldsTest {
     assertThat(EnumTestProto.getDefaultInstance().getOptionalEnum()).isEqualTo(TestEnum.DEFAULT);
     assertThat(Proto3EnumTestProto.getDefaultInstance().getOptionalEnum())
         .isEqualTo(Proto3TestEnum.DEFAULT);
+    assertThat(Proto3EnumTestProto.getDefaultInstance().getOptionalEnumValue()).isEqualTo(0);
   }
 
   @Test
@@ -49,6 +50,7 @@ public class EnumFieldsTest {
         .isEqualTo(NativeEnum.NATIVE_DEFAULT);
     assertThat(Proto3EnumTestProto.getDefaultInstance().getOptionalNativeEnum())
         .isEqualTo(Proto3NativeEnum.NATIVE_DEFAULT);
+    assertThat(Proto3EnumTestProto.getDefaultInstance().getOptionalNativeEnumValue()).isEqualTo(0);
   }
 
   @Test
@@ -63,6 +65,29 @@ public class EnumFieldsTest {
   }
 
   @Test
+  public void testOptionalFieldNoDefault_setIntValue() {
+    assertThat(Proto3EnumTestProto.getDefaultInstance().getOptionalEnumValue()).isEqualTo(0);
+    Proto3EnumTestProto.Builder builder = Proto3EnumTestProto.newBuilder().setOptionalEnumValue(2);
+    assertThat(builder.getOptionalEnum()).isEqualTo(Proto3TestEnum.TWO);
+    assertThat(builder.getOptionalEnumValue()).isEqualTo(2);
+
+    Proto3EnumTestProto proto = builder.build();
+    assertThat(proto.getOptionalEnum()).isEqualTo(Proto3TestEnum.TWO);
+    assertThat(proto.getOptionalEnumValue()).isEqualTo(2);
+  }
+
+  @Test
+  public void testOptionalFieldNoDefault_setUnknownIntValue() {
+    Proto3EnumTestProto.Builder builder = Proto3EnumTestProto.newBuilder().setOptionalEnumValue(5);
+    assertThat(builder.getOptionalEnum()).isEqualTo(Proto3TestEnum.UNRECOGNIZED);
+    assertThat(builder.getOptionalEnumValue()).isEqualTo(5);
+
+    Proto3EnumTestProto proto = builder.build();
+    assertThat(proto.getOptionalEnum()).isEqualTo(Proto3TestEnum.UNRECOGNIZED);
+    assertThat(proto.getOptionalEnumValue()).isEqualTo(5);
+  }
+
+  @Test
   public void testOptionalFieldNoDefault_setValueNativeEnum() {
     EnumTestProto.Builder builder =
         EnumTestProto.newBuilder().setOptionalNativeEnum(NativeEnum.NATIVE_TWO);
@@ -72,6 +97,18 @@ public class EnumFieldsTest {
     EnumTestProto proto = builder.build();
     assertThat(proto.hasOptionalNativeEnum()).isTrue();
     assertThat(proto.getOptionalNativeEnum()).isEqualTo(NativeEnum.NATIVE_TWO);
+  }
+
+  @Test
+  public void testOptionalFieldNoDefault_setIntValueNativeEnum() {
+    Proto3EnumTestProto.Builder builder =
+        Proto3EnumTestProto.newBuilder().setOptionalNativeEnumValue(2);
+    assertThat(builder.getOptionalNativeEnum()).isEqualTo(Proto3NativeEnum.NATIVE_TWO);
+    assertThat(builder.getOptionalNativeEnumValue()).isEqualTo(2);
+
+    Proto3EnumTestProto proto = builder.build();
+    assertThat(proto.getOptionalNativeEnum()).isEqualTo(Proto3NativeEnum.NATIVE_TWO);
+    assertThat(proto.getOptionalNativeEnumValue()).isEqualTo(2);
   }
 
   @Test
@@ -195,6 +232,41 @@ public class EnumFieldsTest {
   }
 
   @Test
+  public void testRepeatedField_addIntValue() {
+    Proto3EnumTestProto.Builder builder =
+        Proto3EnumTestProto.newBuilder()
+            .addRepeatedEnumValue(2)
+            .addRepeatedEnumValue(3)
+            .addRepeatedEnumValue(5);
+
+    assertThat(builder.getRepeatedEnumList())
+        .containsExactly(Proto3TestEnum.TWO, Proto3TestEnum.THREE, Proto3TestEnum.UNRECOGNIZED)
+        .inOrder();
+
+    Proto3EnumTestProto proto = builder.build();
+    assertThat(proto.getRepeatedEnumList())
+        .containsExactly(Proto3TestEnum.TWO, Proto3TestEnum.THREE, Proto3TestEnum.UNRECOGNIZED)
+        .inOrder();
+  }
+
+  @Test
+  public void testRepeatedField_addIntNativeEnum() {
+    Proto3EnumTestProto.Builder builder =
+        Proto3EnumTestProto.newBuilder()
+            .addRepeatedNativeEnum(Proto3NativeEnum.NATIVE_TWO)
+            .addRepeatedNativeEnum(Proto3NativeEnum.NATIVE_THREE);
+
+    assertThat(builder.getRepeatedNativeEnumList())
+        .containsExactly(Proto3NativeEnum.NATIVE_TWO, Proto3NativeEnum.NATIVE_THREE)
+        .inOrder();
+
+    Proto3EnumTestProto proto = builder.build();
+    assertThat(proto.getRepeatedNativeEnumList())
+        .containsExactly(Proto3NativeEnum.NATIVE_TWO, Proto3NativeEnum.NATIVE_THREE)
+        .inOrder();
+  }
+
+  @Test
   public void testRepeatedField_addAll() {
     EnumTestProto startProto =
         EnumTestProto.newBuilder()
@@ -301,6 +373,71 @@ public class EnumFieldsTest {
             NativeEnum.NATIVE_TWO,
             NativeEnum.NATIVE_THREE)
         .inOrder();
+  }
+
+  @Test
+  public void testRepeatedField_setIntValue() {
+    Proto3EnumTestProto startProto =
+        Proto3EnumTestProto.newBuilder()
+            .addRepeatedEnumValue(2)
+            .addRepeatedEnumValue(3)
+            .addRepeatedEnumValue(3)
+            .addRepeatedEnumValue(5)
+            .build();
+
+    Proto3EnumTestProto.Builder builder = startProto.toBuilder().setRepeatedEnumValue(2, 1);
+    assertThat(builder.getRepeatedEnumList())
+        .containsExactly(
+            Proto3TestEnum.TWO,
+            Proto3TestEnum.THREE,
+            Proto3TestEnum.ONE,
+            Proto3TestEnum.UNRECOGNIZED)
+        .inOrder();
+    assertThat(builder.getRepeatedEnumValue(0)).isEqualTo(2);
+    assertThat(builder.getRepeatedEnumValue(1)).isEqualTo(3);
+    assertThat(builder.getRepeatedEnumValue(2)).isEqualTo(1);
+    assertThat(builder.getRepeatedEnumValue(3)).isEqualTo(5);
+
+    Proto3EnumTestProto proto = builder.build();
+    assertThat(proto.getRepeatedEnumList())
+        .containsExactly(
+            Proto3TestEnum.TWO,
+            Proto3TestEnum.THREE,
+            Proto3TestEnum.ONE,
+            Proto3TestEnum.UNRECOGNIZED)
+        .inOrder();
+    assertThat(proto.getRepeatedEnumValue(0)).isEqualTo(2);
+    assertThat(proto.getRepeatedEnumValue(1)).isEqualTo(3);
+    assertThat(proto.getRepeatedEnumValue(2)).isEqualTo(1);
+    assertThat(proto.getRepeatedEnumValue(3)).isEqualTo(5);
+  }
+
+  @Test
+  public void testRepeatedField_setIntValueOptionalNativeEnum() {
+    Proto3EnumTestProto startProto =
+        Proto3EnumTestProto.newBuilder()
+            .addRepeatedNativeEnumValue(2)
+            .addRepeatedNativeEnumValue(3)
+            .addRepeatedNativeEnumValue(3)
+            .build();
+
+    Proto3EnumTestProto.Builder builder = startProto.toBuilder().setRepeatedNativeEnumValue(2, 1);
+    assertThat(builder.getRepeatedNativeEnumList())
+        .containsExactly(
+            Proto3NativeEnum.NATIVE_TWO, Proto3NativeEnum.NATIVE_THREE, Proto3NativeEnum.NATIVE_ONE)
+        .inOrder();
+    assertThat(builder.getRepeatedNativeEnumValue(0)).isEqualTo(2);
+    assertThat(builder.getRepeatedNativeEnumValue(1)).isEqualTo(3);
+    assertThat(builder.getRepeatedNativeEnumValue(2)).isEqualTo(1);
+
+    Proto3EnumTestProto proto = builder.build();
+    assertThat(proto.getRepeatedNativeEnumList())
+        .containsExactly(
+            Proto3NativeEnum.NATIVE_TWO, Proto3NativeEnum.NATIVE_THREE, Proto3NativeEnum.NATIVE_ONE)
+        .inOrder();
+    assertThat(proto.getRepeatedNativeEnumValue(0)).isEqualTo(2);
+    assertThat(proto.getRepeatedNativeEnumValue(1)).isEqualTo(3);
+    assertThat(proto.getRepeatedNativeEnumValue(2)).isEqualTo(1);
   }
 
   @Test

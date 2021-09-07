@@ -12,6 +12,18 @@
     return internal_add${field.name}(${field.unboxedType}.Internal_ClosureEnum.toClosureValue(value));
   }
 
+  #if (${field.hasEnumValueAccessors()})
+    @jsinterop.annotations.JsOverlay
+    public final Builder add${field.name}Value(int value) {
+      return internal_add${field.name}(${field.unboxedType}.Internal_ClosureEnum.toClosureValue(value));
+    }
+
+    @jsinterop.annotations.JsOverlay
+    public final Builder set${field.name}Value(int index, int value) {
+      return internal_set${field.name}(index, ${field.unboxedType}.Internal_ClosureEnum.toClosureValue(value));
+    }
+  #end
+
   @jsinterop.annotations.JsMethod(name = "add${field.jsName}")
   private native Builder internal_add${field.name}(${field.unboxedType}.Internal_ClosureEnum value);
 #else

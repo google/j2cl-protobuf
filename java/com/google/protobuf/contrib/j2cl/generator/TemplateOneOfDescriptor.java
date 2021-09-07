@@ -111,6 +111,11 @@ public abstract class TemplateOneOfDescriptor extends AbstractTemplateTypeDescri
       return true;
     }
 
+    /** Always returns {@code false} because oneof enums don't have setter or getter int value. */
+    public boolean hasEnumValueAccessors() {
+      return false;
+    }
+
     public String getDefaultValue() {
       return oneOf().getDefaultValue();
     }

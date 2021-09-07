@@ -6,6 +6,17 @@ public Builder set${field.name}(int index, ${field.unboxedType} value){
   return setRepeatedField(${field.number}, index, value);
 }
 
+## TODO(b/198495266): Fix handling of UNRECOGNIZED in WASM.
+#if (${field.hasEnumValueAccessors()})
+  public Builder set${field.name}Value(int index, int value){
+    return set${field.name}(index, ${field.unboxedType}.forNumber(value));
+  }
+
+  public Builder add${field.name}Value(int value) {
+    return add${field.name}(${field.unboxedType}.forNumber(value));
+  }
+#end
+
 #if (${field.isMessage()})
   public Builder add${field.name}(${field.unboxedType}.Builder builder){
     return add${field.name}(builder.build());
