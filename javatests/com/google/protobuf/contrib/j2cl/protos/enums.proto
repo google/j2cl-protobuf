@@ -56,6 +56,9 @@ message Aliased {
     DEFAULT = 0;
     ORIGINAL = 1;
     ALIAS = 1;
+    FOO = 2;
+    FOO_ALIAS_ONE = 2;
+    FOO_ALIAS_TWO = 2;
   }
 
   enum NativeEnum {

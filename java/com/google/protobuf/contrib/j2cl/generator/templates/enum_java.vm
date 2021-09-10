@@ -8,12 +8,16 @@ package $enumDescriptor.package;
 
 public enum $enumDescriptor.name implements com.google.protobuf.ProtocolMessageEnum {
 
-  #foreach($value in $enumDescriptor.values)
+  #foreach($value in $enumDescriptor.distinctValues)
     ${value.name}(${value.number})#if ($foreach.hasNext || $enumDescriptor.hasUnrecognizedValue()),#else;#end
   #end
   ## The UNRECOGNIZED value should always be the last value.
   #if ($enumDescriptor.hasUnrecognizedValue())
     UNRECOGNIZED(-1);
+  #end
+
+  #foreach($alias in $enumDescriptor.aliases)
+    public static final $enumDescriptor.name $alias.name = $alias.originalName;
   #end
 
   ${enumDescriptor.name}(int value) {
@@ -31,10 +35,8 @@ public enum $enumDescriptor.name implements com.google.protobuf.ProtocolMessageE
     return cachedValues[i];
   #else
     switch(i) {
-    #foreach($value in $enumDescriptor.values)
-      #if (!$value.isAlias())
-        case $value.number: return $value.name;
-      #end
+    #foreach($value in $enumDescriptor.distinctValues)
+      case $value.number: return $value.name;
     #end
     }
     return null;

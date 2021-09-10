@@ -765,7 +765,10 @@ public final class Enums {
     public enum TestEnum implements com.google.protobuf.ProtocolMessageEnum {
       DEFAULT(0),
       ORIGINAL(1),
-      ALIAS(1);
+      FOO(2);
+      public static final TestEnum ALIAS = ORIGINAL;
+      public static final TestEnum FOO_ALIAS_ONE = FOO;
+      public static final TestEnum FOO_ALIAS_TWO = FOO;
 
       TestEnum(int value) {
         this.value = value;
@@ -777,6 +780,8 @@ public final class Enums {
             return DEFAULT;
           case 1:
             return ORIGINAL;
+          case 2:
+            return FOO;
         }
         return null;
       }
@@ -792,6 +797,12 @@ public final class Enums {
       public static final int ORIGINAL_VALUE = 1;
 
       public static final int ALIAS_VALUE = 1;
+
+      public static final int FOO_VALUE = 2;
+
+      public static final int FOO_ALIAS_ONE_VALUE = 2;
+
+      public static final int FOO_ALIAS_TWO_VALUE = 2;
 
       // DO NOT REFER TO FROM NON GENERATED CODE! SUBJECT TO CHANGE!
       // Native closure enum representation

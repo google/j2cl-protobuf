@@ -16,6 +16,7 @@ package com.google.protobuf.contrib.j2cl.generator;
 
 import com.google.auto.value.AutoValue;
 import com.google.common.base.Ascii;
+import com.google.common.collect.ImmutableList;
 import com.google.protobuf.Descriptors.Descriptor;
 import com.google.protobuf.Descriptors.FieldDescriptor;
 import com.google.protobuf.Descriptors.OneofDescriptor;
@@ -70,6 +71,14 @@ public abstract class TemplateOneOfDescriptor extends AbstractTemplateTypeDescri
 
   private static TemplateEnumValueDescriptor createEnumValue(FieldDescriptor fd) {
     return TemplateEnumValueDescriptor.create(getEnumValueName(fd), fd.getNumber());
+  }
+
+  public List<TemplateEnumValueDescriptor> getDistinctValues() {
+    return getValues();
+  }
+
+  public List<TemplateEnumValueDescriptor> getAliases() {
+    return ImmutableList.of();
   }
 
   public static String getEnumValueName(FieldDescriptor oneOfField) {

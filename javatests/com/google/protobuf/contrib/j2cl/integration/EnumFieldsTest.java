@@ -570,12 +570,10 @@ public class EnumFieldsTest {
         .asList()
         .containsExactly(SparseEnum.SPARSE_DEFAULT, SparseEnum.SPARSE_TEN, SparseEnum.SPARSE_TWENTY)
         .inOrder();
-    // TODO(b/164155998): Make this test pass.
-    // assertThat(Aliased.TestEnum.values())
-    //     .asList()
-    //     .containsExactly(
-    //         Aliased.TestEnum.DEFAULT, Aliased.TestEnum.ORIGINAL, Aliased.TestEnum.ALIAS)
-    //     .inOrder();
+    assertThat(Aliased.TestEnum.values())
+        .asList()
+        .containsExactly(Aliased.TestEnum.DEFAULT, Aliased.TestEnum.ORIGINAL, Aliased.TestEnum.FOO)
+        .inOrder();
     assertThat(Proto3TestEnum.values())
         .asList()
         .containsExactly(

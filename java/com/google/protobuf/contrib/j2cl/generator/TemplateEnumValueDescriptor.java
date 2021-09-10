@@ -20,16 +20,20 @@ import com.google.auto.value.AutoValue;
 public abstract class TemplateEnumValueDescriptor {
 
   public static TemplateEnumValueDescriptor create(String name, int number) {
-    return create(name, number, false);
+    return create(name, number, name);
   }
 
-  public static TemplateEnumValueDescriptor create(String name, int number, boolean isAlias) {
-    return new AutoValue_TemplateEnumValueDescriptor(name, number, isAlias);
+  public static TemplateEnumValueDescriptor create(String name, int number, String originalName) {
+    return new AutoValue_TemplateEnumValueDescriptor(name, number, originalName);
   }
 
   public abstract String getName();
 
   public abstract int getNumber();
 
-  public abstract boolean isAlias();
+  public abstract String getOriginalName();
+
+  public boolean isAlias() {
+    return !getName().equals(getOriginalName());
+  }
 }
