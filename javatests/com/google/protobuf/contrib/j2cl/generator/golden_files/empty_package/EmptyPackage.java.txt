@@ -13,11 +13,6 @@ public final class EmptyPackage {
 
     public static final native TestProto getDefaultInstance();
 
-    @jsinterop.annotations.JsOverlay
-    public final TestProto getDefaultInstanceForType() {
-      return getDefaultInstance();
-    }
-
     public native Builder toBuilder();
 
     public static int PAYLOAD_FIELD_NUMBER;

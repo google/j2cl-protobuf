@@ -25,6 +25,18 @@ class MessageDefaultInstanceTest {
         'getDefaultInstance should always return the same instance.',
         MessageA.getDefaultInstance(), MessageA.getDefaultInstance());
   }
+
+  testGetDefaultInstanceForType() {
+    const proto = MessageA.newBuilder().build();
+    assertTrue(proto.getDefaultInstanceForType() instanceof MessageA);
+    assertEquals(
+        'getDefaultInstanceForType should always return the same instance as getDefaultInstance.',
+        proto.getDefaultInstanceForType(), MessageA.getDefaultInstance());
+    assertEquals(
+        'getDefaultInstanceForType should always return the same instance.',
+        proto.getDefaultInstanceForType(),
+        MessageA.newBuilder().build().getDefaultInstanceForType());
+  }
 }
 
 testSuite(new MessageDefaultInstanceTest());

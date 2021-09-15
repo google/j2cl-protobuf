@@ -35,11 +35,6 @@ protected ${descriptor.name}() {}
 
 public static final native ${descriptor.name} getDefaultInstance();
 
-@jsinterop.annotations.JsOverlay
-public final $descriptor.name getDefaultInstanceForType() {
-  return getDefaultInstance();
-}
-
 public native Builder toBuilder();
 
 #foreach ($field in $descriptor.fields)

@@ -42,6 +42,13 @@ class Message {
   getParserForType() {}
 
   /**
+   * Get an instance of the type with no fields set.
+   * @return {!MESSAGE}
+   * @abstract
+   */
+  getDefaultInstanceForType() {}
+
+  /**
    * Returns true for any proto that is a message of the same type and contains
    * identical values.
    * @param {*} other

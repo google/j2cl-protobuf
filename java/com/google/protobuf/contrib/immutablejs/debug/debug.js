@@ -80,7 +80,8 @@ function dump_(thing) {
   object['$name'] = messageName;
   for (let name of Object.getOwnPropertyNames(ctor.prototype)) {
     const match = /^get([A-Z]\w*)/.exec(name);
-    if (match && name != 'getExtension') {
+    if (match && name != 'getExtension' &&
+        name != 'getDefaultInstanceForType') {
       // Handle repeated fields.
       // We say that a field foo is repeated if the prototype contains:
       // 1. getFoo();

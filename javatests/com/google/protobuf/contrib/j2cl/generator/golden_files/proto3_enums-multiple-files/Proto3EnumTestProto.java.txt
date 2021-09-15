@@ -201,11 +201,6 @@ public final class Proto3EnumTestProto
 
   public static final native Proto3EnumTestProto getDefaultInstance();
 
-  @jsinterop.annotations.JsOverlay
-  public final Proto3EnumTestProto getDefaultInstanceForType() {
-    return getDefaultInstance();
-  }
-
   public native Builder toBuilder();
 
   public static int OPTIONAL_ENUM_FIELD_NUMBER;

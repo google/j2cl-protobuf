@@ -12,11 +12,6 @@ public final class ProtoWithDashesMessage
 
   public static final native ProtoWithDashesMessage getDefaultInstance();
 
-  @jsinterop.annotations.JsOverlay
-  public final ProtoWithDashesMessage getDefaultInstanceForType() {
-    return getDefaultInstance();
-  }
-
   public native Builder toBuilder();
 
   public static native Builder newBuilder();

@@ -71,11 +71,6 @@ public final class Base extends com.google.protobuf.GeneratedMessageLite<Base, B
 
   public static final native Base getDefaultInstance();
 
-  @jsinterop.annotations.JsOverlay
-  public final Base getDefaultInstanceForType() {
-    return getDefaultInstance();
-  }
-
   public native Builder toBuilder();
 
   public static int OPTIONAL_LONG_FIELD_NUMBER;

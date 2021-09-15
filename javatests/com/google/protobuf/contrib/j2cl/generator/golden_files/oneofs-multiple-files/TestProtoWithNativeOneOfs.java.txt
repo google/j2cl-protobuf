@@ -67,11 +67,6 @@ public final class TestProtoWithNativeOneOfs
 
   public static final native TestProtoWithNativeOneOfs getDefaultInstance();
 
-  @jsinterop.annotations.JsOverlay
-  public final TestProtoWithNativeOneOfs getDefaultInstanceForType() {
-    return getDefaultInstance();
-  }
-
   public native Builder toBuilder();
 
   public static int A_FLOAT_FIELD_NUMBER;

@@ -20,8 +20,6 @@ import jsinterop.annotations.JsType;
 @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
 public interface MessageLite {
 
-  Builder toBuilder();
-
   /** J2CL emulation of MessageLite.Builder. */
   @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
   interface Builder {
@@ -30,4 +28,8 @@ public interface MessageLite {
 
     MessageLite build();
   }
+
+  Builder toBuilder();
+
+  MessageLite getDefaultInstanceForType();
 }

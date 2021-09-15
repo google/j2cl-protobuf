@@ -11,11 +11,6 @@ public final class TestProto3
 
   public static final native TestProto3 getDefaultInstance();
 
-  @jsinterop.annotations.JsOverlay
-  public final TestProto3 getDefaultInstanceForType() {
-    return getDefaultInstance();
-  }
-
   public native Builder toBuilder();
 
   public static int OPTIONAL_INT_FIELD_NUMBER;

@@ -84,11 +84,6 @@ public final class FieldNames {
 
       public static final native Nested getDefaultInstance();
 
-      @jsinterop.annotations.JsOverlay
-      public final Nested getDefaultInstanceForType() {
-        return getDefaultInstance();
-      }
-
       public native Builder toBuilder();
 
       public static native Builder newBuilder();
@@ -117,11 +112,6 @@ public final class FieldNames {
     protected Fields() {}
 
     public static final native Fields getDefaultInstance();
-
-    @jsinterop.annotations.JsOverlay
-    public final Fields getDefaultInstanceForType() {
-      return getDefaultInstance();
-    }
 
     public native Builder toBuilder();
 

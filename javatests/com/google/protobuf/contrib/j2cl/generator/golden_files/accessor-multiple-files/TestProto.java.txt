@@ -15,11 +15,6 @@ public final class TestProto
 
     public static final native NestedMessage getDefaultInstance();
 
-    @jsinterop.annotations.JsOverlay
-    public final NestedMessage getDefaultInstanceForType() {
-      return getDefaultInstance();
-    }
-
     public native Builder toBuilder();
 
     public static int PAYLOAD_FIELD_NUMBER;
@@ -68,11 +63,6 @@ public final class TestProto
   protected TestProto() {}
 
   public static final native TestProto getDefaultInstance();
-
-  @jsinterop.annotations.JsOverlay
-  public final TestProto getDefaultInstanceForType() {
-    return getDefaultInstance();
-  }
 
   public native Builder toBuilder();
 

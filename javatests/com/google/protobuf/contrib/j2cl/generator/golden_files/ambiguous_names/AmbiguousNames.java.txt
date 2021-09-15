@@ -19,11 +19,6 @@ public final class AmbiguousNames {
 
     public static final native Internal getDefaultInstance();
 
-    @jsinterop.annotations.JsOverlay
-    public final Internal getDefaultInstanceForType() {
-      return getDefaultInstance();
-    }
-
     public native Builder toBuilder();
 
     public static native Builder newBuilder();
@@ -63,11 +58,6 @@ public final class AmbiguousNames {
       protected Internal() {}
 
       public static final native Internal getDefaultInstance();
-
-      @jsinterop.annotations.JsOverlay
-      public final Internal getDefaultInstanceForType() {
-        return getDefaultInstance();
-      }
 
       public native Builder toBuilder();
 
@@ -122,11 +112,6 @@ public final class AmbiguousNames {
 
       public static final native Override getDefaultInstance();
 
-      @jsinterop.annotations.JsOverlay
-      public final Override getDefaultInstanceForType() {
-        return getDefaultInstance();
-      }
-
       public native Builder toBuilder();
 
       public static int X_FIELD_NUMBER;
@@ -175,11 +160,6 @@ public final class AmbiguousNames {
     protected MyMessage() {}
 
     public static final native MyMessage getDefaultInstance();
-
-    @jsinterop.annotations.JsOverlay
-    public final MyMessage getDefaultInstanceForType() {
-      return getDefaultInstance();
-    }
 
     public native Builder toBuilder();
 
@@ -294,11 +274,6 @@ public final class AmbiguousNames {
     protected RepeatedExtensionField() {}
 
     public static final native RepeatedExtensionField getDefaultInstance();
-
-    @jsinterop.annotations.JsOverlay
-    public final RepeatedExtensionField getDefaultInstanceForType() {
-      return getDefaultInstance();
-    }
 
     public native Builder toBuilder();
 
@@ -433,11 +408,6 @@ public final class AmbiguousNames {
 
     public static final native Array getDefaultInstance();
 
-    @jsinterop.annotations.JsOverlay
-    public final Array getDefaultInstanceForType() {
-      return getDefaultInstance();
-    }
-
     public native Builder toBuilder();
 
     public static native Builder newBuilder();
@@ -478,11 +448,6 @@ public final class AmbiguousNames {
 
       public static final native Array getDefaultInstance();
 
-      @jsinterop.annotations.JsOverlay
-      public final Array getDefaultInstanceForType() {
-        return getDefaultInstance();
-      }
-
       public native Builder toBuilder();
 
       public static native Builder newBuilder();
@@ -511,11 +476,6 @@ public final class AmbiguousNames {
     protected Object() {}
 
     public static final native Object getDefaultInstance();
-
-    @jsinterop.annotations.JsOverlay
-    public final Object getDefaultInstanceForType() {
-      return getDefaultInstance();
-    }
 
     public native Builder toBuilder();
 

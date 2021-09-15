@@ -139,11 +139,6 @@ public final class Aliased
 
   public static final native Aliased getDefaultInstance();
 
-  @jsinterop.annotations.JsOverlay
-  public final Aliased getDefaultInstanceForType() {
-    return getDefaultInstance();
-  }
-
   public native Builder toBuilder();
 
   public static native Builder newBuilder();

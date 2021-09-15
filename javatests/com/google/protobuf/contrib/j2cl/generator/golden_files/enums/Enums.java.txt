@@ -261,11 +261,6 @@ public final class Enums {
 
     public static final native EnumTestProto getDefaultInstance();
 
-    @jsinterop.annotations.JsOverlay
-    public final EnumTestProto getDefaultInstanceForType() {
-      return getDefaultInstance();
-    }
-
     public native Builder toBuilder();
 
     public static int OPTIONAL_ENUM_FIELD_NUMBER;
@@ -893,11 +888,6 @@ public final class Enums {
     protected Aliased() {}
 
     public static final native Aliased getDefaultInstance();
-
-    @jsinterop.annotations.JsOverlay
-    public final Aliased getDefaultInstanceForType() {
-      return getDefaultInstance();
-    }
 
     public native Builder toBuilder();
 

@@ -16,8 +16,6 @@ package com.google.protobuf;
 /** J2Wasm emulation of MessageLite. */
 public interface MessageLite {
 
-  Builder toBuilder();
-
   /** J2Wasm emulation of MessageLite.Builder. */
   interface Builder {
 
@@ -25,4 +23,8 @@ public interface MessageLite {
 
     MessageLite build();
   }
+
+  Builder toBuilder();
+
+  MessageLite getDefaultInstanceForType();
 }

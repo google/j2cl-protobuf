@@ -11,11 +11,6 @@ public final class Recursive
 
   public static final native Recursive getDefaultInstance();
 
-  @jsinterop.annotations.JsOverlay
-  public final Recursive getDefaultInstanceForType() {
-    return getDefaultInstance();
-  }
-
   public native Builder toBuilder();
 
   public static int PAYLOAD_FIELD_NUMBER;

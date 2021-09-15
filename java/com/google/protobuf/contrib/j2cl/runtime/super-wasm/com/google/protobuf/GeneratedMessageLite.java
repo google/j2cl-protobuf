@@ -120,6 +120,9 @@ public abstract class GeneratedMessageLite<
   public abstract B toBuilder();
 
   @Override
+  public abstract M getDefaultInstanceForType();
+
+  @Override
   public boolean equals(final Object other) {
     if (other == this) {
       return true;

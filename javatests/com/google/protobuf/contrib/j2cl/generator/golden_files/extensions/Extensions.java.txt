@@ -80,11 +80,6 @@ public final class Extensions {
 
     public static final native Base getDefaultInstance();
 
-    @jsinterop.annotations.JsOverlay
-    public final Base getDefaultInstanceForType() {
-      return getDefaultInstance();
-    }
-
     public native Builder toBuilder();
 
     public static int OPTIONAL_LONG_FIELD_NUMBER;
@@ -529,11 +524,6 @@ public final class Extensions {
 
     public static final native Primitives getDefaultInstance();
 
-    @jsinterop.annotations.JsOverlay
-    public final Primitives getDefaultInstanceForType() {
-      return getDefaultInstance();
-    }
-
     public native Builder toBuilder();
 
     public static int PAYLOAD_FIELD_NUMBER;
@@ -820,11 +810,6 @@ public final class Extensions {
     protected Recursive() {}
 
     public static final native Recursive getDefaultInstance();
-
-    @jsinterop.annotations.JsOverlay
-    public final Recursive getDefaultInstanceForType() {
-      return getDefaultInstance();
-    }
 
     public native Builder toBuilder();
 

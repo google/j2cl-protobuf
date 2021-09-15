@@ -132,11 +132,6 @@ public final class Primitives
 
   public static final native Primitives getDefaultInstance();
 
-  @jsinterop.annotations.JsOverlay
-  public final Primitives getDefaultInstanceForType() {
-    return getDefaultInstance();
-  }
-
   public native Builder toBuilder();
 
   public static int PAYLOAD_FIELD_NUMBER;

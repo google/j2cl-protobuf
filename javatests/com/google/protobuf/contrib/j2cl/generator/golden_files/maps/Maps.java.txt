@@ -87,11 +87,6 @@ public final class Maps {
 
       public static final native NestedMessage getDefaultInstance();
 
-      @jsinterop.annotations.JsOverlay
-      public final NestedMessage getDefaultInstanceForType() {
-        return getDefaultInstance();
-      }
-
       public native Builder toBuilder();
 
       public static int FOO_FIELD_NUMBER;
@@ -140,11 +135,6 @@ public final class Maps {
     protected MapTestProto() {}
 
     public static final native MapTestProto getDefaultInstance();
-
-    @jsinterop.annotations.JsOverlay
-    public final MapTestProto getDefaultInstanceForType() {
-      return getDefaultInstance();
-    }
 
     public native Builder toBuilder();
 

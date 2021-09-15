@@ -123,6 +123,19 @@ class InternalMessage extends Message {
   }
 
   /**
+   * Gets the default message instance for the given module name.
+   *
+   * @return {!MESSAGE}
+   * @template MESSAGE
+   * @final
+   * @override
+   */
+  getDefaultInstanceForType() {
+    const ctor = this.getConstructor_();
+    return InternalMessage.getDefaultInstanceForMessage(ctor);
+  }
+
+  /**
    * @return {string}
    * @final
    * @override

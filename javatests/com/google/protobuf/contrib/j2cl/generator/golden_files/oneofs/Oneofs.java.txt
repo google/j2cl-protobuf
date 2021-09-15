@@ -245,11 +245,6 @@ public final class Oneofs {
 
       public static final native TestNestedProto getDefaultInstance();
 
-      @jsinterop.annotations.JsOverlay
-      public final TestNestedProto getDefaultInstanceForType() {
-        return getDefaultInstance();
-      }
-
       public native Builder toBuilder();
 
       public static int A_STRING_FIELD_NUMBER;
@@ -368,11 +363,6 @@ public final class Oneofs {
 
       public static final native TestNestedProtoWithOneOfs getDefaultInstance();
 
-      @jsinterop.annotations.JsOverlay
-      public final TestNestedProtoWithOneOfs getDefaultInstanceForType() {
-        return getDefaultInstance();
-      }
-
       public native Builder toBuilder();
 
       public static int BOOL_WITH_DEFAULT_FIELD_NUMBER;
@@ -476,11 +466,6 @@ public final class Oneofs {
     protected TestProtoWithOneOfs() {}
 
     public static final native TestProtoWithOneOfs getDefaultInstance();
-
-    @jsinterop.annotations.JsOverlay
-    public final TestProtoWithOneOfs getDefaultInstanceForType() {
-      return getDefaultInstance();
-    }
 
     public native Builder toBuilder();
 
@@ -950,11 +935,6 @@ public final class Oneofs {
     protected TestProtoWithNativeOneOfs() {}
 
     public static final native TestProtoWithNativeOneOfs getDefaultInstance();
-
-    @jsinterop.annotations.JsOverlay
-    public final TestProtoWithNativeOneOfs getDefaultInstanceForType() {
-      return getDefaultInstance();
-    }
 
     public native Builder toBuilder();
 

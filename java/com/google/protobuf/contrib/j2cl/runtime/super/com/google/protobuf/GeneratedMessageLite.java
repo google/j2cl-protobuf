@@ -129,6 +129,9 @@ public abstract class GeneratedMessageLite<
   @Override
   public native B toBuilder();
 
+  @Override
+  public final native M getDefaultInstanceForType();
+
   private native Object getExtension(ExtensionFieldInfo<M, ?> extensionFieldInfo);
 
   @JsOverlay
