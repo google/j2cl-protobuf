@@ -91,7 +91,7 @@ public class J2CLProtobufCompiler {
 
     private static ProtoImplementation fromRequestParameter(String parameter) {
       if (parameter == null) {
-        throw new NullPointerException("Request parameter cannot be null");
+        return JSINTEROP;
       }
 
       return ProtoImplementation.valueOf(Ascii.toUpperCase(parameter));
