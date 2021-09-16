@@ -25,7 +25,7 @@ public final class Proto3EnumTestProto
       if (cachedValues == null) {
         cachedValues = values();
       }
-      return cachedValues[i];
+      return i == 4 ? null : cachedValues[i];
     }
 
     private int value;

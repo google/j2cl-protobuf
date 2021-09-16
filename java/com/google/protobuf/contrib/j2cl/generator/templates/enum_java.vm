@@ -29,6 +29,10 @@ public enum $enumDescriptor.name implements com.google.protobuf.ProtocolMessageE
   #end
   public static final $enumDescriptor.name forNumber(int i) {
   #if ($enumDescriptor.isDense())
+    if (i < 0 || i >= ${enumDescriptor.values.size()}) {
+      return null;
+    }
+
     if (cachedValues == null) {
       cachedValues = values();
     }

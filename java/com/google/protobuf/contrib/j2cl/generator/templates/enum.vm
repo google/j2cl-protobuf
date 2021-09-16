@@ -50,7 +50,11 @@ package $enumDescriptor.package;
     if (cachedValues == null) {
       cachedValues = values();
     }
+    #if ($enumDescriptor.hasUnrecognizedValue())
+    return i == ${enumDescriptor.values.size()} ? null : cachedValues[i];
+    #else
     return cachedValues[i];
+    #end
   #else
     switch(i) {
     #foreach($value in $enumDescriptor.distinctValues)

@@ -23,7 +23,7 @@ public final class Proto3TestProtoWithOneOfs
       if (cachedValues == null) {
         cachedValues = values();
       }
-      return cachedValues[i];
+      return i == 2 ? null : cachedValues[i];
     }
 
     private int value;

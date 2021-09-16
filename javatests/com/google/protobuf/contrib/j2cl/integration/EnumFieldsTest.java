@@ -637,6 +637,7 @@ public class EnumFieldsTest {
     assertThat(TestEnum.forNumber(0)).isEqualTo(TestEnum.DEFAULT);
     assertThat(TestEnum.forNumber(1)).isEqualTo(TestEnum.ONE);
     assertThat(TestEnum.forNumber(2)).isEqualTo(TestEnum.TWO);
+    assertThat(TestEnum.forNumber(3)).isEqualTo(TestEnum.THREE);
 
     assertThat(SparseEnum.forNumber(0)).isEqualTo(SparseEnum.SPARSE_DEFAULT);
     assertThat(SparseEnum.forNumber(10)).isEqualTo(SparseEnum.SPARSE_TEN);
@@ -657,6 +658,7 @@ public class EnumFieldsTest {
     assertThat(Proto3TestEnum.forNumber(0)).isEqualTo(Proto3TestEnum.DEFAULT);
     assertThat(Proto3TestEnum.forNumber(1)).isEqualTo(Proto3TestEnum.ONE);
     assertThat(Proto3TestEnum.forNumber(2)).isEqualTo(Proto3TestEnum.TWO);
+    assertThat(Proto3TestEnum.forNumber(3)).isEqualTo(Proto3TestEnum.THREE);
 
     assertThat(Proto3SparseEnum.forNumber(0)).isEqualTo(Proto3SparseEnum.SPARSE_DEFAULT);
     assertThat(Proto3SparseEnum.forNumber(10)).isEqualTo(Proto3SparseEnum.SPARSE_TEN);
@@ -670,6 +672,7 @@ public class EnumFieldsTest {
   @Test
   public void testForNumberWithUnknownValue() {
     assertThat(TestEnum.forNumber(-1)).isNull();
+    assertThat(TestEnum.forNumber(4)).isNull();
     assertThat(TestEnum.forNumber(100)).isNull();
 
     assertThat(SparseEnum.forNumber(-1)).isNull();
@@ -679,6 +682,7 @@ public class EnumFieldsTest {
     assertThat(Aliased.TestEnum.forNumber(100)).isNull();
 
     assertThat(Proto3TestEnum.forNumber(-1)).isNull();
+    assertThat(Proto3TestEnum.forNumber(4)).isNull();
     assertThat(Proto3TestEnum.forNumber(100)).isNull();
 
     assertThat(Proto3SparseEnum.forNumber(-1)).isNull();
