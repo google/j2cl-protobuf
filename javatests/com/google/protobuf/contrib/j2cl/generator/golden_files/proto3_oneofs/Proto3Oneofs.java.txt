@@ -1021,4 +1021,180 @@ public final class Proto3Oneofs {
       private native Object internal_getAOneofCase();
     }
   }
+
+  @jsinterop.annotations.JsType(
+      isNative = true,
+      name = "Proto3TestDenseProtoWithOneOfs",
+      namespace = "improto.protobuf.contrib.j2cl.protos")
+  public static final class Proto3TestDenseProtoWithOneOfs
+      extends com.google.protobuf.GeneratedMessageLite<
+          Proto3TestDenseProtoWithOneOfs, Proto3TestDenseProtoWithOneOfs.Builder> {
+
+    public enum AOneofCase implements com.google.protobuf.ProtocolMessageEnum {
+      AONEOF_NOT_SET(0),
+      A_BOOL(1),
+      AN_INT(2),
+      A_LONG(3);
+
+      AOneofCase(int value) {
+        this.value = value;
+      }
+
+      private static AOneofCase[] cachedValues;
+
+      public static final AOneofCase forNumber(int i) {
+        if (cachedValues == null) {
+          cachedValues = values();
+        }
+        return cachedValues[i];
+      }
+
+      private int value;
+
+      public final int getNumber() {
+        return value;
+      }
+
+      public static final int AONEOF_NOT_SET_VALUE = 0;
+
+      public static final int A_BOOL_VALUE = 1;
+
+      public static final int AN_INT_VALUE = 2;
+
+      public static final int A_LONG_VALUE = 3;
+
+      // DO NOT REFER TO FROM NON GENERATED CODE! SUBJECT TO CHANGE!
+      // Native closure enum representation
+      @jsinterop.annotations.JsType(
+          isNative = true,
+          name = "Proto3TestDenseProtoWithOneOfs.AOneofCase",
+          namespace = "improto.protobuf.contrib.j2cl.protos")
+      public static final class Internal_ClosureEnum {
+        @jsinterop.annotations.JsOverlay
+        public static final Internal_ClosureEnum toClosureValue(AOneofCase enumInstance) {
+          return toClosureValue(enumInstance.getNumber());
+        }
+
+        @jsinterop.annotations.JsOverlay
+        public static final Internal_ClosureEnum toClosureValue(int value) {
+          return jsinterop.base.Js.uncheckedCast((double) value);
+        }
+
+        @jsinterop.annotations.JsOverlay
+        public static final int toIntValue(Object closureEnum) {
+          return jsinterop.base.Js.asInt(closureEnum);
+        }
+
+        @jsinterop.annotations.JsOverlay
+        public static final AOneofCase toEnum(Object closureEnum) {
+          int i = jsinterop.base.Js.asInt(closureEnum);
+          AOneofCase value = AOneofCase.forNumber(i);
+          return value == null ? AONEOF_NOT_SET : value;
+        }
+      }
+    }
+
+    protected Proto3TestDenseProtoWithOneOfs() {}
+
+    public static final native Proto3TestDenseProtoWithOneOfs getDefaultInstance();
+
+    public native Builder toBuilder();
+
+    public static int A_BOOL_FIELD_NUMBER;
+    public static int AN_INT_FIELD_NUMBER;
+    public static int A_LONG_FIELD_NUMBER;
+
+    @jsinterop.annotations.JsMethod(name = "hasABool")
+    public native boolean hasABool();
+
+    @jsinterop.annotations.JsMethod(name = "getABool")
+    public native boolean getABool();
+
+    @jsinterop.annotations.JsMethod(name = "hasAnInt")
+    public native boolean hasAnInt();
+
+    @jsinterop.annotations.JsMethod(name = "getAnInt")
+    public native int getAnInt();
+
+    @jsinterop.annotations.JsMethod(name = "hasALong")
+    public native boolean hasALong();
+
+    @jsinterop.annotations.JsMethod(name = "getALong")
+    public native long getALong();
+
+    @jsinterop.annotations.JsOverlay
+    public final AOneofCase getAOneofCase() {
+      return AOneofCase.Internal_ClosureEnum.toEnum(internal_getAOneofCase());
+    }
+
+    @jsinterop.annotations.JsMethod(name = "getAOneofCase")
+    private native Object internal_getAOneofCase();
+
+    public static native Builder newBuilder();
+
+    public static native Builder newBuilder(Proto3TestDenseProtoWithOneOfs prototype);
+
+    @jsinterop.annotations.JsType(isNative = true)
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageLite.Builder<
+            Proto3TestDenseProtoWithOneOfs, Builder> {
+
+      protected Builder() {}
+
+      @jsinterop.annotations.JsOverlay
+      public final Proto3TestDenseProtoWithOneOfs getDefaultInstanceForType() {
+        return getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public native Proto3TestDenseProtoWithOneOfs build();
+
+      @java.lang.Override
+      public native Builder clone();
+
+      @jsinterop.annotations.JsMethod(name = "hasABool")
+      public native boolean hasABool();
+
+      @jsinterop.annotations.JsMethod(name = "getABool")
+      public native boolean getABool();
+
+      @jsinterop.annotations.JsMethod(name = "clearABool")
+      public native Builder clearABool();
+
+      @jsinterop.annotations.JsMethod(name = "setABool")
+      public native Builder setABool(boolean value);
+
+      @jsinterop.annotations.JsMethod(name = "hasAnInt")
+      public native boolean hasAnInt();
+
+      @jsinterop.annotations.JsMethod(name = "getAnInt")
+      public native int getAnInt();
+
+      @jsinterop.annotations.JsMethod(name = "clearAnInt")
+      public native Builder clearAnInt();
+
+      @jsinterop.annotations.JsMethod(name = "setAnInt")
+      public native Builder setAnInt(int value);
+
+      @jsinterop.annotations.JsMethod(name = "hasALong")
+      public native boolean hasALong();
+
+      @jsinterop.annotations.JsMethod(name = "getALong")
+      public native long getALong();
+
+      @jsinterop.annotations.JsMethod(name = "clearALong")
+      public native Builder clearALong();
+
+      @jsinterop.annotations.JsMethod(name = "setALong")
+      public native Builder setALong(long value);
+
+      @jsinterop.annotations.JsOverlay
+      public final AOneofCase getAOneofCase() {
+        return AOneofCase.Internal_ClosureEnum.toEnum(internal_getAOneofCase());
+      }
+
+      @jsinterop.annotations.JsMethod(name = "getAOneofCase")
+      private native Object internal_getAOneofCase();
+    }
+  }
 }

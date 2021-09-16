@@ -48,8 +48,7 @@ public abstract class TemplateOneOfDescriptor extends AbstractTemplateTypeDescri
   }
 
   public boolean isDense() {
-    // TODO(b/143500098): support dense in oneofs.
-    return false;
+    return TemplateEnumDescriptor.isDenseEnum(getValues());
   }
 
   public boolean isJsEnum() {

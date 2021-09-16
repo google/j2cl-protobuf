@@ -16,8 +16,10 @@ package com.google.protobuf.contrib.j2cl.integration;
 import static com.google.common.truth.Truth.assertThat;
 import static org.junit.Assert.assertEquals;
 
+import com.google.protobuf.contrib.j2cl.protos.Oneofs.TestDenseProtoWithOneOfs;
 import com.google.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithNativeOneOfs;
 import com.google.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs;
+import com.google.protobuf.contrib.j2cl.protos.Proto3Oneofs.Proto3TestDenseProtoWithOneOfs;
 import com.google.protobuf.contrib.j2cl.protos.Proto3Oneofs.Proto3TestProtoWithNativeOneOfs;
 import com.google.protobuf.contrib.j2cl.protos.Proto3Oneofs.Proto3TestProtoWithOneOfs;
 import org.junit.Test;
@@ -277,7 +279,40 @@ public final class OneOfsTest {
   public void testForNumberWithUnknownValue() {
     assertThat(TestProtoWithOneOfs.AOneofCase.forNumber(100)).isNull();
     assertThat(Proto3TestProtoWithOneOfs.AOneofCase.forNumber(100)).isNull();
+    assertThat(TestDenseProtoWithOneOfs.AOneofCase.forNumber(100)).isNull();
+    assertThat(Proto3TestDenseProtoWithOneOfs.AOneofCase.forNumber(100)).isNull();
     // Unknown values with native oneof cases are tested in EnumNativeForNumberTest since the
     // behavior differs between J2CL and JVM.
+  }
+
+  @Test
+  public void testForNumberWithKnownValue() {
+    assertThat(TestProtoWithOneOfs.AOneofCase.forNumber(1))
+        .isEqualTo(TestProtoWithOneOfs.AOneofCase.A_BOOL);
+    assertThat(TestProtoWithOneOfs.AOneofCase.forNumber(4))
+        .isEqualTo(TestProtoWithOneOfs.AOneofCase.AN_INT);
+    assertThat(TestProtoWithOneOfs.AOneofCase.forNumber(7))
+        .isEqualTo(TestProtoWithOneOfs.AOneofCase.A_LONG);
+
+    assertThat(Proto3TestProtoWithOneOfs.AOneofCase.forNumber(1))
+        .isEqualTo(Proto3TestProtoWithOneOfs.AOneofCase.A_BOOL);
+    assertThat(Proto3TestProtoWithOneOfs.AOneofCase.forNumber(4))
+        .isEqualTo(Proto3TestProtoWithOneOfs.AOneofCase.AN_INT);
+    assertThat(Proto3TestProtoWithOneOfs.AOneofCase.forNumber(7))
+        .isEqualTo(Proto3TestProtoWithOneOfs.AOneofCase.A_LONG);
+
+    assertThat(TestDenseProtoWithOneOfs.AOneofCase.forNumber(1))
+        .isEqualTo(TestDenseProtoWithOneOfs.AOneofCase.A_BOOL);
+    assertThat(TestDenseProtoWithOneOfs.AOneofCase.forNumber(2))
+        .isEqualTo(TestDenseProtoWithOneOfs.AOneofCase.AN_INT);
+    assertThat(TestDenseProtoWithOneOfs.AOneofCase.forNumber(3))
+        .isEqualTo(TestDenseProtoWithOneOfs.AOneofCase.A_LONG);
+
+    assertThat(Proto3TestDenseProtoWithOneOfs.AOneofCase.forNumber(1))
+        .isEqualTo(Proto3TestDenseProtoWithOneOfs.AOneofCase.A_BOOL);
+    assertThat(Proto3TestDenseProtoWithOneOfs.AOneofCase.forNumber(2))
+        .isEqualTo(Proto3TestDenseProtoWithOneOfs.AOneofCase.AN_INT);
+    assertThat(Proto3TestDenseProtoWithOneOfs.AOneofCase.forNumber(3))
+        .isEqualTo(Proto3TestDenseProtoWithOneOfs.AOneofCase.A_LONG);
   }
 }

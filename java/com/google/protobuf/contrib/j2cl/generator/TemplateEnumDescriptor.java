@@ -63,14 +63,17 @@ public abstract class TemplateEnumDescriptor extends AbstractTemplateTypeDescrip
         || descriptor().getOptions().getExtension(Options.enumOptions).getGenerateJsEnum();
   }
 
-  public boolean isDense() {
-    List<TemplateEnumValueDescriptor> values = getValues();
+  public static boolean isDenseEnum(List<TemplateEnumValueDescriptor> values) {
     for (int i = 0; i < values.size(); i++) {
       if (values.get(i).getNumber() != i) {
         return false;
       }
     }
     return true;
+  }
+
+  public boolean isDense() {
+    return isDenseEnum(getValues());
   }
 
   /** Returns true if this enum should have a value of UNRECOGNIZED in the generated code. */

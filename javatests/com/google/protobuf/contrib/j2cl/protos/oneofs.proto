@@ -70,3 +70,11 @@ message TestProtoWithNativeOneOfs {
     double a_double = 14;
   }
 }
+
+message TestDenseProtoWithOneOfs {
+  oneof a_oneof {
+    bool a_bool = 1;
+    int32 an_int = 2;
+    int64 a_long = 3;
+  }
+}
