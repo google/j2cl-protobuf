@@ -17,6 +17,7 @@ def create_js_provider(ctx, srcs = [], deps = [], runtime_deps = [], exports = [
         srcs = srcs,
         deps = deps + runtime_deps,
         exports = exports,
+        suppress = ["underscore", "superfluousSuppress"],
         convention = "GOOGLE",
     )
 
