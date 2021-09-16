@@ -90,7 +90,7 @@ public class J2CLProtobufCompiler {
     }
 
     private static ProtoImplementation fromRequestParameter(String parameter) {
-      if (parameter == null) {
+      if (parameter.isEmpty()) {
         return JSINTEROP;
       }
 
