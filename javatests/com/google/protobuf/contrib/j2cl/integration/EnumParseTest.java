@@ -63,9 +63,8 @@ public final class EnumParseTest {
   public void testParse_unknownValue() throws Exception {
     assertThat(parse("[-1]").getOptionalEnum()).isEqualTo(TestEnum.DEFAULT);
     assertThat(parse("[100]").getOptionalEnum()).isEqualTo(TestEnum.DEFAULT);
-    // TODO(b/164151419): This value should be TestEnum.ONE.
-    assertThat(parse("[null,-1]").getOptionalEnumWithDefault()).isEqualTo(TestEnum.DEFAULT);
-    assertThat(parse("[null,100]").getOptionalEnumWithDefault()).isEqualTo(TestEnum.DEFAULT);
+    assertThat(parse("[null,-1]").getOptionalEnumWithDefault()).isEqualTo(TestEnum.ONE);
+    assertThat(parse("[null,100]").getOptionalEnumWithDefault()).isEqualTo(TestEnum.ONE);
     assertThat(parse("[null,null,[-1]]").getRepeatedEnumList())
         .containsExactly(TestEnum.DEFAULT)
         .inOrder();

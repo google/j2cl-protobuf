@@ -51,7 +51,8 @@ public enum TopLevelNativeEnum {
     }
 
     @jsinterop.annotations.JsOverlay
-    public static final TopLevelNativeEnum toEnum(Object closureEnum) {
+    public static final TopLevelNativeEnum toEnum(
+        Object closureEnum, TopLevelNativeEnum defaultValue) {
       return jsinterop.base.Js.uncheckedCast(closureEnum);
     }
   }

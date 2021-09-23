@@ -59,10 +59,10 @@ public final class Base extends com.google.protobuf.GeneratedMessageLite<Base, B
       }
 
       @jsinterop.annotations.JsOverlay
-      public static final EmotionalState toEnum(Object closureEnum) {
+      public static final EmotionalState toEnum(Object closureEnum, EmotionalState defaultValue) {
         int i = jsinterop.base.Js.asInt(closureEnum);
         EmotionalState value = EmotionalState.forNumber(i);
-        return value == null ? UNKNOWN : value;
+        return value == null ? defaultValue : value;
       }
     }
   }
@@ -110,7 +110,8 @@ public final class Base extends com.google.protobuf.GeneratedMessageLite<Base, B
   @jsinterop.annotations.JsOverlay
   public final com.google.protobuf.contrib.j2cl.protos.Base.EmotionalState getOptionalEnum() {
     return com.google.protobuf.contrib.j2cl.protos.Base.EmotionalState.Internal_ClosureEnum.toEnum(
-        internal_getOptionalEnum());
+        internal_getOptionalEnum(),
+        com.google.protobuf.contrib.j2cl.protos.Base.EmotionalState.HAPPY);
   }
 
   @jsinterop.annotations.JsMethod(name = "getOptionalEnum")
@@ -238,7 +239,9 @@ public final class Base extends com.google.protobuf.GeneratedMessageLite<Base, B
     @jsinterop.annotations.JsOverlay
     public final com.google.protobuf.contrib.j2cl.protos.Base.EmotionalState getOptionalEnum() {
       return com.google.protobuf.contrib.j2cl.protos.Base.EmotionalState.Internal_ClosureEnum
-          .toEnum(internal_getOptionalEnum());
+          .toEnum(
+              internal_getOptionalEnum(),
+              com.google.protobuf.contrib.j2cl.protos.Base.EmotionalState.HAPPY);
     }
 
     @jsinterop.annotations.JsMethod(name = "getOptionalEnum")

@@ -18,7 +18,7 @@ private native ${valueFieldJsType} internal_get${field.name}OrThrow(
 @jsinterop.annotations.JsOverlay
 public final ${valueField.unboxedType} get${field.name}OrThrow(${keyField.unboxedType} key) {
 #if ($valueField.isEnum())
-  return ${valueFieldJsType}.toEnum(internal_get${field.jsName}OrThrow(key));
+  return ${valueFieldJsType}.toEnum(internal_get${field.jsName}OrThrow(key), ${valueField.defaultValue});
 #else
   return internal_get${field.jsName}OrThrow(key);
 #end
@@ -33,7 +33,7 @@ public final ${valueField.unboxedType} get${field.name}OrDefault(
     ${keyField.unboxedType} key, ${valueField.unboxedType} defaultValue) {
 #if ($valueField.isEnum())
   return ${valueFieldJsType}.toEnum(
-      internal_get${field.jsName}OrDefault(key, ${valueFieldJsType}.toClosureValue(defaultValue)));
+      internal_get${field.jsName}OrDefault(key, ${valueFieldJsType}.toClosureValue(defaultValue)), $valueField.defaultValue);
 #else
   return internal_get${field.jsName}OrDefault(key, defaultValue);
 #end

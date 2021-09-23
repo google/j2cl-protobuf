@@ -68,10 +68,10 @@ public final class FieldNames {
         }
 
         @jsinterop.annotations.JsOverlay
-        public static final TestEnum toEnum(Object closureEnum) {
+        public static final TestEnum toEnum(Object closureEnum, TestEnum defaultValue) {
           int i = jsinterop.base.Js.asInt(closureEnum);
           TestEnum value = TestEnum.forNumber(i);
-          return value == null ? UNKNOWN : value;
+          return value == null ? defaultValue : value;
         }
       }
     }
@@ -207,7 +207,9 @@ public final class FieldNames {
     public final com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
         getEnumLowerCaseUnderscore() {
       return com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
-          .toEnum(internal_getEnumLowerCaseUnderscore());
+          .toEnum(
+              internal_getEnumLowerCaseUnderscore(),
+              com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.UNKNOWN);
     }
 
     @jsinterop.annotations.JsMethod(name = "getEnumLowerCaseUnderscore")
@@ -220,7 +222,9 @@ public final class FieldNames {
     public final com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
         getEnumLowerCaseCamel() {
       return com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
-          .toEnum(internal_getEnumLowerCaseCamel());
+          .toEnum(
+              internal_getEnumLowerCaseCamel(),
+              com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.UNKNOWN);
     }
 
     @jsinterop.annotations.JsMethod(name = "getEnumLowerCaseCamel")
@@ -233,7 +237,9 @@ public final class FieldNames {
     public final com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
         getEnumUpperCaseCamel() {
       return com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
-          .toEnum(internal_getEnumUpperCaseCamel());
+          .toEnum(
+              internal_getEnumUpperCaseCamel(),
+              com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.UNKNOWN);
     }
 
     @jsinterop.annotations.JsMethod(name = "getEnumUpperCaseCamel")
@@ -246,7 +252,9 @@ public final class FieldNames {
     public final com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
         getRepeatedEnumLowerCaseUnderscore(int index) {
       return com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
-          .toEnum(internal_getRepeatedEnumLowerCaseUnderscore(index));
+          .toEnum(
+              internal_getRepeatedEnumLowerCaseUnderscore(index),
+              com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.UNKNOWN);
     }
 
     @jsinterop.annotations.JsMethod(name = "getRepeatedEnumLowerCaseUnderscore")
@@ -263,7 +271,8 @@ public final class FieldNames {
           internal_getRepeatedEnumLowerCaseUnderscoreList(),
           (d) ->
               com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
-                  .Internal_ClosureEnum.toEnum(d));
+                  .Internal_ClosureEnum.toEnum(
+                  d, com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.UNKNOWN));
     }
 
     @jsinterop.annotations.JsMethod(name = "getRepeatedEnumLowerCaseCamelCount")
@@ -273,7 +282,9 @@ public final class FieldNames {
     public final com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
         getRepeatedEnumLowerCaseCamel(int index) {
       return com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
-          .toEnum(internal_getRepeatedEnumLowerCaseCamel(index));
+          .toEnum(
+              internal_getRepeatedEnumLowerCaseCamel(index),
+              com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.UNKNOWN);
     }
 
     @jsinterop.annotations.JsMethod(name = "getRepeatedEnumLowerCaseCamel")
@@ -290,7 +301,8 @@ public final class FieldNames {
           internal_getRepeatedEnumLowerCaseCamelList(),
           (d) ->
               com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
-                  .Internal_ClosureEnum.toEnum(d));
+                  .Internal_ClosureEnum.toEnum(
+                  d, com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.UNKNOWN));
     }
 
     @jsinterop.annotations.JsMethod(name = "getRepeatedEnumUpperCaseCamelCount")
@@ -300,7 +312,9 @@ public final class FieldNames {
     public final com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
         getRepeatedEnumUpperCaseCamel(int index) {
       return com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
-          .toEnum(internal_getRepeatedEnumUpperCaseCamel(index));
+          .toEnum(
+              internal_getRepeatedEnumUpperCaseCamel(index),
+              com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.UNKNOWN);
     }
 
     @jsinterop.annotations.JsMethod(name = "getRepeatedEnumUpperCaseCamel")
@@ -317,7 +331,8 @@ public final class FieldNames {
           internal_getRepeatedEnumUpperCaseCamelList(),
           (d) ->
               com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
-                  .Internal_ClosureEnum.toEnum(d));
+                  .Internal_ClosureEnum.toEnum(
+                  d, com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.UNKNOWN));
     }
 
     @jsinterop.annotations.JsMethod(name = "hasMessageLowerCaseUnderscore")
@@ -561,7 +576,9 @@ public final class FieldNames {
       public final com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
           getEnumLowerCaseUnderscore() {
         return com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
-            .Internal_ClosureEnum.toEnum(internal_getEnumLowerCaseUnderscore());
+            .Internal_ClosureEnum.toEnum(
+            internal_getEnumLowerCaseUnderscore(),
+            com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.UNKNOWN);
       }
 
       @jsinterop.annotations.JsMethod(name = "getEnumLowerCaseUnderscore")
@@ -590,7 +607,9 @@ public final class FieldNames {
       public final com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
           getEnumLowerCaseCamel() {
         return com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
-            .Internal_ClosureEnum.toEnum(internal_getEnumLowerCaseCamel());
+            .Internal_ClosureEnum.toEnum(
+            internal_getEnumLowerCaseCamel(),
+            com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.UNKNOWN);
       }
 
       @jsinterop.annotations.JsMethod(name = "getEnumLowerCaseCamel")
@@ -619,7 +638,9 @@ public final class FieldNames {
       public final com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
           getEnumUpperCaseCamel() {
         return com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
-            .Internal_ClosureEnum.toEnum(internal_getEnumUpperCaseCamel());
+            .Internal_ClosureEnum.toEnum(
+            internal_getEnumUpperCaseCamel(),
+            com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.UNKNOWN);
       }
 
       @jsinterop.annotations.JsMethod(name = "getEnumUpperCaseCamel")
@@ -648,7 +669,9 @@ public final class FieldNames {
       public final com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
           getRepeatedEnumLowerCaseUnderscore(int index) {
         return com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
-            .Internal_ClosureEnum.toEnum(internal_getRepeatedEnumLowerCaseUnderscore(index));
+            .Internal_ClosureEnum.toEnum(
+            internal_getRepeatedEnumLowerCaseUnderscore(index),
+            com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.UNKNOWN);
       }
 
       @jsinterop.annotations.JsMethod(name = "getRepeatedEnumLowerCaseUnderscore")
@@ -666,7 +689,8 @@ public final class FieldNames {
             internal_getRepeatedEnumLowerCaseUnderscoreList(),
             (d) ->
                 com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
-                    .Internal_ClosureEnum.toEnum(d));
+                    .Internal_ClosureEnum.toEnum(
+                    d, com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.UNKNOWN));
       }
 
       @jsinterop.annotations.JsMethod(name = "clearRepeatedEnumLowerCaseUnderscore")
@@ -716,7 +740,9 @@ public final class FieldNames {
       public final com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
           getRepeatedEnumLowerCaseCamel(int index) {
         return com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
-            .Internal_ClosureEnum.toEnum(internal_getRepeatedEnumLowerCaseCamel(index));
+            .Internal_ClosureEnum.toEnum(
+            internal_getRepeatedEnumLowerCaseCamel(index),
+            com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.UNKNOWN);
       }
 
       @jsinterop.annotations.JsMethod(name = "getRepeatedEnumLowerCaseCamel")
@@ -734,7 +760,8 @@ public final class FieldNames {
             internal_getRepeatedEnumLowerCaseCamelList(),
             (d) ->
                 com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
-                    .Internal_ClosureEnum.toEnum(d));
+                    .Internal_ClosureEnum.toEnum(
+                    d, com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.UNKNOWN));
       }
 
       @jsinterop.annotations.JsMethod(name = "clearRepeatedEnumLowerCaseCamel")
@@ -784,7 +811,9 @@ public final class FieldNames {
       public final com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
           getRepeatedEnumUpperCaseCamel(int index) {
         return com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
-            .Internal_ClosureEnum.toEnum(internal_getRepeatedEnumUpperCaseCamel(index));
+            .Internal_ClosureEnum.toEnum(
+            internal_getRepeatedEnumUpperCaseCamel(index),
+            com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.UNKNOWN);
       }
 
       @jsinterop.annotations.JsMethod(name = "getRepeatedEnumUpperCaseCamel")
@@ -802,7 +831,8 @@ public final class FieldNames {
             internal_getRepeatedEnumUpperCaseCamelList(),
             (d) ->
                 com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum
-                    .Internal_ClosureEnum.toEnum(d));
+                    .Internal_ClosureEnum.toEnum(
+                    d, com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.UNKNOWN));
       }
 
       @jsinterop.annotations.JsMethod(name = "clearRepeatedEnumUpperCaseCamel")

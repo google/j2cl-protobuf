@@ -102,17 +102,13 @@ package $enumDescriptor.package;
     }
 
     @jsinterop.annotations.JsOverlay
-    public static final $enumDescriptor.name toEnum(Object closureEnum) {
+    public static final $enumDescriptor.name toEnum(Object closureEnum, $enumDescriptor.name defaultValue) {
     #if ($enumDescriptor.isJsEnum())
       return jsinterop.base.Js.uncheckedCast(closureEnum);
     #else
       int i = jsinterop.base.Js.asInt(closureEnum);
       $enumDescriptor.name value = ${enumDescriptor.name}.forNumber(i);
-      #if ($enumDescriptor.hasUnrecognizedValue())
-        return value == null ? UNRECOGNIZED : value;
-      #else
-        return value == null ? $enumDescriptor.values.get(0).name : value;
-      #end
+      return value == null ? defaultValue : value;
     #end
     }
   }

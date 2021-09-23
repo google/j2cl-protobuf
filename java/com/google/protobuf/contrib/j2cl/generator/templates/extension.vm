@@ -8,7 +8,7 @@
 
   #set ($converters = "internal_${field.name}")
   #if ($field.isEnum())
-    #set ($enumReadConverter = "v -> ${field.unboxedType}.Internal_ClosureEnum.toEnum(v)")
+    #set ($enumReadConverter = "v -> ${field.unboxedType}.Internal_ClosureEnum.toEnum(v, $field.defaultValue)")
     #set ($enumWriteConverter = "v ->  ${field.unboxedType}.Internal_ClosureEnum.toClosureValue(v)")
     #set ($converters = "$converters, $enumReadConverter, $enumWriteConverter")
   #end

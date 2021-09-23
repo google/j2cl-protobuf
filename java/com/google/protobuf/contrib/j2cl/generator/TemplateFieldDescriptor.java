@@ -176,9 +176,8 @@ public abstract class TemplateFieldDescriptor {
         return "\"" + javaCharEscaper().escape(nullToEmpty((String) defaultValue)) + "\"";
       case ENUM:
         String defaultEnumName =
-            defaultValue != null
-                ? ((EnumValueDescriptor) defaultValue).getName()
-                : fieldDescriptor().getEnumType().getValues().get(0).getName();
+            TemplateEnumDescriptor.create(fieldDescriptor().getEnumType())
+                .getDefaultValueName((EnumValueDescriptor) defaultValue);
         return getUnboxedType() + "." + defaultEnumName;
       case BYTE_STRING:
         ByteString defaultByteString = (ByteString) defaultValue;
@@ -210,7 +209,8 @@ public abstract class TemplateFieldDescriptor {
     if (!needsConversion()) {
       return "";
     } else if (isEnum()) {
-      return String.format("(d) -> %s.Internal_ClosureEnum.toEnum(d)", getUnboxedType());
+      return String.format(
+          "(d) -> %s.Internal_ClosureEnum.toEnum(d, %s)", getUnboxedType(), getDefaultValue());
     } else {
       return String.format(
           "com.google.protobuf.GeneratedMessageLite.Internal_.%s_TYPE_CONVERTER",

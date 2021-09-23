@@ -68,10 +68,10 @@ public final class Proto3Oneofs {
         }
 
         @jsinterop.annotations.JsOverlay
-        public static final TestEnum toEnum(Object closureEnum) {
+        public static final TestEnum toEnum(Object closureEnum, TestEnum defaultValue) {
           int i = jsinterop.base.Js.asInt(closureEnum);
           TestEnum value = TestEnum.forNumber(i);
-          return value == null ? UNRECOGNIZED : value;
+          return value == null ? defaultValue : value;
         }
       }
     }
@@ -147,10 +147,10 @@ public final class Proto3Oneofs {
         }
 
         @jsinterop.annotations.JsOverlay
-        public static final AOneofCase toEnum(Object closureEnum) {
+        public static final AOneofCase toEnum(Object closureEnum, AOneofCase defaultValue) {
           int i = jsinterop.base.Js.asInt(closureEnum);
           AOneofCase value = AOneofCase.forNumber(i);
-          return value == null ? AONEOF_NOT_SET : value;
+          return value == null ? defaultValue : value;
         }
       }
     }
@@ -226,10 +226,11 @@ public final class Proto3Oneofs {
         }
 
         @jsinterop.annotations.JsOverlay
-        public static final AnotherOneofCase toEnum(Object closureEnum) {
+        public static final AnotherOneofCase toEnum(
+            Object closureEnum, AnotherOneofCase defaultValue) {
           int i = jsinterop.base.Js.asInt(closureEnum);
           AnotherOneofCase value = AnotherOneofCase.forNumber(i);
-          return value == null ? ANOTHERONEOF_NOT_SET : value;
+          return value == null ? defaultValue : value;
         }
       }
     }
@@ -348,10 +349,11 @@ public final class Proto3Oneofs {
           }
 
           @jsinterop.annotations.JsOverlay
-          public static final ANestedOneofCase toEnum(Object closureEnum) {
+          public static final ANestedOneofCase toEnum(
+              Object closureEnum, ANestedOneofCase defaultValue) {
             int i = jsinterop.base.Js.asInt(closureEnum);
             ANestedOneofCase value = ANestedOneofCase.forNumber(i);
-            return value == null ? ANESTEDONEOF_NOT_SET : value;
+            return value == null ? defaultValue : value;
           }
         }
       }
@@ -386,7 +388,8 @@ public final class Proto3Oneofs {
 
       @jsinterop.annotations.JsOverlay
       public final ANestedOneofCase getANestedOneofCase() {
-        return ANestedOneofCase.Internal_ClosureEnum.toEnum(internal_getANestedOneofCase());
+        return ANestedOneofCase.Internal_ClosureEnum.toEnum(
+            internal_getANestedOneofCase(), ANestedOneofCase.ANESTEDONEOF_NOT_SET);
       }
 
       @jsinterop.annotations.JsMethod(name = "getANestedOneofCase")
@@ -452,7 +455,8 @@ public final class Proto3Oneofs {
 
         @jsinterop.annotations.JsOverlay
         public final ANestedOneofCase getANestedOneofCase() {
-          return ANestedOneofCase.Internal_ClosureEnum.toEnum(internal_getANestedOneofCase());
+          return ANestedOneofCase.Internal_ClosureEnum.toEnum(
+              internal_getANestedOneofCase(), ANestedOneofCase.ANESTEDONEOF_NOT_SET);
         }
 
         @jsinterop.annotations.JsMethod(name = "getANestedOneofCase")
@@ -518,7 +522,10 @@ public final class Proto3Oneofs {
             .TestEnum
         getAnEnum() {
       return com.google.protobuf.contrib.j2cl.protos.Proto3Oneofs.Proto3TestProtoWithOneOfs.TestEnum
-          .Internal_ClosureEnum.toEnum(internal_getAnEnum());
+          .Internal_ClosureEnum.toEnum(
+          internal_getAnEnum(),
+          com.google.protobuf.contrib.j2cl.protos.Proto3Oneofs.Proto3TestProtoWithOneOfs.TestEnum
+              .UNRECOGNIZED);
     }
 
     @jsinterop.annotations.JsMethod(name = "getAnEnum")
@@ -589,7 +596,8 @@ public final class Proto3Oneofs {
 
     @jsinterop.annotations.JsOverlay
     public final AOneofCase getAOneofCase() {
-      return AOneofCase.Internal_ClosureEnum.toEnum(internal_getAOneofCase());
+      return AOneofCase.Internal_ClosureEnum.toEnum(
+          internal_getAOneofCase(), AOneofCase.AONEOF_NOT_SET);
     }
 
     @jsinterop.annotations.JsMethod(name = "getAOneofCase")
@@ -597,7 +605,8 @@ public final class Proto3Oneofs {
 
     @jsinterop.annotations.JsOverlay
     public final AnotherOneofCase getAnotherOneofCase() {
-      return AnotherOneofCase.Internal_ClosureEnum.toEnum(internal_getAnotherOneofCase());
+      return AnotherOneofCase.Internal_ClosureEnum.toEnum(
+          internal_getAnotherOneofCase(), AnotherOneofCase.ANOTHERONEOF_NOT_SET);
     }
 
     @jsinterop.annotations.JsMethod(name = "getAnotherOneofCase")
@@ -693,7 +702,10 @@ public final class Proto3Oneofs {
               .TestEnum
           getAnEnum() {
         return com.google.protobuf.contrib.j2cl.protos.Proto3Oneofs.Proto3TestProtoWithOneOfs
-            .TestEnum.Internal_ClosureEnum.toEnum(internal_getAnEnum());
+            .TestEnum.Internal_ClosureEnum.toEnum(
+            internal_getAnEnum(),
+            com.google.protobuf.contrib.j2cl.protos.Proto3Oneofs.Proto3TestProtoWithOneOfs.TestEnum
+                .UNRECOGNIZED);
       }
 
       @jsinterop.annotations.JsMethod(name = "getAnEnum")
@@ -858,7 +870,8 @@ public final class Proto3Oneofs {
 
       @jsinterop.annotations.JsOverlay
       public final AOneofCase getAOneofCase() {
-        return AOneofCase.Internal_ClosureEnum.toEnum(internal_getAOneofCase());
+        return AOneofCase.Internal_ClosureEnum.toEnum(
+            internal_getAOneofCase(), AOneofCase.AONEOF_NOT_SET);
       }
 
       @jsinterop.annotations.JsMethod(name = "getAOneofCase")
@@ -866,7 +879,8 @@ public final class Proto3Oneofs {
 
       @jsinterop.annotations.JsOverlay
       public final AnotherOneofCase getAnotherOneofCase() {
-        return AnotherOneofCase.Internal_ClosureEnum.toEnum(internal_getAnotherOneofCase());
+        return AnotherOneofCase.Internal_ClosureEnum.toEnum(
+            internal_getAnotherOneofCase(), AnotherOneofCase.ANOTHERONEOF_NOT_SET);
       }
 
       @jsinterop.annotations.JsMethod(name = "getAnotherOneofCase")
@@ -931,7 +945,7 @@ public final class Proto3Oneofs {
         }
 
         @jsinterop.annotations.JsOverlay
-        public static final AOneofCase toEnum(Object closureEnum) {
+        public static final AOneofCase toEnum(Object closureEnum, AOneofCase defaultValue) {
           return jsinterop.base.Js.uncheckedCast(closureEnum);
         }
       }
@@ -960,7 +974,8 @@ public final class Proto3Oneofs {
 
     @jsinterop.annotations.JsOverlay
     public final AOneofCase getAOneofCase() {
-      return AOneofCase.Internal_ClosureEnum.toEnum(internal_getAOneofCase());
+      return AOneofCase.Internal_ClosureEnum.toEnum(
+          internal_getAOneofCase(), AOneofCase.AONEOF_NOT_SET);
     }
 
     @jsinterop.annotations.JsMethod(name = "getAOneofCase")
@@ -1014,7 +1029,8 @@ public final class Proto3Oneofs {
 
       @jsinterop.annotations.JsOverlay
       public final AOneofCase getAOneofCase() {
-        return AOneofCase.Internal_ClosureEnum.toEnum(internal_getAOneofCase());
+        return AOneofCase.Internal_ClosureEnum.toEnum(
+            internal_getAOneofCase(), AOneofCase.AONEOF_NOT_SET);
       }
 
       @jsinterop.annotations.JsMethod(name = "getAOneofCase")
@@ -1086,10 +1102,10 @@ public final class Proto3Oneofs {
         }
 
         @jsinterop.annotations.JsOverlay
-        public static final AOneofCase toEnum(Object closureEnum) {
+        public static final AOneofCase toEnum(Object closureEnum, AOneofCase defaultValue) {
           int i = jsinterop.base.Js.asInt(closureEnum);
           AOneofCase value = AOneofCase.forNumber(i);
-          return value == null ? AONEOF_NOT_SET : value;
+          return value == null ? defaultValue : value;
         }
       }
     }
@@ -1124,7 +1140,8 @@ public final class Proto3Oneofs {
 
     @jsinterop.annotations.JsOverlay
     public final AOneofCase getAOneofCase() {
-      return AOneofCase.Internal_ClosureEnum.toEnum(internal_getAOneofCase());
+      return AOneofCase.Internal_ClosureEnum.toEnum(
+          internal_getAOneofCase(), AOneofCase.AONEOF_NOT_SET);
     }
 
     @jsinterop.annotations.JsMethod(name = "getAOneofCase")
@@ -1190,7 +1207,8 @@ public final class Proto3Oneofs {
 
       @jsinterop.annotations.JsOverlay
       public final AOneofCase getAOneofCase() {
-        return AOneofCase.Internal_ClosureEnum.toEnum(internal_getAOneofCase());
+        return AOneofCase.Internal_ClosureEnum.toEnum(
+            internal_getAOneofCase(), AOneofCase.AONEOF_NOT_SET);
       }
 
       @jsinterop.annotations.JsMethod(name = "getAOneofCase")

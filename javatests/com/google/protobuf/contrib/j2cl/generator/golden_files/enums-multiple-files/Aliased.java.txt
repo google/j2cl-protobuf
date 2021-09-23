@@ -72,10 +72,10 @@ public final class Aliased
       }
 
       @jsinterop.annotations.JsOverlay
-      public static final TestEnum toEnum(Object closureEnum) {
+      public static final TestEnum toEnum(Object closureEnum, TestEnum defaultValue) {
         int i = jsinterop.base.Js.asInt(closureEnum);
         TestEnum value = TestEnum.forNumber(i);
-        return value == null ? DEFAULT : value;
+        return value == null ? defaultValue : value;
       }
     }
   }
@@ -129,7 +129,7 @@ public final class Aliased
       }
 
       @jsinterop.annotations.JsOverlay
-      public static final NativeEnum toEnum(Object closureEnum) {
+      public static final NativeEnum toEnum(Object closureEnum, NativeEnum defaultValue) {
         return jsinterop.base.Js.uncheckedCast(closureEnum);
       }
     }

@@ -71,10 +71,10 @@ public final class Maps {
         }
 
         @jsinterop.annotations.JsOverlay
-        public static final TestEnum toEnum(Object closureEnum) {
+        public static final TestEnum toEnum(Object closureEnum, TestEnum defaultValue) {
           int i = jsinterop.base.Js.asInt(closureEnum);
           TestEnum value = TestEnum.forNumber(i);
-          return value == null ? UNKNOWN : value;
+          return value == null ? defaultValue : value;
         }
       }
     }
@@ -527,7 +527,9 @@ public final class Maps {
     public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
         getInt32KeyEnumValueOrThrow(int key) {
       return com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.Internal_ClosureEnum
-          .toEnum(internal_getInt32KeyEnumValueOrThrow(key));
+          .toEnum(
+              internal_getInt32KeyEnumValueOrThrow(key),
+              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
     }
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyEnumValueOrDefault")
@@ -547,7 +549,8 @@ public final class Maps {
               internal_getInt32KeyEnumValueOrDefault(
                   key,
                   com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-                      .Internal_ClosureEnum.toClosureValue(defaultValue)));
+                      .Internal_ClosureEnum.toClosureValue(defaultValue)),
+              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
     }
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyEnumValueMap")
@@ -563,7 +566,8 @@ public final class Maps {
           internal_getInt32KeyEnumValueMap(),
           (d) ->
               com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-                  .Internal_ClosureEnum.toEnum(d));
+                  .Internal_ClosureEnum.toEnum(
+                  d, com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN));
     }
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyMessageValueCount")
@@ -933,7 +937,9 @@ public final class Maps {
     public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
         getInt64KeyEnumValueOrThrow(long key) {
       return com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.Internal_ClosureEnum
-          .toEnum(internal_getInt64KeyEnumValueOrThrow(key));
+          .toEnum(
+              internal_getInt64KeyEnumValueOrThrow(key),
+              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
     }
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyEnumValueOrDefault")
@@ -953,7 +959,8 @@ public final class Maps {
               internal_getInt64KeyEnumValueOrDefault(
                   key,
                   com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-                      .Internal_ClosureEnum.toClosureValue(defaultValue)));
+                      .Internal_ClosureEnum.toClosureValue(defaultValue)),
+              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
     }
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyEnumValueMap")
@@ -969,7 +976,8 @@ public final class Maps {
           internal_getInt64KeyEnumValueMap(),
           (d) ->
               com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-                  .Internal_ClosureEnum.toEnum(d));
+                  .Internal_ClosureEnum.toEnum(
+                  d, com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN));
     }
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyMessageValueCount")
@@ -1338,7 +1346,9 @@ public final class Maps {
     public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
         getUint64KeyEnumValueOrThrow(long key) {
       return com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.Internal_ClosureEnum
-          .toEnum(internal_getUint64KeyEnumValueOrThrow(key));
+          .toEnum(
+              internal_getUint64KeyEnumValueOrThrow(key),
+              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
     }
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyEnumValueOrDefault")
@@ -1358,7 +1368,8 @@ public final class Maps {
               internal_getUint64KeyEnumValueOrDefault(
                   key,
                   com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-                      .Internal_ClosureEnum.toClosureValue(defaultValue)));
+                      .Internal_ClosureEnum.toClosureValue(defaultValue)),
+              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
     }
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyEnumValueMap")
@@ -1374,7 +1385,8 @@ public final class Maps {
           internal_getUint64KeyEnumValueMap(),
           (d) ->
               com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-                  .Internal_ClosureEnum.toEnum(d));
+                  .Internal_ClosureEnum.toEnum(
+                  d, com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN));
     }
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyMessageValueCount")
@@ -1743,7 +1755,9 @@ public final class Maps {
     public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
         getUint32KeyEnumValueOrThrow(int key) {
       return com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.Internal_ClosureEnum
-          .toEnum(internal_getUint32KeyEnumValueOrThrow(key));
+          .toEnum(
+              internal_getUint32KeyEnumValueOrThrow(key),
+              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
     }
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyEnumValueOrDefault")
@@ -1763,7 +1777,8 @@ public final class Maps {
               internal_getUint32KeyEnumValueOrDefault(
                   key,
                   com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-                      .Internal_ClosureEnum.toClosureValue(defaultValue)));
+                      .Internal_ClosureEnum.toClosureValue(defaultValue)),
+              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
     }
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyEnumValueMap")
@@ -1779,7 +1794,8 @@ public final class Maps {
           internal_getUint32KeyEnumValueMap(),
           (d) ->
               com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-                  .Internal_ClosureEnum.toEnum(d));
+                  .Internal_ClosureEnum.toEnum(
+                  d, com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN));
     }
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyMessageValueCount")
@@ -2160,7 +2176,9 @@ public final class Maps {
     public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
         getStringKeyEnumValueOrThrow(java.lang.String key) {
       return com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.Internal_ClosureEnum
-          .toEnum(internal_getStringKeyEnumValueOrThrow(key));
+          .toEnum(
+              internal_getStringKeyEnumValueOrThrow(key),
+              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
     }
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyEnumValueOrDefault")
@@ -2180,7 +2198,8 @@ public final class Maps {
               internal_getStringKeyEnumValueOrDefault(
                   key,
                   com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-                      .Internal_ClosureEnum.toClosureValue(defaultValue)));
+                      .Internal_ClosureEnum.toClosureValue(defaultValue)),
+              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
     }
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyEnumValueMap")
@@ -2196,7 +2215,8 @@ public final class Maps {
           internal_getStringKeyEnumValueMap(),
           (d) ->
               com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-                  .Internal_ClosureEnum.toEnum(d));
+                  .Internal_ClosureEnum.toEnum(
+                  d, com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN));
     }
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyMessageValueCount")
@@ -2566,7 +2586,9 @@ public final class Maps {
     public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
         getBoolKeyEnumValueOrThrow(boolean key) {
       return com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.Internal_ClosureEnum
-          .toEnum(internal_getBoolKeyEnumValueOrThrow(key));
+          .toEnum(
+              internal_getBoolKeyEnumValueOrThrow(key),
+              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
     }
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyEnumValueOrDefault")
@@ -2586,7 +2608,8 @@ public final class Maps {
               internal_getBoolKeyEnumValueOrDefault(
                   key,
                   com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-                      .Internal_ClosureEnum.toClosureValue(defaultValue)));
+                      .Internal_ClosureEnum.toClosureValue(defaultValue)),
+              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
     }
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyEnumValueMap")
@@ -2602,7 +2625,8 @@ public final class Maps {
           internal_getBoolKeyEnumValueMap(),
           (d) ->
               com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-                  .Internal_ClosureEnum.toEnum(d));
+                  .Internal_ClosureEnum.toEnum(
+                  d, com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN));
     }
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyMessageValueCount")
@@ -3164,7 +3188,9 @@ public final class Maps {
       public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
           getInt32KeyEnumValueOrThrow(int key) {
         return com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-            .Internal_ClosureEnum.toEnum(internal_getInt32KeyEnumValueOrThrow(key));
+            .Internal_ClosureEnum.toEnum(
+            internal_getInt32KeyEnumValueOrThrow(key),
+            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
       }
 
       @jsinterop.annotations.JsMethod(name = "getInt32KeyEnumValueOrDefault")
@@ -3185,7 +3211,8 @@ public final class Maps {
             internal_getInt32KeyEnumValueOrDefault(
                 key,
                 com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-                    .Internal_ClosureEnum.toClosureValue(defaultValue)));
+                    .Internal_ClosureEnum.toClosureValue(defaultValue)),
+            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
       }
 
       @jsinterop.annotations.JsMethod(name = "getInt32KeyEnumValueMap")
@@ -3201,7 +3228,8 @@ public final class Maps {
             internal_getInt32KeyEnumValueMap(),
             (d) ->
                 com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-                    .Internal_ClosureEnum.toEnum(d));
+                    .Internal_ClosureEnum.toEnum(
+                    d, com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN));
       }
 
       @jsinterop.annotations.JsMethod(name = "clearInt32KeyEnumValue")
@@ -3800,7 +3828,9 @@ public final class Maps {
       public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
           getInt64KeyEnumValueOrThrow(long key) {
         return com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-            .Internal_ClosureEnum.toEnum(internal_getInt64KeyEnumValueOrThrow(key));
+            .Internal_ClosureEnum.toEnum(
+            internal_getInt64KeyEnumValueOrThrow(key),
+            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
       }
 
       @jsinterop.annotations.JsMethod(name = "getInt64KeyEnumValueOrDefault")
@@ -3821,7 +3851,8 @@ public final class Maps {
             internal_getInt64KeyEnumValueOrDefault(
                 key,
                 com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-                    .Internal_ClosureEnum.toClosureValue(defaultValue)));
+                    .Internal_ClosureEnum.toClosureValue(defaultValue)),
+            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
       }
 
       @jsinterop.annotations.JsMethod(name = "getInt64KeyEnumValueMap")
@@ -3837,7 +3868,8 @@ public final class Maps {
             internal_getInt64KeyEnumValueMap(),
             (d) ->
                 com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-                    .Internal_ClosureEnum.toEnum(d));
+                    .Internal_ClosureEnum.toEnum(
+                    d, com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN));
       }
 
       @jsinterop.annotations.JsMethod(name = "clearInt64KeyEnumValue")
@@ -4439,7 +4471,9 @@ public final class Maps {
       public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
           getUint64KeyEnumValueOrThrow(long key) {
         return com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-            .Internal_ClosureEnum.toEnum(internal_getUint64KeyEnumValueOrThrow(key));
+            .Internal_ClosureEnum.toEnum(
+            internal_getUint64KeyEnumValueOrThrow(key),
+            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
       }
 
       @jsinterop.annotations.JsMethod(name = "getUint64KeyEnumValueOrDefault")
@@ -4460,7 +4494,8 @@ public final class Maps {
             internal_getUint64KeyEnumValueOrDefault(
                 key,
                 com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-                    .Internal_ClosureEnum.toClosureValue(defaultValue)));
+                    .Internal_ClosureEnum.toClosureValue(defaultValue)),
+            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
       }
 
       @jsinterop.annotations.JsMethod(name = "getUint64KeyEnumValueMap")
@@ -4476,7 +4511,8 @@ public final class Maps {
             internal_getUint64KeyEnumValueMap(),
             (d) ->
                 com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-                    .Internal_ClosureEnum.toEnum(d));
+                    .Internal_ClosureEnum.toEnum(
+                    d, com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN));
       }
 
       @jsinterop.annotations.JsMethod(name = "clearUint64KeyEnumValue")
@@ -5076,7 +5112,9 @@ public final class Maps {
       public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
           getUint32KeyEnumValueOrThrow(int key) {
         return com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-            .Internal_ClosureEnum.toEnum(internal_getUint32KeyEnumValueOrThrow(key));
+            .Internal_ClosureEnum.toEnum(
+            internal_getUint32KeyEnumValueOrThrow(key),
+            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
       }
 
       @jsinterop.annotations.JsMethod(name = "getUint32KeyEnumValueOrDefault")
@@ -5097,7 +5135,8 @@ public final class Maps {
             internal_getUint32KeyEnumValueOrDefault(
                 key,
                 com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-                    .Internal_ClosureEnum.toClosureValue(defaultValue)));
+                    .Internal_ClosureEnum.toClosureValue(defaultValue)),
+            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
       }
 
       @jsinterop.annotations.JsMethod(name = "getUint32KeyEnumValueMap")
@@ -5113,7 +5152,8 @@ public final class Maps {
             internal_getUint32KeyEnumValueMap(),
             (d) ->
                 com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-                    .Internal_ClosureEnum.toEnum(d));
+                    .Internal_ClosureEnum.toEnum(
+                    d, com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN));
       }
 
       @jsinterop.annotations.JsMethod(name = "clearUint32KeyEnumValue")
@@ -5724,7 +5764,9 @@ public final class Maps {
       public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
           getStringKeyEnumValueOrThrow(java.lang.String key) {
         return com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-            .Internal_ClosureEnum.toEnum(internal_getStringKeyEnumValueOrThrow(key));
+            .Internal_ClosureEnum.toEnum(
+            internal_getStringKeyEnumValueOrThrow(key),
+            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
       }
 
       @jsinterop.annotations.JsMethod(name = "getStringKeyEnumValueOrDefault")
@@ -5745,7 +5787,8 @@ public final class Maps {
             internal_getStringKeyEnumValueOrDefault(
                 key,
                 com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-                    .Internal_ClosureEnum.toClosureValue(defaultValue)));
+                    .Internal_ClosureEnum.toClosureValue(defaultValue)),
+            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
       }
 
       @jsinterop.annotations.JsMethod(name = "getStringKeyEnumValueMap")
@@ -5761,7 +5804,8 @@ public final class Maps {
             internal_getStringKeyEnumValueMap(),
             (d) ->
                 com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-                    .Internal_ClosureEnum.toEnum(d));
+                    .Internal_ClosureEnum.toEnum(
+                    d, com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN));
       }
 
       @jsinterop.annotations.JsMethod(name = "clearStringKeyEnumValue")
@@ -6365,7 +6409,9 @@ public final class Maps {
       public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
           getBoolKeyEnumValueOrThrow(boolean key) {
         return com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-            .Internal_ClosureEnum.toEnum(internal_getBoolKeyEnumValueOrThrow(key));
+            .Internal_ClosureEnum.toEnum(
+            internal_getBoolKeyEnumValueOrThrow(key),
+            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
       }
 
       @jsinterop.annotations.JsMethod(name = "getBoolKeyEnumValueOrDefault")
@@ -6386,7 +6432,8 @@ public final class Maps {
             internal_getBoolKeyEnumValueOrDefault(
                 key,
                 com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-                    .Internal_ClosureEnum.toClosureValue(defaultValue)));
+                    .Internal_ClosureEnum.toClosureValue(defaultValue)),
+            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
       }
 
       @jsinterop.annotations.JsMethod(name = "getBoolKeyEnumValueMap")
@@ -6402,7 +6449,8 @@ public final class Maps {
             internal_getBoolKeyEnumValueMap(),
             (d) ->
                 com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-                    .Internal_ClosureEnum.toEnum(d));
+                    .Internal_ClosureEnum.toEnum(
+                    d, com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN));
       }
 
       @jsinterop.annotations.JsMethod(name = "clearBoolKeyEnumValue")
