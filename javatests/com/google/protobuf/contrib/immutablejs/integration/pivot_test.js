@@ -19,8 +19,10 @@ const MutablePivot = goog.require('proto.protobuf.contrib.immutablejs.protos.Piv
 const MutablePivotWithoutMessageId = goog.require('proto.protobuf.contrib.immutablejs.protos.PivotWithoutMessageId');
 const MutablePivotWithoutMessageIdAndExtension = goog.require('proto.protobuf.contrib.immutablejs.protos.PivotWithoutMessageIdAndExtension');
 const Pivot = goog.require('improto.protobuf.contrib.immutablejs.protos.Pivot');
+const PivotOnlyExtensions = goog.require('improto.protobuf.contrib.immutablejs.protos.PivotOnlyExtensions');
 const PivotWithoutMessageId = goog.require('improto.protobuf.contrib.immutablejs.protos.PivotWithoutMessageId');
 const PivotWithoutMessageIdAndExtension = goog.require('improto.protobuf.contrib.immutablejs.protos.PivotWithoutMessageIdAndExtension');
+const PivotWithoutMessageIdOnlyExtensions = goog.require('improto.protobuf.contrib.immutablejs.protos.PivotWithoutMessageIdOnlyExtensions');
 const mutablePivotExtension = goog.require('proto.protobuf.contrib.immutablejs.protos.pivotExtension');
 const mutablePivotNoMsgidExtension = goog.require('proto.protobuf.contrib.immutablejs.protos.pivotNoMsgidExtension');
 const pivot = goog.require('improto.protobuf.contrib.immutablejs.protos.pivot');
@@ -109,6 +111,20 @@ class PivotTest {
     const p = PivotWithoutMessageIdAndExtension.parse(serialized);
     assertEqualsForProto('parent1', p.getPayload());
     assertEqualsForProto('parent2', p.getPayload2());
+  }
+
+  testSerialize_onlyExtensions() {
+    const m = PivotOnlyExtensions.newBuilder()
+                  .setExtension(pivot.onlyExtensionsExtension, 'foo')
+                  .build();
+    assertEquals(`["my_message_id",{"1":"foo"}]`, m.serialize());
+  }
+
+  testSerialize_onlyExtensionsWithoutMessageId() {
+    const m = PivotWithoutMessageIdOnlyExtensions.newBuilder()
+                  .setExtension(pivot.noMsgidOnlyExtensionsExtension, 'foo')
+                  .build();
+    assertEquals(`[{"1":"foo"}]`, m.serialize());
   }
 
   testInteropWithAppsJspb_fromImmutable() {

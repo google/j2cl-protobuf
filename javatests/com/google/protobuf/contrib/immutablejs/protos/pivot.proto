@@ -36,10 +36,27 @@ message PivotWithoutMessageIdAndExtension {
   optional string payload2 = 501;  // Passes beyond default pivot.
 }
 
+message PivotOnlyExtensions {
+
+  extensions 1 to max;
+}
+
+message PivotWithoutMessageIdOnlyExtensions {
+  extensions 1 to max;
+}
+
 extend Pivot {
   optional Pivot pivot_extension = 1000;
 }
 
 extend PivotWithoutMessageId {
   optional PivotWithoutMessageId pivot_no_msgid_extension = 1000;
+}
+
+extend PivotOnlyExtensions {
+  optional string only_extensions_extension = 1;
+}
+
+extend PivotWithoutMessageIdOnlyExtensions {
+  optional string no_msgid_only_extensions_extension = 1;
 }

@@ -20,7 +20,6 @@ import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
 import com.google.protobuf.Descriptors.Descriptor;
 import com.google.protobuf.Descriptors.FieldDescriptor;
-import java.util.Optional;
 import java.util.stream.Stream;
 
 /** Represents a protocol message */
@@ -88,19 +87,18 @@ public abstract class TemplateMessageDescriptor {
   public int getPivot() {
     int defaultPivot = 500;
 
-    // find max field number
-    Optional<Integer> optionalMaxField =
-        descriptor().getFields().stream().map(FieldDescriptor::getNumber).max(Integer::compare);
-
-    if (!optionalMaxField.isPresent()) {
-      return defaultPivot;
-    }
-
-    int maxField = optionalMaxField.get();
+    // find max field number, or 0 if there is none.
+    int maxField =
+        descriptor().getFields().stream()
+            .map(FieldDescriptor::getNumber)
+            .max(Integer::compare)
+            .orElse(0);
     if (descriptor().isExtendable() || maxField >= defaultPivot) {
       return Math.min(maxField + 1, defaultPivot);
     }
 
+    // We don't have a suggested pivot this message as it's not extendable and its max field number
+    // is smaller than the default pivot.
     return -1;
   }
 
