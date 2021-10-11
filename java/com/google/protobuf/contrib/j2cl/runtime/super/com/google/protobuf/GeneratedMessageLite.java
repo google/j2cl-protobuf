@@ -344,6 +344,18 @@ public abstract class GeneratedMessageLite<
           });
     }
 
+    public static final <T> List<Integer> createIntList(final ListView<T> listView) {
+      return createList(listView, INT_TYPE_CONVERTER);
+    }
+
+    public static final <T> List<Long> createLongList(final ListView<T> listView) {
+      return createList(listView, LONG_TYPE_CONVERTER);
+    }
+
+    public static final <T> List<Float> createFloatList(final ListView<T> listView) {
+      return createList(listView, FLOAT_TYPE_CONVERTER);
+    }
+
     /** Immutable JS proto's representation of a map field. */
     @JsType(isNative = true, namespace = "proto.im")
     public interface MapView<K, V> {
@@ -504,6 +516,21 @@ public abstract class GeneratedMessageLite<
       return createMap(mapView, noopConverter(), noopConverter(), valueConverter);
     }
 
+    public static final <JS_VALUE> Map<String, Float> createStringKeyedFloatMap(
+        MapView<String, JS_VALUE> mapView) {
+      return createMap(mapView, noopConverter(), noopConverter(), FLOAT_TYPE_CONVERTER);
+    }
+
+    public static final <JS_VALUE> Map<String, Integer> createStringKeyedIntMap(
+        MapView<String, JS_VALUE> mapView) {
+      return createMap(mapView, noopConverter(), noopConverter(), INT_TYPE_CONVERTER);
+    }
+
+    public static final <JS_VALUE> Map<String, Long> createStringKeyedLongMap(
+        MapView<String, JS_VALUE> mapView) {
+      return createMap(mapView, noopConverter(), noopConverter(), LONG_TYPE_CONVERTER);
+    }
+
     public static final <V> Map<String, V> createStringKeyedMap(MapView<String, V> mapView) {
       return createStringKeyedMap(mapView, noopConverter());
     }
@@ -511,6 +538,21 @@ public abstract class GeneratedMessageLite<
     public static final <JS_VALUE, JAVA_VALUE> Map<Integer, JAVA_VALUE> createIntKeyedMap(
         MapView<?, JS_VALUE> mapView, TypeConverter<? super JS_VALUE, JAVA_VALUE> valueConverter) {
       return createMap(mapView, INT_TYPE_CONVERTER, INT_WRITE_TYPE_CONVERTER, valueConverter);
+    }
+
+    public static final <JS_VALUE> Map<Integer, Float> createIntKeyedFloatMap(
+        MapView<?, JS_VALUE> mapView) {
+      return createMap(mapView, INT_TYPE_CONVERTER, INT_WRITE_TYPE_CONVERTER, FLOAT_TYPE_CONVERTER);
+    }
+
+    public static final <JS_VALUE> Map<Integer, Integer> createIntKeyedIntMap(
+        MapView<?, JS_VALUE> mapView) {
+      return createMap(mapView, INT_TYPE_CONVERTER, INT_WRITE_TYPE_CONVERTER, INT_TYPE_CONVERTER);
+    }
+
+    public static final <JS_VALUE> Map<Integer, Long> createIntKeyedLongMap(
+        MapView<?, JS_VALUE> mapView) {
+      return createMap(mapView, INT_TYPE_CONVERTER, INT_WRITE_TYPE_CONVERTER, LONG_TYPE_CONVERTER);
     }
 
     public static final <V> Map<Integer, V> createIntKeyedMap(MapView<?, V> mapView) {
@@ -522,6 +564,23 @@ public abstract class GeneratedMessageLite<
       return createMap(mapView, LONG_TYPE_CONVERTER, LONG_WRITE_TYPE_CONVERTER, valueConverter);
     }
 
+    public static final <JS_VALUE> Map<Long, Float> createLongKeyedFloatMap(
+        MapView<?, JS_VALUE> mapView) {
+      return createMap(
+          mapView, LONG_TYPE_CONVERTER, LONG_WRITE_TYPE_CONVERTER, FLOAT_TYPE_CONVERTER);
+    }
+
+    public static final <JS_VALUE> Map<Long, Integer> createLongKeyedIntMap(
+        MapView<?, JS_VALUE> mapView) {
+      return createMap(mapView, LONG_TYPE_CONVERTER, LONG_WRITE_TYPE_CONVERTER, INT_TYPE_CONVERTER);
+    }
+
+    public static final <JS_VALUE> Map<Long, Long> createLongKeyedLongMap(
+        MapView<?, JS_VALUE> mapView) {
+      return createMap(
+          mapView, LONG_TYPE_CONVERTER, LONG_WRITE_TYPE_CONVERTER, LONG_TYPE_CONVERTER);
+    }
+
     public static final <V> Map<Long, V> createLongKeyedMap(MapView<?, V> mapView) {
       return createLongKeyedMap(mapView, noopConverter());
     }
@@ -530,6 +589,21 @@ public abstract class GeneratedMessageLite<
         MapView<Boolean, JS_VALUE> mapView,
         TypeConverter<? super JS_VALUE, JAVA_VALUE> valueConverter) {
       return createMap(mapView, noopConverter(), noopConverter(), valueConverter);
+    }
+
+    public static final <JS_VALUE> Map<Boolean, Float> createBooleanKeyedFloatMap(
+        MapView<Boolean, JS_VALUE> mapView) {
+      return createMap(mapView, noopConverter(), noopConverter(), FLOAT_TYPE_CONVERTER);
+    }
+
+    public static final <JS_VALUE> Map<Boolean, Integer> createBooleanKeyedIntMap(
+        MapView<Boolean, JS_VALUE> mapView) {
+      return createMap(mapView, noopConverter(), noopConverter(), INT_TYPE_CONVERTER);
+    }
+
+    public static final <JS_VALUE> Map<Boolean, Long> createBooleanKeyedLongMap(
+        MapView<Boolean, JS_VALUE> mapView) {
+      return createMap(mapView, noopConverter(), noopConverter(), LONG_TYPE_CONVERTER);
     }
 
     public static final <V> Map<Boolean, V> createBooleanKeyedMap(MapView<Boolean, V> mapView) {

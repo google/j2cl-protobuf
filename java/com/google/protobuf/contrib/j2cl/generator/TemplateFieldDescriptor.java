@@ -18,7 +18,6 @@ import static com.google.common.base.Strings.nullToEmpty;
 import static com.google.protobuf.contrib.immutablejs.generator.SourceCodeEscapers.javaCharEscaper;
 
 import com.google.auto.value.AutoValue;
-import com.google.common.base.Ascii;
 import com.google.common.base.Defaults;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.Descriptors.EnumValueDescriptor;
@@ -84,6 +83,17 @@ public abstract class TemplateFieldDescriptor {
 
   public abstract String getUnboxedType();
 
+  public String stemForConvertedFields() {
+    switch (getUnboxedType()) {
+      case "float":
+      case "int":
+      case "long":
+        return stem();
+      default:
+        return "";
+    }
+  }
+
   public boolean isRepeated() {
     return fieldDescriptor().isRepeated() && !isMap();
   }
@@ -146,17 +156,6 @@ public abstract class TemplateFieldDescriptor {
     return getBoxedType().equals(getUnboxedType());
   }
 
-  public boolean needsConversion() {
-    switch (getUnboxedType()) {
-      case "float":
-      case "int":
-      case "long":
-        return true;
-      default:
-        return isEnum();
-    }
-  }
-
   public String getDefaultValue() {
     Object defaultValue =
         fieldDescriptor().hasDefaultValue() ? fieldDescriptor().getDefaultValue() : null;
@@ -205,17 +204,26 @@ public abstract class TemplateFieldDescriptor {
     return needsConversion() ? "java.lang.Object" : getBoxedType();
   }
 
+  private boolean needsConversion() {
+    return !stemForConvertedFields().isEmpty() || isEnum();
+  }
+
   public String getFieldConverter() {
-    if (!needsConversion()) {
-      return "";
-    } else if (isEnum()) {
+    if (isEnum()) {
       return String.format(
-          "(d) -> %s.Internal_ClosureEnum.toEnum(d, %s)", getUnboxedType(), getDefaultValue());
-    } else {
-      return String.format(
-          "com.google.protobuf.GeneratedMessageLite.Internal_.%s_TYPE_CONVERTER",
-          Ascii.toUpperCase(getUnboxedType()));
+          ", (d) -> %s.Internal_ClosureEnum.toEnum(d, %s)", getUnboxedType(), getDefaultValue());
     }
+    return "";
+  }
+
+  public String getExtensionFieldConverter() {
+    if (isEnum()) {
+      String enumReadConverter = getFieldConverter();
+      String enumWriteConverter =
+          String.format("v -> %s.Internal_ClosureEnum.toClosureValue(v)", getUnboxedType());
+      return String.format("%s, %s", enumReadConverter, enumWriteConverter);
+    }
+    return "";
   }
 
   public TemplateFieldDescriptor getKeyField() {

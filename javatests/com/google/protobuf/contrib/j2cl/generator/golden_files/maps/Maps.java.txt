@@ -267,9 +267,8 @@ public final class Maps {
 
     @jsinterop.annotations.JsOverlay
     public final java.util.Map<java.lang.Integer, java.lang.Integer> getInt32KeyInt32ValueMap() {
-      return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedMap(
-          internal_getInt32KeyInt32ValueMap(),
-          com.google.protobuf.GeneratedMessageLite.Internal_.INT_TYPE_CONVERTER);
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedIntMap(
+          internal_getInt32KeyInt32ValueMap());
     }
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyInt64ValueCount")
@@ -301,9 +300,8 @@ public final class Maps {
 
     @jsinterop.annotations.JsOverlay
     public final java.util.Map<java.lang.Integer, java.lang.Long> getInt32KeyInt64ValueMap() {
-      return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedMap(
-          internal_getInt32KeyInt64ValueMap(),
-          com.google.protobuf.GeneratedMessageLite.Internal_.LONG_TYPE_CONVERTER);
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedLongMap(
+          internal_getInt32KeyInt64ValueMap());
     }
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyFloatValueCount")
@@ -335,9 +333,8 @@ public final class Maps {
 
     @jsinterop.annotations.JsOverlay
     public final java.util.Map<java.lang.Integer, java.lang.Float> getInt32KeyFloatValueMap() {
-      return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedMap(
-          internal_getInt32KeyFloatValueMap(),
-          com.google.protobuf.GeneratedMessageLite.Internal_.FLOAT_TYPE_CONVERTER);
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedFloatMap(
+          internal_getInt32KeyFloatValueMap());
     }
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyDoubleValueCount")
@@ -473,9 +470,8 @@ public final class Maps {
 
     @jsinterop.annotations.JsOverlay
     public final java.util.Map<java.lang.Integer, java.lang.Integer> getInt32KeyUint32ValueMap() {
-      return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedMap(
-          internal_getInt32KeyUint32ValueMap(),
-          com.google.protobuf.GeneratedMessageLite.Internal_.INT_TYPE_CONVERTER);
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedIntMap(
+          internal_getInt32KeyUint32ValueMap());
     }
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyUint64ValueCount")
@@ -507,9 +503,8 @@ public final class Maps {
 
     @jsinterop.annotations.JsOverlay
     public final java.util.Map<java.lang.Integer, java.lang.Long> getInt32KeyUint64ValueMap() {
-      return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedMap(
-          internal_getInt32KeyUint64ValueMap(),
-          com.google.protobuf.GeneratedMessageLite.Internal_.LONG_TYPE_CONVERTER);
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedLongMap(
+          internal_getInt32KeyUint64ValueMap());
     }
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyEnumValueCount")
@@ -677,9 +672,8 @@ public final class Maps {
 
     @jsinterop.annotations.JsOverlay
     public final java.util.Map<java.lang.Long, java.lang.Integer> getInt64KeyInt32ValueMap() {
-      return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedMap(
-          internal_getInt64KeyInt32ValueMap(),
-          com.google.protobuf.GeneratedMessageLite.Internal_.INT_TYPE_CONVERTER);
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedIntMap(
+          internal_getInt64KeyInt32ValueMap());
     }
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyInt64ValueCount")
@@ -711,9 +705,8 @@ public final class Maps {
 
     @jsinterop.annotations.JsOverlay
     public final java.util.Map<java.lang.Long, java.lang.Long> getInt64KeyInt64ValueMap() {
-      return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedMap(
-          internal_getInt64KeyInt64ValueMap(),
-          com.google.protobuf.GeneratedMessageLite.Internal_.LONG_TYPE_CONVERTER);
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedLongMap(
+          internal_getInt64KeyInt64ValueMap());
     }
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyFloatValueCount")
@@ -745,9 +738,8 @@ public final class Maps {
 
     @jsinterop.annotations.JsOverlay
     public final java.util.Map<java.lang.Long, java.lang.Float> getInt64KeyFloatValueMap() {
-      return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedMap(
-          internal_getInt64KeyFloatValueMap(),
-          com.google.protobuf.GeneratedMessageLite.Internal_.FLOAT_TYPE_CONVERTER);
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedFloatMap(
+          internal_getInt64KeyFloatValueMap());
     }
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyDoubleValueCount")
@@ -883,9 +875,8 @@ public final class Maps {
 
     @jsinterop.annotations.JsOverlay
     public final java.util.Map<java.lang.Long, java.lang.Integer> getInt64KeyUint32ValueMap() {
-      return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedMap(
-          internal_getInt64KeyUint32ValueMap(),
-          com.google.protobuf.GeneratedMessageLite.Internal_.INT_TYPE_CONVERTER);
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedIntMap(
+          internal_getInt64KeyUint32ValueMap());
     }
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyUint64ValueCount")
@@ -917,9 +908,8 @@ public final class Maps {
 
     @jsinterop.annotations.JsOverlay
     public final java.util.Map<java.lang.Long, java.lang.Long> getInt64KeyUint64ValueMap() {
-      return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedMap(
-          internal_getInt64KeyUint64ValueMap(),
-          com.google.protobuf.GeneratedMessageLite.Internal_.LONG_TYPE_CONVERTER);
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedLongMap(
+          internal_getInt64KeyUint64ValueMap());
     }
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyEnumValueCount")
@@ -1086,9 +1076,8 @@ public final class Maps {
 
     @jsinterop.annotations.JsOverlay
     public final java.util.Map<java.lang.Long, java.lang.Integer> getUint64KeyInt32ValueMap() {
-      return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedMap(
-          internal_getUint64KeyInt32ValueMap(),
-          com.google.protobuf.GeneratedMessageLite.Internal_.INT_TYPE_CONVERTER);
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedIntMap(
+          internal_getUint64KeyInt32ValueMap());
     }
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyInt64ValueCount")
@@ -1120,9 +1109,8 @@ public final class Maps {
 
     @jsinterop.annotations.JsOverlay
     public final java.util.Map<java.lang.Long, java.lang.Long> getUint64KeyInt64ValueMap() {
-      return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedMap(
-          internal_getUint64KeyInt64ValueMap(),
-          com.google.protobuf.GeneratedMessageLite.Internal_.LONG_TYPE_CONVERTER);
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedLongMap(
+          internal_getUint64KeyInt64ValueMap());
     }
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyFloatValueCount")
@@ -1154,9 +1142,8 @@ public final class Maps {
 
     @jsinterop.annotations.JsOverlay
     public final java.util.Map<java.lang.Long, java.lang.Float> getUint64KeyFloatValueMap() {
-      return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedMap(
-          internal_getUint64KeyFloatValueMap(),
-          com.google.protobuf.GeneratedMessageLite.Internal_.FLOAT_TYPE_CONVERTER);
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedFloatMap(
+          internal_getUint64KeyFloatValueMap());
     }
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyDoubleValueCount")
@@ -1292,9 +1279,8 @@ public final class Maps {
 
     @jsinterop.annotations.JsOverlay
     public final java.util.Map<java.lang.Long, java.lang.Integer> getUint64KeyUint32ValueMap() {
-      return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedMap(
-          internal_getUint64KeyUint32ValueMap(),
-          com.google.protobuf.GeneratedMessageLite.Internal_.INT_TYPE_CONVERTER);
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedIntMap(
+          internal_getUint64KeyUint32ValueMap());
     }
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyUint64ValueCount")
@@ -1326,9 +1312,8 @@ public final class Maps {
 
     @jsinterop.annotations.JsOverlay
     public final java.util.Map<java.lang.Long, java.lang.Long> getUint64KeyUint64ValueMap() {
-      return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedMap(
-          internal_getUint64KeyUint64ValueMap(),
-          com.google.protobuf.GeneratedMessageLite.Internal_.LONG_TYPE_CONVERTER);
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedLongMap(
+          internal_getUint64KeyUint64ValueMap());
     }
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyEnumValueCount")
@@ -1495,9 +1480,8 @@ public final class Maps {
 
     @jsinterop.annotations.JsOverlay
     public final java.util.Map<java.lang.Integer, java.lang.Integer> getUint32KeyInt32ValueMap() {
-      return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedMap(
-          internal_getUint32KeyInt32ValueMap(),
-          com.google.protobuf.GeneratedMessageLite.Internal_.INT_TYPE_CONVERTER);
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedIntMap(
+          internal_getUint32KeyInt32ValueMap());
     }
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyInt64ValueCount")
@@ -1529,9 +1513,8 @@ public final class Maps {
 
     @jsinterop.annotations.JsOverlay
     public final java.util.Map<java.lang.Integer, java.lang.Long> getUint32KeyInt64ValueMap() {
-      return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedMap(
-          internal_getUint32KeyInt64ValueMap(),
-          com.google.protobuf.GeneratedMessageLite.Internal_.LONG_TYPE_CONVERTER);
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedLongMap(
+          internal_getUint32KeyInt64ValueMap());
     }
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyFloatValueCount")
@@ -1563,9 +1546,8 @@ public final class Maps {
 
     @jsinterop.annotations.JsOverlay
     public final java.util.Map<java.lang.Integer, java.lang.Float> getUint32KeyFloatValueMap() {
-      return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedMap(
-          internal_getUint32KeyFloatValueMap(),
-          com.google.protobuf.GeneratedMessageLite.Internal_.FLOAT_TYPE_CONVERTER);
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedFloatMap(
+          internal_getUint32KeyFloatValueMap());
     }
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyDoubleValueCount")
@@ -1701,9 +1683,8 @@ public final class Maps {
 
     @jsinterop.annotations.JsOverlay
     public final java.util.Map<java.lang.Integer, java.lang.Integer> getUint32KeyUint32ValueMap() {
-      return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedMap(
-          internal_getUint32KeyUint32ValueMap(),
-          com.google.protobuf.GeneratedMessageLite.Internal_.INT_TYPE_CONVERTER);
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedIntMap(
+          internal_getUint32KeyUint32ValueMap());
     }
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyUint64ValueCount")
@@ -1735,9 +1716,8 @@ public final class Maps {
 
     @jsinterop.annotations.JsOverlay
     public final java.util.Map<java.lang.Integer, java.lang.Long> getUint32KeyUint64ValueMap() {
-      return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedMap(
-          internal_getUint32KeyUint64ValueMap(),
-          com.google.protobuf.GeneratedMessageLite.Internal_.LONG_TYPE_CONVERTER);
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedLongMap(
+          internal_getUint32KeyUint64ValueMap());
     }
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyEnumValueCount")
@@ -1908,9 +1888,8 @@ public final class Maps {
 
     @jsinterop.annotations.JsOverlay
     public final java.util.Map<java.lang.String, java.lang.Integer> getStringKeyInt32ValueMap() {
-      return com.google.protobuf.GeneratedMessageLite.Internal_.createStringKeyedMap(
-          internal_getStringKeyInt32ValueMap(),
-          com.google.protobuf.GeneratedMessageLite.Internal_.INT_TYPE_CONVERTER);
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createStringKeyedIntMap(
+          internal_getStringKeyInt32ValueMap());
     }
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyInt64ValueCount")
@@ -1943,9 +1922,8 @@ public final class Maps {
 
     @jsinterop.annotations.JsOverlay
     public final java.util.Map<java.lang.String, java.lang.Long> getStringKeyInt64ValueMap() {
-      return com.google.protobuf.GeneratedMessageLite.Internal_.createStringKeyedMap(
-          internal_getStringKeyInt64ValueMap(),
-          com.google.protobuf.GeneratedMessageLite.Internal_.LONG_TYPE_CONVERTER);
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createStringKeyedLongMap(
+          internal_getStringKeyInt64ValueMap());
     }
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyFloatValueCount")
@@ -1978,9 +1956,8 @@ public final class Maps {
 
     @jsinterop.annotations.JsOverlay
     public final java.util.Map<java.lang.String, java.lang.Float> getStringKeyFloatValueMap() {
-      return com.google.protobuf.GeneratedMessageLite.Internal_.createStringKeyedMap(
-          internal_getStringKeyFloatValueMap(),
-          com.google.protobuf.GeneratedMessageLite.Internal_.FLOAT_TYPE_CONVERTER);
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createStringKeyedFloatMap(
+          internal_getStringKeyFloatValueMap());
     }
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyDoubleValueCount")
@@ -2121,9 +2098,8 @@ public final class Maps {
 
     @jsinterop.annotations.JsOverlay
     public final java.util.Map<java.lang.String, java.lang.Integer> getStringKeyUint32ValueMap() {
-      return com.google.protobuf.GeneratedMessageLite.Internal_.createStringKeyedMap(
-          internal_getStringKeyUint32ValueMap(),
-          com.google.protobuf.GeneratedMessageLite.Internal_.INT_TYPE_CONVERTER);
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createStringKeyedIntMap(
+          internal_getStringKeyUint32ValueMap());
     }
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyUint64ValueCount")
@@ -2156,9 +2132,8 @@ public final class Maps {
 
     @jsinterop.annotations.JsOverlay
     public final java.util.Map<java.lang.String, java.lang.Long> getStringKeyUint64ValueMap() {
-      return com.google.protobuf.GeneratedMessageLite.Internal_.createStringKeyedMap(
-          internal_getStringKeyUint64ValueMap(),
-          com.google.protobuf.GeneratedMessageLite.Internal_.LONG_TYPE_CONVERTER);
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createStringKeyedLongMap(
+          internal_getStringKeyUint64ValueMap());
     }
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyEnumValueCount")
@@ -2326,9 +2301,8 @@ public final class Maps {
 
     @jsinterop.annotations.JsOverlay
     public final java.util.Map<java.lang.Boolean, java.lang.Integer> getBoolKeyInt32ValueMap() {
-      return com.google.protobuf.GeneratedMessageLite.Internal_.createBooleanKeyedMap(
-          internal_getBoolKeyInt32ValueMap(),
-          com.google.protobuf.GeneratedMessageLite.Internal_.INT_TYPE_CONVERTER);
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createBooleanKeyedIntMap(
+          internal_getBoolKeyInt32ValueMap());
     }
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyInt64ValueCount")
@@ -2360,9 +2334,8 @@ public final class Maps {
 
     @jsinterop.annotations.JsOverlay
     public final java.util.Map<java.lang.Boolean, java.lang.Long> getBoolKeyInt64ValueMap() {
-      return com.google.protobuf.GeneratedMessageLite.Internal_.createBooleanKeyedMap(
-          internal_getBoolKeyInt64ValueMap(),
-          com.google.protobuf.GeneratedMessageLite.Internal_.LONG_TYPE_CONVERTER);
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createBooleanKeyedLongMap(
+          internal_getBoolKeyInt64ValueMap());
     }
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyFloatValueCount")
@@ -2394,9 +2367,8 @@ public final class Maps {
 
     @jsinterop.annotations.JsOverlay
     public final java.util.Map<java.lang.Boolean, java.lang.Float> getBoolKeyFloatValueMap() {
-      return com.google.protobuf.GeneratedMessageLite.Internal_.createBooleanKeyedMap(
-          internal_getBoolKeyFloatValueMap(),
-          com.google.protobuf.GeneratedMessageLite.Internal_.FLOAT_TYPE_CONVERTER);
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createBooleanKeyedFloatMap(
+          internal_getBoolKeyFloatValueMap());
     }
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyDoubleValueCount")
@@ -2532,9 +2504,8 @@ public final class Maps {
 
     @jsinterop.annotations.JsOverlay
     public final java.util.Map<java.lang.Boolean, java.lang.Integer> getBoolKeyUint32ValueMap() {
-      return com.google.protobuf.GeneratedMessageLite.Internal_.createBooleanKeyedMap(
-          internal_getBoolKeyUint32ValueMap(),
-          com.google.protobuf.GeneratedMessageLite.Internal_.INT_TYPE_CONVERTER);
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createBooleanKeyedIntMap(
+          internal_getBoolKeyUint32ValueMap());
     }
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyUint64ValueCount")
@@ -2566,9 +2537,8 @@ public final class Maps {
 
     @jsinterop.annotations.JsOverlay
     public final java.util.Map<java.lang.Boolean, java.lang.Long> getBoolKeyUint64ValueMap() {
-      return com.google.protobuf.GeneratedMessageLite.Internal_.createBooleanKeyedMap(
-          internal_getBoolKeyUint64ValueMap(),
-          com.google.protobuf.GeneratedMessageLite.Internal_.LONG_TYPE_CONVERTER);
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createBooleanKeyedLongMap(
+          internal_getBoolKeyUint64ValueMap());
     }
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyEnumValueCount")
@@ -2776,9 +2746,8 @@ public final class Maps {
 
       @jsinterop.annotations.JsOverlay
       public final java.util.Map<java.lang.Integer, java.lang.Integer> getInt32KeyInt32ValueMap() {
-        return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedMap(
-            internal_getInt32KeyInt32ValueMap(),
-            com.google.protobuf.GeneratedMessageLite.Internal_.INT_TYPE_CONVERTER);
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedIntMap(
+            internal_getInt32KeyInt32ValueMap());
       }
 
       @jsinterop.annotations.JsMethod(name = "clearInt32KeyInt32Value")
@@ -2829,9 +2798,8 @@ public final class Maps {
 
       @jsinterop.annotations.JsOverlay
       public final java.util.Map<java.lang.Integer, java.lang.Long> getInt32KeyInt64ValueMap() {
-        return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedMap(
-            internal_getInt32KeyInt64ValueMap(),
-            com.google.protobuf.GeneratedMessageLite.Internal_.LONG_TYPE_CONVERTER);
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedLongMap(
+            internal_getInt32KeyInt64ValueMap());
       }
 
       @jsinterop.annotations.JsMethod(name = "clearInt32KeyInt64Value")
@@ -2882,9 +2850,8 @@ public final class Maps {
 
       @jsinterop.annotations.JsOverlay
       public final java.util.Map<java.lang.Integer, java.lang.Float> getInt32KeyFloatValueMap() {
-        return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedMap(
-            internal_getInt32KeyFloatValueMap(),
-            com.google.protobuf.GeneratedMessageLite.Internal_.FLOAT_TYPE_CONVERTER);
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedFloatMap(
+            internal_getInt32KeyFloatValueMap());
       }
 
       @jsinterop.annotations.JsMethod(name = "clearInt32KeyFloatValue")
@@ -3096,9 +3063,8 @@ public final class Maps {
 
       @jsinterop.annotations.JsOverlay
       public final java.util.Map<java.lang.Integer, java.lang.Integer> getInt32KeyUint32ValueMap() {
-        return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedMap(
-            internal_getInt32KeyUint32ValueMap(),
-            com.google.protobuf.GeneratedMessageLite.Internal_.INT_TYPE_CONVERTER);
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedIntMap(
+            internal_getInt32KeyUint32ValueMap());
       }
 
       @jsinterop.annotations.JsMethod(name = "clearInt32KeyUint32Value")
@@ -3149,9 +3115,8 @@ public final class Maps {
 
       @jsinterop.annotations.JsOverlay
       public final java.util.Map<java.lang.Integer, java.lang.Long> getInt32KeyUint64ValueMap() {
-        return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedMap(
-            internal_getInt32KeyUint64ValueMap(),
-            com.google.protobuf.GeneratedMessageLite.Internal_.LONG_TYPE_CONVERTER);
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedLongMap(
+            internal_getInt32KeyUint64ValueMap());
       }
 
       @jsinterop.annotations.JsMethod(name = "clearInt32KeyUint64Value")
@@ -3416,9 +3381,8 @@ public final class Maps {
 
       @jsinterop.annotations.JsOverlay
       public final java.util.Map<java.lang.Long, java.lang.Integer> getInt64KeyInt32ValueMap() {
-        return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedMap(
-            internal_getInt64KeyInt32ValueMap(),
-            com.google.protobuf.GeneratedMessageLite.Internal_.INT_TYPE_CONVERTER);
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedIntMap(
+            internal_getInt64KeyInt32ValueMap());
       }
 
       @jsinterop.annotations.JsMethod(name = "clearInt64KeyInt32Value")
@@ -3469,9 +3433,8 @@ public final class Maps {
 
       @jsinterop.annotations.JsOverlay
       public final java.util.Map<java.lang.Long, java.lang.Long> getInt64KeyInt64ValueMap() {
-        return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedMap(
-            internal_getInt64KeyInt64ValueMap(),
-            com.google.protobuf.GeneratedMessageLite.Internal_.LONG_TYPE_CONVERTER);
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedLongMap(
+            internal_getInt64KeyInt64ValueMap());
       }
 
       @jsinterop.annotations.JsMethod(name = "clearInt64KeyInt64Value")
@@ -3522,9 +3485,8 @@ public final class Maps {
 
       @jsinterop.annotations.JsOverlay
       public final java.util.Map<java.lang.Long, java.lang.Float> getInt64KeyFloatValueMap() {
-        return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedMap(
-            internal_getInt64KeyFloatValueMap(),
-            com.google.protobuf.GeneratedMessageLite.Internal_.FLOAT_TYPE_CONVERTER);
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedFloatMap(
+            internal_getInt64KeyFloatValueMap());
       }
 
       @jsinterop.annotations.JsMethod(name = "clearInt64KeyFloatValue")
@@ -3736,9 +3698,8 @@ public final class Maps {
 
       @jsinterop.annotations.JsOverlay
       public final java.util.Map<java.lang.Long, java.lang.Integer> getInt64KeyUint32ValueMap() {
-        return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedMap(
-            internal_getInt64KeyUint32ValueMap(),
-            com.google.protobuf.GeneratedMessageLite.Internal_.INT_TYPE_CONVERTER);
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedIntMap(
+            internal_getInt64KeyUint32ValueMap());
       }
 
       @jsinterop.annotations.JsMethod(name = "clearInt64KeyUint32Value")
@@ -3789,9 +3750,8 @@ public final class Maps {
 
       @jsinterop.annotations.JsOverlay
       public final java.util.Map<java.lang.Long, java.lang.Long> getInt64KeyUint64ValueMap() {
-        return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedMap(
-            internal_getInt64KeyUint64ValueMap(),
-            com.google.protobuf.GeneratedMessageLite.Internal_.LONG_TYPE_CONVERTER);
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedLongMap(
+            internal_getInt64KeyUint64ValueMap());
       }
 
       @jsinterop.annotations.JsMethod(name = "clearInt64KeyUint64Value")
@@ -4057,9 +4017,8 @@ public final class Maps {
 
       @jsinterop.annotations.JsOverlay
       public final java.util.Map<java.lang.Long, java.lang.Integer> getUint64KeyInt32ValueMap() {
-        return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedMap(
-            internal_getUint64KeyInt32ValueMap(),
-            com.google.protobuf.GeneratedMessageLite.Internal_.INT_TYPE_CONVERTER);
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedIntMap(
+            internal_getUint64KeyInt32ValueMap());
       }
 
       @jsinterop.annotations.JsMethod(name = "clearUint64KeyInt32Value")
@@ -4110,9 +4069,8 @@ public final class Maps {
 
       @jsinterop.annotations.JsOverlay
       public final java.util.Map<java.lang.Long, java.lang.Long> getUint64KeyInt64ValueMap() {
-        return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedMap(
-            internal_getUint64KeyInt64ValueMap(),
-            com.google.protobuf.GeneratedMessageLite.Internal_.LONG_TYPE_CONVERTER);
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedLongMap(
+            internal_getUint64KeyInt64ValueMap());
       }
 
       @jsinterop.annotations.JsMethod(name = "clearUint64KeyInt64Value")
@@ -4163,9 +4121,8 @@ public final class Maps {
 
       @jsinterop.annotations.JsOverlay
       public final java.util.Map<java.lang.Long, java.lang.Float> getUint64KeyFloatValueMap() {
-        return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedMap(
-            internal_getUint64KeyFloatValueMap(),
-            com.google.protobuf.GeneratedMessageLite.Internal_.FLOAT_TYPE_CONVERTER);
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedFloatMap(
+            internal_getUint64KeyFloatValueMap());
       }
 
       @jsinterop.annotations.JsMethod(name = "clearUint64KeyFloatValue")
@@ -4379,9 +4336,8 @@ public final class Maps {
 
       @jsinterop.annotations.JsOverlay
       public final java.util.Map<java.lang.Long, java.lang.Integer> getUint64KeyUint32ValueMap() {
-        return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedMap(
-            internal_getUint64KeyUint32ValueMap(),
-            com.google.protobuf.GeneratedMessageLite.Internal_.INT_TYPE_CONVERTER);
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedIntMap(
+            internal_getUint64KeyUint32ValueMap());
       }
 
       @jsinterop.annotations.JsMethod(name = "clearUint64KeyUint32Value")
@@ -4432,9 +4388,8 @@ public final class Maps {
 
       @jsinterop.annotations.JsOverlay
       public final java.util.Map<java.lang.Long, java.lang.Long> getUint64KeyUint64ValueMap() {
-        return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedMap(
-            internal_getUint64KeyUint64ValueMap(),
-            com.google.protobuf.GeneratedMessageLite.Internal_.LONG_TYPE_CONVERTER);
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createLongKeyedLongMap(
+            internal_getUint64KeyUint64ValueMap());
       }
 
       @jsinterop.annotations.JsMethod(name = "clearUint64KeyUint64Value")
@@ -4699,9 +4654,8 @@ public final class Maps {
 
       @jsinterop.annotations.JsOverlay
       public final java.util.Map<java.lang.Integer, java.lang.Integer> getUint32KeyInt32ValueMap() {
-        return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedMap(
-            internal_getUint32KeyInt32ValueMap(),
-            com.google.protobuf.GeneratedMessageLite.Internal_.INT_TYPE_CONVERTER);
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedIntMap(
+            internal_getUint32KeyInt32ValueMap());
       }
 
       @jsinterop.annotations.JsMethod(name = "clearUint32KeyInt32Value")
@@ -4752,9 +4706,8 @@ public final class Maps {
 
       @jsinterop.annotations.JsOverlay
       public final java.util.Map<java.lang.Integer, java.lang.Long> getUint32KeyInt64ValueMap() {
-        return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedMap(
-            internal_getUint32KeyInt64ValueMap(),
-            com.google.protobuf.GeneratedMessageLite.Internal_.LONG_TYPE_CONVERTER);
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedLongMap(
+            internal_getUint32KeyInt64ValueMap());
       }
 
       @jsinterop.annotations.JsMethod(name = "clearUint32KeyInt64Value")
@@ -4805,9 +4758,8 @@ public final class Maps {
 
       @jsinterop.annotations.JsOverlay
       public final java.util.Map<java.lang.Integer, java.lang.Float> getUint32KeyFloatValueMap() {
-        return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedMap(
-            internal_getUint32KeyFloatValueMap(),
-            com.google.protobuf.GeneratedMessageLite.Internal_.FLOAT_TYPE_CONVERTER);
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedFloatMap(
+            internal_getUint32KeyFloatValueMap());
       }
 
       @jsinterop.annotations.JsMethod(name = "clearUint32KeyFloatValue")
@@ -5020,9 +4972,8 @@ public final class Maps {
       @jsinterop.annotations.JsOverlay
       public final java.util.Map<java.lang.Integer, java.lang.Integer>
           getUint32KeyUint32ValueMap() {
-        return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedMap(
-            internal_getUint32KeyUint32ValueMap(),
-            com.google.protobuf.GeneratedMessageLite.Internal_.INT_TYPE_CONVERTER);
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedIntMap(
+            internal_getUint32KeyUint32ValueMap());
       }
 
       @jsinterop.annotations.JsMethod(name = "clearUint32KeyUint32Value")
@@ -5073,9 +5024,8 @@ public final class Maps {
 
       @jsinterop.annotations.JsOverlay
       public final java.util.Map<java.lang.Integer, java.lang.Long> getUint32KeyUint64ValueMap() {
-        return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedMap(
-            internal_getUint32KeyUint64ValueMap(),
-            com.google.protobuf.GeneratedMessageLite.Internal_.LONG_TYPE_CONVERTER);
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createIntKeyedLongMap(
+            internal_getUint32KeyUint64ValueMap());
       }
 
       @jsinterop.annotations.JsMethod(name = "clearUint32KeyUint64Value")
@@ -5343,9 +5293,8 @@ public final class Maps {
 
       @jsinterop.annotations.JsOverlay
       public final java.util.Map<java.lang.String, java.lang.Integer> getStringKeyInt32ValueMap() {
-        return com.google.protobuf.GeneratedMessageLite.Internal_.createStringKeyedMap(
-            internal_getStringKeyInt32ValueMap(),
-            com.google.protobuf.GeneratedMessageLite.Internal_.INT_TYPE_CONVERTER);
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createStringKeyedIntMap(
+            internal_getStringKeyInt32ValueMap());
       }
 
       @jsinterop.annotations.JsMethod(name = "clearStringKeyInt32Value")
@@ -5397,9 +5346,8 @@ public final class Maps {
 
       @jsinterop.annotations.JsOverlay
       public final java.util.Map<java.lang.String, java.lang.Long> getStringKeyInt64ValueMap() {
-        return com.google.protobuf.GeneratedMessageLite.Internal_.createStringKeyedMap(
-            internal_getStringKeyInt64ValueMap(),
-            com.google.protobuf.GeneratedMessageLite.Internal_.LONG_TYPE_CONVERTER);
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createStringKeyedLongMap(
+            internal_getStringKeyInt64ValueMap());
       }
 
       @jsinterop.annotations.JsMethod(name = "clearStringKeyInt64Value")
@@ -5451,9 +5399,8 @@ public final class Maps {
 
       @jsinterop.annotations.JsOverlay
       public final java.util.Map<java.lang.String, java.lang.Float> getStringKeyFloatValueMap() {
-        return com.google.protobuf.GeneratedMessageLite.Internal_.createStringKeyedMap(
-            internal_getStringKeyFloatValueMap(),
-            com.google.protobuf.GeneratedMessageLite.Internal_.FLOAT_TYPE_CONVERTER);
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createStringKeyedFloatMap(
+            internal_getStringKeyFloatValueMap());
       }
 
       @jsinterop.annotations.JsMethod(name = "clearStringKeyFloatValue")
@@ -5671,9 +5618,8 @@ public final class Maps {
 
       @jsinterop.annotations.JsOverlay
       public final java.util.Map<java.lang.String, java.lang.Integer> getStringKeyUint32ValueMap() {
-        return com.google.protobuf.GeneratedMessageLite.Internal_.createStringKeyedMap(
-            internal_getStringKeyUint32ValueMap(),
-            com.google.protobuf.GeneratedMessageLite.Internal_.INT_TYPE_CONVERTER);
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createStringKeyedIntMap(
+            internal_getStringKeyUint32ValueMap());
       }
 
       @jsinterop.annotations.JsMethod(name = "clearStringKeyUint32Value")
@@ -5725,9 +5671,8 @@ public final class Maps {
 
       @jsinterop.annotations.JsOverlay
       public final java.util.Map<java.lang.String, java.lang.Long> getStringKeyUint64ValueMap() {
-        return com.google.protobuf.GeneratedMessageLite.Internal_.createStringKeyedMap(
-            internal_getStringKeyUint64ValueMap(),
-            com.google.protobuf.GeneratedMessageLite.Internal_.LONG_TYPE_CONVERTER);
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createStringKeyedLongMap(
+            internal_getStringKeyUint64ValueMap());
       }
 
       @jsinterop.annotations.JsMethod(name = "clearStringKeyUint64Value")
@@ -5995,9 +5940,8 @@ public final class Maps {
 
       @jsinterop.annotations.JsOverlay
       public final java.util.Map<java.lang.Boolean, java.lang.Integer> getBoolKeyInt32ValueMap() {
-        return com.google.protobuf.GeneratedMessageLite.Internal_.createBooleanKeyedMap(
-            internal_getBoolKeyInt32ValueMap(),
-            com.google.protobuf.GeneratedMessageLite.Internal_.INT_TYPE_CONVERTER);
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createBooleanKeyedIntMap(
+            internal_getBoolKeyInt32ValueMap());
       }
 
       @jsinterop.annotations.JsMethod(name = "clearBoolKeyInt32Value")
@@ -6048,9 +5992,8 @@ public final class Maps {
 
       @jsinterop.annotations.JsOverlay
       public final java.util.Map<java.lang.Boolean, java.lang.Long> getBoolKeyInt64ValueMap() {
-        return com.google.protobuf.GeneratedMessageLite.Internal_.createBooleanKeyedMap(
-            internal_getBoolKeyInt64ValueMap(),
-            com.google.protobuf.GeneratedMessageLite.Internal_.LONG_TYPE_CONVERTER);
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createBooleanKeyedLongMap(
+            internal_getBoolKeyInt64ValueMap());
       }
 
       @jsinterop.annotations.JsMethod(name = "clearBoolKeyInt64Value")
@@ -6101,9 +6044,8 @@ public final class Maps {
 
       @jsinterop.annotations.JsOverlay
       public final java.util.Map<java.lang.Boolean, java.lang.Float> getBoolKeyFloatValueMap() {
-        return com.google.protobuf.GeneratedMessageLite.Internal_.createBooleanKeyedMap(
-            internal_getBoolKeyFloatValueMap(),
-            com.google.protobuf.GeneratedMessageLite.Internal_.FLOAT_TYPE_CONVERTER);
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createBooleanKeyedFloatMap(
+            internal_getBoolKeyFloatValueMap());
       }
 
       @jsinterop.annotations.JsMethod(name = "clearBoolKeyFloatValue")
@@ -6317,9 +6259,8 @@ public final class Maps {
 
       @jsinterop.annotations.JsOverlay
       public final java.util.Map<java.lang.Boolean, java.lang.Integer> getBoolKeyUint32ValueMap() {
-        return com.google.protobuf.GeneratedMessageLite.Internal_.createBooleanKeyedMap(
-            internal_getBoolKeyUint32ValueMap(),
-            com.google.protobuf.GeneratedMessageLite.Internal_.INT_TYPE_CONVERTER);
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createBooleanKeyedIntMap(
+            internal_getBoolKeyUint32ValueMap());
       }
 
       @jsinterop.annotations.JsMethod(name = "clearBoolKeyUint32Value")
@@ -6370,9 +6311,8 @@ public final class Maps {
 
       @jsinterop.annotations.JsOverlay
       public final java.util.Map<java.lang.Boolean, java.lang.Long> getBoolKeyUint64ValueMap() {
-        return com.google.protobuf.GeneratedMessageLite.Internal_.createBooleanKeyedMap(
-            internal_getBoolKeyUint64ValueMap(),
-            com.google.protobuf.GeneratedMessageLite.Internal_.LONG_TYPE_CONVERTER);
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createBooleanKeyedLongMap(
+            internal_getBoolKeyUint64ValueMap());
       }
 
       @jsinterop.annotations.JsMethod(name = "clearBoolKeyUint64Value")

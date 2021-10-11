@@ -634,10 +634,10 @@ public final class Extensions {
         singleEnumExtension =
             com.google.protobuf.GeneratedMessageLite.Internal_.createSingleEnumExtension(
                 internal_singleEnumExtension,
-                v ->
+                (d) ->
                     com.google.protobuf.contrib.j2cl.protos.Extensions.Primitives.TestEnum
                         .Internal_ClosureEnum.toEnum(
-                        v,
+                        d,
                         com.google.protobuf.contrib.j2cl.protos.Extensions.Primitives.TestEnum
                             .DEFAULT),
                 v ->
@@ -656,10 +656,10 @@ public final class Extensions {
         singleNativeEnumExtension =
             com.google.protobuf.GeneratedMessageLite.Internal_.createSingleEnumExtension(
                 internal_singleNativeEnumExtension,
-                v ->
+                (d) ->
                     com.google.protobuf.contrib.j2cl.protos.Extensions.Primitives.NativeEnum
                         .Internal_ClosureEnum.toEnum(
-                        v,
+                        d,
                         com.google.protobuf.contrib.j2cl.protos.Extensions.Primitives.NativeEnum
                             .NATIVE_DEFAULT),
                 v ->
@@ -768,10 +768,10 @@ public final class Extensions {
         repeatedEnumExtension =
             com.google.protobuf.GeneratedMessageLite.Internal_.createRepeatedEnumExtension(
                 internal_repeatedEnumExtension,
-                v ->
+                (d) ->
                     com.google.protobuf.contrib.j2cl.protos.Extensions.Primitives.TestEnum
                         .Internal_ClosureEnum.toEnum(
-                        v,
+                        d,
                         com.google.protobuf.contrib.j2cl.protos.Extensions.Primitives.TestEnum
                             .DEFAULT),
                 v ->

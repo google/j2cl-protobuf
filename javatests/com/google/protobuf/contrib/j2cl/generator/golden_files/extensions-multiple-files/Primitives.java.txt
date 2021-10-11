@@ -238,10 +238,10 @@ public final class Primitives
       singleEnumExtension =
           com.google.protobuf.GeneratedMessageLite.Internal_.createSingleEnumExtension(
               internal_singleEnumExtension,
-              v ->
+              (d) ->
                   com.google.protobuf.contrib.j2cl.protos.Primitives.TestEnum.Internal_ClosureEnum
                       .toEnum(
-                          v, com.google.protobuf.contrib.j2cl.protos.Primitives.TestEnum.DEFAULT),
+                          d, com.google.protobuf.contrib.j2cl.protos.Primitives.TestEnum.DEFAULT),
               v ->
                   com.google.protobuf.contrib.j2cl.protos.Primitives.TestEnum.Internal_ClosureEnum
                       .toClosureValue(v));
@@ -258,10 +258,10 @@ public final class Primitives
       singleNativeEnumExtension =
           com.google.protobuf.GeneratedMessageLite.Internal_.createSingleEnumExtension(
               internal_singleNativeEnumExtension,
-              v ->
+              (d) ->
                   com.google.protobuf.contrib.j2cl.protos.Primitives.NativeEnum.Internal_ClosureEnum
                       .toEnum(
-                          v,
+                          d,
                           com.google.protobuf.contrib.j2cl.protos.Primitives.NativeEnum
                               .NATIVE_DEFAULT),
               v ->
@@ -365,10 +365,10 @@ public final class Primitives
       repeatedEnumExtension =
           com.google.protobuf.GeneratedMessageLite.Internal_.createRepeatedEnumExtension(
               internal_repeatedEnumExtension,
-              v ->
+              (d) ->
                   com.google.protobuf.contrib.j2cl.protos.Primitives.TestEnum.Internal_ClosureEnum
                       .toEnum(
-                          v, com.google.protobuf.contrib.j2cl.protos.Primitives.TestEnum.DEFAULT),
+                          d, com.google.protobuf.contrib.j2cl.protos.Primitives.TestEnum.DEFAULT),
               v ->
                   com.google.protobuf.contrib.j2cl.protos.Primitives.TestEnum.Internal_ClosureEnum
                       .toClosureValue(v));

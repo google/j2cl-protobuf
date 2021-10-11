@@ -150,9 +150,8 @@ public final class Accessor {
 
     @jsinterop.annotations.JsOverlay
     public final java.util.List<java.lang.Integer> getRepeatedIntList() {
-      return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
-          internal_getRepeatedIntList(),
-          com.google.protobuf.GeneratedMessageLite.Internal_.INT_TYPE_CONVERTER);
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createIntList(
+          internal_getRepeatedIntList());
     }
 
     @jsinterop.annotations.JsMethod(name = "hasOptionalLong")
@@ -179,9 +178,8 @@ public final class Accessor {
 
     @jsinterop.annotations.JsOverlay
     public final java.util.List<java.lang.Long> getRepeatedLongList() {
-      return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
-          internal_getRepeatedLongList(),
-          com.google.protobuf.GeneratedMessageLite.Internal_.LONG_TYPE_CONVERTER);
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createLongList(
+          internal_getRepeatedLongList());
     }
 
     @jsinterop.annotations.JsMethod(name = "hasOptionalFloat")
@@ -208,9 +206,8 @@ public final class Accessor {
 
     @jsinterop.annotations.JsOverlay
     public final java.util.List<java.lang.Float> getRepeatedFloatList() {
-      return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
-          internal_getRepeatedFloatList(),
-          com.google.protobuf.GeneratedMessageLite.Internal_.FLOAT_TYPE_CONVERTER);
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createFloatList(
+          internal_getRepeatedFloatList());
     }
 
     @jsinterop.annotations.JsMethod(name = "hasOptionalDouble")
@@ -437,9 +434,8 @@ public final class Accessor {
 
       @jsinterop.annotations.JsOverlay
       public final java.util.List<java.lang.Integer> getRepeatedIntList() {
-        return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
-            internal_getRepeatedIntList(),
-            com.google.protobuf.GeneratedMessageLite.Internal_.INT_TYPE_CONVERTER);
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createIntList(
+            internal_getRepeatedIntList());
       }
 
       @jsinterop.annotations.JsMethod(name = "clearRepeatedInt")
@@ -493,9 +489,8 @@ public final class Accessor {
 
       @jsinterop.annotations.JsOverlay
       public final java.util.List<java.lang.Long> getRepeatedLongList() {
-        return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
-            internal_getRepeatedLongList(),
-            com.google.protobuf.GeneratedMessageLite.Internal_.LONG_TYPE_CONVERTER);
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createLongList(
+            internal_getRepeatedLongList());
       }
 
       @jsinterop.annotations.JsMethod(name = "clearRepeatedLong")
@@ -549,9 +544,8 @@ public final class Accessor {
 
       @jsinterop.annotations.JsOverlay
       public final java.util.List<java.lang.Float> getRepeatedFloatList() {
-        return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
-            internal_getRepeatedFloatList(),
-            com.google.protobuf.GeneratedMessageLite.Internal_.FLOAT_TYPE_CONVERTER);
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createFloatList(
+            internal_getRepeatedFloatList());
       }
 
       @jsinterop.annotations.JsMethod(name = "clearRepeatedFloat")

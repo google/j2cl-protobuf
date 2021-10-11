@@ -578,9 +578,8 @@ public final class Proto3TestProtoWithOneOfs
 
   @jsinterop.annotations.JsOverlay
   public final java.util.List<java.lang.Integer> getRepeatedIntList() {
-    return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
-        internal_getRepeatedIntList(),
-        com.google.protobuf.GeneratedMessageLite.Internal_.INT_TYPE_CONVERTER);
+    return com.google.protobuf.GeneratedMessageLite.Internal_.createIntList(
+        internal_getRepeatedIntList());
   }
 
   @jsinterop.annotations.JsOverlay
@@ -828,9 +827,8 @@ public final class Proto3TestProtoWithOneOfs
 
     @jsinterop.annotations.JsOverlay
     public final java.util.List<java.lang.Integer> getRepeatedIntList() {
-      return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
-          internal_getRepeatedIntList(),
-          com.google.protobuf.GeneratedMessageLite.Internal_.INT_TYPE_CONVERTER);
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createIntList(
+          internal_getRepeatedIntList());
     }
 
     @jsinterop.annotations.JsMethod(name = "clearRepeatedInt")
