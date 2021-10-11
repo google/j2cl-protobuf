@@ -9,7 +9,7 @@ package(
     ],
 )
 
-licenses(["notice"])  # Apache 2.0
+licenses(["notice"])
 
 closure_js_library(
     name = "defines",
