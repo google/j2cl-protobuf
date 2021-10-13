@@ -73,6 +73,10 @@ function dump_(thing) {
   const ctor = thing.constructor;
   const messageName = ctor.name || ctor.displayName;
   const object = /** @type{!Object} */ (new class {
+    /**
+     * @return {string}
+     * @override
+     */
     toString() {
       return JSON.stringify(this);
     }
