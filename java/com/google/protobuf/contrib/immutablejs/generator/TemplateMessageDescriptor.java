@@ -15,6 +15,8 @@ package com.google.protobuf.contrib.immutablejs.generator;
 
 import static com.google.common.base.Preconditions.checkState;
 import static com.google.common.base.Predicates.not;
+import static com.google.common.collect.ImmutableList.toImmutableList;
+import static java.lang.Math.min;
 
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
@@ -39,7 +41,7 @@ public abstract class TemplateMessageDescriptor {
     return getAllMessagesDescriptors(descriptor())
         .flatMap(d -> d.getEnumTypes().stream())
         .map(TemplateEnumDescriptor::create)
-        .collect(ImmutableList.toImmutableList());
+        .collect(toImmutableList());
   }
 
   public ImmutableList<TemplateMessageDescriptor> getAllMessages() {
@@ -47,25 +49,25 @@ public abstract class TemplateMessageDescriptor {
     return getAllMessagesDescriptors(descriptor())
         .map(TemplateMessageDescriptor::create)
         .filter(not(TemplateMessageDescriptor::isMapEntry))
-        .collect(ImmutableList.toImmutableList());
+        .collect(toImmutableList());
   }
 
   public ImmutableList<TemplateFieldDescriptor> getFields() {
     return descriptor().getFields().stream()
         .map(f -> TemplateFieldDescriptor.create(getType(), f))
-        .collect(ImmutableList.toImmutableList());
+        .collect(toImmutableList());
   }
 
   public ImmutableList<TemplateFieldDescriptor> getExtensions() {
     return descriptor().getExtensions().stream()
         .map(f -> TemplateFieldDescriptor.create(getType(), f))
-        .collect(ImmutableList.toImmutableList());
+        .collect(toImmutableList());
   }
 
   public ImmutableList<TemplateOneOfDescriptor> getOneOfs() {
     return descriptor().getRealOneofs().stream()
         .map(o -> TemplateOneOfDescriptor.create(getType(), o))
-        .collect(ImmutableList.toImmutableList());
+        .collect(toImmutableList());
   }
 
   public ImmutableList<ImportDescriptor> getImports() {
@@ -94,7 +96,7 @@ public abstract class TemplateMessageDescriptor {
             .max(Integer::compare)
             .orElse(0);
     if (descriptor().isExtendable() || maxField >= defaultPivot) {
-      return Math.min(maxField + 1, defaultPivot);
+      return min(maxField + 1, defaultPivot);
     }
 
     // We don't have a suggested pivot this message as it's not extendable and its max field number

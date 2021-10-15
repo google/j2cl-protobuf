@@ -14,6 +14,7 @@
 package com.google.protobuf.contrib.j2cl.generator;
 
 import static com.google.common.base.Predicates.not;
+import static com.google.common.collect.ImmutableList.toImmutableList;
 
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
@@ -44,37 +45,33 @@ public abstract class TemplateMessageDescriptor extends AbstractTemplateTypeDesc
   }
 
   public List<TemplateFieldDescriptor> getFields() {
-    return descriptor()
-        .getFields()
-        .stream()
+    return descriptor().getFields().stream()
         .map(TemplateFieldDescriptor::create)
-        .collect(ImmutableList.toImmutableList());
+        .collect(toImmutableList());
   }
 
   public ImmutableList<TemplateFieldDescriptor> getExtensions() {
     return descriptor().getExtensions().stream()
         .map(TemplateFieldDescriptor::create)
-        .collect(ImmutableList.toImmutableList());
+        .collect(toImmutableList());
   }
 
   public List<TemplateEnumDescriptor> getEnums() {
-    return descriptor()
-        .getEnumTypes()
-        .stream()
+    return descriptor().getEnumTypes().stream()
         .map(TemplateEnumDescriptor::create)
-        .collect(ImmutableList.toImmutableList());
+        .collect(toImmutableList());
   }
 
   public List<TemplateMessageDescriptor> getMessages() {
     return descriptor().getNestedTypes().stream()
         .map(TemplateMessageDescriptor::create)
         .filter(not(TemplateMessageDescriptor::isMapEntry))
-        .collect(ImmutableList.toImmutableList());
+        .collect(toImmutableList());
   }
 
   public ImmutableList<TemplateOneOfDescriptor> getOneOfs() {
     return descriptor().getRealOneofs().stream()
         .map(TemplateOneOfDescriptor::create)
-        .collect(ImmutableList.toImmutableList());
+        .collect(toImmutableList());
   }
 }
