@@ -69,7 +69,7 @@ class InternalMessage extends Message {
    * @param {function(new:MESSAGE, !Array<*>)} ctor
    * @param {!Array<?>} data
    * @return {MESSAGE}
-   * @protected
+   * @private
    * @template MESSAGE
    */
   static fromArray(ctor, data) {

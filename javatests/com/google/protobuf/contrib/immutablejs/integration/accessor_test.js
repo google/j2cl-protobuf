@@ -63,9 +63,10 @@ class AccessorTest {
 
     assertEqualsForProto(20, testProto.getOptionalDouble());
     assertEqualsForProto(21, testProto.getOptionalDoubleWithDefault());
-    assertEqualsForProto(3, testProto.getRepeatedDoubleCount());
+    assertEqualsForProto(6, testProto.getRepeatedDoubleCount());
     assertEqualsForProto(
-        [22, 23, 24], testProto.getRepeatedDoubleList().toArray());
+        [22, 23, 24, NaN, Infinity, -Infinity],
+        testProto.getRepeatedDoubleList().toArray());
 
     assertEqualsForProto(TestProto.TestEnum.TWO, testProto.getOptionalEnum());
     assertEqualsForProto(

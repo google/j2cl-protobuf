@@ -239,15 +239,22 @@ class JspbKernel {
   /**
    * Returns a cached value for a field and key, or creates and caches the
    * value.
-   * @param {!Object} fieldJson
+   * @param {!Object} cacheObj
    * @param {string} cacheKey
-   * @param {function(!Object):T} factory
+   * @param {function():T} factoryFn
    * @return {T}
    * @template T
    * @private
    */
-  static getOrCache_(fieldJson, cacheKey, factory) {
-    return fieldJson[cacheKey] || (fieldJson[cacheKey] = factory(fieldJson));
+  static getOrCache_(cacheObj, cacheKey, factoryFn) {
+    let cached = cacheObj[cacheKey];
+    if (!cached) {
+      cached = factoryFn();
+      if (!Object.isFrozen(cacheObj)) {
+        cacheObj[cacheKey] = cached;
+      }
+    }
+    return cached;
   }
 
   /**
