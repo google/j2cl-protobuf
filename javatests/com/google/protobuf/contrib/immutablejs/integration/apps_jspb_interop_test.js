@@ -431,8 +431,7 @@ class AppsJspbInteropTest {
     assertExtensionString(immutableProto, mutableProto);
   }
 
-  // TODO(goktug): Re-enable after fixing serialization.
-  _disabled_testSerialization_specialValues() {
+  testSerialization_specialValues() {
     // JSPB doesn't necessarily ensure in memory format matches wire (for
     // example for special number values).
 

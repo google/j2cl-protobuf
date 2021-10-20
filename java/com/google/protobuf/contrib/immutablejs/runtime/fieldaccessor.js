@@ -29,6 +29,7 @@ goog.module('proto.im.internal.FieldAccessor');
 
 const ByteString = goog.require('proto.im.ByteString');
 const Long = goog.require('goog.math.Long');
+const base64 = goog.require('goog.crypt.base64');
 const internalChecks = goog.require('proto.im.internal.internalChecks');
 
 /**
@@ -176,14 +177,7 @@ class FieldAccessor {
     if (typeof value !== 'number') {
       return 'NaN';
     }
-    if (isFinite(value)) {
-      return value;
-    } else if (value > 0) {
-      return 'Infinity';
-    } else if (value < 0) {
-      return '-Infinity';
-    }
-    return 'NaN';
+    return isFinite(value) ? value : String(value);
   }
 
   /**
@@ -398,6 +392,27 @@ class FieldAccessor {
   static setString(rawJson, fieldNumber, value) {
     internalChecks.checkTypeString(value);
     rawJson[fieldNumber] = String(value);
+  }
+
+  /**
+   * Serializes special values that may appear in arrays that originated from
+   * App JSPB.
+   *
+   * @param {string} key
+   * @param {*} value
+   * @return {*}
+   */
+  static serializeSpecialValues(key, value) {
+    switch (typeof value) {
+      case 'number':
+        return isFinite(value) ? value : String(value);
+      case 'object':
+        return (value && value instanceof Uint8Array) ?
+            base64.encodeByteArray(value) :
+            value;
+      default:
+       return value;
+    }
   }
 }
 

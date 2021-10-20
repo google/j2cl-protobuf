@@ -176,7 +176,7 @@ class JspbKernel {
    * @return {string}
    */
   serialize() {
-    return JSON.stringify(this.data_);
+    return JSON.stringify(this.data_, FieldAccessor.serializeSpecialValues);
   }
 
   /**

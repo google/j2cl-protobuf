@@ -86,6 +86,7 @@ closure_js_library(
     deps = [
         ":bytestring",
         ":internal_checks",
+        "//third_party:closure_crypt_base64",
         "//third_party:closure_math_long",
     ],
 )
