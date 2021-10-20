@@ -17,3 +17,8 @@ closure_js_library(
     name = "debug",
     exports = ["//java/com/google/protobuf/contrib/immutablejs/debug"],
 )
+
+closure_js_library(
+    name = "timestamp",
+    exports = ["//java/com/google/protobuf/contrib/immutablejs/util:timestamp"],
+)

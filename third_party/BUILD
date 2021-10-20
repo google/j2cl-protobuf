@@ -1,6 +1,7 @@
 # Description:
 #   Thirdparty dependencies indirection for bazel.
 load("@com_google_j2cl//build_defs:rules.bzl", "j2cl_import")
+load("//java/com/google/protobuf/contrib/immutablejs:immutable_js_proto_library.bzl", "immutable_js_proto_library")
 
 package(
     default_visibility = ["//:__subpackages__"],
@@ -52,6 +53,11 @@ alias(
 java_proto_library(
     name = "descriptor_java_proto",
     deps = ["@com_google_protobuf//:descriptor_proto"],
+)
+
+immutable_js_proto_library(
+    name = "timestamp_immutable_js_proto",
+    deps = ["@com_google_protobuf//:timestamp_proto"],
 )
 
 java_proto_library(
