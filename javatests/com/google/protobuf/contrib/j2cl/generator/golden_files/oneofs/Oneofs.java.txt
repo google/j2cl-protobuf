@@ -87,15 +87,24 @@ public final class Oneofs {
         this.value = value;
       }
 
-      private static AOneofCase[] cachedValues;
-
       public static final AOneofCase forNumber(int i) {
-        if (cachedValues == null) {
-          cachedValues =
-              jsinterop.base.Js.uncheckedCast(
-                  com.google.protobuf.GeneratedMessageLite.Internal_.indexByNumber(values()));
+        switch (i) {
+          case 0:
+            return AONEOF_NOT_SET;
+          case 1:
+            return A_BOOL;
+          case 4:
+            return AN_INT;
+          case 7:
+            return A_LONG;
+          case 10:
+            return A_FLOAT;
+          case 14:
+            return A_DOUBLE;
+          case 15:
+            return DOUBLE_WITH_DEFAULT;
         }
-        return cachedValues[i];
+        return null;
       }
 
       private int value;
@@ -161,15 +170,22 @@ public final class Oneofs {
         this.value = value;
       }
 
-      private static AnotherOneofCase[] cachedValues;
-
       public static final AnotherOneofCase forNumber(int i) {
-        if (cachedValues == null) {
-          cachedValues =
-              jsinterop.base.Js.uncheckedCast(
-                  com.google.protobuf.GeneratedMessageLite.Internal_.indexByNumber(values()));
+        switch (i) {
+          case 0:
+            return ANOTHERONEOF_NOT_SET;
+          case 16:
+            return AN_ENUM;
+          case 19:
+            return A_STRING;
+          case 20:
+            return SOME_BYTES;
+          case 26:
+            return NESTED_PROTO;
+          case 27:
+            return NESTED_PROTO_WITH_ONEOFS;
         }
-        return cachedValues[i];
+        return null;
       }
 
       private int value;
@@ -289,15 +305,16 @@ public final class Oneofs {
           this.value = value;
         }
 
-        private static ANestedOneofCase[] cachedValues;
-
         public static final ANestedOneofCase forNumber(int i) {
-          if (cachedValues == null) {
-            cachedValues =
-                jsinterop.base.Js.uncheckedCast(
-                    com.google.protobuf.GeneratedMessageLite.Internal_.indexByNumber(values()));
+          switch (i) {
+            case 0:
+              return ANESTEDONEOF_NOT_SET;
+            case 1:
+              return BOOL_WITH_DEFAULT;
+            case 7:
+              return AN_INT;
           }
-          return cachedValues[i];
+          return null;
         }
 
         private int value;

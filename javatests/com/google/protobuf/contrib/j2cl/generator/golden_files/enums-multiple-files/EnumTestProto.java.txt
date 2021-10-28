@@ -80,15 +80,16 @@ public final class EnumTestProto
       this.value = value;
     }
 
-    private static SparseEnum[] cachedValues;
-
     public static final SparseEnum forNumber(int i) {
-      if (cachedValues == null) {
-        cachedValues =
-            jsinterop.base.Js.uncheckedCast(
-                com.google.protobuf.GeneratedMessageLite.Internal_.indexByNumber(values()));
+      switch (i) {
+        case 0:
+          return SPARSE_DEFAULT;
+        case 10:
+          return SPARSE_TEN;
+        case 20:
+          return SPARSE_TWENTY;
       }
-      return cachedValues[i];
+      return null;
     }
 
     private int value;

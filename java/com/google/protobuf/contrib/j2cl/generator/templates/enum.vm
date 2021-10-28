@@ -42,22 +42,29 @@ package $enumDescriptor.package;
       this.value = value;
   }
 
-  private static ${enumDescriptor.getName()}[] cachedValues;
-
-  public static final $enumDescriptor.name forNumber(int i) {
-    if (cachedValues == null) {
   #if ($enumDescriptor.isDense())
+    private static ${enumDescriptor.getName()}[] cachedValues;
+  #end
+  public static final $enumDescriptor.name forNumber(int i) {
+  #if ($enumDescriptor.isDense())
+    if (cachedValues == null) {
       cachedValues = values();
-  #else
-      cachedValues = jsinterop.base.Js.uncheckedCast(com.google.protobuf.GeneratedMessageLite.Internal_.indexByNumber(values()));
-  #end
     }
-  #if ($enumDescriptor.hasUnrecognizedValue() && $enumDescriptor.isDense())
+    #if ($enumDescriptor.hasUnrecognizedValue())
     return i == ${enumDescriptor.values.size()} ? null : cachedValues[i];
-  #else
+    #else
     return cachedValues[i];
+    #end
+  #else
+    switch(i) {
+    #foreach($value in $enumDescriptor.distinctValues)
+      case $value.number: return $value.name;
+    #end
+    }
+    return null;
   #end
-}
+  }
+
 #end
 
   private int value;

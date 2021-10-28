@@ -760,19 +760,6 @@ public abstract class GeneratedMessageLite<
       return new GeneratedRepeatedExtension<M, String>(extensionFieldInfo);
     }
 
-    /** Helper method to create enum array with field number as its index */
-    public static Object[] indexByNumber(com.google.protobuf.ProtocolMessageEnum[] values) {
-      Object[] sparseArray = new Object[0];
-      for (com.google.protobuf.ProtocolMessageEnum v : values) {
-        try {
-          sparseArray[v.getNumber()] = v;
-        } catch (IllegalArgumentException ignoredE) {
-          // UNRECGONIZED(-1).getNumber() will throw but we need to skip them anyway.
-        }
-      }
-      return sparseArray;
-    }
-
     /**
      * Assumes that the given value is the value of a proto3 enum, if the value corresponds to the
      * {@code UNRECOGNIZED} value then this method will throw an exception.
