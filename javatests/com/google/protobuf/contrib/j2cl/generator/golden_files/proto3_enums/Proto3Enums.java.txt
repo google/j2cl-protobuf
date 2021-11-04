@@ -92,16 +92,15 @@ public final class Proto3Enums {
         this.value = value;
       }
 
+      private static Proto3SparseEnum[] cachedValues;
+
       public static final Proto3SparseEnum forNumber(int i) {
-        switch (i) {
-          case 0:
-            return SPARSE_DEFAULT;
-          case 10:
-            return SPARSE_TEN;
-          case 20:
-            return SPARSE_TWENTY;
+        if (cachedValues == null) {
+          cachedValues =
+              jsinterop.base.Js.uncheckedCast(
+                  com.google.protobuf.GeneratedMessageLite.Internal_.indexByNumber(values()));
         }
-        return null;
+        return cachedValues[i];
       }
 
       private int value;

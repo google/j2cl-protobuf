@@ -19,16 +19,15 @@ public final class Aliased
       this.value = value;
     }
 
+    private static TestEnum[] cachedValues;
+
     public static final TestEnum forNumber(int i) {
-      switch (i) {
-        case 0:
-          return DEFAULT;
-        case 1:
-          return ORIGINAL;
-        case 2:
-          return FOO;
+      if (cachedValues == null) {
+        cachedValues =
+            jsinterop.base.Js.uncheckedCast(
+                com.google.protobuf.GeneratedMessageLite.Internal_.indexByNumber(values()));
       }
-      return null;
+      return cachedValues[i];
     }
 
     private int value;

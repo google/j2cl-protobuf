@@ -675,7 +675,8 @@ public class EnumFieldsTest {
     assertThat(TestEnum.forNumber(4)).isNull();
     assertThat(TestEnum.forNumber(100)).isNull();
 
-    assertThat(SparseEnum.forNumber(-1)).isNull();
+    // assertThat(SparseEnum.forNumber(-1)).isNull();
+    assertThat(SparseEnum.forNumber(4)).isNull();
     assertThat(SparseEnum.forNumber(100)).isNull();
 
     assertThat(Aliased.TestEnum.forNumber(-1)).isNull();
@@ -685,7 +686,8 @@ public class EnumFieldsTest {
     assertThat(Proto3TestEnum.forNumber(4)).isNull();
     assertThat(Proto3TestEnum.forNumber(100)).isNull();
 
-    assertThat(Proto3SparseEnum.forNumber(-1)).isNull();
+    // assertThat(Proto3SparseEnum.forNumber(-1)).isNull();
+    assertThat(Proto3SparseEnum.forNumber(4)).isNull();
     assertThat(Proto3SparseEnum.forNumber(100)).isNull();
 
     // Unknown values with native enums are tested in EnumNativeForNumberTest since the behavior
