@@ -18,8 +18,10 @@ import static com.google.common.base.Predicates.not;
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
 import com.google.common.io.Files;
+import com.google.protobuf.Descriptors.FieldDescriptor;
 import com.google.protobuf.Descriptors.FileDescriptor;
 import com.google.protobuf.contrib.immutablejs.generator.JavaQualifiedNames;
+import com.google.protobuf.contrib.immutablejs.generator.NameResolver;
 import java.util.List;
 
 /** Represents a protobuf file descriptor. */
@@ -68,8 +70,10 @@ public abstract class TemplateFileDescriptor {
   }
 
   public ImmutableList<TemplateFieldDescriptor> getExtensions() {
-    return fileDescriptor().getExtensions().stream()
-        .map(TemplateFieldDescriptor::create)
+    List<FieldDescriptor> extensions = fileDescriptor().getExtensions();
+    NameResolver nameResolver = NameResolver.of(extensions);
+    return extensions.stream()
+        .map(f -> TemplateFieldDescriptor.create(f, nameResolver))
         .collect(ImmutableList.toImmutableList());
   }
 

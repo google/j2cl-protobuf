@@ -30,15 +30,18 @@ import java.util.stream.Stream;
 public abstract class TemplateFieldDescriptor {
 
   public static TemplateFieldDescriptor create(
-      TypeDescriptor enclosingType, FieldDescriptor fieldDescriptor) {
+      TypeDescriptor enclosingType, FieldDescriptor fieldDescriptor, NameResolver nameResolver) {
     TypeReferenceDescriptor reference =
         TypeDescriptor.create(fieldDescriptor).createReference(enclosingType);
-    return new AutoValue_TemplateFieldDescriptor(fieldDescriptor, enclosingType, reference);
+    return new AutoValue_TemplateFieldDescriptor(
+        fieldDescriptor, enclosingType, nameResolver, reference);
   }
 
   abstract FieldDescriptor protoFieldDescriptor();
 
   abstract TypeDescriptor enclosingType();
+
+  abstract NameResolver nameResolver();
 
   public abstract TypeReferenceDescriptor getType();
 
@@ -51,8 +54,7 @@ public abstract class TemplateFieldDescriptor {
   }
 
   public String getName() {
-    return JavaScriptQualifiedNames.getFieldName(
-        protoFieldDescriptor(), !protoFieldDescriptor().isExtension());
+    return nameResolver().getJsFieldName(protoFieldDescriptor());
   }
 
   public String getFieldNumberName() {
@@ -226,14 +228,14 @@ public abstract class TemplateFieldDescriptor {
 
   public TemplateFieldDescriptor getMapKey() {
     checkState(isMap());
-    return TemplateFieldDescriptor.create(
-        enclosingType(), protoFieldDescriptor().getMessageType().findFieldByName("key"));
+    FieldDescriptor keyfield = protoFieldDescriptor().getMessageType().findFieldByName("key");
+    return TemplateFieldDescriptor.create(enclosingType(), keyfield, NameResolver.identity());
   }
 
   public TemplateFieldDescriptor getMapValue() {
     checkState(isMap());
-    return TemplateFieldDescriptor.create(
-        enclosingType(), protoFieldDescriptor().getMessageType().findFieldByName("value"));
+    FieldDescriptor valueField = protoFieldDescriptor().getMessageType().findFieldByName("value");
+    return TemplateFieldDescriptor.create(enclosingType(), valueField, NameResolver.identity());
   }
 
   private TypeReferenceDescriptor createExtensionReference() {

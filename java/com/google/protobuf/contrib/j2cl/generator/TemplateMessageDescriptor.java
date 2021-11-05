@@ -19,6 +19,8 @@ import static com.google.common.collect.ImmutableList.toImmutableList;
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
 import com.google.protobuf.Descriptors.Descriptor;
+import com.google.protobuf.Descriptors.FieldDescriptor;
+import com.google.protobuf.contrib.immutablejs.generator.NameResolver;
 import java.util.List;
 
 /** Represents a protocol message */
@@ -45,14 +47,18 @@ public abstract class TemplateMessageDescriptor extends AbstractTemplateTypeDesc
   }
 
   public List<TemplateFieldDescriptor> getFields() {
+    List<FieldDescriptor> fields = descriptor().getFields();
+    NameResolver nameResolver = NameResolver.of(fields);
     return descriptor().getFields().stream()
-        .map(TemplateFieldDescriptor::create)
+        .map(f -> TemplateFieldDescriptor.create(f, nameResolver))
         .collect(toImmutableList());
   }
 
   public ImmutableList<TemplateFieldDescriptor> getExtensions() {
+    List<FieldDescriptor> extensions = descriptor().getExtensions();
+    NameResolver nameResolver = NameResolver.of(extensions);
     return descriptor().getExtensions().stream()
-        .map(TemplateFieldDescriptor::create)
+        .map(f -> TemplateFieldDescriptor.create(f, nameResolver))
         .collect(toImmutableList());
   }
 

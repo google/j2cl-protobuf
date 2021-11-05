@@ -15,6 +15,7 @@ package com.google.protobuf.contrib.immutablejs.generator;
 
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
+import com.google.protobuf.Descriptors.FieldDescriptor;
 import com.google.protobuf.Descriptors.FileDescriptor;
 import java.util.List;
 
@@ -31,8 +32,10 @@ public abstract class TemplateFileDescriptor {
   public abstract TypeDescriptor getType();
 
   public List<TemplateFieldDescriptor> getExtensions() {
-    return fileDescriptor().getExtensions().stream()
-        .map(f -> TemplateFieldDescriptor.create(getType(), f))
+    List<FieldDescriptor> fields = fileDescriptor().getExtensions();
+    NameResolver nameResolver = NameResolver.of(fields);
+    return fields.stream()
+        .map(f -> TemplateFieldDescriptor.create(getType(), f, nameResolver))
         .collect(ImmutableList.toImmutableList());
   }
 

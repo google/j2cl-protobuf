@@ -22,6 +22,7 @@ import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
 import com.google.protobuf.Descriptors.Descriptor;
 import com.google.protobuf.Descriptors.FieldDescriptor;
+import java.util.List;
 import java.util.stream.Stream;
 
 /** Represents a protocol message */
@@ -53,14 +54,18 @@ public abstract class TemplateMessageDescriptor {
   }
 
   public ImmutableList<TemplateFieldDescriptor> getFields() {
-    return descriptor().getFields().stream()
-        .map(f -> TemplateFieldDescriptor.create(getType(), f))
+    List<FieldDescriptor> fields = descriptor().getFields();
+    NameResolver nameResolver = NameResolver.of(fields);
+    return fields.stream()
+        .map(f -> TemplateFieldDescriptor.create(getType(), f, nameResolver))
         .collect(toImmutableList());
   }
 
   public ImmutableList<TemplateFieldDescriptor> getExtensions() {
-    return descriptor().getExtensions().stream()
-        .map(f -> TemplateFieldDescriptor.create(getType(), f))
+    List<FieldDescriptor> extensions = descriptor().getExtensions();
+    NameResolver nameResolver = NameResolver.of(extensions);
+    return extensions.stream()
+        .map(f -> TemplateFieldDescriptor.create(getType(), f, nameResolver))
         .collect(toImmutableList());
   }
 
@@ -74,8 +79,8 @@ public abstract class TemplateMessageDescriptor {
     checkState(getType().isTopLevel());
     return Descriptors.calculateImports(
         getAllMessagesDescriptors(descriptor())
-            .flatMap(d -> Stream.concat(d.getFields().stream(), d.getExtensions().stream()))
-            .map(f -> TemplateFieldDescriptor.create(getType(), f)));
+            .map(TemplateMessageDescriptor::create)
+            .flatMap(d -> Stream.concat(d.getFields().stream(), d.getExtensions().stream())));
   }
 
   public boolean hasMessageId() {

@@ -50,6 +50,16 @@ immutable_js_proto_library(
 )
 
 proto_library(
+    name = "conflicting_names",
+    srcs = ["conflicting_names.proto"],
+)
+
+immutable_js_proto_library(
+    name = "conflicting_names_immutable_js_proto",
+    deps = [":conflicting_names"],
+)
+
+proto_library(
     name = "deprecated",
     srcs = ["deprecated.proto"],
 )

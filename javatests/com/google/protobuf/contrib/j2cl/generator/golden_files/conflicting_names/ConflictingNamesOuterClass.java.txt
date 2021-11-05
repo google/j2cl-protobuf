@@ -1,0 +1,391 @@
+package com.google.protobuf.contrib.j2cl.protos;
+
+@jsinterop.annotations.JsType(
+    isNative = true,
+    name = "conflicting_names",
+    namespace = "improto.protobuf.contrib.j2cl.protos")
+public final class ConflictingNamesOuterClass {
+
+  private ConflictingNamesOuterClass() {}
+
+  @jsinterop.annotations.JsType(
+      isNative = true,
+      name = "ConflictingNames",
+      namespace = "improto.protobuf.contrib.j2cl.protos")
+  public static final class ConflictingNames
+      extends com.google.protobuf.GeneratedMessageLite<ConflictingNames, ConflictingNames.Builder> {
+
+    protected ConflictingNames() {}
+
+    public static final native ConflictingNames getDefaultInstance();
+
+    public native Builder toBuilder();
+
+    public static int FIELD_FIELD_NUMBER;
+    public static int FIELD_COUNT_FIELD_NUMBER;
+    public static int FIELD_LIST_FIELD_NUMBER;
+    public static int SECOND_FIELD_FIELD_NUMBER;
+    public static int SECONDFIELD_FIELD_NUMBER;
+    public static int THIRD_FIELD_FIELD_NUMBER;
+    public static int THIRD_FIELD___FIELD_NUMBER;
+    public static int CLASS_COUNT_FIELD_NUMBER;
+    public static int CLASS_FIELD_NUMBER;
+    public static int EXTENSION__FIELD_NUMBER;
+    public static int EXTENSION_FIELD_NUMBER;
+    public static int EXTENSION_COUNT_FIELD_NUMBER;
+
+    @jsinterop.annotations.JsMethod(name = "getField1Count")
+    public native int getField1Count();
+
+    @jsinterop.annotations.JsMethod(name = "getField1")
+    public native int getField1(int index);
+
+    @jsinterop.annotations.JsMethod(name = "getField1List")
+    private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Object>
+        internal_getField1List();
+
+    @jsinterop.annotations.JsOverlay
+    public final java.util.List<java.lang.Integer> getField1List() {
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createIntList(
+          internal_getField1List());
+    }
+
+    @jsinterop.annotations.JsMethod(name = "hasFieldCount2")
+    public native boolean hasFieldCount2();
+
+    @jsinterop.annotations.JsMethod(name = "getFieldCount2")
+    public native int getFieldCount2();
+
+    @jsinterop.annotations.JsMethod(name = "hasFieldList3")
+    public native boolean hasFieldList3();
+
+    @jsinterop.annotations.JsMethod(name = "getFieldList3")
+    public native int getFieldList3();
+
+    @jsinterop.annotations.JsMethod(name = "hasSecondField4")
+    public native boolean hasSecondField4();
+
+    @jsinterop.annotations.JsMethod(name = "getSecondField4")
+    public native boolean getSecondField4();
+
+    @jsinterop.annotations.JsMethod(name = "hasSecondField5")
+    public native boolean hasSecondField5();
+
+    @jsinterop.annotations.JsMethod(name = "getSecondField5")
+    public native boolean getSecondField5();
+
+    @jsinterop.annotations.JsMethod(name = "hasThirdField6")
+    public native boolean hasThirdField6();
+
+    @jsinterop.annotations.JsMethod(name = "getThirdField6")
+    public native boolean getThirdField6();
+
+    @jsinterop.annotations.JsMethod(name = "hasThirdField7")
+    public native boolean hasThirdField7();
+
+    @jsinterop.annotations.JsMethod(name = "getThirdField7")
+    public native boolean getThirdField7();
+
+    @jsinterop.annotations.JsMethod(name = "hasClassCount")
+    public native boolean hasClassCount();
+
+    @jsinterop.annotations.JsMethod(name = "getClassCount")
+    public native boolean getClassCount();
+
+    @jsinterop.annotations.JsMethod(name = "getClass_Count")
+    public native int getClass_Count();
+
+    @jsinterop.annotations.JsMethod(name = "getClass_")
+    public native boolean getClass_(int index);
+
+    @jsinterop.annotations.JsMethod(name = "getClass_List")
+    private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Boolean>
+        internal_getClass_List();
+
+    @jsinterop.annotations.JsOverlay
+    public final java.util.List<java.lang.Boolean> getClass_List() {
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+          internal_getClass_List());
+    }
+
+    @jsinterop.annotations.JsMethod(name = "getExtension_10Count")
+    public native int getExtension10Count();
+
+    @jsinterop.annotations.JsMethod(name = "getExtension_10")
+    public native boolean getExtension10(int index);
+
+    @jsinterop.annotations.JsMethod(name = "getExtension_10List")
+    private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Boolean>
+        internal_getExtension10List();
+
+    @jsinterop.annotations.JsOverlay
+    public final java.util.List<java.lang.Boolean> getExtension10List() {
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+          internal_getExtension10List());
+    }
+
+    @jsinterop.annotations.JsMethod(name = "getExtension_11Count")
+    public native int getExtension11Count();
+
+    @jsinterop.annotations.JsMethod(name = "getExtension_11")
+    public native boolean getExtension11(int index);
+
+    @jsinterop.annotations.JsMethod(name = "getExtension_11List")
+    private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Boolean>
+        internal_getExtension11List();
+
+    @jsinterop.annotations.JsOverlay
+    public final java.util.List<java.lang.Boolean> getExtension11List() {
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+          internal_getExtension11List());
+    }
+
+    @jsinterop.annotations.JsMethod(name = "hasExtensionCount_")
+    public native boolean hasExtensionCount12();
+
+    @jsinterop.annotations.JsMethod(name = "getExtensionCount_")
+    public native boolean getExtensionCount12();
+
+    public static native Builder newBuilder();
+
+    public static native Builder newBuilder(ConflictingNames prototype);
+
+    @jsinterop.annotations.JsType(isNative = true)
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageLite.Builder<ConflictingNames, Builder> {
+
+      protected Builder() {}
+
+      @jsinterop.annotations.JsOverlay
+      public final ConflictingNames getDefaultInstanceForType() {
+        return getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public native ConflictingNames build();
+
+      @java.lang.Override
+      public native Builder clone();
+
+      @jsinterop.annotations.JsMethod(name = "getField1Count")
+      public native int getField1Count();
+
+      @jsinterop.annotations.JsMethod(name = "getField1")
+      public native int getField1(int index);
+
+      @jsinterop.annotations.JsMethod(name = "getField1List")
+      private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Object>
+          internal_getField1List();
+
+      @jsinterop.annotations.JsOverlay
+      public final java.util.List<java.lang.Integer> getField1List() {
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createIntList(
+            internal_getField1List());
+      }
+
+      @jsinterop.annotations.JsMethod(name = "clearField1")
+      public native Builder clearField1();
+
+      @jsinterop.annotations.JsMethod(name = "addField1")
+      public native Builder addField1(int value);
+
+      @jsinterop.annotations.JsMethod(name = "setField1")
+      public native Builder setField1(int index, int value);
+
+      @jsinterop.annotations.JsOverlay
+      public final Builder addAllField1(java.lang.Iterable<java.lang.Integer> values) {
+        com.google.protobuf.GeneratedMessageLite.Internal_.addAll(values, this::addField1);
+        return this;
+      }
+
+      @jsinterop.annotations.JsMethod(name = "hasFieldCount2")
+      public native boolean hasFieldCount2();
+
+      @jsinterop.annotations.JsMethod(name = "getFieldCount2")
+      public native int getFieldCount2();
+
+      @jsinterop.annotations.JsMethod(name = "clearFieldCount2")
+      public native Builder clearFieldCount2();
+
+      @jsinterop.annotations.JsMethod(name = "setFieldCount2")
+      public native Builder setFieldCount2(int value);
+
+      @jsinterop.annotations.JsMethod(name = "hasFieldList3")
+      public native boolean hasFieldList3();
+
+      @jsinterop.annotations.JsMethod(name = "getFieldList3")
+      public native int getFieldList3();
+
+      @jsinterop.annotations.JsMethod(name = "clearFieldList3")
+      public native Builder clearFieldList3();
+
+      @jsinterop.annotations.JsMethod(name = "setFieldList3")
+      public native Builder setFieldList3(int value);
+
+      @jsinterop.annotations.JsMethod(name = "hasSecondField4")
+      public native boolean hasSecondField4();
+
+      @jsinterop.annotations.JsMethod(name = "getSecondField4")
+      public native boolean getSecondField4();
+
+      @jsinterop.annotations.JsMethod(name = "clearSecondField4")
+      public native Builder clearSecondField4();
+
+      @jsinterop.annotations.JsMethod(name = "setSecondField4")
+      public native Builder setSecondField4(boolean value);
+
+      @jsinterop.annotations.JsMethod(name = "hasSecondField5")
+      public native boolean hasSecondField5();
+
+      @jsinterop.annotations.JsMethod(name = "getSecondField5")
+      public native boolean getSecondField5();
+
+      @jsinterop.annotations.JsMethod(name = "clearSecondField5")
+      public native Builder clearSecondField5();
+
+      @jsinterop.annotations.JsMethod(name = "setSecondField5")
+      public native Builder setSecondField5(boolean value);
+
+      @jsinterop.annotations.JsMethod(name = "hasThirdField6")
+      public native boolean hasThirdField6();
+
+      @jsinterop.annotations.JsMethod(name = "getThirdField6")
+      public native boolean getThirdField6();
+
+      @jsinterop.annotations.JsMethod(name = "clearThirdField6")
+      public native Builder clearThirdField6();
+
+      @jsinterop.annotations.JsMethod(name = "setThirdField6")
+      public native Builder setThirdField6(boolean value);
+
+      @jsinterop.annotations.JsMethod(name = "hasThirdField7")
+      public native boolean hasThirdField7();
+
+      @jsinterop.annotations.JsMethod(name = "getThirdField7")
+      public native boolean getThirdField7();
+
+      @jsinterop.annotations.JsMethod(name = "clearThirdField7")
+      public native Builder clearThirdField7();
+
+      @jsinterop.annotations.JsMethod(name = "setThirdField7")
+      public native Builder setThirdField7(boolean value);
+
+      @jsinterop.annotations.JsMethod(name = "hasClassCount")
+      public native boolean hasClassCount();
+
+      @jsinterop.annotations.JsMethod(name = "getClassCount")
+      public native boolean getClassCount();
+
+      @jsinterop.annotations.JsMethod(name = "clearClassCount")
+      public native Builder clearClassCount();
+
+      @jsinterop.annotations.JsMethod(name = "setClassCount")
+      public native Builder setClassCount(boolean value);
+
+      @jsinterop.annotations.JsMethod(name = "getClass_Count")
+      public native int getClass_Count();
+
+      @jsinterop.annotations.JsMethod(name = "getClass_")
+      public native boolean getClass_(int index);
+
+      @jsinterop.annotations.JsMethod(name = "getClass_List")
+      private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Boolean>
+          internal_getClass_List();
+
+      @jsinterop.annotations.JsOverlay
+      public final java.util.List<java.lang.Boolean> getClass_List() {
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+            internal_getClass_List());
+      }
+
+      @jsinterop.annotations.JsMethod(name = "clearClass_")
+      public native Builder clearClass_();
+
+      @jsinterop.annotations.JsMethod(name = "addClass_")
+      public native Builder addClass_(boolean value);
+
+      @jsinterop.annotations.JsMethod(name = "setClass_")
+      public native Builder setClass_(int index, boolean value);
+
+      @jsinterop.annotations.JsOverlay
+      public final Builder addAllClass_(java.lang.Iterable<java.lang.Boolean> values) {
+        com.google.protobuf.GeneratedMessageLite.Internal_.addAll(values, this::addClass_);
+        return this;
+      }
+
+      @jsinterop.annotations.JsMethod(name = "getExtension_10Count")
+      public native int getExtension10Count();
+
+      @jsinterop.annotations.JsMethod(name = "getExtension_10")
+      public native boolean getExtension10(int index);
+
+      @jsinterop.annotations.JsMethod(name = "getExtension_10List")
+      private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Boolean>
+          internal_getExtension10List();
+
+      @jsinterop.annotations.JsOverlay
+      public final java.util.List<java.lang.Boolean> getExtension10List() {
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+            internal_getExtension10List());
+      }
+
+      @jsinterop.annotations.JsMethod(name = "clearExtension_10")
+      public native Builder clearExtension10();
+
+      @jsinterop.annotations.JsMethod(name = "addExtension_10")
+      public native Builder addExtension10(boolean value);
+
+      @jsinterop.annotations.JsMethod(name = "setExtension_10")
+      public native Builder setExtension10(int index, boolean value);
+
+      @jsinterop.annotations.JsOverlay
+      public final Builder addAllExtension10(java.lang.Iterable<java.lang.Boolean> values) {
+        com.google.protobuf.GeneratedMessageLite.Internal_.addAll(values, this::addExtension10);
+        return this;
+      }
+
+      @jsinterop.annotations.JsMethod(name = "getExtension_11Count")
+      public native int getExtension11Count();
+
+      @jsinterop.annotations.JsMethod(name = "getExtension_11")
+      public native boolean getExtension11(int index);
+
+      @jsinterop.annotations.JsMethod(name = "getExtension_11List")
+      private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Boolean>
+          internal_getExtension11List();
+
+      @jsinterop.annotations.JsOverlay
+      public final java.util.List<java.lang.Boolean> getExtension11List() {
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+            internal_getExtension11List());
+      }
+
+      @jsinterop.annotations.JsMethod(name = "clearExtension_11")
+      public native Builder clearExtension11();
+
+      @jsinterop.annotations.JsMethod(name = "addExtension_11")
+      public native Builder addExtension11(boolean value);
+
+      @jsinterop.annotations.JsMethod(name = "setExtension_11")
+      public native Builder setExtension11(int index, boolean value);
+
+      @jsinterop.annotations.JsOverlay
+      public final Builder addAllExtension11(java.lang.Iterable<java.lang.Boolean> values) {
+        com.google.protobuf.GeneratedMessageLite.Internal_.addAll(values, this::addExtension11);
+        return this;
+      }
+
+      @jsinterop.annotations.JsMethod(name = "hasExtensionCount_")
+      public native boolean hasExtensionCount12();
+
+      @jsinterop.annotations.JsMethod(name = "getExtensionCount_")
+      public native boolean getExtensionCount12();
+
+      @jsinterop.annotations.JsMethod(name = "clearExtensionCount_")
+      public native Builder clearExtensionCount12();
+
+      @jsinterop.annotations.JsMethod(name = "setExtensionCount_")
+      public native Builder setExtensionCount12(boolean value);
+    }
+  }
+}

@@ -17,6 +17,11 @@ generate_protos(
 )
 
 generate_protos(
+    name = "conflicting_names",
+    proto_file = "conflicting_names.proto",
+)
+
+generate_protos(
     name = "enums",
     proto_file = "enums.proto",
     deps = ["//java/com/google/protobuf/contrib/j2cl:options"],

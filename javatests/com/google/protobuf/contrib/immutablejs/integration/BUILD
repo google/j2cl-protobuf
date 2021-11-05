@@ -33,6 +33,20 @@ proto_jsunit_test(
 )
 
 proto_jsunit_test(
+    name = "conflicting_names_test",
+    srcs = [
+        "conflicting_names_test.js",
+    ],
+    deps = [
+        "//java/com/google/protobuf/contrib/immutablejs:runtime",
+        "//javatests/com/google/protobuf/contrib/immutablejs/protos:conflicting_names_immutable_js_proto",
+        "//javatests/com/google/protobuf/contrib/immutablejs/testing:proto_asserts",
+        "//third_party:closure_testing_asserts",
+        "//third_party:closure_testsuite",
+    ],
+)
+
+proto_jsunit_test(
     name = "bytestring_fields_test",
     srcs = [
         "bytestring_fields_test.js",

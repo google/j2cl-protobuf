@@ -25,52 +25,62 @@ import com.google.protobuf.Descriptors.FieldDescriptor;
 import com.google.protobuf.Descriptors.FieldDescriptor.JavaType;
 import com.google.protobuf.Descriptors.FileDescriptor.Syntax;
 import com.google.protobuf.contrib.immutablejs.generator.JavaQualifiedNames;
-import com.google.protobuf.contrib.immutablejs.generator.JavaScriptQualifiedNames;
+import com.google.protobuf.contrib.immutablejs.generator.NameResolver;
 
 /** Describes a protobuf field type. */
 @AutoValue
 public abstract class TemplateFieldDescriptor {
 
-  public static TemplateFieldDescriptor create(FieldDescriptor descriptor) {
-    return calculateType(descriptor);
+  public static TemplateFieldDescriptor create(
+      FieldDescriptor descriptor, NameResolver nameResolver) {
+    return calculateType(descriptor, nameResolver);
   }
 
   private static TemplateFieldDescriptor create(
-      FieldDescriptor descriptor, String stem, String qualifiedName) {
-    return create(descriptor, stem, qualifiedName, qualifiedName);
+      FieldDescriptor descriptor, String stem, String qualifiedName, NameResolver nameResolver) {
+    return create(descriptor, stem, qualifiedName, qualifiedName, nameResolver);
   }
 
   private static TemplateFieldDescriptor create(
-      FieldDescriptor descriptor, String stem, String qualifiedName, String unboxedName) {
-    return new AutoValue_TemplateFieldDescriptor(descriptor, stem, qualifiedName, unboxedName);
+      FieldDescriptor descriptor,
+      String stem,
+      String qualifiedName,
+      String unboxedName,
+      NameResolver nameResolver) {
+    return new AutoValue_TemplateFieldDescriptor(
+        descriptor, stem, qualifiedName, unboxedName, nameResolver);
   }
 
-  private static TemplateFieldDescriptor calculateType(FieldDescriptor fieldDescriptor) {
+  private static TemplateFieldDescriptor calculateType(
+      FieldDescriptor fieldDescriptor, NameResolver nameResolver) {
     switch (fieldDescriptor.getJavaType()) {
       case MESSAGE:
         return create(
             fieldDescriptor,
             "Message",
-            JavaQualifiedNames.getQualifiedName(fieldDescriptor.getMessageType()));
+            JavaQualifiedNames.getQualifiedName(fieldDescriptor.getMessageType()),
+            nameResolver);
       case BOOLEAN:
-        return create(fieldDescriptor, "Boolean", "java.lang.Boolean", "boolean");
+        return create(fieldDescriptor, "Boolean", "java.lang.Boolean", "boolean", nameResolver);
       case BYTE_STRING:
-        return create(fieldDescriptor, "ByteString", "com.google.protobuf.ByteString");
+        return create(
+            fieldDescriptor, "ByteString", "com.google.protobuf.ByteString", nameResolver);
       case DOUBLE:
-        return create(fieldDescriptor, "Double", "java.lang.Double", "double");
+        return create(fieldDescriptor, "Double", "java.lang.Double", "double", nameResolver);
       case ENUM:
         return create(
             fieldDescriptor,
             "Enum",
-            JavaQualifiedNames.getQualifiedName(fieldDescriptor.getEnumType()));
+            JavaQualifiedNames.getQualifiedName(fieldDescriptor.getEnumType()),
+            nameResolver);
       case FLOAT:
-        return create(fieldDescriptor, "Float", "java.lang.Float", "float");
+        return create(fieldDescriptor, "Float", "java.lang.Float", "float", nameResolver);
       case INT:
-        return create(fieldDescriptor, "Int", "java.lang.Integer", "int");
+        return create(fieldDescriptor, "Int", "java.lang.Integer", "int", nameResolver);
       case LONG:
-        return create(fieldDescriptor, "Long", "java.lang.Long", "long");
+        return create(fieldDescriptor, "Long", "java.lang.Long", "long", nameResolver);
       case STRING:
-        return create(fieldDescriptor, "String", "java.lang.String");
+        return create(fieldDescriptor, "String", "java.lang.String", nameResolver);
     }
     throw new IllegalStateException("Should never get here");
   }
@@ -82,6 +92,8 @@ public abstract class TemplateFieldDescriptor {
   public abstract String getBoxedType();
 
   public abstract String getUnboxedType();
+
+  public abstract NameResolver nameResolver();
 
   public String stemForConvertedFields() {
     switch (getUnboxedType()) {
@@ -124,12 +136,11 @@ public abstract class TemplateFieldDescriptor {
   }
 
   public String getName() {
-    return JavaQualifiedNames.getFieldName(fieldDescriptor(), !fieldDescriptor().isExtension());
+    return nameResolver().getJavaFieldName(fieldDescriptor());
   }
 
   public String getJsName() {
-    return JavaScriptQualifiedNames.getFieldName(
-        fieldDescriptor(), !fieldDescriptor().isExtension());
+    return nameResolver().getJsFieldName(fieldDescriptor());
   }
 
   public String getFieldNumberName() {
@@ -228,11 +239,13 @@ public abstract class TemplateFieldDescriptor {
 
   public TemplateFieldDescriptor getKeyField() {
     checkState(isMap(), "Field key type only exists for map fields.");
-    return create(fieldDescriptor().getMessageType().findFieldByName("key"));
+    FieldDescriptor keyField = fieldDescriptor().getMessageType().findFieldByName("key");
+    return create(keyField, NameResolver.identity());
   }
 
   public TemplateFieldDescriptor getValueField() {
     checkState(isMap(), "Field value type only exists for map fields.");
-    return create(fieldDescriptor().getMessageType().findFieldByName("value"));
+    FieldDescriptor valueField = fieldDescriptor().getMessageType().findFieldByName("value");
+    return create(valueField, NameResolver.identity());
   }
 }

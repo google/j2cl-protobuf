@@ -1,0 +1,48 @@
+// Copyright 2021 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     https://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+// Tests for fields accessors of different types.
+syntax = "proto2";
+
+package protobuf.contrib.j2cl.protos;
+
+option java_package = "com.google.protobuf.contrib.j2cl.protos";
+
+// REMOVED_BY_GENRULE option java_multiple_files = true;
+
+message ConflictingNames {
+  repeated int32 field = 1;
+  // This field conflicts with "field" as they both generate
+  // the method getFieldCount().
+  optional int32 field_count = 2;
+  // This field conflicts with "field" as they both generate
+  // the method getFieldList().
+  optional int32 field_list = 3;
+
+  optional bool second_field = 4;
+  // LINT: LEGACY_NAMES
+  // This is to avoid waring "fields should be named using
+  // underscore_separated_lowercase"
+  optional bool secondField = 5;
+
+  optional bool third_field = 6;
+  optional bool third_field__ = 7;
+
+  optional bool class_count = 8;
+  repeated bool class = 9;
+
+  repeated bool extension_ = 10;
+  repeated bool extension = 11;
+  optional bool extension_count = 12;
+}

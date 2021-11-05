@@ -12,6 +12,8 @@ java_test(
         "//javatests/com/google/protobuf/contrib/j2cl/protos:accessor_out",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:accessor-multiple-files_out",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:ambiguous_names_out",
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:conflicting_names_out",
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:conflicting_names-multiple-files_out",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:empty_package_out",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:empty_package-multiple-files_out",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:enums_out",

@@ -13,35 +13,27 @@
  */
 package com.google.protobuf.contrib.immutablejs.generator;
 
-import com.google.common.base.Ascii;
 import com.google.common.collect.ImmutableMap;
-import com.google.protobuf.Descriptors;
+import com.google.protobuf.Descriptors.FieldDescriptor;
 
-/** Helper class for generating fully qualified JS/J2CL identifiers for descriptors. */
-public final class JavaScriptQualifiedNames {
+final class JavaScriptQualifiedNames {
 
   private JavaScriptQualifiedNames() {}
 
   private static final ImmutableMap<String, String> SPECIAL_CASES =
-      ImmutableMap.of("extension", "extension_");
+      ImmutableMap.of(
+          "Extension",
+          "Extension_",
+          "extension",
+          "extension_",
+          "ExtensionCount",
+          "ExtensionCount_",
+          "extensionCount",
+          "extensionCount_");
 
   /** Returns the JavaScript compatible name for a proto field. */
-  public static String getFieldName(
-      Descriptors.FieldDescriptor field, boolean capitalizeFirstLetter) {
-    String fieldName = field.getName();
-    if (SPECIAL_CASES.containsKey(fieldName)) {
-      String output = SPECIAL_CASES.get(fieldName);
-      if (capitalizeFirstLetter) {
-        return capitalizeFirstLetter(output);
-      } else {
-        return output;
-      }
-    }
-
-    return JavaQualifiedNames.getFieldName(field, capitalizeFirstLetter);
-  }
-
-  private static String capitalizeFirstLetter(String input) {
-    return Ascii.toUpperCase(input.charAt(0)) + input.substring(1);
+  public static String getFieldName(FieldDescriptor field, boolean capitalizeFirstLetter) {
+    String javaFieldName = JavaQualifiedNames.getFieldName(field, capitalizeFirstLetter);
+    return SPECIAL_CASES.getOrDefault(javaFieldName, javaFieldName);
   }
 }

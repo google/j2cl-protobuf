@@ -41,6 +41,14 @@ public class GoldenFileTest extends GoldenFilesBaseTest {
     doGoldenTest("ambiguous_names");
   }
 
+  public void testConflictingNames() throws Exception {
+    doGoldenTest("conflicting_names");
+  }
+
+  public void testConflictingNamesMultipleFiles() throws Exception {
+    doGoldenTest("conflicting_names-multiple-files");
+  }
+
   public void testEmptyPackage() throws Exception {
     doGoldenTest("empty_package");
   }

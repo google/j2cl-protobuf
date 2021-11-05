@@ -49,6 +49,16 @@ j2cl_multi_test(
 )
 
 j2cl_multi_test(
+    name = "ConflictingNamesTest",
+    srcs = ["ConflictingNamesTest.java"],
+    proto_deps = ["//javatests/com/google/protobuf/contrib/j2cl/protos:conflicting_names"],
+    test_class = "com.google.protobuf.contrib.j2cl.integration.ConflictingNamesTest",
+    deps = [
+        ":checks",
+    ],
+)
+
+j2cl_multi_test(
     name = "DoubleFieldsTest",
     srcs = ["DoubleFieldsTest.java"],
     proto_deps = ["//javatests/com/google/protobuf/contrib/j2cl/protos:accessor"],
@@ -138,6 +148,7 @@ j2cl_multi_test(
     srcs = ["IntFieldsTest.java"],
     proto_deps = [
         "//javatests/com/google/protobuf/contrib/j2cl/protos:accessor",
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:conflicting_names",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:proto3_optional",
     ],
     test_class = "com.google.protobuf.contrib.j2cl.integration.IntFieldsTest",
@@ -242,6 +253,7 @@ closure_js_binary(
     deps = [
         "//javatests/com/google/protobuf/contrib/j2cl/protos:accessor_j2cl_proto",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:ambiguous_names_j2cl_proto",
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:conflicting_names_j2cl_proto",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:empty_package_j2cl_proto",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:enums_j2cl_proto",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:extensions_j2cl_proto",
