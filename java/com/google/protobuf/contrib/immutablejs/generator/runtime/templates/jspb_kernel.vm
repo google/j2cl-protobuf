@@ -50,8 +50,7 @@ function hasExtensionObject(data) {
   if (data.length > 0) {
     // Look at the data to see if there is a extension object
     const lastObject = data[data.length - 1];
-    if (lastObject && typeof lastObject === 'object' &&
-        !Array.isArray(lastObject)) {
+    if (lastObject && lastObject.constructor === Object) {
       return true;
     }
   }
@@ -322,14 +321,24 @@ class JspbKernel {
 
   /**
    * @param {number} fieldNumber
-   * @return {!Object<string|number, *>}
+   * @return {!Array<*>}
    * @private
    */
   getInternalRepeatedField_(fieldNumber) {
     const rawJson = this.getStorageFor_(fieldNumber);
     const index = this.indexForStorage_(fieldNumber);
-    FieldAccessor.ensureRepeatedFieldPresent(rawJson, index);
-    return /** @type {!Object<string|number, *>} */ (rawJson[index]);
+    return FieldAccessor.ensureRepeatedFieldPresent(rawJson, index);
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @return {!Array<*>}
+   * @private
+   */
+  getInternalMapField_(fieldNumber) {
+    const rawJson = this.getStorageFor_(fieldNumber);
+    const index = this.indexForStorage_(fieldNumber);
+    return FieldAccessor.ensureMapFieldPresent(rawJson, index);
   }
 
   /**
@@ -386,7 +395,7 @@ class JspbKernel {
    */
   getInternalMap_(
       fieldNumber, keyAccessorFn, keySetterFn, valueAccessorFn, valueSetterFn) {
-    const field = this.getInternalRepeatedField_(fieldNumber);
+    const field = this.getInternalMapField_(fieldNumber);
     const map = JspbKernel.getOrCache_(field, cachedMapKey,
         () => new InternalMap(
             internalChecks.checkTypeArray(field), keyAccessorFn, keySetterFn,

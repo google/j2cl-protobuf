@@ -53,6 +53,19 @@ class FieldAccessor {
   /**
    * @param {!Object<number, *>} rawJson
    * @param {number} fieldNumber
+   * @return {!Array<*>}
+   */
+  static ensureMapFieldPresent(rawJson, fieldNumber) {
+    const value = rawJson[fieldNumber];
+    if (!value) {
+      return rawJson[fieldNumber] = [];
+    }
+    return internalChecks.checkTypeArray(value);
+  }
+
+  /**
+   * @param {!Object<number, *>} rawJson
+   * @param {number} fieldNumber
    * @return {boolean}
    */
   static hasField(rawJson, fieldNumber) {
@@ -407,12 +420,12 @@ class FieldAccessor {
       case 'number':
         return isFinite(value) ? value : String(value);
       case 'object':
-        return (value && value instanceof Uint8Array) ?
-            base64.encodeByteArray(value) :
-            value;
-      default:
-       return value;
+        if (value instanceof Uint8Array) {
+          return base64.encodeByteArray(value);
+        }
+        break;
     }
+    return value;
   }
 }
 

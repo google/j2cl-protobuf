@@ -23,10 +23,6 @@ class MessageIdTest {
   testMessageIds() {
     assertEquals('["child_message_id"]', Child.parse('[]').serialize());
     assertEquals('["foo_message_id"]', Foo.parse('[]').serialize());
-    // copybara:strip_begin(jspb is google3 only)
-    assertEquals('child_message_id', Child.messageId);
-    assertEquals('foo_message_id', Foo.messageId);
-    // copybara:strip_end
 
     const foo = Foo.parse('[[],[],[[]]]');
     assertEquals('["child_message_id"]', foo.getPayload().serialize());
