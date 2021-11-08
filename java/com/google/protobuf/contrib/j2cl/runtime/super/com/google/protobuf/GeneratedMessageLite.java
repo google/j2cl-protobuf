@@ -766,7 +766,7 @@ public abstract class GeneratedMessageLite<
       for (com.google.protobuf.ProtocolMessageEnum v : values) {
         try {
           sparseArray[v.getNumber()] = v;
-        } catch (IllegalArgumentException ignoredE) {
+        } catch (IllegalArgumentException ignored) {
           // UNRECGONIZED(-1).getNumber() will throw but we need to skip them anyway.
         }
       }
