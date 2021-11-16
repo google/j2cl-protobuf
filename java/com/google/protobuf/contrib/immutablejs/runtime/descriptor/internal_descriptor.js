@@ -553,5 +553,6 @@ exports = {
   DescriptorImpl,
   Modifier,
   createGetDescriptorFn,
+  createGetDescriptorFnFromArgs,
   registerExtension,
 };
