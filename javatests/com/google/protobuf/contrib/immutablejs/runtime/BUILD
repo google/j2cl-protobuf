@@ -8,6 +8,7 @@ proto_jsunit_test(
     deps = [
         "//java/com/google/protobuf/contrib/immutablejs/runtime:bytestring",
         "//java/com/google/protobuf/contrib/immutablejs/runtime:internal_checks",
+        "//javatests/com/google/protobuf/contrib/immutablejs/testing:proto_asserts",
         "//third_party:closure_crypt_base64",
         "//third_party:closure_testing_asserts",
         "//third_party:closure_testsuite",

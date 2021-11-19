@@ -65,11 +65,32 @@ class ByteString {
 
   /**
    * Returns this ByteString as a byte array. Note that the array is frozen.
+   *
+   * TODO(b/160621969): Remove toByteArray in favor to toInt8Array after
+   * cleaning the clientside code.
+   *
    * @return {!Array<number>}
    */
   toByteArray() {
     return this.ensureBytes_();
   }
+
+  /**
+   * Returns this ByteString as a Int8 byte array.
+   * @return {!Int8Array}
+   */
+  toInt8Array() {
+    return Int8Array.from(this.ensureBytes_());
+  }
+
+  /**
+   * Returns this ByteString as a Uint8 Byte array.
+   * @return {!Uint8Array}
+   */
+  toUint8Array() {
+    return Uint8Array.from(this.ensureBytes_());
+  }
+
 
   /**
    * Returns the number of bytes in the string.

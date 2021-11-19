@@ -18,6 +18,7 @@ goog.setTestOnly();
 const ByteString = goog.require('proto.im.ByteString');
 const base64 = goog.require('goog.crypt.base64');
 const testSuite = goog.require('goog.testing.testSuite');
+const {assertEqualsForProto} = goog.require('proto.im.proto_asserts');
 const {isCheckType} = goog.require('proto.im.internal.internalChecks');
 
 
@@ -69,6 +70,42 @@ class ByteStringTest {
     const halloInBase64 = 'aGFsbG8=';  // hallo in base64
     const halloByteString = ByteString.fromBase64String(halloInBase64);
     assertEquals(halloInBase64, halloByteString.toBase64String());
+  }
+
+  testToInt8Array_inRangeBytes() {
+    const byteString = ByteString.copyFrom([-128, -64, 0, 64, 127]);
+    assertEqualsForProto(
+        [-128, -64, 0, 64, 127], Array.from(byteString.toInt8Array()));
+  }
+
+  testToInt8Array_outOfRangeBytes() {
+    const byteString = ByteString.copyFrom([-200, -129, 128, 200]);
+    assertEqualsForProto(
+        [56, 127, -128, -56], Array.from(byteString.toInt8Array()));
+  }
+
+  testToInt8Array_ByteStringImmutability() {
+    const byteString = ByteString.copyFrom([0, 1, 2]);
+    byteString.toInt8Array()[0] += 1;
+    assertEqualsForProto([0, 1, 2], Array.from(byteString.toInt8Array()));
+  }
+
+  testToUint8Array_inRangeBytes() {
+    const byteString = ByteString.copyFrom([0, 64, 128, 200, 255]);
+    assertEqualsForProto(
+        [0, 64, 128, 200, 255], Array.from(byteString.toUint8Array()));
+  }
+
+  testToUInt8Array_outOfRangeBytes() {
+    const byteString = ByteString.copyFrom([-127, -1, 256, 300]);
+    assertEqualsForProto(
+        [129, 255, 0, 44], Array.from(byteString.toUint8Array()));
+  }
+
+  testToUint8Array_ByteStringImmutability() {
+    const byteString = ByteString.copyFrom([0, 1, 2]);
+    byteString.toUint8Array()[0] += 1;
+    assertEqualsForProto([0, 1, 2], Array.from(byteString.toUint8Array()));
   }
 
   testIsEmpty() {
