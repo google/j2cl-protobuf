@@ -15,7 +15,7 @@
 goog.module('proto.im.internal.testUtils');
 
 const {FieldType} = goog.requireType('proto.im.descriptor');
-const {fieldSkipConstants, fieldTypeConstants, oneofConstants, oneofFieldNumberConstants} = goog.require('proto.im.internal.constants');
+const {fieldSkipConstants, fieldTypeConstants} = goog.require('proto.im.internal.constants');
 
 function /** number */ intToBase92(/** number */ value) {
   if (value < 0 || value > 91) {
@@ -73,49 +73,10 @@ function encodeValues(...values) {
   return String.fromCharCode(...values.flat().map(intToBase92));
 }
 
-/**
- * @param {...!Array<number>} oneofs
- * @return {!Array<number>}
- */
-function oneofValues(...oneofs) {
-  if (oneofs.length === 0) {
-    return [];
-  }
-
-  /** @return {!Array<number>} */
-  const encodeOneofFieldNumber = (/** number */ fieldNumber) => {
-    // Field numbers should be >= 1 and <= 2^29 - 1, but that's not enforced
-    // here so that we can verify that malformed field numbers are caught on
-    // decode.
-    const encodedFieldNumber = [];
-    do {
-      encodedFieldNumber.push(fieldNumber & oneofFieldNumberConstants.BITMASK);
-      fieldNumber >>>= oneofFieldNumberConstants.SHIFT_AMOUNT;
-    } while (fieldNumber > 0);
-    return encodedFieldNumber;
-  };
-
-  const result = [];
-  for (let i = 0; i < oneofs.length; i++) {
-    const oneofGroup = oneofs[i];
-    for (let j = 0; j < oneofGroup.length; j++) {
-      result.push(...encodeOneofFieldNumber(oneofGroup[j]));
-      if (j + 1 < oneofGroup.length) {
-        result.push(oneofConstants.ONEOF_FIELD_SEPARATOR);
-      }
-    }
-    if (i + 1 < oneofs.length) {
-      result.push(oneofConstants.ONEOF_GROUP_SEPARATOR);
-    }
-  }
-  return result;
-}
-
 exports = {
   typeValue,
   repeatedTypeValue,
   modifierValues,
   skipValues,
   encodeValues,
-  oneofValues,
 };

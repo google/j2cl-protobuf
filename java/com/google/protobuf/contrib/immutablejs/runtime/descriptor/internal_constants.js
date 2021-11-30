@@ -53,28 +53,3 @@ exports.fieldSkipConstants = {
   /** @const {number} */
   BITMASK: 0x1F,
 };
-
-/**
- * Constants that mark special values or ranges of values for the oneof groups
- * portion of the encoded descriptor.
- *
- * All values should be within Base-92 range (i.e. [0, 92) ). There should be
- * no repetition/overlap of values.
- */
-exports.oneofConstants = {
-  /** @const {number} */
-  ONEOF_FIELD_NUMBER_START: 0,
-  /** @const {number} */
-  ONEOF_FIELD_NUMBER_END: 63,  // inclusive
-  /** @const {number} */
-  ONEOF_FIELD_SEPARATOR: 89,
-  /** @const {number} */
-  ONEOF_GROUP_SEPARATOR: 91,
-};
-
-exports.oneofFieldNumberConstants = {
-  /** @const {number} */
-  SHIFT_AMOUNT: 6,
-  /** @const {number} */
-  BITMASK: 0x3F,
-};

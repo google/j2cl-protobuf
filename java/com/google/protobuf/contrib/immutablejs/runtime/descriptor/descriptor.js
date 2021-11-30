@@ -29,23 +29,6 @@ class Descriptor {
    */
   forEachField(callback) {}
 
-  /** @return {boolean} Whether the message has at least one oneof group. */
-  hasOneofs() {}
-
-  /**
-   * @return {!Array<!Array<number>>} An array of array of field numbers
-   *     representing oneof groups. That is, each nested array is a oneof group
-   *     whose elements are the field numbers composing that group.
-   */
-  oneofs() {}
-
-  /**
-   * @param {function(!Array<number>):void} callback A callback that will be
-   *     invoked with an array of field numbers composing a oneof group. The
-   *     callback will be executed for each oneof group.
-   */
-  forEachOneof(callback) {}
-
   /** @return {boolean} Whether the message has a defined extensions range. */
   isExtendable() {}
 

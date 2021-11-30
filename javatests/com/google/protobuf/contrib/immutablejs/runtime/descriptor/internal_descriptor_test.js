@@ -17,8 +17,8 @@ goog.module('proto.im.internal.descriptorTest');
 const testSuite = goog.require('goog.testing.testSuite');
 const {Descriptor, Field, FieldType, } = goog.require('proto.im.descriptor');
 const {DescriptorImpl, Modifier, createGetDescriptorFn, registerExtension} = goog.require('proto.im.internal.descriptor');
-const {MAX_FIELD_NUMBER, fieldTypeConstants} = goog.require('proto.im.internal.constants');
-const {encodeValues, modifierValues, oneofValues, repeatedTypeValue, skipValues, typeValue} = goog.require('proto.im.internal.testUtils');
+const {MAX_FIELD_NUMBER} = goog.require('proto.im.internal.constants');
+const {encodeValues, modifierValues, repeatedTypeValue, skipValues, typeValue} = goog.require('proto.im.internal.testUtils');
 
 function /** !Field */ getOnlyField(
     /** !Descriptor */ descriptor,
@@ -352,111 +352,6 @@ testSuite({
         return [`testSkip${i}Fields`, () => skipFieldsTestCase(i)];
       }));
     }
-  },
-
-  testOneofs: {
-    testShouldAssociateAllFieldsInGroup() {
-      const descriptor = DescriptorImpl.fromEncodedString(encodeValues(
-          typeValue(FieldType.INT32),  // 1
-          typeValue(FieldType.INT32),  // 2
-          typeValue(FieldType.INT32),  // 3
-          fieldTypeConstants.END_OF_FIELD_DESCRIPTOR,
-          oneofValues([1, 3]),
-          ));
-
-      assertTrue('The descriptor should have oneofs', descriptor.hasOneofs());
-      const oneofGroups = descriptor.oneofs();
-      assertObjectEquals([[1, 3]], oneofGroups);
-    },
-
-    testMultipleOneofGroups() {
-      const descriptor = DescriptorImpl.fromEncodedString(encodeValues(
-          typeValue(FieldType.INT32),  // 1
-          typeValue(FieldType.INT32),  // 2
-          typeValue(FieldType.INT32),  // 3
-          typeValue(FieldType.INT32),  // 4
-          fieldTypeConstants.END_OF_FIELD_DESCRIPTOR,
-          oneofValues([1, 3], [2, 4]),
-          ));
-
-      assertTrue('The descriptor should have oneofs', descriptor.hasOneofs());
-      const oneofGroups = descriptor.oneofs();
-      assertObjectEquals([[1, 3], [2, 4]], oneofGroups);
-    },
-
-    testLargeFieldNumbers() {
-      // Arbitrarily large field numbers that take more than 6 bytes to encode.
-      const firstFieldNumber = 131072;   // 1<<17
-      const secondFieldNumber = 262144;  // 1<<18
-      const descriptor = DescriptorImpl.fromEncodedString(encodeValues(
-          skipValues(firstFieldNumber),
-          typeValue(FieldType.INT32),  // 131072
-          skipValues(secondFieldNumber - firstFieldNumber),
-          typeValue(FieldType.INT32),  // 262144
-          fieldTypeConstants.END_OF_FIELD_DESCRIPTOR,
-          oneofValues([firstFieldNumber, secondFieldNumber])));
-
-      assertTrue('The descriptor should have oneofs', descriptor.hasOneofs());
-      const oneofGroups = descriptor.oneofs();
-      assertObjectEquals([[firstFieldNumber, secondFieldNumber]], oneofGroups);
-    },
-
-    testMaxFieldNumber() {
-      const firstFieldNumber = 1;                  // 1
-      const secondFieldNumber = MAX_FIELD_NUMBER;  // 2^29-1
-      const descriptor = DescriptorImpl.fromEncodedString(encodeValues(
-          typeValue(FieldType.INT32),  // 1
-          skipValues(secondFieldNumber - firstFieldNumber),
-          typeValue(FieldType.INT32),  // 2^29-1
-          fieldTypeConstants.END_OF_FIELD_DESCRIPTOR,
-          oneofValues([firstFieldNumber, secondFieldNumber])));
-
-      assertTrue('The descriptor should have oneofs', descriptor.hasOneofs());
-      const oneofGroups = descriptor.oneofs();
-      assertObjectEquals([[firstFieldNumber, secondFieldNumber]], oneofGroups);
-    },
-
-    testBeyondMaxFieldNumber_shouldThrow() {
-      const firstFieldNumber = 1;                      // 1
-      const secondFieldNumber = MAX_FIELD_NUMBER + 1;  // 2^29
-      const descriptor = DescriptorImpl.fromEncodedString(encodeValues(
-          typeValue(FieldType.INT32),  // 1
-          skipValues(secondFieldNumber - firstFieldNumber),
-          typeValue(FieldType.INT32),  // 2^29
-          fieldTypeConstants.END_OF_FIELD_DESCRIPTOR,
-          oneofValues([firstFieldNumber, secondFieldNumber])));
-
-      const error = assertThrows(() => descriptor.oneofs());
-      assertEquals(
-          'Malformed descriptor; Field numbers should be <= 536870911 and >= 1, but was 536870912',
-          error.message);
-    },
-
-    testNegativeFieldNumber_shouldThrow() {
-      const descriptor = DescriptorImpl.fromEncodedString(encodeValues(
-          typeValue(FieldType.INT32),  // 1
-          fieldTypeConstants.END_OF_FIELD_DESCRIPTOR, oneofValues([1, -1])));
-
-      const error = assertThrows(() => descriptor.oneofs());
-      assertEquals(
-          'Malformed descriptor; Field numbers should be <= 536870911 and >= 1, but was -1',
-          error.message);
-    },
-
-    testoneofFirst63Fields() {
-      // We test 63 fields to exhaust all possible base92 values that can
-      // represent a field number (6 bits). We skip zero since that's not a
-      // valid field number.
-      const fieldNumbers = Array.from(Array(63).keys()).map(i => i + 1);
-      const descriptor = DescriptorImpl.fromEncodedString(encodeValues(
-          ...fieldNumbers.map(() => typeValue(FieldType.INT32)),
-          fieldTypeConstants.END_OF_FIELD_DESCRIPTOR,
-          oneofValues(fieldNumbers)));
-
-      assertObjectEquals(
-          'There should be a single oneof group with field 1-63',
-          [fieldNumbers], descriptor.oneofs());
-    },
   },
 
   testMessageId: {

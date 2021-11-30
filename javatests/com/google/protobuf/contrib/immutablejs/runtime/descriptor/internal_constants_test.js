@@ -15,21 +15,13 @@
 goog.module('proto.im.internal.constantsTest');
 
 const testSuite = goog.require('goog.testing.testSuite');
-const {fieldTypeConstants, oneofConstants} = goog.require('proto.im.internal.constants');
+const {fieldTypeConstants} = goog.require('proto.im.internal.constants');
 
 testSuite({
   testFieldTypeConstants_areValidBase92() {
     for (const [key, value] of Object.entries(fieldTypeConstants)) {
       assertTrue(
           `fieldTypeConstants.${key} is not in Base92 value range.`,
-          value >= 0 && value < 92);
-    }
-  },
-
-  testOneofConstants_areValidBase92() {
-    for (const [key, value] of Object.entries(oneofConstants)) {
-      assertTrue(
-          `oneofConstants.${key} is not in Base92 value range.`,
           value >= 0 && value < 92);
     }
   },

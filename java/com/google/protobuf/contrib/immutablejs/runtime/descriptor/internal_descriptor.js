@@ -15,7 +15,7 @@
 goog.module('proto.im.internal.descriptor');
 
 const {Descriptor, Field, FieldType} = goog.require('proto.im.descriptor');
-const {MAX_FIELD_NUMBER, fieldSkipConstants, fieldTypeConstants, oneofConstants, oneofFieldNumberConstants} = goog.require('proto.im.internal.constants');
+const {MAX_FIELD_NUMBER, fieldSkipConstants, fieldTypeConstants} = goog.require('proto.im.internal.constants');
 const {cacheReturnValue} = goog.require('goog.functions');
 const {fieldTypeConstants: encodedFieldTypeConstants} = goog.require('proto.im.internal.encodedConstants');
 
@@ -125,65 +125,6 @@ class DescriptorImpl {
             () => extensionObj.submessageDescriptorProvider);
       }
       callback(field);
-    }
-  }
-
-  /**
-   * @return {boolean}
-   * @override
-   */
-  hasOneofs() {
-    // The oneofs begin after the field descriptor end marker. If the marker is
-    // not present then there are no oneofs.
-    return this.fieldDescriptorEnd_ >= 0;
-  }
-
-  /**
-   * @return {!Array<!Array<number>>}
-   * @override
-   */
-  oneofs() {
-    const groups = [];
-    this.forEachOneof((oneofGroup) => void groups.push(oneofGroup));
-    return groups;
-  }
-
-  /**
-   * @param {function(!Array<number>):void} callback
-   * @override
-   */
-  forEachOneof(callback) {
-    if (!this.hasOneofs()) {
-      return;
-    }
-    // Checking hasOneofs() above ensures that the offset is non-negative.
-    const oneofReader = new Base92Reader(
-        this.fullEncodedDescriptor_, /* offset= */ this.fieldDescriptorEnd_ + 1,
-        /* limit= */ -1);
-
-    let group = [];
-    while (!isNaN(oneofReader.peekValue())) {
-      if (isOneofSeperator(oneofReader.peekValue())) {
-        const value = oneofReader.consumeValue();
-        // At the end of the group invoke the callback with the current group
-        // and prepare for the next group.
-        if (value === oneofConstants.ONEOF_GROUP_SEPARATOR) {
-          callback(group);
-          group = [];
-        }
-        continue;
-      }
-
-      const fieldNumber = parseOneofFieldNumber(oneofReader);
-      checkState(
-          fieldNumber > 0,
-          `expected oneof field number but got ${oneofReader.peekValue()}`);
-      group.push(fieldNumber);
-    }
-
-    // Invoke the callback one last time if there was a trailing group.
-    if (group.length > 0) {
-      callback(group);
     }
   }
 
@@ -500,31 +441,6 @@ function /** number */ parseModifiers(/** !Base92Reader */ reader) {
 function /** boolean */ isModifier(/** number */ base92Value) {
   return base92Value >= fieldTypeConstants.MODIFIERS_START &&
       base92Value <= fieldTypeConstants.MODIFIERS_END;
-}
-
-function /** boolean */ isOneofSeperator(/** number */ value) {
-  return value === oneofConstants.ONEOF_FIELD_SEPARATOR ||
-      value === oneofConstants.ONEOF_GROUP_SEPARATOR;
-}
-
-function /** boolean */ isOneofFieldNumber(/** number */ value) {
-  return value >= oneofConstants.ONEOF_FIELD_NUMBER_START &&
-      value <= oneofConstants.ONEOF_FIELD_NUMBER_END;
-}
-
-function /** number */ parseOneofFieldNumber(/** !Base92Reader */ reader) {
-  let fieldNumber = 0;
-  let shift = 0;
-  while (isOneofFieldNumber(reader.peekValue())) {
-    fieldNumber |= (reader.consumeValue() & oneofFieldNumberConstants.BITMASK)
-        << shift;
-    shift += oneofFieldNumberConstants.SHIFT_AMOUNT;
-  }
-  checkState(
-      fieldNumber <= MAX_FIELD_NUMBER && fieldNumber >= 0,
-      `Field numbers should be <= ${MAX_FIELD_NUMBER} and >= 1, but was ${
-          fieldNumber}`);
-  return fieldNumber;
 }
 
 function checkState(/** boolean */ condition, /** string */ message) {
