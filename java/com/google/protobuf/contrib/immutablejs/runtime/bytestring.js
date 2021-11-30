@@ -179,7 +179,7 @@ class ByteString {
    */
   ensureBase64String_() {
     if (this.base64_ == null) {
-      this.base64_ = base64.encodeByteArray(this.bytes_);
+      this.base64_ = base64.encodeByteArray(this.toUint8Array());
     }
 
     return /** @type {string} */ (this.base64_);

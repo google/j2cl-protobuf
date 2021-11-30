@@ -72,6 +72,16 @@ class ByteStringTest {
     assertEquals(halloInBase64, halloByteString.toBase64String());
   }
 
+  testToBase64String_outOfRangeBytes() {
+    const negativeBytes = ByteString.copyFrom([-128, -64, -1, 256]);
+    assertEquals('gMD/AA==', negativeBytes.toBase64String());
+  }
+
+  testToBase64String_inRangeBytes() {
+    const negativeBytes = ByteString.copyFrom([0, 64, 127, 255]);
+    assertEquals('AEB//w==', negativeBytes.toBase64String());
+  }
+
   testToInt8Array_inRangeBytes() {
     const byteString = ByteString.copyFrom([-128, -64, 0, 64, 127]);
     assertEqualsForProto(
