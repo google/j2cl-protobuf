@@ -247,12 +247,13 @@ class Args {
 }
 
 /**
- * @param {!Args} args
+ * @param {function():!Args} argsSupplier
  * @return {function():!Descriptor}
  */
-function createGetDescriptorFnFromArgs(args) {
+function createGetDescriptorFnFromArgs(argsSupplier) {
   let Descriptor;
-  return () => Descriptor || (Descriptor = DescriptorImpl.fromArgs(args));
+  return () => Descriptor ||
+      (Descriptor = DescriptorImpl.fromArgs(argsSupplier()));
 }
 
 /**
@@ -551,6 +552,7 @@ function /** boolean */ hasModifier(
 
 exports = {
   DescriptorImpl,
+  ExtensionRegistry,
   Modifier,
   createGetDescriptorFn,
   createGetDescriptorFnFromArgs,
