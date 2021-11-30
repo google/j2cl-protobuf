@@ -80,7 +80,7 @@ class ByteString {
    * @return {!Int8Array}
    */
   toInt8Array() {
-    return Int8Array.from(this.ensureBytes_());
+    return new Int8Array(this.ensureBytes_());
   }
 
   /**
@@ -88,7 +88,7 @@ class ByteString {
    * @return {!Uint8Array}
    */
   toUint8Array() {
-    return Uint8Array.from(this.ensureBytes_());
+    return new Uint8Array(this.ensureBytes_());
   }
 
 
