@@ -45,7 +45,7 @@ function dump(message) {
  * Recursively introspects a message and the values its getters return to
  * make a best effort in creating a human readable representation of the
  * message.
- * @param {!Message|!ListView|!ByteString|!Long|!Array|number|string|boolean|undefined|null}
+ * @param {!Message|!ListView|!ByteString|!Int8Array|!Long|!Array|number|string|boolean|undefined|null}
  *     thing A Message, ListView, ByteString or primitive type to dump.
  * @return {!Object|number|string|boolean|undefined|null}
  * @private
@@ -66,7 +66,7 @@ function dump_(thing) {
   }
 
   if (thing instanceof ByteString) {
-    return dump_(thing.toByteArray());
+    return dump_(thing.toInt8Array());
   }
 
   asserts.assert(thing instanceof Message, 'Only messages expected: ' + thing);
