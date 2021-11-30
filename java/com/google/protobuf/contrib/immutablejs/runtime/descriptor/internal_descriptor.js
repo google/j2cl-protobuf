@@ -452,7 +452,7 @@ function parseField(
 
   const modifiers = isModifier(reader.peekValue()) ? parseModifiers(reader) : 0;
 
-  let submessageDescriptorProvider = null;
+  let submessageDescriptorProvider = undefined;
   if (fieldType === FieldType.MESSAGE || fieldType === FieldType.GROUP) {
     submessageDescriptorProvider = submessageDescriptorSupplier?.();
     checkState(
@@ -464,8 +464,7 @@ function parseField(
     fieldType,
     repeated,
     extension,
-    submessageDescriptor:
-        submessageDescriptorProvider ? submessageDescriptorProvider() : null,
+    submessageDescriptorProvider,
     unpacked: hasModifier(modifiers, Modifier.UNPACKED),
     jspbInt64String: hasModifier(modifiers, Modifier.JSPB_STRING),
   };

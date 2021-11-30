@@ -140,7 +140,7 @@ testSuite({
       });
 
       const field = getOnlyField(descriptor);
-      assertEquals(submessageDescriptor, field.submessageDescriptor);
+      assertEquals(submessageDescriptor, field.submessageDescriptorProvider());
     },
 
     testWithMultipleSubmessageDescriptors_shouldAssociateThemWithTheirFields() {
@@ -162,24 +162,24 @@ testSuite({
       });
 
       const fields = descriptor.fields();
-      assertNull(
+      assertUndefined(
           'Field 1 should not have a submessage descriptor',
-          fields[1].submessageDescriptor);
-      assertNull(
+          fields[1].submessageDescriptorProvider);
+      assertUndefined(
           'Field 2 should not have a submessage descriptor',
-          fields[2].submessageDescriptor);
+          fields[2].submessageDescriptorProvider);
       assertEquals(
           'Field 3 should have the first submessage descriptor',
-          submessageDescriptor1, fields[3].submessageDescriptor);
-      assertNull(
+          submessageDescriptor1, fields[3].submessageDescriptorProvider());
+      assertUndefined(
           'Field 4 should not have a submessage descriptor',
-          fields[4].submessageDescriptor);
+          fields[4].submessageDescriptorProvider);
       assertEquals(
           'Field 5 should have the second submessage descriptor',
-          submessageDescriptor2, fields[5].submessageDescriptor);
-      assertNull(
+          submessageDescriptor2, fields[5].submessageDescriptorProvider());
+      assertUndefined(
           'Field 6 should not have a submessage descriptor',
-          fields[6].submessageDescriptor);
+          fields[6].submessageDescriptorProvider);
     },
   },
 
@@ -204,7 +204,7 @@ testSuite({
       });
 
       const field = getOnlyField(descriptor);
-      assertEquals(submessageDescriptor, field.submessageDescriptor);
+      assertEquals(submessageDescriptor, field.submessageDescriptorProvider());
     },
   },
 
@@ -552,7 +552,7 @@ testSuite({
           field.fieldType);
       assertEquals(
           'Extension field 1 should have the submessage descriptor we provided',
-          submessageDescriptor, field.submessageDescriptor);
+          submessageDescriptor, field.submessageDescriptorProvider());
     },
 
     testRegisterMultipleFields() {

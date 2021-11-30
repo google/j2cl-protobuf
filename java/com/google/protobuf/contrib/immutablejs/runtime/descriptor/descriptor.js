@@ -81,12 +81,12 @@ class Field {
     this.extension;
 
     /**
-     * The Descriptor for the submessage, or null if not applicable for the
-     * field type. Only Message/Group fields will have a submessage descriptor.
+     * A provider for the submessage descriptor. The provider will be undefined
+     * if the field type is not a message or group.
      *
-     * @const {?Descriptor}
+     * @const {(function():!Descriptor)|undefined}
      */
-    this.submessageDescriptor;
+    this.submessageDescriptorProvider;
 
     /**
      * Whether the field is unpacked. This should only be considered for
