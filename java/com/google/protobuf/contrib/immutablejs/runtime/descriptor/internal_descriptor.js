@@ -16,6 +16,7 @@ goog.module('proto.im.internal.descriptor');
 
 const {Descriptor, Field, FieldType} = goog.require('proto.im.descriptor');
 const {MAX_FIELD_NUMBER, fieldSkipConstants, fieldTypeConstants, oneofConstants, oneofFieldNumberConstants} = goog.require('proto.im.internal.constants');
+const {cacheReturnValue} = goog.require('goog.functions');
 const {fieldTypeConstants: encodedFieldTypeConstants} = goog.require('proto.im.internal.encodedConstants');
 
 /** @implements {Descriptor} */
@@ -251,9 +252,7 @@ class Args {
  * @return {function():!Descriptor}
  */
 function createGetDescriptorFnFromArgs(argsSupplier) {
-  let Descriptor;
-  return () => Descriptor ||
-      (Descriptor = DescriptorImpl.fromArgs(argsSupplier()));
+  return cacheReturnValue(() => DescriptorImpl.fromArgs(argsSupplier()));
 }
 
 /**
@@ -261,9 +260,8 @@ function createGetDescriptorFnFromArgs(argsSupplier) {
  * @return {function():!Descriptor}
  */
 function createGetDescriptorFn(encodedDescriptor) {
-  let Descriptor;
-  return () => Descriptor ||
-      (Descriptor = DescriptorImpl.fromEncodedString(encodedDescriptor));
+  return cacheReturnValue(
+      () => DescriptorImpl.fromEncodedString(encodedDescriptor));
 }
 
 /** @record */

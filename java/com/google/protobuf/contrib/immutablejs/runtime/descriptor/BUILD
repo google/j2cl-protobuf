@@ -30,5 +30,6 @@ closure_js_library(
         ":descriptor",
         ":internal_constants",
         ":internal_encoded_constants",
+        "//third_party:closure_functions",
     ],
 )

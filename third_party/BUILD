@@ -93,6 +93,11 @@ alias(
 )
 
 alias(
+    name = "closure_functions",
+    actual = "@io_bazel_rules_closure//closure/library/functions",
+)
+
+alias(
     name = "closure_reflect",
     actual = "@io_bazel_rules_closure//closure/library/reflect",
 )
