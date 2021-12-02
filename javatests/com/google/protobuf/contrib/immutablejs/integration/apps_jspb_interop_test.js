@@ -119,8 +119,8 @@ class AppsJspbInteropTest {
         this.toImmutable(mutableProto, ImmutableProto, ImmutableProto.parse);
     assertSingleBytes(immutableProto, mutableProto);
 
-    mutableProto = new MutableProto().setOptionalBytes(
-        Uint8Array.from(HALLO_IN_BYTESTRING.toByteArray()));
+    mutableProto =
+        new MutableProto().setOptionalBytes(HALLO_IN_BYTESTRING.toUint8Array());
     immutableProto =
         this.toImmutable(mutableProto, ImmutableProto, ImmutableProto.parse);
     assertSingleBytes(immutableProto, mutableProto);
@@ -442,12 +442,11 @@ class AppsJspbInteropTest {
             .serialize();
     assertEqualsForProto('NaN', JSON.parse(serializedImmutable)[12]);
 
-    serializedImmutable =
-        this.toImmutable(
-                new MutableProto().setOptionalBytes(
-                    Uint8Array.from(HALLO_IN_BYTESTRING.toByteArray())),
-                ImmutableProto, ImmutableProto.parse)
-            .serialize();
+    serializedImmutable = this.toImmutable(
+                                  new MutableProto().setOptionalBytes(
+                                      HALLO_IN_BYTESTRING.toUint8Array()),
+                                  ImmutableProto, ImmutableProto.parse)
+                              .serialize();
     assertEqualsForProto(HALLO_IN_BASE64, JSON.parse(serializedImmutable)[27]);
   }
 }

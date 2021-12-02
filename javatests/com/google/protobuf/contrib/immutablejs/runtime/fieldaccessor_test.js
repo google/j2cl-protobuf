@@ -110,13 +110,13 @@ class FieldAccessorTest {
     fields[4] = 'aGFsbG8=';                      // hallo in base64
     const byteArray = [104, 97, 108, 108, 111];  // hallo char codes
 
-    assertArrayEquals(
+    assertElementsEquals(
         byteArray,
         FieldAccessor
             .getByteStringWithDefault(fields, 4, ByteString.copyFrom([1]))
-            .toByteArray());
-    assertArrayEquals(
-        byteArray, FieldAccessor.getByteString(fields, 4).toByteArray());
+            .toInt8Array());
+    assertElementsEquals(
+        byteArray, FieldAccessor.getByteString(fields, 4).toInt8Array());
 
     FieldAccessor.setByteString(fields, 1, ByteString.copyFrom(byteArray));
     assertEquals('aGFsbG8=', fields[1]);

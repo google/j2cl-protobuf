@@ -50,4 +50,22 @@ public final class ByteStringTest {
     assertThat(HALLO_FROM_BASE64.toStringUtf8()).isEqualTo("hallo");
     assertThat(HALLO_FROM_BYTES.toStringUtf8()).isEqualTo("hallo");
   }
+
+  @Test
+  public void testToByteArray() throws Exception {
+    byte[] halloBytes = "hallo".getBytes("UTF-8");
+    assertThat(HALLO_FROM_UTF8.toByteArray()).isEqualTo(halloBytes);
+
+    byte[] negativeBytes = {-1, -1, -1};
+    assertThat(ByteString.copyFrom(negativeBytes).toByteArray()).isEqualTo(negativeBytes);
+    assertThat(InternalByteString.fromBase64String("////").toByteArray()).isEqualTo(negativeBytes);
+  }
+
+  private static void assertByteArrayEqual(byte[] from, byte[] to) {
+    assertThat(to.length).isEqualTo(from.length);
+    int len = to.length;
+    for (int i = 0; i < len; i++) {
+      assertThat(to[i]).isEqualTo(from[i]);
+    }
+  }
 }

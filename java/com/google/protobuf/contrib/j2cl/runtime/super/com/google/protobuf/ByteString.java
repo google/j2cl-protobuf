@@ -35,7 +35,14 @@ public class ByteString {
   // Hides the constructor. Factory methods should be used instead.
   private ByteString() {}
 
-  public native byte[] toByteArray();
+  @JsOverlay
+  public final byte[] toByteArray() {
+    byte[] byteArray = new byte[0];
+    for (int i = 0; i < size(); i++) {
+      byteArray[i] = byteAt(i);
+    }
+    return byteArray;
+  }
 
   public native int size();
 

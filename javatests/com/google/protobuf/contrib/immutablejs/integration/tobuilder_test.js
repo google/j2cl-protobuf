@@ -250,44 +250,26 @@ class ToBuilderTest {
             .addRepeatedBytes(ByteString.copyFrom([8]))
             .build();
 
-    assertEqualsForProto(
-        [1], testProtoByteString.getOptionalBytes().toByteArray());
-    assertEqualsForProto(
-        [2], testProtoByteString.getOptionalBytesWithDefault().toByteArray());
-    assertEqualsForProto(
-        [1], Array.from(testProtoByteString.getOptionalBytes().toInt8Array()));
-    assertEqualsForProto(
-        [2],
-        Array.from(
-            testProtoByteString.getOptionalBytesWithDefault().toInt8Array()));
-    assertEqualsForProto(
-        [1], Array.from(testProtoByteString.getOptionalBytes().toUint8Array()));
-    assertEqualsForProto(
-        [2],
-        Array.from(
-            testProtoByteString.getOptionalBytesWithDefault().toUint8Array()));
+    assertElementsEquals(
+        [1], testProtoByteString.getOptionalBytes().toInt8Array());
+    assertElementsEquals(
+        [2], testProtoByteString.getOptionalBytesWithDefault().toInt8Array());
+    assertElementsEquals(
+        [1], testProtoByteString.getOptionalBytes().toUint8Array());
+    assertElementsEquals(
+        [2], testProtoByteString.getOptionalBytesWithDefault().toUint8Array());
     assertEqualsForProto(
         [ByteString.copyFrom([3]), ByteString.copyFrom([4])],
         testProtoByteString.getRepeatedBytesList().toArray());
 
-    assertEqualsForProto(
-        [5], testProtoByteString2.getOptionalBytes().toByteArray());
-    assertEqualsForProto(
-        [6], testProtoByteString2.getOptionalBytesWithDefault().toByteArray());
-
-    assertEqualsForProto(
-        [5], Array.from(testProtoByteString2.getOptionalBytes().toInt8Array()));
-    assertEqualsForProto(
-        [6],
-        Array.from(
-            testProtoByteString2.getOptionalBytesWithDefault().toInt8Array()));
-    assertEqualsForProto(
-        [5],
-        Array.from(testProtoByteString2.getOptionalBytes().toUint8Array()));
-    assertEqualsForProto(
-        [6],
-        Array.from(
-            testProtoByteString2.getOptionalBytesWithDefault().toUint8Array()));
+    assertElementsEquals(
+        [5], testProtoByteString2.getOptionalBytes().toInt8Array());
+    assertElementsEquals(
+        [6], testProtoByteString2.getOptionalBytesWithDefault().toInt8Array());
+    assertElementsEquals(
+        [5], testProtoByteString2.getOptionalBytes().toUint8Array());
+    assertElementsEquals(
+        [6], testProtoByteString2.getOptionalBytesWithDefault().toUint8Array());
 
     assertEqualsForProto(
         [

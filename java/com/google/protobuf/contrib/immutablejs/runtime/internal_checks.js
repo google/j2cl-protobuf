@@ -31,10 +31,6 @@ const CHECK_INDEX =
 /** @type {boolean} */
 const CHECK_LONG_DATA_LOSS =
     defines.CHECK_LONG_DATA_LOSS || defines.CHECKED_MODE__DO_NOT_USE_INTERNAL;
-/** @type {boolean} */
-const FREEZE_DATASTRUCTURES =
-    defines.FREEZE_DATASTRUCTURES || defines.CHECKED_MODE__DO_NOT_USE_INTERNAL;
-
 
 /**
  * @param {*} value
@@ -290,18 +286,6 @@ function checkTypeString(value) {
 }
 
 /**
- * @param {T} object
- * @return {T}
- * @template T
- */
-function freezeObject(object) {
-  if (FREEZE_DATASTRUCTURES && Object.freeze) {
-    return Object.freeze(object);
-  }
-  return object;
-}
-
-/**
  * @return {boolean}
  */
 function isCheckType() {
@@ -339,7 +323,6 @@ exports = {
   checkTypeNumber,
   checkTypeString,
   checkUIntRepresentation,
-  freezeObject,
   isCheckType,
   isCheckIndex,
   isCheckLongDataLoss,

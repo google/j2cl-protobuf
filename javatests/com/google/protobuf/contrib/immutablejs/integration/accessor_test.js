@@ -84,42 +84,28 @@ class AccessorTest {
     assertEqualsForProto(3, testProto.getRepeatedStringCount());
     assertEqualsForProto(
         ['baz1', 'baz2', 'baz3'], testProto.getRepeatedStringList().toArray());
-    assertEqualsForProto(
-        [0, 1, 255], testProto.getOptionalBytes().toByteArray());
-    assertEqualsForProto(
-        [0, 1, -1], Array.from(testProto.getOptionalBytes().toInt8Array()));
-    assertEqualsForProto(
-        [0, 1, 255], Array.from(testProto.getOptionalBytes().toUint8Array()));
+    assertElementsEquals(
+        [0, 1, -1], testProto.getOptionalBytes().toInt8Array());
+    assertElementsEquals(
+        [0, 1, 255], testProto.getOptionalBytes().toUint8Array());
 
-    assertEqualsForProto(
-        [2, 3], testProto.getOptionalBytesWithDefault().toByteArray());
-    assertEqualsForProto(
-        [2, 3],
-        Array.from(testProto.getOptionalBytesWithDefault().toInt8Array()));
-    assertEqualsForProto(
-        [2, 3],
-        Array.from(testProto.getOptionalBytesWithDefault().toUint8Array()));
+    assertElementsEquals(
+        [2, 3], testProto.getOptionalBytesWithDefault().toInt8Array());
+    assertElementsEquals(
+        [2, 3], testProto.getOptionalBytesWithDefault().toUint8Array());
 
     assertEqualsForProto(3, testProto.getRepeatedBytesCount());
     const repeatedByteStringListView = testProto.getRepeatedBytesList();
-    assertEqualsForProto([4], repeatedByteStringListView.get(0).toByteArray());
-    assertEqualsForProto([5], repeatedByteStringListView.get(1).toByteArray());
-    assertEqualsForProto(
-        [6, 7], repeatedByteStringListView.get(2).toByteArray());
 
-    assertEqualsForProto(
-        [4], Array.from(repeatedByteStringListView.get(0).toInt8Array()));
-    assertEqualsForProto(
-        [5], Array.from(repeatedByteStringListView.get(1).toInt8Array()));
-    assertEqualsForProto(
-        [6, 7], Array.from(repeatedByteStringListView.get(2).toInt8Array()));
+    assertElementsEquals([4], repeatedByteStringListView.get(0).toInt8Array());
+    assertElementsEquals([5], repeatedByteStringListView.get(1).toInt8Array());
+    assertElementsEquals(
+        [6, 7], repeatedByteStringListView.get(2).toInt8Array());
 
-    assertEqualsForProto(
-        [4], Array.from(repeatedByteStringListView.get(0).toUint8Array()));
-    assertEqualsForProto(
-        [5], Array.from(repeatedByteStringListView.get(1).toUint8Array()));
-    assertEqualsForProto(
-        [6, 7], Array.from(repeatedByteStringListView.get(2).toUint8Array()));
+    assertElementsEquals([4], repeatedByteStringListView.get(0).toUint8Array());
+    assertElementsEquals([5], repeatedByteStringListView.get(1).toUint8Array());
+    assertElementsEquals(
+        [6, 7], repeatedByteStringListView.get(2).toUint8Array());
 
 
     assertEqualsForProto(-1, testProto.getOptionalUint32());
@@ -173,22 +159,15 @@ class AccessorTest {
         'non-trivial default', testProto.getOptionalStringWithDefault());
     assertEqualsForProto(0, testProto.getRepeatedStringCount());
 
-    assertEqualsForProto([], testProto.getOptionalBytes().toByteArray());
-    assertEqualsForProto(
+    assertElementsEquals([], testProto.getOptionalBytes().toInt8Array());
+    assertElementsEquals(
         [97, 32, 98, 121, 116, 101, 121, 32, 100, 101, 102, 97, 117, 108, 116],
-        testProto.getOptionalBytesWithDefault().toByteArray());
+        testProto.getOptionalBytesWithDefault().toInt8Array());
 
-    assertEqualsForProto(
-        [], Array.from(testProto.getOptionalBytes().toInt8Array()));
-    assertEqualsForProto(
+    assertElementsEquals([], testProto.getOptionalBytes().toUint8Array());
+    assertElementsEquals(
         [97, 32, 98, 121, 116, 101, 121, 32, 100, 101, 102, 97, 117, 108, 116],
-        Array.from(testProto.getOptionalBytesWithDefault().toInt8Array()));
-
-    assertEqualsForProto(
-        [], Array.from(testProto.getOptionalBytes().toUint8Array()));
-    assertEqualsForProto(
-        [97, 32, 98, 121, 116, 101, 121, 32, 100, 101, 102, 97, 117, 108, 116],
-        Array.from(testProto.getOptionalBytesWithDefault().toUint8Array()));
+        testProto.getOptionalBytesWithDefault().toUint8Array());
 
     assertEqualsForProto(0, testProto.getRepeatedBytesCount());
 

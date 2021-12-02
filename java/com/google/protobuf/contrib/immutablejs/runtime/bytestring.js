@@ -19,8 +19,7 @@ goog.module('proto.im.ByteString');
 
 const Hashing = goog.require('proto.im.internal.Hashing');
 const base64 = goog.require('goog.crypt.base64');
-const {checkType, freezeObject} = goog.require('proto.im.internal.internalChecks');
-
+const {checkType} = goog.require('proto.im.internal.internalChecks');
 
 
 /**
@@ -31,7 +30,7 @@ const {checkType, freezeObject} = goog.require('proto.im.internal.internalChecks
  */
 class ByteString {
   /**
-   * @param {?Array<number>} bytes
+   * @param {?Int8Array} bytes
    * @param {?string} base64
    * @private
    */
@@ -56,23 +55,11 @@ class ByteString {
 
   /**
    * Constructs a ByteString from an array of numbers.
-   * @param {!Array<number>} bytes
+   * @param {!Uint8Array|!Int8Array|!Array<number>} bytes
    * @returns {!ByteString}
    */
   static copyFrom(bytes) {
-    return new ByteString(bytes.slice(), /* base 64 */ null);
-  }
-
-  /**
-   * Returns this ByteString as a byte array. Note that the array is frozen.
-   *
-   * TODO(b/160621969): Remove toByteArray in favor to toInt8Array after
-   * cleaning the clientside code.
-   *
-   * @return {!Array<number>}
-   */
-  toByteArray() {
-    return this.ensureBytes_();
+    return new ByteString(new Int8Array(bytes), /* base 64 */ null);
   }
 
   /**
@@ -161,16 +148,17 @@ class ByteString {
   }
 
   /**
-   * @return {!Array<number>}
+   * @return {!Int8Array}
    * @private
    */
   ensureBytes_() {
     if (this.bytes_ == null) {
-      this.bytes_ = freezeObject(
-          base64.decodeStringToByteArray(/** @type {string} */ (this.base64_)));
-    }
+      const uint8Array =
+          base64.decodeStringToUint8Array(/** @type {string} */ (this.base64_));
 
-    return /** @type {!Array<number>} */ (this.bytes_);
+      this.bytes_ = new Int8Array(uint8Array.buffer);
+    }
+    return /** @type {!Int8Array} */ (this.bytes_);
   }
 
   /**
@@ -179,7 +167,8 @@ class ByteString {
    */
   ensureBase64String_() {
     if (this.base64_ == null) {
-      this.base64_ = base64.encodeByteArray(this.toUint8Array());
+      this.base64_ = base64.encodeByteArray(
+          new Uint8Array(/** @type {!Int8Array} */ (this.bytes_).buffer));
     }
 
     return /** @type {string} */ (this.base64_);
@@ -187,6 +176,6 @@ class ByteString {
 }
 
 /** @const {!ByteString} */
-ByteString.EMPTY = new ByteString([], null);
+ByteString.EMPTY = new ByteString(new Int8Array(0), '');
 
 exports = ByteString;
