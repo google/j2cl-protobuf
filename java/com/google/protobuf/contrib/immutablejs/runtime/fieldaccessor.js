@@ -420,6 +420,10 @@ class FieldAccessor {
       case 'number':
         return isFinite(value) ? value : String(value);
       case 'object':
+        if (!value || Array.isArray(value)) {
+          // These are all common cases, so handle them first.
+          return value;
+        }
         if (value instanceof Uint8Array) {
           return base64.encodeByteArray(value);
         }

@@ -50,7 +50,12 @@ function hasExtensionObject(data) {
   if (data.length > 0) {
     // Look at the data to see if there is a extension object
     const lastObject = data[data.length - 1];
-    if (lastObject && lastObject.constructor === Object) {
+    // The `typeof` operator here is not necessary for correctness but is
+    // important for performance since it prevents us querying constructors of
+    // things like string/number/boolean.
+    if (lastObject && typeof lastObject === "object" &&
+        !Array.isArray(lastObject) &&
+        lastObject.constructor === Object) {
       return true;
     }
   }
