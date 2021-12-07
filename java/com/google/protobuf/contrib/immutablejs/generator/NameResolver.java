@@ -15,13 +15,13 @@ package com.google.protobuf.contrib.immutablejs.generator;
 
 import com.google.auto.value.AutoValue;
 import com.google.common.base.Function;
+import com.google.common.collect.ImmutableSet;
 import com.google.protobuf.Descriptors.FieldDescriptor;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.function.BiFunction;
+import java.util.stream.Collectors;
 
 /**
  * Helper class for resolving name conflict for JS/J2CL field names. This resolving logic mimics
@@ -29,6 +29,9 @@ import java.util.function.BiFunction;
  */
 @AutoValue
 public abstract class NameResolver {
+
+  private static final ImmutableSet<String> JS_RESERVED_FIELD_NAMES =
+      ImmutableSet.of("Extension", "ExtensionCount", "ExtensionAtIndex");
 
   /**
    * Returns a NameResolver instance for single FieldDescriptor.
@@ -45,8 +48,8 @@ public abstract class NameResolver {
   /** Returns a NameResolver instance for list of fieldDescriptors */
   public static NameResolver of(List<FieldDescriptor> fieldsDescriptors) {
     return create(
-        getNameResolver(fieldsDescriptors, JavaQualifiedNames::getFieldName),
-        getNameResolver(fieldsDescriptors, JavaScriptQualifiedNames::getFieldName));
+        getNameResolver(fieldsDescriptors, ImmutableSet.of()),
+        getNameResolver(fieldsDescriptors, JS_RESERVED_FIELD_NAMES));
   }
 
   private static NameResolver create(
@@ -70,30 +73,24 @@ public abstract class NameResolver {
   }
 
   private static Function<FieldDescriptor, String> getNameResolver(
-      List<FieldDescriptor> fieldsDescriptors,
-      BiFunction<FieldDescriptor, Boolean, String> nameTransformer) {
-    Set<FieldDescriptor> conflictingFields =
-        getConflictingFields(fieldsDescriptors, nameTransformer);
-    return (FieldDescriptor field) ->
-        resolveFieldName(nameTransformer, field, conflictingFields.contains(field));
+      List<FieldDescriptor> fieldsDescriptors, Set<String> reservedNames) {
+    Set<FieldDescriptor> conflictingFields = getConflictingFields(fieldsDescriptors, reservedNames);
+    return (FieldDescriptor field) -> resolveFieldName(field, conflictingFields.contains(field));
   }
 
-  private static String resolveFieldName(
-      BiFunction<FieldDescriptor, Boolean, String> nameTransformer,
-      FieldDescriptor field,
-      boolean isConflicting) {
-    String fieldName = nameTransformer.apply(field, !field.isExtension());
+  private static String resolveFieldName(FieldDescriptor field, boolean isConflicting) {
+    String fieldName = JavaQualifiedNames.getFieldName(field, !field.isExtension());
     return isConflicting ? fieldName + field.getNumber() : fieldName;
   }
 
   private static Set<FieldDescriptor> getConflictingFields(
-      List<FieldDescriptor> fieldsDescriptors,
-      BiFunction<FieldDescriptor, Boolean, String> nameTransformer) {
-    Map<String, FieldDescriptor> fieldsByConflictingName = new HashMap<>();
+      List<FieldDescriptor> fieldsDescriptors, Set<String> reservedNames) {
+    Map<String, Object> fieldsByConflictingName =
+        reservedNames.stream().collect(Collectors.toMap(n -> n, n -> new Object()));
     Set<FieldDescriptor> conflictingFields = new HashSet<>();
 
     for (FieldDescriptor field : fieldsDescriptors) {
-      String name = nameTransformer.apply(field, !field.isExtension());
+      String name = JavaQualifiedNames.getFieldName(field, !field.isExtension());
       checkFieldNameConflict(name, field, fieldsByConflictingName, conflictingFields);
       if (field.isRepeated()) {
         checkFieldNameConflict(name + "Count", field, fieldsByConflictingName, conflictingFields);
@@ -106,12 +103,14 @@ public abstract class NameResolver {
   private static void checkFieldNameConflict(
       String reservedName,
       FieldDescriptor field,
-      Map<String, FieldDescriptor> fieldsByConflictingName,
+      Map<String, Object> fieldsByConflictingName,
       Set<FieldDescriptor> conflictingFields) {
-    FieldDescriptor conflictingField = fieldsByConflictingName.put(reservedName, field);
+    Object conflictingField = fieldsByConflictingName.put(reservedName, field);
 
     if (conflictingField != null) {
-      conflictingFields.add(conflictingField);
+      if (conflictingField instanceof FieldDescriptor) {
+        conflictingFields.add((FieldDescriptor) conflictingField);
+      }
       conflictingFields.add(field);
     }
   }

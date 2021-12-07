@@ -25,6 +25,7 @@ public final class ConflictingNames
   public static int EXTENSION__FIELD_NUMBER;
   public static int EXTENSION_FIELD_NUMBER;
   public static int EXTENSION_COUNT_FIELD_NUMBER;
+  public static int EXTENSION_AT_INDEX_FIELD_NUMBER;
 
   @jsinterop.annotations.JsMethod(name = "getField1Count")
   public native int getField1Count();
@@ -99,13 +100,13 @@ public final class ConflictingNames
     return com.google.protobuf.GeneratedMessageLite.Internal_.createList(internal_getClass_List());
   }
 
-  @jsinterop.annotations.JsMethod(name = "getExtension_10Count")
+  @jsinterop.annotations.JsMethod(name = "getExtension10Count")
   public native int getExtension10Count();
 
-  @jsinterop.annotations.JsMethod(name = "getExtension_10")
+  @jsinterop.annotations.JsMethod(name = "getExtension10")
   public native boolean getExtension10(int index);
 
-  @jsinterop.annotations.JsMethod(name = "getExtension_10List")
+  @jsinterop.annotations.JsMethod(name = "getExtension10List")
   private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Boolean>
       internal_getExtension10List();
 
@@ -115,13 +116,13 @@ public final class ConflictingNames
         internal_getExtension10List());
   }
 
-  @jsinterop.annotations.JsMethod(name = "getExtension_11Count")
+  @jsinterop.annotations.JsMethod(name = "getExtension11Count")
   public native int getExtension11Count();
 
-  @jsinterop.annotations.JsMethod(name = "getExtension_11")
+  @jsinterop.annotations.JsMethod(name = "getExtension11")
   public native boolean getExtension11(int index);
 
-  @jsinterop.annotations.JsMethod(name = "getExtension_11List")
+  @jsinterop.annotations.JsMethod(name = "getExtension11List")
   private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Boolean>
       internal_getExtension11List();
 
@@ -131,11 +132,17 @@ public final class ConflictingNames
         internal_getExtension11List());
   }
 
-  @jsinterop.annotations.JsMethod(name = "hasExtensionCount_")
+  @jsinterop.annotations.JsMethod(name = "hasExtensionCount12")
   public native boolean hasExtensionCount12();
 
-  @jsinterop.annotations.JsMethod(name = "getExtensionCount_")
+  @jsinterop.annotations.JsMethod(name = "getExtensionCount12")
   public native boolean getExtensionCount12();
+
+  @jsinterop.annotations.JsMethod(name = "hasExtensionAtIndex14")
+  public native boolean hasExtensionAtIndex();
+
+  @jsinterop.annotations.JsMethod(name = "getExtensionAtIndex14")
+  public native boolean getExtensionAtIndex();
 
   public static native Builder newBuilder();
 
@@ -304,13 +311,13 @@ public final class ConflictingNames
       return this;
     }
 
-    @jsinterop.annotations.JsMethod(name = "getExtension_10Count")
+    @jsinterop.annotations.JsMethod(name = "getExtension10Count")
     public native int getExtension10Count();
 
-    @jsinterop.annotations.JsMethod(name = "getExtension_10")
+    @jsinterop.annotations.JsMethod(name = "getExtension10")
     public native boolean getExtension10(int index);
 
-    @jsinterop.annotations.JsMethod(name = "getExtension_10List")
+    @jsinterop.annotations.JsMethod(name = "getExtension10List")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Boolean>
         internal_getExtension10List();
 
@@ -320,13 +327,13 @@ public final class ConflictingNames
           internal_getExtension10List());
     }
 
-    @jsinterop.annotations.JsMethod(name = "clearExtension_10")
+    @jsinterop.annotations.JsMethod(name = "clearExtension10")
     public native Builder clearExtension10();
 
-    @jsinterop.annotations.JsMethod(name = "addExtension_10")
+    @jsinterop.annotations.JsMethod(name = "addExtension10")
     public native Builder addExtension10(boolean value);
 
-    @jsinterop.annotations.JsMethod(name = "setExtension_10")
+    @jsinterop.annotations.JsMethod(name = "setExtension10")
     public native Builder setExtension10(int index, boolean value);
 
     @jsinterop.annotations.JsOverlay
@@ -335,13 +342,13 @@ public final class ConflictingNames
       return this;
     }
 
-    @jsinterop.annotations.JsMethod(name = "getExtension_11Count")
+    @jsinterop.annotations.JsMethod(name = "getExtension11Count")
     public native int getExtension11Count();
 
-    @jsinterop.annotations.JsMethod(name = "getExtension_11")
+    @jsinterop.annotations.JsMethod(name = "getExtension11")
     public native boolean getExtension11(int index);
 
-    @jsinterop.annotations.JsMethod(name = "getExtension_11List")
+    @jsinterop.annotations.JsMethod(name = "getExtension11List")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Boolean>
         internal_getExtension11List();
 
@@ -351,13 +358,13 @@ public final class ConflictingNames
           internal_getExtension11List());
     }
 
-    @jsinterop.annotations.JsMethod(name = "clearExtension_11")
+    @jsinterop.annotations.JsMethod(name = "clearExtension11")
     public native Builder clearExtension11();
 
-    @jsinterop.annotations.JsMethod(name = "addExtension_11")
+    @jsinterop.annotations.JsMethod(name = "addExtension11")
     public native Builder addExtension11(boolean value);
 
-    @jsinterop.annotations.JsMethod(name = "setExtension_11")
+    @jsinterop.annotations.JsMethod(name = "setExtension11")
     public native Builder setExtension11(int index, boolean value);
 
     @jsinterop.annotations.JsOverlay
@@ -366,16 +373,28 @@ public final class ConflictingNames
       return this;
     }
 
-    @jsinterop.annotations.JsMethod(name = "hasExtensionCount_")
+    @jsinterop.annotations.JsMethod(name = "hasExtensionCount12")
     public native boolean hasExtensionCount12();
 
-    @jsinterop.annotations.JsMethod(name = "getExtensionCount_")
+    @jsinterop.annotations.JsMethod(name = "getExtensionCount12")
     public native boolean getExtensionCount12();
 
-    @jsinterop.annotations.JsMethod(name = "clearExtensionCount_")
+    @jsinterop.annotations.JsMethod(name = "clearExtensionCount12")
     public native Builder clearExtensionCount12();
 
-    @jsinterop.annotations.JsMethod(name = "setExtensionCount_")
+    @jsinterop.annotations.JsMethod(name = "setExtensionCount12")
     public native Builder setExtensionCount12(boolean value);
+
+    @jsinterop.annotations.JsMethod(name = "hasExtensionAtIndex14")
+    public native boolean hasExtensionAtIndex();
+
+    @jsinterop.annotations.JsMethod(name = "getExtensionAtIndex14")
+    public native boolean getExtensionAtIndex();
+
+    @jsinterop.annotations.JsMethod(name = "clearExtensionAtIndex14")
+    public native Builder clearExtensionAtIndex();
+
+    @jsinterop.annotations.JsMethod(name = "setExtensionAtIndex14")
+    public native Builder setExtensionAtIndex(boolean value);
   }
 }

@@ -51,5 +51,7 @@ public class ConflictingNamesTest {
     assertThat(proto.getExtension11Count()).isEqualTo(0);
     assertThat(proto.hasExtensionCount12()).isFalse();
     assertThat(proto.getExtensionCount12()).isFalse();
+    assertThat(proto.hasExtensionAtIndex()).isFalse();
+    assertThat(proto.getExtensionAtIndex()).isFalse();
   }
 }

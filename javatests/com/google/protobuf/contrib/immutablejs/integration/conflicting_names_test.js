@@ -54,13 +54,17 @@ class ConflictingNamesTest {
         false, TestProto.newBuilder().build().getThirdField7());
 
     assertEqualsForProto(
-        0, TestProto.newBuilder().build().getExtension_10Count());
+        0, TestProto.newBuilder().build().getExtension10Count());
     assertEqualsForProto(
-        0, TestProto.newBuilder().build().getExtension_11Count());
+        0, TestProto.newBuilder().build().getExtension11Count());
     assertEqualsForProto(
-        false, TestProto.newBuilder().build().hasExtensionCount_());
+        false, TestProto.newBuilder().build().hasExtensionCount12());
     assertEqualsForProto(
-        false, TestProto.newBuilder().build().getExtensionCount_());
+        false, TestProto.newBuilder().build().getExtensionCount12());
+    assertEqualsForProto(
+        false, TestProto.newBuilder().build().hasExtensionAtIndex14());
+    assertEqualsForProto(
+        false, TestProto.newBuilder().build().getExtensionAtIndex14());
   }
 }
 

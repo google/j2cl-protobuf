@@ -40,4 +40,5 @@ message ConflictingNames {
   repeated bool extension_ = 10;
   repeated bool extension = 11;
   optional bool extension_count = 12;
+  optional bool extension_at_index = 14;
 }
