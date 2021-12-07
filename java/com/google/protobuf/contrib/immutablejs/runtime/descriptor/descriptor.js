@@ -25,7 +25,8 @@ class Descriptor {
   /**
    * @param {function(!Field):void} callback A callback that will execute for
    *     each parsed field. This will include all known extension fields as
-   *     well.
+   *     well. The order in which the callback is called on fields is not
+   *     guaranteed.
    */
   forEachField(callback) {}
 

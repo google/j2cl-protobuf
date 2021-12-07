@@ -24,14 +24,14 @@ class DescriptorImpl {
   /**
    * @param {string} fullEncodedDescriptor
    * @param {!Array<function():!Descriptor>=} submessageDescriptorProviders
-   * @param {!ExtensionRegistry=} extensionRegistry
+   * @param {function():!Array<!ExtensionFieldInfo>=} extensionsProvider
    * @param {string=} messageId
    * @param {boolean=} isMessageSet
    * @private
    */
   constructor(
       fullEncodedDescriptor, submessageDescriptorProviders = undefined,
-      extensionRegistry = undefined, messageId = undefined,
+      extensionsProvider = undefined, messageId = undefined,
       isMessageSet = false) {
     /** @private @const {string} */
     this.fullEncodedDescriptor_ = fullEncodedDescriptor;
@@ -43,8 +43,8 @@ class DescriptorImpl {
     /** @private @const {!Array<function():!Descriptor>|undefined} */
     this.submessageDescriptorProviders_ = submessageDescriptorProviders;
 
-    /** @private @const {!ExtensionRegistry|undefined} */
-    this.extensionRegistry_ = extensionRegistry;
+    /** @private @const {function():!Array<!ExtensionFieldInfo>|undefined} */
+    this.extensionsProvider_ = extensionsProvider;
 
     /** @private @const {?string} */
     this.messageId_ = messageId != null ? messageId : null;
@@ -58,9 +58,17 @@ class DescriptorImpl {
    * @return {!DescriptorImpl}
    */
   static fromArgs(args) {
+    checkState(
+        args.extensionRegistry == null || args.extensionsProvider == null,
+        'Descriptor cannot be constructed with both an extensionRegistry and ' +
+            'extensionsProvider');
+    if (args.extensionRegistry) {
+      const extensionRegistry = args.extensionRegistry;
+      args.extensionsProvider = () => Object.values(extensionRegistry);
+    }
     return new DescriptorImpl(
         args.encodedDescriptor, args.submessageDescriptorProviders,
-        args.extensionRegistry, args.messageId, args.isMessageSet);
+        args.extensionsProvider, args.messageId, args.isMessageSet);
   }
 
   /**
@@ -103,27 +111,19 @@ class DescriptorImpl {
           submessageDescriptorSupplier));
     }
 
-    if (!this.extensionRegistry_) {
+    if (!this.extensionsProvider_) {
       return;
     }
 
-    for (const key in this.extensionRegistry_) {
-      const fieldNumber = parseInt(key, 10);
-      const extension = this.extensionRegistry_[fieldNumber];
-      let field;
-      if (extension == null) {
-        continue;
-      } else if (typeof extension === 'string') {
-        field = parseField(
-            Base92Reader.readEntireString(extension), fieldNumber,
-            /* extension= */ true);
-      } else {
-        const extensionObj = /** @type {!Extension} */ (extension);
-        field = parseField(
-            Base92Reader.readEntireString(extensionObj.encodedDescriptor),
-            fieldNumber, /* extension= */ true,
-            () => extensionObj.submessageDescriptorProvider);
-      }
+    const extensions = this.extensionsProvider_();
+    for (let i = 0; i < extensions.length; i++) {
+      const extension = extensions[i];
+      const hasSubmessage = extension.submessageDescriptorProvider != null;
+      const field = parseField(
+          Base92Reader.readEntireString(extension.encodedDescriptor),
+          extension.fieldNumber, /* extension= */ true,
+          hasSubmessage ? () => extension.submessageDescriptorProvider :
+                          undefined);
       callback(field);
     }
   }
@@ -133,7 +133,7 @@ class DescriptorImpl {
    * @override
    */
   isExtendable() {
-    return this.extensionRegistry_ != null;
+    return this.extensionsProvider_ != null;
   }
 
   /**
@@ -173,6 +173,9 @@ class Args {
     /** @type {!ExtensionRegistry|undefined} */
     this.extensionRegistry;
 
+    /** @type {function():!Array<!ExtensionFieldInfo>|undefined} */
+    this.extensionsProvider;
+
     /**
      * The value of` option (jspb.message_id)`, or undefined if not set.
      * @type {string|undefined}
@@ -205,26 +208,27 @@ function createGetDescriptorFn(encodedDescriptor) {
       () => DescriptorImpl.fromEncodedString(encodedDescriptor));
 }
 
-/** @record */
-class Extension {
+/**
+ * Descriptor information for an extension field.
+ * @record
+ */
+class ExtensionFieldInfo {
   constructor() {
+    /** @const {number} */
+    this.fieldNumber;
+
     /** @const {string} */
     this.encodedDescriptor;
 
-    /** @const {function():!Descriptor} */
+    /** @const {(function():!Descriptor)|undefined} */
     this.submessageDescriptorProvider;
   }
 }
 
 /**
- * A registry of field number keys to string encoded descriptors, or `Extension`
- * objects.
+ * A registry of `ExtensionFieldInfo` keyed on the field number.
  *
- * Passing the encoded string descriptor should be preferred to reduce generated
- * code size costs unless additional metadata about the extension field is
- * required (ex. a submessage descriptor).
- *
- * @typedef {!Object<number, string|!Extension>}
+ * @typedef {!Object<number, !ExtensionFieldInfo>}
  */
 let ExtensionRegistry;
 
@@ -246,14 +250,11 @@ function registerExtension(
       fieldNumber >= 1 && fieldNumber <= MAX_FIELD_NUMBER,
       `Field numbers should be <= ${MAX_FIELD_NUMBER} and >= 1, but was ${
           fieldNumber}`);
-  if (submessageDescriptorProvider) {
-    extensionRegistry[fieldNumber] = {
-      encodedDescriptor,
-      submessageDescriptorProvider,
-    };
-  } else {
-    extensionRegistry[fieldNumber] = encodedDescriptor;
-  }
+  extensionRegistry[fieldNumber] = {
+    fieldNumber,
+    encodedDescriptor,
+    submessageDescriptorProvider,
+  };
 }
 
 function /** number */ decodeBase92FromCharCode(/** number */ charCode) {
@@ -466,6 +467,7 @@ function /** boolean */ hasModifier(
 exports = {
   DescriptorImpl,
   ExtensionRegistry,
+  ExtensionFieldInfo,
   Modifier,
   createGetDescriptorFn,
   createGetDescriptorFnFromArgs,
