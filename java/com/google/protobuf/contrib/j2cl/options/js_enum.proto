@@ -20,9 +20,18 @@ option java_package = "com.google.protos.protobuf.contrib.j2cl.options";
 import "google/protobuf/descriptor.proto";
 
 extend google.protobuf.EnumOptions {
+  // Use a lightweight @JsEnum(hasCustomValue=true) representation where the
+  // underlying value is the enum protobuf number.
+  // Note that, such enums can be directly passed back and forth to JavaScript.
+  // On JavaScript side, the enum will be observed as the corresponding closure
+  // enum from the immutable_js_proto.
+  // See jsinterop.annotations.JsEnum for more details and limitations on
+  // native JsEnums.
   optional bool generate_js_enum = 13371;
 }
 
 extend google.protobuf.OneofOptions {
+  // Use a lightweight @JsEnum(hasCustomValue=true) representation for the oneof
+  // case enum. See above for details.
   optional bool generate_js_case_enum = 13372;
 }

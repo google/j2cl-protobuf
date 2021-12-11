@@ -28,9 +28,18 @@ extend google.protobuf.OneofOptions {
 }
 
 message J2clOneofOptions {
+  // Use a lightweight @JsEnum(hasCustomValue=true) representation where the
+  // underlying value is the enum protobuf number.
+  // Note that, such enums can be directly passed back and forth to JavaScript.
+  // On JavaScript side, the enum will be observed as the corresponding closure
+  // enum from the immutable_js_proto.
+  // See jsinterop.annotations.JsEnum for more details and limitations on
+  // native JsEnums.
   optional bool generate_js_enum = 1;
 }
 
 message J2clEnumOptions {
+  // Use a lightweight @JsEnum(hasCustomValue=true) representation for the oneof
+  // case enum. See above for details.
   optional bool generate_js_enum = 1;
 }
