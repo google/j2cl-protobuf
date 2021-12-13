@@ -1,5 +1,3 @@
-load("@io_bazel_rules_closure//closure:defs.bzl", "closure_js_library")
-
 package(
     default_visibility = [
         "//visibility:public",
@@ -13,12 +11,12 @@ alias(
     actual = "//java/com/google/protobuf/contrib/immutablejs/runtime",
 )
 
-closure_js_library(
+alias(
     name = "debug",
-    exports = ["//java/com/google/protobuf/contrib/immutablejs/debug"],
+    actual = "//java/com/google/protobuf/contrib/immutablejs/debug",
 )
 
-closure_js_library(
+alias(
     name = "timestamp",
-    exports = ["//java/com/google/protobuf/contrib/immutablejs/util:timestamp"],
+    actual = "//java/com/google/protobuf/contrib/immutablejs/util:timestamp",
 )
