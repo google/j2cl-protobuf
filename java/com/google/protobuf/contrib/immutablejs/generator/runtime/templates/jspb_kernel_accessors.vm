@@ -100,6 +100,26 @@
         fieldNumber, (a, i) => FieldAccessor.getMessage(a, i, instanceCreator));
   }
 
+  /**
+   * @param {number} fieldNumber
+   * @param {function(!Object<number, *>):!JspbKernel} kernelFactory
+   * @return {!JspbKernel}
+   */
+  getJspbKernelField(fieldNumber, kernelFactory) {
+    return this.getField_(
+        fieldNumber, (a, i) => FieldAccessor.getMessage(a, i, kernelFactory));
+  }
+
+  /**
+   * @param {number} fieldNumber
+   * @param {function(!Object<number, *>):!JspbKernel} kernelFactory
+   * @return {!ListView<!JspbKernel>}
+   */
+  getRepeatedJspbKernelField(fieldNumber, kernelFactory) {
+    return this.getListView_(
+        fieldNumber, (a, i) => FieldAccessor.getMessage(a, i, kernelFactory));
+  }
+
   //////////////////////////////////////////////////////////////////////////////
   //
   // Message accessors stop
