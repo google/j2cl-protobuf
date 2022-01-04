@@ -6,6 +6,9 @@ licenses(["notice"])
 closure_js_library(
     name = "test_utils",
     srcs = ["test_utils.js"],
+    visibility = [
+        "//javatests/com/google/protobuf/contrib/immutablejs/runtime:__subpackages__",
+    ],
     deps = [
         "//java/com/google/protobuf/contrib/immutablejs/runtime/descriptor",
         "//java/com/google/protobuf/contrib/immutablejs/runtime/descriptor:internal_constants",
