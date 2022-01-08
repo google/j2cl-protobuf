@@ -20,4 +20,5 @@ Please refer to [the license file](LICENSE).
 
 Disclaimers
 -----------
-J2CL Protobuf is not an official Google product and is currently in 'alpha' release for developer preview.
+J2CL Protobuf is not an official Google product and is currently in 'alpha'
+release for developer preview.
