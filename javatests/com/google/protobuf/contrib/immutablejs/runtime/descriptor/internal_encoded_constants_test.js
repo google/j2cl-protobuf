@@ -15,7 +15,7 @@
 goog.module('proto.im.descriptor.internal_encodedConstantsTest');
 
 const testSuite = goog.require('goog.testing.testSuite');
-const {encodeValues} = goog.require('proto.im.descriptor.internal_testUtils');
+const {encodeValues} = goog.require('proto.im.descriptor.testing.descriptors');
 const {fieldTypeConstants: encodedFieldTypeConstants} = goog.require('proto.im.descriptor.internal_encodedConstants');
 const {fieldTypeConstants} = goog.require('proto.im.descriptor.internal_constants');
 

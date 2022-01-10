@@ -18,7 +18,7 @@ const testSuite = goog.require('goog.testing.testSuite');
 const {Descriptor, Field, FieldType, } = goog.require('proto.im.descriptor');
 const {DescriptorImpl, Modifier, createGetDescriptorFn, registerExtension} = goog.require('proto.im.descriptor.internal_descriptor');
 const {MAX_FIELD_NUMBER} = goog.require('proto.im.descriptor.internal_constants');
-const {encodeValues, modifierValues, repeatedTypeValue, skipValues, typeValue} = goog.require('proto.im.descriptor.internal_testUtils');
+const {descriptorBuilder, encodeValues, messageSetBuilder, modifierValues, skipValues, typeValue} = goog.require('proto.im.descriptor.testing.descriptors');
 
 function /** !Field */ getOnlyField(
     /** !Descriptor */ descriptor,
@@ -39,37 +39,32 @@ function /** !Field */ getOnlyField(
 }
 
 function singularTypeTestCase(/** !FieldType */ type) {
-  const encodedDescriptor = encodeValues(typeValue(type));
-
-  let descriptor;
-  if (type === FieldType.MESSAGE || type === FieldType.GROUP) {
-    descriptor = DescriptorImpl.fromArgs({
-      encodedDescriptor,
-      submessageDescriptorProviders: [createGetDescriptorFn('')],
-    });
-  } else {
-    descriptor = DescriptorImpl.fromEncodedString(encodedDescriptor);
-  }
+  const submessageDescriptorProvider =
+      type === FieldType.MESSAGE || type === FieldType.GROUP ?
+      createGetDescriptorFn('') :
+      undefined;
+  const descriptor = descriptorBuilder()
+                         .addField(1, type, {submessageDescriptorProvider})
+                         .build();
 
   const {fieldType, repeated} = getOnlyField(descriptor);
+
   assertEquals(type, fieldType);
   assertFalse(repeated);
 }
 
 function repeatedTypeTestCase(/** !FieldType */ type) {
-  const encodedDescriptor = encodeValues(repeatedTypeValue(type));
-
-  let descriptor;
-  if (type === FieldType.MESSAGE || type === FieldType.GROUP) {
-    descriptor = DescriptorImpl.fromArgs({
-      encodedDescriptor,
-      submessageDescriptorProviders: [createGetDescriptorFn('')],
-    });
-  } else {
-    descriptor = DescriptorImpl.fromEncodedString(encodedDescriptor);
-  }
+  const submessageDescriptorProvider =
+      type === FieldType.MESSAGE || type === FieldType.GROUP ?
+      createGetDescriptorFn('') :
+      undefined;
+  const descriptor =
+      descriptorBuilder()
+          .addRepeatedField(1, type, {submessageDescriptorProvider})
+          .build();
 
   const {fieldType, repeated} = getOnlyField(descriptor);
+
   assertEquals(type, fieldType);
   assertTrue(repeated);
 }
@@ -90,7 +85,7 @@ function skipFieldsTestCase(/** number */ skipAmount) {
  * @return {!Descriptor} A unique descriptor instance with no fields.
  */
 function emptyDescriptor() {
-  return DescriptorImpl.fromEncodedString('');
+  return descriptorBuilder().build();
 }
 
 testSuite({
@@ -122,8 +117,8 @@ testSuite({
 
   testNestedMessages: {
     testMissingSubmessageDescriptor_shouldThrow() {
-      const descriptor = DescriptorImpl.fromEncodedString(
-          encodeValues(typeValue(FieldType.MESSAGE)));
+      const descriptor =
+          descriptorBuilder().addField(1, FieldType.MESSAGE).build();
       const error = assertThrows(() => descriptor.fields());
       assertEquals(
           'Malformed descriptor; missing submessage descriptor for field 1',
@@ -131,35 +126,34 @@ testSuite({
     },
 
     testWithSubmessageDescriptor_shouldAssociateItWithField() {
-      const encodedDescriptor = encodeValues(typeValue(FieldType.MESSAGE));
       const submessageDescriptor = emptyDescriptor();
-
-      const descriptor = DescriptorImpl.fromArgs({
-        encodedDescriptor,
-        submessageDescriptorProviders: [() => submessageDescriptor],
-      });
+      const descriptor =
+          descriptorBuilder()
+              .addField(
+                  1, FieldType.MESSAGE,
+                  {submessageDescriptorProvider: () => submessageDescriptor})
+              .build();
 
       const field = getOnlyField(descriptor);
       assertEquals(submessageDescriptor, field.submessageDescriptorProvider());
     },
 
     testWithMultipleSubmessageDescriptors_shouldAssociateThemWithTheirFields() {
-      const encodedDescriptor = encodeValues(
-          typeValue(FieldType.STRING),   // 1
-          typeValue(FieldType.INT32),    // 2
-          typeValue(FieldType.MESSAGE),  // 3
-          typeValue(FieldType.DOUBLE),   // 4
-          typeValue(FieldType.GROUP),    // 5
-          typeValue(FieldType.FIXED32),  // 6
-      );
       const submessageDescriptor1 = emptyDescriptor();
       const submessageDescriptor2 = emptyDescriptor();
-
-      const descriptor = DescriptorImpl.fromArgs({
-        encodedDescriptor,
-        submessageDescriptorProviders:
-            [() => submessageDescriptor1, () => submessageDescriptor2],
-      });
+      const descriptor =
+          descriptorBuilder()
+              .addField(1, FieldType.STRING)
+              .addField(2, FieldType.INT32)
+              .addField(
+                  3, FieldType.MESSAGE,
+                  {submessageDescriptorProvider: () => submessageDescriptor1})
+              .addField(4, FieldType.DOUBLE)
+              .addField(
+                  5, FieldType.GROUP,
+                  {submessageDescriptorProvider: () => submessageDescriptor2})
+              .addField(6, FieldType.FIXED32)
+              .build();
 
       const fields = descriptor.fields();
       assertUndefined(
@@ -185,8 +179,8 @@ testSuite({
 
   testGroups: {
     testMissingSubmessageDescriptor_shouldThrow() {
-      const descriptor = DescriptorImpl.fromEncodedString(
-          encodeValues(typeValue(FieldType.GROUP)));
+      const descriptor =
+          descriptorBuilder().addField(1, FieldType.GROUP).build();
 
       const error = assertThrows(() => descriptor.fields());
       assertEquals(
@@ -195,13 +189,13 @@ testSuite({
     },
 
     testWithSubmessageDescriptor_shouldAssociateItWithField() {
-      const encodedDescriptor = encodeValues(typeValue(FieldType.GROUP));
       const submessageDescriptor = emptyDescriptor();
-
-      const descriptor = DescriptorImpl.fromArgs({
-        encodedDescriptor,
-        submessageDescriptorProviders: [() => submessageDescriptor],
-      });
+      const descriptor =
+          descriptorBuilder()
+              .addField(
+                  1, FieldType.GROUP,
+                  {submessageDescriptorProvider: () => submessageDescriptor})
+              .build();
 
       const field = getOnlyField(descriptor);
       assertEquals(submessageDescriptor, field.submessageDescriptorProvider());
@@ -210,13 +204,12 @@ testSuite({
 
   testModifiers: {
     testShouldAssociateWithPreceedingField() {
-      const descriptor = DescriptorImpl.fromEncodedString(encodeValues(
-          typeValue(FieldType.INT32),  // 1
-          modifierValues(Modifier.JSPB_STRING),
-          repeatedTypeValue(FieldType.INT32),  // 2
-          modifierValues(Modifier.UNPACKED),
-          typeValue(FieldType.INT32),  // 3
-          ));
+      const descriptor =
+          descriptorBuilder()
+              .addField(1, FieldType.INT32, {jspbInt64String: true})
+              .addRepeatedField(2, FieldType.INT32, {unpacked: true})
+              .addField(3, FieldType.INT32)
+              .build();
 
       const fields = descriptor.fields();
 
@@ -272,22 +265,18 @@ testSuite({
 
   testFieldSkips: {
     testMaxFieldNumber() {
-      const descriptor = DescriptorImpl.fromEncodedString(encodeValues(
-          skipValues(MAX_FIELD_NUMBER),
-          typeValue(FieldType.INT32),
-          ));
+      const descriptor = descriptorBuilder()
+                             .addField(MAX_FIELD_NUMBER, FieldType.INT32)
+                             .build();
 
       const field = getOnlyField(descriptor, MAX_FIELD_NUMBER);
       assertEquals(MAX_FIELD_NUMBER, field.fieldNumber);
     },
 
     testBeyondMaxFieldNumber_shouldThrow() {
-      const descriptor = DescriptorImpl.fromEncodedString(encodeValues(
-          typeValue(FieldType.INT32),  // 1
-          skipValues(
-              MAX_FIELD_NUMBER),  // Skipping by MAX means next is MAX + 1.
-          typeValue(FieldType.STRING),  // 536870912
-          ));
+      const descriptor = descriptorBuilder()
+                             .addField(MAX_FIELD_NUMBER + 1, FieldType.STRING)
+                             .build();
 
       const error = assertThrows(() => descriptor.fields());
       assertEquals(
@@ -333,10 +322,9 @@ testSuite({
     },
 
     testMaxInt32_shouldThrow() {
-      const descriptor = DescriptorImpl.fromEncodedString(encodeValues(
-          skipValues(2147483647),       // 2^31-1
-          typeValue(FieldType.STRING),  // ??? not valid!
-          ));
+      const descriptor = descriptorBuilder()
+                             .addField(2147483647, FieldType.STRING)  // 2^31-1
+                             .build();
 
       const error = assertThrows(() => descriptor.fields());
       assertEquals(
@@ -356,18 +344,13 @@ testSuite({
 
   testMessageId: {
     testWhenMissing_ShouldReturnNull() {
-      const descriptor = DescriptorImpl.fromArgs({
-        encodedDescriptor: '',
-      });
+      const descriptor = descriptorBuilder().build();
 
       assertNull('messageId should be null', descriptor.messageId());
     },
 
     testWhenPresent_ShouldReturnMessageId() {
-      const descriptor = DescriptorImpl.fromArgs({
-        encodedDescriptor: '',
-        messageId: 'foo',
-      });
+      const descriptor = descriptorBuilder().withMessageId('foo').build();
 
       assertEquals('foo', descriptor.messageId());
     },
@@ -375,18 +358,13 @@ testSuite({
 
   testIsMessageSet: {
     testWhenNotSet_ShouldReturnFalse() {
-      const descriptor = DescriptorImpl.fromArgs({
-        encodedDescriptor: '',
-      });
+      const descriptor = descriptorBuilder().build();
 
       assertFalse('isMessageSet should be false', descriptor.isMessageSet());
     },
 
     testWhenSet_ShouldReturnTrue() {
-      const descriptor = DescriptorImpl.fromArgs({
-        encodedDescriptor: '',
-        isMessageSet: true,
-      });
+      const descriptor = messageSetBuilder().build();
 
       assertTrue('isMessageSet should be true', descriptor.isMessageSet());
     },
@@ -394,18 +372,13 @@ testSuite({
 
   testIsExtendable: {
     testWhenNotExtendable_ReturnsFalse() {
-      const descriptor = DescriptorImpl.fromArgs({
-        encodedDescriptor: '',
-      });
+      const descriptor = descriptorBuilder().build();
 
       assertFalse('IsExtendable should be false', descriptor.isExtendable());
     },
 
     testWhenExtendable_ReturnsTrue() {
-      const descriptor = DescriptorImpl.fromArgs({
-        encodedDescriptor: '',
-        extensionRegistry: {},
-      });
+      const descriptor = descriptorBuilder().withExtensionRegistry({}).build();
 
       assertTrue('IsExtendable should be true', descriptor.isExtendable());
     },
@@ -414,10 +387,8 @@ testSuite({
   testRegisterExtension: {
     testShouldRegisterProvidedField() {
       const extensionRegistry = {};
-      const descriptor = DescriptorImpl.fromArgs({
-        encodedDescriptor: '',
-        extensionRegistry,
-      });
+      const descriptor =
+          descriptorBuilder().withExtensionRegistry(extensionRegistry).build();
 
       registerExtension(
           extensionRegistry, 1, encodeValues(typeValue(FieldType.STRING)));
@@ -432,10 +403,8 @@ testSuite({
     testWithSubmessageDescriptor_ShouldRegisterFieldWithSubmessageDescriptor() {
       const extensionRegistry = {};
       const submessageDescriptor = emptyDescriptor();
-      const descriptor = DescriptorImpl.fromArgs({
-        encodedDescriptor: '',
-        extensionRegistry,
-      });
+      const descriptor =
+          descriptorBuilder().withExtensionRegistry(extensionRegistry).build();
 
       registerExtension(
           extensionRegistry, 1, encodeValues(typeValue(FieldType.MESSAGE)),
@@ -452,10 +421,8 @@ testSuite({
 
     testRegisterMultipleFields() {
       const extensionRegistry = {};
-      const descriptor = DescriptorImpl.fromArgs({
-        encodedDescriptor: '',
-        extensionRegistry,
-      });
+      const descriptor =
+          descriptorBuilder().withExtensionRegistry(extensionRegistry).build();
 
       registerExtension(
           extensionRegistry, 1, encodeValues(typeValue(FieldType.STRING)));
@@ -478,10 +445,8 @@ testSuite({
 
     testRegisterMaxFieldNumber() {
       const extensionRegistry = {};
-      const descriptor = DescriptorImpl.fromArgs({
-        encodedDescriptor: '',
-        extensionRegistry,
-      });
+      const descriptor =
+          descriptorBuilder().withExtensionRegistry(extensionRegistry).build();
 
       registerExtension(
           extensionRegistry, MAX_FIELD_NUMBER,
