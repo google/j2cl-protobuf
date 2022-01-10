@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-goog.module('proto.im.internal.descriptorTest');
+goog.module('proto.im.descriptor.internal_descriptorTest');
 
 const testSuite = goog.require('goog.testing.testSuite');
 const {Descriptor, Field, FieldType, } = goog.require('proto.im.descriptor');
-const {DescriptorImpl, Modifier, createGetDescriptorFn, registerExtension} = goog.require('proto.im.internal.descriptor');
-const {MAX_FIELD_NUMBER} = goog.require('proto.im.internal.constants');
-const {encodeValues, modifierValues, repeatedTypeValue, skipValues, typeValue} = goog.require('proto.im.internal.testUtils');
+const {DescriptorImpl, Modifier, createGetDescriptorFn, registerExtension} = goog.require('proto.im.descriptor.internal_descriptor');
+const {MAX_FIELD_NUMBER} = goog.require('proto.im.descriptor.internal_constants');
+const {encodeValues, modifierValues, repeatedTypeValue, skipValues, typeValue} = goog.require('proto.im.descriptor.internal_testUtils');
 
 function /** !Field */ getOnlyField(
     /** !Descriptor */ descriptor,

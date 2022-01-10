@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-goog.module('proto.im.internal.constantsTest');
+goog.module('proto.im.descriptor.internal_constantsTest');
 
 const testSuite = goog.require('goog.testing.testSuite');
-const {fieldTypeConstants} = goog.require('proto.im.internal.constants');
+const {fieldTypeConstants} = goog.require('proto.im.descriptor.internal_constants');
 
 testSuite({
   testFieldTypeConstants_areValidBase92() {

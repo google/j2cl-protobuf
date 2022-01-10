@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-goog.module('proto.im.internal.testUtils');
+goog.module('proto.im.descriptor.internal_testUtils');
 
 const {FieldType} = goog.requireType('proto.im.descriptor');
-const {fieldSkipConstants, fieldTypeConstants} = goog.require('proto.im.internal.constants');
+const {fieldSkipConstants, fieldTypeConstants} = goog.require('proto.im.descriptor.internal_constants');
 
 function /** number */ intToBase92(/** number */ value) {
   if (value < 0 || value > 91) {

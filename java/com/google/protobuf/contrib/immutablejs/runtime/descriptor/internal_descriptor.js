@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-goog.module('proto.im.internal.descriptor');
+goog.module('proto.im.descriptor.internal_descriptor');
 
 const {Descriptor, Field, FieldType} = goog.require('proto.im.descriptor');
-const {MAX_FIELD_NUMBER, fieldSkipConstants, fieldTypeConstants} = goog.require('proto.im.internal.constants');
+const {MAX_FIELD_NUMBER, fieldSkipConstants, fieldTypeConstants} = goog.require('proto.im.descriptor.internal_constants');
 const {cacheReturnValue} = goog.require('goog.functions');
-const {fieldTypeConstants: encodedFieldTypeConstants} = goog.require('proto.im.internal.encodedConstants');
+const {fieldTypeConstants: encodedFieldTypeConstants} = goog.require('proto.im.descriptor.internal_encodedConstants');
 
 /** @implements {Descriptor} */
 class DescriptorImpl {

@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-goog.module('proto.im.internal.encodedConstants');
+goog.module('proto.im.descriptor.internal_encodedConstants');
 
 /**
  * Pre-encoded Base-92 chars that mark special values or ranges of values for

@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-goog.module('proto.im.internal.constants');
+goog.module('proto.im.descriptor.internal_constants');
 
 /** @const {number} */
 exports.MAX_FIELD_NUMBER = (1 << 29) - 1;  // 2^29 - 1

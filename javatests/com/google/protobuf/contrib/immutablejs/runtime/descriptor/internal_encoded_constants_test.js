@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-goog.module('proto.im.internal.encodedConstantsTest');
+goog.module('proto.im.descriptor.internal_encodedConstantsTest');
 
 const testSuite = goog.require('goog.testing.testSuite');
-const {encodeValues} = goog.require('proto.im.internal.testUtils');
-const {fieldTypeConstants: encodedFieldTypeConstants} = goog.require('proto.im.internal.encodedConstants');
-const {fieldTypeConstants} = goog.require('proto.im.internal.constants');
+const {encodeValues} = goog.require('proto.im.descriptor.internal_testUtils');
+const {fieldTypeConstants: encodedFieldTypeConstants} = goog.require('proto.im.descriptor.internal_encodedConstants');
+const {fieldTypeConstants} = goog.require('proto.im.descriptor.internal_constants');
 
 testSuite({
   testEncodedFieldTypeConstants_correlateToFieldTypeContants() {
