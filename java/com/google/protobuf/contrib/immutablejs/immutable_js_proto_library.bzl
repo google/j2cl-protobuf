@@ -62,18 +62,15 @@ def _immutable_js_proto_library_aspect_impl(target, ctx):
             proto_sources = " ".join([s.path for s in srcs]),
         )
 
-        (resolved_inputs, resolved_command, input_manifest) = ctx.resolve_command(command = command)
-
         ctx.actions.run_shell(
-            command = resolved_command,
-            inputs = depset(resolved_inputs, transitive = [transitive_srcs]),
+            command = command,
+            inputs = transitive_srcs,
             outputs = [output],
             tools = [
                 ctx.executable._protocol_compiler,
                 ctx.executable._protoc_gen_immutable_js,
                 ctx.executable._clang_format,
             ],
-            input_manifests = input_manifest,
             progress_message = "Generating immutable jspb files",
         )
 

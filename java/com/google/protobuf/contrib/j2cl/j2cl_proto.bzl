@@ -164,22 +164,16 @@ def _generate_proto_srcjar(ctx, srcs, protobuf_implementation, artifact_suffix, 
         protobuf_implementation = protobuf_implementation,
     )
 
-    resolved_tools, resolved_command, input_manifest = ctx.resolve_command(
-        command = protoc_command,
-        tools = [
-            ctx.attr._protocol_compiler,
-            ctx.attr._protoc_gen_j2cl,
-            ctx.attr._jar,
-            ctx.attr._google_java_formatter,
-        ],
-    )
-
     ctx.actions.run_shell(
-        command = resolved_command,
+        command = protoc_command,
         inputs = transitive_srcs,
-        tools = resolved_tools,
+        tools = [
+            ctx.executable._protocol_compiler,
+            ctx.executable._protoc_gen_j2cl,
+            ctx.executable._jar,
+            ctx.executable._google_java_formatter,
+        ],
         outputs = [jar_archive],
-        input_manifests = input_manifest,
         progress_message = "Generating J2CL proto files",
     )
 
