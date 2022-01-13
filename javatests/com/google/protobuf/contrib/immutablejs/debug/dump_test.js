@@ -39,7 +39,8 @@ class DumpTest {
           'repeatedStringList': [],
           'repeatedBytesList': [],
           'repeatedMessageList': [],
-          'repeatedUint32List': []
+          'repeatedUint32List': [],
+          'repeatedFixed32List': [],
         },
         debug.dump(TestProto.getDefaultInstance()));
   }
@@ -65,6 +66,11 @@ class DumpTest {
             .addRepeatedUint32(600)
             .addRepeatedUint32(800)
             .addRepeatedUint32(900)
+            .setOptionalFixed32(1210)
+            .setOptionalFixed32WithDefault(1220)
+            .addRepeatedFixed32(1200)
+            .addRepeatedFixed32(1300)
+            .addRepeatedFixed32(1400)
             .setOptionalLong(Long.fromNumber(666))
             .setOptionalLongWithDefault(Long.fromString('88902389724'))
             .addRepeatedLong(Long.fromNumber(777))
@@ -113,6 +119,9 @@ class DumpTest {
           'optionalUint32': 675,
           'optionalUint32WithDefault': 775,
           'repeatedUint32List': [600, 800, 900],
+          'optionalFixed32': 1210,
+          'optionalFixed32WithDefault': 1220,
+          'repeatedFixed32List': [1200, 1300, 1400],
           'optionalLong': '666',
           'optionalLongWithDefault': '88902389724',
           'repeatedLongList': ['777', '8283'],

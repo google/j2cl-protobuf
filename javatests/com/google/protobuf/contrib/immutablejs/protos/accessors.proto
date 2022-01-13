@@ -98,6 +98,9 @@ message TestProto {
   optional uint64 optional_uint64 = 32 [jstype = JS_STRING];
   optional uint32 optional_uint32_with_default = 33 [default = 4294967295];
   repeated uint32 repeated_uint32 = 34;
+  optional fixed32 optional_fixed32 = 35;
+  optional fixed32 optional_fixed32_with_default = 36 [default = 4294967295];
+  repeated fixed32 repeated_fixed32 = 37;
 
   // message fields.
 

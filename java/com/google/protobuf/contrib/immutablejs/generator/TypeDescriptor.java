@@ -50,32 +50,39 @@ public abstract class TypeDescriptor {
       createClosureType("proto.im.JspbKernel", /* stem= */ "");
 
   public static TypeDescriptor create(FieldDescriptor fieldDescriptor) {
-    switch (fieldDescriptor.getJavaType()) {
-      case BOOLEAN:
-        return BOOLEAN;
-      case STRING:
-        return STRING;
+    switch (fieldDescriptor.getType()) {
       case DOUBLE:
       case FLOAT:
         return FLOAT;
-      case INT:
-        if (fieldDescriptor.getType() == FieldDescriptor.Type.UINT32) {
-          return UINT;
-        }
-        return INT;
-      case LONG:
+      case INT64:
+      case SFIXED64:
+      case SINT64:
+        // TODO(b/160739199): Unsigned uint64 is currenty lossy as it's coerced to signed by Long.
+      case FIXED64:
+      case UINT64:
         if (fieldDescriptor.getOptions().getJstype() != JSType.JS_STRING) {
           return INT52_LONG;
         }
         return LONG;
-      case BYTE_STRING:
+      case INT32:
+      case SINT32:
+      case SFIXED32:
+        return INT;
+      case UINT32:
+      case FIXED32:
+        return UINT;
+      case BOOL:
+        return BOOLEAN;
+      case STRING:
+        return STRING;
+      case BYTES:
         return BYTE_STRING;
       case ENUM:
         return create(fieldDescriptor.getEnumType());
+      case GROUP:
       case MESSAGE:
         return create(fieldDescriptor.getMessageType());
     }
-
     throw new AssertionError(fieldDescriptor);
   }
 
