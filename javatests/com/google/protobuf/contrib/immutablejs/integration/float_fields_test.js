@@ -18,8 +18,9 @@ goog.setTestOnly();
 
 const ListView = goog.require('proto.im.ListView');
 const TestProto = goog.require('improto.protobuf.contrib.immutablejs.protos.TestProto');
+const TestProto3 = goog.require('improto.protobuf.contrib.immutablejs.protos.TestProto3');
 const testSuite = goog.require('goog.testing.testSuite');
-const {assertEqualsForProto} = goog.require('proto.im.proto_asserts');
+const {assertEqualsForProto, assertValueIsCleared, assertValueIsSet} = goog.require('proto.im.proto_asserts');
 const {isCheckIndex} = goog.require('proto.im.internal.internalChecks');
 
 
@@ -91,6 +92,14 @@ class FloatFieldsTest {
     const proto = builder.build();
     assertEqualsForProto(true, proto.hasOptionalFloatWithDefault());
     assertEqualsForProto(135, proto.getOptionalFloatWithDefault());
+  }
+
+  testFieldWithDefault_serialization() {
+    assertValueIsSet(TestProto.newBuilder().setOptionalFloat(0).build());
+
+    const proto3builder = TestProto3.newBuilder();
+    assertValueIsCleared(proto3builder.setProto3Float(0).build());
+    assertValueIsSet(proto3builder.setProto3Float(1).build());
   }
 
   testRepeatedField_defaultInstance() {

@@ -18,6 +18,7 @@ import static org.junit.Assert.assertThrows;
 
 import com.google.protobuf.contrib.j2cl.protos.Accessor.TestProto;
 import com.google.protobuf.contrib.j2cl.protos.Accessor.TestProto.NestedMessage;
+import com.google.protobuf.contrib.j2cl.protos.Proto3Accessors.TestProto3;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.Test;
@@ -36,6 +37,14 @@ public final class MessageFieldsTest {
   }
 
   @Test
+  public void testProto3MessageField_defaultInstance() {
+    assertThat(TestProto3.newBuilder().hasProto3Message()).isFalse();
+    assertThat(TestProto3.getDefaultInstance().hasProto3Message()).isFalse();
+    assertThat(TestProto3.newBuilder().getProto3Message().hasPayload()).isFalse();
+    assertThat(TestProto3.getDefaultInstance().getProto3Message().hasPayload()).isFalse();
+  }
+
+  @Test
   public void testOptionalFieldNoDefault_setValue() {
     TestProto.Builder builder =
         TestProto.newBuilder()
@@ -46,6 +55,16 @@ public final class MessageFieldsTest {
     TestProto proto = builder.build();
     assertThat(proto.hasOptionalMessage()).isTrue();
     assertThat(proto.getOptionalMessage().getPayload()).isEqualTo("payload");
+
+    TestProto3.Builder proto3Builder =
+        TestProto3.newBuilder()
+            .setProto3Message(TestProto3.NestedMessage.newBuilder().setPayload("payload").build());
+    assertThat(proto3Builder.hasProto3Message()).isTrue();
+    assertThat(proto3Builder.getProto3Message().getPayload()).isEqualTo("payload");
+
+    TestProto3 proto3 = proto3Builder.build();
+    assertThat(proto3.hasProto3Message()).isTrue();
+    assertThat(proto3.getProto3Message().getPayload()).isEqualTo("payload");
   }
 
   @Test

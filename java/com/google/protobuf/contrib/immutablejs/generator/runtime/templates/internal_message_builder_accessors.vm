@@ -46,6 +46,16 @@
     return this;
   }
 
+  /**
+   * @param {number} fieldNumber
+   * @param {!${valueType}} value
+   * @protected
+   * @return {BUILDER}
+   */
+  internal_set${stem}FieldIgnoreDefaultProto3(fieldNumber, value) {
+    this.kernel_.set${stem}FieldIgnoreDefaultProto3(fieldNumber, value);
+    return this;
+  }
 
   /**
    * @param {number} fieldNumber
@@ -163,7 +173,6 @@
     this.kernel_.setMessageField(fieldNumber, value.kernel_);
     return this;
   }
-
 
   /**
    * @param {number} fieldNumber

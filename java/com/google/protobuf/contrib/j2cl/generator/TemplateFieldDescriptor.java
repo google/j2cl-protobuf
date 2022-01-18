@@ -24,6 +24,7 @@ import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Descriptors.FieldDescriptor;
 import com.google.protobuf.Descriptors.FieldDescriptor.JavaType;
 import com.google.protobuf.Descriptors.FileDescriptor.Syntax;
+import com.google.protobuf.contrib.immutablejs.generator.Descriptors;
 import com.google.protobuf.contrib.immutablejs.generator.JavaQualifiedNames;
 import com.google.protobuf.contrib.immutablejs.generator.NameResolver;
 
@@ -157,6 +158,10 @@ public abstract class TemplateFieldDescriptor {
 
   public boolean hasEnumValueAccessors() {
     return isEnum() && fieldDescriptor().getFile().getSyntax().equals(Syntax.PROTO3);
+  }
+
+  public boolean hasHasser() {
+    return Descriptors.hasHasser(fieldDescriptor());
   }
 
   public boolean isMessage() {

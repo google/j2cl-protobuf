@@ -18,8 +18,9 @@ goog.setTestOnly();
 
 const ListView = goog.require('proto.im.ListView');
 const TestProto = goog.require('improto.protobuf.contrib.immutablejs.protos.TestProto');
+const TestProto3 = goog.require('improto.protobuf.contrib.immutablejs.protos.TestProto3');
 const testSuite = goog.require('goog.testing.testSuite');
-const {assertEqualsForProto} = goog.require('proto.im.proto_asserts');
+const {assertEqualsForProto, assertValueIsCleared, assertValueIsSet} = goog.require('proto.im.proto_asserts');
 const {isCheckIndex} = goog.require('proto.im.internal.internalChecks');
 
 
@@ -94,6 +95,14 @@ class DoubleFieldsTest {
     const proto = builder.build();
     assertEqualsForProto(true, proto.hasOptionalDoubleWithDefault());
     assertEqualsForProto(246, proto.getOptionalDoubleWithDefault());
+  }
+
+  testFieldWithDefault_serialization() {
+    assertValueIsSet(TestProto.newBuilder().setOptionalDouble(0).build());
+
+    const proto3builder = TestProto3.newBuilder();
+    assertValueIsCleared(proto3builder.setProto3Double(0).build());
+    assertValueIsSet(proto3builder.setProto3Double(1).build());
   }
 
   testRepeatedField_defaultInstance() {

@@ -251,4 +251,17 @@ public abstract class TemplateFieldDescriptor {
   public boolean isDeprecated() {
     return protoFieldDescriptor().getOptions().getDeprecated();
   }
+
+  public boolean hasHasser() {
+    return Descriptors.hasHasser(protoFieldDescriptor());
+  }
+
+  /** Returns true if setter should ignore default value */
+  public boolean shouldClearDefaultValue() {
+    return isProto3() && !isRepeated() && !hasHasser();
+  }
+
+  private boolean isProto3() {
+    return Descriptors.isProto3(protoFieldDescriptor());
+  }
 }

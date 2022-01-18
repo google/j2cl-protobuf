@@ -20,9 +20,9 @@ import com.google.protobuf.contrib.j2cl.protos.Extensions.Base;
 import com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields;
 import com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto;
 import com.google.protobuf.contrib.j2cl.protos.Oneofs.TestProtoWithOneOfs;
+import com.google.protobuf.contrib.j2cl.protos.Proto3Accessors.TestProto3;
 import com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto;
 import com.google.protobuf.contrib.j2cl.protos.Proto3Oneofs.Proto3TestProtoWithOneOfs;
-import com.google.protobuf.contrib.j2cl.protos.Proto3Optional.TestProto3;
 import com.google.protobuf.contrib.j2cl.protos.ProtoWithDashes.ProtoWithDashesMessage;
 import com.google.protos.EmptyPackage;
 

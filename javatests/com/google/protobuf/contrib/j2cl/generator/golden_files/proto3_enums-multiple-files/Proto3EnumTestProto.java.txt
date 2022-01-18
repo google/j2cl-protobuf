@@ -209,9 +209,6 @@ public final class Proto3EnumTestProto
   public static int OPTIONAL_NATIVE_ENUM_FIELD_NUMBER;
   public static int REPEATED_NATIVE_ENUM_FIELD_NUMBER;
 
-  @jsinterop.annotations.JsMethod(name = "hasOptionalEnum")
-  public native boolean hasOptionalEnum();
-
   @jsinterop.annotations.JsOverlay
   public final com.google.protobuf.contrib.j2cl.protos.Proto3EnumTestProto.Proto3TestEnum
       getOptionalEnum() {
@@ -268,9 +265,6 @@ public final class Proto3EnumTestProto
                 com.google.protobuf.contrib.j2cl.protos.Proto3EnumTestProto.Proto3TestEnum
                     .UNRECOGNIZED));
   }
-
-  @jsinterop.annotations.JsMethod(name = "hasOptionalNativeEnum")
-  public native boolean hasOptionalNativeEnum();
 
   @jsinterop.annotations.JsOverlay
   public final com.google.protobuf.contrib.j2cl.protos.Proto3EnumTestProto.Proto3NativeEnum
@@ -351,9 +345,6 @@ public final class Proto3EnumTestProto
 
     @java.lang.Override
     public native Builder clone();
-
-    @jsinterop.annotations.JsMethod(name = "hasOptionalEnum")
-    public native boolean hasOptionalEnum();
 
     @jsinterop.annotations.JsOverlay
     public final com.google.protobuf.contrib.j2cl.protos.Proto3EnumTestProto.Proto3TestEnum
@@ -493,9 +484,6 @@ public final class Proto3EnumTestProto
       com.google.protobuf.GeneratedMessageLite.Internal_.addAll(values, this::addRepeatedEnum);
       return this;
     }
-
-    @jsinterop.annotations.JsMethod(name = "hasOptionalNativeEnum")
-    public native boolean hasOptionalNativeEnum();
 
     @jsinterop.annotations.JsOverlay
     public final com.google.protobuf.contrib.j2cl.protos.Proto3EnumTestProto.Proto3NativeEnum

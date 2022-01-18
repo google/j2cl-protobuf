@@ -18,6 +18,7 @@
  */
 goog.module('proto.im.proto_asserts');
 
+const Proto_im_Message = goog.require('proto.im.Message');
 const {raiseException} = goog.require('goog.testing.asserts');
 
 /**
@@ -62,6 +63,42 @@ function objectEquals(expected, actual) {
 }
 
 /**
+ * @param {!Proto_im_Message} message
+ */
+function assertValueIsCleared(message) {
+  const array = toArray(message);
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] !== null) {
+      raiseException(
+          'The value at field number ' + (i + 1) + ' is not cleared');
+    }
+  }
+}
+
+/**
+ * @param {!Proto_im_Message} message
+ */
+function assertValueIsSet(message) {
+  const array = toArray(message);
+  if (array.some((e) => e !== null)) {
+    return;
+  }
+  raiseException('No value is set');
+}
+
+/**
+ * @param {!Proto_im_Message} message
+ * @return {!Array<*>}
+ */
+function toArray(message) {
+  const parsedMessage = JSON.parse(message.serialize());
+  if (!Array.isArray(parsedMessage)) {
+    raiseException('parsed message is not an array');
+  }
+  return /** @type {!Array<*>} */ (parsedMessage);
+}
+
+/**
  * @param {*} expected
  * @param {*} actual
  */
@@ -70,4 +107,8 @@ function raise(expected, actual) {
       actual} <${typeof actual}>`);
 }
 
-exports.assertEqualsForProto = assertEqualsForProto;
+exports = {
+  assertEqualsForProto,
+  assertValueIsCleared,
+  assertValueIsSet,
+};

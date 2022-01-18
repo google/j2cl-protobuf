@@ -18,6 +18,7 @@ goog.setTestOnly();
 
 const ListView = goog.require('proto.im.ListView');
 const TestProto = goog.require('improto.protobuf.contrib.immutablejs.protos.TestProto');
+const TestProto3 = goog.require('improto.protobuf.contrib.immutablejs.protos.TestProto3');
 const testSuite = goog.require('goog.testing.testSuite');
 const {assertEqualsForProto} = goog.require('proto.im.proto_asserts');
 const {isCheckIndex} = goog.require('proto.im.internal.internalChecks');
@@ -27,6 +28,10 @@ class MessageFieldsTest {
     const proto = TestProto.newBuilder().build();
     assertEqualsForProto(false, proto.hasOptionalMessage());
     assertEqualsForProto(false, proto.getOptionalMessage().hasPayload());
+
+    const proto3 = TestProto3.newBuilder().build();
+    assertEqualsForProto(false, proto3.hasProto3Message());
+    assertEqualsForProto(false, proto3.getProto3Message().hasPayload());
   }
 
   testOptionalField_defaultInstance_setValueMessage() {
@@ -38,6 +43,16 @@ class MessageFieldsTest {
     const proto = builder.build();
     assertEqualsForProto(true, proto.hasOptionalMessage());
     assertEqualsForProto('payload', proto.getOptionalMessage().getPayload());
+
+    const builderProto3 = TestProto3.newBuilder().setProto3Message(
+        TestProto3.NestedMessage.newBuilder().setPayload('payload').build());
+    assertEqualsForProto(true, builderProto3.hasProto3Message());
+    assertEqualsForProto(
+        'payload', builderProto3.getProto3Message().getPayload());
+
+    const proto3 = builderProto3.build();
+    assertEqualsForProto(true, proto3.hasProto3Message());
+    assertEqualsForProto('payload', proto3.getProto3Message().getPayload());
   }
 
   testOptionalField_defaultInstance_setValueBuilder() {

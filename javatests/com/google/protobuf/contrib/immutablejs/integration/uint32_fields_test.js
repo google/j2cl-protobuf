@@ -18,8 +18,9 @@ goog.setTestOnly();
 
 const ListView = goog.require('proto.im.ListView');
 const TestProto = goog.require('improto.protobuf.contrib.immutablejs.protos.TestProto');
+const TestProto3 = goog.require('improto.protobuf.contrib.immutablejs.protos.TestProto3');
 const testSuite = goog.require('goog.testing.testSuite');
-const {assertEqualsForProto} = goog.require('proto.im.proto_asserts');
+const {assertEqualsForProto, assertValueIsCleared, assertValueIsSet} = goog.require('proto.im.proto_asserts');
 const {isCheckIndex, isCheckType} = goog.require('proto.im.internal.internalChecks');
 
 const PROTO_DEFAULT_VALUE = -1;
@@ -106,6 +107,14 @@ class UInt32FieldsTest {
     const proto = builder.build();
     assertEqualsForProto(true, proto.hasOptionalUint32WithDefault());
     assertEqualsForProto(246, proto.getOptionalUint32WithDefault());
+  }
+
+  testFieldWithDefault_serialization() {
+    assertValueIsSet(TestProto.newBuilder().setOptionalUint32(0).build());
+
+    const proto3builder = TestProto3.newBuilder();
+    assertValueIsCleared(proto3builder.setProto3Uint32(0).build());
+    assertValueIsSet(proto3builder.setProto3Uint32(1).build());
   }
 
   testRepeatedField_defaultInstance() {

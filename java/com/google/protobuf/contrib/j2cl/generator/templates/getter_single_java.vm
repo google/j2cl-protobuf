@@ -1,5 +1,6 @@
-public boolean has${field.name}(){
-  return hasField(${field.number});
-}
-
+#if (${field.hasHasser()})
+  public boolean has${field.name}(){
+    return hasField(${field.number});
+  }
+#end
 #parse('getter_java.vm')

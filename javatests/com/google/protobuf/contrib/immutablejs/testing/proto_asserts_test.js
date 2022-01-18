@@ -20,8 +20,9 @@ goog.setTestOnly();
 
 const ByteString = goog.require('proto.im.ByteString');
 const Long = goog.require('goog.math.Long');
+const TestProto = goog.require('improto.protobuf.contrib.immutablejs.protos.TestProto');
 const testSuite = goog.require('goog.testing.testSuite');
-const {assertEqualsForProto} = goog.require('proto.im.proto_asserts');
+const {assertEqualsForProto, assertValueIsCleared, assertValueIsSet} = goog.require('proto.im.proto_asserts');
 
 class ProtoAssertsTest {
   testBoolean() {
@@ -67,6 +68,19 @@ class ProtoAssertsTest {
     assertThrowsJsUnitException(() => assertEqualsForProto(['1'], ['0']));
     assertThrowsJsUnitException(
         () => assertEqualsForProto(Long.fromInt(1), Long.fromInt(2)));
+  }
+
+  testMessageValueIsCleared() {
+    assertValueIsCleared(TestProto.newBuilder().build());
+    assertThrowsJsUnitException(
+        () => assertValueIsCleared(
+            TestProto.newBuilder().setOptionalBool(false).build()));
+  }
+
+  testMessageValueIsSet() {
+    assertValueIsSet(TestProto.newBuilder().setOptionalBool(false).build());
+    assertThrowsJsUnitException(
+        () => assertValueIsSet(TestProto.newBuilder().build()));
   }
 }
 

@@ -328,6 +328,7 @@ ${messageName}.Builder = class extends proto_im_InternalMessage.Builder {
 #else
 #set ($valueType = $field.jsDoc)
 #set ($valueSetType = "#if($field.isMessage())$valueType|${valueType}.Builder#{else}$valueType#end")
+#if ($field.hasHasser())
   /**
    * @return {boolean}
 #if ($field.isDeprecated())
@@ -337,6 +338,7 @@ ${messageName}.Builder = class extends proto_im_InternalMessage.Builder {
   has${field.name}() {
     return this.internal_message.has${field.name}();
   }
+#end
 
   /**
    * $!field.protoFileComments
@@ -361,7 +363,11 @@ ${messageName}.Builder = class extends proto_im_InternalMessage.Builder {
 #if ($field.isOneOf())
     this.internal_clear${field.oneOfName}();
 #end
+#if ($field.shouldClearDefaultValue())
+    return this.internal_set${field.stem}FieldIgnoreDefaultProto3($field.number, value);
+#else
     return this.internal_set${field.stem}Field($field.number, value);
+#end
   }
 #end
 

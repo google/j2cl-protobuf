@@ -2,14 +2,15 @@ package com.google.protobuf.contrib.j2cl.protos;
 
 @jsinterop.annotations.JsType(
     isNative = true,
-    name = "TestProto3",
+    name = "TestProto3Optional",
     namespace = "improto.protobuf.contrib.j2cl.protos")
-public final class TestProto3
-    extends com.google.protobuf.GeneratedMessageLite<TestProto3, TestProto3.Builder> {
+public final class TestProto3Optional
+    extends com.google.protobuf.GeneratedMessageLite<
+        TestProto3Optional, TestProto3Optional.Builder> {
 
-  protected TestProto3() {}
+  protected TestProto3Optional() {}
 
-  public static final native TestProto3 getDefaultInstance();
+  public static final native TestProto3Optional getDefaultInstance();
 
   public native Builder toBuilder();
 
@@ -23,21 +24,21 @@ public final class TestProto3
 
   public static native Builder newBuilder();
 
-  public static native Builder newBuilder(TestProto3 prototype);
+  public static native Builder newBuilder(TestProto3Optional prototype);
 
   @jsinterop.annotations.JsType(isNative = true)
   public static final class Builder
-      extends com.google.protobuf.GeneratedMessageLite.Builder<TestProto3, Builder> {
+      extends com.google.protobuf.GeneratedMessageLite.Builder<TestProto3Optional, Builder> {
 
     protected Builder() {}
 
     @jsinterop.annotations.JsOverlay
-    public final TestProto3 getDefaultInstanceForType() {
+    public final TestProto3Optional getDefaultInstanceForType() {
       return getDefaultInstance();
     }
 
     @java.lang.Override
-    public native TestProto3 build();
+    public native TestProto3Optional build();
 
     @java.lang.Override
     public native Builder clone();

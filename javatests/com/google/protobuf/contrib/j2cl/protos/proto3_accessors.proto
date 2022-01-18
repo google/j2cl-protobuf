@@ -20,6 +20,32 @@ option java_package = "com.google.protobuf.contrib.j2cl.protos";
 
 // REMOVED_BY_GENRULE option java_multiple_files = true;
 
-message TestProto3 {
+message TestProto3Optional {
   optional int32 optional_int = 1;
+}
+
+message TestProto3 {
+  bool proto3_bool = 1;
+  string proto3_string = 2;
+  float proto3_float = 3;
+  double proto3_double = 4;
+  int32 proto3_int32 = 5;
+  uint32 proto3_uint32 = 6;
+  int64 proto3_long = 7 [jstype = JS_STRING];
+  int64 proto3_int52long = 8;
+  bytes proto3_bytes = 9;
+  repeated bool proto3_plural_bool = 12;
+
+  enum TestEnum {
+    UNKNOWN = 0;
+    ONE = 1;
+    TWO = 2;
+  }
+
+  TestEnum proto3_enum = 10;
+
+  message NestedMessage {
+    optional string payload = 1;
+  }
+  NestedMessage proto3_message = 11;
 }

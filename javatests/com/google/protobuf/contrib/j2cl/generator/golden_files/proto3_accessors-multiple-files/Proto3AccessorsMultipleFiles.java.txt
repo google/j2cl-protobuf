@@ -2,9 +2,9 @@ package com.google.protobuf.contrib.j2cl.protos;
 
 @jsinterop.annotations.JsType(
     isNative = true,
-    name = "proto3_optional.multiple_files",
+    name = "proto3_accessors.multiple_files",
     namespace = "improto.protobuf.contrib.j2cl.protos")
-public final class Proto3OptionalMultipleFiles {
+public final class Proto3AccessorsMultipleFiles {
 
-  private Proto3OptionalMultipleFiles() {}
+  private Proto3AccessorsMultipleFiles() {}
 }

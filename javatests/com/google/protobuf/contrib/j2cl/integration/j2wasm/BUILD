@@ -16,9 +16,9 @@ j2wasm_library(
         "//javatests/com/google/protobuf/contrib/j2cl/protos:maps_j2cl_proto",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:oneofs_j2cl_proto",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:proto-with-dashes_j2cl_proto",
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:proto3_accessors_j2cl_proto",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:proto3_enums_j2cl_proto",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:proto3_oneofs_j2cl_proto",
-        "//javatests/com/google/protobuf/contrib/j2cl/protos:proto3_optional_j2cl_proto",
     ],
 )
 

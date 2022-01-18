@@ -19,9 +19,10 @@ goog.setTestOnly();
 const ListView = goog.require('proto.im.ListView');
 const Long = goog.require('goog.math.Long');
 const TestProto = goog.require('improto.protobuf.contrib.immutablejs.protos.TestProto');
+const TestProto3 = goog.require('improto.protobuf.contrib.immutablejs.protos.TestProto3');
 const defines = goog.require('proto.im.defines');
 const testSuite = goog.require('goog.testing.testSuite');
-const {assertEqualsForProto} = goog.require('proto.im.proto_asserts');
+const {assertEqualsForProto, assertValueIsCleared, assertValueIsSet} = goog.require('proto.im.proto_asserts');
 const {isCheckIndex} = goog.require('proto.im.internal.internalChecks');
 
 
@@ -103,6 +104,17 @@ class Int52LongFieldsTest {
     assertEqualsForProto(true, proto.hasOptionalInt52LongWithDefault());
     assertEqualsForProto(
         DEFAULT_PROTO_VALUE, proto.getOptionalInt52LongWithDefault());
+  }
+
+  testFieldWithDefault_serialization() {
+    assertValueIsSet(
+        TestProto.newBuilder().setOptionalInt52Long(Long.fromInt(0)).build());
+
+    const proto3builder = TestProto3.newBuilder();
+    assertValueIsCleared(
+        proto3builder.setProto3Int52Long(Long.fromInt(0)).build());
+    assertValueIsSet(
+        proto3builder.setProto3Int52Long(Long.fromInt(8964)).build());
   }
 
   testRepeatedField_defaultInstance() {

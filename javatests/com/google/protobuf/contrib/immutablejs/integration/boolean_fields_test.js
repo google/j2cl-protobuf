@@ -17,8 +17,9 @@ goog.setTestOnly();
 
 const ListView = goog.require('proto.im.ListView');
 const TestProto = goog.require('improto.protobuf.contrib.immutablejs.protos.TestProto');
+const TestProto3 = goog.require('improto.protobuf.contrib.immutablejs.protos.TestProto3');
 const testSuite = goog.require('goog.testing.testSuite');
-const {assertEqualsForProto} = goog.require('proto.im.proto_asserts');
+const {assertEqualsForProto, assertValueIsCleared, assertValueIsSet} = goog.require('proto.im.proto_asserts');
 const {isCheckIndex} = goog.require('proto.im.internal.internalChecks');
 
 class BooleanFieldsTest {
@@ -79,6 +80,14 @@ class BooleanFieldsTest {
     const proto = builder.build();
     assertEqualsForProto(true, proto.hasOptionalBoolWithDefault());
     assertEqualsForProto(false, proto.getOptionalBoolWithDefault());
+  }
+
+  testFieldWithDefault_serialization() {
+    assertValueIsSet(TestProto.newBuilder().setOptionalBool(false).build());
+
+    const proto3builder = TestProto3.newBuilder();
+    assertValueIsCleared(proto3builder.setProto3Bool(false).build());
+    assertValueIsSet(proto3builder.setProto3Bool(true).build());
   }
 
   testRepeatedField_defaultInstance() {

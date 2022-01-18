@@ -18,8 +18,9 @@ goog.setTestOnly();
 
 const ListView = goog.require('proto.im.ListView');
 const TestProto = goog.require('improto.protobuf.contrib.immutablejs.protos.TestProto');
+const TestProto3 = goog.require('improto.protobuf.contrib.immutablejs.protos.TestProto3');
 const testSuite = goog.require('goog.testing.testSuite');
-const {assertEqualsForProto} = goog.require('proto.im.proto_asserts');
+const {assertEqualsForProto, assertValueIsCleared, assertValueIsSet} = goog.require('proto.im.proto_asserts');
 const {isCheckIndex} = goog.require('proto.im.internal.internalChecks');
 
 
@@ -90,6 +91,18 @@ class EnumFieldsTest {
     assertEqualsForProto(true, proto.hasOptionalEnumWithDefault());
     assertEqualsForProto(
         TestProto.TestEnum.THREE, proto.getOptionalEnumWithDefault());
+  }
+
+  testFieldWithDefault_serialization() {
+    assertValueIsSet(TestProto.newBuilder()
+                         .setOptionalEnum(TestProto.TestEnum.UNKNOWN)
+                         .build());
+
+    const proto3builder = TestProto3.newBuilder();
+    assertValueIsCleared(
+        proto3builder.setProto3Enum(TestProto3.TestEnum.UNKNOWN).build());
+    assertValueIsSet(
+        proto3builder.setProto3Enum(TestProto3.TestEnum.ONE).build());
   }
 
   testRepeatedField_defaultInstance() {

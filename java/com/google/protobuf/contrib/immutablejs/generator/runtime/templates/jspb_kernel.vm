@@ -326,6 +326,22 @@ class JspbKernel {
 
   /**
    * @param {number} fieldNumber
+   * @param {T} value
+   * @param {function(T)} defaultValueCheckFn
+   * @param {function(!Object<number, *>, number, T)} accessorFn
+   * @private
+   * @template T
+   */
+  setFieldIgnoreDefaultProto3(fieldNumber, value, defaultValueCheckFn, accessorFn) {
+    if (defaultValueCheckFn(value)) {
+      this.clearField(fieldNumber);
+    } else {
+      this.setField_(fieldNumber, value, accessorFn)
+    }
+  }
+
+  /**
+   * @param {number} fieldNumber
    * @return {!Array<*>}
    * @private
    */

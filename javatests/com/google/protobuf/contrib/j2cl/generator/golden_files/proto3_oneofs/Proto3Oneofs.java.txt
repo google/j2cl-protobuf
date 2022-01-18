@@ -233,9 +233,6 @@ public final class Proto3Oneofs {
 
       public static int A_STRING_FIELD_NUMBER;
 
-      @jsinterop.annotations.JsMethod(name = "hasAString")
-      public native boolean hasAString();
-
       @jsinterop.annotations.JsMethod(name = "getAString")
       public native java.lang.String getAString();
 
@@ -259,9 +256,6 @@ public final class Proto3Oneofs {
 
         @java.lang.Override
         public native Builder clone();
-
-        @jsinterop.annotations.JsMethod(name = "hasAString")
-        public native boolean hasAString();
 
         @jsinterop.annotations.JsMethod(name = "getAString")
         public native java.lang.String getAString();
@@ -365,9 +359,6 @@ public final class Proto3Oneofs {
       @jsinterop.annotations.JsMethod(name = "getAnInt")
       public native int getAnInt();
 
-      @jsinterop.annotations.JsMethod(name = "hasOptionalFloat")
-      public native boolean hasOptionalFloat();
-
       @jsinterop.annotations.JsMethod(name = "getOptionalFloat")
       public native float getOptionalFloat();
 
@@ -425,9 +416,6 @@ public final class Proto3Oneofs {
 
         @jsinterop.annotations.JsMethod(name = "setAnInt")
         public native Builder setAnInt(int value);
-
-        @jsinterop.annotations.JsMethod(name = "hasOptionalFloat")
-        public native boolean hasOptionalFloat();
 
         @jsinterop.annotations.JsMethod(name = "getOptionalFloat")
         public native float getOptionalFloat();
@@ -550,14 +538,8 @@ public final class Proto3Oneofs {
             .TestNestedProtoWithOneOfs
         getNestedProtoWithOneofs();
 
-    @jsinterop.annotations.JsMethod(name = "hasOptionalBool")
-    public native boolean hasOptionalBool();
-
     @jsinterop.annotations.JsMethod(name = "getOptionalBool")
     public native boolean getOptionalBool();
-
-    @jsinterop.annotations.JsMethod(name = "hasOptionalString")
-    public native boolean hasOptionalString();
 
     @jsinterop.annotations.JsMethod(name = "getOptionalString")
     public native java.lang.String getOptionalString();
@@ -796,9 +778,6 @@ public final class Proto3Oneofs {
                   .TestNestedProtoWithOneOfs.Builder
               builder);
 
-      @jsinterop.annotations.JsMethod(name = "hasOptionalBool")
-      public native boolean hasOptionalBool();
-
       @jsinterop.annotations.JsMethod(name = "getOptionalBool")
       public native boolean getOptionalBool();
 
@@ -807,9 +786,6 @@ public final class Proto3Oneofs {
 
       @jsinterop.annotations.JsMethod(name = "setOptionalBool")
       public native Builder setOptionalBool(boolean value);
-
-      @jsinterop.annotations.JsMethod(name = "hasOptionalString")
-      public native boolean hasOptionalString();
 
       @jsinterop.annotations.JsMethod(name = "getOptionalString")
       public native java.lang.String getOptionalString();

@@ -149,7 +149,7 @@ j2cl_multi_test(
     proto_deps = [
         "//javatests/com/google/protobuf/contrib/j2cl/protos:accessor",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:conflicting_names",
-        "//javatests/com/google/protobuf/contrib/j2cl/protos:proto3_optional",
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:proto3_accessors",
     ],
     test_class = "com.google.protobuf.contrib.j2cl.integration.IntFieldsTest",
     deps = [
@@ -214,7 +214,10 @@ j2cl_multi_test(
 j2cl_multi_test(
     name = "MessageFieldsTest",
     srcs = ["MessageFieldsTest.java"],
-    proto_deps = ["//javatests/com/google/protobuf/contrib/j2cl/protos:accessor"],
+    proto_deps = [
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:accessor",
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:proto3_accessors",
+    ],
     test_class = "com.google.protobuf.contrib.j2cl.integration.MessageFieldsTest",
     deps = [
         ":checks",
@@ -260,6 +263,7 @@ closure_js_binary(
         "//javatests/com/google/protobuf/contrib/j2cl/protos:field_names_j2cl_proto",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:oneofs_j2cl_proto",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:proto-with-dashes_j2cl_proto",
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:proto3_accessors_j2cl_proto",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:proto3_enums_j2cl_proto",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:proto3_oneofs_j2cl_proto",
     ],

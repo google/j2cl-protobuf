@@ -19,8 +19,9 @@ goog.setTestOnly();
 const ListView = goog.require('proto.im.ListView');
 const TestProto = goog.require('improto.protobuf.contrib.immutablejs.protos.TestProto');
 const TestProto3 = goog.require('improto.protobuf.contrib.immutablejs.protos.TestProto3');
+const TestProto3Optional = goog.require('improto.protobuf.contrib.immutablejs.protos.TestProto3Optional');
 const testSuite = goog.require('goog.testing.testSuite');
-const {assertEqualsForProto} = goog.require('proto.im.proto_asserts');
+const {assertEqualsForProto, assertValueIsCleared, assertValueIsSet} = goog.require('proto.im.proto_asserts');
 const {isCheckIndex} = goog.require('proto.im.internal.internalChecks');
 
 
@@ -95,17 +96,25 @@ class IntFieldsTest {
   }
 
   testOptionalField_proto3() {
-    const proto = TestProto3.newBuilder().build();
+    const proto = TestProto3Optional.newBuilder().build();
     assertEqualsForProto(false, proto.hasOptionalInt());
     assertEqualsForProto(0, proto.getOptionalInt());
 
-    const builder = TestProto3.newBuilder().setOptionalInt(42);
+    const builder = TestProto3Optional.newBuilder().setOptionalInt(42);
     assertEqualsForProto(true, builder.hasOptionalInt());
     assertEqualsForProto(42, builder.getOptionalInt());
 
     const proto2 = builder.build();
     assertEqualsForProto(true, proto2.hasOptionalInt());
     assertEqualsForProto(42, proto2.getOptionalInt());
+  }
+
+  testFieldWithDefault_serialization() {
+    assertValueIsSet(TestProto.newBuilder().setOptionalInt(0).build());
+
+    const proto3builder = TestProto3.newBuilder();
+    assertValueIsCleared(proto3builder.setProto3Int32(0).build());
+    assertValueIsSet(proto3builder.setProto3Int32(1).build());
   }
 
   testRepeatedField_defaultInstance() {

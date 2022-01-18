@@ -56,6 +56,15 @@
 
   /**
    * @param {number} fieldNumber
+   * @param {!${valueType}} value
+   */
+  set${stem}FieldIgnoreDefaultProto3(fieldNumber, value) {
+    this.setFieldIgnoreDefaultProto3(
+      fieldNumber, value, FieldAccessor.is${stem}Proto3Default, FieldAccessor.set${stem});
+  }
+
+  /**
+   * @param {number} fieldNumber
    * @return {!InternalMutableListView<!${valueType}>}
    */
   getMutableRepeated${stem}Field(fieldNumber) {

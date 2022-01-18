@@ -20,7 +20,7 @@ import com.google.auto.value.extension.memoized.Memoized;
 import com.google.protobuf.Descriptors.Descriptor;
 import com.google.protobuf.Descriptors.EnumDescriptor;
 import com.google.protobuf.Descriptors.EnumValueDescriptor;
-import com.google.protobuf.Descriptors.FileDescriptor.Syntax;
+import com.google.protobuf.contrib.immutablejs.generator.Descriptors;
 import com.google.protos.j2cl.Options;
 import com.google.protos.protobuf.contrib.j2cl.options.JsEnum;
 import java.util.List;
@@ -88,6 +88,6 @@ public abstract class TemplateEnumDescriptor extends AbstractTemplateTypeDescrip
   }
 
   private boolean isProto3() {
-    return descriptor().getFile().getSyntax().equals(Syntax.PROTO3);
+    return Descriptors.isProto3(descriptor());
   }
 }

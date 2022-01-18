@@ -1,4 +1,5 @@
 #set ($valueType = $field.jsDoc)
+#if ($field.hasHasser())
   /**
    * @return {boolean}
 #if ($field.isDeprecated())
@@ -8,6 +9,7 @@
   has${field.name}() {
     return this.internal_hasField($field.number);
   }
+#end
 
   /**
    * $!field.protoFileComments

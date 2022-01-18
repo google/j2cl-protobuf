@@ -107,6 +107,14 @@ class FieldAccessor {
   }
 
   /**
+   * @param {boolean} value
+   * @return {boolean}
+   */
+  static isBooleanProto3Default(value) {
+    return value === false;
+  }
+
+  /**
    * @param {!Object<number, *>} rawJson
    * @param {number} fieldNumber
    * @param {!ByteString} defaultValue
@@ -140,6 +148,14 @@ class FieldAccessor {
   static setByteString(rawJson, fieldNumber, value) {
     internalChecks.checkType(value instanceof ByteString);
     rawJson[fieldNumber] = value.toBase64String();
+  }
+
+  /**
+   * @param {!ByteString} value
+   * @return {boolean}
+   */
+  static isByteStringProto3Default(value) {
+    return value.equals(ByteString.EMPTY);
   }
 
   /**
@@ -179,6 +195,14 @@ class FieldAccessor {
   static setDouble(rawJson, fieldNumber, value) {
     internalChecks.checkTypeNumber(value);
     rawJson[fieldNumber] = FieldAccessor.serializeDouble_(value);
+  }
+
+  /**
+   * @param {number} value
+   * @return {boolean}
+   */
+  static isDoubleProto3Default(value) {
+    return value === 0;
   }
 
   /**
@@ -229,6 +253,14 @@ class FieldAccessor {
   }
 
   /**
+   * @param {number} value
+   * @return {boolean}
+   */
+  static isIntProto3Default(value) {
+    return value === 0;
+  }
+
+  /**
    * @param {!Object<number, *>} rawJson
    * @param {number} fieldNumber
    * @param {number} defaultValue
@@ -264,6 +296,14 @@ class FieldAccessor {
    */
   static setUInt(rawJson, fieldNumber, value) {
     rawJson[fieldNumber] = internalChecks.checkTypeInt(value);
+  }
+
+  /**
+   * @param {number} value
+   * @return {boolean}
+   */
+  static isUIntProto3Default(value) {
+    return value === 0;
   }
 
   /**
@@ -320,6 +360,14 @@ class FieldAccessor {
   }
 
   /**
+   * @param {!Long} value
+   * @return {boolean}
+   */
+  static isLongProto3Default(value) {
+    return value.equals(Long.getZero());
+  }
+
+  /**
    * @param {!Object<number, *>} rawJson
    * @param {number} fieldNumber
    * @param {!Long} defaultValue
@@ -347,6 +395,14 @@ class FieldAccessor {
     internalChecks.checkType(value instanceof Long);
     internalChecks.checkLongSafeRange(value);
     rawJson[fieldNumber] = value.toNumber();
+  }
+
+  /**
+   * @param {!Long} value
+   * @return {boolean}
+   */
+  static isInt52LongProto3Default(value) {
+    return value.equals(Long.getZero());
   }
 
   /**
@@ -405,6 +461,14 @@ class FieldAccessor {
   static setString(rawJson, fieldNumber, value) {
     internalChecks.checkTypeString(value);
     rawJson[fieldNumber] = String(value);
+  }
+
+  /**
+   * @param {string} value
+   * @return {boolean}
+   */
+  static isStringProto3Default(value) {
+    return value === '';
   }
 
   /**

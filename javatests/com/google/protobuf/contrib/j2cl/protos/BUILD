@@ -67,8 +67,8 @@ generate_protos(
 )
 
 generate_protos(
-    name = "proto3_optional",
-    proto_file = "proto3_optional.proto",
+    name = "proto3_accessors",
+    proto_file = "proto3_accessors.proto",
 )
 
 generate_protos(

@@ -11,7 +11,10 @@ licenses(["notice"])  # Apache 2.0
 
 proto_library(
     name = "accessors",
-    srcs = ["accessors.proto"],
+    srcs = [
+        "accessors.proto",
+        "proto3_accessors.proto",
+    ],
 )
 
 immutable_js_proto_library(
@@ -174,14 +177,4 @@ proto_library(
 immutable_js_proto_library(
     name = "proto-with-dashes_immutable_js_proto",
     deps = [":proto-with-dashes"],
-)
-
-proto_library(
-    name = "proto3_optional",
-    srcs = ["proto3_optional.proto"],
-)
-
-immutable_js_proto_library(
-    name = "proto3_optional_immutable_js_proto",
-    deps = [":proto3_optional"],
 )

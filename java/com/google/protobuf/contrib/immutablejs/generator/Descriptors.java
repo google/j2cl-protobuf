@@ -15,6 +15,9 @@ package com.google.protobuf.contrib.immutablejs.generator;
 
 import static com.google.common.collect.ImmutableList.toImmutableList;
 
+import com.google.protobuf.Descriptors.FieldDescriptor;
+import com.google.protobuf.Descriptors.FileDescriptor.Syntax;
+import com.google.protobuf.Descriptors.GenericDescriptor;
 import java.util.Comparator;
 import com.google.common.collect.ImmutableList;
 import java.util.stream.Stream;
@@ -39,6 +42,21 @@ public final class Descriptors {
 
   public static String getProtoFileComments(Object descriptor) {
     return null;
+  }
+
+  // TODO(b/211017789) Use hasPresence method after upgrading protobuf version
+  public static boolean hasHasser(FieldDescriptor descriptor) {
+    if (descriptor.isRepeated()) {
+      return false;
+    }
+    return descriptor.getType() == FieldDescriptor.Type.MESSAGE
+        || descriptor.getType() == FieldDescriptor.Type.GROUP
+        || descriptor.getContainingOneof() != null
+        || descriptor.getFile().getSyntax() == Syntax.PROTO2;
+  }
+
+  public static boolean isProto3(GenericDescriptor descriptor) {
+    return descriptor.getFile().getSyntax().equals(Syntax.PROTO3);
   }
 
   private Descriptors() {}
