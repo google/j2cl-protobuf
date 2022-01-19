@@ -233,7 +233,7 @@ function checkTypeInt(value) {
   const valueAsNumber = checkTypeNumber(value);
 
   if ((valueAsNumber | 0) === value) {
-    return valueAsNumber | 0;
+    return /** @type {number} */ (value);
   }
   throw new Error('Not a 32 bit integer: ' + value);
 }
