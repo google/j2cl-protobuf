@@ -15,7 +15,7 @@
 goog.module('proto.im.descriptor.testing.descriptors');
 
 const {Descriptor, Field, FieldType} = goog.require('proto.im.descriptor');
-const {DescriptorImpl, ExtensionRegistry, Modifier} = goog.require('proto.im.descriptor.internal_descriptor');
+const {DescriptorImpl, ExtensionRegistry, Modifier, createExtension} = goog.require('proto.im.descriptor.internal_descriptor');
 const {fieldSkipConstants, fieldTypeConstants} = goog.require('proto.im.descriptor.internal_constants');
 
 function /** number */ intToBase92(/** number */ value) {
@@ -284,11 +284,9 @@ function registerExtension(
     throw new Error(`Extension field ${fieldNumber} is already registered.`);
   }
   const field = createField(fieldNumber, fieldType, repeated, fieldOptions);
-  extensionRegistry[fieldNumber] = {
-    fieldNumber: field.fieldNumber,
-    encodedDescriptor: encodeField(field),
-    submessageDescriptorProvider: field.submessageDescriptorProvider,
-  };
+  extensionRegistry[fieldNumber] = createExtension(
+      field.fieldNumber, encodeField(field),
+      field.submessageDescriptorProvider);
 }
 
 exports = {

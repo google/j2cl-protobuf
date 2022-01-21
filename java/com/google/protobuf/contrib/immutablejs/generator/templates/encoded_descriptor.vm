@@ -1,0 +1,46 @@
+#macro( encodeSubmessageField $field )
+#if ($field.isMap())
+#if ($field.descriptorEncoder.canUseConciseEncoding())
+proto_im_InternalDescriptor.createGetDescriptorFn('${field.descriptorEncoder.encodedDescriptor}'),
+#else
+proto_im_InternalDescriptor.createGetDescriptorFnFromArgs(() => ({
+  submessageDescriptorProviders: [${field.mapValue.type.expression}.getDescriptor],
+  encodedDescriptor: '${field.descriptorEncoder.encodedDescriptor}',
+})),
+#end
+#elseif ($field.isMessage())
+${field.type.expression}.getDescriptor,
+#end
+#end
+
+#if ($message.descriptorEncoder.canUseConciseEncoding())
+/** @return {!proto_im_Descriptor.Descriptor} */
+${messageName}.getDescriptor = proto_im_InternalDescriptor.createGetDescriptorFn(
+    '${message.descriptorEncoder.encodedDescriptor})');
+#else
+#if ($message.isExtendable())
+/** @const {!proto_im_InternalDescriptor.ExtensionRegistry} */
+${messageName}.internal__extensionDescriptorRegistry = {};
+
+#end
+/** @return {!proto_im_Descriptor.Descriptor} */
+${messageName}.getDescriptor = proto_im_InternalDescriptor.createGetDescriptorFnFromArgs(() => ({
+#if ($message.isExtendable())
+    extensionRegistry: ${messageName}.internal__extensionDescriptorRegistry,
+#end
+#if ($message.hasMessageId())
+    messageId: ${messageName}.messageId,
+#end
+#if ($message.isMessageSet())
+    isMessageSet: true,
+#end
+#if ($message.hasSubmessages())
+    submessageDescriptorProviders: [
+#foreach($field in $message.sortedFields)
+#encodeSubmessageField ($field)
+#end
+    ],
+#end
+    encodedDescriptor: '${message.descriptorEncoder.encodedDescriptor}',
+}));
+#end

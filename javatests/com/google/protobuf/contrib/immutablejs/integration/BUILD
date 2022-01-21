@@ -314,3 +314,20 @@ proto_jsunit_test(
         "//third_party:closure_testsuite",
     ],
 )
+
+proto_jsunit_test(
+    name = "descriptors_test",
+    srcs = [
+        "descriptors_test.js",
+    ],
+    deps = [
+        "//java/com/google/protobuf/contrib/immutablejs:runtime",
+        "//java/com/google/protobuf/contrib/immutablejs/runtime:internal_checks",
+        "//java/com/google/protobuf/contrib/immutablejs/runtime/descriptor",
+        "//javatests/com/google/protobuf/contrib/immutablejs/protos:accessors_immutable_js_proto",
+        "//javatests/com/google/protobuf/contrib/immutablejs/protos:extensions_immutable_js_proto",
+        "//javatests/com/google/protobuf/contrib/immutablejs/protos:maps_immutable_js_proto",
+        "//third_party:closure_testing_asserts",
+        "//third_party:closure_testsuite",
+    ],
+)
