@@ -2,7 +2,7 @@ load("@io_bazel_rules_closure//closure:defs.bzl", "closure_js_library")
 
 package(
     default_visibility = [
-        "//java/com/google/protobuf/contrib/immutablejs:__subpackages__",
+        "//java/com/google/protobuf/contrib/immutablejs/runtime:__subpackages__",
         "//javatests/com/google/protobuf/contrib/immutablejs:__subpackages__",
     ],
 )

@@ -15,17 +15,11 @@ package com.google.protobuf.contrib.immutablejs.generator;
 
 import static com.google.common.collect.ImmutableList.toImmutableList;
 
-import com.google.common.base.Splitter;
-import com.google.common.base.Strings;
-import com.google.common.collect.ImmutableList;
-import com.google.protobuf.DescriptorProtos.FieldOptions.JSType;
-import com.google.protobuf.Descriptors.Descriptor;
-import com.google.protobuf.Descriptors.EnumDescriptor;
 import com.google.protobuf.Descriptors.FieldDescriptor;
 import com.google.protobuf.Descriptors.FileDescriptor.Syntax;
 import com.google.protobuf.Descriptors.GenericDescriptor;
-import com.google.protobuf.Descriptors.OneofDescriptor;
 import java.util.Comparator;
+import com.google.common.collect.ImmutableList;
 import java.util.stream.Stream;
 
 /** Utility methods for protobuf Descriptors. */
@@ -59,26 +53,6 @@ public final class Descriptors {
         || descriptor.getType() == FieldDescriptor.Type.GROUP
         || descriptor.getContainingOneof() != null
         || descriptor.getFile().getSyntax() == Syntax.PROTO2;
-  }
-
-  public static boolean isInt52(FieldDescriptor fieldDescriptor) {
-    if (fieldDescriptor.getJavaType() != FieldDescriptor.JavaType.LONG) {
-      return false;
-    }
-    return fieldDescriptor.getOptions().getJstype() != JSType.JS_STRING;
-  }
-
-  public static boolean hasMessageId(Descriptor descriptor) {
-    return false;
-  }
-
-  public static boolean isMessageSet(Descriptor descriptor) {
-    return descriptor.getOptions().getMessageSetWireFormat();
-  }
-
-  public static boolean hasSubmessages(Descriptor descriptor) {
-    return descriptor.getFields().stream()
-        .anyMatch(field -> field.getType() == FieldDescriptor.Type.MESSAGE);
   }
 
   public static boolean isProto3(GenericDescriptor descriptor) {

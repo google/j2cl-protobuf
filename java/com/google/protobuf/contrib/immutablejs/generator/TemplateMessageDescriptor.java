@@ -22,7 +22,6 @@ import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
 import com.google.protobuf.Descriptors.Descriptor;
 import com.google.protobuf.Descriptors.FieldDescriptor;
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -31,15 +30,12 @@ import java.util.stream.Stream;
 public abstract class TemplateMessageDescriptor {
 
   public static TemplateMessageDescriptor create(Descriptor descriptor) {
-    return new AutoValue_TemplateMessageDescriptor(
-        descriptor, TypeDescriptor.create(descriptor), DescriptorEncoder.forMessage(descriptor));
+    return new AutoValue_TemplateMessageDescriptor(descriptor, TypeDescriptor.create(descriptor));
   }
 
   abstract Descriptor descriptor();
 
   public abstract TypeDescriptor getType();
-
-  public abstract DescriptorEncoder getDescriptorEncoder();
 
   public ImmutableList<TemplateEnumDescriptor> getAllEnums() {
     checkState(getType().isTopLevel());
@@ -65,11 +61,6 @@ public abstract class TemplateMessageDescriptor {
         .collect(toImmutableList());
   }
 
-  public ImmutableList<TemplateFieldDescriptor> getSortedFields() {
-    return ImmutableList.sortedCopyOf(
-        Comparator.comparingInt(TemplateFieldDescriptor::getNumber), getFields());
-  }
-
   public ImmutableList<TemplateFieldDescriptor> getExtensions() {
     List<FieldDescriptor> extensions = descriptor().getExtensions();
     NameResolver nameResolver = NameResolver.of(extensions);
@@ -93,7 +84,7 @@ public abstract class TemplateMessageDescriptor {
   }
 
   public boolean hasMessageId() {
-    return Descriptors.hasMessageId(descriptor());
+    return false;
   }
 
   public String getMessageId() {
@@ -109,25 +100,13 @@ public abstract class TemplateMessageDescriptor {
             .map(FieldDescriptor::getNumber)
             .max(Integer::compare)
             .orElse(0);
-    if (isExtendable() || maxField >= defaultPivot) {
+    if (descriptor().isExtendable() || maxField >= defaultPivot) {
       return min(maxField + 1, defaultPivot);
     }
 
     // We don't have a suggested pivot this message as it's not extendable and its max field number
     // is smaller than the default pivot.
     return -1;
-  }
-
-  public boolean isExtendable() {
-    return descriptor().isExtendable();
-  }
-
-  public boolean isMessageSet() {
-    return Descriptors.isMessageSet(descriptor());
-  }
-
-  public boolean hasSubmessages() {
-    return Descriptors.hasSubmessages(descriptor());
   }
 
   private static Stream<Descriptor> getAllMessagesDescriptors(Descriptor message) {

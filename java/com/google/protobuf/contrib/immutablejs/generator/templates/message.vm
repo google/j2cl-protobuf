@@ -7,7 +7,11 @@
  */
 goog.module('$descriptor.type.moduleName');
 
-#parse('import.vm')
+const proto_im_InternalMessage = goog.require('proto.im.internal.InternalMessage');
+const proto_im_Message = goog.require('proto.im.Message');
+#foreach ($import in ${descriptor.getImports()})
+const $import.importName = goog.require('$import.moduleName');
+#end
 
 #foreach($message in $descriptor.allMessages)
 #set ($messageName = $message.type.localName)
@@ -396,9 +400,6 @@ ${messageName}.Builder = class extends proto_im_InternalMessage.Builder {
 #end
 
 }
-
-## Render encoded descriptors
-#parse ("encoded_descriptor.vm")
 
 #end
 

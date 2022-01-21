@@ -44,8 +44,6 @@ closure_js_library(
         "//java/com/google/protobuf/contrib/immutablejs/runtime:listview",
         "//java/com/google/protobuf/contrib/immutablejs/runtime:mapview",
         "//java/com/google/protobuf/contrib/immutablejs/runtime:message",
-        "//java/com/google/protobuf/contrib/immutablejs/runtime/descriptor",
-        "//java/com/google/protobuf/contrib/immutablejs/runtime/descriptor:internal_descriptor",
         "//third_party:closure_math_long",
     ],
 )

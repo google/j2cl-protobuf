@@ -34,11 +34,7 @@ public abstract class TemplateFieldDescriptor {
     TypeReferenceDescriptor reference =
         TypeDescriptor.create(fieldDescriptor).createReference(enclosingType);
     return new AutoValue_TemplateFieldDescriptor(
-        fieldDescriptor,
-        enclosingType,
-        nameResolver,
-        reference,
-        DescriptorEncoder.forField(fieldDescriptor));
+        fieldDescriptor, enclosingType, nameResolver, reference);
   }
 
   abstract FieldDescriptor protoFieldDescriptor();
@@ -48,8 +44,6 @@ public abstract class TemplateFieldDescriptor {
   abstract NameResolver nameResolver();
 
   public abstract TypeReferenceDescriptor getType();
-
-  public abstract DescriptorEncoder getDescriptorEncoder();
 
   public String getStem() {
     return getType().target().getStem();
@@ -244,7 +238,7 @@ public abstract class TemplateFieldDescriptor {
     return TemplateFieldDescriptor.create(enclosingType(), valueField, NameResolver.identity());
   }
 
-  public TypeReferenceDescriptor createExtensionReference() {
+  private TypeReferenceDescriptor createExtensionReference() {
     checkState(protoFieldDescriptor().isExtension());
     return TypeDescriptor.create(protoFieldDescriptor().getContainingType())
         .createReference(enclosingType());

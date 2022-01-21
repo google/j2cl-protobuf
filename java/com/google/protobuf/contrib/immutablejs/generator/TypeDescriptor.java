@@ -16,6 +16,7 @@ package com.google.protobuf.contrib.immutablejs.generator;
 import com.google.auto.value.AutoValue;
 import com.google.auto.value.extension.memoized.Memoized;
 import com.google.common.io.Files;
+import com.google.protobuf.DescriptorProtos.FieldOptions.JSType;
 import com.google.protobuf.Descriptors.Descriptor;
 import com.google.protobuf.Descriptors.EnumDescriptor;
 import com.google.protobuf.Descriptors.FieldDescriptor;
@@ -59,7 +60,10 @@ public abstract class TypeDescriptor {
         // TODO(b/160739199): Unsigned uint64 is currenty lossy as it's coerced to signed by Long.
       case FIXED64:
       case UINT64:
-        return Descriptors.isInt52(fieldDescriptor) ? INT52_LONG : LONG;
+        if (fieldDescriptor.getOptions().getJstype() != JSType.JS_STRING) {
+          return INT52_LONG;
+        }
+        return LONG;
       case INT32:
       case SINT32:
       case SFIXED32:

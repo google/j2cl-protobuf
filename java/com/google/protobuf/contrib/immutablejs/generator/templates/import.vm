@@ -1,7 +1,0 @@
-const proto_im_Descriptor = goog.require('proto.im.descriptor');
-const proto_im_InternalDescriptor = goog.require('proto.im.descriptor.internal_descriptor');
-const proto_im_InternalMessage = goog.require('proto.im.internal.InternalMessage');
-const proto_im_Message = goog.require('proto.im.Message');
-#foreach ($import in ${descriptor.getImports()})
-const $import.importName = goog.require('$import.moduleName');
-#end
