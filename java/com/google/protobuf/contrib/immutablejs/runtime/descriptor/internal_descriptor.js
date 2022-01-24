@@ -101,8 +101,13 @@ class DescriptorImpl {
         /* limit= */ this.fieldDescriptorEnd_);
     let lastFieldNumber = 0;
     let submessageDescriptorIndex = 0;
-    const submessageDescriptorSupplier = () =>
-        this.submessageDescriptorProviders_?.[submessageDescriptorIndex++];
+    const submessageDescriptorSupplier = () => {
+      if (this.submessageDescriptorProviders_) {
+        return this.submessageDescriptorProviders_[submessageDescriptorIndex++];
+      } else {
+        return undefined;
+      }
+    };
     while (!isNaN(fieldDescriptorReader.peekValue())) {
       lastFieldNumber =
           getNextFieldNumber(fieldDescriptorReader, lastFieldNumber);
@@ -396,7 +401,9 @@ function parseField(
 
   let submessageDescriptorProvider = undefined;
   if (fieldType === FieldType.MESSAGE || fieldType === FieldType.GROUP) {
-    submessageDescriptorProvider = submessageDescriptorSupplier?.();
+    if (submessageDescriptorSupplier) {
+      submessageDescriptorProvider = submessageDescriptorSupplier();
+    }
     checkState(
         submessageDescriptorProvider != null,
         `missing submessage descriptor for field ${fieldNumber}`);
