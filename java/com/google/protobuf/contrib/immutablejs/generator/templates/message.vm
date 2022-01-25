@@ -7,11 +7,7 @@
  */
 goog.module('$descriptor.type.moduleName');
 
-const proto_im_InternalMessage = goog.require('proto.im.internal.InternalMessage');
-const proto_im_Message = goog.require('proto.im.Message');
-#foreach ($import in ${descriptor.getImports()})
-const $import.importName = goog.require('$import.moduleName');
-#end
+#parse('import.vm')
 
 #foreach($message in $descriptor.allMessages)
 #set ($messageName = $message.type.localName)
@@ -402,6 +398,15 @@ ${messageName}.Builder = class extends proto_im_InternalMessage.Builder {
 #foreach($enumDescriptor in $descriptor.allEnums)
 #parse ("enum.vm")
 #end
+
+## Render encoded descriptors -- Must be written before extensions since
+## messages can extend themselves.
+// Descriptors start
+#foreach($message in $descriptor.allMessages)
+#set ($messageName = $message.type.localName)
+#parse ("encoded_descriptor.vm")
+#end
+// Descriptors end
 
 ## Render extensions
 ## We walk through all the messages again since nested types can be referred to

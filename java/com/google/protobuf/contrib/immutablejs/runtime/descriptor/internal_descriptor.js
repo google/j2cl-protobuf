@@ -64,7 +64,8 @@ class DescriptorImpl {
             'extensionsProvider');
     if (args.extensionRegistry) {
       const extensionRegistry = args.extensionRegistry;
-      args.extensionsProvider = () => Object.values(extensionRegistry);
+      args.extensionsProvider = () =>
+          unpackExtensionRegistry(extensionRegistry);
     }
     return new DescriptorImpl(
         args.encodedDescriptor, args.submessageDescriptorProviders,
@@ -233,13 +234,37 @@ class ExtensionFieldInfo {
 /**
  * A registry of `ExtensionFieldInfo` keyed on the field number.
  *
- * @typedef {!Object<number, !ExtensionFieldInfo>}
+ * @typedef {!Object<number, !ExtensionFieldInfo|string>}
  */
 let ExtensionRegistry;
 
+function /** !Array<!ExtensionFieldInfo> */ unpackExtensionRegistry(
+    /** !ExtensionRegistry */ extensionRegistry) {
+  const /** !Array<!ExtensionFieldInfo> */ extensions = [];
+  // We want to read the keys as strings since that's what they actually are
+  // when we iterate with for..in.
+  const strKeyedRegistry =
+      /** @type {!Object<string, !ExtensionFieldInfo|string>} */ (
+          extensionRegistry);
+  for (const key in strKeyedRegistry) {
+    const fieldNumber = Number(key);
+    checkState(
+        fieldNumber >= 1 && fieldNumber <= MAX_FIELD_NUMBER,
+        `Field numbers should be <= ${MAX_FIELD_NUMBER} and >= 1, but was ${
+            fieldNumber}`);
+    const value = strKeyedRegistry[key];
+    if (value == null) {
+      continue;
+    } else if (typeof value === 'string') {
+      extensions.push(createExtension(fieldNumber, value));
+    } else {
+      extensions.push(value);
+    }
+  }
+  return extensions;
+}
+
 /**
- * @param {!ExtensionRegistry} extensionRegistry The extension registry for the
- *     message that we want to register the field with.
  * @param {number} fieldNumber
  * @param {string} encodedDescriptor The encoded descriptor for the extension
  *     field. The descriptor should _only_ contain the `FieldType` and any
@@ -247,15 +272,11 @@ let ExtensionRegistry;
  * @param {(function():!Descriptor)=} submessageDescriptorProvider A provider
  *     for the submessage descriptor, if applicable for the extension field
  *     type.
+ * @return {!ExtensionFieldInfo}
  */
-function registerExtension(
-    extensionRegistry, fieldNumber, encodedDescriptor,
-    submessageDescriptorProvider = undefined) {
-  checkState(
-      fieldNumber >= 1 && fieldNumber <= MAX_FIELD_NUMBER,
-      `Field numbers should be <= ${MAX_FIELD_NUMBER} and >= 1, but was ${
-          fieldNumber}`);
-  extensionRegistry[fieldNumber] = {
+function createExtension(
+    fieldNumber, encodedDescriptor, submessageDescriptorProvider = undefined) {
+  return {
     fieldNumber,
     encodedDescriptor,
     submessageDescriptorProvider,
@@ -478,5 +499,5 @@ exports = {
   Modifier,
   createGetDescriptorFn,
   createGetDescriptorFnFromArgs,
-  registerExtension,
+  createExtension,
 };

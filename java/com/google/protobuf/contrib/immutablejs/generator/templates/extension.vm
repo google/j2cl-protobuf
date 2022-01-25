@@ -11,4 +11,15 @@ ${enclosingTypeName}.${field.name} = $extensionCreator(${field.number}, $field.t
 ${enclosingTypeName}.${field.name} = $extensionCreator(${field.number});
 #end
 
+${field.createExtensionReference().expression}.internal__extensionDescriptorRegistry[${field.number}] =
+#if ($field.descriptorEncoder.canUseConciseEncoding())
+    '${field.descriptorEncoder.encodedDescriptor}';
+#else
+    proto_im_InternalDescriptor.createExtension(
+      ${field.number},
+      '${field.descriptorEncoder.encodedDescriptor}',
+      ${field.type.expression}.getDescriptor,
+    );
+#end
+
 #end

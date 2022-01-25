@@ -16,7 +16,7 @@ goog.module('proto.im.descriptor.internal_descriptorTest');
 
 const testSuite = goog.require('goog.testing.testSuite');
 const {Descriptor, Field, FieldType, } = goog.require('proto.im.descriptor');
-const {DescriptorImpl, Modifier, createGetDescriptorFn, registerExtension} = goog.require('proto.im.descriptor.internal_descriptor');
+const {DescriptorImpl, Modifier, createGetDescriptorFn} = goog.require('proto.im.descriptor.internal_descriptor');
 const {MAX_FIELD_NUMBER} = goog.require('proto.im.descriptor.internal_constants');
 const {descriptorBuilder, encodeValues, messageSetBuilder, modifierValues, skipValues, typeValue} = goog.require('proto.im.descriptor.testing.descriptors');
 
@@ -384,14 +384,12 @@ testSuite({
     },
   },
 
-  testRegisterExtension: {
+  testExtensions: {
     testShouldRegisterProvidedField() {
-      const extensionRegistry = {};
-      const descriptor =
-          descriptorBuilder().withExtensionRegistry(extensionRegistry).build();
-
-      registerExtension(
-          extensionRegistry, 1, encodeValues(typeValue(FieldType.STRING)));
+      const descriptor = descriptorBuilder()
+                             .withExtensionRegistry({})
+                             .addExtension(1, FieldType.STRING)
+                             .build();
 
       const field = getOnlyField(descriptor);
       assertTrue('Field 1 should be denoted as an extension', field.extension);
@@ -404,11 +402,12 @@ testSuite({
       const extensionRegistry = {};
       const submessageDescriptor = emptyDescriptor();
       const descriptor =
-          descriptorBuilder().withExtensionRegistry(extensionRegistry).build();
-
-      registerExtension(
-          extensionRegistry, 1, encodeValues(typeValue(FieldType.MESSAGE)),
-          () => submessageDescriptor);
+          descriptorBuilder()
+              .withExtensionRegistry(extensionRegistry)
+              .addExtension(1, FieldType.MESSAGE, {
+                submessageDescriptorProvider: () => submessageDescriptor,
+              })
+              .build();
 
       const field = getOnlyField(descriptor);
       assertEquals(
@@ -420,16 +419,12 @@ testSuite({
     },
 
     testRegisterMultipleFields() {
-      const extensionRegistry = {};
-      const descriptor =
-          descriptorBuilder().withExtensionRegistry(extensionRegistry).build();
-
-      registerExtension(
-          extensionRegistry, 1, encodeValues(typeValue(FieldType.STRING)));
-      registerExtension(
-          extensionRegistry, 100, encodeValues(typeValue(FieldType.INT32)));
-      registerExtension(
-          extensionRegistry, 50, encodeValues(typeValue(FieldType.DOUBLE)));
+      const descriptor = descriptorBuilder()
+                             .withExtensionRegistry({})
+                             .addExtension(1, FieldType.STRING)
+                             .addExtension(100, FieldType.INT32)
+                             .addExtension(50, FieldType.DOUBLE)
+                             .build();
 
       const fields = descriptor.fields();
       assertEquals(
@@ -445,12 +440,10 @@ testSuite({
 
     testRegisterMaxFieldNumber() {
       const extensionRegistry = {};
-      const descriptor =
-          descriptorBuilder().withExtensionRegistry(extensionRegistry).build();
-
-      registerExtension(
-          extensionRegistry, MAX_FIELD_NUMBER,
-          encodeValues(typeValue(FieldType.STRING)));
+      const descriptor = descriptorBuilder()
+                             .withExtensionRegistry(extensionRegistry)
+                             .addExtension(MAX_FIELD_NUMBER, FieldType.STRING)
+                             .build();
 
       const field = getOnlyField(descriptor, MAX_FIELD_NUMBER);
       assertTrue(
@@ -458,38 +451,37 @@ testSuite({
     },
 
     testRegisterBeyondMaxFieldNumber_shouldThrow() {
-      const extensionRegistry = {};
-      const fieldNumber = 536870912;  // 2^29
+      const descriptor = descriptorBuilder()
+                             .withExtensionRegistry({})
+                             // 2^29
+                             .addExtension(536870912, FieldType.STRING)
+                             .build();
 
-      const error = assertThrows(() => {
-        registerExtension(
-            extensionRegistry, fieldNumber,
-            encodeValues(typeValue(FieldType.STRING)));
-      });
+      const error = assertThrows(() => void descriptor.fields());
       assertEquals(
           'Malformed descriptor; Field numbers should be <= 536870911 and >= 1, but was 536870912',
           error.message);
     },
 
     testRegisterFieldNumberZero_shouldThrow() {
-      const extensionRegistry = {};
+      const descriptor = descriptorBuilder()
+                             .withExtensionRegistry({})
+                             .addExtension(0, FieldType.STRING)
+                             .build();
 
-      const error = assertThrows(() => {
-        registerExtension(
-            extensionRegistry, 0, encodeValues(typeValue(FieldType.STRING)));
-      });
+      const error = assertThrows(() => void descriptor.fields());
       assertEquals(
           'Malformed descriptor; Field numbers should be <= 536870911 and >= 1, but was 0',
           error.message);
     },
 
     testRegisterNegativeFieldNumber_shouldThrow() {
-      const extensionRegistry = {};
+      const descriptor = descriptorBuilder()
+                             .withExtensionRegistry({})
+                             .addExtension(-1, FieldType.STRING)
+                             .build();
 
-      const error = assertThrows(() => {
-        registerExtension(
-            extensionRegistry, -1, encodeValues(typeValue(FieldType.STRING)));
-      });
+      const error = assertThrows(() => void descriptor.fields());
       assertEquals(
           'Malformed descriptor; Field numbers should be <= 536870911 and >= 1, but was -1',
           error.message);

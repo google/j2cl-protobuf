@@ -7,11 +7,7 @@
 */
 goog.module('$descriptor.type.moduleName');
 
-const proto_im_InternalMessage = goog.require('proto.im.internal.InternalMessage');
-const proto_im_Message = goog.require('proto.im.Message');
-#foreach ($import in ${descriptor.imports})
-const $import.importName = goog.require('$import.moduleName');
-#end
+#parse('import.vm')
 
 const module = {};
 #set ($extensions = $descriptor.extensions)
