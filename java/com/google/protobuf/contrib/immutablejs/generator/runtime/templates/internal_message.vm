@@ -511,6 +511,7 @@ InternalMessage.ExtensionFieldInfo = class {
    * @template MESSAGE
    */
   static createSingleMessageExtension(fieldNumber, ctor) {
+    internalChecks.checkType(ctor != null);
     const getterFunction = (message) =>
         message.internal_getMessageField(fieldNumber, ctor);
 
@@ -531,6 +532,7 @@ InternalMessage.ExtensionFieldInfo = class {
    * @template MESSAGE
    */
   static createRepeatedMessageExtension(fieldNumber, ctor) {
+    internalChecks.checkType(ctor != null);
     const getterFunction = (message) =>
         message.internal_getRepeatedMessageField(fieldNumber, ctor);
 

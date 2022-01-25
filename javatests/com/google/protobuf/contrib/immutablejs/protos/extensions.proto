@@ -33,6 +33,15 @@ message Base {
   repeated bool repeated_bool = 9;
 
   extensions 100 to 299;
+
+  // By extending ourself with a nested type we can hit an edge case where we
+  // may attempt to create an extension before the type being references has
+  // been created. See: b/216112750
+  extend Base {
+    optional Nested nested_message = 185;
+  }
+
+  message Nested {}
 }
 
 enum TestEnum {

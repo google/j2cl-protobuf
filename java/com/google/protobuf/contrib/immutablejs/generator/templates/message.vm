@@ -101,11 +101,6 @@ $messageName = class $message.type.name extends proto_im_InternalMessage {
 #parse('oneof.vm')
 #end
 
-// Extensions start
-#set ($extensions = $message.extensions)
-#set ($enclosingTypeName = ${messageName})
-#parse('extension.vm')
-// Extensions end
 #if ($message.hasMessageId())
 
 /**
@@ -403,10 +398,21 @@ ${messageName}.Builder = class extends proto_im_InternalMessage.Builder {
 
 #end
 
-
 ## Render enums
 #foreach($enumDescriptor in $descriptor.allEnums)
 #parse ("enum.vm")
 #end
+
+## Render extensions
+## We walk through all the messages again since nested types can be referred to
+## from the outer types.
+// Extensions start
+#foreach($message in $descriptor.allMessages)
+#set ($messageName = $message.type.localName)
+#set ($extensions = $message.extensions)
+#set ($enclosingTypeName = ${messageName})
+#parse('extension.vm')
+#end
+// Extensions end
 
 exports = $descriptor.type.localName;
