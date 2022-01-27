@@ -33,6 +33,9 @@ public final class Accessor {
       @jsinterop.annotations.JsMethod(name = "getPayload")
       public native java.lang.String getPayload();
 
+      public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
+          getMiniDescriptor();
+
       public static native Builder newBuilder();
 
       public static native Builder newBuilder(NestedMessage prototype);
@@ -321,6 +324,9 @@ public final class Accessor {
       return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
           internal_getRepeatedMessageList());
     }
+
+    public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
+        getMiniDescriptor();
 
     public static native Builder newBuilder();
 

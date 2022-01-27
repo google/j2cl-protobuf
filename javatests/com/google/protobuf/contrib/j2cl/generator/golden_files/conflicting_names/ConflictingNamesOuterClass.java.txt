@@ -153,6 +153,9 @@ public final class ConflictingNamesOuterClass {
     @jsinterop.annotations.JsMethod(name = "getExtensionAtIndex14")
     public native boolean getExtensionAtIndex();
 
+    public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
+        getMiniDescriptor();
+
     public static native Builder newBuilder();
 
     public static native Builder newBuilder(ConflictingNames prototype);

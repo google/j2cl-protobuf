@@ -373,6 +373,8 @@ public final class Primitives
                   com.google.protobuf.contrib.j2cl.protos.Primitives.TestEnum.Internal_ClosureEnum
                       .toClosureValue(v));
 
+  public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor getMiniDescriptor();
+
   public static native Builder newBuilder();
 
   public static native Builder newBuilder(Primitives prototype);

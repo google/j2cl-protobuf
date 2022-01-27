@@ -15,6 +15,7 @@ j2wasm_library(
 j2cl_library(
     name = "runtime",
     srcs = glob(["super/com/google/protobuf/*.java"]),
+    exports = [":minidescriptor"],
     deps = [
         "//java/com/google/protobuf/contrib/immutablejs:runtime",
         "//third_party:gwt-jsinterop-annotations-j2cl",
@@ -34,5 +35,14 @@ j2cl_library(
         "//third_party:gwt-jsinterop-annotations-j2cl",
         "//third_party:jsinterop-base-j2cl",
         "//third_party:jsr305_annotations-j2cl",
+    ],
+)
+
+j2cl_library(
+    name = "minidescriptor",
+    srcs = ["MiniDescriptor.java"],
+    deps = [
+        "//java/com/google/protobuf/contrib/immutablejs/runtime/descriptor",
+        "//third_party:gwt-jsinterop-annotations-j2cl",
     ],
 )

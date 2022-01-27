@@ -425,6 +425,9 @@ public final class Enums {
                       d, com.google.protobuf.contrib.j2cl.protos.Enums.TopLevelNativeEnum.DEFAULT));
     }
 
+    public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
+        getMiniDescriptor();
+
     public static native Builder newBuilder();
 
     public static native Builder newBuilder(EnumTestProto prototype);
@@ -928,6 +931,9 @@ public final class Enums {
     public static final native Aliased getDefaultInstance();
 
     public native Builder toBuilder();
+
+    public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
+        getMiniDescriptor();
 
     public static native Builder newBuilder();
 

@@ -109,6 +109,8 @@ public final class Proto3TestDenseProtoWithOneOfs
   @jsinterop.annotations.JsMethod(name = "getAOneofCase")
   private native Object internal_getAOneofCase();
 
+  public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor getMiniDescriptor();
+
   public static native Builder newBuilder();
 
   public static native Builder newBuilder(Proto3TestDenseProtoWithOneOfs prototype);

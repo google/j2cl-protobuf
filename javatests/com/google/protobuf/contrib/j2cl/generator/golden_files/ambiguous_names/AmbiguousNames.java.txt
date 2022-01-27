@@ -21,6 +21,9 @@ public final class AmbiguousNames {
 
     public native Builder toBuilder();
 
+    public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
+        getMiniDescriptor();
+
     public static native Builder newBuilder();
 
     public static native Builder newBuilder(Internal prototype);
@@ -68,6 +71,9 @@ public final class AmbiguousNames {
 
       @jsinterop.annotations.JsMethod(name = "getX")
       public native java.lang.String getX();
+
+      public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
+          getMiniDescriptor();
 
       public static native Builder newBuilder();
 
@@ -121,6 +127,9 @@ public final class AmbiguousNames {
 
       @jsinterop.annotations.JsMethod(name = "getX")
       public native java.lang.String getX();
+
+      public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
+          getMiniDescriptor();
 
       public static native Builder newBuilder();
 
@@ -191,6 +200,9 @@ public final class AmbiguousNames {
 
     @jsinterop.annotations.JsMethod(name = "getExtension4")
     public native java.lang.String getExtension();
+
+    public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
+        getMiniDescriptor();
 
     public static native Builder newBuilder();
 
@@ -312,6 +324,9 @@ public final class AmbiguousNames {
           internal_getClass_List());
     }
 
+    public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
+        getMiniDescriptor();
+
     public static native Builder newBuilder();
 
     public static native Builder newBuilder(RepeatedExtensionField prototype);
@@ -410,6 +425,9 @@ public final class AmbiguousNames {
 
     public native Builder toBuilder();
 
+    public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
+        getMiniDescriptor();
+
     public static native Builder newBuilder();
 
     public static native Builder newBuilder(Array prototype);
@@ -450,6 +468,9 @@ public final class AmbiguousNames {
 
       public native Builder toBuilder();
 
+      public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
+          getMiniDescriptor();
+
       public static native Builder newBuilder();
 
       public static native Builder newBuilder(Array prototype);
@@ -478,6 +499,9 @@ public final class AmbiguousNames {
     public static final native Object getDefaultInstance();
 
     public native Builder toBuilder();
+
+    public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
+        getMiniDescriptor();
 
     public static native Builder newBuilder();
 

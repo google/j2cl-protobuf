@@ -228,6 +228,9 @@ public final class Proto3TestProtoWithOneOfs
     @jsinterop.annotations.JsMethod(name = "getAString")
     public native java.lang.String getAString();
 
+    public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
+        getMiniDescriptor();
+
     public static native Builder newBuilder();
 
     public static native Builder newBuilder(TestNestedProto prototype);
@@ -362,6 +365,9 @@ public final class Proto3TestProtoWithOneOfs
 
     @jsinterop.annotations.JsMethod(name = "getANestedOneofCase")
     private native Object internal_getANestedOneofCase();
+
+    public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
+        getMiniDescriptor();
 
     public static native Builder newBuilder();
 
@@ -566,6 +572,8 @@ public final class Proto3TestProtoWithOneOfs
 
   @jsinterop.annotations.JsMethod(name = "getAnotherOneofCase")
   private native Object internal_getAnotherOneofCase();
+
+  public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor getMiniDescriptor();
 
   public static native Builder newBuilder();
 

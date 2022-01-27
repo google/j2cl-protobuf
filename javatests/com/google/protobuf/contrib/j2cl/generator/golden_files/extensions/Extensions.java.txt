@@ -181,6 +181,9 @@ public final class Extensions {
           internal_getRepeatedBoolList());
     }
 
+    public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
+        getMiniDescriptor();
+
     public static native Builder newBuilder();
 
     public static native Builder newBuilder(Base prototype);
@@ -778,6 +781,9 @@ public final class Extensions {
                     com.google.protobuf.contrib.j2cl.protos.Extensions.Primitives.TestEnum
                         .Internal_ClosureEnum.toClosureValue(v));
 
+    public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
+        getMiniDescriptor();
+
     public static native Builder newBuilder();
 
     public static native Builder newBuilder(Primitives prototype);
@@ -859,6 +865,9 @@ public final class Extensions {
         recursiveRepeated =
             com.google.protobuf.GeneratedMessageLite.Internal_.createRepeatedMessageExtension(
                 internal_recursiveRepeated);
+
+    public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
+        getMiniDescriptor();
 
     public static native Builder newBuilder();
 

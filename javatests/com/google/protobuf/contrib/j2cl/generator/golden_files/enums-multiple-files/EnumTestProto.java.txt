@@ -352,6 +352,8 @@ public final class EnumTestProto
                 d, com.google.protobuf.contrib.j2cl.protos.TopLevelNativeEnum.DEFAULT));
   }
 
+  public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor getMiniDescriptor();
+
   public static native Builder newBuilder();
 
   public static native Builder newBuilder(EnumTestProto prototype);

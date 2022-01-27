@@ -14,6 +14,8 @@ public final class ProtoWithDashesMessage
 
   public native Builder toBuilder();
 
+  public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor getMiniDescriptor();
+
   public static native Builder newBuilder();
 
   public static native Builder newBuilder(ProtoWithDashesMessage prototype);

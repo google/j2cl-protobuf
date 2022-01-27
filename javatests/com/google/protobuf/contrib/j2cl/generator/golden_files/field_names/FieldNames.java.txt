@@ -86,6 +86,9 @@ public final class FieldNames {
 
       public native Builder toBuilder();
 
+      public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
+          getMiniDescriptor();
+
       public static native Builder newBuilder();
 
       public static native Builder newBuilder(Nested prototype);
@@ -412,6 +415,9 @@ public final class FieldNames {
       return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
           internal_getRepeatedMessageUpperCaseCamelList());
     }
+
+    public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
+        getMiniDescriptor();
 
     public static native Builder newBuilder();
 

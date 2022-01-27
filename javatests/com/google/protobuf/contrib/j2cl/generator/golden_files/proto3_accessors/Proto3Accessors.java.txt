@@ -30,6 +30,9 @@ public final class Proto3Accessors {
     @jsinterop.annotations.JsMethod(name = "getOptionalInt")
     public native int getOptionalInt();
 
+    public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
+        getMiniDescriptor();
+
     public static native Builder newBuilder();
 
     public static native Builder newBuilder(TestProto3Optional prototype);
@@ -153,6 +156,9 @@ public final class Proto3Accessors {
       @jsinterop.annotations.JsMethod(name = "getPayload")
       public native java.lang.String getPayload();
 
+      public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
+          getMiniDescriptor();
+
       public static native Builder newBuilder();
 
       public static native Builder newBuilder(NestedMessage prototype);
@@ -274,6 +280,9 @@ public final class Proto3Accessors {
     @jsinterop.annotations.JsMethod(name = "getProto3Message")
     public native com.google.protobuf.contrib.j2cl.protos.Proto3Accessors.TestProto3.NestedMessage
         getProto3Message();
+
+    public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
+        getMiniDescriptor();
 
     public static native Builder newBuilder();
 

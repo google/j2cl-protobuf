@@ -97,6 +97,9 @@ public final class Maps {
       @jsinterop.annotations.JsMethod(name = "getFoo")
       public native java.lang.String getFoo();
 
+      public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
+          getMiniDescriptor();
+
       public static native Builder newBuilder();
 
       public static native Builder newBuilder(NestedMessage prototype);
@@ -2643,6 +2646,9 @@ public final class Maps {
       return com.google.protobuf.GeneratedMessageLite.Internal_.createBooleanKeyedMap(
           internal_getBoolKeyMessageValueMap());
     }
+
+    public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
+        getMiniDescriptor();
 
     public static native Builder newBuilder();
 
