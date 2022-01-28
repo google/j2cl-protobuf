@@ -169,4 +169,8 @@ public abstract class TemplateMessageDescriptor {
   private boolean isMapEntry() {
     return descriptor().getOptions().getMapEntry();
   }
+
+  public boolean isAny() {
+    return descriptor().getFullName().equals("google.protobuf.Any");
+  }
 }

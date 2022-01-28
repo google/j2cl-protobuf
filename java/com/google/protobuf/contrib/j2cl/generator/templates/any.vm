@@ -1,0 +1,6 @@
+public static native com.google.protobuf.Any packJspb(
+    com.google.protobuf.Message message, String name, String typeUrlPrefix);
+
+public native com.google.protobuf.Message unpackJspb(
+    com.google.protobuf.Message defaultInstance, String name);
+

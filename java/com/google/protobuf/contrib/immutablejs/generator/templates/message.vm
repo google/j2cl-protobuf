@@ -26,6 +26,10 @@ class $messageName extends proto_im_InternalMessage {
 $messageName = class $message.type.name extends proto_im_InternalMessage {
 #end
 
+#if ($descriptor.isAny())
+#parse ('any.vm')
+#end
+
   /**
    * Parses the json as a message of type $messageName.
    * @param {string} json
@@ -125,6 +129,17 @@ ${messageName}.Builder = class extends proto_im_InternalMessage.Builder {
   constructor(message) {
     super(message);
   }
+#if ($descriptor.isAny())
+  /**
+   * @param {number} fieldNumber
+   * @param {!proto_im_InternalMessage} value
+   * @private
+   */
+  internal_packJspb(fieldNumber, value) {
+    return this.internal_setMessageField(fieldNumber, value);
+  }
+
+#end
 
 #foreach($field in $message.fields)
 #if ($field.isMap())

@@ -249,6 +249,16 @@ class InternalMessage extends Message {
   }
 
   /**
+   * Returns the type of the value present at the given field number
+   * @param {number} fieldNumber The field number.
+   * @return {string}
+   * @protected
+   */
+  internal_typeofValue(fieldNumber) {
+    return this.kernel_.typeofValue(fieldNumber);
+  }
+
+  /**
    * @param {number} fieldNumber
    * @return {boolean}
    * @protected

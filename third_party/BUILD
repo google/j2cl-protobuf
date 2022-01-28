@@ -60,6 +60,11 @@ immutable_js_proto_library(
     deps = ["@com_google_protobuf//:timestamp_proto"],
 )
 
+immutable_js_proto_library(
+    name = "any_immutable_js_proto",
+    deps = ["@com_google_protobuf//:any_proto"],
+)
+
 java_proto_library(
     name = "plugin_java_proto",
     deps = ["@com_google_protobuf//:compiler_plugin_proto"],

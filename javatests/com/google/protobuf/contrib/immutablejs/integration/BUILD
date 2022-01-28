@@ -290,6 +290,21 @@ proto_jsunit_test(
 )
 
 proto_jsunit_test(
+    name = "any_test",
+    srcs = [
+        "any_test.js",
+    ],
+    deps = [
+        "//java/com/google/protobuf/contrib/immutablejs:runtime",
+        "//javatests/com/google/protobuf/contrib/immutablejs/protos:accessors_immutable_js_proto",
+        "//javatests/com/google/protobuf/contrib/immutablejs/testing:proto_asserts",
+        "//third_party:any_immutable_js_proto",
+        "//third_party:closure_testing_asserts",
+        "//third_party:closure_testsuite",
+    ],
+)
+
+proto_jsunit_test(
     name = "cycle_reference_test",
     srcs = [
         "cycle_reference_test.js",

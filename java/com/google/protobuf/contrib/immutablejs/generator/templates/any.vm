@@ -1,0 +1,48 @@
+/**
+ * Returns the type name contained in this instance if there is any
+ * @return {string}
+ */
+getTypeName() {
+  return this.getTypeUrl().split('/').pop();
+}
+
+/**
+ * @template T
+ * Unpacks this Any into the given message type.
+ * @param {T} defaultInstance A default instance of the type the message should be unpacked into.
+ * @param {string} name The expected type name of this message object.
+ * @return {?T} If the name matched the expected name, returns the
+ *     parsed message, otherwise returns null
+ */
+unpackJspb(defaultInstance, name) {
+  // Handle potential binary payload.
+  if (this.internal_typeofValue(2) === 'string') {
+    return null;
+  }
+
+  const ctor = /** @type {function(new:T, !Array<*>)} */ (defaultInstance.constructor);
+  if (this.getTypeName() === name) {
+    return this.internal_getMessageField(2, ctor);
+  }
+  return null;
+}
+
+/**
+ * Pack message to a JavaScript Any message
+ * @param {!proto_im_InternalMessage} message The internal message to convert.
+ * @param {string} name The type name of this message object.
+ * @param {string=} typeUrlPrefix the type URL prefix.
+ * @return {!Any}
+ */
+static packJspb(message, name, typeUrlPrefix = undefined) {
+  if (!typeUrlPrefix) {
+    typeUrlPrefix = 'type.googleapis.com/';
+  } else if (typeUrlPrefix.substr(-1) != '/') {
+    typeUrlPrefix += '/';
+  }
+  return Any.newBuilder()
+      .setTypeUrl(typeUrlPrefix + name)
+      .internal_packJspb(2, message)
+      .build();
+}
+

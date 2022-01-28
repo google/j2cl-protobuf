@@ -278,6 +278,15 @@ class JspbKernel {
   }
 
   /**
+   * @param {number} fieldNumber The field number.
+   * @return {string}
+   */
+  typeofValue(fieldNumber) {
+    const rawJson = this.getStorageFor_(fieldNumber);
+    return typeof rawJson[this.indexForStorage_(fieldNumber)];
+  }
+
+  /**
    * @param {number} fieldNumber
    * @return {boolean}
    */

@@ -46,6 +46,10 @@ public abstract class TemplateMessageDescriptor extends AbstractTemplateTypeDesc
     return descriptor().getContainingType() == null;
   }
 
+  public boolean isAny() {
+    return descriptor().getFullName().equals("google.protobuf.Any");
+  }
+
   public List<TemplateFieldDescriptor> getFields() {
     List<FieldDescriptor> fields = descriptor().getFields();
     NameResolver nameResolver = NameResolver.of(fields);

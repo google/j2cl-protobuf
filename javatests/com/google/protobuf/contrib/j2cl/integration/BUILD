@@ -244,6 +244,21 @@ j2cl_multi_test(
     ],
 )
 
+j2cl_multi_test(
+    name = "AnyTest",
+    srcs = ["AnyTest.java"],
+    # Testing a J2CL specific API.
+    generate_java_test = False,
+    proto_deps = [
+        "//google/protobuf/j2cl:any",
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:accessor",
+    ],
+    test_class = "com.google.protobuf.contrib.j2cl.integration.AnyTest",
+    deps = [
+        ":checks",
+    ],
+)
+
 COMFORMANCE_CHECK_FLAGS = J2CL_OPTIMIZED_DEFS + VERBOSE_WARNING_FLAGS_STRICT + [
     "--conformance_config=//javascript/closure:conformance_proto.txt",
     "--jscomp_error=conformanceViolations",

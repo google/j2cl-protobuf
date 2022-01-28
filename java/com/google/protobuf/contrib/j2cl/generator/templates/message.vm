@@ -62,6 +62,10 @@ public static native Builder newBuilder();
 
 public static native Builder newBuilder($descriptor.name prototype);
 
+#if ($descriptor.isAny())
+  #parse('any.vm')
+#end
+
 @jsinterop.annotations.JsType(isNative=true)
 public static final class Builder extends
     com.google.protobuf.GeneratedMessageLite.Builder<$descriptor.name, Builder> {
