@@ -94,8 +94,6 @@ testSuite({
       return Object.fromEntries(
           Object
               .entries(FieldType)
-              // Skip the unknown type as it's not a real value.
-              .filter(([typeName, type]) => type != -1)
               .map(
                   ([
                     typeName, type
@@ -106,8 +104,6 @@ testSuite({
       return Object.fromEntries(
           Object
               .entries(FieldType)
-              // Skip the unknown type as it's not a real value.
-              .filter(([typeName, type]) => type != -1)
               .map(
                   ([
                     typeName, type

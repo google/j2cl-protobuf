@@ -92,7 +92,6 @@ class Field {
 
 /** @enum {number} */
 const FieldType = {
-  UNKNOWN: -1,
   DOUBLE: 0,
   FLOAT: 1,
   FIXED32: 2,
