@@ -1,0 +1,443 @@
+package com.google.protobuf.contrib.j2cl.protos;
+
+@jsinterop.annotations.JsType(
+    isNative = true,
+    name = "groups",
+    namespace = "improto.protobuf.contrib.j2cl.protos")
+public final class Groups {
+
+  private Groups() {}
+
+  @jsinterop.annotations.JsType(
+      isNative = true,
+      name = "GroupsProto",
+      namespace = "improto.protobuf.contrib.j2cl.protos")
+  public static final class GroupsProto
+      extends com.google.protobuf.GeneratedMessageLite<GroupsProto, GroupsProto.Builder> {
+
+    @jsinterop.annotations.JsType(isNative = true)
+    public static final class OptionalGroup
+        extends com.google.protobuf.GeneratedMessageLite<OptionalGroup, OptionalGroup.Builder> {
+
+      protected OptionalGroup() {}
+
+      public static final native OptionalGroup getDefaultInstance();
+
+      public native Builder toBuilder();
+
+      public static int FOO_FIELD_NUMBER;
+      public static int BAR_FIELD_NUMBER;
+      public static int BEYOND_NORMAL_PIVOT_FIELD_NUMBER;
+
+      @jsinterop.annotations.JsMethod(name = "hasFoo")
+      public native boolean hasFoo();
+
+      @jsinterop.annotations.JsMethod(name = "getFoo")
+      public native java.lang.String getFoo();
+
+      @jsinterop.annotations.JsMethod(name = "hasBar")
+      public native boolean hasBar();
+
+      @jsinterop.annotations.JsMethod(name = "getBar")
+      public native int getBar();
+
+      @jsinterop.annotations.JsMethod(name = "hasBeyondNormalPivot")
+      public native boolean hasBeyondNormalPivot();
+
+      @jsinterop.annotations.JsMethod(name = "getBeyondNormalPivot")
+      public native int getBeyondNormalPivot();
+
+      public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
+          getMiniDescriptor();
+
+      public static native Builder newBuilder();
+
+      public static native Builder newBuilder(OptionalGroup prototype);
+
+      @jsinterop.annotations.JsType(isNative = true)
+      public static final class Builder
+          extends com.google.protobuf.GeneratedMessageLite.Builder<OptionalGroup, Builder> {
+
+        protected Builder() {}
+
+        @jsinterop.annotations.JsOverlay
+        public final OptionalGroup getDefaultInstanceForType() {
+          return getDefaultInstance();
+        }
+
+        @java.lang.Override
+        public native OptionalGroup build();
+
+        @java.lang.Override
+        public native Builder clone();
+
+        @jsinterop.annotations.JsMethod(name = "hasFoo")
+        public native boolean hasFoo();
+
+        @jsinterop.annotations.JsMethod(name = "getFoo")
+        public native java.lang.String getFoo();
+
+        @jsinterop.annotations.JsMethod(name = "clearFoo")
+        public native Builder clearFoo();
+
+        @jsinterop.annotations.JsMethod(name = "setFoo")
+        public native Builder setFoo(java.lang.String value);
+
+        @jsinterop.annotations.JsMethod(name = "hasBar")
+        public native boolean hasBar();
+
+        @jsinterop.annotations.JsMethod(name = "getBar")
+        public native int getBar();
+
+        @jsinterop.annotations.JsMethod(name = "clearBar")
+        public native Builder clearBar();
+
+        @jsinterop.annotations.JsMethod(name = "setBar")
+        public native Builder setBar(int value);
+
+        @jsinterop.annotations.JsMethod(name = "hasBeyondNormalPivot")
+        public native boolean hasBeyondNormalPivot();
+
+        @jsinterop.annotations.JsMethod(name = "getBeyondNormalPivot")
+        public native int getBeyondNormalPivot();
+
+        @jsinterop.annotations.JsMethod(name = "clearBeyondNormalPivot")
+        public native Builder clearBeyondNormalPivot();
+
+        @jsinterop.annotations.JsMethod(name = "setBeyondNormalPivot")
+        public native Builder setBeyondNormalPivot(int value);
+      }
+    }
+
+    @jsinterop.annotations.JsType(isNative = true)
+    public static final class RepeatedGroup
+        extends com.google.protobuf.GeneratedMessageLite<RepeatedGroup, RepeatedGroup.Builder> {
+
+      protected RepeatedGroup() {}
+
+      public static final native RepeatedGroup getDefaultInstance();
+
+      public native Builder toBuilder();
+
+      public static int FOO_FIELD_NUMBER;
+      public static int BAR_FIELD_NUMBER;
+
+      @jsinterop.annotations.JsMethod(name = "hasFoo")
+      public native boolean hasFoo();
+
+      @jsinterop.annotations.JsMethod(name = "getFoo")
+      public native java.lang.String getFoo();
+
+      @jsinterop.annotations.JsMethod(name = "hasBar")
+      public native boolean hasBar();
+
+      @jsinterop.annotations.JsMethod(name = "getBar")
+      public native int getBar();
+
+      public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
+          getMiniDescriptor();
+
+      public static native Builder newBuilder();
+
+      public static native Builder newBuilder(RepeatedGroup prototype);
+
+      @jsinterop.annotations.JsType(isNative = true)
+      public static final class Builder
+          extends com.google.protobuf.GeneratedMessageLite.Builder<RepeatedGroup, Builder> {
+
+        protected Builder() {}
+
+        @jsinterop.annotations.JsOverlay
+        public final RepeatedGroup getDefaultInstanceForType() {
+          return getDefaultInstance();
+        }
+
+        @java.lang.Override
+        public native RepeatedGroup build();
+
+        @java.lang.Override
+        public native Builder clone();
+
+        @jsinterop.annotations.JsMethod(name = "hasFoo")
+        public native boolean hasFoo();
+
+        @jsinterop.annotations.JsMethod(name = "getFoo")
+        public native java.lang.String getFoo();
+
+        @jsinterop.annotations.JsMethod(name = "clearFoo")
+        public native Builder clearFoo();
+
+        @jsinterop.annotations.JsMethod(name = "setFoo")
+        public native Builder setFoo(java.lang.String value);
+
+        @jsinterop.annotations.JsMethod(name = "hasBar")
+        public native boolean hasBar();
+
+        @jsinterop.annotations.JsMethod(name = "getBar")
+        public native int getBar();
+
+        @jsinterop.annotations.JsMethod(name = "clearBar")
+        public native Builder clearBar();
+
+        @jsinterop.annotations.JsMethod(name = "setBar")
+        public native Builder setBar(int value);
+      }
+    }
+
+    @jsinterop.annotations.JsType(isNative = true)
+    public static final class NonIncrementingFieldNumbers
+        extends com.google.protobuf.GeneratedMessageLite<
+            NonIncrementingFieldNumbers, NonIncrementingFieldNumbers.Builder> {
+
+      protected NonIncrementingFieldNumbers() {}
+
+      public static final native NonIncrementingFieldNumbers getDefaultInstance();
+
+      public native Builder toBuilder();
+
+      public static int LOWER_THAN_GROUP_FIELD_NUMBER;
+      public static int EQUAL_TO_GROUP_FIELD_NUMBER;
+      public static int HIGHER_THAN_GROUP_FIELD_NUMBER;
+
+      @jsinterop.annotations.JsMethod(name = "hasLowerThanGroup")
+      public native boolean hasLowerThanGroup();
+
+      @jsinterop.annotations.JsMethod(name = "getLowerThanGroup")
+      public native java.lang.String getLowerThanGroup();
+
+      @jsinterop.annotations.JsMethod(name = "hasEqualToGroup")
+      public native boolean hasEqualToGroup();
+
+      @jsinterop.annotations.JsMethod(name = "getEqualToGroup")
+      public native java.lang.String getEqualToGroup();
+
+      @jsinterop.annotations.JsMethod(name = "hasHigherThanGroup")
+      public native boolean hasHigherThanGroup();
+
+      @jsinterop.annotations.JsMethod(name = "getHigherThanGroup")
+      public native java.lang.String getHigherThanGroup();
+
+      public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
+          getMiniDescriptor();
+
+      public static native Builder newBuilder();
+
+      public static native Builder newBuilder(NonIncrementingFieldNumbers prototype);
+
+      @jsinterop.annotations.JsType(isNative = true)
+      public static final class Builder
+          extends com.google.protobuf.GeneratedMessageLite.Builder<
+              NonIncrementingFieldNumbers, Builder> {
+
+        protected Builder() {}
+
+        @jsinterop.annotations.JsOverlay
+        public final NonIncrementingFieldNumbers getDefaultInstanceForType() {
+          return getDefaultInstance();
+        }
+
+        @java.lang.Override
+        public native NonIncrementingFieldNumbers build();
+
+        @java.lang.Override
+        public native Builder clone();
+
+        @jsinterop.annotations.JsMethod(name = "hasLowerThanGroup")
+        public native boolean hasLowerThanGroup();
+
+        @jsinterop.annotations.JsMethod(name = "getLowerThanGroup")
+        public native java.lang.String getLowerThanGroup();
+
+        @jsinterop.annotations.JsMethod(name = "clearLowerThanGroup")
+        public native Builder clearLowerThanGroup();
+
+        @jsinterop.annotations.JsMethod(name = "setLowerThanGroup")
+        public native Builder setLowerThanGroup(java.lang.String value);
+
+        @jsinterop.annotations.JsMethod(name = "hasEqualToGroup")
+        public native boolean hasEqualToGroup();
+
+        @jsinterop.annotations.JsMethod(name = "getEqualToGroup")
+        public native java.lang.String getEqualToGroup();
+
+        @jsinterop.annotations.JsMethod(name = "clearEqualToGroup")
+        public native Builder clearEqualToGroup();
+
+        @jsinterop.annotations.JsMethod(name = "setEqualToGroup")
+        public native Builder setEqualToGroup(java.lang.String value);
+
+        @jsinterop.annotations.JsMethod(name = "hasHigherThanGroup")
+        public native boolean hasHigherThanGroup();
+
+        @jsinterop.annotations.JsMethod(name = "getHigherThanGroup")
+        public native java.lang.String getHigherThanGroup();
+
+        @jsinterop.annotations.JsMethod(name = "clearHigherThanGroup")
+        public native Builder clearHigherThanGroup();
+
+        @jsinterop.annotations.JsMethod(name = "setHigherThanGroup")
+        public native Builder setHigherThanGroup(java.lang.String value);
+      }
+    }
+
+    protected GroupsProto() {}
+
+    public static final native GroupsProto getDefaultInstance();
+
+    public native Builder toBuilder();
+
+    public static int OPTIONALGROUP_FIELD_NUMBER;
+    public static int REPEATEDGROUP_FIELD_NUMBER;
+    public static int NONINCREMENTINGFIELDNUMBERS_FIELD_NUMBER;
+
+    @jsinterop.annotations.JsMethod(name = "hasOptionalGroup")
+    public native boolean hasOptionalGroup();
+
+    @jsinterop.annotations.JsMethod(name = "getOptionalGroup")
+    public native com.google.protobuf.contrib.j2cl.protos.Groups.GroupsProto.OptionalGroup
+        getOptionalGroup();
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedGroupCount")
+    public native int getRepeatedGroupCount();
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedGroup")
+    public native com.google.protobuf.contrib.j2cl.protos.Groups.GroupsProto.RepeatedGroup
+        getRepeatedGroup(int index);
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedGroupList")
+    private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<
+            com.google.protobuf.contrib.j2cl.protos.Groups.GroupsProto.RepeatedGroup>
+        internal_getRepeatedGroupList();
+
+    @jsinterop.annotations.JsOverlay
+    public final java.util.List<
+            com.google.protobuf.contrib.j2cl.protos.Groups.GroupsProto.RepeatedGroup>
+        getRepeatedGroupList() {
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+          internal_getRepeatedGroupList());
+    }
+
+    @jsinterop.annotations.JsMethod(name = "hasNonIncrementingFieldNumbers")
+    public native boolean hasNonIncrementingFieldNumbers();
+
+    @jsinterop.annotations.JsMethod(name = "getNonIncrementingFieldNumbers")
+    public native com.google.protobuf.contrib.j2cl.protos.Groups.GroupsProto
+            .NonIncrementingFieldNumbers
+        getNonIncrementingFieldNumbers();
+
+    public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
+        getMiniDescriptor();
+
+    public static native Builder newBuilder();
+
+    public static native Builder newBuilder(GroupsProto prototype);
+
+    @jsinterop.annotations.JsType(isNative = true)
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageLite.Builder<GroupsProto, Builder> {
+
+      protected Builder() {}
+
+      @jsinterop.annotations.JsOverlay
+      public final GroupsProto getDefaultInstanceForType() {
+        return getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public native GroupsProto build();
+
+      @java.lang.Override
+      public native Builder clone();
+
+      @jsinterop.annotations.JsMethod(name = "hasOptionalGroup")
+      public native boolean hasOptionalGroup();
+
+      @jsinterop.annotations.JsMethod(name = "getOptionalGroup")
+      public native com.google.protobuf.contrib.j2cl.protos.Groups.GroupsProto.OptionalGroup
+          getOptionalGroup();
+
+      @jsinterop.annotations.JsMethod(name = "clearOptionalGroup")
+      public native Builder clearOptionalGroup();
+
+      @jsinterop.annotations.JsMethod(name = "setOptionalGroup")
+      public native Builder setOptionalGroup(
+          com.google.protobuf.contrib.j2cl.protos.Groups.GroupsProto.OptionalGroup value);
+
+      @jsinterop.annotations.JsMethod(name = "setOptionalGroup")
+      public native Builder setOptionalGroup(
+          com.google.protobuf.contrib.j2cl.protos.Groups.GroupsProto.OptionalGroup.Builder builder);
+
+      @jsinterop.annotations.JsMethod(name = "getRepeatedGroupCount")
+      public native int getRepeatedGroupCount();
+
+      @jsinterop.annotations.JsMethod(name = "getRepeatedGroup")
+      public native com.google.protobuf.contrib.j2cl.protos.Groups.GroupsProto.RepeatedGroup
+          getRepeatedGroup(int index);
+
+      @jsinterop.annotations.JsMethod(name = "getRepeatedGroupList")
+      private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<
+              com.google.protobuf.contrib.j2cl.protos.Groups.GroupsProto.RepeatedGroup>
+          internal_getRepeatedGroupList();
+
+      @jsinterop.annotations.JsOverlay
+      public final java.util.List<
+              com.google.protobuf.contrib.j2cl.protos.Groups.GroupsProto.RepeatedGroup>
+          getRepeatedGroupList() {
+        return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+            internal_getRepeatedGroupList());
+      }
+
+      @jsinterop.annotations.JsMethod(name = "clearRepeatedGroup")
+      public native Builder clearRepeatedGroup();
+
+      @jsinterop.annotations.JsMethod(name = "addRepeatedGroup")
+      public native Builder addRepeatedGroup(
+          com.google.protobuf.contrib.j2cl.protos.Groups.GroupsProto.RepeatedGroup value);
+
+      @jsinterop.annotations.JsMethod(name = "setRepeatedGroup")
+      public native Builder setRepeatedGroup(
+          int index,
+          com.google.protobuf.contrib.j2cl.protos.Groups.GroupsProto.RepeatedGroup value);
+
+      @jsinterop.annotations.JsMethod(name = "addRepeatedGroup")
+      public native Builder addRepeatedGroup(
+          com.google.protobuf.contrib.j2cl.protos.Groups.GroupsProto.RepeatedGroup.Builder builder);
+
+      @jsinterop.annotations.JsMethod(name = "setRepeatedGroup")
+      public native Builder setRepeatedGroup(
+          int index,
+          com.google.protobuf.contrib.j2cl.protos.Groups.GroupsProto.RepeatedGroup.Builder builder);
+
+      @jsinterop.annotations.JsOverlay
+      public final Builder addAllRepeatedGroup(
+          java.lang.Iterable<
+                  com.google.protobuf.contrib.j2cl.protos.Groups.GroupsProto.RepeatedGroup>
+              values) {
+        com.google.protobuf.GeneratedMessageLite.Internal_.addAll(values, this::addRepeatedGroup);
+        return this;
+      }
+
+      @jsinterop.annotations.JsMethod(name = "hasNonIncrementingFieldNumbers")
+      public native boolean hasNonIncrementingFieldNumbers();
+
+      @jsinterop.annotations.JsMethod(name = "getNonIncrementingFieldNumbers")
+      public native com.google.protobuf.contrib.j2cl.protos.Groups.GroupsProto
+              .NonIncrementingFieldNumbers
+          getNonIncrementingFieldNumbers();
+
+      @jsinterop.annotations.JsMethod(name = "clearNonIncrementingFieldNumbers")
+      public native Builder clearNonIncrementingFieldNumbers();
+
+      @jsinterop.annotations.JsMethod(name = "setNonIncrementingFieldNumbers")
+      public native Builder setNonIncrementingFieldNumbers(
+          com.google.protobuf.contrib.j2cl.protos.Groups.GroupsProto.NonIncrementingFieldNumbers
+              value);
+
+      @jsinterop.annotations.JsMethod(name = "setNonIncrementingFieldNumbers")
+      public native Builder setNonIncrementingFieldNumbers(
+          com.google.protobuf.contrib.j2cl.protos.Groups.GroupsProto.NonIncrementingFieldNumbers
+                  .Builder
+              builder);
+    }
+  }
+}

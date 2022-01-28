@@ -178,3 +178,13 @@ immutable_js_proto_library(
     name = "proto-with-dashes_immutable_js_proto",
     deps = [":proto-with-dashes"],
 )
+
+proto_library(
+    name = "groups",
+    srcs = ["groups.proto"],
+)
+
+immutable_js_proto_library(
+    name = "groups_immutable_js_proto",
+    deps = [":groups"],
+)

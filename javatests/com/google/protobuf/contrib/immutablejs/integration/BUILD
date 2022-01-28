@@ -316,6 +316,19 @@ proto_jsunit_test(
 )
 
 proto_jsunit_test(
+    name = "groups_test",
+    srcs = [
+        "groups_test.js",
+    ],
+    deps = [
+        "//java/com/google/protobuf/contrib/immutablejs:runtime",
+        "//javatests/com/google/protobuf/contrib/immutablejs/protos:groups_immutable_js_proto",
+        "//javatests/com/google/protobuf/contrib/immutablejs/testing:proto_asserts",
+        "//third_party:closure_testsuite",
+    ],
+)
+
+proto_jsunit_test(
     name = "descriptors_test",
     srcs = [
         "descriptors_test.js",

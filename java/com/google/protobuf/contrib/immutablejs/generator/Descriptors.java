@@ -26,6 +26,7 @@ import com.google.protobuf.Descriptors.FileDescriptor.Syntax;
 import com.google.protobuf.Descriptors.GenericDescriptor;
 import com.google.protobuf.Descriptors.OneofDescriptor;
 import java.util.Comparator;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 /** Utility methods for protobuf Descriptors. */
@@ -83,6 +84,18 @@ public final class Descriptors {
 
   public static boolean isProto3(GenericDescriptor descriptor) {
     return descriptor.getFile().getSyntax().equals(Syntax.PROTO3);
+  }
+
+  public static Optional<FieldDescriptor> getGroupFieldFromDescriptor(Descriptor descriptor) {
+    if (descriptor.getContainingType() == null) {
+      return Optional.empty();
+    }
+    return descriptor.getContainingType().getFields().stream()
+        .filter(
+            field ->
+                field.getType() == FieldDescriptor.Type.GROUP
+                    && field.getMessageType() == descriptor)
+        .findAny();
   }
 
   private Descriptors() {}

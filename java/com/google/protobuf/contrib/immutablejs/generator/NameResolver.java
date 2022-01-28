@@ -79,7 +79,7 @@ public abstract class NameResolver {
   }
 
   private static String resolveFieldName(FieldDescriptor field, boolean isConflicting) {
-    String fieldName = JavaQualifiedNames.getFieldName(field, !field.isExtension());
+    String fieldName = getFieldName(field);
     return isConflicting ? fieldName + field.getNumber() : fieldName;
   }
 
@@ -90,7 +90,7 @@ public abstract class NameResolver {
     Set<FieldDescriptor> conflictingFields = new HashSet<>();
 
     for (FieldDescriptor field : fieldsDescriptors) {
-      String name = JavaQualifiedNames.getFieldName(field, !field.isExtension());
+      String name = getFieldName(field);
       checkFieldNameConflict(name, field, fieldsByConflictingName, conflictingFields);
       if (field.isRepeated()) {
         checkFieldNameConflict(name + "Count", field, fieldsByConflictingName, conflictingFields);
@@ -98,6 +98,18 @@ public abstract class NameResolver {
       }
     }
     return conflictingFields;
+  }
+
+  private static String getFieldName(FieldDescriptor field) {
+    // Group fields are special as it simultaneously defines both a field name and a type name. The
+    // field name will always be in Upperfirstcase despite the case of the type name (typically
+    // CamelCase). The Java API is generated using the type name rather than the field names, which
+    // is unlike every other field type.
+    if (field.getType() == FieldDescriptor.Type.GROUP) {
+      return JavaQualifiedNames.underscoresToCamelCase(
+          field.getMessageType().getName(), /* capitalizeNextLetter= */ true);
+    }
+    return JavaQualifiedNames.getFieldName(field, !field.isExtension());
   }
 
   private static void checkFieldNameConflict(

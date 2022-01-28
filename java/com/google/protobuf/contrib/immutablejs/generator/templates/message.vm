@@ -58,7 +58,11 @@ $messageName = class $message.type.name extends proto_im_InternalMessage {
    * @private
    */
   constructor(data) {
+#if ($message.isGroup())
+    super(data, $message.pivot, $message.messageId, $message.groupFieldNumber);
+#else
     super(data, $message.pivot, $message.messageId);
+#end
   }
 
   /**

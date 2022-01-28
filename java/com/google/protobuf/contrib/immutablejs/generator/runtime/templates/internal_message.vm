@@ -57,12 +57,16 @@ class InternalMessage extends Message {
    * @param {number} suggestedPivot The pivot value after which fields are found
    *     in the extension object.
    * @param {string|number} messageId The apps framework message id.
+   * @param {number=} groupFieldNumber The field number of the group field this
+   *     message represents, or zero if it's not a group.
    * @protected
    */
-  constructor(data, suggestedPivot, messageId) {
+  constructor(data, suggestedPivot, messageId, groupFieldNumber = 0) {
     super();
     /** @private @const {!JspbKernel} */
-    this.kernel_ = JspbKernel.create(data, suggestedPivot, messageId);
+    this.kernel_ = groupFieldNumber > 0 ?
+        JspbKernel.createGroup(data, groupFieldNumber) :
+        JspbKernel.createMessage(data, suggestedPivot, messageId);
   }
 
   /**

@@ -24,6 +24,7 @@ import com.google.protobuf.Descriptors.Descriptor;
 import com.google.protobuf.Descriptors.FieldDescriptor;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 /** Represents a protocol message */
@@ -32,7 +33,10 @@ public abstract class TemplateMessageDescriptor {
 
   public static TemplateMessageDescriptor create(Descriptor descriptor) {
     return new AutoValue_TemplateMessageDescriptor(
-        descriptor, TypeDescriptor.create(descriptor), DescriptorEncoder.forMessage(descriptor));
+        descriptor,
+        TypeDescriptor.create(descriptor),
+        DescriptorEncoder.forMessage(descriptor),
+        Descriptors.getGroupFieldFromDescriptor(descriptor));
   }
 
   abstract Descriptor descriptor();
@@ -40,6 +44,9 @@ public abstract class TemplateMessageDescriptor {
   public abstract TypeDescriptor getType();
 
   public abstract DescriptorEncoder getDescriptorEncoder();
+
+  /** Returns the field that represents the group, if this message is a group message. */
+  public abstract Optional<FieldDescriptor> getGroupField();
 
   public ImmutableList<TemplateEnumDescriptor> getAllEnums() {
     checkState(getType().isTopLevel());
@@ -101,6 +108,11 @@ public abstract class TemplateMessageDescriptor {
   }
 
   public int getPivot() {
+    if (isGroup()) {
+      // Group fields should never apply a pivot.
+      return -1;
+    }
+
     int defaultPivot = 500;
 
     // find max field number, or 0 if there is none.
@@ -124,6 +136,15 @@ public abstract class TemplateMessageDescriptor {
 
   public boolean isMessageSet() {
     return Descriptors.isMessageSet(descriptor());
+  }
+
+  public boolean isGroup() {
+    return getGroupField().isPresent();
+  }
+
+  public int getGroupFieldNumber() {
+    checkState(isGroup(), "Cannot get the field number for a non-group submessage.");
+    return getGroupField().get().getNumber();
   }
 
   public boolean hasSubmessages() {

@@ -111,7 +111,7 @@ class JspbKernel {
    * @param {string|number} messageId The apps framework message id.
    * @return {!JspbKernel}
    */
-  static create(data, suggestedPivot, messageId) {
+  static createMessage(data, suggestedPivot, messageId) {
     const messageOffset = messageId ? 0 : -1;
     const pivot = calculatePivot(data, suggestedPivot, messageOffset);
     // Assign message id if its not present
@@ -119,6 +119,22 @@ class JspbKernel {
       data[0] = messageId;
     }
     return new JspbKernel(data, pivot, messageOffset);
+  }
+
+  /**
+   * @param {!Array<*>} data The array holding protobuf data conforming to the
+   *     JSPB wireformat.
+   * @param {number} groupFieldNumber The field number of the group field this
+   *     message represents, or zero if it's not a group.
+   * @return {!JspbKernel}
+   */
+  static createGroup(data, groupFieldNumber) {
+    // Group fields do not support a pivot or message ID offset.
+    const messageOffset = -1 - (groupFieldNumber >= 0 ? groupFieldNumber : 0);
+    return new JspbKernel(
+        data,
+        /* pivot= */ Number.MAX_VALUE,
+        messageOffset);
   }
 
   /**

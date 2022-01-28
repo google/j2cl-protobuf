@@ -21,6 +21,7 @@ java_test(
         "//javatests/com/google/protobuf/contrib/j2cl/protos:extensions_out",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:extensions-multiple-files_out",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:field_names_out",
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:groups_out",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:maps_out",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:oneofs_out",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:oneofs-multiple-files_out",

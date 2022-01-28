@@ -75,3 +75,8 @@ generate_protos(
     name = "proto-with-dashes",
     proto_file = "proto-with-dashes.proto",
 )
+
+generate_protos(
+    name = "groups",
+    proto_file = "groups.proto",
+)

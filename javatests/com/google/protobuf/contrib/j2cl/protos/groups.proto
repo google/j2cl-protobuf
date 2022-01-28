@@ -1,0 +1,43 @@
+// Copyright 2022 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     https://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+// LINT: ALLOW_GROUPS
+syntax = "proto2";
+
+package protobuf.contrib.j2cl.protos;
+
+option java_package = "com.google.protobuf.contrib.j2cl.protos";
+
+message GroupsProto {
+  optional group OptionalGroup = 1 {
+    optional string foo = 2;
+    optional int32 bar = 3;
+    // This field would normally beyond the standard pivot, however, groups
+    // should never use a pivot.
+    optional int32 beyond_normal_pivot = 1000;
+  }
+
+  repeated group RepeatedGroup = 2 {
+    optional string foo = 3;
+    optional int32 bar = 4;
+  }
+
+  // TODO(b/171736612): The JSPB encoding does not properly handle when the
+  // group members are less than the group field number itself.
+  optional group NonIncrementingFieldNumbers = 3 {
+    optional string lower_than_group = 1;
+    optional string equal_to_group = 3;
+    optional string higher_than_group = 4;
+  }
+}
