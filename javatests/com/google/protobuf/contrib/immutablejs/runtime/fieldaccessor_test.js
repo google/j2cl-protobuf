@@ -286,8 +286,18 @@ class FieldAccessorTest {
     assertEquals(-1, FieldAccessor.getUIntWithDefault(fields, 3, 0));
     assertEquals(-1, FieldAccessor.getUInt(fields, 3));
 
+    fields[4] = -1;
+    assertEquals(-1, FieldAccessor.getUIntWithDefault(fields, 3, 0));
+    assertEquals(-1, FieldAccessor.getUInt(fields, 3));
+
     FieldAccessor.setUInt(fields, 0, 1);
     assertEquals(1, fields[0]);
+
+    FieldAccessor.setUInt(fields, 3, 4294967295);
+    assertEquals(4294967295, fields[3]);
+
+    FieldAccessor.setUInt(fields, 4, -1);
+    assertEquals(4294967295, fields[4]);
   }
 
   testUIntTypeChecksEnabled() {
@@ -306,7 +316,7 @@ class FieldAccessorTest {
     assertThrows(() => FieldAccessor.getUInt(fields, 6));
     assertThrows(() => FieldAccessor.getUInt(fields, 7));
     assertThrows(() => FieldAccessor.setUInt(fields, 0, 1.1));
-    assertThrows(() => FieldAccessor.setUInt(fields, 0, 4294967295));
+    assertThrows(() => FieldAccessor.setUInt(fields, 0, 4294967296));
     assertThrows(
         () => FieldAccessor.setUInt(
             fields, 0, /** @type{number} */ (/** @type {*} */ ({}))));
@@ -330,8 +340,8 @@ class FieldAccessorTest {
     FieldAccessor.setUInt(fields, 0, 1.1);
     assertEquals(1, fields[0]);
 
-    FieldAccessor.setUInt(fields, 2, 4294967295);
-    assertEquals(-1, fields[2]);
+    FieldAccessor.setUInt(fields, 2, 4294967296);
+    assertEquals(0, fields[2]);
 
     FieldAccessor.setUInt(
         fields, 1, /** @type{number} */ (/** @type {*} */ ({})));

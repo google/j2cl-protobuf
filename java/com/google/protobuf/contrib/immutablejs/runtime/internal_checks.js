@@ -217,9 +217,13 @@ function checkTypeMapKey(value) {
 
 
 // About coersion for integers:
-// Int32/Uint32 handling truncates to 32 bit signed integers.
-// This is a deliberate choice, since this repsentation allows using bitwise
-// operations and also consistent with Java protos.
+// On the wire Uint32 fields are represented as unsigned 32-bit integers, thus
+// are the scale of the value rather than the bit representation. For
+// compatability negative values for unsigned 32-bit fields can be read from the
+// wire was well.
+// At the public API level Int32/Uint32 fields are represented as truncated
+// 32-bit signed integers. This is a deliberate choice, since this repsentation
+// allows using bitwise operations and also consistent with Java protos.
 
 /**
  * @param {*} value
@@ -240,21 +244,16 @@ function checkTypeInt(value) {
 
 /**
  * @param {*} value
+ * @return {number}
  */
-function checkUIntRepresentation(value) {
+function checkTypeSintOrUint(value) {
   if (!CHECK_TYPE) {
-    return;
+    return (/** @type {number} */ (value)) | 0;
   }
 
   const valueAsNumber = checkTypeNumber(value);
-  if ((valueAsNumber | 0) === value) {
-    // valid 32 bit signed integer
-    return;
-  }
-
-  if ((valueAsNumber >>> 0) === value) {
-    // valid 32 bit unsigned integer
-    return;
+  if ((valueAsNumber | 0) === value || (valueAsNumber >>> 0) === value) {
+    return (/** @type {number} */ (value));
   }
 
   throw new Error('Not a signed/unsigned 32 bit integer: ' + value);
@@ -321,8 +320,8 @@ exports = {
   checkTypeMapEntry,
   checkTypeMapKey,
   checkTypeNumber,
+  checkTypeSintOrUint,
   checkTypeString,
-  checkUIntRepresentation,
   isCheckType,
   isCheckIndex,
   isCheckLongDataLoss,

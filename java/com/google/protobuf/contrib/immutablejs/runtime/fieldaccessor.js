@@ -269,10 +269,9 @@ class FieldAccessor {
   static getUIntWithDefault(rawJson, fieldNumber, defaultValue) {
     const value = rawJson[fieldNumber];
     if (value != null) {
-      internalChecks.checkUIntRepresentation(value);
       // We coerce unsigned integer to 32 bit signed integers since that is how
       // immutable js proto exposes Uint32.
-      return /** @type {number} */ (value) << 0;
+      return internalChecks.checkTypeSintOrUint(value) << 0;
     }
     return defaultValue;
   }
@@ -295,7 +294,8 @@ class FieldAccessor {
    * @return {void}
    */
   static setUInt(rawJson, fieldNumber, value) {
-    rawJson[fieldNumber] = internalChecks.checkTypeInt(value);
+    // Coerce to unsigned on the wire.
+    rawJson[fieldNumber] = internalChecks.checkTypeSintOrUint(value) >>> 0;
   }
 
   /**

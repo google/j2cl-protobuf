@@ -46,8 +46,8 @@ public final class ProtobufTestValueProvider<T> {
 
   private static final ProtobufTestValueProvider<Integer> UINT32_PROVIDER =
       // Use -1 to force the sign bit.
-
-      new ProtobufTestValueProvider<>(Type.UINT32, new Integer[] {0, -1});
+      new ProtobufTestValueProvider<>(
+          Type.UINT32, new Integer[] {0, -1}, Integer::toUnsignedString, String::valueOf);
 
   private static final ProtobufTestValueProvider<Long> INT64_PROVIDER =
       new ProtobufTestValueProvider<>(

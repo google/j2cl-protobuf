@@ -21,7 +21,7 @@ const TestProto = goog.require('improto.protobuf.contrib.immutablejs.protos.Test
 const TestProto3 = goog.require('improto.protobuf.contrib.immutablejs.protos.TestProto3');
 const testSuite = goog.require('goog.testing.testSuite');
 const {assertEqualsForProto, assertValueIsCleared, assertValueIsSet} = goog.require('proto.im.proto_asserts');
-const {isCheckIndex, isCheckType} = goog.require('proto.im.internal.internalChecks');
+const {isCheckIndex} = goog.require('proto.im.internal.internalChecks');
 
 const PROTO_DEFAULT_VALUE = -1;
 
@@ -45,17 +45,13 @@ class UInt32FieldsTest {
   testOptionalFieldNoDefault_setUIntValue() {
     const builder = TestProto.newBuilder();
 
-    if (isCheckType()) {
-      assertThrows(() => builder.setOptionalUint32(4294967295));
-    } else {
-      builder.setOptionalUint32(4294967295);
-      assertEqualsForProto(true, builder.hasOptionalUint32());
-      assertEqualsForProto(-1, builder.getOptionalUint32());
+    builder.setOptionalUint32(4294967295);
+    assertEqualsForProto(true, builder.hasOptionalUint32());
+    assertEqualsForProto(-1, builder.getOptionalUint32());
 
-      const proto = builder.build();
-      assertEqualsForProto(true, proto.hasOptionalUint32());
-      assertEqualsForProto(-1, proto.getOptionalUint32());
-    }
+    const proto = builder.build();
+    assertEqualsForProto(true, proto.hasOptionalUint32());
+    assertEqualsForProto(-1, proto.getOptionalUint32());
   }
 
   testOptionalFieldNoDefault_setDefaultValue() {
@@ -144,17 +140,13 @@ class UInt32FieldsTest {
   testRepeatedField_addUIntValue() {
     const builder = TestProto.newBuilder();
 
-    if (isCheckType()) {
-      assertThrows(() => builder.addRepeatedUint32(4294967295));
-    } else {
-      builder.addRepeatedUint32(4294967295);
-      assertEqualsForProto(1, builder.getRepeatedUint32Count());
-      assertEqualsForProto([-1], builder.getRepeatedUint32List().toArray());
+    builder.addRepeatedUint32(4294967295);
+    assertEqualsForProto(1, builder.getRepeatedUint32Count());
+    assertEqualsForProto([-1], builder.getRepeatedUint32List().toArray());
 
-      const proto = builder.build();
-      assertEqualsForProto(1, proto.getRepeatedUint32Count());
-      assertEqualsForProto([-1], proto.getRepeatedUint32List().toArray());
-    }
+    const proto = builder.build();
+    assertEqualsForProto(1, proto.getRepeatedUint32Count());
+    assertEqualsForProto([-1], proto.getRepeatedUint32List().toArray());
   }
 
   testRepeatedField_addAll() {
@@ -187,27 +179,20 @@ class UInt32FieldsTest {
   testRepeatedField_addAllWithUIntValue() {
     const builder = TestProto.newBuilder();
 
-    if (isCheckType()) {
-      assertThrows(
-          () => builder.addAllRepeatedUint32(
-              ListView.copyOf([4294967295, 2, 3])));
-    } else {
-      builder.addAllRepeatedUint32(ListView.copyOf([4294967295, 2, 3]));
-      assertEqualsForProto(3, builder.getRepeatedUint32Count());
-      assertEqualsForProto(
-          [-1, 2, 3], builder.getRepeatedUint32List().toArray());
-      assertEqualsForProto(-1, builder.getRepeatedUint32(0));
-      assertEqualsForProto(2, builder.getRepeatedUint32(1));
-      assertEqualsForProto(3, builder.getRepeatedUint32(2));
+    builder.addAllRepeatedUint32(ListView.copyOf([4294967295, 2, 3]));
+    assertEqualsForProto(3, builder.getRepeatedUint32Count());
+    assertEqualsForProto([-1, 2, 3], builder.getRepeatedUint32List().toArray());
+    assertEqualsForProto(-1, builder.getRepeatedUint32(0));
+    assertEqualsForProto(2, builder.getRepeatedUint32(1));
+    assertEqualsForProto(3, builder.getRepeatedUint32(2));
 
 
-      const proto = builder.build();
-      assertEqualsForProto(3, proto.getRepeatedUint32Count());
-      assertEqualsForProto([-1, 2, 3], proto.getRepeatedUint32List().toArray());
-      assertEqualsForProto(-1, proto.getRepeatedUint32(0));
-      assertEqualsForProto(2, proto.getRepeatedUint32(1));
-      assertEqualsForProto(3, proto.getRepeatedUint32(2));
-    }
+    const proto = builder.build();
+    assertEqualsForProto(3, proto.getRepeatedUint32Count());
+    assertEqualsForProto([-1, 2, 3], proto.getRepeatedUint32List().toArray());
+    assertEqualsForProto(-1, proto.getRepeatedUint32(0));
+    assertEqualsForProto(2, proto.getRepeatedUint32(1));
+    assertEqualsForProto(3, proto.getRepeatedUint32(2));
   }
 
   testRepeatedField_set() {
