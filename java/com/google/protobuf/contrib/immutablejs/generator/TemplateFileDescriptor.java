@@ -39,6 +39,11 @@ public abstract class TemplateFileDescriptor {
         .collect(ImmutableList.toImmutableList());
   }
 
+  public boolean hasExtension() {
+    List<FieldDescriptor> fields = fileDescriptor().getExtensions();
+    return fields != null && !fields.isEmpty();
+  }
+
   public ImmutableList<ImportDescriptor> getImports() {
     return Descriptors.calculateImports(getExtensions().stream());
   }

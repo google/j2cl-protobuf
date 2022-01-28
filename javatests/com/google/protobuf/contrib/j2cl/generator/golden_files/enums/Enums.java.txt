@@ -1,9 +1,5 @@
 package com.google.protobuf.contrib.j2cl.protos;
 
-@jsinterop.annotations.JsType(
-    isNative = true,
-    name = "enums",
-    namespace = "improto.protobuf.contrib.j2cl.protos")
 public final class Enums {
 
   private Enums() {}

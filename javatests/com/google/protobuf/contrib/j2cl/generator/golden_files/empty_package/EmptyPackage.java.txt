@@ -1,6 +1,5 @@
 package com.google.protos;
 
-@jsinterop.annotations.JsType(isNative = true, name = "empty_package", namespace = "improto")
 public final class EmptyPackage {
 
   private EmptyPackage() {}

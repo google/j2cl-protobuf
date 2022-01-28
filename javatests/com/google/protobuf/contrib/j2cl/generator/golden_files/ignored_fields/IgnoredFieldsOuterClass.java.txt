@@ -1,9 +1,5 @@
 package com.google.protobuf.contrib.j2cl.protos;
 
-@jsinterop.annotations.JsType(
-    isNative = true,
-    name = "ignored_fields",
-    namespace = "improto.protobuf.contrib.j2cl.protos")
 public final class IgnoredFieldsOuterClass {
 
   private IgnoredFieldsOuterClass() {}

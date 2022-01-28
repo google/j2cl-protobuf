@@ -4,7 +4,9 @@
 ##
 package $fileDescriptor.package;
 
+#if (${fileDescriptor.hasExtensions()})
 @jsinterop.annotations.JsType(isNative = true, name = "$fileDescriptor.jsName", namespace = "$fileDescriptor.jsNameSpace")
+#end
 public final class $fileDescriptor.className {
 
 private ${fileDescriptor.className}() {}

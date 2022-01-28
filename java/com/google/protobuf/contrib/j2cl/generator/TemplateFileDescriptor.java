@@ -77,6 +77,11 @@ public abstract class TemplateFileDescriptor {
         .collect(ImmutableList.toImmutableList());
   }
 
+  public boolean hasExtensions() {
+    List<FieldDescriptor> extensions = fileDescriptor().getExtensions();
+    return extensions != null && !extensions.isEmpty();
+  }
+
   public String getFileName() {
     return Descriptors.calculateFileName(getPackage(), getClassName());
   }

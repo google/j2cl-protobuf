@@ -1,9 +1,5 @@
 package com.google.protobuf.contrib.j2cl.protos;
 
-@jsinterop.annotations.JsType(
-    isNative = true,
-    name = "proto3_enums.multiple_files",
-    namespace = "improto.protobuf.contrib.j2cl.protos")
 public final class Proto3EnumsMultipleFiles {
 
   private Proto3EnumsMultipleFiles() {}
