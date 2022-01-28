@@ -33,15 +33,15 @@ function /** number */ intToBase92(/** number */ value) {
   }
 }
 
-function /** number */ typeValue(/** !FieldType */ fieldType) {
+function /** number */ generateTypeValue(/** !FieldType */ fieldType) {
   return fieldType + fieldTypeConstants.SINGULAR_FIELDS_START;
 }
 
-function /** number */ repeatedTypeValue(/** !FieldType */ fieldType) {
+function /** number */ generateRepeatedTypeValue(/** !FieldType */ fieldType) {
   return fieldType + fieldTypeConstants.REPEATED_FIELDS_START;
 }
 
-function /** !Array<number> */ modifierValues(/** number */ modifier) {
+function /** !Array<number> */ generateModifierValues(/** number */ modifier) {
   if (modifier < 1) {
     throw new Error(`Invalid modifier value: ${modifier}`);
   }
@@ -53,7 +53,7 @@ function /** !Array<number> */ modifierValues(/** number */ modifier) {
   return result;
 }
 
-function /** !Array<number> */ skipValues(/** number */ skipAmount) {
+function /** !Array<number> */ generateSkipValues(/** number */ skipAmount) {
   // skipAmount should always be >= 2, but we that's not enforced here so that
   // we can encode malformed data to ensure they're caught on decode.
   const result = [];
@@ -84,10 +84,10 @@ function /** string */ encodeField(/** !Field */ field) {
   }
 
   const encodedValues =
-      [field.repeated ? repeatedTypeValue(field.fieldType) :
-                        typeValue(field.fieldType)];
+      [field.repeated ? generateRepeatedTypeValue(field.fieldType) :
+                        generateTypeValue(field.fieldType)];
   if (modifiers > 0) {
-    encodedValues.push(...modifierValues(modifiers));
+    encodedValues.push(...generateModifierValues(modifiers));
   }
 
   return encodeValues(...encodedValues);
@@ -203,7 +203,7 @@ class DescriptorBuilder {
       const field = this.fields_.get(fieldNumber);
       if (fieldNumber - prevFieldNumber > 1) {
         encodedDescriptorValues.push(
-            encodeValues(...skipValues(fieldNumber - prevFieldNumber)));
+            encodeValues(...generateSkipValues(fieldNumber - prevFieldNumber)));
       }
       encodedDescriptorValues.push(encodeField(field));
       if (field.submessageDescriptorProvider) {
@@ -221,7 +221,7 @@ class DescriptorBuilder {
   }
 }
 
-function /** !DescriptorBuilder */ descriptorBuilder() {
+function /** !DescriptorBuilder */ createDescriptorBuilder() {
   return new DescriptorBuilder();
 }
 
@@ -265,7 +265,7 @@ class MessageSetBuilder {
   }
 }
 
-function /** !MessageSetBuilder */ messageSetBuilder() {
+function /** !MessageSetBuilder */ createMessageSetBuilder() {
   return new MessageSetBuilder();
 }
 
@@ -290,11 +290,11 @@ function registerExtension(
 }
 
 exports = {
-  descriptorBuilder,
-  typeValue,
-  repeatedTypeValue,
-  messageSetBuilder,
-  modifierValues,
-  skipValues,
+  createDescriptorBuilder,
+  createMessageSetBuilder,
+  generateTypeValue,
+  generateRepeatedTypeValue,
+  generateModifierValues,
+  generateSkipValues,
   encodeValues,
 };
