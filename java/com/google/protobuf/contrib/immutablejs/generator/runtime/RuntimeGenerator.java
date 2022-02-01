@@ -40,6 +40,7 @@ final class RuntimeGenerator {
           TypeDescriptor.INT,
           TypeDescriptor.UINT,
           TypeDescriptor.LONG,
+          TypeDescriptor.UNSIGNED_LONG,
           TypeDescriptor.INT52_LONG,
           TypeDescriptor.BYTE_STRING);
 
@@ -49,8 +50,9 @@ final class RuntimeGenerator {
           TypeDescriptor.STRING,
           TypeDescriptor.UINT,
           TypeDescriptor.INT,
-          TypeDescriptor.INT52_LONG,
-          TypeDescriptor.LONG);
+          TypeDescriptor.LONG,
+          TypeDescriptor.UNSIGNED_LONG,
+          TypeDescriptor.INT52_LONG);
 
   private static final ImmutableSet<TypeDescriptor> mapValueDescriptors =
       ImmutableSet.of(
@@ -59,8 +61,9 @@ final class RuntimeGenerator {
           TypeDescriptor.FLOAT,
           TypeDescriptor.UINT,
           TypeDescriptor.INT,
-          TypeDescriptor.INT52_LONG,
           TypeDescriptor.LONG,
+          TypeDescriptor.UNSIGNED_LONG,
+          TypeDescriptor.INT52_LONG,
           TypeDescriptor.BYTE_STRING);
 
   private final RuntimeGeneratorOptions options;

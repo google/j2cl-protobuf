@@ -154,9 +154,42 @@ proto_jsunit_test(
 )
 
 proto_jsunit_test(
+    name = "unsigned_int52long_fields_test",
+    srcs = [
+        "unsigned_int52long_fields_test.js",
+    ],
+    deps = [
+        "//java/com/google/protobuf/contrib/immutablejs:runtime",
+        "//java/com/google/protobuf/contrib/immutablejs/runtime:defines",
+        "//java/com/google/protobuf/contrib/immutablejs/runtime:internal_checks",
+        "//javatests/com/google/protobuf/contrib/immutablejs/protos:accessors_immutable_js_proto",
+        "//javatests/com/google/protobuf/contrib/immutablejs/testing:proto_asserts",
+        "//third_party:closure_math_long",
+        "//third_party:closure_testing_asserts",
+        "//third_party:closure_testsuite",
+    ],
+)
+
+proto_jsunit_test(
     name = "long_fields_test",
     srcs = [
         "long_fields_test.js",
+    ],
+    deps = [
+        "//java/com/google/protobuf/contrib/immutablejs:runtime",
+        "//java/com/google/protobuf/contrib/immutablejs/runtime:internal_checks",
+        "//javatests/com/google/protobuf/contrib/immutablejs/protos:accessors_immutable_js_proto",
+        "//javatests/com/google/protobuf/contrib/immutablejs/testing:proto_asserts",
+        "//third_party:closure_math_long",
+        "//third_party:closure_testing_asserts",
+        "//third_party:closure_testsuite",
+    ],
+)
+
+proto_jsunit_test(
+    name = "unsigned_long_fields_test",
+    srcs = [
+        "unsigned_long_fields_test.js",
     ],
     deps = [
         "//java/com/google/protobuf/contrib/immutablejs:runtime",

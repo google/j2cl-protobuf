@@ -41,6 +41,9 @@ class DumpTest {
           'repeatedMessageList': [],
           'repeatedUint32List': [],
           'repeatedFixed32List': [],
+          'repeatedUint64List': [],
+          'repeatedFixed64List': [],
+          'repeatedUint52LongList': [],
         },
         debug.dump(TestProto.getDefaultInstance()));
   }
@@ -75,10 +78,24 @@ class DumpTest {
             .setOptionalLongWithDefault(Long.fromString('88902389724'))
             .addRepeatedLong(Long.fromNumber(777))
             .addRepeatedLong(Long.fromString('8283'))
+            .setOptionalUint64(Long.fromString('18446744073709551614'))
+            .setOptionalUint64WithDefault(
+                Long.fromString('18446744073709551613'))
+            .addRepeatedUint64(Long.fromInt(-1))
+            .addRepeatedUint64(Long.fromString('18446744073709551613'))
+            .setOptionalFixed64(Long.fromString('18446744073709551612'))
+            .setOptionalFixed64WithDefault(
+                Long.fromString('18446744073709551611'))
+            .addRepeatedFixed64(Long.fromInt(-3))
+            .addRepeatedFixed64(Long.fromString('18446744073709551611'))
             .setOptionalInt52Long(Long.fromNumber(666))
             .setOptionalInt52LongWithDefault(Long.fromString('88902389724'))
             .addRepeatedInt52Long(Long.fromNumber(777))
             .addRepeatedInt52Long(Long.fromString('8283'))
+            .setOptionalUint52Long(Long.fromNumber(667))
+            .setOptionalUint52LongWithDefault(Long.fromString('88902389725'))
+            .addRepeatedUint52Long(Long.fromNumber(778))
+            .addRepeatedUint52Long(Long.fromString('8284'))
             .setOptionalFloat(666.666)
             .setOptionalFloatWithDefault(777.666)
             .addRepeatedFloat(6.666)
@@ -125,9 +142,20 @@ class DumpTest {
           'optionalLong': '666',
           'optionalLongWithDefault': '88902389724',
           'repeatedLongList': ['777', '8283'],
+          // Unfortunately dump doesn't know that the values are unsigned so we
+          // get the signed version instead.
+          'optionalUint64': '-2',
+          'optionalUint64WithDefault': '-3',
+          'repeatedUint64List': ['-1', '-3'],
+          'optionalFixed64': '-4',
+          'optionalFixed64WithDefault': '-5',
+          'repeatedFixed64List': ['-3', '-5'],
           'optionalInt52Long': '666',
           'optionalInt52LongWithDefault': '88902389724',
           'repeatedInt52LongList': ['777', '8283'],
+          'optionalUint52Long': '667',
+          'optionalUint52LongWithDefault': '88902389725',
+          'repeatedUint52LongList': ['778', '8284'],
           'optionalFloat': 666.666,
           'optionalFloatWithDefault': 777.666,
           'repeatedFloatList': [6.666, 12.12, 24.24],

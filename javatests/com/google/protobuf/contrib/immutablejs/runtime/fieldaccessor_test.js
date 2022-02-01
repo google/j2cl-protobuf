@@ -399,8 +399,70 @@ class FieldAccessorTest {
 
     assertTrue(Long.fromInt(0).equals(FieldAccessor.getLong(fields, 5)));
 
-    FieldAccessor.setLong(fields, 6, /** @type{!Long} */ ({}));
-    assertEquals('[object Object]', fields[6]);
+    assertThrows(
+        () => FieldAccessor.setLong(fields, 6, /** @type{!Long} */ ({})));
+  }
+
+  testUnsignedLongTypeChecksEnabled() {
+    if (!isCheckType()) {
+      return;
+    }
+
+    const fields = [{}, [], '', false, 1, NaN];
+
+    assertThrows(() => FieldAccessor.getUnsignedLong(fields, 0));
+    assertThrows(() => FieldAccessor.getUnsignedLong(fields, 1));
+    assertThrows(() => FieldAccessor.getUnsignedLong(fields, 2));
+    assertThrows(() => FieldAccessor.getUnsignedLong(fields, 3));
+
+
+    assertTrue(
+        Long.fromInt(1).equals(FieldAccessor.getUnsignedLong(fields, 4)));
+
+    assertThrows(() => FieldAccessor.getUnsignedLong(fields, 5));
+
+
+    assertThrows(
+        () => FieldAccessor.setUnsignedLong(
+            fields, 5, /** @type {!Long} */ ({})));
+    assertThrows(
+        'Should fail with precision loss message => value too big',
+        () => FieldAccessor.getUnsignedLong([Math.pow(2, 53)], 0));
+
+    assertTrue(
+        Long.fromNumber(Math.pow(2, 53) - 1)
+            .equals(FieldAccessor.getUnsignedLong([Math.pow(2, 53) - 1], 0)));
+
+    assertThrows(
+        'Should fail with precision loss message => value too small',
+        () => FieldAccessor.getUnsignedLong([-Math.pow(2, 53) - 10], 0));
+
+    assertTrue(
+        Long.fromNumber(-Math.pow(2, 53) + 1)
+            .equals(FieldAccessor.getUnsignedLong([-Math.pow(2, 53) + 1], 0)));
+  }
+
+  testUnsignedLongTypeChecksDisabled() {
+    if (isCheckType()) {
+      return;
+    }
+
+    const fields = [{}, [], '', false, 1, NaN];
+
+    assertThrows(() => FieldAccessor.getUnsignedLong(fields, 0));
+    assertThrows(() => FieldAccessor.getUnsignedLong(fields, 1));
+    assertThrows(() => FieldAccessor.getUnsignedLong(fields, 2));
+    assertThrows(() => FieldAccessor.getUnsignedLong(fields, 3));
+
+    assertTrue(
+        Long.fromInt(1).equals(FieldAccessor.getUnsignedLong(fields, 4)));
+
+    assertTrue(
+        Long.fromInt(0).equals(FieldAccessor.getUnsignedLong(fields, 5)));
+
+    assertThrows(
+        () => FieldAccessor.setUnsignedLong(
+            fields, 6, /** @type {!Long} */ ({})));
   }
 
   testInt52LongTypeChecksEnabled() {

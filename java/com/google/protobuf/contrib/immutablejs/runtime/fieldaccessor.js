@@ -356,7 +356,9 @@ class FieldAccessor {
    */
   static setLong(rawJson, fieldNumber, value) {
     internalChecks.checkType(value instanceof Long);
-    rawJson[fieldNumber] = value.toString();
+    // Ensure we always call toString on Long as runtime type checking may be
+    // disabled leading to value not actually being a Long.
+    rawJson[fieldNumber] = Long.prototype.toString.call(value);
   }
 
   /**
@@ -365,6 +367,47 @@ class FieldAccessor {
    */
   static isLongProto3Default(value) {
     return value.equals(Long.getZero());
+  }
+
+  /**
+   * @param {!Object<number, *>} rawJson
+   * @param {number} fieldNumber
+   * @param {!Long} defaultValue
+   * @return {!Long}
+   */
+  static getUnsignedLongWithDefault(rawJson, fieldNumber, defaultValue) {
+    return FieldAccessor.getLongWithDefault(rawJson, fieldNumber, defaultValue);
+  }
+
+
+  /**
+   * @param {!Object<number, *>} rawJson
+   * @param {number} fieldNumber
+   * @return {!Long}
+   */
+  static getUnsignedLong(rawJson, fieldNumber) {
+    return FieldAccessor.getLong(rawJson, fieldNumber);
+  }
+
+
+  /**
+   * @param {!Object<number, *>} rawJson
+   * @param {number} fieldNumber
+   * @param {!Long} value
+   */
+  static setUnsignedLong(rawJson, fieldNumber, value) {
+    internalChecks.checkType(value instanceof Long);
+    // Ensure we always call toUnsignedString on Long as runtime type checking
+    // may be disabled leading to value not actually being a Long.
+    rawJson[fieldNumber] = Long.prototype.toUnsignedString.call(value);
+  }
+
+  /**
+   * @param {!Long} value
+   * @return {boolean}
+   */
+  static isUnsignedLongProto3Default(value) {
+    return FieldAccessor.isLongProto3Default(value);
   }
 
   /**

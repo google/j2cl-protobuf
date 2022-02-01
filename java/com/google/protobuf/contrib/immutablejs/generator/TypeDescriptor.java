@@ -38,6 +38,8 @@ public abstract class TypeDescriptor {
   public static final TypeDescriptor INT = createPrimitive("number", "Int");
   public static final TypeDescriptor UINT = createPrimitive("number", "UInt");
   public static final TypeDescriptor LONG = createClosureType("goog.math.Long", "Long");
+  public static final TypeDescriptor UNSIGNED_LONG =
+      createClosureType("goog.math.Long", "UnsignedLong");
   public static final TypeDescriptor INT52_LONG = createClosureType("goog.math.Long", "Int52Long");
   public static final TypeDescriptor BYTE_STRING =
       createClosureType("proto.im.ByteString", "ByteString");
@@ -56,10 +58,14 @@ public abstract class TypeDescriptor {
       case INT64:
       case SFIXED64:
       case SINT64:
-        // TODO(b/160739199): Unsigned uint64 is currenty lossy as it's coerced to signed by Long.
-      case FIXED64:
-      case UINT64:
         return Descriptors.isInt52(fieldDescriptor) ? INT52_LONG : LONG;
+      case UINT64:
+      case FIXED64:
+        // TODO(b/215693557): There's no special type for unsigned INT52 values since we want to
+        // remove them anyway. For now values that exceed 52-bits but are representable as a signed
+        // int52 will still be written to the wire as such. Implementations are supposed to tolerate
+        // this and the alternative option would be to throw an error instead.
+        return Descriptors.isInt52(fieldDescriptor) ? INT52_LONG : UNSIGNED_LONG;
       case INT32:
       case SINT32:
       case SFIXED32:
