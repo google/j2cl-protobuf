@@ -67,7 +67,11 @@ public abstract class TemplateMessageDescriptor {
   public ImmutableList<TemplateFieldDescriptor> getFields() {
     List<FieldDescriptor> fields = descriptor().getFields();
     NameResolver nameResolver = NameResolver.of(fields);
-    return fields.stream()
+    Stream<FieldDescriptor> fieldsStream = fields.stream();
+    if (isAny()) {
+      fieldsStream = fieldsStream.filter(f -> !"value".equals(f.getName()));
+    }
+    return fieldsStream
         .map(f -> TemplateFieldDescriptor.create(getType(), f, nameResolver))
         .collect(toImmutableList());
   }

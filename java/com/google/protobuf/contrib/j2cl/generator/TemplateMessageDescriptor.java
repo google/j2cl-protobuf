@@ -22,6 +22,7 @@ import com.google.protobuf.Descriptors.Descriptor;
 import com.google.protobuf.Descriptors.FieldDescriptor;
 import com.google.protobuf.contrib.immutablejs.generator.NameResolver;
 import java.util.List;
+import java.util.stream.Stream;
 
 /** Represents a protocol message */
 @AutoValue
@@ -53,7 +54,11 @@ public abstract class TemplateMessageDescriptor extends AbstractTemplateTypeDesc
   public List<TemplateFieldDescriptor> getFields() {
     List<FieldDescriptor> fields = descriptor().getFields();
     NameResolver nameResolver = NameResolver.of(fields);
-    return descriptor().getFields().stream()
+    Stream<FieldDescriptor> fieldsStream = fields.stream();
+    if (isAny()) {
+      fieldsStream = fieldsStream.filter(f -> !"value".equals(f.getName()));
+    }
+    return fieldsStream
         .map(f -> TemplateFieldDescriptor.create(f, nameResolver))
         .collect(toImmutableList());
   }
