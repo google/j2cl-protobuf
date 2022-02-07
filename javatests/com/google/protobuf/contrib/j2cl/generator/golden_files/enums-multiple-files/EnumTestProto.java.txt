@@ -352,6 +352,7 @@ public final class EnumTestProto
                 d, com.google.protobuf.contrib.j2cl.protos.TopLevelNativeEnum.DEFAULT));
   }
 
+  @jsinterop.annotations.JsMethod(name = "getDescriptor")
   public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor getMiniDescriptor();
 
   public static native Builder newBuilder();

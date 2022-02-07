@@ -56,6 +56,7 @@ public native Builder toBuilder();
 #set ($extensions = $descriptor.extensions)
 #parse('extension.vm')
 
+@jsinterop.annotations.JsMethod(name = "getDescriptor")
 public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor getMiniDescriptor();
 
 public static native Builder newBuilder();

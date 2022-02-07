@@ -421,6 +421,7 @@ public final class Enums {
                       d, com.google.protobuf.contrib.j2cl.protos.Enums.TopLevelNativeEnum.DEFAULT));
     }
 
+    @jsinterop.annotations.JsMethod(name = "getDescriptor")
     public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
         getMiniDescriptor();
 
@@ -928,6 +929,7 @@ public final class Enums {
 
     public native Builder toBuilder();
 
+    @jsinterop.annotations.JsMethod(name = "getDescriptor")
     public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
         getMiniDescriptor();
 

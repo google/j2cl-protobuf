@@ -181,6 +181,7 @@ public final class Extensions {
           internal_getRepeatedBoolList());
     }
 
+    @jsinterop.annotations.JsMethod(name = "getDescriptor")
     public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
         getMiniDescriptor();
 
@@ -781,6 +782,7 @@ public final class Extensions {
                     com.google.protobuf.contrib.j2cl.protos.Extensions.Primitives.TestEnum
                         .Internal_ClosureEnum.toClosureValue(v));
 
+    @jsinterop.annotations.JsMethod(name = "getDescriptor")
     public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
         getMiniDescriptor();
 
@@ -866,6 +868,7 @@ public final class Extensions {
             com.google.protobuf.GeneratedMessageLite.Internal_.createRepeatedMessageExtension(
                 internal_recursiveRepeated);
 
+    @jsinterop.annotations.JsMethod(name = "getDescriptor")
     public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
         getMiniDescriptor();
 

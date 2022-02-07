@@ -29,6 +29,7 @@ public final class Accessor {
       @jsinterop.annotations.JsMethod(name = "getPayload")
       public native java.lang.String getPayload();
 
+      @jsinterop.annotations.JsMethod(name = "getDescriptor")
       public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
           getMiniDescriptor();
 
@@ -321,6 +322,7 @@ public final class Accessor {
           internal_getRepeatedMessageList());
     }
 
+    @jsinterop.annotations.JsMethod(name = "getDescriptor")
     public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
         getMiniDescriptor();
 

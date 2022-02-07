@@ -22,6 +22,7 @@ public final class TestProto3Optional
   @jsinterop.annotations.JsMethod(name = "getOptionalInt")
   public native int getOptionalInt();
 
+  @jsinterop.annotations.JsMethod(name = "getDescriptor")
   public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor getMiniDescriptor();
 
   public static native Builder newBuilder();

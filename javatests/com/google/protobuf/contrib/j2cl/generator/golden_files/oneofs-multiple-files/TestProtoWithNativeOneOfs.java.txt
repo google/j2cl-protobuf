@@ -93,6 +93,7 @@ public final class TestProtoWithNativeOneOfs
   @jsinterop.annotations.JsMethod(name = "getAOneofCase")
   private native Object internal_getAOneofCase();
 
+  @jsinterop.annotations.JsMethod(name = "getDescriptor")
   public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor getMiniDescriptor();
 
   public static native Builder newBuilder();

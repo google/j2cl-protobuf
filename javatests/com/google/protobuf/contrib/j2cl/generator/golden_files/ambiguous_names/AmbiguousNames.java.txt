@@ -21,6 +21,7 @@ public final class AmbiguousNames {
 
     public native Builder toBuilder();
 
+    @jsinterop.annotations.JsMethod(name = "getDescriptor")
     public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
         getMiniDescriptor();
 
@@ -72,6 +73,7 @@ public final class AmbiguousNames {
       @jsinterop.annotations.JsMethod(name = "getX")
       public native java.lang.String getX();
 
+      @jsinterop.annotations.JsMethod(name = "getDescriptor")
       public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
           getMiniDescriptor();
 
@@ -128,6 +130,7 @@ public final class AmbiguousNames {
       @jsinterop.annotations.JsMethod(name = "getX")
       public native java.lang.String getX();
 
+      @jsinterop.annotations.JsMethod(name = "getDescriptor")
       public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
           getMiniDescriptor();
 
@@ -201,6 +204,7 @@ public final class AmbiguousNames {
     @jsinterop.annotations.JsMethod(name = "getExtension4")
     public native java.lang.String getExtension();
 
+    @jsinterop.annotations.JsMethod(name = "getDescriptor")
     public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
         getMiniDescriptor();
 
@@ -324,6 +328,7 @@ public final class AmbiguousNames {
           internal_getClass_List());
     }
 
+    @jsinterop.annotations.JsMethod(name = "getDescriptor")
     public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
         getMiniDescriptor();
 
@@ -425,6 +430,7 @@ public final class AmbiguousNames {
 
     public native Builder toBuilder();
 
+    @jsinterop.annotations.JsMethod(name = "getDescriptor")
     public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
         getMiniDescriptor();
 
@@ -468,6 +474,7 @@ public final class AmbiguousNames {
 
       public native Builder toBuilder();
 
+      @jsinterop.annotations.JsMethod(name = "getDescriptor")
       public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
           getMiniDescriptor();
 
@@ -500,6 +507,7 @@ public final class AmbiguousNames {
 
     public native Builder toBuilder();
 
+    @jsinterop.annotations.JsMethod(name = "getDescriptor")
     public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor
         getMiniDescriptor();
 
