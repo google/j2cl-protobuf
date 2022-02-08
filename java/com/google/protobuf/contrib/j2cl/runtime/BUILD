@@ -18,8 +18,8 @@ j2cl_library(
     exports = [":minidescriptor"],
     deps = [
         "//java/com/google/protobuf/contrib/immutablejs:runtime",
-        "//third_party:gwt-jsinterop-annotations-j2cl",
-        "//third_party:jsinterop-base-j2cl",
+        "@com_google_j2cl//:jsinterop-annotations-j2cl",
+        "@com_google_jsinterop_base//:jsinterop-base-j2cl",
     ],
 )
 
@@ -32,9 +32,9 @@ j2cl_library(
     deps = [
         ":runtime",
         "//java/com/google/protobuf/contrib/immutablejs:runtime",
-        "//third_party:gwt-jsinterop-annotations-j2cl",
-        "//third_party:jsinterop-base-j2cl",
         "//third_party:jsr305_annotations-j2cl",
+        "@com_google_j2cl//:jsinterop-annotations-j2cl",
+        "@com_google_jsinterop_base//:jsinterop-base-j2cl",
     ],
 )
 
@@ -43,6 +43,6 @@ j2cl_library(
     srcs = ["MiniDescriptor.java"],
     deps = [
         "//java/com/google/protobuf/contrib/immutablejs/runtime/descriptor",
-        "//third_party:gwt-jsinterop-annotations-j2cl",
+        "@com_google_j2cl//:jsinterop-annotations-j2cl",
     ],
 )

@@ -187,14 +187,14 @@ _j2cl_proto_library_aspect = aspect(
     attrs = dict(J2CL_TOOLCHAIN_ATTRS, **{
         "_j2cl_proto_implicit_deps": attr.label_list(
             default = [
-                Label("//third_party:gwt-jsinterop-annotations-j2cl"),
-                Label("//third_party:jsinterop-base-j2cl"),
+                Label("@com_google_j2cl//:jsinterop-annotations-j2cl"),
+                Label("@com_google_jsinterop_base//:jsinterop-base-j2cl"),
                 Label("//third_party:j2cl_proto_runtime"),
             ],
         ),
         "_j2wasm_proto_implicit_deps": attr.label_list(
             default = [
-                Label("//third_party:gwt-jsinterop-annotations-j2wasm"),
+                Label("@com_google_j2cl//:jsinterop-annotations-j2wasm"),
                 Label("//third_party:j2cl_proto_runtime-j2wasm"),
             ],
         ),

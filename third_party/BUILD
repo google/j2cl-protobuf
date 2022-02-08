@@ -132,18 +132,6 @@ alias(
     actual = "@args4j",
 )
 
-alias(
-    name = "gwt-jsinterop-annotations-j2cl",
-    actual = "@com_google_jsinterop_annotations-j2cl//:jsinterop-annotations-j2cl",
-    visibility = ["//visibility:public"],
-)
-
-alias(
-    name = "jsinterop-base-j2cl",
-    actual = "@com_google_jsinterop_base//:jsinterop-base-j2cl",
-    visibility = ["//visibility:public"],
-)
-
 java_binary(
     name = "google_java_format",
     main_class = "com.google.googlejavaformat.java.Main",
