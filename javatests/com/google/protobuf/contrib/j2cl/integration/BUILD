@@ -259,6 +259,16 @@ j2cl_multi_test(
     ],
 )
 
+j2cl_multi_test(
+    name = "BinarySerializationTest",
+    srcs = ["BinarySerializationTest.java"],
+    proto_deps = ["//javatests/com/google/protobuf/contrib/j2cl/protos:accessor"],
+    test_class = "com.google.protobuf.contrib.j2cl.integration.BinarySerializationTest",
+    deps = [
+        ":checks",
+    ],
+)
+
 COMFORMANCE_CHECK_FLAGS = J2CL_OPTIMIZED_DEFS + VERBOSE_WARNING_FLAGS_STRICT + [
     "--conformance_config=//javascript/closure:conformance_proto.txt",
     "--jscomp_error=conformanceViolations",

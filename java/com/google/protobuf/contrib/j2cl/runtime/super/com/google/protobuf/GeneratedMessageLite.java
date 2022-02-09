@@ -28,6 +28,7 @@ import java.util.Map.Entry;
 import java.util.NoSuchElementException;
 import java.util.RandomAccess;
 import java.util.Set;
+import jsinterop.annotations.JsFunction;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
@@ -780,6 +781,77 @@ public abstract class GeneratedMessageLite<
     public static void checkUnrecognized(int value) {
       if (value == -1) {
         throw new IllegalArgumentException("Can't get the number of an unknown enum value.");
+      }
+    }
+
+    public static class BinarySerializationHelper {
+      @JsFunction
+      public interface BinarySerializer<T> {
+        Uint8Array serialize(T message);
+      }
+
+      @JsFunction
+      public interface BinaryParser<T> {
+        T parseFrom(Uint8Array data);
+      }
+
+      public static <T> byte[] serializeToBytes(T message, BinarySerializer<T> serializer) {
+        return serializer.serialize(message).asBytes();
+      }
+
+      public static <T> ByteString serializeToByteString(
+          T message, BinarySerializer<T> serializer) {
+        return serializer.serialize(message).asByteString();
+      }
+
+      public static <T> T parseFrom(byte[] data, BinaryParser<T> parser)
+          throws InvalidProtocolBufferException {
+        Uint8Array uint8Array = new Uint8Array(data);
+        try {
+          return parser.parseFrom(uint8Array);
+        } catch (Throwable t) {
+          throw InvalidProtocolBufferException.conversionError(t);
+        }
+      }
+
+      public static <T> T parseFrom(ByteString data, BinaryParser<T> parser)
+          throws InvalidProtocolBufferException {
+        // TODO(b/218544016): Avoid copying when unwrapping the ByteString.
+        Uint8Array uint8Array = data.toUint8Array();
+        try {
+          return parser.parseFrom(uint8Array);
+        } catch (Throwable t) {
+          throw InvalidProtocolBufferException.conversionError(t);
+        }
+      }
+
+      private BinarySerializationHelper() {}
+    }
+
+    /** Native hook to a JS UintArray8, intended for internal protobuf usage. */
+    @JsType(isNative = true, name = "Uint8Array", namespace = JsPackage.GLOBAL)
+    public static final class Uint8Array {
+      public Uint8Array(byte[] bytes) {}
+
+      @JsProperty
+      public native int getLength();
+
+      @JsOverlay
+      public ByteString asByteString() {
+        // TODO(b/218544016): Avoid copying when wraping into a ByteString.
+        return ByteString.copyFrom(this);
+      }
+
+      @JsOverlay
+      public byte[] asBytes() {
+        byte[] byteArray = new byte[0];
+        // This isn't technically correct as a TypedArray isn't quite a normal array, but we're only
+        // going to be reading the length property and indexing into it.
+        int[] selfAsInts = Js.uncheckedCast(this);
+        for (int i = 0; i < getLength(); i++) {
+          byteArray[i] = (byte) selfAsInts[i];
+        }
+        return byteArray;
       }
     }
   }

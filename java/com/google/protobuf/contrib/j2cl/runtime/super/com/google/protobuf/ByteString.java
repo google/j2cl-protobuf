@@ -13,6 +13,7 @@
  */
 package com.google.protobuf;
 
+import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsType;
 
@@ -26,6 +27,8 @@ public class ByteString {
   public static ByteString EMPTY;
 
   public static native ByteString copyFrom(byte[] bytes);
+
+  static native ByteString copyFrom(GeneratedMessageLite.Internal_.Uint8Array uint8Array);
 
   @JsOverlay
   public static ByteString copyFromUtf8(String s) {
@@ -55,4 +58,7 @@ public class ByteString {
   }
 
   public native boolean isEmpty();
+
+  @JsMethod
+  native GeneratedMessageLite.Internal_.Uint8Array toUint8Array();
 }
