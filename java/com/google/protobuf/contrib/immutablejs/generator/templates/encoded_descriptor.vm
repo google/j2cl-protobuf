@@ -4,12 +4,12 @@
 proto_im_InternalDescriptor.createGetDescriptorFn('${field.descriptorEncoder.encodedDescriptor}'),
 #else
 proto_im_InternalDescriptor.createGetDescriptorFnFromArgs(() => ({
-  submessageDescriptorProviders: [${field.mapValue.type.expression}.getDescriptor],
+  submessageDescriptorProviders: [${field.mapValue.type.cycleSafeExpression}.getDescriptor],
   encodedDescriptor: '${field.descriptorEncoder.encodedDescriptor}',
 })),
 #end
 #elseif ($field.isMessage())
-${field.type.expression}.getDescriptor,
+${field.type.cycleSafeExpression}.getDescriptor,
 #end
 #end
 
