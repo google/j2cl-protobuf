@@ -75,6 +75,8 @@ def _generate_j2wasm_proto(ctx, target, srcs, transitive_srcs):
     name = ctx.label.name + artifact_suffix
     deps = [dep[J2clProtoInfo]._private_.j2wasm.j2wasm_info for dep in ctx.rule.attr.deps]
 
+    exports = [dep[J2clProtoInfo]._private_.j2wasm.j2wasm_info for dep in ctx.rule.attr.exports]
+
     if srcs:
         src_jar = _generate_proto_srcjar(ctx, srcs, "java", artifact_suffix, transitive_srcs)
         runtime_deps = [d[J2wasmInfo] for d in ctx.attr._j2wasm_proto_implicit_deps]
@@ -83,13 +85,14 @@ def _generate_j2wasm_proto(ctx, target, srcs, transitive_srcs):
             name = name,
             srcs = [src_jar],
             deps = deps + runtime_deps,
+            exports = exports,
         )
     else:
         # Considers deps as exports in no srcs case.
         j2wasm_provider = j2wasm_common.compile(
             ctx = ctx,
             name = name,
-            exports = deps,
+            exports = deps + exports,
         )
 
     return struct(j2wasm_info = j2wasm_provider)
@@ -98,6 +101,7 @@ def _generate_jsinterop_j2cl_proto(ctx, target, srcs, transitive_srcs):
     artifact_suffix = "-j2cl"
     deps = [target[ImmutableJspbInfo].js]
     deps += [dep[J2clProtoInfo]._private_.j2cl.j2cl_info for dep in ctx.rule.attr.deps]
+    exports = [dep[J2clProtoInfo]._private_.j2cl.j2cl_info for dep in ctx.rule.attr.exports]
     transitive_runfiles = [target[ImmutableJspbInfo]._private_.runfiles]
     transitive_runfiles += [dep[J2clProtoInfo]._private_.j2cl.runfiles for dep in ctx.rule.attr.deps]
 
@@ -114,13 +118,14 @@ def _generate_jsinterop_j2cl_proto(ctx, target, srcs, transitive_srcs):
             ctx,
             srcs = [src_jar],
             deps = deps + runtime_deps,
+            exports = exports,
             artifact_suffix = artifact_suffix,
         )
     else:
         # Considers deps as exports in no srcs case.
         j2cl_provider = j2cl_common.compile(
             ctx,
-            exports = deps,
+            exports = deps + exports,
             artifact_suffix = artifact_suffix,
         )
         src_jar = None
@@ -182,7 +187,7 @@ def _generate_proto_srcjar(ctx, srcs, protobuf_implementation, artifact_suffix, 
 _j2cl_proto_library_aspect = aspect(
     implementation = _j2cl_proto_library_aspect_impl,
     required_aspect_providers = [ImmutableJspbInfo],
-    attr_aspects = ["deps"],
+    attr_aspects = ["deps", "exports"],
     provides = [J2clProtoInfo],
     attrs = dict(J2CL_TOOLCHAIN_ATTRS, **{
         "_j2cl_proto_implicit_deps": attr.label_list(
