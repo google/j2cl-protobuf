@@ -13,6 +13,10 @@ licenses(["notice"])  # Apache 2.0
 closure_js_library(
     name = "proto_asserts",
     srcs = ["proto_asserts.js"],
+    suppress = [
+        "lintChecks",
+        "superfluousSuppress",
+    ],
     deps = [
         "//java/com/google/protobuf/contrib/immutablejs:runtime",
         "//third_party:closure_testing_asserts",

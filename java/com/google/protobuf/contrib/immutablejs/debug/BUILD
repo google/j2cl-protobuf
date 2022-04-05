@@ -12,6 +12,10 @@ licenses(["notice"])  # Apache 2.0
 closure_js_library(
     name = "debug",
     srcs = ["debug.js"],
+    suppress = [
+        "lintChecks",
+        "superfluousSuppress",
+    ],
     tags = ["alt_dep=//java/com/google/protobuf/contrib/immutablejs:debug"],
     deps = [
         "//java/com/google/protobuf/contrib/immutablejs:runtime",

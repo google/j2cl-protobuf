@@ -10,6 +10,10 @@ package(
 closure_js_library(
     name = "timestamp",
     srcs = ["timestamp_utils.js"],
+    suppress = [
+        "lintChecks",
+        "superfluousSuppress",
+    ],
     tags = ["alt_dep=//java/com/google/protobuf/contrib/immutablejs:timestamp"],
     deps = [
         "//third_party:closure_math_long",

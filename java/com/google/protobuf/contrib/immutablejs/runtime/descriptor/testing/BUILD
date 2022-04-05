@@ -12,6 +12,10 @@ closure_js_library(
     name = "descriptors",
     testonly = 1,
     srcs = ["descriptors.js"],
+    suppress = [
+        "lintChecks",
+        "superfluousSuppress",
+    ],
     deps = [
         "//java/com/google/protobuf/contrib/immutablejs/runtime/descriptor",
         "//java/com/google/protobuf/contrib/immutablejs/runtime/descriptor:internal_constants",

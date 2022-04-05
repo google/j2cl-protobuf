@@ -13,21 +13,37 @@ licenses(["notice"])
 closure_js_library(
     name = "descriptor",
     srcs = ["descriptor.js"],
+    suppress = [
+        "lintChecks",
+        "superfluousSuppress",
+    ],
 )
 
 closure_js_library(
     name = "internal_constants",
     srcs = ["internal_constants.js"],
+    suppress = [
+        "lintChecks",
+        "superfluousSuppress",
+    ],
 )
 
 closure_js_library(
     name = "internal_encoded_constants",
     srcs = ["internal_encoded_constants.js"],
+    suppress = [
+        "lintChecks",
+        "superfluousSuppress",
+    ],
 )
 
 closure_js_library(
     name = "internal_descriptor",
     srcs = ["internal_descriptor.js"],
+    suppress = [
+        "lintChecks",
+        "superfluousSuppress",
+    ],
     deps = [
         ":descriptor",
         ":internal_constants",

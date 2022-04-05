@@ -14,11 +14,19 @@ licenses(["notice"])
 closure_js_library(
     name = "defines",
     srcs = ["defines.js"],
+    suppress = [
+        "lintChecks",
+        "superfluousSuppress",
+    ],
 )
 
 closure_js_library(
     name = "internal_checks",
     srcs = ["internal_checks.js"],
+    suppress = [
+        "lintChecks",
+        "superfluousSuppress",
+    ],
     deps = [
         ":defines",
         "//third_party:closure_math_long",
@@ -28,11 +36,19 @@ closure_js_library(
 closure_js_library(
     name = "equivalence",
     srcs = ["equivalence.js"],
+    suppress = [
+        "lintChecks",
+        "superfluousSuppress",
+    ],
 )
 
 closure_js_library(
     name = "hashing",
     srcs = ["hashing.js"],
+    suppress = [
+        "lintChecks",
+        "superfluousSuppress",
+    ],
     deps = [":internal_checks"],
 )
 
@@ -48,6 +64,10 @@ genrule(
 closure_js_library(
     name = "jspbkernel",
     srcs = [":gen_jspbkernel"],
+    suppress = [
+        "lintChecks",
+        "superfluousSuppress",
+    ],
     deps = [
         ":bytestring",
         ":equivalence",
@@ -67,12 +87,20 @@ closure_js_library(
 closure_js_library(
     name = "listview",
     srcs = ["listview.js"],
+    suppress = [
+        "lintChecks",
+        "superfluousSuppress",
+    ],
     deps = [":internal_checks"],
 )
 
 closure_js_library(
     name = "bytestring",
     srcs = ["bytestring.js"],
+    suppress = [
+        "lintChecks",
+        "superfluousSuppress",
+    ],
     deps = [
         ":hashing",
         ":internal_checks",
@@ -83,6 +111,10 @@ closure_js_library(
 closure_js_library(
     name = "fieldaccessor",
     srcs = ["fieldaccessor.js"],
+    suppress = [
+        "lintChecks",
+        "superfluousSuppress",
+    ],
     deps = [
         ":bytestring",
         ":internal_checks",
@@ -94,11 +126,19 @@ closure_js_library(
 closure_js_library(
     name = "mapview",
     srcs = ["mapview.js"],
+    suppress = [
+        "lintChecks",
+        "superfluousSuppress",
+    ],
 )
 
 closure_js_library(
     name = "message",
     srcs = ["message.js"],
+    suppress = [
+        "lintChecks",
+        "superfluousSuppress",
+    ],
     deps = [
         ":listview",
         "//third_party:closure_math_long",
@@ -128,6 +168,10 @@ genrule(
 closure_js_library(
     name = "internal_list",
     srcs = [":internal_list.js"],
+    suppress = [
+        "lintChecks",
+        "superfluousSuppress",
+    ],
     deps = [
         ":internal_checks",
         ":internal_mutablelistview",
@@ -139,6 +183,10 @@ closure_js_library(
 closure_js_library(
     name = "internal_map",
     srcs = ["internal_map.js"],
+    suppress = [
+        "lintChecks",
+        "superfluousSuppress",
+    ],
     deps = [
         ":internal_checks",
         ":internal_mutablemapview",
@@ -148,18 +196,30 @@ closure_js_library(
 closure_js_library(
     name = "internal_mutablelistview",
     srcs = [":internal_mutablelistview.js"],
+    suppress = [
+        "lintChecks",
+        "superfluousSuppress",
+    ],
     deps = [":listview"],
 )
 
 closure_js_library(
     name = "internal_mutablemapview",
     srcs = [":internal_mutablemapview.js"],
+    suppress = [
+        "lintChecks",
+        "superfluousSuppress",
+    ],
     deps = [":mapview"],
 )
 
 closure_js_library(
     name = "internal_message",
     srcs = [":gen_internal_message"],
+    suppress = [
+        "lintChecks",
+        "superfluousSuppress",
+    ],
     deps = [
         ":bytestring",
         ":internal_checks",

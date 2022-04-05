@@ -89,37 +89,37 @@ alias(
 
 alias(
     name = "closure_math_long",
-    actual = "@io_bazel_rules_closure//closure/library/math:long",
+    actual = "@com_google_javascript_closure_library//closure/goog/math:long",
 )
 
 alias(
     name = "closure_asserts",
-    actual = "@io_bazel_rules_closure//closure/library/asserts",
+    actual = "@com_google_javascript_closure_library//closure/goog/asserts",
 )
 
 alias(
     name = "closure_functions",
-    actual = "@io_bazel_rules_closure//closure/library/functions",
+    actual = "@com_google_javascript_closure_library//closure/goog/functions",
 )
 
 alias(
     name = "closure_reflect",
-    actual = "@io_bazel_rules_closure//closure/library/reflect",
+    actual = "@com_google_javascript_closure_library//closure/goog/reflect",
 )
 
 alias(
     name = "closure_testsuite",
-    actual = "@io_bazel_rules_closure//closure/library/testing:testsuite",
+    actual = "@com_google_javascript_closure_library//closure/goog/testing:testsuite",
 )
 
 alias(
     name = "closure_testing_asserts",
-    actual = "@io_bazel_rules_closure//closure/library/testing:asserts",
+    actual = "@com_google_javascript_closure_library//closure/goog/testing:asserts",
 )
 
 alias(
     name = "closure_crypt_base64",
-    actual = "@io_bazel_rules_closure//closure/library/crypt:base64",
+    actual = "@com_google_javascript_closure_library//closure/goog/crypt:base64",
 )
 
 alias(
