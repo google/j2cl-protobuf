@@ -2,7 +2,7 @@ syntax = "proto2";
 
 package protobuf.contrib.j2cl.integration;
 
-import public "third_party/java_src/j2cl_proto/javatests/com/google/protobuf/contrib/j2cl/integration/importpublic/bar.proto";
+import public "javatests/com/google/protobuf/contrib/j2cl/integration/importpublic/bar.proto";
 
 option java_api_version = 2;
 
