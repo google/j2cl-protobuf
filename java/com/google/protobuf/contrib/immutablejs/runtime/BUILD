@@ -1,12 +1,14 @@
 load("@io_bazel_rules_closure//closure:defs.bzl", "closure_js_library")
 
+IMMUTABLE_JS_INTERNAL_VISIBILITIES = [
+    "//java/com/google/protobuf/contrib/immutablejs:__pkg__",
+    "//java/com/google/protobuf/contrib/immutablejs:__subpackages__",
+    "//javatests/com/google/protobuf/contrib/immutablejs:__subpackages__",
+    "//javatests/com/google/protobuf/contrib/j2cl:__subpackages__",
+]
+
 package(
-    default_visibility = [
-        "//java/com/google/protobuf/contrib/immutablejs:__pkg__",
-        "//java/com/google/protobuf/contrib/immutablejs:__subpackages__",
-        "//javatests/com/google/protobuf/contrib/immutablejs:__subpackages__",
-        "//javatests/com/google/protobuf/contrib/j2cl:__subpackages__",
-    ],
+    default_visibility = IMMUTABLE_JS_INTERNAL_VISIBILITIES,
 )
 
 licenses(["notice"])
