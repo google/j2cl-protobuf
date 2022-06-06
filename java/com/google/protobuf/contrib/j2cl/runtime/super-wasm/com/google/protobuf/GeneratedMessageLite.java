@@ -127,6 +127,9 @@ public abstract class GeneratedMessageLite<
     if (other == this) {
       return true;
     }
+    if (other == null) {
+      return false;
+    }
     if (!other.getClass().equals(getClass())) {
       return false;
     }
