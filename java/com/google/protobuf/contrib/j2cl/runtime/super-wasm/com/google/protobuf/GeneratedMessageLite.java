@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 /** Baseclass for all J2Wasm java protos. */
 @SuppressWarnings("unchecked")
@@ -135,12 +134,21 @@ public abstract class GeneratedMessageLite<
     }
     final GeneratedMessageLite otherMessage = (GeneratedMessageLite) other;
 
-    return Objects.equals(fields, otherMessage.fields);
+    return fields.equals(otherMessage.fields);
   }
+
+  private int hashCode = 0;
 
   @Override
   public int hashCode() {
-    return Objects.hash(fields);
+    if (hashCode == 0) {
+      hashCode = fields.hashCode();
+      if (hashCode == 0) {
+        // Avoid recalculation.
+        hashCode = Integer.MAX_VALUE;
+      }
+    }
+    return hashCode;
   }
 
   private static <E> E checkNotNull(E value) {
