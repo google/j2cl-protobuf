@@ -314,8 +314,7 @@ class MessageFieldsTest {
         'payload', startProto.getOptionalMessage().getPayload());
   }
 
-  // TODO(b/235434054): Enable after the bug is fixed.
-  _disabled_testReferenceEquality_singleMessage() {
+  testReferenceEquality_singleMessage() {
     const builder = TestProto.newBuilder();
     assertTrue(builder.getOptionalMessage() === builder.getOptionalMessage());
 
@@ -356,7 +355,7 @@ class MessageFieldsTest {
 
     builder.clearOptionalMessage();
 
-    assertFalse(builder.getOptionalMessage() === builder.getOptionalMessage());
+    assertTrue(builder.getOptionalMessage() === builder.getOptionalMessage());
     assertFalse(buildMessage === builder.getOptionalMessage());
     assertFalse(childProto === builder.getOptionalMessage());
   }

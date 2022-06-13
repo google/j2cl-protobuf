@@ -982,6 +982,21 @@ public class ExtensionsTest {
   }
 
   @Test
+  public void testSingleMessageExtension_unsetReferenceEquality() {
+    Base.Builder baseBuilder = Base.newBuilder();
+
+    assertThat(baseBuilder.getExtension(Recursive.recursiveOptional))
+        .isSameInstanceAs(baseBuilder.getExtension(Recursive.recursiveOptional));
+    assertThat(baseBuilder.getExtension(Recursive.recursiveOptional))
+        .isSameInstanceAs(Base.getDefaultInstance());
+
+    assertThat(baseBuilder.build().getExtension(Recursive.recursiveOptional))
+        .isSameInstanceAs(baseBuilder.build().getExtension(Recursive.recursiveOptional));
+    assertThat(baseBuilder.build().getExtension(Recursive.recursiveOptional))
+        .isSameInstanceAs(Base.getDefaultInstance());
+  }
+
+  @Test
   public void testRepeatedMessageExtension_count_get() {
     Base.Builder baseBuilder = Base.newBuilder();
     assertThat(baseBuilder.getExtensionCount(Recursive.recursiveRepeated)).isEqualTo(0);

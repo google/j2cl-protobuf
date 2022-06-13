@@ -21,7 +21,6 @@ import com.google.protobuf.contrib.j2cl.protos.Accessor.TestProto.NestedMessage;
 import com.google.protobuf.contrib.j2cl.protos.Proto3Accessors.TestProto3;
 import java.util.Arrays;
 import java.util.List;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -313,7 +312,6 @@ public final class MessageFieldsTest {
     assertThrows(Exception.class, () -> nestedList.remove(0));
   }
 
-  @Ignore("b/235434054") // TODO(b/235434054): Enable after the bug is fixed.
   @Test
   public void testReferenceEquality_singleMessage() {
     var builder = TestProto.newBuilder();
@@ -355,8 +353,7 @@ public final class MessageFieldsTest {
 
     builder.clearOptionalMessage();
 
-    // TODO(b/235434054): Enable after the bug is fixed.
-    // assertThat(builder.getOptionalMessage()).isSameInstanceAs(builder.getOptionalMessage());
+    assertThat(builder.getOptionalMessage()).isSameInstanceAs(builder.getOptionalMessage());
     assertThat(builder.getOptionalMessage()).isNotSameInstanceAs(buildMessage);
     assertThat(builder.getOptionalMessage()).isNotSameInstanceAs(childProto);
   }

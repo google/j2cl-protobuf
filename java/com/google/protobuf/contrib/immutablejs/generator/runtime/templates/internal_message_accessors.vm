@@ -68,6 +68,9 @@
    * @return {T}
    */
   internal_getMessageField(fieldNumber, ctor) {
+    if (!this.kernel_.hasField(fieldNumber)) {
+      return InternalMessage.getDefaultInstanceForMessage(ctor);
+    }
     return this.kernel_.getMessageField(fieldNumber, ctor);
   }
 

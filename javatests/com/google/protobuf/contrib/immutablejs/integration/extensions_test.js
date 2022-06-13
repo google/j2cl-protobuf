@@ -1306,6 +1306,23 @@ class ExtensionsTest {
         false, baseBuilder.build().hasExtension(Recursive.recursiveOptional));
   }
 
+  testSingleMessageExtension_unsetReferenceEquality() {
+    const baseBuilder = Base.newBuilder();
+
+    assertTrue(
+        baseBuilder.getExtension(Recursive.recursiveOptional) ===
+        baseBuilder.getExtension(Recursive.recursiveOptional));
+    assertTrue(
+        baseBuilder.getExtension(Recursive.recursiveOptional) ===
+        Base.getDefaultInstance());
+    assertTrue(
+        baseBuilder.build().getExtension(Recursive.recursiveOptional) ===
+        baseBuilder.build().getExtension(Recursive.recursiveOptional));
+    assertTrue(
+        baseBuilder.build().getExtension(Recursive.recursiveOptional) ===
+        Base.getDefaultInstance());
+  }
+
   testRepeatedMessageExtension_count_get() {
     const baseBuilder = Base.newBuilder();
     assertEqualsForProto(
