@@ -127,41 +127,6 @@
 
   /**
    * @param {number} fieldNumber
-   * @param {function(new:T, !Array<*>)} ctor
-   * @protected
-   * @template T
-   * @return {T}
-   */
-  internal_getMessageField(fieldNumber, ctor) {
-    return this.kernel_.getMessageField(fieldNumber, ctor);
-  }
-
-  /**
-   * @param {number} fieldNumber
-   * @param {function(new:T, !Array<*>)} ctor
-   * @protected
-   * @template T
-   * @return {!Iterable<T>}
-   */
-  internal_getRepeatedMessageField(fieldNumber, ctor) {
-    return this.kernel_.getRepeatedMessageField(fieldNumber, ctor);
-  }
-
-  /**
-   * @param {number} fieldNumber
-   * @param {number} elementIndex
-   * @param {function(new:T, !Array<*>)} ctor
-   * @protected
-   * @template T
-   * @return {T}
-   */
-  internal_getMessageElement(fieldNumber, elementIndex, ctor) {
-    return this.kernel_.getRepeatedMessageField(fieldNumber, ctor)
-        .get(elementIndex);
-  }
-
-  /**
-   * @param {number} fieldNumber
    * @param {!InternalMessage|!InternalMessage.Builder} value
    * @protected
    * @return {BUILDER}
