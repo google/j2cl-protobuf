@@ -4,8 +4,8 @@
 #if ($enumDescriptor.isTopLevelClass())
 package $enumDescriptor.package;
 
+@javax.annotation.processing.Generated(value = "protoc-j2cl")
 #end
-
 #if ($enumDescriptor.isJsEnum())
   #set ($maybeJsOverlay = "@jsinterop.annotations.JsOverlay")
 

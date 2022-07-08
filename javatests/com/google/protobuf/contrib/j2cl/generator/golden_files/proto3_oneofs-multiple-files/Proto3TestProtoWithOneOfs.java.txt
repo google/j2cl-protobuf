@@ -1,5 +1,6 @@
 package com.google.protobuf.contrib.j2cl.protos;
 
+@javax.annotation.processing.Generated(value = "protoc-j2cl")
 @jsinterop.annotations.JsType(
     isNative = true,
     name = "Proto3TestProtoWithOneOfs",

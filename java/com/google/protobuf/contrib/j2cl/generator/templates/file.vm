@@ -4,6 +4,7 @@
 ##
 package $fileDescriptor.package;
 
+@javax.annotation.processing.Generated(value = "protoc-j2cl")
 #if (${fileDescriptor.hasExtensions()})
 @jsinterop.annotations.JsType(isNative = true, name = "$fileDescriptor.jsName", namespace = "$fileDescriptor.jsNameSpace")
 #end

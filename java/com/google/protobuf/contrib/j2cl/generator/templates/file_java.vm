@@ -4,6 +4,7 @@
 ##
 package $fileDescriptor.package;
 
+@javax.annotation.processing.Generated(value = "protoc-j2wasm")
 public final class $fileDescriptor.className {
 
 private ${fileDescriptor.className}() {}

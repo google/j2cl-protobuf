@@ -5,8 +5,9 @@
 #if ($descriptor.isTopLevelClass())
   #set ($static = '')
 package $descriptor.package;
-#end
 
+@javax.annotation.processing.Generated(value = "protoc-j2wasm")
+#end
 public $static final class $descriptor.name extends
 com.google.protobuf.GeneratedMessageLite<${descriptor.name}, ${descriptor.name}.Builder> {
 

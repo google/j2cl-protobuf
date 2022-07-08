@@ -4,8 +4,8 @@
 #if ($enumDescriptor.isTopLevelClass())
 package $enumDescriptor.package;
 
+@javax.annotation.processing.Generated(value = "protoc-j2wasm")
 #end
-
 public enum $enumDescriptor.name implements com.google.protobuf.ProtocolMessageEnum {
 
   #foreach($value in $enumDescriptor.distinctValues)

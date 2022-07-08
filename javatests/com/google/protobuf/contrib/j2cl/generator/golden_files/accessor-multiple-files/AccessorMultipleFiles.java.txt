@@ -1,5 +1,6 @@
 package com.google.protobuf.contrib.j2cl.protos;
 
+@javax.annotation.processing.Generated(value = "protoc-j2cl")
 public final class AccessorMultipleFiles {
 
   private AccessorMultipleFiles() {}

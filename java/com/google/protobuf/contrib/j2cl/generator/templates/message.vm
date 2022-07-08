@@ -5,8 +5,9 @@
 #if ($descriptor.isTopLevelClass())
   #set ($static = '')
 package $descriptor.package;
-#end
 
+@javax.annotation.processing.Generated(value = "protoc-j2cl")
+#end
 #if ($descriptor.isTopLevelMessage())
   @jsinterop.annotations.JsType(isNative=true, name = "$descriptor.jsName", namespace= "$descriptor.jsNameSpace")
 #else
