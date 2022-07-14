@@ -79,7 +79,10 @@ public final class Descriptors {
 
   public static boolean hasSubmessages(Descriptor descriptor) {
     return descriptor.getFields().stream()
-        .anyMatch(field -> field.getType() == FieldDescriptor.Type.MESSAGE);
+        .anyMatch(
+            field ->
+                field.getType() == FieldDescriptor.Type.MESSAGE
+                    || field.getType() == FieldDescriptor.Type.GROUP);
   }
 
   public static boolean isProto3(GenericDescriptor descriptor) {
