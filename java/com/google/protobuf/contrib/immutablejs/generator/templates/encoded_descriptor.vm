@@ -16,7 +16,7 @@ ${field.type.cycleSafeExpression}.getDescriptor,
 #if ($message.descriptorEncoder.canUseConciseEncoding())
 /** @return {!proto_im_Descriptor.Descriptor} */
 ${messageName}.getDescriptor = proto_im_InternalDescriptor.createGetDescriptorFn(
-    '${message.descriptorEncoder.encodedDescriptor})');
+    '${message.descriptorEncoder.encodedDescriptor}');
 #else
 #if ($message.isExtendable())
 /** @const {!proto_im_InternalDescriptor.ExtensionRegistry} */
