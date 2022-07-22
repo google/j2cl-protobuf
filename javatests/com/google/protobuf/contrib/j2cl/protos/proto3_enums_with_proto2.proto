@@ -11,7 +11,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-syntax = "proto3";
+syntax = "proto2";
 
 package protobuf.contrib.j2cl.protos;
 
@@ -22,6 +22,6 @@ option java_package = "com.google.protobuf.contrib.j2cl.protos";
 // REMOVED_BY_GENRULE option java_multiple_files = true;
 
 message Proto2TestProto {
-  Proto3EnumTestProto.Proto3TestEnum optional_proto3_enum = 1;
+  optional Proto3EnumTestProto.Proto3TestEnum optional_proto3_enum = 1;
   repeated Proto3EnumTestProto.Proto3TestEnum repeated_proto3_enum = 2;
 }
