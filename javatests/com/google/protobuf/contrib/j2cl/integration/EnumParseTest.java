@@ -20,6 +20,7 @@ import com.google.protobuf.contrib.j2cl.protos.Enums.EnumTestProto.NativeEnum;
 import com.google.protobuf.contrib.j2cl.protos.Enums.EnumTestProto.TestEnum;
 import com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto;
 import com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum;
+import com.google.protobuf.contrib.j2cl.protos.Proto3EnumsWithProto2.Proto2TestProto;
 import jsinterop.annotations.JsMethod;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -37,6 +38,11 @@ public final class EnumParseTest {
   // Js method here.
   @JsMethod(namespace = "improto.protobuf.contrib.j2cl.protos.Proto3EnumTestProto", name = "parse")
   private static native Proto3EnumTestProto parseProto3(String json);
+
+  // Since we currently have no way to instantiate a J2CL proto in Java code we simply use the
+  // Js method here.
+  @JsMethod(namespace = "improto.protobuf.contrib.j2cl.protos.Proto2TestProto", name = "parse")
+  private static native Proto2TestProto parseProto2(String json);
 
   @Test
   public void testParse() throws Exception {
@@ -97,6 +103,16 @@ public final class EnumParseTest {
         .inOrder();
     assertThat(parseProto3("[null,null,null,[100]]").getRepeatedNativeEnumList())
         .containsExactly(100.0)
+        .inOrder();
+
+    // TODO(b/239876871): Fix the generator so DEFAULT is returned instead of UNRECOGNIZED.
+    assertThat(parseProto2("[-1]").getOptionalProto3Enum()).isEqualTo(Proto3TestEnum.UNRECOGNIZED);
+    assertThat(parseProto2("[100]").getOptionalProto3Enum()).isEqualTo(Proto3TestEnum.UNRECOGNIZED);
+    assertThat(parseProto2("[null,[-1]]").getRepeatedProto3EnumList())
+        .containsExactly(Proto3TestEnum.UNRECOGNIZED)
+        .inOrder();
+    assertThat(parseProto2("[null,[100]]").getRepeatedProto3EnumList())
+        .containsExactly(Proto3TestEnum.UNRECOGNIZED)
         .inOrder();
   }
 }

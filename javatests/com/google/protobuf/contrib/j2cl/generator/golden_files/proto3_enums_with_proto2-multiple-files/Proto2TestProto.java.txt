@@ -1,0 +1,253 @@
+package com.google.protobuf.contrib.j2cl.protos;
+
+@javax.annotation.processing.Generated(value = "protoc-j2cl")
+@jsinterop.annotations.JsType(
+    isNative = true,
+    name = "Proto2TestProto",
+    namespace = "improto.protobuf.contrib.j2cl.protos")
+public final class Proto2TestProto
+    extends com.google.protobuf.GeneratedMessageLite<Proto2TestProto, Proto2TestProto.Builder> {
+
+  protected Proto2TestProto() {}
+
+  public static final native Proto2TestProto getDefaultInstance();
+
+  public native Builder toBuilder();
+
+  public static int OPTIONAL_PROTO3_ENUM_FIELD_NUMBER;
+  public static int REPEATED_PROTO3_ENUM_FIELD_NUMBER;
+
+  @jsinterop.annotations.JsOverlay
+  public final com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto
+          .Proto3TestEnum
+      getOptionalProto3Enum() {
+    return com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
+        .Internal_ClosureEnum.toEnum(
+        internal_getOptionalProto3Enum(),
+        com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
+            .UNRECOGNIZED);
+  }
+
+  @jsinterop.annotations.JsMethod(name = "getOptionalProto3Enum")
+  private native Object internal_getOptionalProto3Enum();
+
+  @jsinterop.annotations.JsOverlay
+  public final int getOptionalProto3EnumValue() {
+    return com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
+        .Internal_ClosureEnum.toIntValue(internal_getOptionalProto3Enum());
+  }
+
+  @jsinterop.annotations.JsMethod(name = "getRepeatedProto3EnumCount")
+  public native int getRepeatedProto3EnumCount();
+
+  @jsinterop.annotations.JsOverlay
+  public final com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto
+          .Proto3TestEnum
+      getRepeatedProto3Enum(int index) {
+    return com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
+        .Internal_ClosureEnum.toEnum(
+        internal_getRepeatedProto3Enum(index),
+        com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
+            .UNRECOGNIZED);
+  }
+
+  @jsinterop.annotations.JsMethod(name = "getRepeatedProto3Enum")
+  private native Object internal_getRepeatedProto3Enum(int index);
+
+  @jsinterop.annotations.JsOverlay
+  public final int getRepeatedProto3EnumValue(int index) {
+    return com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
+        .Internal_ClosureEnum.toIntValue(internal_getRepeatedProto3Enum(index));
+  }
+
+  @jsinterop.annotations.JsMethod(name = "getRepeatedProto3EnumList")
+  private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Object>
+      internal_getRepeatedProto3EnumList();
+
+  @jsinterop.annotations.JsOverlay
+  public final java.util.List<
+          com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum>
+      getRepeatedProto3EnumList() {
+    return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+        internal_getRepeatedProto3EnumList(),
+        (d) ->
+            com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
+                .Internal_ClosureEnum.toEnum(
+                d,
+                com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto
+                    .Proto3TestEnum.UNRECOGNIZED));
+  }
+
+  @jsinterop.annotations.JsMethod(name = "getDescriptor")
+  public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor getMiniDescriptor();
+
+  public static native Builder newBuilder();
+
+  public static native Builder newBuilder(Proto2TestProto prototype);
+
+  @jsinterop.annotations.JsType(isNative = true)
+  public static final class Builder
+      extends com.google.protobuf.GeneratedMessageLite.Builder<Proto2TestProto, Builder> {
+
+    protected Builder() {}
+
+    @jsinterop.annotations.JsOverlay
+    public final Proto2TestProto getDefaultInstanceForType() {
+      return getDefaultInstance();
+    }
+
+    @java.lang.Override
+    public native Proto2TestProto build();
+
+    @java.lang.Override
+    public native Builder clone();
+
+    @jsinterop.annotations.JsOverlay
+    public final com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto
+            .Proto3TestEnum
+        getOptionalProto3Enum() {
+      return com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
+          .Internal_ClosureEnum.toEnum(
+          internal_getOptionalProto3Enum(),
+          com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
+              .UNRECOGNIZED);
+    }
+
+    @jsinterop.annotations.JsMethod(name = "getOptionalProto3Enum")
+    private native Object internal_getOptionalProto3Enum();
+
+    @jsinterop.annotations.JsOverlay
+    public final int getOptionalProto3EnumValue() {
+      return com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
+          .Internal_ClosureEnum.toIntValue(internal_getOptionalProto3Enum());
+    }
+
+    @jsinterop.annotations.JsMethod(name = "clearOptionalProto3Enum")
+    public native Builder clearOptionalProto3Enum();
+
+    @jsinterop.annotations.JsOverlay
+    public final Builder setOptionalProto3Enum(
+        com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
+            value) {
+      return internal_setOptionalProto3Enum(
+          com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
+              .Internal_ClosureEnum.toClosureValue(value));
+    }
+
+    @jsinterop.annotations.JsOverlay
+    public final Builder setOptionalProto3EnumValue(int value) {
+      return internal_setOptionalProto3Enum(
+          com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
+              .Internal_ClosureEnum.toClosureValue(value));
+    }
+
+    @jsinterop.annotations.JsMethod(name = "setOptionalProto3Enum")
+    private native Builder internal_setOptionalProto3Enum(
+        com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
+                .Internal_ClosureEnum
+            value);
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedProto3EnumCount")
+    public native int getRepeatedProto3EnumCount();
+
+    @jsinterop.annotations.JsOverlay
+    public final com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto
+            .Proto3TestEnum
+        getRepeatedProto3Enum(int index) {
+      return com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
+          .Internal_ClosureEnum.toEnum(
+          internal_getRepeatedProto3Enum(index),
+          com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
+              .UNRECOGNIZED);
+    }
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedProto3Enum")
+    private native Object internal_getRepeatedProto3Enum(int index);
+
+    @jsinterop.annotations.JsOverlay
+    public final int getRepeatedProto3EnumValue(int index) {
+      return com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
+          .Internal_ClosureEnum.toIntValue(internal_getRepeatedProto3Enum(index));
+    }
+
+    @jsinterop.annotations.JsMethod(name = "getRepeatedProto3EnumList")
+    private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<java.lang.Object>
+        internal_getRepeatedProto3EnumList();
+
+    @jsinterop.annotations.JsOverlay
+    public final java.util.List<
+            com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum>
+        getRepeatedProto3EnumList() {
+      return com.google.protobuf.GeneratedMessageLite.Internal_.createList(
+          internal_getRepeatedProto3EnumList(),
+          (d) ->
+              com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
+                  .Internal_ClosureEnum.toEnum(
+                  d,
+                  com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto
+                      .Proto3TestEnum.UNRECOGNIZED));
+    }
+
+    @jsinterop.annotations.JsMethod(name = "clearRepeatedProto3Enum")
+    public native Builder clearRepeatedProto3Enum();
+
+    @jsinterop.annotations.JsOverlay
+    public final Builder setRepeatedProto3Enum(
+        int index,
+        com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
+            value) {
+      return internal_setRepeatedProto3Enum(
+          index,
+          com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
+              .Internal_ClosureEnum.toClosureValue(value));
+    }
+
+    @jsinterop.annotations.JsMethod(name = "setRepeatedProto3Enum")
+    private native Builder internal_setRepeatedProto3Enum(
+        int index,
+        com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
+                .Internal_ClosureEnum
+            value);
+
+    @jsinterop.annotations.JsOverlay
+    public final Builder addRepeatedProto3Enum(
+        com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
+            value) {
+      return internal_addRepeatedProto3Enum(
+          com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
+              .Internal_ClosureEnum.toClosureValue(value));
+    }
+
+    @jsinterop.annotations.JsOverlay
+    public final Builder addRepeatedProto3EnumValue(int value) {
+      return internal_addRepeatedProto3Enum(
+          com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
+              .Internal_ClosureEnum.toClosureValue(value));
+    }
+
+    @jsinterop.annotations.JsOverlay
+    public final Builder setRepeatedProto3EnumValue(int index, int value) {
+      return internal_setRepeatedProto3Enum(
+          index,
+          com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
+              .Internal_ClosureEnum.toClosureValue(value));
+    }
+
+    @jsinterop.annotations.JsMethod(name = "addRepeatedProto3Enum")
+    private native Builder internal_addRepeatedProto3Enum(
+        com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
+                .Internal_ClosureEnum
+            value);
+
+    @jsinterop.annotations.JsOverlay
+    public final Builder addAllRepeatedProto3Enum(
+        java.lang.Iterable<
+                com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto
+                    .Proto3TestEnum>
+            values) {
+      com.google.protobuf.GeneratedMessageLite.Internal_.addAll(
+          values, this::addRepeatedProto3Enum);
+      return this;
+    }
+  }
+}

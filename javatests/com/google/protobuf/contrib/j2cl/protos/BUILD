@@ -34,6 +34,15 @@ generate_protos(
 )
 
 generate_protos(
+    name = "proto3_enums_with_proto2",
+    proto_file = "proto3_enums_with_proto2.proto",
+    deps = [
+        ":proto3_enums",
+        "//java/com/google/protobuf/contrib/j2cl:options",
+    ],
+)
+
+generate_protos(
     name = "extensions",
     proto_file = "extensions.proto",
     deps = ["//java/com/google/protobuf/contrib/j2cl:options"],

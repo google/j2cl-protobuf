@@ -1,0 +1,7 @@
+package com.google.protobuf.contrib.j2cl.protos;
+
+@javax.annotation.processing.Generated(value = "protoc-j2cl")
+public final class Proto3EnumsWithProto2MultipleFiles {
+
+  private Proto3EnumsWithProto2MultipleFiles() {}
+}

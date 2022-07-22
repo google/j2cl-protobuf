@@ -114,6 +114,7 @@ j2cl_multi_test(
     proto_deps = [
         "//javatests/com/google/protobuf/contrib/j2cl/protos:enums",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:proto3_enums",
+        "//javatests/com/google/protobuf/contrib/j2cl/protos:proto3_enums_with_proto2",
     ],
     test_class = "com.google.protobuf.contrib.j2cl.integration.EnumParseTest",
     deps = [
