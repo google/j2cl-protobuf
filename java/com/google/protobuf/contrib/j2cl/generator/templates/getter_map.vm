@@ -1,9 +1,5 @@
 #set ($keyField = $field.keyField)
 #set ($valueField = $field.valueField)
-#set ($valueFieldJsType = ${valueField.unboxedType})
-#if ($valueField.isEnum())
-#set ($valueFieldJsType = "${valueFieldJsType}.Internal_ClosureEnum")
-#end
 
 @jsinterop.annotations.JsMethod(name = "get${field.jsName}Count")
 public native int get${field.name}Count();
@@ -11,32 +7,34 @@ public native int get${field.name}Count();
 @jsinterop.annotations.JsMethod(name = "contains${field.jsName}")
 public native boolean contains${field.name}(${keyField.unboxedType} key);
 
-@jsinterop.annotations.JsMethod(name = "get${field.jsName}OrThrow")
-private native ${valueFieldJsType} internal_get${field.name}OrThrow(
-    ${keyField.unboxedType} key);
-
-@jsinterop.annotations.JsOverlay
-public final ${valueField.unboxedType} get${field.name}OrThrow(${keyField.unboxedType} key) {
 #if ($valueField.isEnum())
-  return #convertToEnum( $valueField "internal_get${field.jsName}OrThrow(key)");
-#else
-  return internal_get${field.jsName}OrThrow(key);
-#end
-}
+  @jsinterop.annotations.JsOverlay
+  public final ${valueField.unboxedType} get${field.name}OrThrow(${keyField.unboxedType} key) {
+    return #convertToEnum( $valueField "internal_get${field.jsName}OrThrow(key)");
+  }
 
-@jsinterop.annotations.JsMethod(name = "get${field.jsName}OrDefault")
-private native ${valueField.unboxedType} internal_get${field.name}OrDefault(
-    ${keyField.unboxedType} key, ${valueFieldJsType} defaultValue);
+  @jsinterop.annotations.JsMethod(name = "get${field.jsName}OrThrow")
+  private native Object internal_get${field.name}OrThrow(
+      ${keyField.unboxedType} key);
 
-@jsinterop.annotations.JsOverlay
-public final ${valueField.unboxedType} get${field.name}OrDefault(
-    ${keyField.unboxedType} key, ${valueField.unboxedType} defaultValue) {
-#if ($valueField.isEnum())
-  return #convertToEnum($valueField "internal_get${field.jsName}OrDefault(key, #convertToClosureEnum( $valueField 'defaultValue' ))");
+  @jsinterop.annotations.JsOverlay
+  public final ${valueField.unboxedType} get${field.name}OrDefault(
+      ${keyField.unboxedType} key, ${valueField.unboxedType} defaultValue) {
+    return #convertToEnum($valueField "internal_get${field.jsName}OrDefault(key, #convertToClosureEnum( $valueField 'defaultValue' ))");
+  }
+
+  @jsinterop.annotations.JsMethod(name = "get${field.jsName}OrDefault")
+  private native Object internal_get${field.name}OrDefault(
+      ${keyField.unboxedType} key, Object defaultValue);
 #else
-  return internal_get${field.jsName}OrDefault(key, defaultValue);
+  @jsinterop.annotations.JsMethod(name = "get${field.jsName}OrThrow")
+  public native ${valueField.unboxedType} get${field.name}OrThrow(
+      ${keyField.unboxedType} key);
+
+  @jsinterop.annotations.JsMethod(name = "get${field.jsName}OrDefault")
+  public native ${valueField.unboxedType} get${field.name}OrDefault(
+      ${keyField.unboxedType} key, ${valueField.unboxedType} defaultValue);
 #end
-}
 
 @jsinterop.annotations.JsMethod(name = "get${field.jsName}Map")
 private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<${keyField.jsBoxedType}, ${valueField.jsBoxedType}> internal_get${field.name}Map();

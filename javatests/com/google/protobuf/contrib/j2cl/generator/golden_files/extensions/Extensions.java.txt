@@ -277,10 +277,7 @@ public final class Extensions {
       }
 
       @jsinterop.annotations.JsMethod(name = "setOptionalEnum")
-      private native Builder internal_setOptionalEnum(
-          com.google.protobuf.contrib.j2cl.protos.Extensions.Base.EmotionalState
-                  .Internal_ClosureEnum
-              value);
+      private native Builder internal_setOptionalEnum(Object value);
 
       @jsinterop.annotations.JsMethod(name = "hasOptionalInt")
       public native boolean hasOptionalInt();

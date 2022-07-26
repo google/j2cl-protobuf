@@ -11,7 +11,7 @@
   #end
 
   @jsinterop.annotations.JsMethod(name = "set${field.jsName}")
-  private native Builder internal_set${field.name}(${field.unboxedType}.Internal_ClosureEnum value);
+  private native Builder internal_set${field.name}(Object value);
 #else
   @jsinterop.annotations.JsMethod(name = "set${field.jsName}")
   public native Builder set${field.name}(${field.unboxedType} value);

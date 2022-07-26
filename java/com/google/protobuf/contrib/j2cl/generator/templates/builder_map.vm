@@ -8,7 +8,7 @@
   }
 
   @jsinterop.annotations.JsMethod(name = "put${field.jsName}")
-  private native Builder internal_put${field.name}(${keyField.unboxedType} key, ${valueField.unboxedType}.Internal_ClosureEnum value);
+  private native Builder internal_put${field.name}(${keyField.unboxedType} key, Object value);
 
 #else
 

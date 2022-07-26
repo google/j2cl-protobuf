@@ -601,9 +601,7 @@ public final class FieldNames {
       }
 
       @jsinterop.annotations.JsMethod(name = "setEnumLowerCaseUnderscore")
-      private native Builder internal_setEnumLowerCaseUnderscore(
-          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
-              value);
+      private native Builder internal_setEnumLowerCaseUnderscore(Object value);
 
       @jsinterop.annotations.JsMethod(name = "hasEnumLowerCaseCamel")
       public native boolean hasEnumLowerCaseCamel();
@@ -632,9 +630,7 @@ public final class FieldNames {
       }
 
       @jsinterop.annotations.JsMethod(name = "setEnumLowerCaseCamel")
-      private native Builder internal_setEnumLowerCaseCamel(
-          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
-              value);
+      private native Builder internal_setEnumLowerCaseCamel(Object value);
 
       @jsinterop.annotations.JsMethod(name = "hasEnumUpperCaseCamel")
       public native boolean hasEnumUpperCaseCamel();
@@ -663,9 +659,7 @@ public final class FieldNames {
       }
 
       @jsinterop.annotations.JsMethod(name = "setEnumUpperCaseCamel")
-      private native Builder internal_setEnumUpperCaseCamel(
-          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
-              value);
+      private native Builder internal_setEnumUpperCaseCamel(Object value);
 
       @jsinterop.annotations.JsMethod(name = "getRepeatedEnumLowerCaseUnderscoreCount")
       public native int getRepeatedEnumLowerCaseUnderscoreCount();
@@ -711,10 +705,7 @@ public final class FieldNames {
       }
 
       @jsinterop.annotations.JsMethod(name = "setRepeatedEnumLowerCaseUnderscore")
-      private native Builder internal_setRepeatedEnumLowerCaseUnderscore(
-          int index,
-          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
-              value);
+      private native Builder internal_setRepeatedEnumLowerCaseUnderscore(int index, Object value);
 
       @jsinterop.annotations.JsOverlay
       public final Builder addRepeatedEnumLowerCaseUnderscore(
@@ -725,9 +716,7 @@ public final class FieldNames {
       }
 
       @jsinterop.annotations.JsMethod(name = "addRepeatedEnumLowerCaseUnderscore")
-      private native Builder internal_addRepeatedEnumLowerCaseUnderscore(
-          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
-              value);
+      private native Builder internal_addRepeatedEnumLowerCaseUnderscore(Object value);
 
       @jsinterop.annotations.JsOverlay
       public final Builder addAllRepeatedEnumLowerCaseUnderscore(
@@ -782,10 +771,7 @@ public final class FieldNames {
       }
 
       @jsinterop.annotations.JsMethod(name = "setRepeatedEnumLowerCaseCamel")
-      private native Builder internal_setRepeatedEnumLowerCaseCamel(
-          int index,
-          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
-              value);
+      private native Builder internal_setRepeatedEnumLowerCaseCamel(int index, Object value);
 
       @jsinterop.annotations.JsOverlay
       public final Builder addRepeatedEnumLowerCaseCamel(
@@ -796,9 +782,7 @@ public final class FieldNames {
       }
 
       @jsinterop.annotations.JsMethod(name = "addRepeatedEnumLowerCaseCamel")
-      private native Builder internal_addRepeatedEnumLowerCaseCamel(
-          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
-              value);
+      private native Builder internal_addRepeatedEnumLowerCaseCamel(Object value);
 
       @jsinterop.annotations.JsOverlay
       public final Builder addAllRepeatedEnumLowerCaseCamel(
@@ -853,10 +837,7 @@ public final class FieldNames {
       }
 
       @jsinterop.annotations.JsMethod(name = "setRepeatedEnumUpperCaseCamel")
-      private native Builder internal_setRepeatedEnumUpperCaseCamel(
-          int index,
-          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
-              value);
+      private native Builder internal_setRepeatedEnumUpperCaseCamel(int index, Object value);
 
       @jsinterop.annotations.JsOverlay
       public final Builder addRepeatedEnumUpperCaseCamel(
@@ -867,9 +848,7 @@ public final class FieldNames {
       }
 
       @jsinterop.annotations.JsMethod(name = "addRepeatedEnumUpperCaseCamel")
-      private native Builder internal_addRepeatedEnumUpperCaseCamel(
-          com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.Internal_ClosureEnum
-              value);
+      private native Builder internal_addRepeatedEnumUpperCaseCamel(Object value);
 
       @jsinterop.annotations.JsOverlay
       public final Builder addAllRepeatedEnumUpperCaseCamel(

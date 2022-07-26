@@ -213,20 +213,10 @@ public final class Maps {
     public native boolean containsInt32KeyBoolValue(int key);
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyBoolValueOrThrow")
-    private native boolean internal_getInt32KeyBoolValueOrThrow(int key);
-
-    @jsinterop.annotations.JsOverlay
-    public final boolean getInt32KeyBoolValueOrThrow(int key) {
-      return internal_getInt32KeyBoolValueOrThrow(key);
-    }
+    public native boolean getInt32KeyBoolValueOrThrow(int key);
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyBoolValueOrDefault")
-    private native boolean internal_getInt32KeyBoolValueOrDefault(int key, boolean defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final boolean getInt32KeyBoolValueOrDefault(int key, boolean defaultValue) {
-      return internal_getInt32KeyBoolValueOrDefault(key, defaultValue);
-    }
+    public native boolean getInt32KeyBoolValueOrDefault(int key, boolean defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyBoolValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -246,20 +236,10 @@ public final class Maps {
     public native boolean containsInt32KeyInt32Value(int key);
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyInt32ValueOrThrow")
-    private native int internal_getInt32KeyInt32ValueOrThrow(int key);
-
-    @jsinterop.annotations.JsOverlay
-    public final int getInt32KeyInt32ValueOrThrow(int key) {
-      return internal_getInt32KeyInt32ValueOrThrow(key);
-    }
+    public native int getInt32KeyInt32ValueOrThrow(int key);
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyInt32ValueOrDefault")
-    private native int internal_getInt32KeyInt32ValueOrDefault(int key, int defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final int getInt32KeyInt32ValueOrDefault(int key, int defaultValue) {
-      return internal_getInt32KeyInt32ValueOrDefault(key, defaultValue);
-    }
+    public native int getInt32KeyInt32ValueOrDefault(int key, int defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyInt32ValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -279,20 +259,10 @@ public final class Maps {
     public native boolean containsInt32KeyInt64Value(int key);
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyInt64ValueOrThrow")
-    private native long internal_getInt32KeyInt64ValueOrThrow(int key);
-
-    @jsinterop.annotations.JsOverlay
-    public final long getInt32KeyInt64ValueOrThrow(int key) {
-      return internal_getInt32KeyInt64ValueOrThrow(key);
-    }
+    public native long getInt32KeyInt64ValueOrThrow(int key);
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyInt64ValueOrDefault")
-    private native long internal_getInt32KeyInt64ValueOrDefault(int key, long defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final long getInt32KeyInt64ValueOrDefault(int key, long defaultValue) {
-      return internal_getInt32KeyInt64ValueOrDefault(key, defaultValue);
-    }
+    public native long getInt32KeyInt64ValueOrDefault(int key, long defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyInt64ValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -312,20 +282,10 @@ public final class Maps {
     public native boolean containsInt32KeyFloatValue(int key);
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyFloatValueOrThrow")
-    private native float internal_getInt32KeyFloatValueOrThrow(int key);
-
-    @jsinterop.annotations.JsOverlay
-    public final float getInt32KeyFloatValueOrThrow(int key) {
-      return internal_getInt32KeyFloatValueOrThrow(key);
-    }
+    public native float getInt32KeyFloatValueOrThrow(int key);
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyFloatValueOrDefault")
-    private native float internal_getInt32KeyFloatValueOrDefault(int key, float defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final float getInt32KeyFloatValueOrDefault(int key, float defaultValue) {
-      return internal_getInt32KeyFloatValueOrDefault(key, defaultValue);
-    }
+    public native float getInt32KeyFloatValueOrDefault(int key, float defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyFloatValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -345,20 +305,10 @@ public final class Maps {
     public native boolean containsInt32KeyDoubleValue(int key);
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyDoubleValueOrThrow")
-    private native double internal_getInt32KeyDoubleValueOrThrow(int key);
-
-    @jsinterop.annotations.JsOverlay
-    public final double getInt32KeyDoubleValueOrThrow(int key) {
-      return internal_getInt32KeyDoubleValueOrThrow(key);
-    }
+    public native double getInt32KeyDoubleValueOrThrow(int key);
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyDoubleValueOrDefault")
-    private native double internal_getInt32KeyDoubleValueOrDefault(int key, double defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final double getInt32KeyDoubleValueOrDefault(int key, double defaultValue) {
-      return internal_getInt32KeyDoubleValueOrDefault(key, defaultValue);
-    }
+    public native double getInt32KeyDoubleValueOrDefault(int key, double defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyDoubleValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -378,22 +328,11 @@ public final class Maps {
     public native boolean containsInt32KeyStringValue(int key);
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyStringValueOrThrow")
-    private native java.lang.String internal_getInt32KeyStringValueOrThrow(int key);
-
-    @jsinterop.annotations.JsOverlay
-    public final java.lang.String getInt32KeyStringValueOrThrow(int key) {
-      return internal_getInt32KeyStringValueOrThrow(key);
-    }
+    public native java.lang.String getInt32KeyStringValueOrThrow(int key);
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyStringValueOrDefault")
-    private native java.lang.String internal_getInt32KeyStringValueOrDefault(
+    public native java.lang.String getInt32KeyStringValueOrDefault(
         int key, java.lang.String defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final java.lang.String getInt32KeyStringValueOrDefault(
-        int key, java.lang.String defaultValue) {
-      return internal_getInt32KeyStringValueOrDefault(key, defaultValue);
-    }
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyStringValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -413,22 +352,11 @@ public final class Maps {
     public native boolean containsInt32KeyBytesValue(int key);
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyBytesValueOrThrow")
-    private native com.google.protobuf.ByteString internal_getInt32KeyBytesValueOrThrow(int key);
-
-    @jsinterop.annotations.JsOverlay
-    public final com.google.protobuf.ByteString getInt32KeyBytesValueOrThrow(int key) {
-      return internal_getInt32KeyBytesValueOrThrow(key);
-    }
+    public native com.google.protobuf.ByteString getInt32KeyBytesValueOrThrow(int key);
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyBytesValueOrDefault")
-    private native com.google.protobuf.ByteString internal_getInt32KeyBytesValueOrDefault(
+    public native com.google.protobuf.ByteString getInt32KeyBytesValueOrDefault(
         int key, com.google.protobuf.ByteString defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final com.google.protobuf.ByteString getInt32KeyBytesValueOrDefault(
-        int key, com.google.protobuf.ByteString defaultValue) {
-      return internal_getInt32KeyBytesValueOrDefault(key, defaultValue);
-    }
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyBytesValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -449,20 +377,10 @@ public final class Maps {
     public native boolean containsInt32KeyUint32Value(int key);
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyUint32ValueOrThrow")
-    private native int internal_getInt32KeyUint32ValueOrThrow(int key);
-
-    @jsinterop.annotations.JsOverlay
-    public final int getInt32KeyUint32ValueOrThrow(int key) {
-      return internal_getInt32KeyUint32ValueOrThrow(key);
-    }
+    public native int getInt32KeyUint32ValueOrThrow(int key);
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyUint32ValueOrDefault")
-    private native int internal_getInt32KeyUint32ValueOrDefault(int key, int defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final int getInt32KeyUint32ValueOrDefault(int key, int defaultValue) {
-      return internal_getInt32KeyUint32ValueOrDefault(key, defaultValue);
-    }
+    public native int getInt32KeyUint32ValueOrDefault(int key, int defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyUint32ValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -482,20 +400,10 @@ public final class Maps {
     public native boolean containsInt32KeyUint64Value(int key);
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyUint64ValueOrThrow")
-    private native long internal_getInt32KeyUint64ValueOrThrow(int key);
-
-    @jsinterop.annotations.JsOverlay
-    public final long getInt32KeyUint64ValueOrThrow(int key) {
-      return internal_getInt32KeyUint64ValueOrThrow(key);
-    }
+    public native long getInt32KeyUint64ValueOrThrow(int key);
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyUint64ValueOrDefault")
-    private native long internal_getInt32KeyUint64ValueOrDefault(int key, long defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final long getInt32KeyUint64ValueOrDefault(int key, long defaultValue) {
-      return internal_getInt32KeyUint64ValueOrDefault(key, defaultValue);
-    }
+    public native long getInt32KeyUint64ValueOrDefault(int key, long defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyUint64ValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -514,11 +422,6 @@ public final class Maps {
     @jsinterop.annotations.JsMethod(name = "containsInt32KeyEnumValue")
     public native boolean containsInt32KeyEnumValue(int key);
 
-    @jsinterop.annotations.JsMethod(name = "getInt32KeyEnumValueOrThrow")
-    private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-            .Internal_ClosureEnum
-        internal_getInt32KeyEnumValueOrThrow(int key);
-
     @jsinterop.annotations.JsOverlay
     public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
         getInt32KeyEnumValueOrThrow(int key) {
@@ -528,12 +431,8 @@ public final class Maps {
               com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
     }
 
-    @jsinterop.annotations.JsMethod(name = "getInt32KeyEnumValueOrDefault")
-    private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-        internal_getInt32KeyEnumValueOrDefault(
-            int key,
-            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.Internal_ClosureEnum
-                defaultValue);
+    @jsinterop.annotations.JsMethod(name = "getInt32KeyEnumValueOrThrow")
+    private native Object internal_getInt32KeyEnumValueOrThrow(int key);
 
     @jsinterop.annotations.JsOverlay
     public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
@@ -548,6 +447,9 @@ public final class Maps {
                       .Internal_ClosureEnum.toClosureValue(defaultValue)),
               com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
     }
+
+    @jsinterop.annotations.JsMethod(name = "getInt32KeyEnumValueOrDefault")
+    private native Object internal_getInt32KeyEnumValueOrDefault(int key, Object defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyEnumValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -573,28 +475,14 @@ public final class Maps {
     public native boolean containsInt32KeyMessageValue(int key);
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyMessageValueOrThrow")
-    private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-        internal_getInt32KeyMessageValueOrThrow(int key);
-
-    @jsinterop.annotations.JsOverlay
-    public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-        getInt32KeyMessageValueOrThrow(int key) {
-      return internal_getInt32KeyMessageValueOrThrow(key);
-    }
+    public native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
+        getInt32KeyMessageValueOrThrow(int key);
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyMessageValueOrDefault")
-    private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-        internal_getInt32KeyMessageValueOrDefault(
-            int key,
-            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
+    public native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
         getInt32KeyMessageValueOrDefault(
             int key,
-            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage defaultValue) {
-      return internal_getInt32KeyMessageValueOrDefault(key, defaultValue);
-    }
+            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getInt32KeyMessageValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -618,20 +506,10 @@ public final class Maps {
     public native boolean containsInt64KeyBoolValue(long key);
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyBoolValueOrThrow")
-    private native boolean internal_getInt64KeyBoolValueOrThrow(long key);
-
-    @jsinterop.annotations.JsOverlay
-    public final boolean getInt64KeyBoolValueOrThrow(long key) {
-      return internal_getInt64KeyBoolValueOrThrow(key);
-    }
+    public native boolean getInt64KeyBoolValueOrThrow(long key);
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyBoolValueOrDefault")
-    private native boolean internal_getInt64KeyBoolValueOrDefault(long key, boolean defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final boolean getInt64KeyBoolValueOrDefault(long key, boolean defaultValue) {
-      return internal_getInt64KeyBoolValueOrDefault(key, defaultValue);
-    }
+    public native boolean getInt64KeyBoolValueOrDefault(long key, boolean defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyBoolValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -651,20 +529,10 @@ public final class Maps {
     public native boolean containsInt64KeyInt32Value(long key);
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyInt32ValueOrThrow")
-    private native int internal_getInt64KeyInt32ValueOrThrow(long key);
-
-    @jsinterop.annotations.JsOverlay
-    public final int getInt64KeyInt32ValueOrThrow(long key) {
-      return internal_getInt64KeyInt32ValueOrThrow(key);
-    }
+    public native int getInt64KeyInt32ValueOrThrow(long key);
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyInt32ValueOrDefault")
-    private native int internal_getInt64KeyInt32ValueOrDefault(long key, int defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final int getInt64KeyInt32ValueOrDefault(long key, int defaultValue) {
-      return internal_getInt64KeyInt32ValueOrDefault(key, defaultValue);
-    }
+    public native int getInt64KeyInt32ValueOrDefault(long key, int defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyInt32ValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -684,20 +552,10 @@ public final class Maps {
     public native boolean containsInt64KeyInt64Value(long key);
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyInt64ValueOrThrow")
-    private native long internal_getInt64KeyInt64ValueOrThrow(long key);
-
-    @jsinterop.annotations.JsOverlay
-    public final long getInt64KeyInt64ValueOrThrow(long key) {
-      return internal_getInt64KeyInt64ValueOrThrow(key);
-    }
+    public native long getInt64KeyInt64ValueOrThrow(long key);
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyInt64ValueOrDefault")
-    private native long internal_getInt64KeyInt64ValueOrDefault(long key, long defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final long getInt64KeyInt64ValueOrDefault(long key, long defaultValue) {
-      return internal_getInt64KeyInt64ValueOrDefault(key, defaultValue);
-    }
+    public native long getInt64KeyInt64ValueOrDefault(long key, long defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyInt64ValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -717,20 +575,10 @@ public final class Maps {
     public native boolean containsInt64KeyFloatValue(long key);
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyFloatValueOrThrow")
-    private native float internal_getInt64KeyFloatValueOrThrow(long key);
-
-    @jsinterop.annotations.JsOverlay
-    public final float getInt64KeyFloatValueOrThrow(long key) {
-      return internal_getInt64KeyFloatValueOrThrow(key);
-    }
+    public native float getInt64KeyFloatValueOrThrow(long key);
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyFloatValueOrDefault")
-    private native float internal_getInt64KeyFloatValueOrDefault(long key, float defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final float getInt64KeyFloatValueOrDefault(long key, float defaultValue) {
-      return internal_getInt64KeyFloatValueOrDefault(key, defaultValue);
-    }
+    public native float getInt64KeyFloatValueOrDefault(long key, float defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyFloatValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -750,20 +598,10 @@ public final class Maps {
     public native boolean containsInt64KeyDoubleValue(long key);
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyDoubleValueOrThrow")
-    private native double internal_getInt64KeyDoubleValueOrThrow(long key);
-
-    @jsinterop.annotations.JsOverlay
-    public final double getInt64KeyDoubleValueOrThrow(long key) {
-      return internal_getInt64KeyDoubleValueOrThrow(key);
-    }
+    public native double getInt64KeyDoubleValueOrThrow(long key);
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyDoubleValueOrDefault")
-    private native double internal_getInt64KeyDoubleValueOrDefault(long key, double defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final double getInt64KeyDoubleValueOrDefault(long key, double defaultValue) {
-      return internal_getInt64KeyDoubleValueOrDefault(key, defaultValue);
-    }
+    public native double getInt64KeyDoubleValueOrDefault(long key, double defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyDoubleValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -783,22 +621,11 @@ public final class Maps {
     public native boolean containsInt64KeyStringValue(long key);
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyStringValueOrThrow")
-    private native java.lang.String internal_getInt64KeyStringValueOrThrow(long key);
-
-    @jsinterop.annotations.JsOverlay
-    public final java.lang.String getInt64KeyStringValueOrThrow(long key) {
-      return internal_getInt64KeyStringValueOrThrow(key);
-    }
+    public native java.lang.String getInt64KeyStringValueOrThrow(long key);
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyStringValueOrDefault")
-    private native java.lang.String internal_getInt64KeyStringValueOrDefault(
+    public native java.lang.String getInt64KeyStringValueOrDefault(
         long key, java.lang.String defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final java.lang.String getInt64KeyStringValueOrDefault(
-        long key, java.lang.String defaultValue) {
-      return internal_getInt64KeyStringValueOrDefault(key, defaultValue);
-    }
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyStringValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -818,22 +645,11 @@ public final class Maps {
     public native boolean containsInt64KeyBytesValue(long key);
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyBytesValueOrThrow")
-    private native com.google.protobuf.ByteString internal_getInt64KeyBytesValueOrThrow(long key);
-
-    @jsinterop.annotations.JsOverlay
-    public final com.google.protobuf.ByteString getInt64KeyBytesValueOrThrow(long key) {
-      return internal_getInt64KeyBytesValueOrThrow(key);
-    }
+    public native com.google.protobuf.ByteString getInt64KeyBytesValueOrThrow(long key);
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyBytesValueOrDefault")
-    private native com.google.protobuf.ByteString internal_getInt64KeyBytesValueOrDefault(
+    public native com.google.protobuf.ByteString getInt64KeyBytesValueOrDefault(
         long key, com.google.protobuf.ByteString defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final com.google.protobuf.ByteString getInt64KeyBytesValueOrDefault(
-        long key, com.google.protobuf.ByteString defaultValue) {
-      return internal_getInt64KeyBytesValueOrDefault(key, defaultValue);
-    }
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyBytesValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -854,20 +670,10 @@ public final class Maps {
     public native boolean containsInt64KeyUint32Value(long key);
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyUint32ValueOrThrow")
-    private native int internal_getInt64KeyUint32ValueOrThrow(long key);
-
-    @jsinterop.annotations.JsOverlay
-    public final int getInt64KeyUint32ValueOrThrow(long key) {
-      return internal_getInt64KeyUint32ValueOrThrow(key);
-    }
+    public native int getInt64KeyUint32ValueOrThrow(long key);
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyUint32ValueOrDefault")
-    private native int internal_getInt64KeyUint32ValueOrDefault(long key, int defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final int getInt64KeyUint32ValueOrDefault(long key, int defaultValue) {
-      return internal_getInt64KeyUint32ValueOrDefault(key, defaultValue);
-    }
+    public native int getInt64KeyUint32ValueOrDefault(long key, int defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyUint32ValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -887,20 +693,10 @@ public final class Maps {
     public native boolean containsInt64KeyUint64Value(long key);
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyUint64ValueOrThrow")
-    private native long internal_getInt64KeyUint64ValueOrThrow(long key);
-
-    @jsinterop.annotations.JsOverlay
-    public final long getInt64KeyUint64ValueOrThrow(long key) {
-      return internal_getInt64KeyUint64ValueOrThrow(key);
-    }
+    public native long getInt64KeyUint64ValueOrThrow(long key);
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyUint64ValueOrDefault")
-    private native long internal_getInt64KeyUint64ValueOrDefault(long key, long defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final long getInt64KeyUint64ValueOrDefault(long key, long defaultValue) {
-      return internal_getInt64KeyUint64ValueOrDefault(key, defaultValue);
-    }
+    public native long getInt64KeyUint64ValueOrDefault(long key, long defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyUint64ValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -919,11 +715,6 @@ public final class Maps {
     @jsinterop.annotations.JsMethod(name = "containsInt64KeyEnumValue")
     public native boolean containsInt64KeyEnumValue(long key);
 
-    @jsinterop.annotations.JsMethod(name = "getInt64KeyEnumValueOrThrow")
-    private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-            .Internal_ClosureEnum
-        internal_getInt64KeyEnumValueOrThrow(long key);
-
     @jsinterop.annotations.JsOverlay
     public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
         getInt64KeyEnumValueOrThrow(long key) {
@@ -933,12 +724,8 @@ public final class Maps {
               com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
     }
 
-    @jsinterop.annotations.JsMethod(name = "getInt64KeyEnumValueOrDefault")
-    private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-        internal_getInt64KeyEnumValueOrDefault(
-            long key,
-            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.Internal_ClosureEnum
-                defaultValue);
+    @jsinterop.annotations.JsMethod(name = "getInt64KeyEnumValueOrThrow")
+    private native Object internal_getInt64KeyEnumValueOrThrow(long key);
 
     @jsinterop.annotations.JsOverlay
     public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
@@ -953,6 +740,9 @@ public final class Maps {
                       .Internal_ClosureEnum.toClosureValue(defaultValue)),
               com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
     }
+
+    @jsinterop.annotations.JsMethod(name = "getInt64KeyEnumValueOrDefault")
+    private native Object internal_getInt64KeyEnumValueOrDefault(long key, Object defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyEnumValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -978,28 +768,14 @@ public final class Maps {
     public native boolean containsInt64KeyMessageValue(long key);
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyMessageValueOrThrow")
-    private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-        internal_getInt64KeyMessageValueOrThrow(long key);
-
-    @jsinterop.annotations.JsOverlay
-    public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-        getInt64KeyMessageValueOrThrow(long key) {
-      return internal_getInt64KeyMessageValueOrThrow(key);
-    }
+    public native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
+        getInt64KeyMessageValueOrThrow(long key);
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyMessageValueOrDefault")
-    private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-        internal_getInt64KeyMessageValueOrDefault(
-            long key,
-            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
+    public native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
         getInt64KeyMessageValueOrDefault(
             long key,
-            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage defaultValue) {
-      return internal_getInt64KeyMessageValueOrDefault(key, defaultValue);
-    }
+            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getInt64KeyMessageValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -1022,20 +798,10 @@ public final class Maps {
     public native boolean containsUint64KeyBoolValue(long key);
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyBoolValueOrThrow")
-    private native boolean internal_getUint64KeyBoolValueOrThrow(long key);
-
-    @jsinterop.annotations.JsOverlay
-    public final boolean getUint64KeyBoolValueOrThrow(long key) {
-      return internal_getUint64KeyBoolValueOrThrow(key);
-    }
+    public native boolean getUint64KeyBoolValueOrThrow(long key);
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyBoolValueOrDefault")
-    private native boolean internal_getUint64KeyBoolValueOrDefault(long key, boolean defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final boolean getUint64KeyBoolValueOrDefault(long key, boolean defaultValue) {
-      return internal_getUint64KeyBoolValueOrDefault(key, defaultValue);
-    }
+    public native boolean getUint64KeyBoolValueOrDefault(long key, boolean defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyBoolValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -1055,20 +821,10 @@ public final class Maps {
     public native boolean containsUint64KeyInt32Value(long key);
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyInt32ValueOrThrow")
-    private native int internal_getUint64KeyInt32ValueOrThrow(long key);
-
-    @jsinterop.annotations.JsOverlay
-    public final int getUint64KeyInt32ValueOrThrow(long key) {
-      return internal_getUint64KeyInt32ValueOrThrow(key);
-    }
+    public native int getUint64KeyInt32ValueOrThrow(long key);
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyInt32ValueOrDefault")
-    private native int internal_getUint64KeyInt32ValueOrDefault(long key, int defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final int getUint64KeyInt32ValueOrDefault(long key, int defaultValue) {
-      return internal_getUint64KeyInt32ValueOrDefault(key, defaultValue);
-    }
+    public native int getUint64KeyInt32ValueOrDefault(long key, int defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyInt32ValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -1088,20 +844,10 @@ public final class Maps {
     public native boolean containsUint64KeyInt64Value(long key);
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyInt64ValueOrThrow")
-    private native long internal_getUint64KeyInt64ValueOrThrow(long key);
-
-    @jsinterop.annotations.JsOverlay
-    public final long getUint64KeyInt64ValueOrThrow(long key) {
-      return internal_getUint64KeyInt64ValueOrThrow(key);
-    }
+    public native long getUint64KeyInt64ValueOrThrow(long key);
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyInt64ValueOrDefault")
-    private native long internal_getUint64KeyInt64ValueOrDefault(long key, long defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final long getUint64KeyInt64ValueOrDefault(long key, long defaultValue) {
-      return internal_getUint64KeyInt64ValueOrDefault(key, defaultValue);
-    }
+    public native long getUint64KeyInt64ValueOrDefault(long key, long defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyInt64ValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -1121,20 +867,10 @@ public final class Maps {
     public native boolean containsUint64KeyFloatValue(long key);
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyFloatValueOrThrow")
-    private native float internal_getUint64KeyFloatValueOrThrow(long key);
-
-    @jsinterop.annotations.JsOverlay
-    public final float getUint64KeyFloatValueOrThrow(long key) {
-      return internal_getUint64KeyFloatValueOrThrow(key);
-    }
+    public native float getUint64KeyFloatValueOrThrow(long key);
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyFloatValueOrDefault")
-    private native float internal_getUint64KeyFloatValueOrDefault(long key, float defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final float getUint64KeyFloatValueOrDefault(long key, float defaultValue) {
-      return internal_getUint64KeyFloatValueOrDefault(key, defaultValue);
-    }
+    public native float getUint64KeyFloatValueOrDefault(long key, float defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyFloatValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -1154,20 +890,10 @@ public final class Maps {
     public native boolean containsUint64KeyDoubleValue(long key);
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyDoubleValueOrThrow")
-    private native double internal_getUint64KeyDoubleValueOrThrow(long key);
-
-    @jsinterop.annotations.JsOverlay
-    public final double getUint64KeyDoubleValueOrThrow(long key) {
-      return internal_getUint64KeyDoubleValueOrThrow(key);
-    }
+    public native double getUint64KeyDoubleValueOrThrow(long key);
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyDoubleValueOrDefault")
-    private native double internal_getUint64KeyDoubleValueOrDefault(long key, double defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final double getUint64KeyDoubleValueOrDefault(long key, double defaultValue) {
-      return internal_getUint64KeyDoubleValueOrDefault(key, defaultValue);
-    }
+    public native double getUint64KeyDoubleValueOrDefault(long key, double defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyDoubleValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -1187,22 +913,11 @@ public final class Maps {
     public native boolean containsUint64KeyStringValue(long key);
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyStringValueOrThrow")
-    private native java.lang.String internal_getUint64KeyStringValueOrThrow(long key);
-
-    @jsinterop.annotations.JsOverlay
-    public final java.lang.String getUint64KeyStringValueOrThrow(long key) {
-      return internal_getUint64KeyStringValueOrThrow(key);
-    }
+    public native java.lang.String getUint64KeyStringValueOrThrow(long key);
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyStringValueOrDefault")
-    private native java.lang.String internal_getUint64KeyStringValueOrDefault(
+    public native java.lang.String getUint64KeyStringValueOrDefault(
         long key, java.lang.String defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final java.lang.String getUint64KeyStringValueOrDefault(
-        long key, java.lang.String defaultValue) {
-      return internal_getUint64KeyStringValueOrDefault(key, defaultValue);
-    }
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyStringValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -1222,22 +937,11 @@ public final class Maps {
     public native boolean containsUint64KeyBytesValue(long key);
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyBytesValueOrThrow")
-    private native com.google.protobuf.ByteString internal_getUint64KeyBytesValueOrThrow(long key);
-
-    @jsinterop.annotations.JsOverlay
-    public final com.google.protobuf.ByteString getUint64KeyBytesValueOrThrow(long key) {
-      return internal_getUint64KeyBytesValueOrThrow(key);
-    }
+    public native com.google.protobuf.ByteString getUint64KeyBytesValueOrThrow(long key);
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyBytesValueOrDefault")
-    private native com.google.protobuf.ByteString internal_getUint64KeyBytesValueOrDefault(
+    public native com.google.protobuf.ByteString getUint64KeyBytesValueOrDefault(
         long key, com.google.protobuf.ByteString defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final com.google.protobuf.ByteString getUint64KeyBytesValueOrDefault(
-        long key, com.google.protobuf.ByteString defaultValue) {
-      return internal_getUint64KeyBytesValueOrDefault(key, defaultValue);
-    }
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyBytesValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -1258,20 +962,10 @@ public final class Maps {
     public native boolean containsUint64KeyUint32Value(long key);
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyUint32ValueOrThrow")
-    private native int internal_getUint64KeyUint32ValueOrThrow(long key);
-
-    @jsinterop.annotations.JsOverlay
-    public final int getUint64KeyUint32ValueOrThrow(long key) {
-      return internal_getUint64KeyUint32ValueOrThrow(key);
-    }
+    public native int getUint64KeyUint32ValueOrThrow(long key);
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyUint32ValueOrDefault")
-    private native int internal_getUint64KeyUint32ValueOrDefault(long key, int defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final int getUint64KeyUint32ValueOrDefault(long key, int defaultValue) {
-      return internal_getUint64KeyUint32ValueOrDefault(key, defaultValue);
-    }
+    public native int getUint64KeyUint32ValueOrDefault(long key, int defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyUint32ValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -1291,20 +985,10 @@ public final class Maps {
     public native boolean containsUint64KeyUint64Value(long key);
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyUint64ValueOrThrow")
-    private native long internal_getUint64KeyUint64ValueOrThrow(long key);
-
-    @jsinterop.annotations.JsOverlay
-    public final long getUint64KeyUint64ValueOrThrow(long key) {
-      return internal_getUint64KeyUint64ValueOrThrow(key);
-    }
+    public native long getUint64KeyUint64ValueOrThrow(long key);
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyUint64ValueOrDefault")
-    private native long internal_getUint64KeyUint64ValueOrDefault(long key, long defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final long getUint64KeyUint64ValueOrDefault(long key, long defaultValue) {
-      return internal_getUint64KeyUint64ValueOrDefault(key, defaultValue);
-    }
+    public native long getUint64KeyUint64ValueOrDefault(long key, long defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyUint64ValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -1323,11 +1007,6 @@ public final class Maps {
     @jsinterop.annotations.JsMethod(name = "containsUint64KeyEnumValue")
     public native boolean containsUint64KeyEnumValue(long key);
 
-    @jsinterop.annotations.JsMethod(name = "getUint64KeyEnumValueOrThrow")
-    private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-            .Internal_ClosureEnum
-        internal_getUint64KeyEnumValueOrThrow(long key);
-
     @jsinterop.annotations.JsOverlay
     public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
         getUint64KeyEnumValueOrThrow(long key) {
@@ -1337,12 +1016,8 @@ public final class Maps {
               com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
     }
 
-    @jsinterop.annotations.JsMethod(name = "getUint64KeyEnumValueOrDefault")
-    private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-        internal_getUint64KeyEnumValueOrDefault(
-            long key,
-            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.Internal_ClosureEnum
-                defaultValue);
+    @jsinterop.annotations.JsMethod(name = "getUint64KeyEnumValueOrThrow")
+    private native Object internal_getUint64KeyEnumValueOrThrow(long key);
 
     @jsinterop.annotations.JsOverlay
     public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
@@ -1357,6 +1032,9 @@ public final class Maps {
                       .Internal_ClosureEnum.toClosureValue(defaultValue)),
               com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
     }
+
+    @jsinterop.annotations.JsMethod(name = "getUint64KeyEnumValueOrDefault")
+    private native Object internal_getUint64KeyEnumValueOrDefault(long key, Object defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyEnumValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -1382,28 +1060,14 @@ public final class Maps {
     public native boolean containsUint64KeyMessageValue(long key);
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyMessageValueOrThrow")
-    private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-        internal_getUint64KeyMessageValueOrThrow(long key);
-
-    @jsinterop.annotations.JsOverlay
-    public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-        getUint64KeyMessageValueOrThrow(long key) {
-      return internal_getUint64KeyMessageValueOrThrow(key);
-    }
+    public native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
+        getUint64KeyMessageValueOrThrow(long key);
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyMessageValueOrDefault")
-    private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-        internal_getUint64KeyMessageValueOrDefault(
-            long key,
-            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
+    public native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
         getUint64KeyMessageValueOrDefault(
             long key,
-            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage defaultValue) {
-      return internal_getUint64KeyMessageValueOrDefault(key, defaultValue);
-    }
+            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getUint64KeyMessageValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -1426,20 +1090,10 @@ public final class Maps {
     public native boolean containsUint32KeyBoolValue(int key);
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyBoolValueOrThrow")
-    private native boolean internal_getUint32KeyBoolValueOrThrow(int key);
-
-    @jsinterop.annotations.JsOverlay
-    public final boolean getUint32KeyBoolValueOrThrow(int key) {
-      return internal_getUint32KeyBoolValueOrThrow(key);
-    }
+    public native boolean getUint32KeyBoolValueOrThrow(int key);
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyBoolValueOrDefault")
-    private native boolean internal_getUint32KeyBoolValueOrDefault(int key, boolean defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final boolean getUint32KeyBoolValueOrDefault(int key, boolean defaultValue) {
-      return internal_getUint32KeyBoolValueOrDefault(key, defaultValue);
-    }
+    public native boolean getUint32KeyBoolValueOrDefault(int key, boolean defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyBoolValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -1459,20 +1113,10 @@ public final class Maps {
     public native boolean containsUint32KeyInt32Value(int key);
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyInt32ValueOrThrow")
-    private native int internal_getUint32KeyInt32ValueOrThrow(int key);
-
-    @jsinterop.annotations.JsOverlay
-    public final int getUint32KeyInt32ValueOrThrow(int key) {
-      return internal_getUint32KeyInt32ValueOrThrow(key);
-    }
+    public native int getUint32KeyInt32ValueOrThrow(int key);
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyInt32ValueOrDefault")
-    private native int internal_getUint32KeyInt32ValueOrDefault(int key, int defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final int getUint32KeyInt32ValueOrDefault(int key, int defaultValue) {
-      return internal_getUint32KeyInt32ValueOrDefault(key, defaultValue);
-    }
+    public native int getUint32KeyInt32ValueOrDefault(int key, int defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyInt32ValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -1492,20 +1136,10 @@ public final class Maps {
     public native boolean containsUint32KeyInt64Value(int key);
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyInt64ValueOrThrow")
-    private native long internal_getUint32KeyInt64ValueOrThrow(int key);
-
-    @jsinterop.annotations.JsOverlay
-    public final long getUint32KeyInt64ValueOrThrow(int key) {
-      return internal_getUint32KeyInt64ValueOrThrow(key);
-    }
+    public native long getUint32KeyInt64ValueOrThrow(int key);
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyInt64ValueOrDefault")
-    private native long internal_getUint32KeyInt64ValueOrDefault(int key, long defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final long getUint32KeyInt64ValueOrDefault(int key, long defaultValue) {
-      return internal_getUint32KeyInt64ValueOrDefault(key, defaultValue);
-    }
+    public native long getUint32KeyInt64ValueOrDefault(int key, long defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyInt64ValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -1525,20 +1159,10 @@ public final class Maps {
     public native boolean containsUint32KeyFloatValue(int key);
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyFloatValueOrThrow")
-    private native float internal_getUint32KeyFloatValueOrThrow(int key);
-
-    @jsinterop.annotations.JsOverlay
-    public final float getUint32KeyFloatValueOrThrow(int key) {
-      return internal_getUint32KeyFloatValueOrThrow(key);
-    }
+    public native float getUint32KeyFloatValueOrThrow(int key);
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyFloatValueOrDefault")
-    private native float internal_getUint32KeyFloatValueOrDefault(int key, float defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final float getUint32KeyFloatValueOrDefault(int key, float defaultValue) {
-      return internal_getUint32KeyFloatValueOrDefault(key, defaultValue);
-    }
+    public native float getUint32KeyFloatValueOrDefault(int key, float defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyFloatValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -1558,20 +1182,10 @@ public final class Maps {
     public native boolean containsUint32KeyDoubleValue(int key);
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyDoubleValueOrThrow")
-    private native double internal_getUint32KeyDoubleValueOrThrow(int key);
-
-    @jsinterop.annotations.JsOverlay
-    public final double getUint32KeyDoubleValueOrThrow(int key) {
-      return internal_getUint32KeyDoubleValueOrThrow(key);
-    }
+    public native double getUint32KeyDoubleValueOrThrow(int key);
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyDoubleValueOrDefault")
-    private native double internal_getUint32KeyDoubleValueOrDefault(int key, double defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final double getUint32KeyDoubleValueOrDefault(int key, double defaultValue) {
-      return internal_getUint32KeyDoubleValueOrDefault(key, defaultValue);
-    }
+    public native double getUint32KeyDoubleValueOrDefault(int key, double defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyDoubleValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -1591,22 +1205,11 @@ public final class Maps {
     public native boolean containsUint32KeyStringValue(int key);
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyStringValueOrThrow")
-    private native java.lang.String internal_getUint32KeyStringValueOrThrow(int key);
-
-    @jsinterop.annotations.JsOverlay
-    public final java.lang.String getUint32KeyStringValueOrThrow(int key) {
-      return internal_getUint32KeyStringValueOrThrow(key);
-    }
+    public native java.lang.String getUint32KeyStringValueOrThrow(int key);
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyStringValueOrDefault")
-    private native java.lang.String internal_getUint32KeyStringValueOrDefault(
+    public native java.lang.String getUint32KeyStringValueOrDefault(
         int key, java.lang.String defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final java.lang.String getUint32KeyStringValueOrDefault(
-        int key, java.lang.String defaultValue) {
-      return internal_getUint32KeyStringValueOrDefault(key, defaultValue);
-    }
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyStringValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -1626,22 +1229,11 @@ public final class Maps {
     public native boolean containsUint32KeyBytesValue(int key);
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyBytesValueOrThrow")
-    private native com.google.protobuf.ByteString internal_getUint32KeyBytesValueOrThrow(int key);
-
-    @jsinterop.annotations.JsOverlay
-    public final com.google.protobuf.ByteString getUint32KeyBytesValueOrThrow(int key) {
-      return internal_getUint32KeyBytesValueOrThrow(key);
-    }
+    public native com.google.protobuf.ByteString getUint32KeyBytesValueOrThrow(int key);
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyBytesValueOrDefault")
-    private native com.google.protobuf.ByteString internal_getUint32KeyBytesValueOrDefault(
+    public native com.google.protobuf.ByteString getUint32KeyBytesValueOrDefault(
         int key, com.google.protobuf.ByteString defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final com.google.protobuf.ByteString getUint32KeyBytesValueOrDefault(
-        int key, com.google.protobuf.ByteString defaultValue) {
-      return internal_getUint32KeyBytesValueOrDefault(key, defaultValue);
-    }
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyBytesValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -1662,20 +1254,10 @@ public final class Maps {
     public native boolean containsUint32KeyUint32Value(int key);
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyUint32ValueOrThrow")
-    private native int internal_getUint32KeyUint32ValueOrThrow(int key);
-
-    @jsinterop.annotations.JsOverlay
-    public final int getUint32KeyUint32ValueOrThrow(int key) {
-      return internal_getUint32KeyUint32ValueOrThrow(key);
-    }
+    public native int getUint32KeyUint32ValueOrThrow(int key);
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyUint32ValueOrDefault")
-    private native int internal_getUint32KeyUint32ValueOrDefault(int key, int defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final int getUint32KeyUint32ValueOrDefault(int key, int defaultValue) {
-      return internal_getUint32KeyUint32ValueOrDefault(key, defaultValue);
-    }
+    public native int getUint32KeyUint32ValueOrDefault(int key, int defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyUint32ValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -1695,20 +1277,10 @@ public final class Maps {
     public native boolean containsUint32KeyUint64Value(int key);
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyUint64ValueOrThrow")
-    private native long internal_getUint32KeyUint64ValueOrThrow(int key);
-
-    @jsinterop.annotations.JsOverlay
-    public final long getUint32KeyUint64ValueOrThrow(int key) {
-      return internal_getUint32KeyUint64ValueOrThrow(key);
-    }
+    public native long getUint32KeyUint64ValueOrThrow(int key);
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyUint64ValueOrDefault")
-    private native long internal_getUint32KeyUint64ValueOrDefault(int key, long defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final long getUint32KeyUint64ValueOrDefault(int key, long defaultValue) {
-      return internal_getUint32KeyUint64ValueOrDefault(key, defaultValue);
-    }
+    public native long getUint32KeyUint64ValueOrDefault(int key, long defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyUint64ValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -1727,11 +1299,6 @@ public final class Maps {
     @jsinterop.annotations.JsMethod(name = "containsUint32KeyEnumValue")
     public native boolean containsUint32KeyEnumValue(int key);
 
-    @jsinterop.annotations.JsMethod(name = "getUint32KeyEnumValueOrThrow")
-    private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-            .Internal_ClosureEnum
-        internal_getUint32KeyEnumValueOrThrow(int key);
-
     @jsinterop.annotations.JsOverlay
     public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
         getUint32KeyEnumValueOrThrow(int key) {
@@ -1741,12 +1308,8 @@ public final class Maps {
               com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
     }
 
-    @jsinterop.annotations.JsMethod(name = "getUint32KeyEnumValueOrDefault")
-    private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-        internal_getUint32KeyEnumValueOrDefault(
-            int key,
-            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.Internal_ClosureEnum
-                defaultValue);
+    @jsinterop.annotations.JsMethod(name = "getUint32KeyEnumValueOrThrow")
+    private native Object internal_getUint32KeyEnumValueOrThrow(int key);
 
     @jsinterop.annotations.JsOverlay
     public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
@@ -1761,6 +1324,9 @@ public final class Maps {
                       .Internal_ClosureEnum.toClosureValue(defaultValue)),
               com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
     }
+
+    @jsinterop.annotations.JsMethod(name = "getUint32KeyEnumValueOrDefault")
+    private native Object internal_getUint32KeyEnumValueOrDefault(int key, Object defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyEnumValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -1786,28 +1352,14 @@ public final class Maps {
     public native boolean containsUint32KeyMessageValue(int key);
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyMessageValueOrThrow")
-    private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-        internal_getUint32KeyMessageValueOrThrow(int key);
-
-    @jsinterop.annotations.JsOverlay
-    public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-        getUint32KeyMessageValueOrThrow(int key) {
-      return internal_getUint32KeyMessageValueOrThrow(key);
-    }
+    public native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
+        getUint32KeyMessageValueOrThrow(int key);
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyMessageValueOrDefault")
-    private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-        internal_getUint32KeyMessageValueOrDefault(
-            int key,
-            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
+    public native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
         getUint32KeyMessageValueOrDefault(
             int key,
-            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage defaultValue) {
-      return internal_getUint32KeyMessageValueOrDefault(key, defaultValue);
-    }
+            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getUint32KeyMessageValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -1831,22 +1383,11 @@ public final class Maps {
     public native boolean containsStringKeyBoolValue(java.lang.String key);
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyBoolValueOrThrow")
-    private native boolean internal_getStringKeyBoolValueOrThrow(java.lang.String key);
-
-    @jsinterop.annotations.JsOverlay
-    public final boolean getStringKeyBoolValueOrThrow(java.lang.String key) {
-      return internal_getStringKeyBoolValueOrThrow(key);
-    }
+    public native boolean getStringKeyBoolValueOrThrow(java.lang.String key);
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyBoolValueOrDefault")
-    private native boolean internal_getStringKeyBoolValueOrDefault(
+    public native boolean getStringKeyBoolValueOrDefault(
         java.lang.String key, boolean defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final boolean getStringKeyBoolValueOrDefault(
-        java.lang.String key, boolean defaultValue) {
-      return internal_getStringKeyBoolValueOrDefault(key, defaultValue);
-    }
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyBoolValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -1866,21 +1407,10 @@ public final class Maps {
     public native boolean containsStringKeyInt32Value(java.lang.String key);
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyInt32ValueOrThrow")
-    private native int internal_getStringKeyInt32ValueOrThrow(java.lang.String key);
-
-    @jsinterop.annotations.JsOverlay
-    public final int getStringKeyInt32ValueOrThrow(java.lang.String key) {
-      return internal_getStringKeyInt32ValueOrThrow(key);
-    }
+    public native int getStringKeyInt32ValueOrThrow(java.lang.String key);
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyInt32ValueOrDefault")
-    private native int internal_getStringKeyInt32ValueOrDefault(
-        java.lang.String key, int defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final int getStringKeyInt32ValueOrDefault(java.lang.String key, int defaultValue) {
-      return internal_getStringKeyInt32ValueOrDefault(key, defaultValue);
-    }
+    public native int getStringKeyInt32ValueOrDefault(java.lang.String key, int defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyInt32ValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -1900,21 +1430,10 @@ public final class Maps {
     public native boolean containsStringKeyInt64Value(java.lang.String key);
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyInt64ValueOrThrow")
-    private native long internal_getStringKeyInt64ValueOrThrow(java.lang.String key);
-
-    @jsinterop.annotations.JsOverlay
-    public final long getStringKeyInt64ValueOrThrow(java.lang.String key) {
-      return internal_getStringKeyInt64ValueOrThrow(key);
-    }
+    public native long getStringKeyInt64ValueOrThrow(java.lang.String key);
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyInt64ValueOrDefault")
-    private native long internal_getStringKeyInt64ValueOrDefault(
-        java.lang.String key, long defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final long getStringKeyInt64ValueOrDefault(java.lang.String key, long defaultValue) {
-      return internal_getStringKeyInt64ValueOrDefault(key, defaultValue);
-    }
+    public native long getStringKeyInt64ValueOrDefault(java.lang.String key, long defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyInt64ValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -1934,21 +1453,10 @@ public final class Maps {
     public native boolean containsStringKeyFloatValue(java.lang.String key);
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyFloatValueOrThrow")
-    private native float internal_getStringKeyFloatValueOrThrow(java.lang.String key);
-
-    @jsinterop.annotations.JsOverlay
-    public final float getStringKeyFloatValueOrThrow(java.lang.String key) {
-      return internal_getStringKeyFloatValueOrThrow(key);
-    }
+    public native float getStringKeyFloatValueOrThrow(java.lang.String key);
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyFloatValueOrDefault")
-    private native float internal_getStringKeyFloatValueOrDefault(
-        java.lang.String key, float defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final float getStringKeyFloatValueOrDefault(java.lang.String key, float defaultValue) {
-      return internal_getStringKeyFloatValueOrDefault(key, defaultValue);
-    }
+    public native float getStringKeyFloatValueOrDefault(java.lang.String key, float defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyFloatValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -1968,22 +1476,11 @@ public final class Maps {
     public native boolean containsStringKeyDoubleValue(java.lang.String key);
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyDoubleValueOrThrow")
-    private native double internal_getStringKeyDoubleValueOrThrow(java.lang.String key);
-
-    @jsinterop.annotations.JsOverlay
-    public final double getStringKeyDoubleValueOrThrow(java.lang.String key) {
-      return internal_getStringKeyDoubleValueOrThrow(key);
-    }
+    public native double getStringKeyDoubleValueOrThrow(java.lang.String key);
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyDoubleValueOrDefault")
-    private native double internal_getStringKeyDoubleValueOrDefault(
+    public native double getStringKeyDoubleValueOrDefault(
         java.lang.String key, double defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final double getStringKeyDoubleValueOrDefault(
-        java.lang.String key, double defaultValue) {
-      return internal_getStringKeyDoubleValueOrDefault(key, defaultValue);
-    }
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyDoubleValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -2003,22 +1500,11 @@ public final class Maps {
     public native boolean containsStringKeyStringValue(java.lang.String key);
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyStringValueOrThrow")
-    private native java.lang.String internal_getStringKeyStringValueOrThrow(java.lang.String key);
-
-    @jsinterop.annotations.JsOverlay
-    public final java.lang.String getStringKeyStringValueOrThrow(java.lang.String key) {
-      return internal_getStringKeyStringValueOrThrow(key);
-    }
+    public native java.lang.String getStringKeyStringValueOrThrow(java.lang.String key);
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyStringValueOrDefault")
-    private native java.lang.String internal_getStringKeyStringValueOrDefault(
+    public native java.lang.String getStringKeyStringValueOrDefault(
         java.lang.String key, java.lang.String defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final java.lang.String getStringKeyStringValueOrDefault(
-        java.lang.String key, java.lang.String defaultValue) {
-      return internal_getStringKeyStringValueOrDefault(key, defaultValue);
-    }
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyStringValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -2038,24 +1524,12 @@ public final class Maps {
     public native boolean containsStringKeyBytesValue(java.lang.String key);
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyBytesValueOrThrow")
-    private native com.google.protobuf.ByteString internal_getStringKeyBytesValueOrThrow(
+    public native com.google.protobuf.ByteString getStringKeyBytesValueOrThrow(
         java.lang.String key);
 
-    @jsinterop.annotations.JsOverlay
-    public final com.google.protobuf.ByteString getStringKeyBytesValueOrThrow(
-        java.lang.String key) {
-      return internal_getStringKeyBytesValueOrThrow(key);
-    }
-
     @jsinterop.annotations.JsMethod(name = "getStringKeyBytesValueOrDefault")
-    private native com.google.protobuf.ByteString internal_getStringKeyBytesValueOrDefault(
+    public native com.google.protobuf.ByteString getStringKeyBytesValueOrDefault(
         java.lang.String key, com.google.protobuf.ByteString defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final com.google.protobuf.ByteString getStringKeyBytesValueOrDefault(
-        java.lang.String key, com.google.protobuf.ByteString defaultValue) {
-      return internal_getStringKeyBytesValueOrDefault(key, defaultValue);
-    }
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyBytesValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -2076,21 +1550,10 @@ public final class Maps {
     public native boolean containsStringKeyUint32Value(java.lang.String key);
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyUint32ValueOrThrow")
-    private native int internal_getStringKeyUint32ValueOrThrow(java.lang.String key);
-
-    @jsinterop.annotations.JsOverlay
-    public final int getStringKeyUint32ValueOrThrow(java.lang.String key) {
-      return internal_getStringKeyUint32ValueOrThrow(key);
-    }
+    public native int getStringKeyUint32ValueOrThrow(java.lang.String key);
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyUint32ValueOrDefault")
-    private native int internal_getStringKeyUint32ValueOrDefault(
-        java.lang.String key, int defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final int getStringKeyUint32ValueOrDefault(java.lang.String key, int defaultValue) {
-      return internal_getStringKeyUint32ValueOrDefault(key, defaultValue);
-    }
+    public native int getStringKeyUint32ValueOrDefault(java.lang.String key, int defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyUint32ValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -2110,21 +1573,10 @@ public final class Maps {
     public native boolean containsStringKeyUint64Value(java.lang.String key);
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyUint64ValueOrThrow")
-    private native long internal_getStringKeyUint64ValueOrThrow(java.lang.String key);
-
-    @jsinterop.annotations.JsOverlay
-    public final long getStringKeyUint64ValueOrThrow(java.lang.String key) {
-      return internal_getStringKeyUint64ValueOrThrow(key);
-    }
+    public native long getStringKeyUint64ValueOrThrow(java.lang.String key);
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyUint64ValueOrDefault")
-    private native long internal_getStringKeyUint64ValueOrDefault(
-        java.lang.String key, long defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final long getStringKeyUint64ValueOrDefault(java.lang.String key, long defaultValue) {
-      return internal_getStringKeyUint64ValueOrDefault(key, defaultValue);
-    }
+    public native long getStringKeyUint64ValueOrDefault(java.lang.String key, long defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyUint64ValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -2143,11 +1595,6 @@ public final class Maps {
     @jsinterop.annotations.JsMethod(name = "containsStringKeyEnumValue")
     public native boolean containsStringKeyEnumValue(java.lang.String key);
 
-    @jsinterop.annotations.JsMethod(name = "getStringKeyEnumValueOrThrow")
-    private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-            .Internal_ClosureEnum
-        internal_getStringKeyEnumValueOrThrow(java.lang.String key);
-
     @jsinterop.annotations.JsOverlay
     public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
         getStringKeyEnumValueOrThrow(java.lang.String key) {
@@ -2157,12 +1604,8 @@ public final class Maps {
               com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
     }
 
-    @jsinterop.annotations.JsMethod(name = "getStringKeyEnumValueOrDefault")
-    private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-        internal_getStringKeyEnumValueOrDefault(
-            java.lang.String key,
-            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.Internal_ClosureEnum
-                defaultValue);
+    @jsinterop.annotations.JsMethod(name = "getStringKeyEnumValueOrThrow")
+    private native Object internal_getStringKeyEnumValueOrThrow(java.lang.String key);
 
     @jsinterop.annotations.JsOverlay
     public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
@@ -2177,6 +1620,10 @@ public final class Maps {
                       .Internal_ClosureEnum.toClosureValue(defaultValue)),
               com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
     }
+
+    @jsinterop.annotations.JsMethod(name = "getStringKeyEnumValueOrDefault")
+    private native Object internal_getStringKeyEnumValueOrDefault(
+        java.lang.String key, Object defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyEnumValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -2202,28 +1649,14 @@ public final class Maps {
     public native boolean containsStringKeyMessageValue(java.lang.String key);
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyMessageValueOrThrow")
-    private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-        internal_getStringKeyMessageValueOrThrow(java.lang.String key);
-
-    @jsinterop.annotations.JsOverlay
-    public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-        getStringKeyMessageValueOrThrow(java.lang.String key) {
-      return internal_getStringKeyMessageValueOrThrow(key);
-    }
+    public native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
+        getStringKeyMessageValueOrThrow(java.lang.String key);
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyMessageValueOrDefault")
-    private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-        internal_getStringKeyMessageValueOrDefault(
-            java.lang.String key,
-            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
+    public native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
         getStringKeyMessageValueOrDefault(
             java.lang.String key,
-            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage defaultValue) {
-      return internal_getStringKeyMessageValueOrDefault(key, defaultValue);
-    }
+            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getStringKeyMessageValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -2247,20 +1680,10 @@ public final class Maps {
     public native boolean containsBoolKeyBoolValue(boolean key);
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyBoolValueOrThrow")
-    private native boolean internal_getBoolKeyBoolValueOrThrow(boolean key);
-
-    @jsinterop.annotations.JsOverlay
-    public final boolean getBoolKeyBoolValueOrThrow(boolean key) {
-      return internal_getBoolKeyBoolValueOrThrow(key);
-    }
+    public native boolean getBoolKeyBoolValueOrThrow(boolean key);
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyBoolValueOrDefault")
-    private native boolean internal_getBoolKeyBoolValueOrDefault(boolean key, boolean defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final boolean getBoolKeyBoolValueOrDefault(boolean key, boolean defaultValue) {
-      return internal_getBoolKeyBoolValueOrDefault(key, defaultValue);
-    }
+    public native boolean getBoolKeyBoolValueOrDefault(boolean key, boolean defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyBoolValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -2280,20 +1703,10 @@ public final class Maps {
     public native boolean containsBoolKeyInt32Value(boolean key);
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyInt32ValueOrThrow")
-    private native int internal_getBoolKeyInt32ValueOrThrow(boolean key);
-
-    @jsinterop.annotations.JsOverlay
-    public final int getBoolKeyInt32ValueOrThrow(boolean key) {
-      return internal_getBoolKeyInt32ValueOrThrow(key);
-    }
+    public native int getBoolKeyInt32ValueOrThrow(boolean key);
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyInt32ValueOrDefault")
-    private native int internal_getBoolKeyInt32ValueOrDefault(boolean key, int defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final int getBoolKeyInt32ValueOrDefault(boolean key, int defaultValue) {
-      return internal_getBoolKeyInt32ValueOrDefault(key, defaultValue);
-    }
+    public native int getBoolKeyInt32ValueOrDefault(boolean key, int defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyInt32ValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -2313,20 +1726,10 @@ public final class Maps {
     public native boolean containsBoolKeyInt64Value(boolean key);
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyInt64ValueOrThrow")
-    private native long internal_getBoolKeyInt64ValueOrThrow(boolean key);
-
-    @jsinterop.annotations.JsOverlay
-    public final long getBoolKeyInt64ValueOrThrow(boolean key) {
-      return internal_getBoolKeyInt64ValueOrThrow(key);
-    }
+    public native long getBoolKeyInt64ValueOrThrow(boolean key);
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyInt64ValueOrDefault")
-    private native long internal_getBoolKeyInt64ValueOrDefault(boolean key, long defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final long getBoolKeyInt64ValueOrDefault(boolean key, long defaultValue) {
-      return internal_getBoolKeyInt64ValueOrDefault(key, defaultValue);
-    }
+    public native long getBoolKeyInt64ValueOrDefault(boolean key, long defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyInt64ValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -2346,20 +1749,10 @@ public final class Maps {
     public native boolean containsBoolKeyFloatValue(boolean key);
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyFloatValueOrThrow")
-    private native float internal_getBoolKeyFloatValueOrThrow(boolean key);
-
-    @jsinterop.annotations.JsOverlay
-    public final float getBoolKeyFloatValueOrThrow(boolean key) {
-      return internal_getBoolKeyFloatValueOrThrow(key);
-    }
+    public native float getBoolKeyFloatValueOrThrow(boolean key);
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyFloatValueOrDefault")
-    private native float internal_getBoolKeyFloatValueOrDefault(boolean key, float defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final float getBoolKeyFloatValueOrDefault(boolean key, float defaultValue) {
-      return internal_getBoolKeyFloatValueOrDefault(key, defaultValue);
-    }
+    public native float getBoolKeyFloatValueOrDefault(boolean key, float defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyFloatValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -2379,20 +1772,10 @@ public final class Maps {
     public native boolean containsBoolKeyDoubleValue(boolean key);
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyDoubleValueOrThrow")
-    private native double internal_getBoolKeyDoubleValueOrThrow(boolean key);
-
-    @jsinterop.annotations.JsOverlay
-    public final double getBoolKeyDoubleValueOrThrow(boolean key) {
-      return internal_getBoolKeyDoubleValueOrThrow(key);
-    }
+    public native double getBoolKeyDoubleValueOrThrow(boolean key);
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyDoubleValueOrDefault")
-    private native double internal_getBoolKeyDoubleValueOrDefault(boolean key, double defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final double getBoolKeyDoubleValueOrDefault(boolean key, double defaultValue) {
-      return internal_getBoolKeyDoubleValueOrDefault(key, defaultValue);
-    }
+    public native double getBoolKeyDoubleValueOrDefault(boolean key, double defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyDoubleValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -2412,22 +1795,11 @@ public final class Maps {
     public native boolean containsBoolKeyStringValue(boolean key);
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyStringValueOrThrow")
-    private native java.lang.String internal_getBoolKeyStringValueOrThrow(boolean key);
-
-    @jsinterop.annotations.JsOverlay
-    public final java.lang.String getBoolKeyStringValueOrThrow(boolean key) {
-      return internal_getBoolKeyStringValueOrThrow(key);
-    }
+    public native java.lang.String getBoolKeyStringValueOrThrow(boolean key);
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyStringValueOrDefault")
-    private native java.lang.String internal_getBoolKeyStringValueOrDefault(
+    public native java.lang.String getBoolKeyStringValueOrDefault(
         boolean key, java.lang.String defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final java.lang.String getBoolKeyStringValueOrDefault(
-        boolean key, java.lang.String defaultValue) {
-      return internal_getBoolKeyStringValueOrDefault(key, defaultValue);
-    }
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyStringValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -2447,22 +1819,11 @@ public final class Maps {
     public native boolean containsBoolKeyBytesValue(boolean key);
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyBytesValueOrThrow")
-    private native com.google.protobuf.ByteString internal_getBoolKeyBytesValueOrThrow(boolean key);
-
-    @jsinterop.annotations.JsOverlay
-    public final com.google.protobuf.ByteString getBoolKeyBytesValueOrThrow(boolean key) {
-      return internal_getBoolKeyBytesValueOrThrow(key);
-    }
+    public native com.google.protobuf.ByteString getBoolKeyBytesValueOrThrow(boolean key);
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyBytesValueOrDefault")
-    private native com.google.protobuf.ByteString internal_getBoolKeyBytesValueOrDefault(
+    public native com.google.protobuf.ByteString getBoolKeyBytesValueOrDefault(
         boolean key, com.google.protobuf.ByteString defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final com.google.protobuf.ByteString getBoolKeyBytesValueOrDefault(
-        boolean key, com.google.protobuf.ByteString defaultValue) {
-      return internal_getBoolKeyBytesValueOrDefault(key, defaultValue);
-    }
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyBytesValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -2483,20 +1844,10 @@ public final class Maps {
     public native boolean containsBoolKeyUint32Value(boolean key);
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyUint32ValueOrThrow")
-    private native int internal_getBoolKeyUint32ValueOrThrow(boolean key);
-
-    @jsinterop.annotations.JsOverlay
-    public final int getBoolKeyUint32ValueOrThrow(boolean key) {
-      return internal_getBoolKeyUint32ValueOrThrow(key);
-    }
+    public native int getBoolKeyUint32ValueOrThrow(boolean key);
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyUint32ValueOrDefault")
-    private native int internal_getBoolKeyUint32ValueOrDefault(boolean key, int defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final int getBoolKeyUint32ValueOrDefault(boolean key, int defaultValue) {
-      return internal_getBoolKeyUint32ValueOrDefault(key, defaultValue);
-    }
+    public native int getBoolKeyUint32ValueOrDefault(boolean key, int defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyUint32ValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -2516,20 +1867,10 @@ public final class Maps {
     public native boolean containsBoolKeyUint64Value(boolean key);
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyUint64ValueOrThrow")
-    private native long internal_getBoolKeyUint64ValueOrThrow(boolean key);
-
-    @jsinterop.annotations.JsOverlay
-    public final long getBoolKeyUint64ValueOrThrow(boolean key) {
-      return internal_getBoolKeyUint64ValueOrThrow(key);
-    }
+    public native long getBoolKeyUint64ValueOrThrow(boolean key);
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyUint64ValueOrDefault")
-    private native long internal_getBoolKeyUint64ValueOrDefault(boolean key, long defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final long getBoolKeyUint64ValueOrDefault(boolean key, long defaultValue) {
-      return internal_getBoolKeyUint64ValueOrDefault(key, defaultValue);
-    }
+    public native long getBoolKeyUint64ValueOrDefault(boolean key, long defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyUint64ValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -2548,11 +1889,6 @@ public final class Maps {
     @jsinterop.annotations.JsMethod(name = "containsBoolKeyEnumValue")
     public native boolean containsBoolKeyEnumValue(boolean key);
 
-    @jsinterop.annotations.JsMethod(name = "getBoolKeyEnumValueOrThrow")
-    private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-            .Internal_ClosureEnum
-        internal_getBoolKeyEnumValueOrThrow(boolean key);
-
     @jsinterop.annotations.JsOverlay
     public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
         getBoolKeyEnumValueOrThrow(boolean key) {
@@ -2562,12 +1898,8 @@ public final class Maps {
               com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
     }
 
-    @jsinterop.annotations.JsMethod(name = "getBoolKeyEnumValueOrDefault")
-    private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-        internal_getBoolKeyEnumValueOrDefault(
-            boolean key,
-            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.Internal_ClosureEnum
-                defaultValue);
+    @jsinterop.annotations.JsMethod(name = "getBoolKeyEnumValueOrThrow")
+    private native Object internal_getBoolKeyEnumValueOrThrow(boolean key);
 
     @jsinterop.annotations.JsOverlay
     public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
@@ -2582,6 +1914,9 @@ public final class Maps {
                       .Internal_ClosureEnum.toClosureValue(defaultValue)),
               com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
     }
+
+    @jsinterop.annotations.JsMethod(name = "getBoolKeyEnumValueOrDefault")
+    private native Object internal_getBoolKeyEnumValueOrDefault(boolean key, Object defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyEnumValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -2607,28 +1942,14 @@ public final class Maps {
     public native boolean containsBoolKeyMessageValue(boolean key);
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyMessageValueOrThrow")
-    private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-        internal_getBoolKeyMessageValueOrThrow(boolean key);
-
-    @jsinterop.annotations.JsOverlay
-    public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-        getBoolKeyMessageValueOrThrow(boolean key) {
-      return internal_getBoolKeyMessageValueOrThrow(key);
-    }
+    public native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
+        getBoolKeyMessageValueOrThrow(boolean key);
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyMessageValueOrDefault")
-    private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-        internal_getBoolKeyMessageValueOrDefault(
-            boolean key,
-            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage defaultValue);
-
-    @jsinterop.annotations.JsOverlay
-    public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
+    public native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
         getBoolKeyMessageValueOrDefault(
             boolean key,
-            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage defaultValue) {
-      return internal_getBoolKeyMessageValueOrDefault(key, defaultValue);
-    }
+            com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage defaultValue);
 
     @jsinterop.annotations.JsMethod(name = "getBoolKeyMessageValueMap")
     private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -2677,20 +1998,10 @@ public final class Maps {
       public native boolean containsInt32KeyBoolValue(int key);
 
       @jsinterop.annotations.JsMethod(name = "getInt32KeyBoolValueOrThrow")
-      private native boolean internal_getInt32KeyBoolValueOrThrow(int key);
-
-      @jsinterop.annotations.JsOverlay
-      public final boolean getInt32KeyBoolValueOrThrow(int key) {
-        return internal_getInt32KeyBoolValueOrThrow(key);
-      }
+      public native boolean getInt32KeyBoolValueOrThrow(int key);
 
       @jsinterop.annotations.JsMethod(name = "getInt32KeyBoolValueOrDefault")
-      private native boolean internal_getInt32KeyBoolValueOrDefault(int key, boolean defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final boolean getInt32KeyBoolValueOrDefault(int key, boolean defaultValue) {
-        return internal_getInt32KeyBoolValueOrDefault(key, defaultValue);
-      }
+      public native boolean getInt32KeyBoolValueOrDefault(int key, boolean defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getInt32KeyBoolValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -2729,20 +2040,10 @@ public final class Maps {
       public native boolean containsInt32KeyInt32Value(int key);
 
       @jsinterop.annotations.JsMethod(name = "getInt32KeyInt32ValueOrThrow")
-      private native int internal_getInt32KeyInt32ValueOrThrow(int key);
-
-      @jsinterop.annotations.JsOverlay
-      public final int getInt32KeyInt32ValueOrThrow(int key) {
-        return internal_getInt32KeyInt32ValueOrThrow(key);
-      }
+      public native int getInt32KeyInt32ValueOrThrow(int key);
 
       @jsinterop.annotations.JsMethod(name = "getInt32KeyInt32ValueOrDefault")
-      private native int internal_getInt32KeyInt32ValueOrDefault(int key, int defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final int getInt32KeyInt32ValueOrDefault(int key, int defaultValue) {
-        return internal_getInt32KeyInt32ValueOrDefault(key, defaultValue);
-      }
+      public native int getInt32KeyInt32ValueOrDefault(int key, int defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getInt32KeyInt32ValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -2781,20 +2082,10 @@ public final class Maps {
       public native boolean containsInt32KeyInt64Value(int key);
 
       @jsinterop.annotations.JsMethod(name = "getInt32KeyInt64ValueOrThrow")
-      private native long internal_getInt32KeyInt64ValueOrThrow(int key);
-
-      @jsinterop.annotations.JsOverlay
-      public final long getInt32KeyInt64ValueOrThrow(int key) {
-        return internal_getInt32KeyInt64ValueOrThrow(key);
-      }
+      public native long getInt32KeyInt64ValueOrThrow(int key);
 
       @jsinterop.annotations.JsMethod(name = "getInt32KeyInt64ValueOrDefault")
-      private native long internal_getInt32KeyInt64ValueOrDefault(int key, long defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final long getInt32KeyInt64ValueOrDefault(int key, long defaultValue) {
-        return internal_getInt32KeyInt64ValueOrDefault(key, defaultValue);
-      }
+      public native long getInt32KeyInt64ValueOrDefault(int key, long defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getInt32KeyInt64ValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -2833,20 +2124,10 @@ public final class Maps {
       public native boolean containsInt32KeyFloatValue(int key);
 
       @jsinterop.annotations.JsMethod(name = "getInt32KeyFloatValueOrThrow")
-      private native float internal_getInt32KeyFloatValueOrThrow(int key);
-
-      @jsinterop.annotations.JsOverlay
-      public final float getInt32KeyFloatValueOrThrow(int key) {
-        return internal_getInt32KeyFloatValueOrThrow(key);
-      }
+      public native float getInt32KeyFloatValueOrThrow(int key);
 
       @jsinterop.annotations.JsMethod(name = "getInt32KeyFloatValueOrDefault")
-      private native float internal_getInt32KeyFloatValueOrDefault(int key, float defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final float getInt32KeyFloatValueOrDefault(int key, float defaultValue) {
-        return internal_getInt32KeyFloatValueOrDefault(key, defaultValue);
-      }
+      public native float getInt32KeyFloatValueOrDefault(int key, float defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getInt32KeyFloatValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -2885,20 +2166,10 @@ public final class Maps {
       public native boolean containsInt32KeyDoubleValue(int key);
 
       @jsinterop.annotations.JsMethod(name = "getInt32KeyDoubleValueOrThrow")
-      private native double internal_getInt32KeyDoubleValueOrThrow(int key);
-
-      @jsinterop.annotations.JsOverlay
-      public final double getInt32KeyDoubleValueOrThrow(int key) {
-        return internal_getInt32KeyDoubleValueOrThrow(key);
-      }
+      public native double getInt32KeyDoubleValueOrThrow(int key);
 
       @jsinterop.annotations.JsMethod(name = "getInt32KeyDoubleValueOrDefault")
-      private native double internal_getInt32KeyDoubleValueOrDefault(int key, double defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final double getInt32KeyDoubleValueOrDefault(int key, double defaultValue) {
-        return internal_getInt32KeyDoubleValueOrDefault(key, defaultValue);
-      }
+      public native double getInt32KeyDoubleValueOrDefault(int key, double defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getInt32KeyDoubleValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -2937,22 +2208,11 @@ public final class Maps {
       public native boolean containsInt32KeyStringValue(int key);
 
       @jsinterop.annotations.JsMethod(name = "getInt32KeyStringValueOrThrow")
-      private native java.lang.String internal_getInt32KeyStringValueOrThrow(int key);
-
-      @jsinterop.annotations.JsOverlay
-      public final java.lang.String getInt32KeyStringValueOrThrow(int key) {
-        return internal_getInt32KeyStringValueOrThrow(key);
-      }
+      public native java.lang.String getInt32KeyStringValueOrThrow(int key);
 
       @jsinterop.annotations.JsMethod(name = "getInt32KeyStringValueOrDefault")
-      private native java.lang.String internal_getInt32KeyStringValueOrDefault(
+      public native java.lang.String getInt32KeyStringValueOrDefault(
           int key, java.lang.String defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final java.lang.String getInt32KeyStringValueOrDefault(
-          int key, java.lang.String defaultValue) {
-        return internal_getInt32KeyStringValueOrDefault(key, defaultValue);
-      }
 
       @jsinterop.annotations.JsMethod(name = "getInt32KeyStringValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -2991,22 +2251,11 @@ public final class Maps {
       public native boolean containsInt32KeyBytesValue(int key);
 
       @jsinterop.annotations.JsMethod(name = "getInt32KeyBytesValueOrThrow")
-      private native com.google.protobuf.ByteString internal_getInt32KeyBytesValueOrThrow(int key);
-
-      @jsinterop.annotations.JsOverlay
-      public final com.google.protobuf.ByteString getInt32KeyBytesValueOrThrow(int key) {
-        return internal_getInt32KeyBytesValueOrThrow(key);
-      }
+      public native com.google.protobuf.ByteString getInt32KeyBytesValueOrThrow(int key);
 
       @jsinterop.annotations.JsMethod(name = "getInt32KeyBytesValueOrDefault")
-      private native com.google.protobuf.ByteString internal_getInt32KeyBytesValueOrDefault(
+      public native com.google.protobuf.ByteString getInt32KeyBytesValueOrDefault(
           int key, com.google.protobuf.ByteString defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final com.google.protobuf.ByteString getInt32KeyBytesValueOrDefault(
-          int key, com.google.protobuf.ByteString defaultValue) {
-        return internal_getInt32KeyBytesValueOrDefault(key, defaultValue);
-      }
 
       @jsinterop.annotations.JsMethod(name = "getInt32KeyBytesValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -3046,20 +2295,10 @@ public final class Maps {
       public native boolean containsInt32KeyUint32Value(int key);
 
       @jsinterop.annotations.JsMethod(name = "getInt32KeyUint32ValueOrThrow")
-      private native int internal_getInt32KeyUint32ValueOrThrow(int key);
-
-      @jsinterop.annotations.JsOverlay
-      public final int getInt32KeyUint32ValueOrThrow(int key) {
-        return internal_getInt32KeyUint32ValueOrThrow(key);
-      }
+      public native int getInt32KeyUint32ValueOrThrow(int key);
 
       @jsinterop.annotations.JsMethod(name = "getInt32KeyUint32ValueOrDefault")
-      private native int internal_getInt32KeyUint32ValueOrDefault(int key, int defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final int getInt32KeyUint32ValueOrDefault(int key, int defaultValue) {
-        return internal_getInt32KeyUint32ValueOrDefault(key, defaultValue);
-      }
+      public native int getInt32KeyUint32ValueOrDefault(int key, int defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getInt32KeyUint32ValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -3098,20 +2337,10 @@ public final class Maps {
       public native boolean containsInt32KeyUint64Value(int key);
 
       @jsinterop.annotations.JsMethod(name = "getInt32KeyUint64ValueOrThrow")
-      private native long internal_getInt32KeyUint64ValueOrThrow(int key);
-
-      @jsinterop.annotations.JsOverlay
-      public final long getInt32KeyUint64ValueOrThrow(int key) {
-        return internal_getInt32KeyUint64ValueOrThrow(key);
-      }
+      public native long getInt32KeyUint64ValueOrThrow(int key);
 
       @jsinterop.annotations.JsMethod(name = "getInt32KeyUint64ValueOrDefault")
-      private native long internal_getInt32KeyUint64ValueOrDefault(int key, long defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final long getInt32KeyUint64ValueOrDefault(int key, long defaultValue) {
-        return internal_getInt32KeyUint64ValueOrDefault(key, defaultValue);
-      }
+      public native long getInt32KeyUint64ValueOrDefault(int key, long defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getInt32KeyUint64ValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -3149,11 +2378,6 @@ public final class Maps {
       @jsinterop.annotations.JsMethod(name = "containsInt32KeyEnumValue")
       public native boolean containsInt32KeyEnumValue(int key);
 
-      @jsinterop.annotations.JsMethod(name = "getInt32KeyEnumValueOrThrow")
-      private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-              .Internal_ClosureEnum
-          internal_getInt32KeyEnumValueOrThrow(int key);
-
       @jsinterop.annotations.JsOverlay
       public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
           getInt32KeyEnumValueOrThrow(int key) {
@@ -3163,13 +2387,8 @@ public final class Maps {
             com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
       }
 
-      @jsinterop.annotations.JsMethod(name = "getInt32KeyEnumValueOrDefault")
-      private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-          internal_getInt32KeyEnumValueOrDefault(
-              int key,
-              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-                      .Internal_ClosureEnum
-                  defaultValue);
+      @jsinterop.annotations.JsMethod(name = "getInt32KeyEnumValueOrThrow")
+      private native Object internal_getInt32KeyEnumValueOrThrow(int key);
 
       @jsinterop.annotations.JsOverlay
       public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
@@ -3184,6 +2403,9 @@ public final class Maps {
                     .Internal_ClosureEnum.toClosureValue(defaultValue)),
             com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
       }
+
+      @jsinterop.annotations.JsMethod(name = "getInt32KeyEnumValueOrDefault")
+      private native Object internal_getInt32KeyEnumValueOrDefault(int key, Object defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getInt32KeyEnumValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -3217,10 +2439,7 @@ public final class Maps {
       }
 
       @jsinterop.annotations.JsMethod(name = "putInt32KeyEnumValue")
-      private native Builder internal_putInt32KeyEnumValue(
-          int key,
-          com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.Internal_ClosureEnum
-              value);
+      private native Builder internal_putInt32KeyEnumValue(int key, Object value);
 
       @jsinterop.annotations.JsOverlay
       public final Builder putAllInt32KeyEnumValue(
@@ -3243,29 +2462,14 @@ public final class Maps {
       public native boolean containsInt32KeyMessageValue(int key);
 
       @jsinterop.annotations.JsMethod(name = "getInt32KeyMessageValueOrThrow")
-      private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-          internal_getInt32KeyMessageValueOrThrow(int key);
-
-      @jsinterop.annotations.JsOverlay
-      public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-          getInt32KeyMessageValueOrThrow(int key) {
-        return internal_getInt32KeyMessageValueOrThrow(key);
-      }
+      public native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
+          getInt32KeyMessageValueOrThrow(int key);
 
       @jsinterop.annotations.JsMethod(name = "getInt32KeyMessageValueOrDefault")
-      private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-          internal_getInt32KeyMessageValueOrDefault(
-              int key,
-              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
+      public native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
           getInt32KeyMessageValueOrDefault(
               int key,
-              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-                  defaultValue) {
-        return internal_getInt32KeyMessageValueOrDefault(key, defaultValue);
-      }
+              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getInt32KeyMessageValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -3312,20 +2516,10 @@ public final class Maps {
       public native boolean containsInt64KeyBoolValue(long key);
 
       @jsinterop.annotations.JsMethod(name = "getInt64KeyBoolValueOrThrow")
-      private native boolean internal_getInt64KeyBoolValueOrThrow(long key);
-
-      @jsinterop.annotations.JsOverlay
-      public final boolean getInt64KeyBoolValueOrThrow(long key) {
-        return internal_getInt64KeyBoolValueOrThrow(key);
-      }
+      public native boolean getInt64KeyBoolValueOrThrow(long key);
 
       @jsinterop.annotations.JsMethod(name = "getInt64KeyBoolValueOrDefault")
-      private native boolean internal_getInt64KeyBoolValueOrDefault(long key, boolean defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final boolean getInt64KeyBoolValueOrDefault(long key, boolean defaultValue) {
-        return internal_getInt64KeyBoolValueOrDefault(key, defaultValue);
-      }
+      public native boolean getInt64KeyBoolValueOrDefault(long key, boolean defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getInt64KeyBoolValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -3364,20 +2558,10 @@ public final class Maps {
       public native boolean containsInt64KeyInt32Value(long key);
 
       @jsinterop.annotations.JsMethod(name = "getInt64KeyInt32ValueOrThrow")
-      private native int internal_getInt64KeyInt32ValueOrThrow(long key);
-
-      @jsinterop.annotations.JsOverlay
-      public final int getInt64KeyInt32ValueOrThrow(long key) {
-        return internal_getInt64KeyInt32ValueOrThrow(key);
-      }
+      public native int getInt64KeyInt32ValueOrThrow(long key);
 
       @jsinterop.annotations.JsMethod(name = "getInt64KeyInt32ValueOrDefault")
-      private native int internal_getInt64KeyInt32ValueOrDefault(long key, int defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final int getInt64KeyInt32ValueOrDefault(long key, int defaultValue) {
-        return internal_getInt64KeyInt32ValueOrDefault(key, defaultValue);
-      }
+      public native int getInt64KeyInt32ValueOrDefault(long key, int defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getInt64KeyInt32ValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -3416,20 +2600,10 @@ public final class Maps {
       public native boolean containsInt64KeyInt64Value(long key);
 
       @jsinterop.annotations.JsMethod(name = "getInt64KeyInt64ValueOrThrow")
-      private native long internal_getInt64KeyInt64ValueOrThrow(long key);
-
-      @jsinterop.annotations.JsOverlay
-      public final long getInt64KeyInt64ValueOrThrow(long key) {
-        return internal_getInt64KeyInt64ValueOrThrow(key);
-      }
+      public native long getInt64KeyInt64ValueOrThrow(long key);
 
       @jsinterop.annotations.JsMethod(name = "getInt64KeyInt64ValueOrDefault")
-      private native long internal_getInt64KeyInt64ValueOrDefault(long key, long defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final long getInt64KeyInt64ValueOrDefault(long key, long defaultValue) {
-        return internal_getInt64KeyInt64ValueOrDefault(key, defaultValue);
-      }
+      public native long getInt64KeyInt64ValueOrDefault(long key, long defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getInt64KeyInt64ValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -3468,20 +2642,10 @@ public final class Maps {
       public native boolean containsInt64KeyFloatValue(long key);
 
       @jsinterop.annotations.JsMethod(name = "getInt64KeyFloatValueOrThrow")
-      private native float internal_getInt64KeyFloatValueOrThrow(long key);
-
-      @jsinterop.annotations.JsOverlay
-      public final float getInt64KeyFloatValueOrThrow(long key) {
-        return internal_getInt64KeyFloatValueOrThrow(key);
-      }
+      public native float getInt64KeyFloatValueOrThrow(long key);
 
       @jsinterop.annotations.JsMethod(name = "getInt64KeyFloatValueOrDefault")
-      private native float internal_getInt64KeyFloatValueOrDefault(long key, float defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final float getInt64KeyFloatValueOrDefault(long key, float defaultValue) {
-        return internal_getInt64KeyFloatValueOrDefault(key, defaultValue);
-      }
+      public native float getInt64KeyFloatValueOrDefault(long key, float defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getInt64KeyFloatValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -3520,20 +2684,10 @@ public final class Maps {
       public native boolean containsInt64KeyDoubleValue(long key);
 
       @jsinterop.annotations.JsMethod(name = "getInt64KeyDoubleValueOrThrow")
-      private native double internal_getInt64KeyDoubleValueOrThrow(long key);
-
-      @jsinterop.annotations.JsOverlay
-      public final double getInt64KeyDoubleValueOrThrow(long key) {
-        return internal_getInt64KeyDoubleValueOrThrow(key);
-      }
+      public native double getInt64KeyDoubleValueOrThrow(long key);
 
       @jsinterop.annotations.JsMethod(name = "getInt64KeyDoubleValueOrDefault")
-      private native double internal_getInt64KeyDoubleValueOrDefault(long key, double defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final double getInt64KeyDoubleValueOrDefault(long key, double defaultValue) {
-        return internal_getInt64KeyDoubleValueOrDefault(key, defaultValue);
-      }
+      public native double getInt64KeyDoubleValueOrDefault(long key, double defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getInt64KeyDoubleValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -3572,22 +2726,11 @@ public final class Maps {
       public native boolean containsInt64KeyStringValue(long key);
 
       @jsinterop.annotations.JsMethod(name = "getInt64KeyStringValueOrThrow")
-      private native java.lang.String internal_getInt64KeyStringValueOrThrow(long key);
-
-      @jsinterop.annotations.JsOverlay
-      public final java.lang.String getInt64KeyStringValueOrThrow(long key) {
-        return internal_getInt64KeyStringValueOrThrow(key);
-      }
+      public native java.lang.String getInt64KeyStringValueOrThrow(long key);
 
       @jsinterop.annotations.JsMethod(name = "getInt64KeyStringValueOrDefault")
-      private native java.lang.String internal_getInt64KeyStringValueOrDefault(
+      public native java.lang.String getInt64KeyStringValueOrDefault(
           long key, java.lang.String defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final java.lang.String getInt64KeyStringValueOrDefault(
-          long key, java.lang.String defaultValue) {
-        return internal_getInt64KeyStringValueOrDefault(key, defaultValue);
-      }
 
       @jsinterop.annotations.JsMethod(name = "getInt64KeyStringValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -3626,22 +2769,11 @@ public final class Maps {
       public native boolean containsInt64KeyBytesValue(long key);
 
       @jsinterop.annotations.JsMethod(name = "getInt64KeyBytesValueOrThrow")
-      private native com.google.protobuf.ByteString internal_getInt64KeyBytesValueOrThrow(long key);
-
-      @jsinterop.annotations.JsOverlay
-      public final com.google.protobuf.ByteString getInt64KeyBytesValueOrThrow(long key) {
-        return internal_getInt64KeyBytesValueOrThrow(key);
-      }
+      public native com.google.protobuf.ByteString getInt64KeyBytesValueOrThrow(long key);
 
       @jsinterop.annotations.JsMethod(name = "getInt64KeyBytesValueOrDefault")
-      private native com.google.protobuf.ByteString internal_getInt64KeyBytesValueOrDefault(
+      public native com.google.protobuf.ByteString getInt64KeyBytesValueOrDefault(
           long key, com.google.protobuf.ByteString defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final com.google.protobuf.ByteString getInt64KeyBytesValueOrDefault(
-          long key, com.google.protobuf.ByteString defaultValue) {
-        return internal_getInt64KeyBytesValueOrDefault(key, defaultValue);
-      }
 
       @jsinterop.annotations.JsMethod(name = "getInt64KeyBytesValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -3681,20 +2813,10 @@ public final class Maps {
       public native boolean containsInt64KeyUint32Value(long key);
 
       @jsinterop.annotations.JsMethod(name = "getInt64KeyUint32ValueOrThrow")
-      private native int internal_getInt64KeyUint32ValueOrThrow(long key);
-
-      @jsinterop.annotations.JsOverlay
-      public final int getInt64KeyUint32ValueOrThrow(long key) {
-        return internal_getInt64KeyUint32ValueOrThrow(key);
-      }
+      public native int getInt64KeyUint32ValueOrThrow(long key);
 
       @jsinterop.annotations.JsMethod(name = "getInt64KeyUint32ValueOrDefault")
-      private native int internal_getInt64KeyUint32ValueOrDefault(long key, int defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final int getInt64KeyUint32ValueOrDefault(long key, int defaultValue) {
-        return internal_getInt64KeyUint32ValueOrDefault(key, defaultValue);
-      }
+      public native int getInt64KeyUint32ValueOrDefault(long key, int defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getInt64KeyUint32ValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -3733,20 +2855,10 @@ public final class Maps {
       public native boolean containsInt64KeyUint64Value(long key);
 
       @jsinterop.annotations.JsMethod(name = "getInt64KeyUint64ValueOrThrow")
-      private native long internal_getInt64KeyUint64ValueOrThrow(long key);
-
-      @jsinterop.annotations.JsOverlay
-      public final long getInt64KeyUint64ValueOrThrow(long key) {
-        return internal_getInt64KeyUint64ValueOrThrow(key);
-      }
+      public native long getInt64KeyUint64ValueOrThrow(long key);
 
       @jsinterop.annotations.JsMethod(name = "getInt64KeyUint64ValueOrDefault")
-      private native long internal_getInt64KeyUint64ValueOrDefault(long key, long defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final long getInt64KeyUint64ValueOrDefault(long key, long defaultValue) {
-        return internal_getInt64KeyUint64ValueOrDefault(key, defaultValue);
-      }
+      public native long getInt64KeyUint64ValueOrDefault(long key, long defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getInt64KeyUint64ValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -3784,11 +2896,6 @@ public final class Maps {
       @jsinterop.annotations.JsMethod(name = "containsInt64KeyEnumValue")
       public native boolean containsInt64KeyEnumValue(long key);
 
-      @jsinterop.annotations.JsMethod(name = "getInt64KeyEnumValueOrThrow")
-      private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-              .Internal_ClosureEnum
-          internal_getInt64KeyEnumValueOrThrow(long key);
-
       @jsinterop.annotations.JsOverlay
       public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
           getInt64KeyEnumValueOrThrow(long key) {
@@ -3798,13 +2905,8 @@ public final class Maps {
             com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
       }
 
-      @jsinterop.annotations.JsMethod(name = "getInt64KeyEnumValueOrDefault")
-      private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-          internal_getInt64KeyEnumValueOrDefault(
-              long key,
-              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-                      .Internal_ClosureEnum
-                  defaultValue);
+      @jsinterop.annotations.JsMethod(name = "getInt64KeyEnumValueOrThrow")
+      private native Object internal_getInt64KeyEnumValueOrThrow(long key);
 
       @jsinterop.annotations.JsOverlay
       public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
@@ -3819,6 +2921,9 @@ public final class Maps {
                     .Internal_ClosureEnum.toClosureValue(defaultValue)),
             com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
       }
+
+      @jsinterop.annotations.JsMethod(name = "getInt64KeyEnumValueOrDefault")
+      private native Object internal_getInt64KeyEnumValueOrDefault(long key, Object defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getInt64KeyEnumValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -3852,10 +2957,7 @@ public final class Maps {
       }
 
       @jsinterop.annotations.JsMethod(name = "putInt64KeyEnumValue")
-      private native Builder internal_putInt64KeyEnumValue(
-          long key,
-          com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.Internal_ClosureEnum
-              value);
+      private native Builder internal_putInt64KeyEnumValue(long key, Object value);
 
       @jsinterop.annotations.JsOverlay
       public final Builder putAllInt64KeyEnumValue(
@@ -3878,29 +2980,14 @@ public final class Maps {
       public native boolean containsInt64KeyMessageValue(long key);
 
       @jsinterop.annotations.JsMethod(name = "getInt64KeyMessageValueOrThrow")
-      private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-          internal_getInt64KeyMessageValueOrThrow(long key);
-
-      @jsinterop.annotations.JsOverlay
-      public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-          getInt64KeyMessageValueOrThrow(long key) {
-        return internal_getInt64KeyMessageValueOrThrow(key);
-      }
+      public native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
+          getInt64KeyMessageValueOrThrow(long key);
 
       @jsinterop.annotations.JsMethod(name = "getInt64KeyMessageValueOrDefault")
-      private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-          internal_getInt64KeyMessageValueOrDefault(
-              long key,
-              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
+      public native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
           getInt64KeyMessageValueOrDefault(
               long key,
-              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-                  defaultValue) {
-        return internal_getInt64KeyMessageValueOrDefault(key, defaultValue);
-      }
+              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getInt64KeyMessageValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -3947,21 +3034,10 @@ public final class Maps {
       public native boolean containsUint64KeyBoolValue(long key);
 
       @jsinterop.annotations.JsMethod(name = "getUint64KeyBoolValueOrThrow")
-      private native boolean internal_getUint64KeyBoolValueOrThrow(long key);
-
-      @jsinterop.annotations.JsOverlay
-      public final boolean getUint64KeyBoolValueOrThrow(long key) {
-        return internal_getUint64KeyBoolValueOrThrow(key);
-      }
+      public native boolean getUint64KeyBoolValueOrThrow(long key);
 
       @jsinterop.annotations.JsMethod(name = "getUint64KeyBoolValueOrDefault")
-      private native boolean internal_getUint64KeyBoolValueOrDefault(
-          long key, boolean defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final boolean getUint64KeyBoolValueOrDefault(long key, boolean defaultValue) {
-        return internal_getUint64KeyBoolValueOrDefault(key, defaultValue);
-      }
+      public native boolean getUint64KeyBoolValueOrDefault(long key, boolean defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getUint64KeyBoolValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -4000,20 +3076,10 @@ public final class Maps {
       public native boolean containsUint64KeyInt32Value(long key);
 
       @jsinterop.annotations.JsMethod(name = "getUint64KeyInt32ValueOrThrow")
-      private native int internal_getUint64KeyInt32ValueOrThrow(long key);
-
-      @jsinterop.annotations.JsOverlay
-      public final int getUint64KeyInt32ValueOrThrow(long key) {
-        return internal_getUint64KeyInt32ValueOrThrow(key);
-      }
+      public native int getUint64KeyInt32ValueOrThrow(long key);
 
       @jsinterop.annotations.JsMethod(name = "getUint64KeyInt32ValueOrDefault")
-      private native int internal_getUint64KeyInt32ValueOrDefault(long key, int defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final int getUint64KeyInt32ValueOrDefault(long key, int defaultValue) {
-        return internal_getUint64KeyInt32ValueOrDefault(key, defaultValue);
-      }
+      public native int getUint64KeyInt32ValueOrDefault(long key, int defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getUint64KeyInt32ValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -4052,20 +3118,10 @@ public final class Maps {
       public native boolean containsUint64KeyInt64Value(long key);
 
       @jsinterop.annotations.JsMethod(name = "getUint64KeyInt64ValueOrThrow")
-      private native long internal_getUint64KeyInt64ValueOrThrow(long key);
-
-      @jsinterop.annotations.JsOverlay
-      public final long getUint64KeyInt64ValueOrThrow(long key) {
-        return internal_getUint64KeyInt64ValueOrThrow(key);
-      }
+      public native long getUint64KeyInt64ValueOrThrow(long key);
 
       @jsinterop.annotations.JsMethod(name = "getUint64KeyInt64ValueOrDefault")
-      private native long internal_getUint64KeyInt64ValueOrDefault(long key, long defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final long getUint64KeyInt64ValueOrDefault(long key, long defaultValue) {
-        return internal_getUint64KeyInt64ValueOrDefault(key, defaultValue);
-      }
+      public native long getUint64KeyInt64ValueOrDefault(long key, long defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getUint64KeyInt64ValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -4104,20 +3160,10 @@ public final class Maps {
       public native boolean containsUint64KeyFloatValue(long key);
 
       @jsinterop.annotations.JsMethod(name = "getUint64KeyFloatValueOrThrow")
-      private native float internal_getUint64KeyFloatValueOrThrow(long key);
-
-      @jsinterop.annotations.JsOverlay
-      public final float getUint64KeyFloatValueOrThrow(long key) {
-        return internal_getUint64KeyFloatValueOrThrow(key);
-      }
+      public native float getUint64KeyFloatValueOrThrow(long key);
 
       @jsinterop.annotations.JsMethod(name = "getUint64KeyFloatValueOrDefault")
-      private native float internal_getUint64KeyFloatValueOrDefault(long key, float defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final float getUint64KeyFloatValueOrDefault(long key, float defaultValue) {
-        return internal_getUint64KeyFloatValueOrDefault(key, defaultValue);
-      }
+      public native float getUint64KeyFloatValueOrDefault(long key, float defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getUint64KeyFloatValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -4156,21 +3202,10 @@ public final class Maps {
       public native boolean containsUint64KeyDoubleValue(long key);
 
       @jsinterop.annotations.JsMethod(name = "getUint64KeyDoubleValueOrThrow")
-      private native double internal_getUint64KeyDoubleValueOrThrow(long key);
-
-      @jsinterop.annotations.JsOverlay
-      public final double getUint64KeyDoubleValueOrThrow(long key) {
-        return internal_getUint64KeyDoubleValueOrThrow(key);
-      }
+      public native double getUint64KeyDoubleValueOrThrow(long key);
 
       @jsinterop.annotations.JsMethod(name = "getUint64KeyDoubleValueOrDefault")
-      private native double internal_getUint64KeyDoubleValueOrDefault(
-          long key, double defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final double getUint64KeyDoubleValueOrDefault(long key, double defaultValue) {
-        return internal_getUint64KeyDoubleValueOrDefault(key, defaultValue);
-      }
+      public native double getUint64KeyDoubleValueOrDefault(long key, double defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getUint64KeyDoubleValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -4209,22 +3244,11 @@ public final class Maps {
       public native boolean containsUint64KeyStringValue(long key);
 
       @jsinterop.annotations.JsMethod(name = "getUint64KeyStringValueOrThrow")
-      private native java.lang.String internal_getUint64KeyStringValueOrThrow(long key);
-
-      @jsinterop.annotations.JsOverlay
-      public final java.lang.String getUint64KeyStringValueOrThrow(long key) {
-        return internal_getUint64KeyStringValueOrThrow(key);
-      }
+      public native java.lang.String getUint64KeyStringValueOrThrow(long key);
 
       @jsinterop.annotations.JsMethod(name = "getUint64KeyStringValueOrDefault")
-      private native java.lang.String internal_getUint64KeyStringValueOrDefault(
+      public native java.lang.String getUint64KeyStringValueOrDefault(
           long key, java.lang.String defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final java.lang.String getUint64KeyStringValueOrDefault(
-          long key, java.lang.String defaultValue) {
-        return internal_getUint64KeyStringValueOrDefault(key, defaultValue);
-      }
 
       @jsinterop.annotations.JsMethod(name = "getUint64KeyStringValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -4263,23 +3287,11 @@ public final class Maps {
       public native boolean containsUint64KeyBytesValue(long key);
 
       @jsinterop.annotations.JsMethod(name = "getUint64KeyBytesValueOrThrow")
-      private native com.google.protobuf.ByteString internal_getUint64KeyBytesValueOrThrow(
-          long key);
-
-      @jsinterop.annotations.JsOverlay
-      public final com.google.protobuf.ByteString getUint64KeyBytesValueOrThrow(long key) {
-        return internal_getUint64KeyBytesValueOrThrow(key);
-      }
+      public native com.google.protobuf.ByteString getUint64KeyBytesValueOrThrow(long key);
 
       @jsinterop.annotations.JsMethod(name = "getUint64KeyBytesValueOrDefault")
-      private native com.google.protobuf.ByteString internal_getUint64KeyBytesValueOrDefault(
+      public native com.google.protobuf.ByteString getUint64KeyBytesValueOrDefault(
           long key, com.google.protobuf.ByteString defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final com.google.protobuf.ByteString getUint64KeyBytesValueOrDefault(
-          long key, com.google.protobuf.ByteString defaultValue) {
-        return internal_getUint64KeyBytesValueOrDefault(key, defaultValue);
-      }
 
       @jsinterop.annotations.JsMethod(name = "getUint64KeyBytesValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -4319,20 +3331,10 @@ public final class Maps {
       public native boolean containsUint64KeyUint32Value(long key);
 
       @jsinterop.annotations.JsMethod(name = "getUint64KeyUint32ValueOrThrow")
-      private native int internal_getUint64KeyUint32ValueOrThrow(long key);
-
-      @jsinterop.annotations.JsOverlay
-      public final int getUint64KeyUint32ValueOrThrow(long key) {
-        return internal_getUint64KeyUint32ValueOrThrow(key);
-      }
+      public native int getUint64KeyUint32ValueOrThrow(long key);
 
       @jsinterop.annotations.JsMethod(name = "getUint64KeyUint32ValueOrDefault")
-      private native int internal_getUint64KeyUint32ValueOrDefault(long key, int defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final int getUint64KeyUint32ValueOrDefault(long key, int defaultValue) {
-        return internal_getUint64KeyUint32ValueOrDefault(key, defaultValue);
-      }
+      public native int getUint64KeyUint32ValueOrDefault(long key, int defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getUint64KeyUint32ValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -4371,20 +3373,10 @@ public final class Maps {
       public native boolean containsUint64KeyUint64Value(long key);
 
       @jsinterop.annotations.JsMethod(name = "getUint64KeyUint64ValueOrThrow")
-      private native long internal_getUint64KeyUint64ValueOrThrow(long key);
-
-      @jsinterop.annotations.JsOverlay
-      public final long getUint64KeyUint64ValueOrThrow(long key) {
-        return internal_getUint64KeyUint64ValueOrThrow(key);
-      }
+      public native long getUint64KeyUint64ValueOrThrow(long key);
 
       @jsinterop.annotations.JsMethod(name = "getUint64KeyUint64ValueOrDefault")
-      private native long internal_getUint64KeyUint64ValueOrDefault(long key, long defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final long getUint64KeyUint64ValueOrDefault(long key, long defaultValue) {
-        return internal_getUint64KeyUint64ValueOrDefault(key, defaultValue);
-      }
+      public native long getUint64KeyUint64ValueOrDefault(long key, long defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getUint64KeyUint64ValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -4422,11 +3414,6 @@ public final class Maps {
       @jsinterop.annotations.JsMethod(name = "containsUint64KeyEnumValue")
       public native boolean containsUint64KeyEnumValue(long key);
 
-      @jsinterop.annotations.JsMethod(name = "getUint64KeyEnumValueOrThrow")
-      private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-              .Internal_ClosureEnum
-          internal_getUint64KeyEnumValueOrThrow(long key);
-
       @jsinterop.annotations.JsOverlay
       public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
           getUint64KeyEnumValueOrThrow(long key) {
@@ -4436,13 +3423,8 @@ public final class Maps {
             com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
       }
 
-      @jsinterop.annotations.JsMethod(name = "getUint64KeyEnumValueOrDefault")
-      private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-          internal_getUint64KeyEnumValueOrDefault(
-              long key,
-              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-                      .Internal_ClosureEnum
-                  defaultValue);
+      @jsinterop.annotations.JsMethod(name = "getUint64KeyEnumValueOrThrow")
+      private native Object internal_getUint64KeyEnumValueOrThrow(long key);
 
       @jsinterop.annotations.JsOverlay
       public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
@@ -4457,6 +3439,9 @@ public final class Maps {
                     .Internal_ClosureEnum.toClosureValue(defaultValue)),
             com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
       }
+
+      @jsinterop.annotations.JsMethod(name = "getUint64KeyEnumValueOrDefault")
+      private native Object internal_getUint64KeyEnumValueOrDefault(long key, Object defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getUint64KeyEnumValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -4490,10 +3475,7 @@ public final class Maps {
       }
 
       @jsinterop.annotations.JsMethod(name = "putUint64KeyEnumValue")
-      private native Builder internal_putUint64KeyEnumValue(
-          long key,
-          com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.Internal_ClosureEnum
-              value);
+      private native Builder internal_putUint64KeyEnumValue(long key, Object value);
 
       @jsinterop.annotations.JsOverlay
       public final Builder putAllUint64KeyEnumValue(
@@ -4516,29 +3498,14 @@ public final class Maps {
       public native boolean containsUint64KeyMessageValue(long key);
 
       @jsinterop.annotations.JsMethod(name = "getUint64KeyMessageValueOrThrow")
-      private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-          internal_getUint64KeyMessageValueOrThrow(long key);
-
-      @jsinterop.annotations.JsOverlay
-      public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-          getUint64KeyMessageValueOrThrow(long key) {
-        return internal_getUint64KeyMessageValueOrThrow(key);
-      }
+      public native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
+          getUint64KeyMessageValueOrThrow(long key);
 
       @jsinterop.annotations.JsMethod(name = "getUint64KeyMessageValueOrDefault")
-      private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-          internal_getUint64KeyMessageValueOrDefault(
-              long key,
-              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
+      public native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
           getUint64KeyMessageValueOrDefault(
               long key,
-              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-                  defaultValue) {
-        return internal_getUint64KeyMessageValueOrDefault(key, defaultValue);
-      }
+              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getUint64KeyMessageValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -4585,20 +3552,10 @@ public final class Maps {
       public native boolean containsUint32KeyBoolValue(int key);
 
       @jsinterop.annotations.JsMethod(name = "getUint32KeyBoolValueOrThrow")
-      private native boolean internal_getUint32KeyBoolValueOrThrow(int key);
-
-      @jsinterop.annotations.JsOverlay
-      public final boolean getUint32KeyBoolValueOrThrow(int key) {
-        return internal_getUint32KeyBoolValueOrThrow(key);
-      }
+      public native boolean getUint32KeyBoolValueOrThrow(int key);
 
       @jsinterop.annotations.JsMethod(name = "getUint32KeyBoolValueOrDefault")
-      private native boolean internal_getUint32KeyBoolValueOrDefault(int key, boolean defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final boolean getUint32KeyBoolValueOrDefault(int key, boolean defaultValue) {
-        return internal_getUint32KeyBoolValueOrDefault(key, defaultValue);
-      }
+      public native boolean getUint32KeyBoolValueOrDefault(int key, boolean defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getUint32KeyBoolValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -4637,20 +3594,10 @@ public final class Maps {
       public native boolean containsUint32KeyInt32Value(int key);
 
       @jsinterop.annotations.JsMethod(name = "getUint32KeyInt32ValueOrThrow")
-      private native int internal_getUint32KeyInt32ValueOrThrow(int key);
-
-      @jsinterop.annotations.JsOverlay
-      public final int getUint32KeyInt32ValueOrThrow(int key) {
-        return internal_getUint32KeyInt32ValueOrThrow(key);
-      }
+      public native int getUint32KeyInt32ValueOrThrow(int key);
 
       @jsinterop.annotations.JsMethod(name = "getUint32KeyInt32ValueOrDefault")
-      private native int internal_getUint32KeyInt32ValueOrDefault(int key, int defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final int getUint32KeyInt32ValueOrDefault(int key, int defaultValue) {
-        return internal_getUint32KeyInt32ValueOrDefault(key, defaultValue);
-      }
+      public native int getUint32KeyInt32ValueOrDefault(int key, int defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getUint32KeyInt32ValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -4689,20 +3636,10 @@ public final class Maps {
       public native boolean containsUint32KeyInt64Value(int key);
 
       @jsinterop.annotations.JsMethod(name = "getUint32KeyInt64ValueOrThrow")
-      private native long internal_getUint32KeyInt64ValueOrThrow(int key);
-
-      @jsinterop.annotations.JsOverlay
-      public final long getUint32KeyInt64ValueOrThrow(int key) {
-        return internal_getUint32KeyInt64ValueOrThrow(key);
-      }
+      public native long getUint32KeyInt64ValueOrThrow(int key);
 
       @jsinterop.annotations.JsMethod(name = "getUint32KeyInt64ValueOrDefault")
-      private native long internal_getUint32KeyInt64ValueOrDefault(int key, long defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final long getUint32KeyInt64ValueOrDefault(int key, long defaultValue) {
-        return internal_getUint32KeyInt64ValueOrDefault(key, defaultValue);
-      }
+      public native long getUint32KeyInt64ValueOrDefault(int key, long defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getUint32KeyInt64ValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -4741,20 +3678,10 @@ public final class Maps {
       public native boolean containsUint32KeyFloatValue(int key);
 
       @jsinterop.annotations.JsMethod(name = "getUint32KeyFloatValueOrThrow")
-      private native float internal_getUint32KeyFloatValueOrThrow(int key);
-
-      @jsinterop.annotations.JsOverlay
-      public final float getUint32KeyFloatValueOrThrow(int key) {
-        return internal_getUint32KeyFloatValueOrThrow(key);
-      }
+      public native float getUint32KeyFloatValueOrThrow(int key);
 
       @jsinterop.annotations.JsMethod(name = "getUint32KeyFloatValueOrDefault")
-      private native float internal_getUint32KeyFloatValueOrDefault(int key, float defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final float getUint32KeyFloatValueOrDefault(int key, float defaultValue) {
-        return internal_getUint32KeyFloatValueOrDefault(key, defaultValue);
-      }
+      public native float getUint32KeyFloatValueOrDefault(int key, float defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getUint32KeyFloatValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -4793,20 +3720,10 @@ public final class Maps {
       public native boolean containsUint32KeyDoubleValue(int key);
 
       @jsinterop.annotations.JsMethod(name = "getUint32KeyDoubleValueOrThrow")
-      private native double internal_getUint32KeyDoubleValueOrThrow(int key);
-
-      @jsinterop.annotations.JsOverlay
-      public final double getUint32KeyDoubleValueOrThrow(int key) {
-        return internal_getUint32KeyDoubleValueOrThrow(key);
-      }
+      public native double getUint32KeyDoubleValueOrThrow(int key);
 
       @jsinterop.annotations.JsMethod(name = "getUint32KeyDoubleValueOrDefault")
-      private native double internal_getUint32KeyDoubleValueOrDefault(int key, double defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final double getUint32KeyDoubleValueOrDefault(int key, double defaultValue) {
-        return internal_getUint32KeyDoubleValueOrDefault(key, defaultValue);
-      }
+      public native double getUint32KeyDoubleValueOrDefault(int key, double defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getUint32KeyDoubleValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -4845,22 +3762,11 @@ public final class Maps {
       public native boolean containsUint32KeyStringValue(int key);
 
       @jsinterop.annotations.JsMethod(name = "getUint32KeyStringValueOrThrow")
-      private native java.lang.String internal_getUint32KeyStringValueOrThrow(int key);
-
-      @jsinterop.annotations.JsOverlay
-      public final java.lang.String getUint32KeyStringValueOrThrow(int key) {
-        return internal_getUint32KeyStringValueOrThrow(key);
-      }
+      public native java.lang.String getUint32KeyStringValueOrThrow(int key);
 
       @jsinterop.annotations.JsMethod(name = "getUint32KeyStringValueOrDefault")
-      private native java.lang.String internal_getUint32KeyStringValueOrDefault(
+      public native java.lang.String getUint32KeyStringValueOrDefault(
           int key, java.lang.String defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final java.lang.String getUint32KeyStringValueOrDefault(
-          int key, java.lang.String defaultValue) {
-        return internal_getUint32KeyStringValueOrDefault(key, defaultValue);
-      }
 
       @jsinterop.annotations.JsMethod(name = "getUint32KeyStringValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -4899,22 +3805,11 @@ public final class Maps {
       public native boolean containsUint32KeyBytesValue(int key);
 
       @jsinterop.annotations.JsMethod(name = "getUint32KeyBytesValueOrThrow")
-      private native com.google.protobuf.ByteString internal_getUint32KeyBytesValueOrThrow(int key);
-
-      @jsinterop.annotations.JsOverlay
-      public final com.google.protobuf.ByteString getUint32KeyBytesValueOrThrow(int key) {
-        return internal_getUint32KeyBytesValueOrThrow(key);
-      }
+      public native com.google.protobuf.ByteString getUint32KeyBytesValueOrThrow(int key);
 
       @jsinterop.annotations.JsMethod(name = "getUint32KeyBytesValueOrDefault")
-      private native com.google.protobuf.ByteString internal_getUint32KeyBytesValueOrDefault(
+      public native com.google.protobuf.ByteString getUint32KeyBytesValueOrDefault(
           int key, com.google.protobuf.ByteString defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final com.google.protobuf.ByteString getUint32KeyBytesValueOrDefault(
-          int key, com.google.protobuf.ByteString defaultValue) {
-        return internal_getUint32KeyBytesValueOrDefault(key, defaultValue);
-      }
 
       @jsinterop.annotations.JsMethod(name = "getUint32KeyBytesValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -4954,20 +3849,10 @@ public final class Maps {
       public native boolean containsUint32KeyUint32Value(int key);
 
       @jsinterop.annotations.JsMethod(name = "getUint32KeyUint32ValueOrThrow")
-      private native int internal_getUint32KeyUint32ValueOrThrow(int key);
-
-      @jsinterop.annotations.JsOverlay
-      public final int getUint32KeyUint32ValueOrThrow(int key) {
-        return internal_getUint32KeyUint32ValueOrThrow(key);
-      }
+      public native int getUint32KeyUint32ValueOrThrow(int key);
 
       @jsinterop.annotations.JsMethod(name = "getUint32KeyUint32ValueOrDefault")
-      private native int internal_getUint32KeyUint32ValueOrDefault(int key, int defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final int getUint32KeyUint32ValueOrDefault(int key, int defaultValue) {
-        return internal_getUint32KeyUint32ValueOrDefault(key, defaultValue);
-      }
+      public native int getUint32KeyUint32ValueOrDefault(int key, int defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getUint32KeyUint32ValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -5007,20 +3892,10 @@ public final class Maps {
       public native boolean containsUint32KeyUint64Value(int key);
 
       @jsinterop.annotations.JsMethod(name = "getUint32KeyUint64ValueOrThrow")
-      private native long internal_getUint32KeyUint64ValueOrThrow(int key);
-
-      @jsinterop.annotations.JsOverlay
-      public final long getUint32KeyUint64ValueOrThrow(int key) {
-        return internal_getUint32KeyUint64ValueOrThrow(key);
-      }
+      public native long getUint32KeyUint64ValueOrThrow(int key);
 
       @jsinterop.annotations.JsMethod(name = "getUint32KeyUint64ValueOrDefault")
-      private native long internal_getUint32KeyUint64ValueOrDefault(int key, long defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final long getUint32KeyUint64ValueOrDefault(int key, long defaultValue) {
-        return internal_getUint32KeyUint64ValueOrDefault(key, defaultValue);
-      }
+      public native long getUint32KeyUint64ValueOrDefault(int key, long defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getUint32KeyUint64ValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -5058,11 +3933,6 @@ public final class Maps {
       @jsinterop.annotations.JsMethod(name = "containsUint32KeyEnumValue")
       public native boolean containsUint32KeyEnumValue(int key);
 
-      @jsinterop.annotations.JsMethod(name = "getUint32KeyEnumValueOrThrow")
-      private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-              .Internal_ClosureEnum
-          internal_getUint32KeyEnumValueOrThrow(int key);
-
       @jsinterop.annotations.JsOverlay
       public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
           getUint32KeyEnumValueOrThrow(int key) {
@@ -5072,13 +3942,8 @@ public final class Maps {
             com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
       }
 
-      @jsinterop.annotations.JsMethod(name = "getUint32KeyEnumValueOrDefault")
-      private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-          internal_getUint32KeyEnumValueOrDefault(
-              int key,
-              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-                      .Internal_ClosureEnum
-                  defaultValue);
+      @jsinterop.annotations.JsMethod(name = "getUint32KeyEnumValueOrThrow")
+      private native Object internal_getUint32KeyEnumValueOrThrow(int key);
 
       @jsinterop.annotations.JsOverlay
       public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
@@ -5093,6 +3958,9 @@ public final class Maps {
                     .Internal_ClosureEnum.toClosureValue(defaultValue)),
             com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
       }
+
+      @jsinterop.annotations.JsMethod(name = "getUint32KeyEnumValueOrDefault")
+      private native Object internal_getUint32KeyEnumValueOrDefault(int key, Object defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getUint32KeyEnumValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -5126,10 +3994,7 @@ public final class Maps {
       }
 
       @jsinterop.annotations.JsMethod(name = "putUint32KeyEnumValue")
-      private native Builder internal_putUint32KeyEnumValue(
-          int key,
-          com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.Internal_ClosureEnum
-              value);
+      private native Builder internal_putUint32KeyEnumValue(int key, Object value);
 
       @jsinterop.annotations.JsOverlay
       public final Builder putAllUint32KeyEnumValue(
@@ -5152,29 +4017,14 @@ public final class Maps {
       public native boolean containsUint32KeyMessageValue(int key);
 
       @jsinterop.annotations.JsMethod(name = "getUint32KeyMessageValueOrThrow")
-      private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-          internal_getUint32KeyMessageValueOrThrow(int key);
-
-      @jsinterop.annotations.JsOverlay
-      public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-          getUint32KeyMessageValueOrThrow(int key) {
-        return internal_getUint32KeyMessageValueOrThrow(key);
-      }
+      public native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
+          getUint32KeyMessageValueOrThrow(int key);
 
       @jsinterop.annotations.JsMethod(name = "getUint32KeyMessageValueOrDefault")
-      private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-          internal_getUint32KeyMessageValueOrDefault(
-              int key,
-              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
+      public native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
           getUint32KeyMessageValueOrDefault(
               int key,
-              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-                  defaultValue) {
-        return internal_getUint32KeyMessageValueOrDefault(key, defaultValue);
-      }
+              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getUint32KeyMessageValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -5221,22 +4071,11 @@ public final class Maps {
       public native boolean containsStringKeyBoolValue(java.lang.String key);
 
       @jsinterop.annotations.JsMethod(name = "getStringKeyBoolValueOrThrow")
-      private native boolean internal_getStringKeyBoolValueOrThrow(java.lang.String key);
-
-      @jsinterop.annotations.JsOverlay
-      public final boolean getStringKeyBoolValueOrThrow(java.lang.String key) {
-        return internal_getStringKeyBoolValueOrThrow(key);
-      }
+      public native boolean getStringKeyBoolValueOrThrow(java.lang.String key);
 
       @jsinterop.annotations.JsMethod(name = "getStringKeyBoolValueOrDefault")
-      private native boolean internal_getStringKeyBoolValueOrDefault(
+      public native boolean getStringKeyBoolValueOrDefault(
           java.lang.String key, boolean defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final boolean getStringKeyBoolValueOrDefault(
-          java.lang.String key, boolean defaultValue) {
-        return internal_getStringKeyBoolValueOrDefault(key, defaultValue);
-      }
 
       @jsinterop.annotations.JsMethod(name = "getStringKeyBoolValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -5275,21 +4114,10 @@ public final class Maps {
       public native boolean containsStringKeyInt32Value(java.lang.String key);
 
       @jsinterop.annotations.JsMethod(name = "getStringKeyInt32ValueOrThrow")
-      private native int internal_getStringKeyInt32ValueOrThrow(java.lang.String key);
-
-      @jsinterop.annotations.JsOverlay
-      public final int getStringKeyInt32ValueOrThrow(java.lang.String key) {
-        return internal_getStringKeyInt32ValueOrThrow(key);
-      }
+      public native int getStringKeyInt32ValueOrThrow(java.lang.String key);
 
       @jsinterop.annotations.JsMethod(name = "getStringKeyInt32ValueOrDefault")
-      private native int internal_getStringKeyInt32ValueOrDefault(
-          java.lang.String key, int defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final int getStringKeyInt32ValueOrDefault(java.lang.String key, int defaultValue) {
-        return internal_getStringKeyInt32ValueOrDefault(key, defaultValue);
-      }
+      public native int getStringKeyInt32ValueOrDefault(java.lang.String key, int defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getStringKeyInt32ValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -5328,21 +4156,10 @@ public final class Maps {
       public native boolean containsStringKeyInt64Value(java.lang.String key);
 
       @jsinterop.annotations.JsMethod(name = "getStringKeyInt64ValueOrThrow")
-      private native long internal_getStringKeyInt64ValueOrThrow(java.lang.String key);
-
-      @jsinterop.annotations.JsOverlay
-      public final long getStringKeyInt64ValueOrThrow(java.lang.String key) {
-        return internal_getStringKeyInt64ValueOrThrow(key);
-      }
+      public native long getStringKeyInt64ValueOrThrow(java.lang.String key);
 
       @jsinterop.annotations.JsMethod(name = "getStringKeyInt64ValueOrDefault")
-      private native long internal_getStringKeyInt64ValueOrDefault(
-          java.lang.String key, long defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final long getStringKeyInt64ValueOrDefault(java.lang.String key, long defaultValue) {
-        return internal_getStringKeyInt64ValueOrDefault(key, defaultValue);
-      }
+      public native long getStringKeyInt64ValueOrDefault(java.lang.String key, long defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getStringKeyInt64ValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -5381,21 +4198,10 @@ public final class Maps {
       public native boolean containsStringKeyFloatValue(java.lang.String key);
 
       @jsinterop.annotations.JsMethod(name = "getStringKeyFloatValueOrThrow")
-      private native float internal_getStringKeyFloatValueOrThrow(java.lang.String key);
-
-      @jsinterop.annotations.JsOverlay
-      public final float getStringKeyFloatValueOrThrow(java.lang.String key) {
-        return internal_getStringKeyFloatValueOrThrow(key);
-      }
+      public native float getStringKeyFloatValueOrThrow(java.lang.String key);
 
       @jsinterop.annotations.JsMethod(name = "getStringKeyFloatValueOrDefault")
-      private native float internal_getStringKeyFloatValueOrDefault(
-          java.lang.String key, float defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final float getStringKeyFloatValueOrDefault(java.lang.String key, float defaultValue) {
-        return internal_getStringKeyFloatValueOrDefault(key, defaultValue);
-      }
+      public native float getStringKeyFloatValueOrDefault(java.lang.String key, float defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getStringKeyFloatValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -5434,22 +4240,11 @@ public final class Maps {
       public native boolean containsStringKeyDoubleValue(java.lang.String key);
 
       @jsinterop.annotations.JsMethod(name = "getStringKeyDoubleValueOrThrow")
-      private native double internal_getStringKeyDoubleValueOrThrow(java.lang.String key);
-
-      @jsinterop.annotations.JsOverlay
-      public final double getStringKeyDoubleValueOrThrow(java.lang.String key) {
-        return internal_getStringKeyDoubleValueOrThrow(key);
-      }
+      public native double getStringKeyDoubleValueOrThrow(java.lang.String key);
 
       @jsinterop.annotations.JsMethod(name = "getStringKeyDoubleValueOrDefault")
-      private native double internal_getStringKeyDoubleValueOrDefault(
+      public native double getStringKeyDoubleValueOrDefault(
           java.lang.String key, double defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final double getStringKeyDoubleValueOrDefault(
-          java.lang.String key, double defaultValue) {
-        return internal_getStringKeyDoubleValueOrDefault(key, defaultValue);
-      }
 
       @jsinterop.annotations.JsMethod(name = "getStringKeyDoubleValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -5488,22 +4283,11 @@ public final class Maps {
       public native boolean containsStringKeyStringValue(java.lang.String key);
 
       @jsinterop.annotations.JsMethod(name = "getStringKeyStringValueOrThrow")
-      private native java.lang.String internal_getStringKeyStringValueOrThrow(java.lang.String key);
-
-      @jsinterop.annotations.JsOverlay
-      public final java.lang.String getStringKeyStringValueOrThrow(java.lang.String key) {
-        return internal_getStringKeyStringValueOrThrow(key);
-      }
+      public native java.lang.String getStringKeyStringValueOrThrow(java.lang.String key);
 
       @jsinterop.annotations.JsMethod(name = "getStringKeyStringValueOrDefault")
-      private native java.lang.String internal_getStringKeyStringValueOrDefault(
+      public native java.lang.String getStringKeyStringValueOrDefault(
           java.lang.String key, java.lang.String defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final java.lang.String getStringKeyStringValueOrDefault(
-          java.lang.String key, java.lang.String defaultValue) {
-        return internal_getStringKeyStringValueOrDefault(key, defaultValue);
-      }
 
       @jsinterop.annotations.JsMethod(name = "getStringKeyStringValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -5542,24 +4326,12 @@ public final class Maps {
       public native boolean containsStringKeyBytesValue(java.lang.String key);
 
       @jsinterop.annotations.JsMethod(name = "getStringKeyBytesValueOrThrow")
-      private native com.google.protobuf.ByteString internal_getStringKeyBytesValueOrThrow(
+      public native com.google.protobuf.ByteString getStringKeyBytesValueOrThrow(
           java.lang.String key);
 
-      @jsinterop.annotations.JsOverlay
-      public final com.google.protobuf.ByteString getStringKeyBytesValueOrThrow(
-          java.lang.String key) {
-        return internal_getStringKeyBytesValueOrThrow(key);
-      }
-
       @jsinterop.annotations.JsMethod(name = "getStringKeyBytesValueOrDefault")
-      private native com.google.protobuf.ByteString internal_getStringKeyBytesValueOrDefault(
+      public native com.google.protobuf.ByteString getStringKeyBytesValueOrDefault(
           java.lang.String key, com.google.protobuf.ByteString defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final com.google.protobuf.ByteString getStringKeyBytesValueOrDefault(
-          java.lang.String key, com.google.protobuf.ByteString defaultValue) {
-        return internal_getStringKeyBytesValueOrDefault(key, defaultValue);
-      }
 
       @jsinterop.annotations.JsMethod(name = "getStringKeyBytesValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -5600,21 +4372,10 @@ public final class Maps {
       public native boolean containsStringKeyUint32Value(java.lang.String key);
 
       @jsinterop.annotations.JsMethod(name = "getStringKeyUint32ValueOrThrow")
-      private native int internal_getStringKeyUint32ValueOrThrow(java.lang.String key);
-
-      @jsinterop.annotations.JsOverlay
-      public final int getStringKeyUint32ValueOrThrow(java.lang.String key) {
-        return internal_getStringKeyUint32ValueOrThrow(key);
-      }
+      public native int getStringKeyUint32ValueOrThrow(java.lang.String key);
 
       @jsinterop.annotations.JsMethod(name = "getStringKeyUint32ValueOrDefault")
-      private native int internal_getStringKeyUint32ValueOrDefault(
-          java.lang.String key, int defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final int getStringKeyUint32ValueOrDefault(java.lang.String key, int defaultValue) {
-        return internal_getStringKeyUint32ValueOrDefault(key, defaultValue);
-      }
+      public native int getStringKeyUint32ValueOrDefault(java.lang.String key, int defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getStringKeyUint32ValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -5653,21 +4414,10 @@ public final class Maps {
       public native boolean containsStringKeyUint64Value(java.lang.String key);
 
       @jsinterop.annotations.JsMethod(name = "getStringKeyUint64ValueOrThrow")
-      private native long internal_getStringKeyUint64ValueOrThrow(java.lang.String key);
-
-      @jsinterop.annotations.JsOverlay
-      public final long getStringKeyUint64ValueOrThrow(java.lang.String key) {
-        return internal_getStringKeyUint64ValueOrThrow(key);
-      }
+      public native long getStringKeyUint64ValueOrThrow(java.lang.String key);
 
       @jsinterop.annotations.JsMethod(name = "getStringKeyUint64ValueOrDefault")
-      private native long internal_getStringKeyUint64ValueOrDefault(
-          java.lang.String key, long defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final long getStringKeyUint64ValueOrDefault(java.lang.String key, long defaultValue) {
-        return internal_getStringKeyUint64ValueOrDefault(key, defaultValue);
-      }
+      public native long getStringKeyUint64ValueOrDefault(java.lang.String key, long defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getStringKeyUint64ValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -5705,11 +4455,6 @@ public final class Maps {
       @jsinterop.annotations.JsMethod(name = "containsStringKeyEnumValue")
       public native boolean containsStringKeyEnumValue(java.lang.String key);
 
-      @jsinterop.annotations.JsMethod(name = "getStringKeyEnumValueOrThrow")
-      private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-              .Internal_ClosureEnum
-          internal_getStringKeyEnumValueOrThrow(java.lang.String key);
-
       @jsinterop.annotations.JsOverlay
       public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
           getStringKeyEnumValueOrThrow(java.lang.String key) {
@@ -5719,13 +4464,8 @@ public final class Maps {
             com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
       }
 
-      @jsinterop.annotations.JsMethod(name = "getStringKeyEnumValueOrDefault")
-      private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-          internal_getStringKeyEnumValueOrDefault(
-              java.lang.String key,
-              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-                      .Internal_ClosureEnum
-                  defaultValue);
+      @jsinterop.annotations.JsMethod(name = "getStringKeyEnumValueOrThrow")
+      private native Object internal_getStringKeyEnumValueOrThrow(java.lang.String key);
 
       @jsinterop.annotations.JsOverlay
       public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
@@ -5740,6 +4480,10 @@ public final class Maps {
                     .Internal_ClosureEnum.toClosureValue(defaultValue)),
             com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
       }
+
+      @jsinterop.annotations.JsMethod(name = "getStringKeyEnumValueOrDefault")
+      private native Object internal_getStringKeyEnumValueOrDefault(
+          java.lang.String key, Object defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getStringKeyEnumValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -5774,10 +4518,7 @@ public final class Maps {
       }
 
       @jsinterop.annotations.JsMethod(name = "putStringKeyEnumValue")
-      private native Builder internal_putStringKeyEnumValue(
-          java.lang.String key,
-          com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.Internal_ClosureEnum
-              value);
+      private native Builder internal_putStringKeyEnumValue(java.lang.String key, Object value);
 
       @jsinterop.annotations.JsOverlay
       public final Builder putAllStringKeyEnumValue(
@@ -5800,29 +4541,14 @@ public final class Maps {
       public native boolean containsStringKeyMessageValue(java.lang.String key);
 
       @jsinterop.annotations.JsMethod(name = "getStringKeyMessageValueOrThrow")
-      private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-          internal_getStringKeyMessageValueOrThrow(java.lang.String key);
-
-      @jsinterop.annotations.JsOverlay
-      public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-          getStringKeyMessageValueOrThrow(java.lang.String key) {
-        return internal_getStringKeyMessageValueOrThrow(key);
-      }
+      public native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
+          getStringKeyMessageValueOrThrow(java.lang.String key);
 
       @jsinterop.annotations.JsMethod(name = "getStringKeyMessageValueOrDefault")
-      private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-          internal_getStringKeyMessageValueOrDefault(
-              java.lang.String key,
-              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
+      public native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
           getStringKeyMessageValueOrDefault(
               java.lang.String key,
-              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-                  defaultValue) {
-        return internal_getStringKeyMessageValueOrDefault(key, defaultValue);
-      }
+              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getStringKeyMessageValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -5870,21 +4596,10 @@ public final class Maps {
       public native boolean containsBoolKeyBoolValue(boolean key);
 
       @jsinterop.annotations.JsMethod(name = "getBoolKeyBoolValueOrThrow")
-      private native boolean internal_getBoolKeyBoolValueOrThrow(boolean key);
-
-      @jsinterop.annotations.JsOverlay
-      public final boolean getBoolKeyBoolValueOrThrow(boolean key) {
-        return internal_getBoolKeyBoolValueOrThrow(key);
-      }
+      public native boolean getBoolKeyBoolValueOrThrow(boolean key);
 
       @jsinterop.annotations.JsMethod(name = "getBoolKeyBoolValueOrDefault")
-      private native boolean internal_getBoolKeyBoolValueOrDefault(
-          boolean key, boolean defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final boolean getBoolKeyBoolValueOrDefault(boolean key, boolean defaultValue) {
-        return internal_getBoolKeyBoolValueOrDefault(key, defaultValue);
-      }
+      public native boolean getBoolKeyBoolValueOrDefault(boolean key, boolean defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getBoolKeyBoolValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -5923,20 +4638,10 @@ public final class Maps {
       public native boolean containsBoolKeyInt32Value(boolean key);
 
       @jsinterop.annotations.JsMethod(name = "getBoolKeyInt32ValueOrThrow")
-      private native int internal_getBoolKeyInt32ValueOrThrow(boolean key);
-
-      @jsinterop.annotations.JsOverlay
-      public final int getBoolKeyInt32ValueOrThrow(boolean key) {
-        return internal_getBoolKeyInt32ValueOrThrow(key);
-      }
+      public native int getBoolKeyInt32ValueOrThrow(boolean key);
 
       @jsinterop.annotations.JsMethod(name = "getBoolKeyInt32ValueOrDefault")
-      private native int internal_getBoolKeyInt32ValueOrDefault(boolean key, int defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final int getBoolKeyInt32ValueOrDefault(boolean key, int defaultValue) {
-        return internal_getBoolKeyInt32ValueOrDefault(key, defaultValue);
-      }
+      public native int getBoolKeyInt32ValueOrDefault(boolean key, int defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getBoolKeyInt32ValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -5975,20 +4680,10 @@ public final class Maps {
       public native boolean containsBoolKeyInt64Value(boolean key);
 
       @jsinterop.annotations.JsMethod(name = "getBoolKeyInt64ValueOrThrow")
-      private native long internal_getBoolKeyInt64ValueOrThrow(boolean key);
-
-      @jsinterop.annotations.JsOverlay
-      public final long getBoolKeyInt64ValueOrThrow(boolean key) {
-        return internal_getBoolKeyInt64ValueOrThrow(key);
-      }
+      public native long getBoolKeyInt64ValueOrThrow(boolean key);
 
       @jsinterop.annotations.JsMethod(name = "getBoolKeyInt64ValueOrDefault")
-      private native long internal_getBoolKeyInt64ValueOrDefault(boolean key, long defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final long getBoolKeyInt64ValueOrDefault(boolean key, long defaultValue) {
-        return internal_getBoolKeyInt64ValueOrDefault(key, defaultValue);
-      }
+      public native long getBoolKeyInt64ValueOrDefault(boolean key, long defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getBoolKeyInt64ValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -6027,20 +4722,10 @@ public final class Maps {
       public native boolean containsBoolKeyFloatValue(boolean key);
 
       @jsinterop.annotations.JsMethod(name = "getBoolKeyFloatValueOrThrow")
-      private native float internal_getBoolKeyFloatValueOrThrow(boolean key);
-
-      @jsinterop.annotations.JsOverlay
-      public final float getBoolKeyFloatValueOrThrow(boolean key) {
-        return internal_getBoolKeyFloatValueOrThrow(key);
-      }
+      public native float getBoolKeyFloatValueOrThrow(boolean key);
 
       @jsinterop.annotations.JsMethod(name = "getBoolKeyFloatValueOrDefault")
-      private native float internal_getBoolKeyFloatValueOrDefault(boolean key, float defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final float getBoolKeyFloatValueOrDefault(boolean key, float defaultValue) {
-        return internal_getBoolKeyFloatValueOrDefault(key, defaultValue);
-      }
+      public native float getBoolKeyFloatValueOrDefault(boolean key, float defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getBoolKeyFloatValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -6079,21 +4764,10 @@ public final class Maps {
       public native boolean containsBoolKeyDoubleValue(boolean key);
 
       @jsinterop.annotations.JsMethod(name = "getBoolKeyDoubleValueOrThrow")
-      private native double internal_getBoolKeyDoubleValueOrThrow(boolean key);
-
-      @jsinterop.annotations.JsOverlay
-      public final double getBoolKeyDoubleValueOrThrow(boolean key) {
-        return internal_getBoolKeyDoubleValueOrThrow(key);
-      }
+      public native double getBoolKeyDoubleValueOrThrow(boolean key);
 
       @jsinterop.annotations.JsMethod(name = "getBoolKeyDoubleValueOrDefault")
-      private native double internal_getBoolKeyDoubleValueOrDefault(
-          boolean key, double defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final double getBoolKeyDoubleValueOrDefault(boolean key, double defaultValue) {
-        return internal_getBoolKeyDoubleValueOrDefault(key, defaultValue);
-      }
+      public native double getBoolKeyDoubleValueOrDefault(boolean key, double defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getBoolKeyDoubleValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -6132,22 +4806,11 @@ public final class Maps {
       public native boolean containsBoolKeyStringValue(boolean key);
 
       @jsinterop.annotations.JsMethod(name = "getBoolKeyStringValueOrThrow")
-      private native java.lang.String internal_getBoolKeyStringValueOrThrow(boolean key);
-
-      @jsinterop.annotations.JsOverlay
-      public final java.lang.String getBoolKeyStringValueOrThrow(boolean key) {
-        return internal_getBoolKeyStringValueOrThrow(key);
-      }
+      public native java.lang.String getBoolKeyStringValueOrThrow(boolean key);
 
       @jsinterop.annotations.JsMethod(name = "getBoolKeyStringValueOrDefault")
-      private native java.lang.String internal_getBoolKeyStringValueOrDefault(
+      public native java.lang.String getBoolKeyStringValueOrDefault(
           boolean key, java.lang.String defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final java.lang.String getBoolKeyStringValueOrDefault(
-          boolean key, java.lang.String defaultValue) {
-        return internal_getBoolKeyStringValueOrDefault(key, defaultValue);
-      }
 
       @jsinterop.annotations.JsMethod(name = "getBoolKeyStringValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -6186,23 +4849,11 @@ public final class Maps {
       public native boolean containsBoolKeyBytesValue(boolean key);
 
       @jsinterop.annotations.JsMethod(name = "getBoolKeyBytesValueOrThrow")
-      private native com.google.protobuf.ByteString internal_getBoolKeyBytesValueOrThrow(
-          boolean key);
-
-      @jsinterop.annotations.JsOverlay
-      public final com.google.protobuf.ByteString getBoolKeyBytesValueOrThrow(boolean key) {
-        return internal_getBoolKeyBytesValueOrThrow(key);
-      }
+      public native com.google.protobuf.ByteString getBoolKeyBytesValueOrThrow(boolean key);
 
       @jsinterop.annotations.JsMethod(name = "getBoolKeyBytesValueOrDefault")
-      private native com.google.protobuf.ByteString internal_getBoolKeyBytesValueOrDefault(
+      public native com.google.protobuf.ByteString getBoolKeyBytesValueOrDefault(
           boolean key, com.google.protobuf.ByteString defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final com.google.protobuf.ByteString getBoolKeyBytesValueOrDefault(
-          boolean key, com.google.protobuf.ByteString defaultValue) {
-        return internal_getBoolKeyBytesValueOrDefault(key, defaultValue);
-      }
 
       @jsinterop.annotations.JsMethod(name = "getBoolKeyBytesValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -6242,20 +4893,10 @@ public final class Maps {
       public native boolean containsBoolKeyUint32Value(boolean key);
 
       @jsinterop.annotations.JsMethod(name = "getBoolKeyUint32ValueOrThrow")
-      private native int internal_getBoolKeyUint32ValueOrThrow(boolean key);
-
-      @jsinterop.annotations.JsOverlay
-      public final int getBoolKeyUint32ValueOrThrow(boolean key) {
-        return internal_getBoolKeyUint32ValueOrThrow(key);
-      }
+      public native int getBoolKeyUint32ValueOrThrow(boolean key);
 
       @jsinterop.annotations.JsMethod(name = "getBoolKeyUint32ValueOrDefault")
-      private native int internal_getBoolKeyUint32ValueOrDefault(boolean key, int defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final int getBoolKeyUint32ValueOrDefault(boolean key, int defaultValue) {
-        return internal_getBoolKeyUint32ValueOrDefault(key, defaultValue);
-      }
+      public native int getBoolKeyUint32ValueOrDefault(boolean key, int defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getBoolKeyUint32ValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -6294,20 +4935,10 @@ public final class Maps {
       public native boolean containsBoolKeyUint64Value(boolean key);
 
       @jsinterop.annotations.JsMethod(name = "getBoolKeyUint64ValueOrThrow")
-      private native long internal_getBoolKeyUint64ValueOrThrow(boolean key);
-
-      @jsinterop.annotations.JsOverlay
-      public final long getBoolKeyUint64ValueOrThrow(boolean key) {
-        return internal_getBoolKeyUint64ValueOrThrow(key);
-      }
+      public native long getBoolKeyUint64ValueOrThrow(boolean key);
 
       @jsinterop.annotations.JsMethod(name = "getBoolKeyUint64ValueOrDefault")
-      private native long internal_getBoolKeyUint64ValueOrDefault(boolean key, long defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final long getBoolKeyUint64ValueOrDefault(boolean key, long defaultValue) {
-        return internal_getBoolKeyUint64ValueOrDefault(key, defaultValue);
-      }
+      public native long getBoolKeyUint64ValueOrDefault(boolean key, long defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getBoolKeyUint64ValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -6345,11 +4976,6 @@ public final class Maps {
       @jsinterop.annotations.JsMethod(name = "containsBoolKeyEnumValue")
       public native boolean containsBoolKeyEnumValue(boolean key);
 
-      @jsinterop.annotations.JsMethod(name = "getBoolKeyEnumValueOrThrow")
-      private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-              .Internal_ClosureEnum
-          internal_getBoolKeyEnumValueOrThrow(boolean key);
-
       @jsinterop.annotations.JsOverlay
       public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
           getBoolKeyEnumValueOrThrow(boolean key) {
@@ -6359,13 +4985,8 @@ public final class Maps {
             com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
       }
 
-      @jsinterop.annotations.JsMethod(name = "getBoolKeyEnumValueOrDefault")
-      private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-          internal_getBoolKeyEnumValueOrDefault(
-              boolean key,
-              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
-                      .Internal_ClosureEnum
-                  defaultValue);
+      @jsinterop.annotations.JsMethod(name = "getBoolKeyEnumValueOrThrow")
+      private native Object internal_getBoolKeyEnumValueOrThrow(boolean key);
 
       @jsinterop.annotations.JsOverlay
       public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum
@@ -6380,6 +5001,9 @@ public final class Maps {
                     .Internal_ClosureEnum.toClosureValue(defaultValue)),
             com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN);
       }
+
+      @jsinterop.annotations.JsMethod(name = "getBoolKeyEnumValueOrDefault")
+      private native Object internal_getBoolKeyEnumValueOrDefault(boolean key, Object defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getBoolKeyEnumValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<
@@ -6413,10 +5037,7 @@ public final class Maps {
       }
 
       @jsinterop.annotations.JsMethod(name = "putBoolKeyEnumValue")
-      private native Builder internal_putBoolKeyEnumValue(
-          boolean key,
-          com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.Internal_ClosureEnum
-              value);
+      private native Builder internal_putBoolKeyEnumValue(boolean key, Object value);
 
       @jsinterop.annotations.JsOverlay
       public final Builder putAllBoolKeyEnumValue(
@@ -6439,29 +5060,14 @@ public final class Maps {
       public native boolean containsBoolKeyMessageValue(boolean key);
 
       @jsinterop.annotations.JsMethod(name = "getBoolKeyMessageValueOrThrow")
-      private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-          internal_getBoolKeyMessageValueOrThrow(boolean key);
-
-      @jsinterop.annotations.JsOverlay
-      public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-          getBoolKeyMessageValueOrThrow(boolean key) {
-        return internal_getBoolKeyMessageValueOrThrow(key);
-      }
+      public native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
+          getBoolKeyMessageValueOrThrow(boolean key);
 
       @jsinterop.annotations.JsMethod(name = "getBoolKeyMessageValueOrDefault")
-      private native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-          internal_getBoolKeyMessageValueOrDefault(
-              boolean key,
-              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage defaultValue);
-
-      @jsinterop.annotations.JsOverlay
-      public final com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
+      public native com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
           getBoolKeyMessageValueOrDefault(
               boolean key,
-              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage
-                  defaultValue) {
-        return internal_getBoolKeyMessageValueOrDefault(key, defaultValue);
-      }
+              com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage defaultValue);
 
       @jsinterop.annotations.JsMethod(name = "getBoolKeyMessageValueMap")
       private native com.google.protobuf.GeneratedMessageLite.Internal_.MapView<

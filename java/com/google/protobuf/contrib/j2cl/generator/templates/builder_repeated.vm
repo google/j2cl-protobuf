@@ -5,7 +5,7 @@
   }
 
   @jsinterop.annotations.JsMethod(name = "set${field.jsName}")
-  private native Builder internal_set${field.name}(int index, ${field.unboxedType}.Internal_ClosureEnum value);
+  private native Builder internal_set${field.name}(int index, Object value);
 
   @jsinterop.annotations.JsOverlay
   public final Builder add${field.name}(${field.unboxedType} value) {
@@ -25,7 +25,7 @@
   #end
 
   @jsinterop.annotations.JsMethod(name = "add${field.jsName}")
-  private native Builder internal_add${field.name}(${field.unboxedType}.Internal_ClosureEnum value);
+  private native Builder internal_add${field.name}(Object value);
 #else
 
   @jsinterop.annotations.JsMethod(name = "add${field.jsName}")

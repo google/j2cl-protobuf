@@ -402,10 +402,7 @@ public final class Proto3Enums {
       }
 
       @jsinterop.annotations.JsMethod(name = "setOptionalEnum")
-      private native Builder internal_setOptionalEnum(
-          com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
-                  .Internal_ClosureEnum
-              value);
+      private native Builder internal_setOptionalEnum(Object value);
 
       @jsinterop.annotations.JsMethod(name = "getRepeatedEnumCount")
       public native int getRepeatedEnumCount();
@@ -464,11 +461,7 @@ public final class Proto3Enums {
       }
 
       @jsinterop.annotations.JsMethod(name = "setRepeatedEnum")
-      private native Builder internal_setRepeatedEnum(
-          int index,
-          com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
-                  .Internal_ClosureEnum
-              value);
+      private native Builder internal_setRepeatedEnum(int index, Object value);
 
       @jsinterop.annotations.JsOverlay
       public final Builder addRepeatedEnum(
@@ -495,10 +488,7 @@ public final class Proto3Enums {
       }
 
       @jsinterop.annotations.JsMethod(name = "addRepeatedEnum")
-      private native Builder internal_addRepeatedEnum(
-          com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
-                  .Internal_ClosureEnum
-              value);
+      private native Builder internal_addRepeatedEnum(Object value);
 
       @jsinterop.annotations.JsOverlay
       public final Builder addAllRepeatedEnum(
@@ -550,10 +540,7 @@ public final class Proto3Enums {
       }
 
       @jsinterop.annotations.JsMethod(name = "setOptionalNativeEnum")
-      private native Builder internal_setOptionalNativeEnum(
-          com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3NativeEnum
-                  .Internal_ClosureEnum
-              value);
+      private native Builder internal_setOptionalNativeEnum(Object value);
 
       @jsinterop.annotations.JsMethod(name = "getRepeatedNativeEnumCount")
       public native int getRepeatedNativeEnumCount();
@@ -613,11 +600,7 @@ public final class Proto3Enums {
       }
 
       @jsinterop.annotations.JsMethod(name = "setRepeatedNativeEnum")
-      private native Builder internal_setRepeatedNativeEnum(
-          int index,
-          com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3NativeEnum
-                  .Internal_ClosureEnum
-              value);
+      private native Builder internal_setRepeatedNativeEnum(int index, Object value);
 
       @jsinterop.annotations.JsOverlay
       public final Builder addRepeatedNativeEnum(
@@ -644,10 +627,7 @@ public final class Proto3Enums {
       }
 
       @jsinterop.annotations.JsMethod(name = "addRepeatedNativeEnum")
-      private native Builder internal_addRepeatedNativeEnum(
-          com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3NativeEnum
-                  .Internal_ClosureEnum
-              value);
+      private native Builder internal_addRepeatedNativeEnum(Object value);
 
       @jsinterop.annotations.JsOverlay
       public final Builder addAllRepeatedNativeEnum(

@@ -712,10 +712,7 @@ public final class Proto3Oneofs {
       }
 
       @jsinterop.annotations.JsMethod(name = "setAnEnum")
-      private native Builder internal_setAnEnum(
-          com.google.protobuf.contrib.j2cl.protos.Proto3Oneofs.Proto3TestProtoWithOneOfs.TestEnum
-                  .Internal_ClosureEnum
-              value);
+      private native Builder internal_setAnEnum(Object value);
 
       @jsinterop.annotations.JsMethod(name = "hasAString")
       public native boolean hasAString();
