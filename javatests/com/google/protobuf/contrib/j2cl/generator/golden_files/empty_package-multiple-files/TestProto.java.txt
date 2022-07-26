@@ -1,0 +1,58 @@
+package com.google.protos;
+
+@javax.annotation.processing.Generated(value = "protoc-j2cl")
+@jsinterop.annotations.JsType(isNative = true, name = "TestProto", namespace = "improto")
+public final class TestProto
+    extends com.google.protobuf.GeneratedMessageLite<TestProto, TestProto.Builder> {
+
+  protected TestProto() {}
+
+  public static final native TestProto getDefaultInstance();
+
+  public native Builder toBuilder();
+
+  public static int PAYLOAD_FIELD_NUMBER;
+
+  @jsinterop.annotations.JsMethod(name = "hasPayload")
+  public native boolean hasPayload();
+
+  @jsinterop.annotations.JsMethod(name = "getPayload")
+  public native java.lang.String getPayload();
+
+  @jsinterop.annotations.JsMethod(name = "getDescriptor")
+  public static native com.google.protobuf.contrib.j2cl.runtime.MiniDescriptor getMiniDescriptor();
+
+  public static native Builder newBuilder();
+
+  public static native Builder newBuilder(TestProto prototype);
+
+  @jsinterop.annotations.JsType(isNative = true)
+  public static final class Builder
+      extends com.google.protobuf.GeneratedMessageLite.Builder<TestProto, Builder> {
+
+    protected Builder() {}
+
+    @jsinterop.annotations.JsOverlay
+    public final TestProto getDefaultInstanceForType() {
+      return getDefaultInstance();
+    }
+
+    @java.lang.Override
+    public native TestProto build();
+
+    @java.lang.Override
+    public native Builder clone();
+
+    @jsinterop.annotations.JsMethod(name = "hasPayload")
+    public native boolean hasPayload();
+
+    @jsinterop.annotations.JsMethod(name = "getPayload")
+    public native java.lang.String getPayload();
+
+    @jsinterop.annotations.JsMethod(name = "clearPayload")
+    public native Builder clearPayload();
+
+    @jsinterop.annotations.JsMethod(name = "setPayload")
+    public native Builder setPayload(java.lang.String value);
+  }
+}

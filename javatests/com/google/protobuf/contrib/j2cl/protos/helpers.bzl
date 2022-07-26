@@ -73,12 +73,15 @@ def generate_protos(name, proto_file, deps = []):
 
 def _generate_multifile_proto(original_proto_name):
     """Uncomments lines that start with //REMOVED_BY_GENRULE"""
-    native.genrule(
-        name = original_proto_name + ".multiple_files.proto_genrule",
-        srcs = [original_proto_name + ".proto"],
-        outs = [original_proto_name + ".multiple_files.proto"],
-        cmd = "\n".join([
-            "cat $(SRCS) |",
-            "sed -e 's/\\/\\/\\ REMOVED_BY_GENRULE\\ //g' $(SRCS) > $@",
-        ]),
-    )
+
+    # Only generate the multiple_files variant if it doesn't already exist.
+    if len(native.glob([original_proto_name + ".multiple_files.proto"])) == 0:
+        native.genrule(
+            name = original_proto_name + ".multiple_files.proto_genrule",
+            srcs = [original_proto_name + ".proto"],
+            outs = [original_proto_name + ".multiple_files.proto"],
+            cmd = "\n".join([
+                "cat $(SRCS) |",
+                "sed -e 's/\\/\\/\\ REMOVED_BY_GENRULE\\ //g' $(SRCS) > $@",
+            ]),
+        )

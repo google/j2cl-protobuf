@@ -1,0 +1,7 @@
+package com.google.protos;
+
+@javax.annotation.processing.Generated(value = "protoc-j2cl")
+public final class EmptyPackageMultipleFiles {
+
+  private EmptyPackageMultipleFiles() {}
+}
