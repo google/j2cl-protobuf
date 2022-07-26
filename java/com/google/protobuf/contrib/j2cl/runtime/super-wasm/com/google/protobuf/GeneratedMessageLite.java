@@ -80,6 +80,11 @@ public abstract class GeneratedMessageLite<
       return (B) this;
     }
 
+    protected final <K, V> B removeMapField(int fieldNumber, K key) {
+      ensureMapField(fieldNumber).remove(checkNotNull(key));
+      return (B) this;
+    }
+
     private <K, V> Map<K, V> ensureMapField(int fieldNumber) {
       return (Map<K, V>) fields.computeIfAbsent(fieldNumber, k -> new HashMap<K, V>());
     }

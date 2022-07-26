@@ -9,8 +9,7 @@
   }
 
   public Builder remove${field.name}(${keyField.unboxedType} key) {
-    getFieldMap(${field.number}).remove(key);
-    return this;
+    return removeMapField(${field.number}, key);
   }
 
 
