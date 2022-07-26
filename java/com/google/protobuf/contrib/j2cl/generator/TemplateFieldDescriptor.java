@@ -177,6 +177,23 @@ public abstract class TemplateFieldDescriptor {
     return getBoxedType().equals(getUnboxedType());
   }
 
+  public String getUnrecognizedEnumValue() {
+    EnumValueDescriptor defaultValue =
+        isRepeated()
+            ? fieldDescriptor().getEnumType().getValues().get(0)
+            : (EnumValueDescriptor) fieldDescriptor().getDefaultValue();
+
+    // If both the reference and the enum itself are proto3 then we use the implicit UNRECOGNIZED,
+    // otherwise we use the default value.
+    String name =
+        Descriptors.isProto3(fieldDescriptor())
+                && TemplateEnumDescriptor.create(fieldDescriptor().getEnumType())
+                    .hasUnrecognizedValue()
+            ? "UNRECOGNIZED"
+            : defaultValue.getName();
+    return getUnboxedType() + "." + name;
+  }
+
   public String getDefaultValue() {
     Object defaultValue =
         fieldDescriptor().hasDefaultValue() ? fieldDescriptor().getDefaultValue() : null;

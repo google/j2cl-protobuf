@@ -1,5 +1,5 @@
 #macro( convertToEnum $field $param )
-${field.unboxedType}.Internal_ClosureEnum.toEnum(${param}, ${field.defaultValue})
+${field.unboxedType}.Internal_ClosureEnum.toEnum(${param}, ${field.unrecognizedEnumValue})
 #end
 
 #macro( convertToInt $field $param )

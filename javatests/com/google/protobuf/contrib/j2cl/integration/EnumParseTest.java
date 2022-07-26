@@ -105,14 +105,13 @@ public final class EnumParseTest {
         .containsExactly(100.0)
         .inOrder();
 
-    // TODO(b/239876871): Fix the generator so DEFAULT is returned instead of UNRECOGNIZED.
-    assertThat(parseProto2("[-1]").getOptionalProto3Enum()).isEqualTo(Proto3TestEnum.UNRECOGNIZED);
-    assertThat(parseProto2("[100]").getOptionalProto3Enum()).isEqualTo(Proto3TestEnum.UNRECOGNIZED);
+    assertThat(parseProto2("[-1]").getOptionalProto3Enum()).isEqualTo(Proto3TestEnum.DEFAULT);
+    assertThat(parseProto2("[100]").getOptionalProto3Enum()).isEqualTo(Proto3TestEnum.DEFAULT);
     assertThat(parseProto2("[null,[-1]]").getRepeatedProto3EnumList())
-        .containsExactly(Proto3TestEnum.UNRECOGNIZED)
+        .containsExactly(Proto3TestEnum.DEFAULT)
         .inOrder();
     assertThat(parseProto2("[null,[100]]").getRepeatedProto3EnumList())
-        .containsExactly(Proto3TestEnum.UNRECOGNIZED)
+        .containsExactly(Proto3TestEnum.DEFAULT)
         .inOrder();
   }
 }

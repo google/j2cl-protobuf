@@ -28,7 +28,7 @@ public final class Proto2TestProto
         .Internal_ClosureEnum.toEnum(
         internal_getOptionalProto3Enum(),
         com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
-            .UNRECOGNIZED);
+            .DEFAULT);
   }
 
   @jsinterop.annotations.JsMethod(name = "getOptionalProto3Enum")
@@ -45,7 +45,7 @@ public final class Proto2TestProto
         .Internal_ClosureEnum.toEnum(
         internal_getRepeatedProto3Enum(index),
         com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
-            .UNRECOGNIZED);
+            .DEFAULT);
   }
 
   @jsinterop.annotations.JsMethod(name = "getRepeatedProto3Enum")
@@ -66,7 +66,7 @@ public final class Proto2TestProto
                 .Internal_ClosureEnum.toEnum(
                 d,
                 com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto
-                    .Proto3TestEnum.UNRECOGNIZED));
+                    .Proto3TestEnum.DEFAULT));
   }
 
   @jsinterop.annotations.JsMethod(name = "getDescriptor")
@@ -104,7 +104,7 @@ public final class Proto2TestProto
           .Internal_ClosureEnum.toEnum(
           internal_getOptionalProto3Enum(),
           com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
-              .UNRECOGNIZED);
+              .DEFAULT);
     }
 
     @jsinterop.annotations.JsMethod(name = "getOptionalProto3Enum")
@@ -136,7 +136,7 @@ public final class Proto2TestProto
           .Internal_ClosureEnum.toEnum(
           internal_getRepeatedProto3Enum(index),
           com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
-              .UNRECOGNIZED);
+              .DEFAULT);
     }
 
     @jsinterop.annotations.JsMethod(name = "getRepeatedProto3Enum")
@@ -157,7 +157,7 @@ public final class Proto2TestProto
                   .Internal_ClosureEnum.toEnum(
                   d,
                   com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto
-                      .Proto3TestEnum.UNRECOGNIZED));
+                      .Proto3TestEnum.DEFAULT));
     }
 
     @jsinterop.annotations.JsMethod(name = "clearRepeatedProto3Enum")

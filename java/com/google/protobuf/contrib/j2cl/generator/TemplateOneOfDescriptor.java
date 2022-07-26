@@ -124,6 +124,10 @@ public abstract class TemplateOneOfDescriptor extends AbstractTemplateTypeDescri
       return false;
     }
 
+    public String getUnrecognizedEnumValue() {
+      return getDefaultValue();
+    }
+
     public String getDefaultValue() {
       return oneOf().getDefaultValue();
     }
