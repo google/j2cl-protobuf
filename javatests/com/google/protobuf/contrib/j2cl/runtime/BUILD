@@ -12,6 +12,7 @@ j2cl_multi_test(
     # The tests here test internals of our proto runtime implementation that do
     # not exist in the JRE version.
     generate_java_test = False,
+    generate_wasm_test = False,
     test_class = "com.google.protobuf.contrib.j2cl.runtime.ByteStringTest",
     deps = [
         "//third_party/java/gwt:gwt-jsinterop-annotations",
@@ -25,6 +26,7 @@ j2cl_multi_test(
     # The tests here test internals of our proto runtime implementation that do
     # not exist in the JRE version.
     generate_java_test = False,
+    generate_wasm_test = False,
     test_class = "com.google.protobuf.contrib.j2cl.runtime.InternalTest",
     deps = [
         "//third_party/java/gwt:gwt-jsinterop-annotations",
@@ -37,6 +39,7 @@ j2cl_multi_test(
     srcs = ["JspbUtilsTest.java"],
     # Testing a J2CL specific API.
     generate_java_test = False,
+    generate_wasm_test = False,
     proto_deps = ["//javatests/com/google/protobuf/contrib/j2cl/protos:accessor"],
     test_class = "com.google.protobuf.contrib.j2cl.runtime.JspbUtilsTest",
     deps = [

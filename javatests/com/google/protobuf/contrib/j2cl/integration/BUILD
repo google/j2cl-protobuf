@@ -1,14 +1,18 @@
 load("@io_bazel_rules_closure//closure:defs.bzl", "closure_js_binary")
 load("//javascript/tools/jscompiler/builddefs:flags.bzl", "VERBOSE_WARNING_FLAGS_STRICT")
 load("//javatests/com/google/protobuf/contrib/j2cl/integration:j2cl_multi_test.bzl", "j2cl_multi_test")
-load("//third_party/java/j2cl:j2cl_library.bzl", "j2cl_library")
-load("@com_google_j2cl//build_defs:rules.bzl", "J2CL_OPTIMIZED_DEFS")
+load("@com_google_j2cl//build_defs:rules.bzl", "J2CL_OPTIMIZED_DEFS", "j2cl_library", "j2wasm_library")
 load("@bazel_skylib//rules:build_test.bzl", "build_test")
 
 licenses(["notice"])  # Apache 2.0
 
 java_library(
     name = "checks",
+    srcs = ["InternalChecks.java"],
+)
+
+j2wasm_library(
+    name = "checks-j2wasm",
     srcs = ["InternalChecks.java"],
 )
 
@@ -81,6 +85,8 @@ j2cl_multi_test(
 j2cl_multi_test(
     name = "EnumFieldsTest",
     srcs = ["EnumFieldsTest.java"],
+    # TODO(b/239762534): Enable after enum bugs are fixed.
+    generate_wasm_test = False,
     proto_deps = [
         "//javatests/com/google/protobuf/contrib/j2cl/protos:enums",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:proto3_enums",
@@ -94,7 +100,9 @@ j2cl_multi_test(
 j2cl_multi_test(
     name = "EnumNativeForNumberTest",
     srcs = ["EnumNativeForNumberTest.java"],
+    # Testing a J2CL specific behavior.
     generate_java_test = False,
+    generate_wasm_test = False,
     proto_deps = [
         "//javatests/com/google/protobuf/contrib/j2cl/protos:enums",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:oneofs",
@@ -110,7 +118,9 @@ j2cl_multi_test(
 j2cl_multi_test(
     name = "EnumParseTest",
     srcs = ["EnumParseTest.java"],
+    # TODO(b/240235178): Relies on JSPB format
     generate_java_test = False,
+    generate_wasm_test = False,
     proto_deps = [
         "//javatests/com/google/protobuf/contrib/j2cl/protos:enums",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:proto3_enums",
@@ -178,6 +188,8 @@ genrule(
 j2cl_multi_test(
     name = "MapsAllVariantsTest",
     srcs = ["MapsAllVariantsTest.java"],
+    # TODO(b/240235178): Enable after WASM field count limit is increased.
+    generate_wasm_test = False,
     proto_deps = ["//javatests/com/google/protobuf/contrib/j2cl/protos:maps"],
     test_class = "com.google.protobuf.contrib.j2cl.integration.MapsAllVariantsTest",
     deps = [
@@ -250,6 +262,7 @@ j2cl_multi_test(
     srcs = ["AnyTest.java"],
     # Testing a J2CL specific API.
     generate_java_test = False,
+    generate_wasm_test = False,
     proto_deps = [
         "//google/protobuf/j2cl:any",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:accessor",
@@ -263,6 +276,8 @@ j2cl_multi_test(
 j2cl_multi_test(
     name = "BinarySerializationTest",
     srcs = ["BinarySerializationTest.java"],
+    # Wasm doesn't support binary.
+    generate_wasm_test = False,
     proto_deps = ["//javatests/com/google/protobuf/contrib/j2cl/protos:accessor"],
     test_class = "com.google.protobuf.contrib.j2cl.integration.BinarySerializationTest",
     deps = [

@@ -5,11 +5,18 @@
    One with checking disabled (prod compile)
 """
 
-load("@com_google_j2cl//build_defs:rules.bzl", "j2cl_test")
+load("@com_google_j2cl//build_defs:rules.bzl", "j2cl_test", "j2wasm_test")
 load("@bazel_tools//tools/build_defs/label:def.bzl", "absolute_label")
 load("//devtools/build_cleaner/skylark:build_defs.bzl", "register_extension_info")
 
-def j2cl_multi_test(name, test_class, srcs, deps = [], proto_deps = [], generate_java_test = True):
+def j2cl_multi_test(
+        name,
+        test_class,
+        srcs,
+        deps = [],
+        proto_deps = [],
+        generate_java_test = True,
+        generate_wasm_test = True):
     deps = deps + [
         "//third_party/java/junit",
         "//third_party/java/truth",
@@ -19,6 +26,11 @@ def j2cl_multi_test(name, test_class, srcs, deps = [], proto_deps = [], generate
     j2cl_deps = (
         [absolute_label(x) + "-j2cl" for x in deps] +
         ["//java/com/google/protobuf/contrib/j2cl:runtime"] +
+        j2cl_proto_deps
+    )
+    j2wasm_deps = (
+        [absolute_label(x) + "-j2wasm" for x in deps] +
+        ["//java/com/google/protobuf/contrib/j2cl:runtime-j2wasm"] +
         j2cl_proto_deps
     )
 
@@ -61,6 +73,15 @@ def j2cl_multi_test(name, test_class, srcs, deps = [], proto_deps = [], generate
             srcs = srcs,
             test_class = test_class,
             deps = java_deps,
+        )
+
+    if generate_wasm_test:
+        j2wasm_test(
+            name = name + "_wasm",
+            test_class = test_class,
+            srcs = srcs,
+            wasm_defs = {"jre.checks.checkLevel": "NORMAL"},
+            deps = j2wasm_deps,
         )
 
 register_extension_info(
