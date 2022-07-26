@@ -12,5 +12,6 @@
 
   ## Java api field
   @jsinterop.annotations.JsOverlay
-  public static final com.google.protobuf.ExtensionLite<${field.extendedMessage}, ${extensionType}> $field.name = com.google.protobuf.GeneratedMessageLite.Internal_.create${extensionMethod}Extension(internal_${field.name}${field.extensionFieldConverter});
+  public static final com.google.protobuf.ExtensionLite<${field.extendedMessage}, ${extensionType}> $field.name =
+    com.google.protobuf.GeneratedMessageLite.Internal_.create${extensionMethod}Extension(internal_${field.name}#extensionConverterParams( $field ));
 #end

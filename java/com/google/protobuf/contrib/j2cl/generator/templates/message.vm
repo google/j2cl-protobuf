@@ -1,6 +1,7 @@
 ##
 ## Renders a given message as either an inner or outer class.
 ##
+#parse( "converter.vm" )
 #set ($static = 'static')
 #if ($descriptor.isTopLevelClass())
   #set ($static = '')

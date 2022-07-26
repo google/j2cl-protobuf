@@ -1,12 +1,12 @@
 #if (${field.isEnum()})
   @jsinterop.annotations.JsOverlay
   public final Builder set${field.name}(${field.unboxedType} value) {
-    return internal_set${field.name}(${field.unboxedType}.Internal_ClosureEnum.toClosureValue(value));
+    return internal_set${field.name}(#convertToClosureEnum( $field "value" ));
   }
   #if (${field.hasEnumValueAccessors()})
     @jsinterop.annotations.JsOverlay
     public final Builder set${field.name}Value(int value) {
-      return internal_set${field.name}(${field.unboxedType}.Internal_ClosureEnum.toClosureValue(value));
+      return internal_set${field.name}(#convertToClosureEnum( $field "value" ));
     }
   #end
 

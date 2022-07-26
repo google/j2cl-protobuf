@@ -4,7 +4,7 @@
 #if (${valueField.isEnum()})
   @jsinterop.annotations.JsOverlay
   public final Builder put${field.name}(${keyField.unboxedType} key, ${valueField.unboxedType} value) {
-    return internal_put${field.name}(key, ${valueField.unboxedType}.Internal_ClosureEnum.toClosureValue(value));
+    return internal_put${field.name}(key, #convertToClosureEnum( $valueField "value" ));
   }
 
   @jsinterop.annotations.JsMethod(name = "put${field.jsName}")

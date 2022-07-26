@@ -8,7 +8,7 @@
 #if ($field.isEnum())
   @jsinterop.annotations.JsOverlay
   public final ${field.unboxedType} get${field.name}(${paramDec}) {
-    return ${field.unboxedType}.Internal_ClosureEnum.toEnum(internal_get${field.name}(${param}), ${field.defaultValue});
+    return #convertToEnum( $field "internal_get${field.name}(${param})");
   }
 
   @jsinterop.annotations.JsMethod(name = "get${field.jsName}")
@@ -17,7 +17,7 @@
   #if (${field.hasEnumValueAccessors()})
     @jsinterop.annotations.JsOverlay
     public final int get${field.name}Value(${paramDec}) {
-      return ${field.unboxedType}.Internal_ClosureEnum.toIntValue(internal_get${field.name}(${param}));
+      return #convertToInt( $field "internal_get${field.name}(${param})");
     }
   #end
 #else

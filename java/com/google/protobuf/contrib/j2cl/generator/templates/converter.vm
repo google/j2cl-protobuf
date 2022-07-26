@@ -1,0 +1,23 @@
+#macro( convertToEnum $field $param )
+${field.unboxedType}.Internal_ClosureEnum.toEnum(${param}, ${field.defaultValue})
+#end
+
+#macro( convertToInt $field $param )
+${field.unboxedType}.Internal_ClosureEnum.toIntValue(${param})
+#end
+
+#macro( convertToClosureEnum $field $param )
+${field.unboxedType}.Internal_ClosureEnum.toClosureValue(${param})
+#end
+
+#macro( converterParams $field )
+#if (${field.isEnum()})
+, (d) -> #convertToEnum( $field "d")
+#end
+#end
+
+#macro( extensionConverterParams $field )
+#if (${field.isEnum()})
+, (d) -> #convertToEnum( $field "d"), v -> #convertToClosureEnum( $field "v" )
+#end
+#end

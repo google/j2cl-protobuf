@@ -107,6 +107,11 @@ public abstract class TemplateFieldDescriptor {
     }
   }
 
+  public String getJsBoxedType() {
+    boolean needsJsBoxTypeConversion = !stemForConvertedFields().isEmpty() || isEnum();
+    return needsJsBoxTypeConversion ? "java.lang.Object" : getBoxedType();
+  }
+
   public boolean isRepeated() {
     return fieldDescriptor().isRepeated() && !isMap();
   }
@@ -214,32 +219,6 @@ public abstract class TemplateFieldDescriptor {
   public String getExtendedMessage() {
     checkState(fieldDescriptor().isExtension());
     return JavaQualifiedNames.getQualifiedName(fieldDescriptor().getContainingType());
-  }
-
-  public String getFieldConverterNativeType() {
-    return needsConversion() ? "java.lang.Object" : getBoxedType();
-  }
-
-  private boolean needsConversion() {
-    return !stemForConvertedFields().isEmpty() || isEnum();
-  }
-
-  public String getFieldConverter() {
-    if (isEnum()) {
-      return String.format(
-          ", (d) -> %s.Internal_ClosureEnum.toEnum(d, %s)", getUnboxedType(), getDefaultValue());
-    }
-    return "";
-  }
-
-  public String getExtensionFieldConverter() {
-    if (isEnum()) {
-      String enumReadConverter = getFieldConverter();
-      String enumWriteConverter =
-          String.format("v -> %s.Internal_ClosureEnum.toClosureValue(v)", getUnboxedType());
-      return String.format("%s, %s", enumReadConverter, enumWriteConverter);
-    }
-    return "";
   }
 
   public TemplateFieldDescriptor getKeyField() {

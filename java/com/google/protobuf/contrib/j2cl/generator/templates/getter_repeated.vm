@@ -4,9 +4,10 @@ public native int get${field.name}Count();
 #parse('getter.vm')
 
 @jsinterop.annotations.JsMethod(name = "get${field.jsName}List")
-private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<${field.fieldConverterNativeType}> internal_get${field.name}List();
+private native com.google.protobuf.GeneratedMessageLite.Internal_.ListView<${field.jsBoxedType}> internal_get${field.name}List();
 
 @jsinterop.annotations.JsOverlay
 public final java.util.List<${field.boxedType}> get${field.name}List() {
-  return com.google.protobuf.GeneratedMessageLite.Internal_.create${field.stemForConvertedFields()}List(internal_get${field.name}List()${field.fieldConverter});
+  return com.google.protobuf.GeneratedMessageLite.Internal_.create${field.stemForConvertedFields()}List(
+    internal_get${field.name}List()#converterParams( $field ));
 }

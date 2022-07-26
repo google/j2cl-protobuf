@@ -1,7 +1,7 @@
 #if (${field.isEnum()})
   @jsinterop.annotations.JsOverlay
   public final Builder set${field.name}(int index, ${field.unboxedType} value) {
-    return internal_set${field.name}(index, ${field.unboxedType}.Internal_ClosureEnum.toClosureValue(value));
+    return internal_set${field.name}(index, #convertToClosureEnum( $field "value" ));
   }
 
   @jsinterop.annotations.JsMethod(name = "set${field.jsName}")
@@ -9,18 +9,18 @@
 
   @jsinterop.annotations.JsOverlay
   public final Builder add${field.name}(${field.unboxedType} value) {
-    return internal_add${field.name}(${field.unboxedType}.Internal_ClosureEnum.toClosureValue(value));
+    return internal_add${field.name}(#convertToClosureEnum( $field "value" ));
   }
 
   #if (${field.hasEnumValueAccessors()})
     @jsinterop.annotations.JsOverlay
     public final Builder add${field.name}Value(int value) {
-      return internal_add${field.name}(${field.unboxedType}.Internal_ClosureEnum.toClosureValue(value));
+      return internal_add${field.name}(#convertToClosureEnum( $field "value" ));
     }
 
     @jsinterop.annotations.JsOverlay
     public final Builder set${field.name}Value(int index, int value) {
-      return internal_set${field.name}(index, ${field.unboxedType}.Internal_ClosureEnum.toClosureValue(value));
+      return internal_set${field.name}(index, #convertToClosureEnum( $field "value" ));
     }
   #end
 
