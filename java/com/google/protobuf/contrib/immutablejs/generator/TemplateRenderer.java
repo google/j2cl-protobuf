@@ -38,7 +38,7 @@ public class TemplateRenderer {
   public void generateCode() {
     fileDescriptor.getMessageTypes().forEach(this::generateType);
     fileDescriptor.getEnumTypes().forEach(this::generateEnum);
-    renderTopLevelExtensions(fileDescriptor);
+    renderFileTopLevel(fileDescriptor);
   }
 
   private void generateType(Descriptor descriptor) {
@@ -49,11 +49,8 @@ public class TemplateRenderer {
     mergeTemplate(velocityContext, "message.vm", messageDescriptor.getType().getModuleName());
   }
 
-  private void renderTopLevelExtensions(FileDescriptor fileDescriptor) {
+  private void renderFileTopLevel(FileDescriptor fileDescriptor) {
     TemplateFileDescriptor descriptor = TemplateFileDescriptor.create(fileDescriptor);
-    if (!descriptor.hasExtension()) {
-      return;
-    }
     VelocityContext velocityContext = new VelocityContext();
     velocityContext.put("descriptor", descriptor);
     mergeTemplate(velocityContext, "file.vm", descriptor.getType().getModuleName() + ".proto");

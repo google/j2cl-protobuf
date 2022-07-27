@@ -73,6 +73,16 @@ immutable_js_proto_library(
 )
 
 proto_library(
+    name = "empty",
+    srcs = ["empty.proto"],
+)
+
+immutable_js_proto_library(
+    name = "empty_immutable_js_proto",
+    deps = [":empty"],
+)
+
+proto_library(
     name = "empty_package",
     srcs = ["empty_package.proto"],
 )

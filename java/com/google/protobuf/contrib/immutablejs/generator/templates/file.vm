@@ -7,6 +7,7 @@
 */
 goog.module('$descriptor.type.moduleName');
 
+#if (!$descriptor.extensions.isEmpty())
 #parse('import.vm')
 
 const module = {};
@@ -15,3 +16,5 @@ const module = {};
 #parse('extension.vm')
 
 exports = module;
+#end
+
