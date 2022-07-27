@@ -56,7 +56,7 @@ public class TemplateRenderer {
     }
     VelocityContext velocityContext = new VelocityContext();
     velocityContext.put("descriptor", descriptor);
-    mergeTemplate(velocityContext, "file.vm", descriptor.getType().getModuleName());
+    mergeTemplate(velocityContext, "file.vm", descriptor.getType().getModuleName() + ".proto");
   }
 
   private void generateEnum(EnumDescriptor enumDescriptor) {
