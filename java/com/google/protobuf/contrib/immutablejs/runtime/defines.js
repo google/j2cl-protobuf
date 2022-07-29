@@ -59,3 +59,32 @@ proto.im.defines.FREEZE_DATASTRUCTURES =
  */
 proto.im.defines.CHECK_LONG_DATA_LOSS =
     goog.define('proto.im.defines.CHECK_LONG_DATA_LOSS', false);
+
+/**
+ * Marker indicating a group has fixed b/171736612.
+ * @const {string}
+ */
+proto.im.defines.FIXED_GROUP_FLAG = 'g';
+
+/** @private {boolean} */
+proto.im.defines.fixGroupsB171736612 = false;
+
+/**
+ * Enable a fix for handling group fields where the field number is <= the
+ * group's number.
+ *
+ * @param {boolean} value
+ */
+proto.im.defines.enableFixGroupsB171736612 = function(value) {
+  proto.im.defines.fixGroupsB171736612 = value;
+};
+
+/**
+ * Returns true if a fix for handling group fields where the field number is <=
+ * the group's number is enabled.
+ *
+ * @return {boolean} Returns whether or not the fix is enabled.
+ */
+proto.im.defines.isFixGroupsB171736612Enabled = function() {
+  return proto.im.defines.fixGroupsB171736612;
+};
