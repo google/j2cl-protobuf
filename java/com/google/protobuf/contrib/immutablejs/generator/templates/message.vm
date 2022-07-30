@@ -114,15 +114,6 @@ $messageName = class $message.type.name extends proto_im_InternalMessage {
 ${messageName}.messageId = $message.messageId;
 #end
 
-#if ($message.isGroup())
-/**
- * Indicate if this message is a group.
- * @const {boolean}
- * @nocollapse
- */
-${messageName}.internalDoNotUseIsGroup = $message.isGroup();
-#end
-
 /**
  * @override
  * @struct

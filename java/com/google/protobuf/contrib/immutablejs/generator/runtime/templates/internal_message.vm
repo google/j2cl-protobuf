@@ -40,7 +40,6 @@ const MapView = goog.require('proto.im.MapView');
 const Message = goog.require('proto.im.Message');
 const internalChecks = goog.require('proto.im.internal.internalChecks');
 const reflect = goog.require('goog.reflect');
-const {isFixGroupsB171736612Enabled, FIXED_GROUP_FLAG} = goog.require('proto.im.defines');
 
 #parse('imports.vm')
 
@@ -66,7 +65,7 @@ class InternalMessage extends Message {
     super();
     /** @private @const {!JspbKernel} */
     this.kernel_ = groupFieldNumber > 0 ?
-        JspbKernel.createGroup(data, suggestedPivot, groupFieldNumber) :
+        JspbKernel.createGroup(data, groupFieldNumber) :
         JspbKernel.createMessage(data, suggestedPivot, messageId);
   }
 
@@ -105,13 +104,7 @@ class InternalMessage extends Message {
   static getDefaultInstanceForMessage(ctor) {
     return reflect.cache(
         DEFAULT_INSTANCES, /* key= */ undefined,
-        () => {
-          const initialMsg =
-          (/** @type{{internalDoNotUseIsGroup:(boolean|undefined)}} */
-            (ctor).internalDoNotUseIsGroup || false) &&
-              isFixGroupsB171736612Enabled() ? [{[FIXED_GROUP_FLAG] : 1}] : [];
-          return InternalMessage.fromArray(ctor, initialMsg);
-        },
+        () => InternalMessage.fromArray(ctor, []),
         () => goog.getUid(ctor));
   }
 

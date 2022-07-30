@@ -41,11 +41,3 @@ message GroupsProto {
     optional string higher_than_group = 4;
   }
 }
-
-message BuggyGroupMessage {
-  optional string some_string = 1;
-  optional group BuggyGroup = 3 {
-    optional string first = 1;
-    optional string second = 2;
-  }
-}
