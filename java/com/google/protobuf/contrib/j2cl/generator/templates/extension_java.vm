@@ -4,7 +4,7 @@
     #set ($defaultValue = "new java.util.ArrayList<>()")
   #else
     #set ($extensionType = "${field.boxedType}")
-    #set ($defaultValue = "${field.getDefaultValue()}")
+    #set ($defaultValue = "${field.defaultValue}")
   #end
 
   public static final com.google.protobuf.ExtensionLite<${field.extendedMessage}, ${extensionType}> $field.name =
