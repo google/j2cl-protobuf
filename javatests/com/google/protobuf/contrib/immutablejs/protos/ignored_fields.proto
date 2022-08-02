@@ -24,4 +24,5 @@ message IgnoredFields {
   optional string ignored_optional_field = 1 [(jspb.ignore) = true];
   repeated string ignored_repeated_field = 2 [(jspb.ignore) = true];
   optional string not_ignored_field = 3 [(jspb.ignore) = false];
+  optional IgnoredFields ignored_submessage = 4 [(jspb.ignore) = true];
 }

@@ -72,6 +72,7 @@ public abstract class TemplateMessageDescriptor {
       fieldsStream = fieldsStream.filter(f -> !"value".equals(f.getName()));
     }
     return fieldsStream
+        .filter(not(Descriptors::isIgnored))
         .map(f -> TemplateFieldDescriptor.create(getType(), f, nameResolver))
         .collect(toImmutableList());
   }

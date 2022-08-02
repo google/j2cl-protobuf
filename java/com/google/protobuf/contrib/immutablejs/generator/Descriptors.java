@@ -81,8 +81,9 @@ public final class Descriptors {
     return descriptor.getFields().stream()
         .anyMatch(
             field ->
-                field.getType() == FieldDescriptor.Type.MESSAGE
-                    || field.getType() == FieldDescriptor.Type.GROUP);
+                !isIgnored(field)
+                    && (field.getType() == FieldDescriptor.Type.MESSAGE
+                        || field.getType() == FieldDescriptor.Type.GROUP));
   }
 
   public static boolean isProto3(GenericDescriptor descriptor) {
@@ -99,6 +100,10 @@ public final class Descriptors {
                 field.getType() == FieldDescriptor.Type.GROUP
                     && field.getMessageType() == descriptor)
         .findAny();
+  }
+
+  static boolean isIgnored(FieldDescriptor fieldDescriptor) {
+    return false;
   }
 
   private Descriptors() {}

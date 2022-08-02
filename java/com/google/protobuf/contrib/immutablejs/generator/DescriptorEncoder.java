@@ -31,6 +31,7 @@ public abstract class DescriptorEncoder {
   }
 
   static DescriptorEncoder forField(FieldDescriptor field) {
+    checkArgument(!Descriptors.isIgnored(field));
     if (field.isMapField()) {
       return forMessage(field.getMessageType());
     } else {
@@ -70,6 +71,10 @@ public abstract class DescriptorEncoder {
       EncodedBase92Builder base92Builder = new EncodedBase92Builder();
       int lastFieldNumber = 0;
       for (FieldDescriptor field : ImmutableList.sortedCopyOf(descriptor.getFields())) {
+        // Pretend like ignored fields don't exist.
+        if (Descriptors.isIgnored(field)) {
+          continue;
+        }
         int fieldNumber = field.getNumber();
         int fieldNumberGap = fieldNumber - lastFieldNumber;
         if (fieldNumberGap > 1) {
