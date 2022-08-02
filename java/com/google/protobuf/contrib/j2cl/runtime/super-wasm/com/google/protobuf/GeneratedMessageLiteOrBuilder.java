@@ -22,7 +22,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.RandomAccess;
 import java.util.Set;
-import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 /** Base class for implementing getters for fields and extension. */
@@ -51,11 +50,7 @@ public abstract class GeneratedMessageLiteOrBuilder<M extends MessageLite> {
   }
 
   protected final <E> E getField(int fieldNumber, E defaultValue) {
-    return getField(fieldNumber, () -> defaultValue);
-  }
-
-  protected final <E> E getField(int fieldNumber, Supplier<E> defaultValueSupplier) {
-    return hasField(fieldNumber) ? (E) fields.get(fieldNumber) : defaultValueSupplier.get();
+    return hasField(fieldNumber) ? (E) fields.get(fieldNumber) : defaultValue;
   }
 
   protected final boolean hasField(int fieldNumber) {
@@ -97,7 +92,7 @@ public abstract class GeneratedMessageLiteOrBuilder<M extends MessageLite> {
   }
 
   public final <E> E getExtension(ExtensionLite<M, E> generatedExtension) {
-    return getField(generatedExtension.getNumber(), generatedExtension::getDefaultValue);
+    return getField(generatedExtension.getNumber(), generatedExtension.getDefaultValue());
   }
 
   public final <E> E getExtension(ExtensionLite<M, List<E>> generatedExtension, int index) {

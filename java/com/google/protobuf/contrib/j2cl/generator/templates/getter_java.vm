@@ -1,21 +1,21 @@
-#set ($param = "")
-#set ($paramDec = "")
 #if (${field.isRepeated()})
   #set ($param = "index")
   #set ($paramDec = "int index")
+  #set ($methodKind = "Repeated")
+#else
+  #set ($param = "${field.defaultValue}")
+  #set ($paramDec = "")
+  #set ($methodKind = "")
 #end
 
 public ${field.unboxedType} get${field.name}(${paramDec}){
-  #if (${field.isRepeated()})
-    return getRepeatedField(${field.number}, ${param});
-  #else
-    return getField(${field.number}, () -> ${field.defaultValue});
-  #end
+  return get${methodKind}Field(${field.number}, ${param});
 }
 
 ## TODO(b/198495266): Fix handling of UNRECOGNIZED in WASM
 #if (${field.hasEnumValueAccessors()})
   public int get${field.name}Value(${paramDec}){
-    return get${field.name}(${param}).getNumber();
+    ${field.unboxedType} o = get${methodKind}Field(${field.number}, ${param});
+    return o.getNumber();
   }
 #end
