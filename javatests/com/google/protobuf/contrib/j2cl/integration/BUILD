@@ -85,8 +85,6 @@ j2cl_multi_test(
 j2cl_multi_test(
     name = "EnumFieldsTest",
     srcs = ["EnumFieldsTest.java"],
-    # TODO(b/239762534): Enable after enum bugs are fixed.
-    generate_wasm_test = False,
     proto_deps = [
         "//javatests/com/google/protobuf/contrib/j2cl/protos:enums",
         "//javatests/com/google/protobuf/contrib/j2cl/protos:proto3_enums",
@@ -118,7 +116,7 @@ j2cl_multi_test(
 j2cl_multi_test(
     name = "EnumParseTest",
     srcs = ["EnumParseTest.java"],
-    # TODO(b/240235178): Relies on JSPB format
+    # Relies on JSPB format.
     generate_java_test = False,
     generate_wasm_test = False,
     proto_deps = [

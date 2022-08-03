@@ -77,9 +77,7 @@ public abstract class TemplateEnumDescriptor extends AbstractTemplateTypeDescrip
   }
 
   public String getDefaultValueName(EnumValueDescriptor e) {
-    return e != null
-        ? e.getName()
-        : hasUnrecognizedValue() ? "UNRECOGNIZED" : descriptor().getValues().get(0).getName();
+    return e != null ? e.getName() : descriptor().getValues().get(0).getName();
   }
 
   /** Returns true if this enum should have a value of UNRECOGNIZED in the generated code. */

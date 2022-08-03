@@ -51,14 +51,27 @@ public abstract class GeneratedMessageLite<
       return (B) this;
     }
 
+    protected final <E> B setFieldForEnumValue(int fieldNumber, E value, int intValue) {
+      return setField(fieldNumber, value == null ? intValue : value);
+    }
+
     protected final <E> B addRepeatedField(int fieldNumber, E value) {
       ensureRepeatedField(fieldNumber).add(checkNotNull(value));
       return (B) this;
     }
 
+    protected final <E> B addRepeatedFieldForEnumValue(int fieldNumber, E value, int intValue) {
+      return addRepeatedField(fieldNumber, value == null ? intValue : value);
+    }
+
     protected final <E> B setRepeatedField(int fieldNumber, int index, E value) {
       ensureRepeatedField(fieldNumber).set(index, checkNotNull(value));
       return (B) this;
+    }
+
+    protected final <E> B setRepeatedFieldForEnumValue(
+        int fieldNumber, int index, E value, int intValue) {
+      return setRepeatedField(fieldNumber, index, value == null ? intValue : value);
     }
 
     protected final <E> B addAllRepeatedField(int fieldNumber, Iterable<E> values) {

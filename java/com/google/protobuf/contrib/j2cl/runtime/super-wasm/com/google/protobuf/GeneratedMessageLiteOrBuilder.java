@@ -53,6 +53,14 @@ public abstract class GeneratedMessageLiteOrBuilder<M extends MessageLite> {
     return hasField(fieldNumber) ? (E) fields.get(fieldNumber) : defaultValue;
   }
 
+  protected final <E> E getFieldForEnum(int fieldNumber, E defaultValue, E unrecognizedValue) {
+    return getEnumOrUnrecognized(getField(fieldNumber, defaultValue), unrecognizedValue);
+  }
+
+  protected final int getFieldForEnumValue(int fieldNumber, ProtocolMessageEnum defaultValue) {
+    return getEnumValue(getField(fieldNumber, defaultValue));
+  }
+
   protected final boolean hasField(int fieldNumber) {
     return fields.containsKey(fieldNumber);
   }
@@ -61,9 +69,24 @@ public abstract class GeneratedMessageLiteOrBuilder<M extends MessageLite> {
     return Collections.unmodifiableList(new InternalListView<>(fieldNumber));
   }
 
+  protected final <E> List<E> getFieldListForEnum(int fieldNumber, E unrecognizedValue) {
+    return Collections.unmodifiableList(
+        new InternalListViewForEnum<>(fieldNumber, unrecognizedValue));
+  }
+
   protected final <E> E getRepeatedField(int fieldNumber, int index) {
     List<E> fields = getField(fieldNumber, Collections.EMPTY_LIST);
     return fields.get(index);
+  }
+
+  protected final <E> E getRepeatedFieldForEnum(int fieldNumber, int index, E unrecognizedValue) {
+    List<E> fields = getField(fieldNumber, Collections.EMPTY_LIST);
+    return getEnumOrUnrecognized(fields.get(index), unrecognizedValue);
+  }
+
+  protected final int getRepeatedFieldForEnumValue(int fieldNumber, int index) {
+    List<?> fields = getField(fieldNumber, Collections.EMPTY_LIST);
+    return getEnumValue(fields.get(index));
   }
 
   protected final int getRepeatedFieldCount(int fieldNumber) {
@@ -107,6 +130,21 @@ public abstract class GeneratedMessageLiteOrBuilder<M extends MessageLite> {
     return hasField(generatedExtension.getNumber());
   }
 
+  private static final int getEnumValue(Object enumOrIntValue) {
+    if (enumOrIntValue instanceof Integer) {
+      return ((Integer) enumOrIntValue).intValue();
+    }
+    return ((ProtocolMessageEnum) enumOrIntValue).getNumber();
+  }
+
+  private static final <E> E getEnumOrUnrecognized(Object enumOrIntValue, E unrecognizedValue) {
+    if (enumOrIntValue instanceof Integer) {
+      // It is an unrecognized value, return unrecognized placeholder instead.
+      return unrecognizedValue;
+    }
+    return (E) enumOrIntValue;
+  }
+
   private class InternalListView<E> extends AbstractList<E> implements RandomAccess {
     private final int fieldNumber;
 
@@ -117,6 +155,26 @@ public abstract class GeneratedMessageLiteOrBuilder<M extends MessageLite> {
     @Override
     public E get(int index) {
       return getRepeatedField(fieldNumber, index);
+    }
+
+    @Override
+    public int size() {
+      return getRepeatedFieldCount(fieldNumber);
+    }
+  }
+
+  private class InternalListViewForEnum<E> extends AbstractList<E> implements RandomAccess {
+    private final int fieldNumber;
+    private final E unrecognizedValue;
+
+    private InternalListViewForEnum(int fieldNumber, E unrecognizedValue) {
+      this.fieldNumber = fieldNumber;
+      this.unrecognizedValue = unrecognizedValue;
+    }
+
+    @Override
+    public E get(int index) {
+      return getRepeatedFieldForEnum(fieldNumber, index, unrecognizedValue);
     }
 
     @Override

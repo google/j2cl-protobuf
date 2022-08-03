@@ -5,10 +5,9 @@ public Builder set${field.name}(${field.unboxedType} value){
   return setField(${field.number}, value);
 }
 
-## TODO(b/198495266): Fix handling of UNRECOGNIZED in WASM
 #if (${field.hasEnumValueAccessors()})
   public Builder set${field.name}Value(int value){
-    return set${field.name}(${field.unboxedType}.forNumber(value));
+    return setFieldForEnumValue(${field.number}, ${field.unboxedType}.forNumber(value), value);
   }
 #end
 

@@ -8,14 +8,19 @@
   #set ($methodKind = "")
 #end
 
+#if (${field.isEnum()})
+public ${field.unboxedType} get${field.name}(${paramDec}){
+  return get${methodKind}FieldForEnum(${field.number}, ${param}, ${field.unrecognizedEnumValue});
+}
+
+#if (${field.hasEnumValueAccessors()})
+  public int get${field.name}Value(${paramDec}){
+    return get${methodKind}FieldForEnumValue(${field.number}, ${param});
+  }
+#end
+
+#else
 public ${field.unboxedType} get${field.name}(${paramDec}){
   return get${methodKind}Field(${field.number}, ${param});
 }
-
-## TODO(b/198495266): Fix handling of UNRECOGNIZED in WASM
-#if (${field.hasEnumValueAccessors()})
-  public int get${field.name}Value(${paramDec}){
-    ${field.unboxedType} o = get${methodKind}Field(${field.number}, ${param});
-    return o.getNumber();
-  }
 #end

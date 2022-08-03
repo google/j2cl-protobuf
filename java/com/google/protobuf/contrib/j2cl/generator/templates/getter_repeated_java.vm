@@ -4,6 +4,12 @@ public int get${field.name}Count(){
   return getRepeatedFieldCount(${field.number});
 }
 
+#if (${field.isEnum()})
+public java.util.List<${field.boxedType}> get${field.name}List() {
+  return getFieldListForEnum(${field.number}, ${field.unrecognizedEnumValue});
+}
+#else
 public java.util.List<${field.boxedType}> get${field.name}List() {
   return getFieldList(${field.number});
 }
+#end
