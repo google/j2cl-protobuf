@@ -15,9 +15,11 @@
 goog.module('proto.im.integration.BuilderTest');
 goog.setTestOnly();
 
+const GroupsProto = goog.require('improto.protobuf.contrib.immutablejs.protos.GroupsProto');
 const TestProto = goog.require('improto.protobuf.contrib.immutablejs.protos.TestProto');
 const testSuite = goog.require('goog.testing.testSuite');
 const {assertEqualsForProto} = goog.require('proto.im.proto_asserts');
+const {enableFixGroupsB171736612} = goog.require('proto.im.defines');
 
 
 class BuilderTest {
@@ -39,4 +41,25 @@ class BuilderTest {
   }
 }
 
-testSuite(new BuilderTest());
+class GroupBuilderTestUnderFixFlagTest {
+  setUp() {
+    enableFixGroupsB171736612(true);
+  }
+
+  tearDown() {
+    enableFixGroupsB171736612(false);
+  }
+
+  testBuildGroupUnderFixedFlag() {
+    const g = GroupsProto.newBuilder()
+                  .setOptionalGroup(GroupsProto.OptionalGroup.newBuilder())
+                  .build();
+
+    assertEquals(g.serialize(), '[[{"g":1}]]');
+  }
+}
+
+testSuite({
+  testBuilder: new BuilderTest(),
+  testGroupBuilderTestUnderFixFlag: new GroupBuilderTestUnderFixFlagTest()
+});

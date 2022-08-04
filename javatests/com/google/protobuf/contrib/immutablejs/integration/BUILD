@@ -26,6 +26,7 @@ proto_jsunit_test(
     deps = [
         "//java/com/google/protobuf/contrib/immutablejs:runtime",
         "//javatests/com/google/protobuf/contrib/immutablejs/protos:accessors_immutable_js_proto",
+        "//javatests/com/google/protobuf/contrib/immutablejs/protos:groups_immutable_js_proto",
         "//javatests/com/google/protobuf/contrib/immutablejs/testing:proto_asserts",
         "//third_party:closure_testing_asserts",
         "//third_party:closure_testsuite",

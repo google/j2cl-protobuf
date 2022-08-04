@@ -82,6 +82,8 @@ closure_js_library(
         ":internal_mutablemapview",
         ":listview",
         ":mapview",
+        ":defines",
+        "//third_party:closure_asserts",
         "//third_party:closure_math_long",
     ],
 )
@@ -155,6 +157,7 @@ closure_js_library(
         ":listview",
         ":mapview",
         ":message",
+        ":defines",
     ],
 )
 
@@ -229,6 +232,7 @@ closure_js_library(
         ":listview",
         ":message",
         ":mapview",
+        ":defines",
         "//third_party:closure_math_long",
         "//third_party:closure_reflect",
     ],

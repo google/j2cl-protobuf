@@ -23,6 +23,8 @@ const InternalMap = goog.require('proto.im.internal.InternalMap');
 const ListView = goog.require('proto.im.ListView');
 const MapView = goog.require('proto.im.MapView');
 const internalChecks = goog.require('proto.im.internal.internalChecks');
+const {assert} = goog.require('goog.asserts');
+const {isFixGroupsB171736612Enabled, FIXED_GROUP_FLAG} = goog.require('proto.im.defines');
 
 #parse('imports.vm')
 
@@ -63,8 +65,27 @@ function hasExtensionObject(data) {
 }
 
 /**
+ * @param {!Array} data
+ * @return {boolean}
+ */
+function hasGroupFlag(data) {
+  return hasExtensionObject(data) && FIXED_GROUP_FLAG in data[data.length - 1];
+}
+
+/**
+* @param {!Object} obj
+* @return {boolean} Returns true if obj only contains flags (i.e. non-numeric
+*   keys). Returns false if obj is empty or has at least one numeric key.
+*/
+function sparseObjectOnlyContainsFlags(obj) {
+  const keys = Object.keys(obj);
+  return keys.length > 0 && keys.every(isNaN);
+}
+
+/**
  * @param {!Array<*>} data
- * @param {number} suggestedPivot
+ * @param {number} suggestedPivot possible pivot selection. Only used if data
+ *    does not have a sparse object (i.e. an implied pivot).
  * @param {number} messageOffset
  * @return {number} The field number after which fields are found in the
  *     extension object.
@@ -72,8 +93,16 @@ function hasExtensionObject(data) {
 function calculatePivot(data, suggestedPivot, messageOffset) {
   const lastIndex = data.length - 1;
   if (hasExtensionObject(data)) {
-    // Reuse the existing pivot
-    return fieldNumberFromArrayIndex(lastIndex, messageOffset);
+    // If msg's sparse object only contains flags, then we should pretend the
+    // sparse object doesn't exist for the sake of pivot selection. Otherwise,
+    // the artificial sparse object may cause us to mistakenly choose a low
+    // pivot value and inefficiently store fields in it.
+    if (sparseObjectOnlyContainsFlags(/** @type {!Object} */ (data[lastIndex]))) {
+      return Number.MAX_VALUE;
+    } else {
+      // Reuse the existing pivot
+      return fieldNumberFromArrayIndex(lastIndex, messageOffset);
+    }
   }
 
   if (suggestedPivot > 0) {
@@ -118,22 +147,42 @@ class JspbKernel {
     if (messageId && !data[0]) {
       data[0] = messageId;
     }
+
+    if (hasGroupFlag(data)) {
+      throw new Error(
+          `Unexpected "g" flag in sparse object of message that is not a group type.`);
+    }
+
     return new JspbKernel(data, pivot, messageOffset);
   }
 
   /**
    * @param {!Array<*>} data The array holding protobuf data conforming to the
    *     JSPB wireformat.
+   * @param {number} suggestedPivot The pivot value after which fields are found
+   *     in the extension object.
    * @param {number} groupFieldNumber The field number of the group field this
    *     message represents, or zero if it's not a group.
    * @return {!JspbKernel}
    */
-  static createGroup(data, groupFieldNumber) {
-    // Group fields do not support a pivot or message ID offset.
-    const messageOffset = -1 - (groupFieldNumber >= 0 ? groupFieldNumber : 0);
+  static createGroup(data, suggestedPivot, groupFieldNumber) {
+    // Group fields do not support a message ID offset. Groups fixing
+    // b/171736612 will have a pivot and sparse object that contains an
+    // indicator flag. All other groups will not have a pivot.
+    let groupOffset = groupFieldNumber > 0 ? groupFieldNumber : 0;
+
+    // TODO(b/240186489): Groups should use the same suggested pivot calculation
+    // as other messages.
+    if (hasGroupFlag(data)) {
+      groupOffset = 0;
+    }
+
+    const messageOffset = -1 - groupOffset;
+    const pivot = calculatePivot(data, suggestedPivot, messageOffset);
+
     return new JspbKernel(
         data,
-        /* pivot= */ Number.MAX_VALUE,
+        pivot,
         messageOffset);
   }
 
@@ -257,6 +306,74 @@ class JspbKernel {
   }
 
   /**
+   * Selects either the data object or the extension object based on the field
+   * number. In some cases, the write operation may need to "slide" the sparse
+   * object backwards (e.g. the object only exists to hold a fixed group
+   * indicator) in order to avoid inefficiently storing field in the sparse
+   * object. Consequently, we will prepare the underlying wire format data
+   * accordingly.
+   *
+   * @param {number} fieldNumber
+   * @return {!Object<number, *>}
+   * @private
+   */
+  prepareStorageForWriting_(fieldNumber) {
+    const storage = this.getStorageFor_(fieldNumber);
+    if (storage == this.data_) {
+      this.maybeSlideSparseObject_(fieldNumber);
+      return this.data_;
+    }
+
+    return storage;
+  }
+
+  /**
+   * Prepare an array location for inserting a field by possibly to "sliding"
+   * the sparse object backwards (e.g. the object only exists to hold a fixed
+   * group indicator) to accomodate. This helps to avoid inefficiently storing
+   * field in the sparse object.
+   *
+   * @param {number} fieldNumber
+   * @private
+   */
+  maybeSlideSparseObject_(fieldNumber) {
+    const oldSparseObjectLocation = this.data_.length - 1;
+    const sparseObj = hasExtensionObject(this.data_) ?
+      this.data_[oldSparseObjectLocation] : undefined;
+
+    const expectedIndex = arrayIndexFromFieldNumber(fieldNumber, this.messageOffset_);
+    if (sparseObj !== undefined && this.pivot_ >= this.data_.length) {
+      // Pivot is past the end of the array, so we can slide the sparse
+      // object backwards if needed and insert the field before it.
+
+      if (expectedIndex >= oldSparseObjectLocation) {
+        // Ensure we only slide the sparse object when we thinking we will.
+        // Namely, we only anticipate sliding when there are only flags
+        // present, but for future proofing we'll also tolerate fields past the
+        // current location. We use current object location instead of the pivot
+        // here since the pivot may be Number.MAX_VALUE.
+        if (goog.DEBUG) {
+          const keys = Object.keys(/** @type {!Object} */ (sparseObj));
+          assert(keys.length > 0 &&
+            keys.every(x => isNaN(x) || Number(x) >= oldSparseObjectLocation));
+        }
+
+        // Slide and insert before the sparse object. The accessor will slot in
+        // the value later.
+        this.data_[oldSparseObjectLocation] = undefined;
+        this.data_[expectedIndex] = undefined;
+        this.data_.push(sparseObj);
+      }
+    }
+
+    if (sparseObj !== undefined && fieldNumber in sparseObj) {
+      // The accessor will be writing to the array portion, but the field is
+      // already in the sparse object. Delete the sparse object's version.
+      delete sparseObj[fieldNumber];
+    }
+  }
+
+  /**
    * Returns a cached value for a field and key, or creates and caches the
    * value.
    * @param {!Object} cacheObj
@@ -345,7 +462,7 @@ class JspbKernel {
    * @template T
    */
   setField_(fieldNumber, value, accessorFn) {
-    const rawJson = this.getStorageFor_(fieldNumber);
+    const rawJson = this.prepareStorageForWriting_(fieldNumber);
     accessorFn(rawJson, this.indexForStorage_(fieldNumber), value);
   }
 
