@@ -14,11 +14,9 @@
 package com.google.protobuf.contrib.j2cl.generator;
 
 import static com.google.common.base.Preconditions.checkState;
-import static com.google.common.base.Strings.nullToEmpty;
 import static com.google.protobuf.contrib.immutablejs.generator.SourceCodeEscapers.javaCharEscaper;
 
 import com.google.auto.value.AutoValue;
-import com.google.common.base.Defaults;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Descriptors.FieldDescriptor;
@@ -195,33 +193,26 @@ public abstract class TemplateFieldDescriptor {
   }
 
   public String getDefaultValue() {
-    Object defaultValue =
-        fieldDescriptor().hasDefaultValue() ? fieldDescriptor().getDefaultValue() : null;
-
     switch (fieldDescriptor().getJavaType()) {
       case BOOLEAN:
-        return String.valueOf(nullToDefault(defaultValue, boolean.class));
       case INT:
-        return String.valueOf(nullToDefault(defaultValue, int.class));
-      case LONG:
-        return nullToDefault(defaultValue, long.class) + "L";
       case DOUBLE:
-        return nullToDefault(defaultValue, double.class) + "d";
+        return getDefaultForSimpleType();
+      case LONG:
+        return getDefaultForSimpleType() + "L";
       case FLOAT:
-        return nullToDefault(defaultValue, float.class) + "f";
+        return getDefaultForSimpleType() + "f";
       case STRING:
-        return "\"" + javaCharEscaper().escape(nullToEmpty((String) defaultValue)) + "\"";
+        return "\"" + javaCharEscaper().escape(getDefaultForSimpleType()) + "\"";
       case ENUM:
-        String defaultEnumName =
-            TemplateEnumDescriptor.create(fieldDescriptor().getEnumType())
-                .getDefaultValueName((EnumValueDescriptor) defaultValue);
-        return getUnboxedType() + "." + defaultEnumName;
+        EnumValueDescriptor defaultEnum = (EnumValueDescriptor) fieldDescriptor().getDefaultValue();
+        return getUnboxedType() + "." + defaultEnum.getName();
       case BYTE_STRING:
-        ByteString defaultByteString = (ByteString) defaultValue;
-        if (defaultByteString != null) {
-          return getUnboxedType() + ".copyFromUtf8(\"" + defaultByteString.toStringUtf8() + "\")";
+        ByteString defaultByteString = (ByteString) fieldDescriptor().getDefaultValue();
+        if (defaultByteString.isEmpty()) {
+          return getUnboxedType() + ".EMPTY";
         }
-        return "com.google.protobuf.ByteString.EMPTY";
+        return getUnboxedType() + ".copyFromUtf8(\"" + defaultByteString.toStringUtf8() + "\")";
       case MESSAGE:
         return getUnboxedType() + ".getDefaultInstance()";
     }
@@ -229,8 +220,8 @@ public abstract class TemplateFieldDescriptor {
     throw new AssertionError("Unsupported java type: " + fieldDescriptor().getJavaType());
   }
 
-  private Object nullToDefault(Object value, Class<?> defaultValueClass) {
-    return value == null ? Defaults.defaultValue(defaultValueClass) : value;
+  private String getDefaultForSimpleType() {
+    return String.valueOf(fieldDescriptor().getDefaultValue());
   }
 
   public String getExtendedMessage() {

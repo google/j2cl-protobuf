@@ -76,10 +76,6 @@ public abstract class TemplateEnumDescriptor extends AbstractTemplateTypeDescrip
     return isDenseEnum(getValues());
   }
 
-  public String getDefaultValueName(EnumValueDescriptor e) {
-    return e != null ? e.getName() : descriptor().getValues().get(0).getName();
-  }
-
   /** Returns true if this enum should have a value of UNRECOGNIZED in the generated code. */
   public boolean hasUnrecognizedValue() {
     return !isJsEnum() && isProto3();
