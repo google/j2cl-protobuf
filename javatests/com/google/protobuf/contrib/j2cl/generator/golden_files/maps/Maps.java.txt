@@ -125,9 +125,11 @@ public final class Maps {
         @jsinterop.annotations.JsMethod(name = "getFoo")
         public native java.lang.String getFoo();
 
+        @com.google.errorprone.annotations.CanIgnoreReturnValue
         @jsinterop.annotations.JsMethod(name = "clearFoo")
         public native Builder clearFoo();
 
+        @com.google.errorprone.annotations.CanIgnoreReturnValue
         @jsinterop.annotations.JsMethod(name = "setFoo")
         public native Builder setFoo(java.lang.String value);
       }
@@ -2014,14 +2016,17 @@ public final class Maps {
             internal_getInt32KeyBoolValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearInt32KeyBoolValue")
       public native Builder clearInt32KeyBoolValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putInt32KeyBoolValue")
       public native Builder putInt32KeyBoolValue(int key, boolean value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllInt32KeyBoolValue(
           java.util.Map<java.lang.Integer, java.lang.Boolean> values) {
@@ -2030,6 +2035,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeInt32KeyBoolValue")
       public native Builder removeInt32KeyBoolValue(int key);
 
@@ -2056,14 +2062,17 @@ public final class Maps {
             internal_getInt32KeyInt32ValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearInt32KeyInt32Value")
       public native Builder clearInt32KeyInt32Value();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putInt32KeyInt32Value")
       public native Builder putInt32KeyInt32Value(int key, int value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllInt32KeyInt32Value(
           java.util.Map<java.lang.Integer, java.lang.Integer> values) {
@@ -2072,6 +2081,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeInt32KeyInt32Value")
       public native Builder removeInt32KeyInt32Value(int key);
 
@@ -2098,14 +2108,17 @@ public final class Maps {
             internal_getInt32KeyInt64ValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearInt32KeyInt64Value")
       public native Builder clearInt32KeyInt64Value();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putInt32KeyInt64Value")
       public native Builder putInt32KeyInt64Value(int key, long value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllInt32KeyInt64Value(
           java.util.Map<java.lang.Integer, java.lang.Long> values) {
@@ -2114,6 +2127,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeInt32KeyInt64Value")
       public native Builder removeInt32KeyInt64Value(int key);
 
@@ -2140,14 +2154,17 @@ public final class Maps {
             internal_getInt32KeyFloatValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearInt32KeyFloatValue")
       public native Builder clearInt32KeyFloatValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putInt32KeyFloatValue")
       public native Builder putInt32KeyFloatValue(int key, float value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllInt32KeyFloatValue(
           java.util.Map<java.lang.Integer, java.lang.Float> values) {
@@ -2156,6 +2173,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeInt32KeyFloatValue")
       public native Builder removeInt32KeyFloatValue(int key);
 
@@ -2182,14 +2200,17 @@ public final class Maps {
             internal_getInt32KeyDoubleValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearInt32KeyDoubleValue")
       public native Builder clearInt32KeyDoubleValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putInt32KeyDoubleValue")
       public native Builder putInt32KeyDoubleValue(int key, double value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllInt32KeyDoubleValue(
           java.util.Map<java.lang.Integer, java.lang.Double> values) {
@@ -2198,6 +2219,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeInt32KeyDoubleValue")
       public native Builder removeInt32KeyDoubleValue(int key);
 
@@ -2225,14 +2247,17 @@ public final class Maps {
             internal_getInt32KeyStringValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearInt32KeyStringValue")
       public native Builder clearInt32KeyStringValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putInt32KeyStringValue")
       public native Builder putInt32KeyStringValue(int key, java.lang.String value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllInt32KeyStringValue(
           java.util.Map<java.lang.Integer, java.lang.String> values) {
@@ -2241,6 +2266,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeInt32KeyStringValue")
       public native Builder removeInt32KeyStringValue(int key);
 
@@ -2269,14 +2295,17 @@ public final class Maps {
             internal_getInt32KeyBytesValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearInt32KeyBytesValue")
       public native Builder clearInt32KeyBytesValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putInt32KeyBytesValue")
       public native Builder putInt32KeyBytesValue(int key, com.google.protobuf.ByteString value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllInt32KeyBytesValue(
           java.util.Map<java.lang.Integer, com.google.protobuf.ByteString> values) {
@@ -2285,6 +2314,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeInt32KeyBytesValue")
       public native Builder removeInt32KeyBytesValue(int key);
 
@@ -2311,14 +2341,17 @@ public final class Maps {
             internal_getInt32KeyUint32ValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearInt32KeyUint32Value")
       public native Builder clearInt32KeyUint32Value();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putInt32KeyUint32Value")
       public native Builder putInt32KeyUint32Value(int key, int value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllInt32KeyUint32Value(
           java.util.Map<java.lang.Integer, java.lang.Integer> values) {
@@ -2327,6 +2360,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeInt32KeyUint32Value")
       public native Builder removeInt32KeyUint32Value(int key);
 
@@ -2353,14 +2387,17 @@ public final class Maps {
             internal_getInt32KeyUint64ValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearInt32KeyUint64Value")
       public native Builder clearInt32KeyUint64Value();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putInt32KeyUint64Value")
       public native Builder putInt32KeyUint64Value(int key, long value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllInt32KeyUint64Value(
           java.util.Map<java.lang.Integer, java.lang.Long> values) {
@@ -2369,6 +2406,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeInt32KeyUint64Value")
       public native Builder removeInt32KeyUint64Value(int key);
 
@@ -2424,11 +2462,13 @@ public final class Maps {
                     d, com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearInt32KeyEnumValue")
       public native Builder clearInt32KeyEnumValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putInt32KeyEnumValue(
           int key, com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum value) {
@@ -2438,9 +2478,11 @@ public final class Maps {
                 .toClosureValue(value));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putInt32KeyEnumValue")
       private native Builder internal_putInt32KeyEnumValue(int key, Object value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllInt32KeyEnumValue(
           java.util.Map<
@@ -2452,6 +2494,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeInt32KeyEnumValue")
       public native Builder removeInt32KeyEnumValue(int key);
 
@@ -2486,15 +2529,18 @@ public final class Maps {
             internal_getInt32KeyMessageValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearInt32KeyMessageValue")
       public native Builder clearInt32KeyMessageValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putInt32KeyMessageValue")
       public native Builder putInt32KeyMessageValue(
           int key, com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllInt32KeyMessageValue(
           java.util.Map<
@@ -2506,6 +2552,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeInt32KeyMessageValue")
       public native Builder removeInt32KeyMessageValue(int key);
 
@@ -2532,14 +2579,17 @@ public final class Maps {
             internal_getInt64KeyBoolValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearInt64KeyBoolValue")
       public native Builder clearInt64KeyBoolValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putInt64KeyBoolValue")
       public native Builder putInt64KeyBoolValue(long key, boolean value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllInt64KeyBoolValue(
           java.util.Map<java.lang.Long, java.lang.Boolean> values) {
@@ -2548,6 +2598,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeInt64KeyBoolValue")
       public native Builder removeInt64KeyBoolValue(long key);
 
@@ -2574,14 +2625,17 @@ public final class Maps {
             internal_getInt64KeyInt32ValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearInt64KeyInt32Value")
       public native Builder clearInt64KeyInt32Value();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putInt64KeyInt32Value")
       public native Builder putInt64KeyInt32Value(long key, int value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllInt64KeyInt32Value(
           java.util.Map<java.lang.Long, java.lang.Integer> values) {
@@ -2590,6 +2644,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeInt64KeyInt32Value")
       public native Builder removeInt64KeyInt32Value(long key);
 
@@ -2616,14 +2671,17 @@ public final class Maps {
             internal_getInt64KeyInt64ValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearInt64KeyInt64Value")
       public native Builder clearInt64KeyInt64Value();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putInt64KeyInt64Value")
       public native Builder putInt64KeyInt64Value(long key, long value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllInt64KeyInt64Value(
           java.util.Map<java.lang.Long, java.lang.Long> values) {
@@ -2632,6 +2690,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeInt64KeyInt64Value")
       public native Builder removeInt64KeyInt64Value(long key);
 
@@ -2658,14 +2717,17 @@ public final class Maps {
             internal_getInt64KeyFloatValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearInt64KeyFloatValue")
       public native Builder clearInt64KeyFloatValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putInt64KeyFloatValue")
       public native Builder putInt64KeyFloatValue(long key, float value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllInt64KeyFloatValue(
           java.util.Map<java.lang.Long, java.lang.Float> values) {
@@ -2674,6 +2736,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeInt64KeyFloatValue")
       public native Builder removeInt64KeyFloatValue(long key);
 
@@ -2700,14 +2763,17 @@ public final class Maps {
             internal_getInt64KeyDoubleValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearInt64KeyDoubleValue")
       public native Builder clearInt64KeyDoubleValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putInt64KeyDoubleValue")
       public native Builder putInt64KeyDoubleValue(long key, double value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllInt64KeyDoubleValue(
           java.util.Map<java.lang.Long, java.lang.Double> values) {
@@ -2716,6 +2782,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeInt64KeyDoubleValue")
       public native Builder removeInt64KeyDoubleValue(long key);
 
@@ -2743,14 +2810,17 @@ public final class Maps {
             internal_getInt64KeyStringValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearInt64KeyStringValue")
       public native Builder clearInt64KeyStringValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putInt64KeyStringValue")
       public native Builder putInt64KeyStringValue(long key, java.lang.String value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllInt64KeyStringValue(
           java.util.Map<java.lang.Long, java.lang.String> values) {
@@ -2759,6 +2829,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeInt64KeyStringValue")
       public native Builder removeInt64KeyStringValue(long key);
 
@@ -2787,14 +2858,17 @@ public final class Maps {
             internal_getInt64KeyBytesValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearInt64KeyBytesValue")
       public native Builder clearInt64KeyBytesValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putInt64KeyBytesValue")
       public native Builder putInt64KeyBytesValue(long key, com.google.protobuf.ByteString value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllInt64KeyBytesValue(
           java.util.Map<java.lang.Long, com.google.protobuf.ByteString> values) {
@@ -2803,6 +2877,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeInt64KeyBytesValue")
       public native Builder removeInt64KeyBytesValue(long key);
 
@@ -2829,14 +2904,17 @@ public final class Maps {
             internal_getInt64KeyUint32ValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearInt64KeyUint32Value")
       public native Builder clearInt64KeyUint32Value();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putInt64KeyUint32Value")
       public native Builder putInt64KeyUint32Value(long key, int value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllInt64KeyUint32Value(
           java.util.Map<java.lang.Long, java.lang.Integer> values) {
@@ -2845,6 +2923,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeInt64KeyUint32Value")
       public native Builder removeInt64KeyUint32Value(long key);
 
@@ -2871,14 +2950,17 @@ public final class Maps {
             internal_getInt64KeyUint64ValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearInt64KeyUint64Value")
       public native Builder clearInt64KeyUint64Value();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putInt64KeyUint64Value")
       public native Builder putInt64KeyUint64Value(long key, long value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllInt64KeyUint64Value(
           java.util.Map<java.lang.Long, java.lang.Long> values) {
@@ -2887,6 +2969,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeInt64KeyUint64Value")
       public native Builder removeInt64KeyUint64Value(long key);
 
@@ -2942,11 +3025,13 @@ public final class Maps {
                     d, com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearInt64KeyEnumValue")
       public native Builder clearInt64KeyEnumValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putInt64KeyEnumValue(
           long key, com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum value) {
@@ -2956,9 +3041,11 @@ public final class Maps {
                 .toClosureValue(value));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putInt64KeyEnumValue")
       private native Builder internal_putInt64KeyEnumValue(long key, Object value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllInt64KeyEnumValue(
           java.util.Map<
@@ -2970,6 +3057,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeInt64KeyEnumValue")
       public native Builder removeInt64KeyEnumValue(long key);
 
@@ -3004,15 +3092,18 @@ public final class Maps {
             internal_getInt64KeyMessageValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearInt64KeyMessageValue")
       public native Builder clearInt64KeyMessageValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putInt64KeyMessageValue")
       public native Builder putInt64KeyMessageValue(
           long key, com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllInt64KeyMessageValue(
           java.util.Map<
@@ -3024,6 +3115,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeInt64KeyMessageValue")
       public native Builder removeInt64KeyMessageValue(long key);
 
@@ -3050,14 +3142,17 @@ public final class Maps {
             internal_getUint64KeyBoolValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearUint64KeyBoolValue")
       public native Builder clearUint64KeyBoolValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putUint64KeyBoolValue")
       public native Builder putUint64KeyBoolValue(long key, boolean value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllUint64KeyBoolValue(
           java.util.Map<java.lang.Long, java.lang.Boolean> values) {
@@ -3066,6 +3161,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeUint64KeyBoolValue")
       public native Builder removeUint64KeyBoolValue(long key);
 
@@ -3092,14 +3188,17 @@ public final class Maps {
             internal_getUint64KeyInt32ValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearUint64KeyInt32Value")
       public native Builder clearUint64KeyInt32Value();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putUint64KeyInt32Value")
       public native Builder putUint64KeyInt32Value(long key, int value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllUint64KeyInt32Value(
           java.util.Map<java.lang.Long, java.lang.Integer> values) {
@@ -3108,6 +3207,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeUint64KeyInt32Value")
       public native Builder removeUint64KeyInt32Value(long key);
 
@@ -3134,14 +3234,17 @@ public final class Maps {
             internal_getUint64KeyInt64ValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearUint64KeyInt64Value")
       public native Builder clearUint64KeyInt64Value();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putUint64KeyInt64Value")
       public native Builder putUint64KeyInt64Value(long key, long value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllUint64KeyInt64Value(
           java.util.Map<java.lang.Long, java.lang.Long> values) {
@@ -3150,6 +3253,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeUint64KeyInt64Value")
       public native Builder removeUint64KeyInt64Value(long key);
 
@@ -3176,14 +3280,17 @@ public final class Maps {
             internal_getUint64KeyFloatValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearUint64KeyFloatValue")
       public native Builder clearUint64KeyFloatValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putUint64KeyFloatValue")
       public native Builder putUint64KeyFloatValue(long key, float value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllUint64KeyFloatValue(
           java.util.Map<java.lang.Long, java.lang.Float> values) {
@@ -3192,6 +3299,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeUint64KeyFloatValue")
       public native Builder removeUint64KeyFloatValue(long key);
 
@@ -3218,14 +3326,17 @@ public final class Maps {
             internal_getUint64KeyDoubleValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearUint64KeyDoubleValue")
       public native Builder clearUint64KeyDoubleValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putUint64KeyDoubleValue")
       public native Builder putUint64KeyDoubleValue(long key, double value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllUint64KeyDoubleValue(
           java.util.Map<java.lang.Long, java.lang.Double> values) {
@@ -3234,6 +3345,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeUint64KeyDoubleValue")
       public native Builder removeUint64KeyDoubleValue(long key);
 
@@ -3261,14 +3373,17 @@ public final class Maps {
             internal_getUint64KeyStringValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearUint64KeyStringValue")
       public native Builder clearUint64KeyStringValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putUint64KeyStringValue")
       public native Builder putUint64KeyStringValue(long key, java.lang.String value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllUint64KeyStringValue(
           java.util.Map<java.lang.Long, java.lang.String> values) {
@@ -3277,6 +3392,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeUint64KeyStringValue")
       public native Builder removeUint64KeyStringValue(long key);
 
@@ -3305,14 +3421,17 @@ public final class Maps {
             internal_getUint64KeyBytesValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearUint64KeyBytesValue")
       public native Builder clearUint64KeyBytesValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putUint64KeyBytesValue")
       public native Builder putUint64KeyBytesValue(long key, com.google.protobuf.ByteString value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllUint64KeyBytesValue(
           java.util.Map<java.lang.Long, com.google.protobuf.ByteString> values) {
@@ -3321,6 +3440,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeUint64KeyBytesValue")
       public native Builder removeUint64KeyBytesValue(long key);
 
@@ -3347,14 +3467,17 @@ public final class Maps {
             internal_getUint64KeyUint32ValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearUint64KeyUint32Value")
       public native Builder clearUint64KeyUint32Value();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putUint64KeyUint32Value")
       public native Builder putUint64KeyUint32Value(long key, int value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllUint64KeyUint32Value(
           java.util.Map<java.lang.Long, java.lang.Integer> values) {
@@ -3363,6 +3486,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeUint64KeyUint32Value")
       public native Builder removeUint64KeyUint32Value(long key);
 
@@ -3389,14 +3513,17 @@ public final class Maps {
             internal_getUint64KeyUint64ValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearUint64KeyUint64Value")
       public native Builder clearUint64KeyUint64Value();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putUint64KeyUint64Value")
       public native Builder putUint64KeyUint64Value(long key, long value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllUint64KeyUint64Value(
           java.util.Map<java.lang.Long, java.lang.Long> values) {
@@ -3405,6 +3532,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeUint64KeyUint64Value")
       public native Builder removeUint64KeyUint64Value(long key);
 
@@ -3460,11 +3588,13 @@ public final class Maps {
                     d, com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearUint64KeyEnumValue")
       public native Builder clearUint64KeyEnumValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putUint64KeyEnumValue(
           long key, com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum value) {
@@ -3474,9 +3604,11 @@ public final class Maps {
                 .toClosureValue(value));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putUint64KeyEnumValue")
       private native Builder internal_putUint64KeyEnumValue(long key, Object value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllUint64KeyEnumValue(
           java.util.Map<
@@ -3488,6 +3620,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeUint64KeyEnumValue")
       public native Builder removeUint64KeyEnumValue(long key);
 
@@ -3522,15 +3655,18 @@ public final class Maps {
             internal_getUint64KeyMessageValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearUint64KeyMessageValue")
       public native Builder clearUint64KeyMessageValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putUint64KeyMessageValue")
       public native Builder putUint64KeyMessageValue(
           long key, com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllUint64KeyMessageValue(
           java.util.Map<
@@ -3542,6 +3678,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeUint64KeyMessageValue")
       public native Builder removeUint64KeyMessageValue(long key);
 
@@ -3568,14 +3705,17 @@ public final class Maps {
             internal_getUint32KeyBoolValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearUint32KeyBoolValue")
       public native Builder clearUint32KeyBoolValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putUint32KeyBoolValue")
       public native Builder putUint32KeyBoolValue(int key, boolean value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllUint32KeyBoolValue(
           java.util.Map<java.lang.Integer, java.lang.Boolean> values) {
@@ -3584,6 +3724,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeUint32KeyBoolValue")
       public native Builder removeUint32KeyBoolValue(int key);
 
@@ -3610,14 +3751,17 @@ public final class Maps {
             internal_getUint32KeyInt32ValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearUint32KeyInt32Value")
       public native Builder clearUint32KeyInt32Value();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putUint32KeyInt32Value")
       public native Builder putUint32KeyInt32Value(int key, int value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllUint32KeyInt32Value(
           java.util.Map<java.lang.Integer, java.lang.Integer> values) {
@@ -3626,6 +3770,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeUint32KeyInt32Value")
       public native Builder removeUint32KeyInt32Value(int key);
 
@@ -3652,14 +3797,17 @@ public final class Maps {
             internal_getUint32KeyInt64ValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearUint32KeyInt64Value")
       public native Builder clearUint32KeyInt64Value();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putUint32KeyInt64Value")
       public native Builder putUint32KeyInt64Value(int key, long value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllUint32KeyInt64Value(
           java.util.Map<java.lang.Integer, java.lang.Long> values) {
@@ -3668,6 +3816,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeUint32KeyInt64Value")
       public native Builder removeUint32KeyInt64Value(int key);
 
@@ -3694,14 +3843,17 @@ public final class Maps {
             internal_getUint32KeyFloatValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearUint32KeyFloatValue")
       public native Builder clearUint32KeyFloatValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putUint32KeyFloatValue")
       public native Builder putUint32KeyFloatValue(int key, float value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllUint32KeyFloatValue(
           java.util.Map<java.lang.Integer, java.lang.Float> values) {
@@ -3710,6 +3862,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeUint32KeyFloatValue")
       public native Builder removeUint32KeyFloatValue(int key);
 
@@ -3736,14 +3889,17 @@ public final class Maps {
             internal_getUint32KeyDoubleValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearUint32KeyDoubleValue")
       public native Builder clearUint32KeyDoubleValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putUint32KeyDoubleValue")
       public native Builder putUint32KeyDoubleValue(int key, double value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllUint32KeyDoubleValue(
           java.util.Map<java.lang.Integer, java.lang.Double> values) {
@@ -3752,6 +3908,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeUint32KeyDoubleValue")
       public native Builder removeUint32KeyDoubleValue(int key);
 
@@ -3779,14 +3936,17 @@ public final class Maps {
             internal_getUint32KeyStringValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearUint32KeyStringValue")
       public native Builder clearUint32KeyStringValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putUint32KeyStringValue")
       public native Builder putUint32KeyStringValue(int key, java.lang.String value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllUint32KeyStringValue(
           java.util.Map<java.lang.Integer, java.lang.String> values) {
@@ -3795,6 +3955,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeUint32KeyStringValue")
       public native Builder removeUint32KeyStringValue(int key);
 
@@ -3823,14 +3984,17 @@ public final class Maps {
             internal_getUint32KeyBytesValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearUint32KeyBytesValue")
       public native Builder clearUint32KeyBytesValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putUint32KeyBytesValue")
       public native Builder putUint32KeyBytesValue(int key, com.google.protobuf.ByteString value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllUint32KeyBytesValue(
           java.util.Map<java.lang.Integer, com.google.protobuf.ByteString> values) {
@@ -3839,6 +4003,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeUint32KeyBytesValue")
       public native Builder removeUint32KeyBytesValue(int key);
 
@@ -3866,14 +4031,17 @@ public final class Maps {
             internal_getUint32KeyUint32ValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearUint32KeyUint32Value")
       public native Builder clearUint32KeyUint32Value();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putUint32KeyUint32Value")
       public native Builder putUint32KeyUint32Value(int key, int value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllUint32KeyUint32Value(
           java.util.Map<java.lang.Integer, java.lang.Integer> values) {
@@ -3882,6 +4050,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeUint32KeyUint32Value")
       public native Builder removeUint32KeyUint32Value(int key);
 
@@ -3908,14 +4077,17 @@ public final class Maps {
             internal_getUint32KeyUint64ValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearUint32KeyUint64Value")
       public native Builder clearUint32KeyUint64Value();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putUint32KeyUint64Value")
       public native Builder putUint32KeyUint64Value(int key, long value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllUint32KeyUint64Value(
           java.util.Map<java.lang.Integer, java.lang.Long> values) {
@@ -3924,6 +4096,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeUint32KeyUint64Value")
       public native Builder removeUint32KeyUint64Value(int key);
 
@@ -3979,11 +4152,13 @@ public final class Maps {
                     d, com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearUint32KeyEnumValue")
       public native Builder clearUint32KeyEnumValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putUint32KeyEnumValue(
           int key, com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum value) {
@@ -3993,9 +4168,11 @@ public final class Maps {
                 .toClosureValue(value));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putUint32KeyEnumValue")
       private native Builder internal_putUint32KeyEnumValue(int key, Object value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllUint32KeyEnumValue(
           java.util.Map<
@@ -4007,6 +4184,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeUint32KeyEnumValue")
       public native Builder removeUint32KeyEnumValue(int key);
 
@@ -4041,15 +4219,18 @@ public final class Maps {
             internal_getUint32KeyMessageValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearUint32KeyMessageValue")
       public native Builder clearUint32KeyMessageValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putUint32KeyMessageValue")
       public native Builder putUint32KeyMessageValue(
           int key, com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllUint32KeyMessageValue(
           java.util.Map<
@@ -4061,6 +4242,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeUint32KeyMessageValue")
       public native Builder removeUint32KeyMessageValue(int key);
 
@@ -4088,14 +4270,17 @@ public final class Maps {
             internal_getStringKeyBoolValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearStringKeyBoolValue")
       public native Builder clearStringKeyBoolValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putStringKeyBoolValue")
       public native Builder putStringKeyBoolValue(java.lang.String key, boolean value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllStringKeyBoolValue(
           java.util.Map<java.lang.String, java.lang.Boolean> values) {
@@ -4104,6 +4289,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeStringKeyBoolValue")
       public native Builder removeStringKeyBoolValue(java.lang.String key);
 
@@ -4130,14 +4316,17 @@ public final class Maps {
             internal_getStringKeyInt32ValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearStringKeyInt32Value")
       public native Builder clearStringKeyInt32Value();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putStringKeyInt32Value")
       public native Builder putStringKeyInt32Value(java.lang.String key, int value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllStringKeyInt32Value(
           java.util.Map<java.lang.String, java.lang.Integer> values) {
@@ -4146,6 +4335,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeStringKeyInt32Value")
       public native Builder removeStringKeyInt32Value(java.lang.String key);
 
@@ -4172,14 +4362,17 @@ public final class Maps {
             internal_getStringKeyInt64ValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearStringKeyInt64Value")
       public native Builder clearStringKeyInt64Value();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putStringKeyInt64Value")
       public native Builder putStringKeyInt64Value(java.lang.String key, long value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllStringKeyInt64Value(
           java.util.Map<java.lang.String, java.lang.Long> values) {
@@ -4188,6 +4381,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeStringKeyInt64Value")
       public native Builder removeStringKeyInt64Value(java.lang.String key);
 
@@ -4214,14 +4408,17 @@ public final class Maps {
             internal_getStringKeyFloatValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearStringKeyFloatValue")
       public native Builder clearStringKeyFloatValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putStringKeyFloatValue")
       public native Builder putStringKeyFloatValue(java.lang.String key, float value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllStringKeyFloatValue(
           java.util.Map<java.lang.String, java.lang.Float> values) {
@@ -4230,6 +4427,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeStringKeyFloatValue")
       public native Builder removeStringKeyFloatValue(java.lang.String key);
 
@@ -4257,14 +4455,17 @@ public final class Maps {
             internal_getStringKeyDoubleValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearStringKeyDoubleValue")
       public native Builder clearStringKeyDoubleValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putStringKeyDoubleValue")
       public native Builder putStringKeyDoubleValue(java.lang.String key, double value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllStringKeyDoubleValue(
           java.util.Map<java.lang.String, java.lang.Double> values) {
@@ -4273,6 +4474,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeStringKeyDoubleValue")
       public native Builder removeStringKeyDoubleValue(java.lang.String key);
 
@@ -4300,14 +4502,17 @@ public final class Maps {
             internal_getStringKeyStringValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearStringKeyStringValue")
       public native Builder clearStringKeyStringValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putStringKeyStringValue")
       public native Builder putStringKeyStringValue(java.lang.String key, java.lang.String value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllStringKeyStringValue(
           java.util.Map<java.lang.String, java.lang.String> values) {
@@ -4316,6 +4521,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeStringKeyStringValue")
       public native Builder removeStringKeyStringValue(java.lang.String key);
 
@@ -4345,15 +4551,18 @@ public final class Maps {
             internal_getStringKeyBytesValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearStringKeyBytesValue")
       public native Builder clearStringKeyBytesValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putStringKeyBytesValue")
       public native Builder putStringKeyBytesValue(
           java.lang.String key, com.google.protobuf.ByteString value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllStringKeyBytesValue(
           java.util.Map<java.lang.String, com.google.protobuf.ByteString> values) {
@@ -4362,6 +4571,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeStringKeyBytesValue")
       public native Builder removeStringKeyBytesValue(java.lang.String key);
 
@@ -4388,14 +4598,17 @@ public final class Maps {
             internal_getStringKeyUint32ValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearStringKeyUint32Value")
       public native Builder clearStringKeyUint32Value();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putStringKeyUint32Value")
       public native Builder putStringKeyUint32Value(java.lang.String key, int value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllStringKeyUint32Value(
           java.util.Map<java.lang.String, java.lang.Integer> values) {
@@ -4404,6 +4617,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeStringKeyUint32Value")
       public native Builder removeStringKeyUint32Value(java.lang.String key);
 
@@ -4430,14 +4644,17 @@ public final class Maps {
             internal_getStringKeyUint64ValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearStringKeyUint64Value")
       public native Builder clearStringKeyUint64Value();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putStringKeyUint64Value")
       public native Builder putStringKeyUint64Value(java.lang.String key, long value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllStringKeyUint64Value(
           java.util.Map<java.lang.String, java.lang.Long> values) {
@@ -4446,6 +4663,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeStringKeyUint64Value")
       public native Builder removeStringKeyUint64Value(java.lang.String key);
 
@@ -4502,11 +4720,13 @@ public final class Maps {
                     d, com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearStringKeyEnumValue")
       public native Builder clearStringKeyEnumValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putStringKeyEnumValue(
           java.lang.String key,
@@ -4517,9 +4737,11 @@ public final class Maps {
                 .toClosureValue(value));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putStringKeyEnumValue")
       private native Builder internal_putStringKeyEnumValue(java.lang.String key, Object value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllStringKeyEnumValue(
           java.util.Map<
@@ -4531,6 +4753,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeStringKeyEnumValue")
       public native Builder removeStringKeyEnumValue(java.lang.String key);
 
@@ -4565,16 +4788,19 @@ public final class Maps {
             internal_getStringKeyMessageValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearStringKeyMessageValue")
       public native Builder clearStringKeyMessageValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putStringKeyMessageValue")
       public native Builder putStringKeyMessageValue(
           java.lang.String key,
           com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllStringKeyMessageValue(
           java.util.Map<
@@ -4586,6 +4812,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeStringKeyMessageValue")
       public native Builder removeStringKeyMessageValue(java.lang.String key);
 
@@ -4612,14 +4839,17 @@ public final class Maps {
             internal_getBoolKeyBoolValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearBoolKeyBoolValue")
       public native Builder clearBoolKeyBoolValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putBoolKeyBoolValue")
       public native Builder putBoolKeyBoolValue(boolean key, boolean value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllBoolKeyBoolValue(
           java.util.Map<java.lang.Boolean, java.lang.Boolean> values) {
@@ -4628,6 +4858,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeBoolKeyBoolValue")
       public native Builder removeBoolKeyBoolValue(boolean key);
 
@@ -4654,14 +4885,17 @@ public final class Maps {
             internal_getBoolKeyInt32ValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearBoolKeyInt32Value")
       public native Builder clearBoolKeyInt32Value();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putBoolKeyInt32Value")
       public native Builder putBoolKeyInt32Value(boolean key, int value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllBoolKeyInt32Value(
           java.util.Map<java.lang.Boolean, java.lang.Integer> values) {
@@ -4670,6 +4904,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeBoolKeyInt32Value")
       public native Builder removeBoolKeyInt32Value(boolean key);
 
@@ -4696,14 +4931,17 @@ public final class Maps {
             internal_getBoolKeyInt64ValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearBoolKeyInt64Value")
       public native Builder clearBoolKeyInt64Value();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putBoolKeyInt64Value")
       public native Builder putBoolKeyInt64Value(boolean key, long value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllBoolKeyInt64Value(
           java.util.Map<java.lang.Boolean, java.lang.Long> values) {
@@ -4712,6 +4950,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeBoolKeyInt64Value")
       public native Builder removeBoolKeyInt64Value(boolean key);
 
@@ -4738,14 +4977,17 @@ public final class Maps {
             internal_getBoolKeyFloatValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearBoolKeyFloatValue")
       public native Builder clearBoolKeyFloatValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putBoolKeyFloatValue")
       public native Builder putBoolKeyFloatValue(boolean key, float value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllBoolKeyFloatValue(
           java.util.Map<java.lang.Boolean, java.lang.Float> values) {
@@ -4754,6 +4996,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeBoolKeyFloatValue")
       public native Builder removeBoolKeyFloatValue(boolean key);
 
@@ -4780,14 +5023,17 @@ public final class Maps {
             internal_getBoolKeyDoubleValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearBoolKeyDoubleValue")
       public native Builder clearBoolKeyDoubleValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putBoolKeyDoubleValue")
       public native Builder putBoolKeyDoubleValue(boolean key, double value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllBoolKeyDoubleValue(
           java.util.Map<java.lang.Boolean, java.lang.Double> values) {
@@ -4796,6 +5042,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeBoolKeyDoubleValue")
       public native Builder removeBoolKeyDoubleValue(boolean key);
 
@@ -4823,14 +5070,17 @@ public final class Maps {
             internal_getBoolKeyStringValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearBoolKeyStringValue")
       public native Builder clearBoolKeyStringValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putBoolKeyStringValue")
       public native Builder putBoolKeyStringValue(boolean key, java.lang.String value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllBoolKeyStringValue(
           java.util.Map<java.lang.Boolean, java.lang.String> values) {
@@ -4839,6 +5089,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeBoolKeyStringValue")
       public native Builder removeBoolKeyStringValue(boolean key);
 
@@ -4867,14 +5118,17 @@ public final class Maps {
             internal_getBoolKeyBytesValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearBoolKeyBytesValue")
       public native Builder clearBoolKeyBytesValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putBoolKeyBytesValue")
       public native Builder putBoolKeyBytesValue(boolean key, com.google.protobuf.ByteString value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllBoolKeyBytesValue(
           java.util.Map<java.lang.Boolean, com.google.protobuf.ByteString> values) {
@@ -4883,6 +5137,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeBoolKeyBytesValue")
       public native Builder removeBoolKeyBytesValue(boolean key);
 
@@ -4909,14 +5164,17 @@ public final class Maps {
             internal_getBoolKeyUint32ValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearBoolKeyUint32Value")
       public native Builder clearBoolKeyUint32Value();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putBoolKeyUint32Value")
       public native Builder putBoolKeyUint32Value(boolean key, int value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllBoolKeyUint32Value(
           java.util.Map<java.lang.Boolean, java.lang.Integer> values) {
@@ -4925,6 +5183,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeBoolKeyUint32Value")
       public native Builder removeBoolKeyUint32Value(boolean key);
 
@@ -4951,14 +5210,17 @@ public final class Maps {
             internal_getBoolKeyUint64ValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearBoolKeyUint64Value")
       public native Builder clearBoolKeyUint64Value();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putBoolKeyUint64Value")
       public native Builder putBoolKeyUint64Value(boolean key, long value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllBoolKeyUint64Value(
           java.util.Map<java.lang.Boolean, java.lang.Long> values) {
@@ -4967,6 +5229,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeBoolKeyUint64Value")
       public native Builder removeBoolKeyUint64Value(boolean key);
 
@@ -5022,11 +5285,13 @@ public final class Maps {
                     d, com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum.UNKNOWN));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearBoolKeyEnumValue")
       public native Builder clearBoolKeyEnumValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putBoolKeyEnumValue(
           boolean key, com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.TestEnum value) {
@@ -5036,9 +5301,11 @@ public final class Maps {
                 .toClosureValue(value));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putBoolKeyEnumValue")
       private native Builder internal_putBoolKeyEnumValue(boolean key, Object value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllBoolKeyEnumValue(
           java.util.Map<
@@ -5050,6 +5317,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeBoolKeyEnumValue")
       public native Builder removeBoolKeyEnumValue(boolean key);
 
@@ -5084,16 +5352,19 @@ public final class Maps {
             internal_getBoolKeyMessageValueMap());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearBoolKeyMessageValue")
       public native Builder clearBoolKeyMessageValue();
       ;
       ;
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "putBoolKeyMessageValue")
       public native Builder putBoolKeyMessageValue(
           boolean key,
           com.google.protobuf.contrib.j2cl.protos.Maps.MapTestProto.NestedMessage value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder putAllBoolKeyMessageValue(
           java.util.Map<
@@ -5105,6 +5376,7 @@ public final class Maps {
         return this;
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "removeBoolKeyMessageValue")
       public native Builder removeBoolKeyMessageValue(boolean key);
     }

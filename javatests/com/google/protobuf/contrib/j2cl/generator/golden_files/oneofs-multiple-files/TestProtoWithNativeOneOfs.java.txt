@@ -124,9 +124,11 @@ public final class TestProtoWithNativeOneOfs
     @jsinterop.annotations.JsMethod(name = "getAFloat")
     public native float getAFloat();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "clearAFloat")
     public native Builder clearAFloat();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setAFloat")
     public native Builder setAFloat(float value);
 
@@ -136,9 +138,11 @@ public final class TestProtoWithNativeOneOfs
     @jsinterop.annotations.JsMethod(name = "getADouble")
     public native double getADouble();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "clearADouble")
     public native Builder clearADouble();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setADouble")
     public native Builder setADouble(double value);
 

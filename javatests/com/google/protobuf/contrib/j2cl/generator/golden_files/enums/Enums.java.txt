@@ -462,9 +462,11 @@ public final class Enums {
       @jsinterop.annotations.JsMethod(name = "getOptionalEnum")
       private native Object internal_getOptionalEnum();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearOptionalEnum")
       public native Builder clearOptionalEnum();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder setOptionalEnum(
           com.google.protobuf.contrib.j2cl.protos.Enums.EnumTestProto.TestEnum value) {
@@ -473,6 +475,7 @@ public final class Enums {
                 .Internal_ClosureEnum.toClosureValue(value));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setOptionalEnum")
       private native Builder internal_setOptionalEnum(Object value);
 
@@ -491,9 +494,11 @@ public final class Enums {
       @jsinterop.annotations.JsMethod(name = "getOptionalEnumWithDefault")
       private native Object internal_getOptionalEnumWithDefault();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearOptionalEnumWithDefault")
       public native Builder clearOptionalEnumWithDefault();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder setOptionalEnumWithDefault(
           com.google.protobuf.contrib.j2cl.protos.Enums.EnumTestProto.TestEnum value) {
@@ -502,6 +507,7 @@ public final class Enums {
                 .Internal_ClosureEnum.toClosureValue(value));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setOptionalEnumWithDefault")
       private native Builder internal_setOptionalEnumWithDefault(Object value);
 
@@ -537,9 +543,11 @@ public final class Enums {
                     com.google.protobuf.contrib.j2cl.protos.Enums.EnumTestProto.TestEnum.DEFAULT));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearRepeatedEnum")
       public native Builder clearRepeatedEnum();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder setRepeatedEnum(
           int index, com.google.protobuf.contrib.j2cl.protos.Enums.EnumTestProto.TestEnum value) {
@@ -549,9 +557,11 @@ public final class Enums {
                 .Internal_ClosureEnum.toClosureValue(value));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setRepeatedEnum")
       private native Builder internal_setRepeatedEnum(int index, Object value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder addRepeatedEnum(
           com.google.protobuf.contrib.j2cl.protos.Enums.EnumTestProto.TestEnum value) {
@@ -560,9 +570,11 @@ public final class Enums {
                 .Internal_ClosureEnum.toClosureValue(value));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "addRepeatedEnum")
       private native Builder internal_addRepeatedEnum(Object value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder addAllRepeatedEnum(
           java.lang.Iterable<com.google.protobuf.contrib.j2cl.protos.Enums.EnumTestProto.TestEnum>
@@ -586,9 +598,11 @@ public final class Enums {
       @jsinterop.annotations.JsMethod(name = "getOptionalNativeEnum")
       private native Object internal_getOptionalNativeEnum();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearOptionalNativeEnum")
       public native Builder clearOptionalNativeEnum();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder setOptionalNativeEnum(
           com.google.protobuf.contrib.j2cl.protos.Enums.EnumTestProto.NativeEnum value) {
@@ -597,6 +611,7 @@ public final class Enums {
                 .Internal_ClosureEnum.toClosureValue(value));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setOptionalNativeEnum")
       private native Builder internal_setOptionalNativeEnum(Object value);
 
@@ -633,9 +648,11 @@ public final class Enums {
                         .NATIVE_DEFAULT));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearRepeatedNativeEnum")
       public native Builder clearRepeatedNativeEnum();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder setRepeatedNativeEnum(
           int index, com.google.protobuf.contrib.j2cl.protos.Enums.EnumTestProto.NativeEnum value) {
@@ -645,9 +662,11 @@ public final class Enums {
                 .Internal_ClosureEnum.toClosureValue(value));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setRepeatedNativeEnum")
       private native Builder internal_setRepeatedNativeEnum(int index, Object value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder addRepeatedNativeEnum(
           com.google.protobuf.contrib.j2cl.protos.Enums.EnumTestProto.NativeEnum value) {
@@ -656,9 +675,11 @@ public final class Enums {
                 .Internal_ClosureEnum.toClosureValue(value));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "addRepeatedNativeEnum")
       private native Builder internal_addRepeatedNativeEnum(Object value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder addAllRepeatedNativeEnum(
           java.lang.Iterable<com.google.protobuf.contrib.j2cl.protos.Enums.EnumTestProto.NativeEnum>
@@ -683,9 +704,11 @@ public final class Enums {
       @jsinterop.annotations.JsMethod(name = "getOptionalTopLevelNativeEnum")
       private native Object internal_getOptionalTopLevelNativeEnum();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearOptionalTopLevelNativeEnum")
       public native Builder clearOptionalTopLevelNativeEnum();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder setOptionalTopLevelNativeEnum(
           com.google.protobuf.contrib.j2cl.protos.Enums.TopLevelNativeEnum value) {
@@ -694,6 +717,7 @@ public final class Enums {
                 .toClosureValue(value));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setOptionalTopLevelNativeEnum")
       private native Builder internal_setOptionalTopLevelNativeEnum(Object value);
 
@@ -727,9 +751,11 @@ public final class Enums {
                     d, com.google.protobuf.contrib.j2cl.protos.Enums.TopLevelNativeEnum.DEFAULT));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearRepeatedTopLevelNativeEnum")
       public native Builder clearRepeatedTopLevelNativeEnum();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder setRepeatedTopLevelNativeEnum(
           int index, com.google.protobuf.contrib.j2cl.protos.Enums.TopLevelNativeEnum value) {
@@ -739,9 +765,11 @@ public final class Enums {
                 .toClosureValue(value));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setRepeatedTopLevelNativeEnum")
       private native Builder internal_setRepeatedTopLevelNativeEnum(int index, Object value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder addRepeatedTopLevelNativeEnum(
           com.google.protobuf.contrib.j2cl.protos.Enums.TopLevelNativeEnum value) {
@@ -750,9 +778,11 @@ public final class Enums {
                 .toClosureValue(value));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "addRepeatedTopLevelNativeEnum")
       private native Builder internal_addRepeatedTopLevelNativeEnum(Object value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder addAllRepeatedTopLevelNativeEnum(
           java.lang.Iterable<com.google.protobuf.contrib.j2cl.protos.Enums.TopLevelNativeEnum>

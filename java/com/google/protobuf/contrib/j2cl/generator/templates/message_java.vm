@@ -114,6 +114,7 @@ public static final class Builder extends
 #foreach ($field in $descriptor.fields)
   #parse ("$field.getterTemplate($templateNameSuffix)")
 
+  @com.google.errorprone.annotations.CanIgnoreReturnValue
   public Builder clear${field.name}() {
     return removeField(${field.number});
   }
@@ -125,6 +126,7 @@ public static final class Builder extends
 #foreach($oneof in $descriptor.oneOfs)
   #oneof_getter($oneof)
 
+  @com.google.errorprone.annotations.CanIgnoreReturnValue
   private Builder clearAll${oneof.name}Fields() {
      #foreach($field in $oneof.fields)
        removeField(${field.number});

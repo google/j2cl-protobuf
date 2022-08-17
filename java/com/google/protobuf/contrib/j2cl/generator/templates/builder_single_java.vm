@@ -1,3 +1,4 @@
+@com.google.errorprone.annotations.CanIgnoreReturnValue
 public Builder set${field.name}(${field.unboxedType} value){
   #if (${field.isOneOf()})
     clearAll${field.oneOfName}Fields();
@@ -6,12 +7,14 @@ public Builder set${field.name}(${field.unboxedType} value){
 }
 
 #if (${field.hasEnumValueAccessors()})
+  @com.google.errorprone.annotations.CanIgnoreReturnValue
   public Builder set${field.name}Value(int value){
     return setFieldForEnumValue(${field.number}, ${field.unboxedType}.forNumber(value), value);
   }
 #end
 
 #if (${field.isMessage()})
+  @com.google.errorprone.annotations.CanIgnoreReturnValue
   public Builder set${field.name}(${field.unboxedType}.Builder builder){
     return set${field.name}(builder.build());
   }

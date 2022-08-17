@@ -191,15 +191,19 @@ public final class ConflictingNamesOuterClass {
             internal_getField1List());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearField1")
       public native Builder clearField1();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "addField1")
       public native Builder addField1(int value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setField1")
       public native Builder setField1(int index, int value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder addAllField1(java.lang.Iterable<java.lang.Integer> values) {
         com.google.protobuf.GeneratedMessageLite.Internal_.addAll(values, this::addField1);
@@ -212,9 +216,11 @@ public final class ConflictingNamesOuterClass {
       @jsinterop.annotations.JsMethod(name = "getFieldCount2")
       public native int getFieldCount2();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearFieldCount2")
       public native Builder clearFieldCount2();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setFieldCount2")
       public native Builder setFieldCount2(int value);
 
@@ -224,9 +230,11 @@ public final class ConflictingNamesOuterClass {
       @jsinterop.annotations.JsMethod(name = "getFieldList3")
       public native int getFieldList3();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearFieldList3")
       public native Builder clearFieldList3();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setFieldList3")
       public native Builder setFieldList3(int value);
 
@@ -236,9 +244,11 @@ public final class ConflictingNamesOuterClass {
       @jsinterop.annotations.JsMethod(name = "getSecondField4")
       public native boolean getSecondField4();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearSecondField4")
       public native Builder clearSecondField4();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setSecondField4")
       public native Builder setSecondField4(boolean value);
 
@@ -248,9 +258,11 @@ public final class ConflictingNamesOuterClass {
       @jsinterop.annotations.JsMethod(name = "getSecondField5")
       public native boolean getSecondField5();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearSecondField5")
       public native Builder clearSecondField5();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setSecondField5")
       public native Builder setSecondField5(boolean value);
 
@@ -260,9 +272,11 @@ public final class ConflictingNamesOuterClass {
       @jsinterop.annotations.JsMethod(name = "getThirdField6")
       public native boolean getThirdField6();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearThirdField6")
       public native Builder clearThirdField6();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setThirdField6")
       public native Builder setThirdField6(boolean value);
 
@@ -272,9 +286,11 @@ public final class ConflictingNamesOuterClass {
       @jsinterop.annotations.JsMethod(name = "getThirdField7")
       public native boolean getThirdField7();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearThirdField7")
       public native Builder clearThirdField7();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setThirdField7")
       public native Builder setThirdField7(boolean value);
 
@@ -284,9 +300,11 @@ public final class ConflictingNamesOuterClass {
       @jsinterop.annotations.JsMethod(name = "getClassCount")
       public native boolean getClassCount();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearClassCount")
       public native Builder clearClassCount();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setClassCount")
       public native Builder setClassCount(boolean value);
 
@@ -306,15 +324,19 @@ public final class ConflictingNamesOuterClass {
             internal_getClass_List());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearClass_")
       public native Builder clearClass_();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "addClass_")
       public native Builder addClass_(boolean value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setClass_")
       public native Builder setClass_(int index, boolean value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder addAllClass_(java.lang.Iterable<java.lang.Boolean> values) {
         com.google.protobuf.GeneratedMessageLite.Internal_.addAll(values, this::addClass_);
@@ -337,15 +359,19 @@ public final class ConflictingNamesOuterClass {
             internal_getExtension10List());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearExtension10")
       public native Builder clearExtension10();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "addExtension10")
       public native Builder addExtension10(boolean value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setExtension10")
       public native Builder setExtension10(int index, boolean value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder addAllExtension10(java.lang.Iterable<java.lang.Boolean> values) {
         com.google.protobuf.GeneratedMessageLite.Internal_.addAll(values, this::addExtension10);
@@ -368,15 +394,19 @@ public final class ConflictingNamesOuterClass {
             internal_getExtension11List());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearExtension11")
       public native Builder clearExtension11();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "addExtension11")
       public native Builder addExtension11(boolean value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setExtension11")
       public native Builder setExtension11(int index, boolean value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder addAllExtension11(java.lang.Iterable<java.lang.Boolean> values) {
         com.google.protobuf.GeneratedMessageLite.Internal_.addAll(values, this::addExtension11);
@@ -389,9 +419,11 @@ public final class ConflictingNamesOuterClass {
       @jsinterop.annotations.JsMethod(name = "getExtensionCount12")
       public native boolean getExtensionCount12();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearExtensionCount12")
       public native Builder clearExtensionCount12();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setExtensionCount12")
       public native Builder setExtensionCount12(boolean value);
 
@@ -401,9 +433,11 @@ public final class ConflictingNamesOuterClass {
       @jsinterop.annotations.JsMethod(name = "getExtensionAtIndex14")
       public native boolean getExtensionAtIndex();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearExtensionAtIndex14")
       public native Builder clearExtensionAtIndex();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setExtensionAtIndex14")
       public native Builder setExtensionAtIndex(boolean value);
     }

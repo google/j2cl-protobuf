@@ -105,9 +105,11 @@ public final class AmbiguousNames {
         @jsinterop.annotations.JsMethod(name = "getX")
         public native java.lang.String getX();
 
+        @com.google.errorprone.annotations.CanIgnoreReturnValue
         @jsinterop.annotations.JsMethod(name = "clearX")
         public native Builder clearX();
 
+        @com.google.errorprone.annotations.CanIgnoreReturnValue
         @jsinterop.annotations.JsMethod(name = "setX")
         public native Builder setX(java.lang.String value);
       }
@@ -162,9 +164,11 @@ public final class AmbiguousNames {
         @jsinterop.annotations.JsMethod(name = "getX")
         public native java.lang.String getX();
 
+        @com.google.errorprone.annotations.CanIgnoreReturnValue
         @jsinterop.annotations.JsMethod(name = "clearX")
         public native Builder clearX();
 
+        @com.google.errorprone.annotations.CanIgnoreReturnValue
         @jsinterop.annotations.JsMethod(name = "setX")
         public native Builder setX(java.lang.String value);
       }
@@ -236,9 +240,11 @@ public final class AmbiguousNames {
       @jsinterop.annotations.JsMethod(name = "getClass_")
       public native java.lang.String getClass_();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearClass_")
       public native Builder clearClass_();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setClass_")
       public native Builder setClass_(java.lang.String value);
 
@@ -248,9 +254,11 @@ public final class AmbiguousNames {
       @jsinterop.annotations.JsMethod(name = "getCachedSize_")
       public native java.lang.String getCachedSize_();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearCachedSize_")
       public native Builder clearCachedSize_();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setCachedSize_")
       public native Builder setCachedSize_(java.lang.String value);
 
@@ -260,9 +268,11 @@ public final class AmbiguousNames {
       @jsinterop.annotations.JsMethod(name = "getSerializedSize_")
       public native java.lang.String getSerializedSize_();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearSerializedSize_")
       public native Builder clearSerializedSize_();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setSerializedSize_")
       public native Builder setSerializedSize_(java.lang.String value);
 
@@ -272,9 +282,11 @@ public final class AmbiguousNames {
       @jsinterop.annotations.JsMethod(name = "getExtension4")
       public native java.lang.String getExtension();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearExtension4")
       public native Builder clearExtension();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setExtension4")
       public native Builder setExtension(java.lang.String value);
     }
@@ -370,15 +382,19 @@ public final class AmbiguousNames {
             internal_getExtensionList());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearExtension1")
       public native Builder clearExtension();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "addExtension1")
       public native Builder addExtension(java.lang.String value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setExtension1")
       public native Builder setExtension(int index, java.lang.String value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder addAllExtension(java.lang.Iterable<java.lang.String> values) {
         com.google.protobuf.GeneratedMessageLite.Internal_.addAll(values, this::addExtension);
@@ -401,15 +417,19 @@ public final class AmbiguousNames {
             internal_getClass_List());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearClass_")
       public native Builder clearClass_();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "addClass_")
       public native Builder addClass_(java.lang.String value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setClass_")
       public native Builder setClass_(int index, java.lang.String value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder addAllClass_(java.lang.Iterable<java.lang.String> values) {
         com.google.protobuf.GeneratedMessageLite.Internal_.addAll(values, this::addClass_);

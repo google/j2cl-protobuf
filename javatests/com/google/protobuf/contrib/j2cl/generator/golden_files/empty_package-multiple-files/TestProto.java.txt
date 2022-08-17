@@ -49,9 +49,11 @@ public final class TestProto
     @jsinterop.annotations.JsMethod(name = "getPayload")
     public native java.lang.String getPayload();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "clearPayload")
     public native Builder clearPayload();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setPayload")
     public native Builder setPayload(java.lang.String value);
   }

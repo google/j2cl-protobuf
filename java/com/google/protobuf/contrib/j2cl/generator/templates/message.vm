@@ -90,6 +90,7 @@ public static final class Builder extends
 #foreach ($field in $descriptor.fields)
   #parse ("$field.getterTemplate($templateNameSuffix)")
 
+  @com.google.errorprone.annotations.CanIgnoreReturnValue
   @jsinterop.annotations.JsMethod(name = "clear${field.jsName}")
   public native Builder clear${field.name}();
 

@@ -1,31 +1,38 @@
+@com.google.errorprone.annotations.CanIgnoreReturnValue
 public Builder add${field.name}(${field.unboxedType} value) {
   return addRepeatedField(${field.number}, value);
 }
 
+@com.google.errorprone.annotations.CanIgnoreReturnValue
 public Builder set${field.name}(int index, ${field.unboxedType} value){
   return setRepeatedField(${field.number}, index, value);
 }
 
 #if (${field.hasEnumValueAccessors()})
+  @com.google.errorprone.annotations.CanIgnoreReturnValue
   public Builder set${field.name}Value(int index, int value){
     return setRepeatedFieldForEnumValue(${field.number}, index, ${field.unboxedType}.forNumber(value), value);
   }
 
+  @com.google.errorprone.annotations.CanIgnoreReturnValue
   public Builder add${field.name}Value(int value) {
     return addRepeatedFieldForEnumValue(${field.number}, ${field.unboxedType}.forNumber(value), value);
   }
 #end
 
 #if (${field.isMessage()})
+  @com.google.errorprone.annotations.CanIgnoreReturnValue
   public Builder add${field.name}(${field.unboxedType}.Builder builder){
     return add${field.name}(builder.build());
   }
 
+  @com.google.errorprone.annotations.CanIgnoreReturnValue
   public Builder set${field.name}(int index, ${field.unboxedType}.Builder builder){
     return set${field.name}(index, builder.build());
   }
 #end
 
+@com.google.errorprone.annotations.CanIgnoreReturnValue
 public final Builder addAll${field.name}(java.lang.Iterable<${field.boxedType}> values) {
   return addAllRepeatedField(${field.number}, values);
 }

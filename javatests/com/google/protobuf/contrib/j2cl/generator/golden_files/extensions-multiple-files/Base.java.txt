@@ -200,9 +200,11 @@ public final class Base extends com.google.protobuf.GeneratedMessageLite<Base, B
     @jsinterop.annotations.JsMethod(name = "getOptionalLong")
     public native long getOptionalLong();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "clearOptionalLong")
     public native Builder clearOptionalLong();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setOptionalLong")
     public native Builder setOptionalLong(long value);
 
@@ -222,15 +224,19 @@ public final class Base extends com.google.protobuf.GeneratedMessageLite<Base, B
           internal_getRepeatedStringList());
     }
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "clearRepeatedString")
     public native Builder clearRepeatedString();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "addRepeatedString")
     public native Builder addRepeatedString(java.lang.String value);
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setRepeatedString")
     public native Builder setRepeatedString(int index, java.lang.String value);
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsOverlay
     public final Builder addAllRepeatedString(java.lang.Iterable<java.lang.String> values) {
       com.google.protobuf.GeneratedMessageLite.Internal_.addAll(values, this::addRepeatedString);
@@ -251,9 +257,11 @@ public final class Base extends com.google.protobuf.GeneratedMessageLite<Base, B
     @jsinterop.annotations.JsMethod(name = "getOptionalEnum")
     private native Object internal_getOptionalEnum();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "clearOptionalEnum")
     public native Builder clearOptionalEnum();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsOverlay
     public final Builder setOptionalEnum(
         com.google.protobuf.contrib.j2cl.protos.Base.EmotionalState value) {
@@ -262,6 +270,7 @@ public final class Base extends com.google.protobuf.GeneratedMessageLite<Base, B
               .toClosureValue(value));
     }
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setOptionalEnum")
     private native Builder internal_setOptionalEnum(Object value);
 
@@ -271,9 +280,11 @@ public final class Base extends com.google.protobuf.GeneratedMessageLite<Base, B
     @jsinterop.annotations.JsMethod(name = "getOptionalInt")
     public native int getOptionalInt();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "clearOptionalInt")
     public native Builder clearOptionalInt();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setOptionalInt")
     public native Builder setOptionalInt(int value);
 
@@ -283,12 +294,15 @@ public final class Base extends com.google.protobuf.GeneratedMessageLite<Base, B
     @jsinterop.annotations.JsMethod(name = "getOptionalMessage")
     public native com.google.protobuf.contrib.j2cl.protos.Base getOptionalMessage();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "clearOptionalMessage")
     public native Builder clearOptionalMessage();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setOptionalMessage")
     public native Builder setOptionalMessage(com.google.protobuf.contrib.j2cl.protos.Base value);
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setOptionalMessage")
     public native Builder setOptionalMessage(
         com.google.protobuf.contrib.j2cl.protos.Base.Builder builder);
@@ -311,24 +325,30 @@ public final class Base extends com.google.protobuf.GeneratedMessageLite<Base, B
           internal_getRepeatedMessageList());
     }
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "clearRepeatedMessage")
     public native Builder clearRepeatedMessage();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "addRepeatedMessage")
     public native Builder addRepeatedMessage(com.google.protobuf.contrib.j2cl.protos.Base value);
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setRepeatedMessage")
     public native Builder setRepeatedMessage(
         int index, com.google.protobuf.contrib.j2cl.protos.Base value);
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "addRepeatedMessage")
     public native Builder addRepeatedMessage(
         com.google.protobuf.contrib.j2cl.protos.Base.Builder builder);
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setRepeatedMessage")
     public native Builder setRepeatedMessage(
         int index, com.google.protobuf.contrib.j2cl.protos.Base.Builder builder);
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsOverlay
     public final Builder addAllRepeatedMessage(
         java.lang.Iterable<com.google.protobuf.contrib.j2cl.protos.Base> values) {
@@ -342,9 +362,11 @@ public final class Base extends com.google.protobuf.GeneratedMessageLite<Base, B
     @jsinterop.annotations.JsMethod(name = "getOptionalBool")
     public native boolean getOptionalBool();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "clearOptionalBool")
     public native Builder clearOptionalBool();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setOptionalBool")
     public native Builder setOptionalBool(boolean value);
 
@@ -364,15 +386,19 @@ public final class Base extends com.google.protobuf.GeneratedMessageLite<Base, B
           internal_getRepeatedBoolList());
     }
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "clearRepeatedBool")
     public native Builder clearRepeatedBool();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "addRepeatedBool")
     public native Builder addRepeatedBool(boolean value);
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setRepeatedBool")
     public native Builder setRepeatedBool(int index, boolean value);
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsOverlay
     public final Builder addAllRepeatedBool(java.lang.Iterable<java.lang.Boolean> values) {
       com.google.protobuf.GeneratedMessageLite.Internal_.addAll(values, this::addRepeatedBool);

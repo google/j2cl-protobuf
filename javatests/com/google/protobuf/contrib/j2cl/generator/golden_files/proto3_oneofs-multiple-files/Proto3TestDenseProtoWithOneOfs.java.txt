@@ -141,9 +141,11 @@ public final class Proto3TestDenseProtoWithOneOfs
     @jsinterop.annotations.JsMethod(name = "getABool")
     public native boolean getABool();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "clearABool")
     public native Builder clearABool();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setABool")
     public native Builder setABool(boolean value);
 
@@ -153,9 +155,11 @@ public final class Proto3TestDenseProtoWithOneOfs
     @jsinterop.annotations.JsMethod(name = "getAnInt")
     public native int getAnInt();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "clearAnInt")
     public native Builder clearAnInt();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setAnInt")
     public native Builder setAnInt(int value);
 
@@ -165,9 +169,11 @@ public final class Proto3TestDenseProtoWithOneOfs
     @jsinterop.annotations.JsMethod(name = "getALong")
     public native long getALong();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "clearALong")
     public native Builder clearALong();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setALong")
     public native Builder setALong(long value);
 

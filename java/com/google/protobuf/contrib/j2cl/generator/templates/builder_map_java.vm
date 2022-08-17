@@ -1,13 +1,16 @@
 #set ($keyField = $field.keyField);
 #set ($valueField = $field.valueField);
+  @com.google.errorprone.annotations.CanIgnoreReturnValue
   public Builder put${field.name}(${keyField.unboxedType} key, ${valueField.unboxedType} value){
     return putMapField(${field.number}, key, value);
   }
 
+  @com.google.errorprone.annotations.CanIgnoreReturnValue
   public final Builder putAll${field.name}(java.util.Map<${keyField.boxedType}, ${valueField.boxedType}> values) {
     return putAllMapField(${field.number}, values);
   }
 
+  @com.google.errorprone.annotations.CanIgnoreReturnValue
   public Builder remove${field.name}(${keyField.unboxedType} key) {
     return removeMapField(${field.number}, key);
   }

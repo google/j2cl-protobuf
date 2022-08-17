@@ -53,9 +53,11 @@ public final class TestProto3Optional
     @jsinterop.annotations.JsMethod(name = "getOptionalInt")
     public native int getOptionalInt();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "clearOptionalInt")
     public native Builder clearOptionalInt();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setOptionalInt")
     public native Builder setOptionalInt(int value);
   }

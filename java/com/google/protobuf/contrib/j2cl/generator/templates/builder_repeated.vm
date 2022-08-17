@@ -1,47 +1,58 @@
 #if (${field.isEnum()})
+  @com.google.errorprone.annotations.CanIgnoreReturnValue
   @jsinterop.annotations.JsOverlay
   public final Builder set${field.name}(int index, ${field.unboxedType} value) {
     return internal_set${field.name}(index, #convertToClosureEnum( $field "value" ));
   }
 
+  @com.google.errorprone.annotations.CanIgnoreReturnValue
   @jsinterop.annotations.JsMethod(name = "set${field.jsName}")
   private native Builder internal_set${field.name}(int index, Object value);
 
+  @com.google.errorprone.annotations.CanIgnoreReturnValue
   @jsinterop.annotations.JsOverlay
   public final Builder add${field.name}(${field.unboxedType} value) {
     return internal_add${field.name}(#convertToClosureEnum( $field "value" ));
   }
 
   #if (${field.hasEnumValueAccessors()})
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsOverlay
     public final Builder add${field.name}Value(int value) {
       return internal_add${field.name}(#convertToClosureEnum( $field "value" ));
     }
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsOverlay
     public final Builder set${field.name}Value(int index, int value) {
       return internal_set${field.name}(index, #convertToClosureEnum( $field "value" ));
     }
   #end
 
+  @com.google.errorprone.annotations.CanIgnoreReturnValue
   @jsinterop.annotations.JsMethod(name = "add${field.jsName}")
   private native Builder internal_add${field.name}(Object value);
 #else
 
+  @com.google.errorprone.annotations.CanIgnoreReturnValue
   @jsinterop.annotations.JsMethod(name = "add${field.jsName}")
   public native Builder add${field.name}(${field.unboxedType} value);
 
+  @com.google.errorprone.annotations.CanIgnoreReturnValue
   @jsinterop.annotations.JsMethod(name = "set${field.jsName}")
   public native Builder set${field.name}(int index, ${field.unboxedType} value);
 
   #if (${field.isMessage()})
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "add${field.jsName}")
     public native Builder add${field.name}(${field.unboxedType}.Builder builder);
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "set${field.jsName}")
     public native Builder set${field.name}(int index, ${field.unboxedType}.Builder builder);
   #end
 #end
+@com.google.errorprone.annotations.CanIgnoreReturnValue
 @jsinterop.annotations.JsOverlay
 public final Builder addAll${field.name}(java.lang.Iterable<${field.boxedType}> values) {
   com.google.protobuf.GeneratedMessageLite.Internal_.addAll(values, this::add${field.name});

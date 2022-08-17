@@ -264,9 +264,11 @@ public final class TestProtoWithOneOfs
       @jsinterop.annotations.JsMethod(name = "getAString")
       public native java.lang.String getAString();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearAString")
       public native Builder clearAString();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setAString")
       public native Builder setAString(java.lang.String value);
     }
@@ -410,9 +412,11 @@ public final class TestProtoWithOneOfs
       @jsinterop.annotations.JsMethod(name = "getBoolWithDefault")
       public native boolean getBoolWithDefault();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearBoolWithDefault")
       public native Builder clearBoolWithDefault();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setBoolWithDefault")
       public native Builder setBoolWithDefault(boolean value);
 
@@ -422,9 +426,11 @@ public final class TestProtoWithOneOfs
       @jsinterop.annotations.JsMethod(name = "getAnInt")
       public native int getAnInt();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearAnInt")
       public native Builder clearAnInt();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setAnInt")
       public native Builder setAnInt(int value);
 
@@ -434,9 +440,11 @@ public final class TestProtoWithOneOfs
       @jsinterop.annotations.JsMethod(name = "getOptionalFloat")
       public native float getOptionalFloat();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearOptionalFloat")
       public native Builder clearOptionalFloat();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setOptionalFloat")
       public native Builder setOptionalFloat(float value);
 
@@ -625,9 +633,11 @@ public final class TestProtoWithOneOfs
     @jsinterop.annotations.JsMethod(name = "getABool")
     public native boolean getABool();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "clearABool")
     public native Builder clearABool();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setABool")
     public native Builder setABool(boolean value);
 
@@ -637,9 +647,11 @@ public final class TestProtoWithOneOfs
     @jsinterop.annotations.JsMethod(name = "getAnInt")
     public native int getAnInt();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "clearAnInt")
     public native Builder clearAnInt();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setAnInt")
     public native Builder setAnInt(int value);
 
@@ -649,9 +661,11 @@ public final class TestProtoWithOneOfs
     @jsinterop.annotations.JsMethod(name = "getALong")
     public native long getALong();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "clearALong")
     public native Builder clearALong();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setALong")
     public native Builder setALong(long value);
 
@@ -661,9 +675,11 @@ public final class TestProtoWithOneOfs
     @jsinterop.annotations.JsMethod(name = "getAFloat")
     public native float getAFloat();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "clearAFloat")
     public native Builder clearAFloat();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setAFloat")
     public native Builder setAFloat(float value);
 
@@ -673,9 +689,11 @@ public final class TestProtoWithOneOfs
     @jsinterop.annotations.JsMethod(name = "getADouble")
     public native double getADouble();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "clearADouble")
     public native Builder clearADouble();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setADouble")
     public native Builder setADouble(double value);
 
@@ -685,9 +703,11 @@ public final class TestProtoWithOneOfs
     @jsinterop.annotations.JsMethod(name = "getDoubleWithDefault")
     public native double getDoubleWithDefault();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "clearDoubleWithDefault")
     public native Builder clearDoubleWithDefault();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setDoubleWithDefault")
     public native Builder setDoubleWithDefault(double value);
 
@@ -705,9 +725,11 @@ public final class TestProtoWithOneOfs
     @jsinterop.annotations.JsMethod(name = "getAnEnum")
     private native Object internal_getAnEnum();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "clearAnEnum")
     public native Builder clearAnEnum();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsOverlay
     public final Builder setAnEnum(
         com.google.protobuf.contrib.j2cl.protos.TestProtoWithOneOfs.TestEnum value) {
@@ -716,6 +738,7 @@ public final class TestProtoWithOneOfs
               .toClosureValue(value));
     }
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setAnEnum")
     private native Builder internal_setAnEnum(Object value);
 
@@ -725,9 +748,11 @@ public final class TestProtoWithOneOfs
     @jsinterop.annotations.JsMethod(name = "getAString")
     public native java.lang.String getAString();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "clearAString")
     public native Builder clearAString();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setAString")
     public native Builder setAString(java.lang.String value);
 
@@ -737,9 +762,11 @@ public final class TestProtoWithOneOfs
     @jsinterop.annotations.JsMethod(name = "getSomeBytes")
     public native com.google.protobuf.ByteString getSomeBytes();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "clearSomeBytes")
     public native Builder clearSomeBytes();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setSomeBytes")
     public native Builder setSomeBytes(com.google.protobuf.ByteString value);
 
@@ -750,13 +777,16 @@ public final class TestProtoWithOneOfs
     public native com.google.protobuf.contrib.j2cl.protos.TestProtoWithOneOfs.TestNestedProto
         getNestedProto();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "clearNestedProto")
     public native Builder clearNestedProto();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setNestedProto")
     public native Builder setNestedProto(
         com.google.protobuf.contrib.j2cl.protos.TestProtoWithOneOfs.TestNestedProto value);
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setNestedProto")
     public native Builder setNestedProto(
         com.google.protobuf.contrib.j2cl.protos.TestProtoWithOneOfs.TestNestedProto.Builder
@@ -770,14 +800,17 @@ public final class TestProtoWithOneOfs
             .TestNestedProtoWithOneOfs
         getNestedProtoWithOneofs();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "clearNestedProtoWithOneofs")
     public native Builder clearNestedProtoWithOneofs();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setNestedProtoWithOneofs")
     public native Builder setNestedProtoWithOneofs(
         com.google.protobuf.contrib.j2cl.protos.TestProtoWithOneOfs.TestNestedProtoWithOneOfs
             value);
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setNestedProtoWithOneofs")
     public native Builder setNestedProtoWithOneofs(
         com.google.protobuf.contrib.j2cl.protos.TestProtoWithOneOfs.TestNestedProtoWithOneOfs
@@ -790,9 +823,11 @@ public final class TestProtoWithOneOfs
     @jsinterop.annotations.JsMethod(name = "getOptionalBool")
     public native boolean getOptionalBool();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "clearOptionalBool")
     public native Builder clearOptionalBool();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setOptionalBool")
     public native Builder setOptionalBool(boolean value);
 
@@ -802,9 +837,11 @@ public final class TestProtoWithOneOfs
     @jsinterop.annotations.JsMethod(name = "getRequiredString")
     public native java.lang.String getRequiredString();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "clearRequiredString")
     public native Builder clearRequiredString();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setRequiredString")
     public native Builder setRequiredString(java.lang.String value);
 
@@ -824,15 +861,19 @@ public final class TestProtoWithOneOfs
           internal_getRepeatedIntList());
     }
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "clearRepeatedInt")
     public native Builder clearRepeatedInt();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "addRepeatedInt")
     public native Builder addRepeatedInt(int value);
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setRepeatedInt")
     public native Builder setRepeatedInt(int index, int value);
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsOverlay
     public final Builder addAllRepeatedInt(java.lang.Iterable<java.lang.Integer> values) {
       com.google.protobuf.GeneratedMessageLite.Internal_.addAll(values, this::addRepeatedInt);

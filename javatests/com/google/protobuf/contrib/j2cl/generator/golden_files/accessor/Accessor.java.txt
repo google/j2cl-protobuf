@@ -61,9 +61,11 @@ public final class Accessor {
         @jsinterop.annotations.JsMethod(name = "getPayload")
         public native java.lang.String getPayload();
 
+        @com.google.errorprone.annotations.CanIgnoreReturnValue
         @jsinterop.annotations.JsMethod(name = "clearPayload")
         public native Builder clearPayload();
 
+        @com.google.errorprone.annotations.CanIgnoreReturnValue
         @jsinterop.annotations.JsMethod(name = "setPayload")
         public native Builder setPayload(java.lang.String value);
       }
@@ -354,9 +356,11 @@ public final class Accessor {
       @jsinterop.annotations.JsMethod(name = "getOptionalBool")
       public native boolean getOptionalBool();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearOptionalBool")
       public native Builder clearOptionalBool();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setOptionalBool")
       public native Builder setOptionalBool(boolean value);
 
@@ -366,9 +370,11 @@ public final class Accessor {
       @jsinterop.annotations.JsMethod(name = "getOptionalBoolWithDefault")
       public native boolean getOptionalBoolWithDefault();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearOptionalBoolWithDefault")
       public native Builder clearOptionalBoolWithDefault();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setOptionalBoolWithDefault")
       public native Builder setOptionalBoolWithDefault(boolean value);
 
@@ -388,15 +394,19 @@ public final class Accessor {
             internal_getRepeatedBoolList());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearRepeatedBool")
       public native Builder clearRepeatedBool();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "addRepeatedBool")
       public native Builder addRepeatedBool(boolean value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setRepeatedBool")
       public native Builder setRepeatedBool(int index, boolean value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder addAllRepeatedBool(java.lang.Iterable<java.lang.Boolean> values) {
         com.google.protobuf.GeneratedMessageLite.Internal_.addAll(values, this::addRepeatedBool);
@@ -409,9 +419,11 @@ public final class Accessor {
       @jsinterop.annotations.JsMethod(name = "getOptionalInt")
       public native int getOptionalInt();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearOptionalInt")
       public native Builder clearOptionalInt();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setOptionalInt")
       public native Builder setOptionalInt(int value);
 
@@ -421,9 +433,11 @@ public final class Accessor {
       @jsinterop.annotations.JsMethod(name = "getOptionalIntWithDefault")
       public native int getOptionalIntWithDefault();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearOptionalIntWithDefault")
       public native Builder clearOptionalIntWithDefault();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setOptionalIntWithDefault")
       public native Builder setOptionalIntWithDefault(int value);
 
@@ -443,15 +457,19 @@ public final class Accessor {
             internal_getRepeatedIntList());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearRepeatedInt")
       public native Builder clearRepeatedInt();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "addRepeatedInt")
       public native Builder addRepeatedInt(int value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setRepeatedInt")
       public native Builder setRepeatedInt(int index, int value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder addAllRepeatedInt(java.lang.Iterable<java.lang.Integer> values) {
         com.google.protobuf.GeneratedMessageLite.Internal_.addAll(values, this::addRepeatedInt);
@@ -464,9 +482,11 @@ public final class Accessor {
       @jsinterop.annotations.JsMethod(name = "getOptionalLong")
       public native long getOptionalLong();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearOptionalLong")
       public native Builder clearOptionalLong();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setOptionalLong")
       public native Builder setOptionalLong(long value);
 
@@ -476,9 +496,11 @@ public final class Accessor {
       @jsinterop.annotations.JsMethod(name = "getOptionalLongWithDefault")
       public native long getOptionalLongWithDefault();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearOptionalLongWithDefault")
       public native Builder clearOptionalLongWithDefault();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setOptionalLongWithDefault")
       public native Builder setOptionalLongWithDefault(long value);
 
@@ -498,15 +520,19 @@ public final class Accessor {
             internal_getRepeatedLongList());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearRepeatedLong")
       public native Builder clearRepeatedLong();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "addRepeatedLong")
       public native Builder addRepeatedLong(long value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setRepeatedLong")
       public native Builder setRepeatedLong(int index, long value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder addAllRepeatedLong(java.lang.Iterable<java.lang.Long> values) {
         com.google.protobuf.GeneratedMessageLite.Internal_.addAll(values, this::addRepeatedLong);
@@ -519,9 +545,11 @@ public final class Accessor {
       @jsinterop.annotations.JsMethod(name = "getOptionalFloat")
       public native float getOptionalFloat();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearOptionalFloat")
       public native Builder clearOptionalFloat();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setOptionalFloat")
       public native Builder setOptionalFloat(float value);
 
@@ -531,9 +559,11 @@ public final class Accessor {
       @jsinterop.annotations.JsMethod(name = "getOptionalFloatWithDefault")
       public native float getOptionalFloatWithDefault();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearOptionalFloatWithDefault")
       public native Builder clearOptionalFloatWithDefault();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setOptionalFloatWithDefault")
       public native Builder setOptionalFloatWithDefault(float value);
 
@@ -553,15 +583,19 @@ public final class Accessor {
             internal_getRepeatedFloatList());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearRepeatedFloat")
       public native Builder clearRepeatedFloat();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "addRepeatedFloat")
       public native Builder addRepeatedFloat(float value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setRepeatedFloat")
       public native Builder setRepeatedFloat(int index, float value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder addAllRepeatedFloat(java.lang.Iterable<java.lang.Float> values) {
         com.google.protobuf.GeneratedMessageLite.Internal_.addAll(values, this::addRepeatedFloat);
@@ -574,9 +608,11 @@ public final class Accessor {
       @jsinterop.annotations.JsMethod(name = "getOptionalDouble")
       public native double getOptionalDouble();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearOptionalDouble")
       public native Builder clearOptionalDouble();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setOptionalDouble")
       public native Builder setOptionalDouble(double value);
 
@@ -586,9 +622,11 @@ public final class Accessor {
       @jsinterop.annotations.JsMethod(name = "getOptionalDoubleWithDefault")
       public native double getOptionalDoubleWithDefault();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearOptionalDoubleWithDefault")
       public native Builder clearOptionalDoubleWithDefault();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setOptionalDoubleWithDefault")
       public native Builder setOptionalDoubleWithDefault(double value);
 
@@ -608,15 +646,19 @@ public final class Accessor {
             internal_getRepeatedDoubleList());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearRepeatedDouble")
       public native Builder clearRepeatedDouble();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "addRepeatedDouble")
       public native Builder addRepeatedDouble(double value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setRepeatedDouble")
       public native Builder setRepeatedDouble(int index, double value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder addAllRepeatedDouble(java.lang.Iterable<java.lang.Double> values) {
         com.google.protobuf.GeneratedMessageLite.Internal_.addAll(values, this::addRepeatedDouble);
@@ -629,9 +671,11 @@ public final class Accessor {
       @jsinterop.annotations.JsMethod(name = "getOptionalString")
       public native java.lang.String getOptionalString();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearOptionalString")
       public native Builder clearOptionalString();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setOptionalString")
       public native Builder setOptionalString(java.lang.String value);
 
@@ -641,9 +685,11 @@ public final class Accessor {
       @jsinterop.annotations.JsMethod(name = "getOptionalStringWithDefault")
       public native java.lang.String getOptionalStringWithDefault();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearOptionalStringWithDefault")
       public native Builder clearOptionalStringWithDefault();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setOptionalStringWithDefault")
       public native Builder setOptionalStringWithDefault(java.lang.String value);
 
@@ -663,15 +709,19 @@ public final class Accessor {
             internal_getRepeatedStringList());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearRepeatedString")
       public native Builder clearRepeatedString();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "addRepeatedString")
       public native Builder addRepeatedString(java.lang.String value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setRepeatedString")
       public native Builder setRepeatedString(int index, java.lang.String value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder addAllRepeatedString(java.lang.Iterable<java.lang.String> values) {
         com.google.protobuf.GeneratedMessageLite.Internal_.addAll(values, this::addRepeatedString);
@@ -684,9 +734,11 @@ public final class Accessor {
       @jsinterop.annotations.JsMethod(name = "getOptionalBytes")
       public native com.google.protobuf.ByteString getOptionalBytes();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearOptionalBytes")
       public native Builder clearOptionalBytes();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setOptionalBytes")
       public native Builder setOptionalBytes(com.google.protobuf.ByteString value);
 
@@ -696,9 +748,11 @@ public final class Accessor {
       @jsinterop.annotations.JsMethod(name = "getOptionalBytesWithDefault")
       public native com.google.protobuf.ByteString getOptionalBytesWithDefault();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearOptionalBytesWithDefault")
       public native Builder clearOptionalBytesWithDefault();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setOptionalBytesWithDefault")
       public native Builder setOptionalBytesWithDefault(com.google.protobuf.ByteString value);
 
@@ -719,15 +773,19 @@ public final class Accessor {
             internal_getRepeatedBytesList());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearRepeatedBytes")
       public native Builder clearRepeatedBytes();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "addRepeatedBytes")
       public native Builder addRepeatedBytes(com.google.protobuf.ByteString value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setRepeatedBytes")
       public native Builder setRepeatedBytes(int index, com.google.protobuf.ByteString value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder addAllRepeatedBytes(
           java.lang.Iterable<com.google.protobuf.ByteString> values) {
@@ -742,13 +800,16 @@ public final class Accessor {
       public native com.google.protobuf.contrib.j2cl.protos.Accessor.TestProto.NestedMessage
           getOptionalMessage();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearOptionalMessage")
       public native Builder clearOptionalMessage();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setOptionalMessage")
       public native Builder setOptionalMessage(
           com.google.protobuf.contrib.j2cl.protos.Accessor.TestProto.NestedMessage value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setOptionalMessage")
       public native Builder setOptionalMessage(
           com.google.protobuf.contrib.j2cl.protos.Accessor.TestProto.NestedMessage.Builder builder);
@@ -773,27 +834,33 @@ public final class Accessor {
             internal_getRepeatedMessageList());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearRepeatedMessage")
       public native Builder clearRepeatedMessage();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "addRepeatedMessage")
       public native Builder addRepeatedMessage(
           com.google.protobuf.contrib.j2cl.protos.Accessor.TestProto.NestedMessage value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setRepeatedMessage")
       public native Builder setRepeatedMessage(
           int index,
           com.google.protobuf.contrib.j2cl.protos.Accessor.TestProto.NestedMessage value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "addRepeatedMessage")
       public native Builder addRepeatedMessage(
           com.google.protobuf.contrib.j2cl.protos.Accessor.TestProto.NestedMessage.Builder builder);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setRepeatedMessage")
       public native Builder setRepeatedMessage(
           int index,
           com.google.protobuf.contrib.j2cl.protos.Accessor.TestProto.NestedMessage.Builder builder);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder addAllRepeatedMessage(
           java.lang.Iterable<

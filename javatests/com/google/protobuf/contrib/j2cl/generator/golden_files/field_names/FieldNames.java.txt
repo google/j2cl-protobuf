@@ -445,9 +445,11 @@ public final class FieldNames {
       @jsinterop.annotations.JsMethod(name = "getPrimitiveLowerCaseUnderscore")
       public native boolean getPrimitiveLowerCaseUnderscore();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearPrimitiveLowerCaseUnderscore")
       public native Builder clearPrimitiveLowerCaseUnderscore();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setPrimitiveLowerCaseUnderscore")
       public native Builder setPrimitiveLowerCaseUnderscore(boolean value);
 
@@ -457,9 +459,11 @@ public final class FieldNames {
       @jsinterop.annotations.JsMethod(name = "getPrimitiveLowerCaseCamel")
       public native boolean getPrimitiveLowerCaseCamel();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearPrimitiveLowerCaseCamel")
       public native Builder clearPrimitiveLowerCaseCamel();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setPrimitiveLowerCaseCamel")
       public native Builder setPrimitiveLowerCaseCamel(boolean value);
 
@@ -469,9 +473,11 @@ public final class FieldNames {
       @jsinterop.annotations.JsMethod(name = "getPrimitiveUpperCaseCamel")
       public native boolean getPrimitiveUpperCaseCamel();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearPrimitiveUpperCaseCamel")
       public native Builder clearPrimitiveUpperCaseCamel();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setPrimitiveUpperCaseCamel")
       public native Builder setPrimitiveUpperCaseCamel(boolean value);
 
@@ -491,15 +497,19 @@ public final class FieldNames {
             internal_getRepeatedPrimitiveLowerCaseUnderscoreList());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearRepeatedPrimitiveLowerCaseUnderscore")
       public native Builder clearRepeatedPrimitiveLowerCaseUnderscore();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "addRepeatedPrimitiveLowerCaseUnderscore")
       public native Builder addRepeatedPrimitiveLowerCaseUnderscore(boolean value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setRepeatedPrimitiveLowerCaseUnderscore")
       public native Builder setRepeatedPrimitiveLowerCaseUnderscore(int index, boolean value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder addAllRepeatedPrimitiveLowerCaseUnderscore(
           java.lang.Iterable<java.lang.Boolean> values) {
@@ -524,15 +534,19 @@ public final class FieldNames {
             internal_getRepeatedPrimitiveLowerCaseCamelList());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearRepeatedPrimitiveLowerCaseCamel")
       public native Builder clearRepeatedPrimitiveLowerCaseCamel();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "addRepeatedPrimitiveLowerCaseCamel")
       public native Builder addRepeatedPrimitiveLowerCaseCamel(boolean value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setRepeatedPrimitiveLowerCaseCamel")
       public native Builder setRepeatedPrimitiveLowerCaseCamel(int index, boolean value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder addAllRepeatedPrimitiveLowerCaseCamel(
           java.lang.Iterable<java.lang.Boolean> values) {
@@ -557,15 +571,19 @@ public final class FieldNames {
             internal_getRepeatedPrimitiveUpperCaseCamelList());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearRepeatedPrimitiveUpperCaseCamel")
       public native Builder clearRepeatedPrimitiveUpperCaseCamel();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "addRepeatedPrimitiveUpperCaseCamel")
       public native Builder addRepeatedPrimitiveUpperCaseCamel(boolean value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setRepeatedPrimitiveUpperCaseCamel")
       public native Builder setRepeatedPrimitiveUpperCaseCamel(int index, boolean value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder addAllRepeatedPrimitiveUpperCaseCamel(
           java.lang.Iterable<java.lang.Boolean> values) {
@@ -589,9 +607,11 @@ public final class FieldNames {
       @jsinterop.annotations.JsMethod(name = "getEnumLowerCaseUnderscore")
       private native Object internal_getEnumLowerCaseUnderscore();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearEnumLowerCaseUnderscore")
       public native Builder clearEnumLowerCaseUnderscore();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder setEnumLowerCaseUnderscore(
           com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum value) {
@@ -600,6 +620,7 @@ public final class FieldNames {
                 .toClosureValue(value));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setEnumLowerCaseUnderscore")
       private native Builder internal_setEnumLowerCaseUnderscore(Object value);
 
@@ -618,9 +639,11 @@ public final class FieldNames {
       @jsinterop.annotations.JsMethod(name = "getEnumLowerCaseCamel")
       private native Object internal_getEnumLowerCaseCamel();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearEnumLowerCaseCamel")
       public native Builder clearEnumLowerCaseCamel();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder setEnumLowerCaseCamel(
           com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum value) {
@@ -629,6 +652,7 @@ public final class FieldNames {
                 .toClosureValue(value));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setEnumLowerCaseCamel")
       private native Builder internal_setEnumLowerCaseCamel(Object value);
 
@@ -647,9 +671,11 @@ public final class FieldNames {
       @jsinterop.annotations.JsMethod(name = "getEnumUpperCaseCamel")
       private native Object internal_getEnumUpperCaseCamel();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearEnumUpperCaseCamel")
       public native Builder clearEnumUpperCaseCamel();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder setEnumUpperCaseCamel(
           com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum value) {
@@ -658,6 +684,7 @@ public final class FieldNames {
                 .toClosureValue(value));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setEnumUpperCaseCamel")
       private native Builder internal_setEnumUpperCaseCamel(Object value);
 
@@ -692,9 +719,11 @@ public final class FieldNames {
                     d, com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.UNKNOWN));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearRepeatedEnumLowerCaseUnderscore")
       public native Builder clearRepeatedEnumLowerCaseUnderscore();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder setRepeatedEnumLowerCaseUnderscore(
           int index, com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum value) {
@@ -704,9 +733,11 @@ public final class FieldNames {
                 .toClosureValue(value));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setRepeatedEnumLowerCaseUnderscore")
       private native Builder internal_setRepeatedEnumLowerCaseUnderscore(int index, Object value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder addRepeatedEnumLowerCaseUnderscore(
           com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum value) {
@@ -715,9 +746,11 @@ public final class FieldNames {
                 .toClosureValue(value));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "addRepeatedEnumLowerCaseUnderscore")
       private native Builder internal_addRepeatedEnumLowerCaseUnderscore(Object value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder addAllRepeatedEnumLowerCaseUnderscore(
           java.lang.Iterable<com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum>
@@ -758,9 +791,11 @@ public final class FieldNames {
                     d, com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.UNKNOWN));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearRepeatedEnumLowerCaseCamel")
       public native Builder clearRepeatedEnumLowerCaseCamel();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder setRepeatedEnumLowerCaseCamel(
           int index, com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum value) {
@@ -770,9 +805,11 @@ public final class FieldNames {
                 .toClosureValue(value));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setRepeatedEnumLowerCaseCamel")
       private native Builder internal_setRepeatedEnumLowerCaseCamel(int index, Object value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder addRepeatedEnumLowerCaseCamel(
           com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum value) {
@@ -781,9 +818,11 @@ public final class FieldNames {
                 .toClosureValue(value));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "addRepeatedEnumLowerCaseCamel")
       private native Builder internal_addRepeatedEnumLowerCaseCamel(Object value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder addAllRepeatedEnumLowerCaseCamel(
           java.lang.Iterable<com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum>
@@ -824,9 +863,11 @@ public final class FieldNames {
                     d, com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum.UNKNOWN));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearRepeatedEnumUpperCaseCamel")
       public native Builder clearRepeatedEnumUpperCaseCamel();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder setRepeatedEnumUpperCaseCamel(
           int index, com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum value) {
@@ -836,9 +877,11 @@ public final class FieldNames {
                 .toClosureValue(value));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setRepeatedEnumUpperCaseCamel")
       private native Builder internal_setRepeatedEnumUpperCaseCamel(int index, Object value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder addRepeatedEnumUpperCaseCamel(
           com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum value) {
@@ -847,9 +890,11 @@ public final class FieldNames {
                 .toClosureValue(value));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "addRepeatedEnumUpperCaseCamel")
       private native Builder internal_addRepeatedEnumUpperCaseCamel(Object value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder addAllRepeatedEnumUpperCaseCamel(
           java.lang.Iterable<com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.TestEnum>
@@ -866,13 +911,16 @@ public final class FieldNames {
       public native com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested
           getMessageLowerCaseUnderscore();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearMessageLowerCaseUnderscore")
       public native Builder clearMessageLowerCaseUnderscore();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setMessageLowerCaseUnderscore")
       public native Builder setMessageLowerCaseUnderscore(
           com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setMessageLowerCaseUnderscore")
       public native Builder setMessageLowerCaseUnderscore(
           com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested.Builder builder);
@@ -884,13 +932,16 @@ public final class FieldNames {
       public native com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested
           getMessageLowerCaseCamel();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearMessageLowerCaseCamel")
       public native Builder clearMessageLowerCaseCamel();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setMessageLowerCaseCamel")
       public native Builder setMessageLowerCaseCamel(
           com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setMessageLowerCaseCamel")
       public native Builder setMessageLowerCaseCamel(
           com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested.Builder builder);
@@ -902,13 +953,16 @@ public final class FieldNames {
       public native com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested
           getMessageUpperCaseCamel();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearMessageUpperCaseCamel")
       public native Builder clearMessageUpperCaseCamel();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setMessageUpperCaseCamel")
       public native Builder setMessageUpperCaseCamel(
           com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setMessageUpperCaseCamel")
       public native Builder setMessageUpperCaseCamel(
           com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested.Builder builder);
@@ -932,26 +986,32 @@ public final class FieldNames {
             internal_getRepeatedMessageLowerCaseUnderscoreList());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearRepeatedMessageLowerCaseUnderscore")
       public native Builder clearRepeatedMessageLowerCaseUnderscore();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "addRepeatedMessageLowerCaseUnderscore")
       public native Builder addRepeatedMessageLowerCaseUnderscore(
           com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setRepeatedMessageLowerCaseUnderscore")
       public native Builder setRepeatedMessageLowerCaseUnderscore(
           int index, com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "addRepeatedMessageLowerCaseUnderscore")
       public native Builder addRepeatedMessageLowerCaseUnderscore(
           com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested.Builder builder);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setRepeatedMessageLowerCaseUnderscore")
       public native Builder setRepeatedMessageLowerCaseUnderscore(
           int index,
           com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested.Builder builder);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder addAllRepeatedMessageLowerCaseUnderscore(
           java.lang.Iterable<com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested>
@@ -980,26 +1040,32 @@ public final class FieldNames {
             internal_getRepeatedMessageLowerCaseCamelList());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearRepeatedMessageLowerCaseCamel")
       public native Builder clearRepeatedMessageLowerCaseCamel();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "addRepeatedMessageLowerCaseCamel")
       public native Builder addRepeatedMessageLowerCaseCamel(
           com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setRepeatedMessageLowerCaseCamel")
       public native Builder setRepeatedMessageLowerCaseCamel(
           int index, com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "addRepeatedMessageLowerCaseCamel")
       public native Builder addRepeatedMessageLowerCaseCamel(
           com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested.Builder builder);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setRepeatedMessageLowerCaseCamel")
       public native Builder setRepeatedMessageLowerCaseCamel(
           int index,
           com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested.Builder builder);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder addAllRepeatedMessageLowerCaseCamel(
           java.lang.Iterable<com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested>
@@ -1028,26 +1094,32 @@ public final class FieldNames {
             internal_getRepeatedMessageUpperCaseCamelList());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearRepeatedMessageUpperCaseCamel")
       public native Builder clearRepeatedMessageUpperCaseCamel();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "addRepeatedMessageUpperCaseCamel")
       public native Builder addRepeatedMessageUpperCaseCamel(
           com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setRepeatedMessageUpperCaseCamel")
       public native Builder setRepeatedMessageUpperCaseCamel(
           int index, com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "addRepeatedMessageUpperCaseCamel")
       public native Builder addRepeatedMessageUpperCaseCamel(
           com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested.Builder builder);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setRepeatedMessageUpperCaseCamel")
       public native Builder setRepeatedMessageUpperCaseCamel(
           int index,
           com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested.Builder builder);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder addAllRepeatedMessageUpperCaseCamel(
           java.lang.Iterable<com.google.protobuf.contrib.j2cl.protos.FieldNames.Fields.Nested>

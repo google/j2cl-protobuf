@@ -1,22 +1,27 @@
 #if (${field.isEnum()})
+  @com.google.errorprone.annotations.CanIgnoreReturnValue
   @jsinterop.annotations.JsOverlay
   public final Builder set${field.name}(${field.unboxedType} value) {
     return internal_set${field.name}(#convertToClosureEnum( $field "value" ));
   }
   #if (${field.hasEnumValueAccessors()})
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsOverlay
     public final Builder set${field.name}Value(int value) {
       return internal_set${field.name}(#convertToClosureEnum( $field "value" ));
     }
   #end
 
+  @com.google.errorprone.annotations.CanIgnoreReturnValue
   @jsinterop.annotations.JsMethod(name = "set${field.jsName}")
   private native Builder internal_set${field.name}(Object value);
 #else
+  @com.google.errorprone.annotations.CanIgnoreReturnValue
   @jsinterop.annotations.JsMethod(name = "set${field.jsName}")
   public native Builder set${field.name}(${field.unboxedType} value);
 #end
 #if (${field.isMessage()})
+  @com.google.errorprone.annotations.CanIgnoreReturnValue
   @jsinterop.annotations.JsMethod(name = "set${field.jsName}")
   public native Builder set${field.name}(${field.unboxedType}.Builder builder);
 #end

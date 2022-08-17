@@ -110,9 +110,11 @@ public final class Proto2TestProto
     @jsinterop.annotations.JsMethod(name = "getOptionalProto3Enum")
     private native Object internal_getOptionalProto3Enum();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "clearOptionalProto3Enum")
     public native Builder clearOptionalProto3Enum();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsOverlay
     public final Builder setOptionalProto3Enum(
         com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
@@ -122,6 +124,7 @@ public final class Proto2TestProto
               .Internal_ClosureEnum.toClosureValue(value));
     }
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setOptionalProto3Enum")
     private native Builder internal_setOptionalProto3Enum(Object value);
 
@@ -160,9 +163,11 @@ public final class Proto2TestProto
                       .Proto3TestEnum.DEFAULT));
     }
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "clearRepeatedProto3Enum")
     public native Builder clearRepeatedProto3Enum();
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsOverlay
     public final Builder setRepeatedProto3Enum(
         int index,
@@ -174,9 +179,11 @@ public final class Proto2TestProto
               .Internal_ClosureEnum.toClosureValue(value));
     }
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "setRepeatedProto3Enum")
     private native Builder internal_setRepeatedProto3Enum(int index, Object value);
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsOverlay
     public final Builder addRepeatedProto3Enum(
         com.google.protobuf.contrib.j2cl.protos.Proto3Enums.Proto3EnumTestProto.Proto3TestEnum
@@ -186,9 +193,11 @@ public final class Proto2TestProto
               .Internal_ClosureEnum.toClosureValue(value));
     }
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsMethod(name = "addRepeatedProto3Enum")
     private native Builder internal_addRepeatedProto3Enum(Object value);
 
+    @com.google.errorprone.annotations.CanIgnoreReturnValue
     @jsinterop.annotations.JsOverlay
     public final Builder addAllRepeatedProto3Enum(
         java.lang.Iterable<

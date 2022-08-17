@@ -58,9 +58,11 @@ public final class Proto3Accessors {
       @jsinterop.annotations.JsMethod(name = "getOptionalInt")
       public native int getOptionalInt();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearOptionalInt")
       public native Builder clearOptionalInt();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setOptionalInt")
       public native Builder setOptionalInt(int value);
     }
@@ -185,9 +187,11 @@ public final class Proto3Accessors {
         @jsinterop.annotations.JsMethod(name = "getPayload")
         public native java.lang.String getPayload();
 
+        @com.google.errorprone.annotations.CanIgnoreReturnValue
         @jsinterop.annotations.JsMethod(name = "clearPayload")
         public native Builder clearPayload();
 
+        @com.google.errorprone.annotations.CanIgnoreReturnValue
         @jsinterop.annotations.JsMethod(name = "setPayload")
         public native Builder setPayload(java.lang.String value);
       }
@@ -308,81 +312,99 @@ public final class Proto3Accessors {
       @jsinterop.annotations.JsMethod(name = "getProto3Bool")
       public native boolean getProto3Bool();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearProto3Bool")
       public native Builder clearProto3Bool();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setProto3Bool")
       public native Builder setProto3Bool(boolean value);
 
       @jsinterop.annotations.JsMethod(name = "getProto3String")
       public native java.lang.String getProto3String();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearProto3String")
       public native Builder clearProto3String();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setProto3String")
       public native Builder setProto3String(java.lang.String value);
 
       @jsinterop.annotations.JsMethod(name = "getProto3Float")
       public native float getProto3Float();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearProto3Float")
       public native Builder clearProto3Float();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setProto3Float")
       public native Builder setProto3Float(float value);
 
       @jsinterop.annotations.JsMethod(name = "getProto3Double")
       public native double getProto3Double();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearProto3Double")
       public native Builder clearProto3Double();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setProto3Double")
       public native Builder setProto3Double(double value);
 
       @jsinterop.annotations.JsMethod(name = "getProto3Int32")
       public native int getProto3Int32();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearProto3Int32")
       public native Builder clearProto3Int32();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setProto3Int32")
       public native Builder setProto3Int32(int value);
 
       @jsinterop.annotations.JsMethod(name = "getProto3Uint32")
       public native int getProto3Uint32();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearProto3Uint32")
       public native Builder clearProto3Uint32();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setProto3Uint32")
       public native Builder setProto3Uint32(int value);
 
       @jsinterop.annotations.JsMethod(name = "getProto3Long")
       public native long getProto3Long();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearProto3Long")
       public native Builder clearProto3Long();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setProto3Long")
       public native Builder setProto3Long(long value);
 
       @jsinterop.annotations.JsMethod(name = "getProto3Int52Long")
       public native long getProto3Int52Long();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearProto3Int52Long")
       public native Builder clearProto3Int52Long();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setProto3Int52Long")
       public native Builder setProto3Int52Long(long value);
 
       @jsinterop.annotations.JsMethod(name = "getProto3Bytes")
       public native com.google.protobuf.ByteString getProto3Bytes();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearProto3Bytes")
       public native Builder clearProto3Bytes();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setProto3Bytes")
       public native Builder setProto3Bytes(com.google.protobuf.ByteString value);
 
@@ -402,15 +424,19 @@ public final class Proto3Accessors {
             internal_getProto3PluralBoolList());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearProto3PluralBool")
       public native Builder clearProto3PluralBool();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "addProto3PluralBool")
       public native Builder addProto3PluralBool(boolean value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setProto3PluralBool")
       public native Builder setProto3PluralBool(int index, boolean value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder addAllProto3PluralBool(java.lang.Iterable<java.lang.Boolean> values) {
         com.google.protobuf.GeneratedMessageLite.Internal_.addAll(
@@ -437,9 +463,11 @@ public final class Proto3Accessors {
             .Internal_ClosureEnum.toIntValue(internal_getProto3Enum());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearProto3Enum")
       public native Builder clearProto3Enum();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder setProto3Enum(
           com.google.protobuf.contrib.j2cl.protos.Proto3Accessors.TestProto3.TestEnum value) {
@@ -448,6 +476,7 @@ public final class Proto3Accessors {
                 .Internal_ClosureEnum.toClosureValue(value));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder setProto3EnumValue(int value) {
         return internal_setProto3Enum(
@@ -455,6 +484,7 @@ public final class Proto3Accessors {
                 .Internal_ClosureEnum.toClosureValue(value));
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setProto3Enum")
       private native Builder internal_setProto3Enum(Object value);
 
@@ -465,13 +495,16 @@ public final class Proto3Accessors {
       public native com.google.protobuf.contrib.j2cl.protos.Proto3Accessors.TestProto3.NestedMessage
           getProto3Message();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearProto3Message")
       public native Builder clearProto3Message();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setProto3Message")
       public native Builder setProto3Message(
           com.google.protobuf.contrib.j2cl.protos.Proto3Accessors.TestProto3.NestedMessage value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setProto3Message")
       public native Builder setProto3Message(
           com.google.protobuf.contrib.j2cl.protos.Proto3Accessors.TestProto3.NestedMessage.Builder

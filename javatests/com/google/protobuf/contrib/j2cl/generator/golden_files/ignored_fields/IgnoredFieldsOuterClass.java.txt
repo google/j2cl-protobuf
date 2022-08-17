@@ -57,9 +57,11 @@ public final class IgnoredFieldsOuterClass {
       @jsinterop.annotations.JsMethod(name = "getNotIgnoredField")
       public native java.lang.String getNotIgnoredField();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearNotIgnoredField")
       public native Builder clearNotIgnoredField();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setNotIgnoredField")
       public native Builder setNotIgnoredField(java.lang.String value);
     }

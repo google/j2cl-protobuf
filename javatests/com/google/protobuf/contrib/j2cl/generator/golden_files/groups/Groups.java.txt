@@ -75,9 +75,11 @@ public final class Groups {
         @jsinterop.annotations.JsMethod(name = "getFoo")
         public native java.lang.String getFoo();
 
+        @com.google.errorprone.annotations.CanIgnoreReturnValue
         @jsinterop.annotations.JsMethod(name = "clearFoo")
         public native Builder clearFoo();
 
+        @com.google.errorprone.annotations.CanIgnoreReturnValue
         @jsinterop.annotations.JsMethod(name = "setFoo")
         public native Builder setFoo(java.lang.String value);
 
@@ -87,9 +89,11 @@ public final class Groups {
         @jsinterop.annotations.JsMethod(name = "getBar")
         public native int getBar();
 
+        @com.google.errorprone.annotations.CanIgnoreReturnValue
         @jsinterop.annotations.JsMethod(name = "clearBar")
         public native Builder clearBar();
 
+        @com.google.errorprone.annotations.CanIgnoreReturnValue
         @jsinterop.annotations.JsMethod(name = "setBar")
         public native Builder setBar(int value);
 
@@ -99,9 +103,11 @@ public final class Groups {
         @jsinterop.annotations.JsMethod(name = "getBeyondNormalPivot")
         public native int getBeyondNormalPivot();
 
+        @com.google.errorprone.annotations.CanIgnoreReturnValue
         @jsinterop.annotations.JsMethod(name = "clearBeyondNormalPivot")
         public native Builder clearBeyondNormalPivot();
 
+        @com.google.errorprone.annotations.CanIgnoreReturnValue
         @jsinterop.annotations.JsMethod(name = "setBeyondNormalPivot")
         public native Builder setBeyondNormalPivot(int value);
       }
@@ -163,9 +169,11 @@ public final class Groups {
         @jsinterop.annotations.JsMethod(name = "getFoo")
         public native java.lang.String getFoo();
 
+        @com.google.errorprone.annotations.CanIgnoreReturnValue
         @jsinterop.annotations.JsMethod(name = "clearFoo")
         public native Builder clearFoo();
 
+        @com.google.errorprone.annotations.CanIgnoreReturnValue
         @jsinterop.annotations.JsMethod(name = "setFoo")
         public native Builder setFoo(java.lang.String value);
 
@@ -175,9 +183,11 @@ public final class Groups {
         @jsinterop.annotations.JsMethod(name = "getBar")
         public native int getBar();
 
+        @com.google.errorprone.annotations.CanIgnoreReturnValue
         @jsinterop.annotations.JsMethod(name = "clearBar")
         public native Builder clearBar();
 
+        @com.google.errorprone.annotations.CanIgnoreReturnValue
         @jsinterop.annotations.JsMethod(name = "setBar")
         public native Builder setBar(int value);
       }
@@ -248,9 +258,11 @@ public final class Groups {
         @jsinterop.annotations.JsMethod(name = "getLowerThanGroup")
         public native java.lang.String getLowerThanGroup();
 
+        @com.google.errorprone.annotations.CanIgnoreReturnValue
         @jsinterop.annotations.JsMethod(name = "clearLowerThanGroup")
         public native Builder clearLowerThanGroup();
 
+        @com.google.errorprone.annotations.CanIgnoreReturnValue
         @jsinterop.annotations.JsMethod(name = "setLowerThanGroup")
         public native Builder setLowerThanGroup(java.lang.String value);
 
@@ -260,9 +272,11 @@ public final class Groups {
         @jsinterop.annotations.JsMethod(name = "getEqualToGroup")
         public native java.lang.String getEqualToGroup();
 
+        @com.google.errorprone.annotations.CanIgnoreReturnValue
         @jsinterop.annotations.JsMethod(name = "clearEqualToGroup")
         public native Builder clearEqualToGroup();
 
+        @com.google.errorprone.annotations.CanIgnoreReturnValue
         @jsinterop.annotations.JsMethod(name = "setEqualToGroup")
         public native Builder setEqualToGroup(java.lang.String value);
 
@@ -272,9 +286,11 @@ public final class Groups {
         @jsinterop.annotations.JsMethod(name = "getHigherThanGroup")
         public native java.lang.String getHigherThanGroup();
 
+        @com.google.errorprone.annotations.CanIgnoreReturnValue
         @jsinterop.annotations.JsMethod(name = "clearHigherThanGroup")
         public native Builder clearHigherThanGroup();
 
+        @com.google.errorprone.annotations.CanIgnoreReturnValue
         @jsinterop.annotations.JsMethod(name = "setHigherThanGroup")
         public native Builder setHigherThanGroup(java.lang.String value);
       }
@@ -357,13 +373,16 @@ public final class Groups {
       public native com.google.protobuf.contrib.j2cl.protos.Groups.GroupsProto.OptionalGroup
           getOptionalGroup();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearOptionalGroup")
       public native Builder clearOptionalGroup();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setOptionalGroup")
       public native Builder setOptionalGroup(
           com.google.protobuf.contrib.j2cl.protos.Groups.GroupsProto.OptionalGroup value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setOptionalGroup")
       public native Builder setOptionalGroup(
           com.google.protobuf.contrib.j2cl.protos.Groups.GroupsProto.OptionalGroup.Builder builder);
@@ -388,27 +407,33 @@ public final class Groups {
             internal_getRepeatedGroupList());
       }
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearRepeatedGroup")
       public native Builder clearRepeatedGroup();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "addRepeatedGroup")
       public native Builder addRepeatedGroup(
           com.google.protobuf.contrib.j2cl.protos.Groups.GroupsProto.RepeatedGroup value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setRepeatedGroup")
       public native Builder setRepeatedGroup(
           int index,
           com.google.protobuf.contrib.j2cl.protos.Groups.GroupsProto.RepeatedGroup value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "addRepeatedGroup")
       public native Builder addRepeatedGroup(
           com.google.protobuf.contrib.j2cl.protos.Groups.GroupsProto.RepeatedGroup.Builder builder);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setRepeatedGroup")
       public native Builder setRepeatedGroup(
           int index,
           com.google.protobuf.contrib.j2cl.protos.Groups.GroupsProto.RepeatedGroup.Builder builder);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsOverlay
       public final Builder addAllRepeatedGroup(
           java.lang.Iterable<
@@ -426,14 +451,17 @@ public final class Groups {
               .NonIncrementingFieldNumbers
           getNonIncrementingFieldNumbers();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "clearNonIncrementingFieldNumbers")
       public native Builder clearNonIncrementingFieldNumbers();
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setNonIncrementingFieldNumbers")
       public native Builder setNonIncrementingFieldNumbers(
           com.google.protobuf.contrib.j2cl.protos.Groups.GroupsProto.NonIncrementingFieldNumbers
               value);
 
+      @com.google.errorprone.annotations.CanIgnoreReturnValue
       @jsinterop.annotations.JsMethod(name = "setNonIncrementingFieldNumbers")
       public native Builder setNonIncrementingFieldNumbers(
           com.google.protobuf.contrib.j2cl.protos.Groups.GroupsProto.NonIncrementingFieldNumbers
