@@ -1,7 +1,7 @@
 # Integration tests for immutable protos
 load("//javatests/com/google/protobuf/contrib/immutablejs/build_def:proto_test.bzl", "proto_jsunit_test")
 
-licenses(["notice"])  # Apache 2.0
+licenses(["notice"])
 
 proto_jsunit_test(
     name = "boolean_fields_test",

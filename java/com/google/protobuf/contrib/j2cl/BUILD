@@ -2,7 +2,7 @@
 
 load("@com_google_j2cl//build_defs:rules.bzl", "j2cl_library", "j2wasm_library")
 
-licenses(["notice"])  # Apache 2.0
+licenses(["notice"])
 
 j2wasm_library(
     name = "runtime-j2wasm",

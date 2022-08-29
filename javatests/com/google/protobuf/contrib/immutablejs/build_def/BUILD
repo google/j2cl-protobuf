@@ -1,3 +1,3 @@
 # intentionally empty so that imports can use the bzl files in this folder
 
-licenses(["notice"])  # Apache 2.0
+licenses(["notice"])

@@ -5,7 +5,7 @@ package(default_visibility = [
     "//javatests/com/google/protobuf/contrib/j2cl:__subpackages__",
 ])
 
-licenses(["notice"])  # Apache 2.0
+licenses(["notice"])
 
 j2wasm_library(
     name = "runtime-j2wasm",

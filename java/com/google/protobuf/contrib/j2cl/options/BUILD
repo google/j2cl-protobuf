@@ -5,7 +5,7 @@ package(
     ],
 )
 
-licenses(["notice"])  # Apache 2.0
+licenses(["notice"])
 
 proto_library(
     name = "js_enum",

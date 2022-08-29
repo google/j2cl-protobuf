@@ -1,4 +1,4 @@
-licenses(["notice"])  # Apache 2.0
+licenses(["notice"])
 
 # To update the golden files, run the following in your client:
 #

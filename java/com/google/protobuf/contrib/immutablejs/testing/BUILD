@@ -5,7 +5,7 @@ package(
     ],
 )
 
-licenses(["notice"])  # Apache 2.0
+licenses(["notice"])
 
 java_library(
     name = "golden_files_base_test",

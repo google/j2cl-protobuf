@@ -4,7 +4,7 @@ load("//javatests/com/google/protobuf/contrib/j2cl/integration:j2cl_multi_test.b
 load("@com_google_j2cl//build_defs:rules.bzl", "J2CL_OPTIMIZED_DEFS", "j2cl_library", "j2wasm_library")
 load("@bazel_skylib//rules:build_test.bzl", "build_test")
 
-licenses(["notice"])  # Apache 2.0
+licenses(["notice"])
 
 java_library(
     name = "checks",

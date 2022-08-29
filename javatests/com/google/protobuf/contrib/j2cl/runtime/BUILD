@@ -4,7 +4,7 @@ load("//javatests/com/google/protobuf/contrib/j2cl/integration:j2cl_multi_test.b
 load("@com_google_j2cl//build_defs:rules.bzl", "J2CL_OPTIMIZED_DEFS")
 load("@bazel_skylib//rules:build_test.bzl", "build_test")
 
-licenses(["notice"])  # Apache 2.0
+licenses(["notice"])
 
 j2cl_multi_test(
     name = "ByteStringTest",
