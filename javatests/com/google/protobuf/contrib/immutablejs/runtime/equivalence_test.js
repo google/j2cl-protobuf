@@ -44,9 +44,67 @@ class EquivalenceTest {
   testSimpleField() {
     assertTrue(Equivalence.equivalence(['foo'], ['foo']));
     assertFalse(Equivalence.equivalence(['foo1'], ['foo2']));
+  }
 
+  testNumberField() {
     assertTrue(Equivalence.equivalence([1], [1]));
+    assertTrue(Equivalence.equivalence([1], ['1']));
+    assertTrue(Equivalence.equivalence([-1], ['-1']));
     assertFalse(Equivalence.equivalence([1], [2]));
+    assertFalse(Equivalence.equivalence([1], ['2']));
+    assertFalse(Equivalence.equivalence([-1], ['1']));
+    assertFalse(Equivalence.equivalence([-1], ['-2']));
+
+    // Int52 lossy
+    // TODO(b/219749958): False positive. Loss of precision is throwing off the
+    //  comparison.
+    assertTrue(Equivalence.equivalence(
+        [18446744073709552000], ['18446744073709551615']));
+
+    // NaN
+    assertTrue(Equivalence.equivalence([NaN], [NaN]));
+    assertTrue(Equivalence.equivalence([NaN], ['NaN']));
+    assertFalse(Equivalence.equivalence([NaN], [1]));
+    assertFalse(Equivalence.equivalence([NaN], ['1']));
+
+    // Infinity
+    assertTrue(Equivalence.equivalence([Infinity], [Infinity]));
+    assertTrue(Equivalence.equivalence([Infinity], ['Infinity']));
+    assertFalse(Equivalence.equivalence([Infinity], [1]));
+
+    // -Infinity
+    assertTrue(Equivalence.equivalence([-Infinity], [-Infinity]));
+    assertTrue(Equivalence.equivalence([-Infinity], ['-Infinity']));
+    assertFalse(Equivalence.equivalence([-Infinity], [1]));
+  }
+
+  testBoolField() {
+    // Boolean values can be encoded as either true/false literals or a number
+    // where only 0 is treated as false.
+    assertTrue(Equivalence.equivalence([true], [true]));
+    assertTrue(Equivalence.equivalence([true], [1]));
+    assertTrue(Equivalence.equivalence([true], ['1']));
+    assertTrue(Equivalence.equivalence([true], [2]));
+    assertTrue(Equivalence.equivalence([true], [-1]));
+    assertTrue(Equivalence.equivalence([false], [false]));
+    assertTrue(Equivalence.equivalence([false], [0]));
+    assertTrue(Equivalence.equivalence([false], ['0']));
+
+    assertFalse(Equivalence.equivalence([true], [false]));
+    assertFalse(Equivalence.equivalence([true], [0]));
+    // TODO(b/219749958): False positive. Boolean fields cannot be encoded as
+    //  strings.
+    assertTrue(Equivalence.equivalence([true], ['true']));
+
+    // Nested messages: normally these would coerce to true/false under JS
+    // coercion rules.
+    // See: https://dorey.github.io/JavaScript-Equality-Table/
+    assertFalse(Equivalence.equivalence([true], [[]]));
+    assertFalse(Equivalence.equivalence([false], [[]]));
+    assertFalse(Equivalence.equivalence([true], [[0]]));
+    assertFalse(Equivalence.equivalence([false], [[0]]));
+    assertFalse(Equivalence.equivalence([true], [[1]]));
+    assertFalse(Equivalence.equivalence([false], [[1]]));
   }
 
   testObjectField() {

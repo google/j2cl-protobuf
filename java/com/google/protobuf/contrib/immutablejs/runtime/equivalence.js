@@ -135,14 +135,32 @@ class Equivalence {
       return true;
     }
 
-    if (typeof firstValue == 'object' || typeof secondValue == 'object') {
+    const typeofFirst = typeof firstValue;
+    const typeofSecond = typeof secondValue;
+
+    if (typeofFirst == 'object' || typeofSecond == 'object') {
       return false;
     }
 
-    if (firstValue !== secondValue) {
-      return false;
+    if (firstValue == secondValue) {
+      return true;
     }
-    return true;
+
+    // Numbers can be encoded as strings. While the coerced check above should
+    // have handled the majority of cases, NaN is an edge case as it can coerce,
+    // but NaN != NaN, and thus NaN != 'NaN'.
+    if (Number.isNaN(/** @type {number} */ (firstValue)) ||
+        Number.isNaN(/** @type {number} */ (secondValue))) {
+      return String(firstValue) === String(secondValue);
+    }
+
+    // bool fields can be encoded as numbers, in which case only zero is
+    // considered as false. Any other number is considered to be true.
+    if (typeofFirst === 'boolean' || typeofSecond === 'boolean') {
+      return !!firstValue === !!secondValue;
+    }
+
+    return false;
   }
 
   /**
