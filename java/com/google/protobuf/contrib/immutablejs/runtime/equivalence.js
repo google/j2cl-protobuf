@@ -149,8 +149,7 @@ class Equivalence {
     // Numbers can be encoded as strings. While the coerced check above should
     // have handled the majority of cases, NaN is an edge case as it can coerce,
     // but NaN != NaN, and thus NaN != 'NaN'.
-    if (Number.isNaN(/** @type {number} */ (firstValue)) ||
-        Number.isNaN(/** @type {number} */ (secondValue))) {
+    if (Number.isNaN(firstValue) || Number.isNaN(secondValue)) {
       return String(firstValue) === String(secondValue);
     }
 
