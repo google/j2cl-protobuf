@@ -19,7 +19,7 @@ const BuggyGroupMessage = goog.require('improto.protobuf.contrib.immutablejs.pro
 const GroupsProto = goog.require('improto.protobuf.contrib.immutablejs.protos.GroupsProto');
 const testSuite = goog.require('goog.testing.testSuite');
 const {assertEqualsForProto} = goog.require('proto.im.proto_asserts');
-const {enableFixGroupsB171736612} = goog.require('proto.im.defines');
+const {enableFixGroupsB171736612, isFixGroupsB171736612Enabled} = goog.require('proto.im.defines');
 
 class GroupsTest {
   testOptionalGroup() {
@@ -120,81 +120,79 @@ class GroupsTest {
   }
 
   testParsePreservesFixedFlag() {
-    const g =
-        GroupsProto
-            .parse(
-                '[[null,"hello",{"g":1}]]')
-            .toBuilder()
-            .build();
+    const g = GroupsProto.parse('[[null,"hello",{"g":1}]]').toBuilder().build();
 
     assertEquals(g.serialize(), '[[null,"hello",{"g":1}]]');
   }
 }
 
 class FixedGroupsTest {
+  constructor() {
+    this.defaultFixGroupState = isFixGroupsB171736612Enabled();
+  }
+
   setUp() {
     enableFixGroupsB171736612(true);
   }
 
   tearDown() {
-    enableFixGroupsB171736612(false);
+    enableFixGroupsB171736612(this.defaultFixGroupState);
   }
 
-  testSlidingSparseObjectForFixedGroups() {
+  testBuildFixedBuggyGroup() {
     let buggy =
         BuggyGroupMessage.newBuilder()
             .setSomeString('hello')
             .setBuggyGroup(BuggyGroupMessage.BuggyGroup.getDefaultInstance())
             .build();
-    assertEquals(buggy.serialize(), '["hello",null,[{"g":1}]]');
+    assertEquals('["hello",null,[{"g":1}]]', buggy.serialize());
 
     buggy = buggy.toBuilder()
                 .setBuggyGroup(
                     BuggyGroupMessage.BuggyGroup.newBuilder().setSecond('2nd'))
                 .build();
-    assertEquals(buggy.serialize(), '["hello",null,[null,"2nd",{"g":1}]]');
+    assertEquals('["hello",null,[null,"2nd",{"g":1}]]', buggy.serialize());
 
     buggy =
         buggy.toBuilder()
             .setBuggyGroup(buggy.getBuggyGroup().toBuilder().setFirst('1st'))
             .build();
 
-    assertEquals(buggy.serialize(), '["hello",null,["1st","2nd",{"g":1}]]');
+    assertEquals('["hello",null,["1st","2nd",{"g":1}]]', buggy.serialize());
   }
 
-  testSlidingSparseObjectForFixedGroupsFromWire() {
-       let buggy = BuggyGroupMessage.parse('["hello",null,[{"g":1}]]');
-       assertEquals(buggy.serialize(), '["hello",null,[{"g":1}]]');
+  testFixedBuggyGroupFromWire() {
+    let buggy = BuggyGroupMessage.parse('["hello",null,[{"g":1}]]');
+    assertEquals('["hello",null,[{"g":1}]]', buggy.serialize());
 
-       // Even though the group has a suggested pivot, it's sparse
-       // object only exists because of the fixed flag so we should
-       // pretend it isn't there.
-       buggy = BuggyGroupMessage.newBuilder(buggy)
-                   .setBuggyGroup(
-                       buggy.getBuggyGroup().toBuilder().setSecond('2nd'))
-                   .build();
-       assertEquals(buggy.serialize(), '["hello",null,[null,"2nd",{"g":1}]]');
+    buggy =
+        BuggyGroupMessage.newBuilder(buggy)
+            .setBuggyGroup(buggy.getBuggyGroup().toBuilder().setSecond('2nd'))
+            .build();
+    assertEquals('["hello",null,[null,"2nd",{"g":1}]]', buggy.serialize());
 
-       buggy =
-           BuggyGroupMessage.newBuilder(buggy)
-               .setBuggyGroup(buggy.getBuggyGroup().toBuilder().setFirst('1st'))
-               .build();
-       assertEquals(buggy.serialize(), '["hello",null,["1st","2nd",{"g":1}]]');
+    buggy =
+        BuggyGroupMessage.newBuilder(buggy)
+            .setBuggyGroup(buggy.getBuggyGroup().toBuilder().setFirst('1st'))
+            .build();
+    assertEquals('["hello",null,["1st","2nd",{"g":1}]]', buggy.serialize());
   }
 
-  testSlidingSparseObjectForFixedGroupsFromWireUpdateBeforeSparseField() {
+  testFixedBuggyGroupFromWireUpdateBeforeSparseField() {
     let buggy = BuggyGroupMessage.parse('["hello",null,[{"1":"1st","g":1}]]');
-    assertEquals(buggy.serialize(), '["hello",null,[{"1":"1st","g":1}]]');
+    assertEquals('["hello",null,[{"1":"1st","g":1}]]', buggy.serialize());
 
     // Even though the group has a suggested pivot, it's sparse
     // object only exists because of the fixed flag so we should
     // pretend it isn't there.
-    buggy = BuggyGroupMessage.newBuilder(buggy)
-                .setBuggyGroup(
-                    buggy.getBuggyGroup().toBuilder().setSecond('2nd'))
-                .build();
-    assertEquals(buggy.serialize(), '["hello",null,[{"1":"1st","2":"2nd","g":1}]]');
+    buggy =
+        BuggyGroupMessage.newBuilder(buggy)
+            .setBuggyGroup(buggy.getBuggyGroup().toBuilder().setSecond('2nd'))
+            .build();
+    assertEquals(
+        '["hello",null,[{"1":"1st","2":"2nd","g":1}]]', buggy.serialize());
   }
 }
 
-testSuite({testGroups: new GroupsTest(), testFixedGroups: new FixedGroupsTest()});
+testSuite(
+    {testGroups: new GroupsTest(), testFixedGroups: new FixedGroupsTest()});

@@ -153,7 +153,8 @@ class JspbKernel {
           `Unexpected "g" flag in sparse object of message that is not a group type.`);
     }
 
-    return new JspbKernel(data, pivot, messageOffset);
+    return new JspbKernel(data, pivot, messageOffset,
+      /* isFixedGroup = */ false);
   }
 
   /**
@@ -173,8 +174,10 @@ class JspbKernel {
 
     // TODO(b/240186489): Groups should use the same suggested pivot calculation
     // as other messages.
-    if (hasGroupFlag(data)) {
+    const isFixedGroup = hasGroupFlag(data);
+    if (isFixedGroup) {
       groupOffset = 0;
+      suggestedPivot = data.length - 1;
     }
 
     const messageOffset = -1 - groupOffset;
@@ -183,7 +186,8 @@ class JspbKernel {
     return new JspbKernel(
         data,
         pivot,
-        messageOffset);
+        messageOffset,
+        isFixedGroup);
   }
 
   /**
@@ -202,16 +206,18 @@ class JspbKernel {
    * @param {number} pivot The field number after which fields are placed in the
    *     extension object.
    * @param {number} messageOffset The apps framework message id.
+   * @param {boolean} isFixedGroup Indicates that this message is a fixed group.
    * @private
    */
-  constructor(data, pivot, messageOffset) {
+  constructor(data, pivot, messageOffset, isFixedGroup) {
     /** @private @const {!Array<*>} */
     this.data_ = data;
-    /** @private @const {number} */
+    /** @private {number} */
     this.pivot_ = pivot;
     /** @private @const {number} */
     this.messageOffset_ = messageOffset;
-
+    /** @type {boolean} */
+    this.isFixedGroup = isFixedGroup;
     /** @private */
     this.hash_ = 0;
   }
@@ -240,6 +246,35 @@ class JspbKernel {
     return JspbKernel.fromArray(ctor, newData);
   }
 
+  /**
+   * Adds a fixed group indicator flag to the sparse object. If the group does
+   * not already have a sparse object, one will be added and the pivot set
+   * accordingly.
+   */
+  addGroupFlag() {
+    if (hasExtensionObject(this.data_)) {
+      this.data_[this.data_.length - 1][FIXED_GROUP_FLAG] = 1;
+    } else {
+      this.data_.push({[FIXED_GROUP_FLAG]:1});
+      this.pivot_ = this.data_.length - 1;
+    }
+  }
+
+  /**
+   * Remove the fixed group indicator flag from the sparse object.
+   * If the sparse object becomes empty, removes it as well.
+   */
+  removeGroupFlag() {
+    const sparseObj = /** @type {!Object} */ (this.data_[this.data_.length - 1]);
+    delete sparseObj[FIXED_GROUP_FLAG];
+    if (Object.keys(sparseObj).length === 0) {
+      this.data_.pop();
+
+      if (this.pivot_ !== Number.MAX_VALUE) {
+        this.pivot_ = this.data_.length - 1;
+      }
+    }
+  }
 
   /**
    * @return {string}
@@ -302,74 +337,6 @@ class JspbKernel {
         extension = this.data_[extensionObjectIndex] = {};
       }
       return /** @type {!Object<number, *>} */ (extension);
-    }
-  }
-
-  /**
-   * Selects either the data object or the extension object based on the field
-   * number. In some cases, the write operation may need to "slide" the sparse
-   * object backwards (e.g. the object only exists to hold a fixed group
-   * indicator) in order to avoid inefficiently storing field in the sparse
-   * object. Consequently, we will prepare the underlying wire format data
-   * accordingly.
-   *
-   * @param {number} fieldNumber
-   * @return {!Object<number, *>}
-   * @private
-   */
-  prepareStorageForWriting_(fieldNumber) {
-    const storage = this.getStorageFor_(fieldNumber);
-    if (storage == this.data_) {
-      this.maybeSlideSparseObject_(fieldNumber);
-      return this.data_;
-    }
-
-    return storage;
-  }
-
-  /**
-   * Prepare an array location for inserting a field by possibly to "sliding"
-   * the sparse object backwards (e.g. the object only exists to hold a fixed
-   * group indicator) to accomodate. This helps to avoid inefficiently storing
-   * field in the sparse object.
-   *
-   * @param {number} fieldNumber
-   * @private
-   */
-  maybeSlideSparseObject_(fieldNumber) {
-    const oldSparseObjectLocation = this.data_.length - 1;
-    const sparseObj = hasExtensionObject(this.data_) ?
-      this.data_[oldSparseObjectLocation] : undefined;
-
-    const expectedIndex = arrayIndexFromFieldNumber(fieldNumber, this.messageOffset_);
-    if (sparseObj !== undefined && this.pivot_ >= this.data_.length) {
-      // Pivot is past the end of the array, so we can slide the sparse
-      // object backwards if needed and insert the field before it.
-
-      if (expectedIndex >= oldSparseObjectLocation) {
-        // Ensure we only slide the sparse object when we thinking we will.
-        // Namely, we only anticipate sliding when there are only flags
-        // present, but for future proofing we'll also tolerate fields past the
-        // current location. We use current object location instead of the pivot
-        // here since the pivot may be Number.MAX_VALUE.
-        if (goog.DEBUG) {
-          const keys = Object.keys(/** @type {!Object} */ (sparseObj));
-          assert(keys.length > 0 &&
-            keys.every(x => isNaN(x) || Number(x) >= oldSparseObjectLocation));
-        }
-
-        // Slide and insert before the sparse object. The accessor will slot in
-        // the value later.
-        this.data_[oldSparseObjectLocation] = undefined;
-        this.data_[expectedIndex] = undefined;
-        this.data_.push(sparseObj);
-      }
-    }
-
-    if (sparseObj !== undefined && fieldNumber in sparseObj) {
-      // The accessor will be writing to the array portion, but the field is
-      // already in the sparse object. Delete the sparse object's version.
-      delete sparseObj[fieldNumber];
     }
   }
 
@@ -462,7 +429,7 @@ class JspbKernel {
    * @template T
    */
   setField_(fieldNumber, value, accessorFn) {
-    const rawJson = this.prepareStorageForWriting_(fieldNumber);
+    const rawJson = this.getStorageFor_(fieldNumber);
     accessorFn(rawJson, this.indexForStorage_(fieldNumber), value);
   }
 

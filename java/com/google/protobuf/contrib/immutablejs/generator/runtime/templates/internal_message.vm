@@ -307,6 +307,14 @@ InternalMessage.Builder = class extends Message.Builder {
     this.internal_message = originalMessage.shallowCopy_();
     /** @private @const {!JspbKernel} */
     this.kernel_ = this.internal_message.kernel_;
+    if (this.kernel_.isFixedGroup) {
+      // Remove the fix indicator flag (and the sparse object if it becomes
+      // empty, which is likely) so that we don't need to consider it during
+      // mutations. The fix group flag and its containing sparse object are
+      // temporary encoding detail that we don't want to interfere with the
+      // normal runtime invariants (particularly pivot handling).
+      this.kernel_.removeGroupFlag();
+    }
   }
 
   /**
@@ -316,7 +324,15 @@ InternalMessage.Builder = class extends Message.Builder {
    */
   build() {
     // Clone the message so further modifications in builder doesn't reflect.
-    return this.internal_message.shallowCopy_();
+    const copy = this.internal_message.shallowCopy_();
+    if (this.kernel_.isFixedGroup) {
+      // We are handing off a fixed group and need to (re-)attach a fix
+      // indicator flag in case of serialization. If this group is later
+      // provided/converted to a builder, we'll (re-)remove the fix flag then.
+      copy.kernel_.isFixedGroup = true;
+      copy.kernel_.addGroupFlag();
+    }
+    return copy;
   }
 
   /**
