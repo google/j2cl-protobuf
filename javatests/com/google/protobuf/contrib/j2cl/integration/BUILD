@@ -186,8 +186,6 @@ genrule(
 j2cl_multi_test(
     name = "MapsAllVariantsTest",
     srcs = ["MapsAllVariantsTest.java"],
-    # TODO(b/240235178): Enable after WASM field count limit is increased.
-    generate_wasm_test = False,
     proto_deps = ["//javatests/com/google/protobuf/contrib/j2cl/protos:maps"],
     test_class = "com.google.protobuf.contrib.j2cl.integration.MapsAllVariantsTest",
     deps = [
