@@ -99,12 +99,12 @@ immutable_js_proto_library_aspect = aspect(
     attrs = dicts.add(js_attrs(), {
         "_protocol_compiler": attr.label(
             executable = True,
-            cfg = "host",
+            cfg = "exec",
             default = Label("//third_party:protocol_compiler"),
         ),
         "_protoc_gen_immutable_js": attr.label(
             executable = True,
-            cfg = "host",
+            cfg = "exec",
             default = Label(
                 "//java/com/google/protobuf/contrib/immutablejs/internal_do_not_use:ImmutableJspbCompiler",
             ),
@@ -112,7 +112,7 @@ immutable_js_proto_library_aspect = aspect(
         "_clang_format": attr.label(
             executable = True,
             allow_files = True,
-            cfg = "host",
+            cfg = "exec",
             default = Label("//third_party:clang-format"),
         ),
         "_runtime_deps": attr.label_list(
@@ -121,7 +121,7 @@ immutable_js_proto_library_aspect = aspect(
             ],
         ),
         "_jar": attr.label(
-            cfg = "host",
+            cfg = "exec",
             executable = True,
             default = Label("@bazel_tools//tools/jdk:jar"),
         ),

@@ -207,21 +207,21 @@ _j2cl_proto_library_aspect = aspect(
         ),
         "_protocol_compiler": attr.label(
             executable = True,
-            cfg = "host",
+            cfg = "exec",
             default = Label("//third_party:protocol_compiler"),
         ),
         "_protoc_gen_j2cl": attr.label(
             executable = True,
-            cfg = "host",
+            cfg = "exec",
             default = Label("//java/com/google/protobuf/contrib/j2cl/internal_do_not_use:J2CLProtobufCompiler"),
         ),
         "_jar": attr.label(
             executable = True,
-            cfg = "host",
+            cfg = "exec",
             default = Label("@bazel_tools//tools/jdk:jar"),
         ),
         "_google_java_formatter": attr.label(
-            cfg = "host",
+            cfg = "exec",
             executable = True,
             default = Label("//third_party:google_java_format"),
             allow_files = True,
@@ -278,7 +278,7 @@ new_j2cl_proto_library = rule(
             aspects = [immutable_js_proto_library_aspect, _j2cl_proto_library_aspect],
         ),
         "_zip": attr.label(
-            cfg = "host",
+            cfg = "exec",
             executable = True,
             default = Label("@bazel_tools//tools/zip:zipper"),
         ),
