@@ -22,35 +22,32 @@ import java.util.List;
 import java.util.Map;
 import java.util.RandomAccess;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 /** Base class for implementing getters for fields and extension. */
 public abstract class GeneratedMessageLiteOrBuilder<M extends MessageLite> {
 
-  protected final Map<Integer, Object> fields;
+  protected final HashMap<Integer, Object> fields;
 
   protected GeneratedMessageLiteOrBuilder(Map<Integer, Object> fields) {
     this.fields = copyFields(fields);
   }
 
-  private Map<Integer, Object> copyFields(Map<Integer, Object> original) {
-    return original.entrySet().stream()
-        .collect(Collectors.toMap(Map.Entry::getKey, e -> copyField(e.getValue())));
-  }
-
-  private Object copyField(Object field) {
-    if (field instanceof Map) {
-      return new HashMap<>((Map<?, ?>) field);
+  private static HashMap<Integer, Object> copyFields(Map<Integer, Object> original) {
+    HashMap<Integer, Object> copy = new HashMap<>(original);
+    for (Map.Entry<Integer, Object> entry : copy.entrySet()) {
+      Object field = entry.getValue();
+      if (field instanceof HashMap) {
+        entry.setValue(new HashMap<>((HashMap<?, ?>) field));
+      } else if (field instanceof ArrayList) {
+        entry.setValue(new ArrayList<>((ArrayList<?>) field));
+      }
+      // other fields are immutable
     }
-    if (field instanceof List) {
-      return new ArrayList<>((List<?>) field);
-    }
-    // other field are immutable
-    return field;
+    return copy;
   }
 
   protected final <E> E getField(int fieldNumber, E defaultValue) {
-    return hasField(fieldNumber) ? (E) fields.get(fieldNumber) : defaultValue;
+    return (E) fields.getOrDefault(fieldNumber, defaultValue);
   }
 
   protected final <E> E getFieldForEnum(int fieldNumber, E defaultValue, E unrecognizedValue) {

@@ -93,7 +93,7 @@ public static final class Builder extends
   private Builder() {}
 
   private Builder(java.util.Map<java.lang.Integer, java.lang.Object> fieldsMap) {
-    super(new java.util.HashMap<>(fieldsMap));
+    super(fieldsMap);
   }
 
   public final $descriptor.name getDefaultInstanceForType() {
