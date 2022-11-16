@@ -71,7 +71,7 @@ def _immutable_js_proto_library_aspect_impl(target, ctx):
                 ctx.executable._protoc_gen_immutable_js,
                 ctx.executable._clang_format,
             ],
-            progress_message = "Generating immutable jspb files",
+            progress_message = "Generating immutable_js_proto files",
         )
 
     transitive_runfiles = [dep[ImmutableJspbInfo]._private_.runfiles for dep in ctx.rule.attr.deps]
