@@ -33,8 +33,8 @@ com.google.protobuf.GeneratedMessageLite<${descriptor.name}, ${descriptor.name}.
 private static ${descriptor.name} DEFAULT_INSTANCE;
 
 
-private ${descriptor.name}(java.util.Map<java.lang.Integer, java.lang.Object> fields) {
-  super(fields);
+private ${descriptor.name}(Builder builder) {
+  super(builder);
 }
 
 public static final ${descriptor.name} getDefaultInstance(){
@@ -84,16 +84,22 @@ public static Builder newBuilder() {
 }
 
 public static Builder newBuilder($descriptor.name prototype) {
-  return new Builder(prototype.fields);
+  return new Builder(prototype);
 }
 
 public static final class Builder extends
     com.google.protobuf.GeneratedMessageLite.Builder<$descriptor.name, Builder> {
 
-  private Builder() {}
+  private Builder() {
+    super($descriptor.pivot);
+  }
 
-  private Builder(java.util.Map<java.lang.Integer, java.lang.Object> fieldsMap) {
-    super(fieldsMap);
+  private Builder(Builder b) {
+    super(b);
+  }
+
+  private Builder($descriptor.name m) {
+    super(m);
   }
 
   public final $descriptor.name getDefaultInstanceForType() {
@@ -102,12 +108,12 @@ public static final class Builder extends
 
   @java.lang.Override
   public $descriptor.name build() {
-    return new ${descriptor.name}(fields);
+    return new ${descriptor.name}(this);
   }
 
   @java.lang.Override
   public Builder clone() {
-    return new Builder(fields);
+    return new Builder(this);
   }
 
 ## render fields for builder

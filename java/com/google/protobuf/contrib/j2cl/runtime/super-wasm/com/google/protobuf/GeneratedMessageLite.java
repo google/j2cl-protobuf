@@ -33,12 +33,12 @@ public abstract class GeneratedMessageLite<
 
     public abstract B clone();
 
-    protected Builder() {
-      this(new HashMap<>());
+    protected Builder(int pivot) {
+      super(FieldStorage.create(pivot));
     }
 
-    protected Builder(Map<Integer, Object> fields) {
-      super(fields);
+    protected Builder(GeneratedMessageLiteOrBuilder<?> builder) {
+      super(builder.fields.copy());
     }
 
     protected final B removeField(int fieldNumber) {
@@ -56,7 +56,7 @@ public abstract class GeneratedMessageLite<
     }
 
     protected final <E> B addRepeatedField(int fieldNumber, E value) {
-      ensureRepeatedField(fieldNumber).add(checkNotNull(value));
+      fields.ensureRepeated(fieldNumber).add(checkNotNull(value));
       return (B) this;
     }
 
@@ -65,7 +65,7 @@ public abstract class GeneratedMessageLite<
     }
 
     protected final <E> B setRepeatedField(int fieldNumber, int index, E value) {
-      ensureRepeatedField(fieldNumber).set(index, checkNotNull(value));
+      fields.ensureRepeated(fieldNumber).set(index, checkNotNull(value));
       return (B) this;
     }
 
@@ -75,31 +75,33 @@ public abstract class GeneratedMessageLite<
     }
 
     protected final <E> B addAllRepeatedField(int fieldNumber, Iterable<E> values) {
-      values.forEach(v -> addRepeatedField(fieldNumber, v));
+      ArrayList<E> list = fields.ensureRepeated(fieldNumber);
+      for (E v : values) {
+        list.add(checkNotNull(v));
+      }
       return (B) this;
     }
 
-    private <E> List<E> ensureRepeatedField(int fieldNumber) {
-      return (List<E>) fields.computeIfAbsent(fieldNumber, k -> new ArrayList<>());
-    }
-
     protected final <K, V> B putMapField(int fieldNumber, K key, V value) {
-      ensureMapField(fieldNumber).put(checkNotNull(key), checkNotNull(value));
+      fields.ensureMap(fieldNumber).put(checkNotNull(key), checkNotNull(value));
       return (B) this;
     }
 
     protected final <K, V> B putAllMapField(int fieldNumber, Map<K, V> values) {
-      values.forEach((key, value) -> putMapField(fieldNumber, key, value));
+      HashMap<K, V> map = fields.ensureMap(fieldNumber);
+      if (CHECKS_ENABLED) {
+        for (Map.Entry<K, V> entry : values.entrySet()) {
+          map.put(checkNotNull(entry.getKey()), checkNotNull(entry.getValue()));
+        }
+      } else {
+        map.putAll(values);
+      }
       return (B) this;
     }
 
     protected final <K, V> B removeMapField(int fieldNumber, K key) {
-      ensureMapField(fieldNumber).remove(checkNotNull(key));
+      fields.ensureMap(fieldNumber).remove(checkNotNull(key));
       return (B) this;
-    }
-
-    private <K, V> Map<K, V> ensureMapField(int fieldNumber) {
-      return (Map<K, V>) fields.computeIfAbsent(fieldNumber, k -> new HashMap<K, V>());
     }
 
     public final <E> B addExtension(ExtensionLite<M, List<E>> generatedExtension, E value) {
@@ -129,8 +131,8 @@ public abstract class GeneratedMessageLite<
     }
   }
 
-  protected GeneratedMessageLite(Map<Integer, Object> fields) {
-    super(fields);
+  protected GeneratedMessageLite(GeneratedMessageLiteOrBuilder<?> builder) {
+    super(builder.fields.copy());
   }
 
   @Override
@@ -169,8 +171,11 @@ public abstract class GeneratedMessageLite<
     return hashCode;
   }
 
+  // TODO(b/259868642): Link this to debug mode.
+  private static final boolean CHECKS_ENABLED = false;
+
   private static <E> E checkNotNull(E value) {
-    if (value == null) {
+    if (CHECKS_ENABLED && value == null) {
       throw new NullPointerException();
     }
     return value;

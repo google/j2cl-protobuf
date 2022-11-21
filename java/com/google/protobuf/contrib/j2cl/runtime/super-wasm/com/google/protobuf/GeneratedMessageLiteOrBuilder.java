@@ -15,9 +15,7 @@ package com.google.protobuf;
 
 import java.util.AbstractList;
 import java.util.AbstractMap;
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.RandomAccess;
@@ -26,28 +24,14 @@ import java.util.Set;
 /** Base class for implementing getters for fields and extension. */
 public abstract class GeneratedMessageLiteOrBuilder<M extends MessageLite> {
 
-  protected final HashMap<Integer, Object> fields;
+  protected final FieldStorage fields;
 
-  protected GeneratedMessageLiteOrBuilder(Map<Integer, Object> fields) {
-    this.fields = copyFields(fields);
-  }
-
-  private static HashMap<Integer, Object> copyFields(Map<Integer, Object> original) {
-    HashMap<Integer, Object> copy = new HashMap<>(original);
-    for (Map.Entry<Integer, Object> entry : copy.entrySet()) {
-      Object field = entry.getValue();
-      if (field instanceof HashMap) {
-        entry.setValue(new HashMap<>((HashMap<?, ?>) field));
-      } else if (field instanceof ArrayList) {
-        entry.setValue(new ArrayList<>((ArrayList<?>) field));
-      }
-      // other fields are immutable
-    }
-    return copy;
+  protected GeneratedMessageLiteOrBuilder(FieldStorage fields) {
+    this.fields = fields;
   }
 
   protected final <E> E getField(int fieldNumber, E defaultValue) {
-    return (E) fields.getOrDefault(fieldNumber, defaultValue);
+    return fields.get(fieldNumber, defaultValue);
   }
 
   protected final <E> E getFieldForEnum(int fieldNumber, E defaultValue, E unrecognizedValue) {
@@ -59,16 +43,19 @@ public abstract class GeneratedMessageLiteOrBuilder<M extends MessageLite> {
   }
 
   protected final boolean hasField(int fieldNumber) {
-    return fields.containsKey(fieldNumber);
+    return fields.has(fieldNumber);
   }
 
   protected final <E> List<E> getFieldList(int fieldNumber) {
-    return Collections.unmodifiableList(new InternalListView<>(fieldNumber));
+    List<E> list = getField(fieldNumber, null);
+    return list == null ? Collections.emptyList() : Collections.unmodifiableList(list);
   }
 
   protected final <E> List<E> getFieldListForEnum(int fieldNumber, E unrecognizedValue) {
-    return Collections.unmodifiableList(
-        new InternalListViewForEnum<>(fieldNumber, unrecognizedValue));
+    List<E> list = getField(fieldNumber, null);
+    return list == null
+        ? Collections.emptyList()
+        : new InternalListViewForEnum<>(list, unrecognizedValue);
   }
 
   protected final <E> E getRepeatedField(int fieldNumber, int index) {
@@ -142,41 +129,23 @@ public abstract class GeneratedMessageLiteOrBuilder<M extends MessageLite> {
     return (E) enumOrIntValue;
   }
 
-  private class InternalListView<E> extends AbstractList<E> implements RandomAccess {
-    private final int fieldNumber;
-
-    private InternalListView(int fieldNumber) {
-      this.fieldNumber = fieldNumber;
-    }
-
-    @Override
-    public E get(int index) {
-      return getRepeatedField(fieldNumber, index);
-    }
-
-    @Override
-    public int size() {
-      return getRepeatedFieldCount(fieldNumber);
-    }
-  }
-
   private class InternalListViewForEnum<E> extends AbstractList<E> implements RandomAccess {
-    private final int fieldNumber;
+    private final List<E> enumList;
     private final E unrecognizedValue;
 
-    private InternalListViewForEnum(int fieldNumber, E unrecognizedValue) {
-      this.fieldNumber = fieldNumber;
+    private InternalListViewForEnum(List<E> enumList, E unrecognizedValue) {
+      this.enumList = enumList;
       this.unrecognizedValue = unrecognizedValue;
     }
 
     @Override
     public E get(int index) {
-      return getRepeatedFieldForEnum(fieldNumber, index, unrecognizedValue);
+      return getEnumOrUnrecognized(enumList.get(index), unrecognizedValue);
     }
 
     @Override
     public int size() {
-      return getRepeatedFieldCount(fieldNumber);
+      return enumList.size();
     }
   }
 

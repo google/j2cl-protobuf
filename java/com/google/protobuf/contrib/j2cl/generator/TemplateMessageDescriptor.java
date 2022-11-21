@@ -15,6 +15,7 @@ package com.google.protobuf.contrib.j2cl.generator;
 
 import static com.google.common.base.Predicates.not;
 import static com.google.common.collect.ImmutableList.toImmutableList;
+import static java.lang.Math.min;
 
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
@@ -88,5 +89,18 @@ public abstract class TemplateMessageDescriptor extends AbstractTemplateTypeDesc
     return descriptor().getRealOneofs().stream()
         .map(TemplateOneOfDescriptor::create)
         .collect(toImmutableList());
+  }
+
+  public int getPivot() {
+    int defaultPivot = 100;
+
+    // Find max field number, or 0 if there is none.
+    int maxField =
+        descriptor().getFields().stream()
+            .map(FieldDescriptor::getNumber)
+            .max(Integer::compare)
+            .orElse(0);
+
+    return min(maxField + 1, defaultPivot);
   }
 }
