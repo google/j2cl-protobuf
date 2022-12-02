@@ -33,20 +33,39 @@ public abstract class GeneratedMessageLite<
 
     public abstract B clone();
 
+    /**
+     * Keeps the state if this builder's fields are shared with a message instance and hence should
+     * not be modified without a copy first.
+     */
+    boolean immutable;
+
     protected Builder(int pivot) {
       super(FieldStorage.create(pivot));
     }
 
-    protected Builder(GeneratedMessageLiteOrBuilder<?> builder) {
+    protected Builder(M message) {
+      super(message.fields);
+      immutable = true;
+    }
+
+    protected Builder(B builder) {
       super(builder.fields.copy());
     }
 
     protected final B removeField(int fieldNumber) {
+      if (immutable) {
+        immutable = false;
+        fields = fields.copy();
+      }
       fields.remove(fieldNumber);
       return (B) this;
     }
 
     protected final <E> B setField(int fieldNumber, E value) {
+      if (immutable) {
+        immutable = false;
+        fields = fields.copy();
+      }
       fields.put(fieldNumber, checkNotNull(value));
       return (B) this;
     }
@@ -56,6 +75,10 @@ public abstract class GeneratedMessageLite<
     }
 
     protected final <E> B addRepeatedField(int fieldNumber, E value) {
+      if (immutable) {
+        immutable = false;
+        fields = fields.copy();
+      }
       fields.ensureRepeated(fieldNumber).add(checkNotNull(value));
       return (B) this;
     }
@@ -65,6 +88,10 @@ public abstract class GeneratedMessageLite<
     }
 
     protected final <E> B setRepeatedField(int fieldNumber, int index, E value) {
+      if (immutable) {
+        immutable = false;
+        fields = fields.copy();
+      }
       fields.ensureRepeated(fieldNumber).set(index, checkNotNull(value));
       return (B) this;
     }
@@ -75,6 +102,10 @@ public abstract class GeneratedMessageLite<
     }
 
     protected final <E> B addAllRepeatedField(int fieldNumber, Iterable<E> values) {
+      if (immutable) {
+        immutable = false;
+        fields = fields.copy();
+      }
       ArrayList<E> list = fields.ensureRepeated(fieldNumber);
       for (E v : values) {
         list.add(checkNotNull(v));
@@ -83,11 +114,19 @@ public abstract class GeneratedMessageLite<
     }
 
     protected final <K, V> B putMapField(int fieldNumber, K key, V value) {
+      if (immutable) {
+        immutable = false;
+        fields = fields.copy();
+      }
       fields.ensureMap(fieldNumber).put(checkNotNull(key), checkNotNull(value));
       return (B) this;
     }
 
     protected final <K, V> B putAllMapField(int fieldNumber, Map<K, V> values) {
+      if (immutable) {
+        immutable = false;
+        fields = fields.copy();
+      }
       HashMap<K, V> map = fields.ensureMap(fieldNumber);
       if (CHECKS_ENABLED) {
         for (Map.Entry<K, V> entry : values.entrySet()) {
@@ -100,6 +139,10 @@ public abstract class GeneratedMessageLite<
     }
 
     protected final <K, V> B removeMapField(int fieldNumber, K key) {
+      if (immutable) {
+        immutable = false;
+        fields = fields.copy();
+      }
       fields.ensureMap(fieldNumber).remove(checkNotNull(key));
       return (B) this;
     }
@@ -131,8 +174,9 @@ public abstract class GeneratedMessageLite<
     }
   }
 
-  protected GeneratedMessageLite(GeneratedMessageLiteOrBuilder<?> builder) {
-    super(builder.fields.copy());
+  protected GeneratedMessageLite(B builder) {
+    super(builder.fields);
+    builder.immutable = true;
   }
 
   @Override

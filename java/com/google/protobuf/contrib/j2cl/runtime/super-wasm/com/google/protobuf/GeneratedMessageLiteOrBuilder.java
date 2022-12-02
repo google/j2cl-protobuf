@@ -24,7 +24,7 @@ import java.util.Set;
 /** Base class for implementing getters for fields and extension. */
 public abstract class GeneratedMessageLiteOrBuilder<M extends MessageLite> {
 
-  protected final FieldStorage fields;
+  protected FieldStorage fields;
 
   protected GeneratedMessageLiteOrBuilder(FieldStorage fields) {
     this.fields = fields;
