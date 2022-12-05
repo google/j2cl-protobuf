@@ -37,9 +37,13 @@ private ${descriptor.name}(Builder builder) {
   super(builder);
 }
 
+private ${descriptor.name}() {
+  super($descriptor.pivot);
+}
+
 public static final ${descriptor.name} getDefaultInstance(){
   if (DEFAULT_INSTANCE == null) {
-    DEFAULT_INSTANCE = newBuilder().build();
+    DEFAULT_INSTANCE = new ${descriptor.name}();
   }
   return DEFAULT_INSTANCE;
 }
@@ -80,7 +84,7 @@ public Builder toBuilder(){
 
 
 public static Builder newBuilder() {
-  return new Builder();
+  return new Builder(getDefaultInstance());
 }
 
 public static Builder newBuilder($descriptor.name prototype) {
@@ -89,10 +93,6 @@ public static Builder newBuilder($descriptor.name prototype) {
 
 public static final class Builder extends
     com.google.protobuf.GeneratedMessageLite.Builder<$descriptor.name, Builder> {
-
-  private Builder() {
-    super($descriptor.pivot);
-  }
 
   private Builder(Builder b) {
     super(b);

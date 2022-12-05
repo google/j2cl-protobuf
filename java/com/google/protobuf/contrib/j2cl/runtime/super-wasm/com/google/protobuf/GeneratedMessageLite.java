@@ -39,10 +39,6 @@ public abstract class GeneratedMessageLite<
      */
     boolean immutable;
 
-    protected Builder(int pivot) {
-      super(FieldStorage.create(pivot));
-    }
-
     protected Builder(M message) {
       super(message.fields);
       immutable = true;
@@ -172,6 +168,10 @@ public abstract class GeneratedMessageLite<
       setRepeatedField(generatedExtension.getNumber(), index, value);
       return (B) this;
     }
+  }
+
+  protected GeneratedMessageLite(int pivot) {
+    super(FieldStorage.create(pivot));
   }
 
   protected GeneratedMessageLite(B builder) {

@@ -26,6 +26,8 @@ final class FieldStorage {
     return new FieldStorage(pivot);
   }
 
+  private static final Object[] EMPTY = new Object[0];
+
   private final int pivot;
   private int size;
   private Object[] array;
@@ -33,7 +35,7 @@ final class FieldStorage {
 
   private FieldStorage(int pivot) {
     this.pivot = pivot;
-    this.array = new Object[5]; // Create with an inital size to avoid immediate resizing.
+    this.array = EMPTY;
   }
 
   private FieldStorage(Object[] array, HashMap<Integer, Object> expansion, int pivot, int size) {
@@ -137,15 +139,20 @@ final class FieldStorage {
 
   FieldStorage copy() {
     int copySize = size;
-    Object[] copy = Arrays.copyOf(array, copySize);
-    for (int i = 0; i < copySize; i++) {
-      Object field = array[i];
-      if (field instanceof HashMap) {
-        array[i] = (new HashMap<>((HashMap<?, ?>) field));
-      } else if (field instanceof ArrayList) {
-        array[i] = (new ArrayList<>((ArrayList<?>) field));
+    Object[] copy;
+    if (copySize == 0) {
+      copy = new Object[5]; // Create with an inital size to avoid immediate resizing.
+    } else {
+      copy = Arrays.copyOf(array, copySize);
+      for (int i = 0; i < copySize; i++) {
+        Object field = array[i];
+        if (field instanceof HashMap) {
+          array[i] = (new HashMap<>((HashMap<?, ?>) field));
+        } else if (field instanceof ArrayList) {
+          array[i] = (new ArrayList<>((ArrayList<?>) field));
+        }
+        // other fields are immutable
       }
-      // other fields are immutable
     }
     return new FieldStorage(copy, copyOfExpension(), pivot, copySize);
   }
