@@ -240,7 +240,25 @@ class JspbKernel {
       const clonedExtension =
           Object.assign({}, /** @type {!Object} */ (newData.pop()));
       cloneRepeatedFields_(clonedExtension);
+
+      if (this.isFixedGroup) {
+        // If cloning a fixed group, its sparse object will not contain the
+        // fix marker because we previously removed it to simplify internal_add$
+        // handling. Add it back now so we can call fromArray, which expects
+        // the serialized representation rather than our internal one.
+        //
+        // Note: This scenario is exceedingly rare because groups generally
+        // do not extensions and therefore no sparse object.
+        clonedExtension[FIXED_GROUP_FLAG] = 1;
+      }
+
       newData.push(clonedExtension);
+    } else if (this.isFixedGroup) {
+      // If cloning a fixed group, its sparse object will not contain the
+      // fix marker because we previously removed it to simplify internal_add$
+      // handling. Add it back now so we can call fromArray, which expects
+      // the serialized representation rather than our internal one.
+      newData.push({[FIXED_GROUP_FLAG]: 1});
     }
 
     return JspbKernel.fromArray(ctor, newData);
