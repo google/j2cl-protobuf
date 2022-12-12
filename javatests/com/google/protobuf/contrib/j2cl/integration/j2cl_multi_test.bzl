@@ -83,6 +83,17 @@ def j2cl_multi_test(
             wasm_defs = {"jre.checks.checkLevel": "NORMAL"},
             deps = j2wasm_deps,
         )
+        j2wasm_test(
+            name = name + "_wasm_optimized_checks_off",
+            test_class = test_class,
+            srcs = srcs,
+            optimize = True,
+            wasm_defs = {
+                "J2WASM_DEBUG": "FALSE",
+                "jre.checks.checkLevel": "NORMAL",
+            },
+            deps = j2wasm_deps,
+        )
 
 register_extension_info(
     extension = j2cl_multi_test,

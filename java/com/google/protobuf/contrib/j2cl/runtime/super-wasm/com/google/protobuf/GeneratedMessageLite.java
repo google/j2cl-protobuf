@@ -215,8 +215,7 @@ public abstract class GeneratedMessageLite<
     return hashCode;
   }
 
-  // TODO(b/259868642): Link this to debug mode.
-  private static final boolean CHECKS_ENABLED = false;
+  private static final boolean CHECKS_ENABLED = "TRUE".equals(System.getProperty("J2WASM_DEBUG"));
 
   private static <E> E checkNotNull(E value) {
     if (CHECKS_ENABLED && value == null) {
