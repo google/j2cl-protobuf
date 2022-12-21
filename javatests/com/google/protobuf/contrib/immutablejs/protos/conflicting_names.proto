@@ -17,6 +17,7 @@ syntax = "proto2";
 package protobuf.contrib.immutablejs.protos;
 
 message ConflictingNames {
+
   repeated int32 field = 1;
   // This field conflicts with "field" as they both generate
   // the method getFieldCount().

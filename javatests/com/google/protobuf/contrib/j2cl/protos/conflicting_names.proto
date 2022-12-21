@@ -22,6 +22,7 @@ option java_package = "com.google.protobuf.contrib.j2cl.protos";
 // REMOVED_BY_GENRULE option java_multiple_files = true;
 
 message ConflictingNames {
+
   repeated int32 field = 1;
   // This field conflicts with "field" as they both generate
   // the method getFieldCount().
