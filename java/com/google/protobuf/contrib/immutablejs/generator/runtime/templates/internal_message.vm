@@ -112,7 +112,17 @@ class InternalMessage extends Message {
               isFixGroupsB171736612Enabled() ? [{[FIXED_GROUP_FLAG] : 1}] : [];
           return InternalMessage.fromArray(ctor, initialMsg);
         },
-        () => goog.getUid(ctor));
+        () => String(goog.getUid(ctor)));
+  }
+
+  /**
+   * Resets the default instance cache. This is useful for testing,
+   * particularly for feature flags, where construction may vary.
+   */
+  static resetDefaultInstanceCacheForTesting() {
+    for (const prop in DEFAULT_INSTANCES) {
+      delete DEFAULT_INSTANCES[prop];
+    }
   }
 
   /**
@@ -709,7 +719,7 @@ function kernelProvider(message) {
 }
 
 /**
- * @const {!Object<number, !InternalMessage>}
+ * @const {!Object<string, !InternalMessage>}
  */
 const DEFAULT_INSTANCES = {};
 

@@ -225,6 +225,11 @@ closure_js_library(
         "lintChecks",
         "superfluousSuppress",
     ],
+    # Expand visibility for access to InternalMessage.resetDefaultInstanceCache, which is needed
+    # to support feature flag testing.
+    visibility = IMMUTABLE_JS_INTERNAL_VISIBILITIES + [
+        "//javascript/protobuf/jspb_wire_conformance:__pkg__",
+    ],
     deps = [
         ":bytestring",
         ":internal_checks",
