@@ -67,7 +67,7 @@ proto.im.defines.CHECK_LONG_DATA_LOSS =
 proto.im.defines.FIXED_GROUP_FLAG = 'g';
 
 /** @private {boolean} */
-proto.im.defines.fixGroupsB171736612 = false;
+proto.im.defines.fixGroupsB171736612 = true;
 
 /**
  * Enable a fix for handling group fields where the field number is <= the
