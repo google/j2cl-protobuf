@@ -35,6 +35,10 @@ public final class VelocityUtil {
     velocityEngine.setProperty("eventhandler.include.class", IncludeRelativePath.class.getName());
     velocityEngine.setProperty("runtime.references.strict", "true");
 
+    // Ensure formatting is the same on Velocity 1.7 and 2.x.
+    // https://velocity.apache.org/engine/2.3/developer-guide.html#space-gobbling
+    velocityEngine.setProperty("parser.space_gobbling", "bc");
+
     velocityEngine.init(properties);
     return velocityEngine;
   }
