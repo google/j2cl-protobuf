@@ -9,10 +9,9 @@ java_library(
     srcs = glob(["*.java"]),
     resources = glob(["templates/*.vm"]),
     deps = [
-        "//java/com/google/protobuf/contrib/j2cl/generator",
+        "//java/com/google/protobuf/contrib/immutablejs/generator",
         "//third_party:args4j",
         "//third_party:guava",
-        "//third_party:jakarta_velocity",
         "//third_party:jsr305_annotations",
         "//third_party:protobuf",
     ],

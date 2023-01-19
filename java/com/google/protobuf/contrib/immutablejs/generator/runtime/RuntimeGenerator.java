@@ -17,19 +17,17 @@ import static com.google.common.collect.ImmutableSet.toImmutableSet;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.protobuf.contrib.immutablejs.generator.Descriptors;
 import com.google.protobuf.contrib.immutablejs.generator.ImportDescriptor;
 import com.google.protobuf.contrib.immutablejs.generator.TypeDescriptor;
 import com.google.protobuf.contrib.immutablejs.generator.TypeReferenceDescriptor;
-import com.google.protobuf.contrib.immutablejs.generator.VelocityUtil;
+import com.google.protobuf.contrib.immutablejs.generator.VelocityRenderer;
 import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import org.apache.velocity.VelocityContext;
-import org.apache.velocity.app.VelocityEngine;
 
 final class RuntimeGenerator {
   private static final ImmutableSet<TypeDescriptor> primitiveDescriptors =
@@ -67,7 +65,7 @@ final class RuntimeGenerator {
           TypeDescriptor.BYTE_STRING);
 
   private final RuntimeGeneratorOptions options;
-  private final VelocityEngine velocityEngine = VelocityUtil.createEngine();
+  private final VelocityRenderer velocityRenderer = new VelocityRenderer(getClass());
 
   private RuntimeGenerator(RuntimeGeneratorOptions options) {
     this.options = options;
@@ -94,25 +92,17 @@ final class RuntimeGenerator {
             .build();
     ImmutableList<ImportDescriptor> imports =
         Descriptors.calculateImportsForTypes(allDescriptors.stream());
-    VelocityContext velocityContext = new VelocityContext();
-    velocityContext.put("primitiveTypes", primitiveTypes);
-    velocityContext.put("mapKeyTypes", mapKeyTypes);
-    velocityContext.put("mapValueTypes", mapValueTypes);
-    velocityContext.put("imports", imports);
+    ImmutableMap<String, Object> velocityContext =
+        ImmutableMap.of(
+            "primitiveTypes", primitiveTypes,
+            "mapKeyTypes", mapKeyTypes,
+            "mapValueTypes", mapValueTypes,
+            "imports", imports);
 
     try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(options.getOutput()), UTF_8)) {
-      renderTemplate(velocityContext, options.getRuntimeClass().getTemplate(), writer);
-    }
-  }
-
-  private final void renderTemplate(
-      VelocityContext velocityContext, String templateName, Writer writer) {
-    if (!velocityEngine.mergeTemplate(
-        this.getClass().getPackage().getName().replace('.', '/') + "/templates/" + templateName,
-        UTF_8.name(),
-        velocityContext,
-        writer)) {
-      throw new IllegalStateException("Velocity failed to render template");
+      writer.write(
+          velocityRenderer.renderTemplate(
+              options.getRuntimeClass().getTemplate(), velocityContext));
     }
   }
 

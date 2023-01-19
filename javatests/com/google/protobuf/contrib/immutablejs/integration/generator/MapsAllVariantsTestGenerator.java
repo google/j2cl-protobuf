@@ -19,15 +19,13 @@ import static com.google.common.collect.ImmutableList.toImmutableList;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 import com.google.protobuf.Descriptors.FieldDescriptor.Type;
-import com.google.protobuf.contrib.immutablejs.generator.VelocityUtil;
+import com.google.protobuf.contrib.immutablejs.generator.VelocityRenderer;
 import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import org.apache.velocity.VelocityContext;
-import org.apache.velocity.app.VelocityEngine;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 import org.kohsuke.args4j.Option;
@@ -58,34 +56,26 @@ final class MapsAllVariantsTestGenerator {
           Type.FLOAT);
 
   private final Options options;
-  private final VelocityEngine velocityEngine = VelocityUtil.createEngine();
+  private final VelocityRenderer velocityRenderer = new VelocityRenderer(getClass());
 
   private MapsAllVariantsTestGenerator(Options options) {
     this.options = options;
   }
 
   void generate() throws IOException {
-    VelocityContext velocityContext = new VelocityContext();
-    velocityContext.put(
-        "keyTypes",
-        keyTypes.stream().map(ProtobufTestValueProvider::forType).collect(toImmutableList()));
-    velocityContext.put(
-        "valueTypes",
-        valueTypes.stream().map(ProtobufTestValueProvider::forType).collect(toImmutableList()));
+    ImmutableMap<String, Object> velocityContext =
+        ImmutableMap.of(
+            "keyTypes",
+                keyTypes.stream()
+                    .map(ProtobufTestValueProvider::forType)
+                    .collect(toImmutableList()),
+            "valueTypes",
+                valueTypes.stream()
+                    .map(ProtobufTestValueProvider::forType)
+                    .collect(toImmutableList()));
 
     try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(options.output), UTF_8)) {
-      renderTemplate(velocityContext, "maps_all_variants_test.vm", writer);
-    }
-  }
-
-  private final void renderTemplate(
-      VelocityContext velocityContext, String templateName, Writer writer) {
-    if (!velocityEngine.mergeTemplate(
-        this.getClass().getPackage().getName().replace('.', '/') + "/templates/" + templateName,
-        UTF_8.name(),
-        velocityContext,
-        writer)) {
-      throw new IllegalStateException("Velocity failed to render template");
+      writer.write(velocityRenderer.renderTemplate("maps_all_variants_test.vm", velocityContext));
     }
   }
 

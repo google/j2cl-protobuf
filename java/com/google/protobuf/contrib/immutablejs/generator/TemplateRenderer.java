@@ -15,19 +15,19 @@ package com.google.protobuf.contrib.immutablejs.generator;
 
 import static com.google.common.base.Preconditions.checkArgument;
 
+import com.google.common.collect.ImmutableMap;
 import com.google.protobuf.Descriptors.Descriptor;
 import com.google.protobuf.Descriptors.EnumDescriptor;
 import com.google.protobuf.Descriptors.FileDescriptor;
-import java.io.StringWriter;
-import java.nio.charset.StandardCharsets;
-import org.apache.velocity.VelocityContext;
-import org.apache.velocity.app.VelocityEngine;
+import java.io.IOException;
+import java.io.UncheckedIOException;
 
-/** Renders protos using veloctiy templates. */
+/** Renders protos using velocity templates. */
 public class TemplateRenderer {
 
   private final FileDescriptor fileDescriptor;
   private final CodeWriter writer;
+  private final VelocityRenderer velocityRenderer = new VelocityRenderer(getClass());
 
   public TemplateRenderer(CodeWriter writer, FileDescriptor fileDescriptor) {
     this.writer = writer;
@@ -44,42 +44,40 @@ public class TemplateRenderer {
   private void generateType(Descriptor descriptor) {
     checkArgument(descriptor.getContainingType() == null, "Should be top level descriptor");
     TemplateMessageDescriptor messageDescriptor = TemplateMessageDescriptor.create(descriptor);
-    VelocityContext velocityContext = new VelocityContext();
-    velocityContext.put("descriptor", messageDescriptor);
-    mergeTemplate(velocityContext, "message.vm", messageDescriptor.getType().getModuleName());
+    generate(
+        ImmutableMap.of("descriptor", messageDescriptor),
+        "message.vm",
+        messageDescriptor.getType().getModuleName());
   }
 
   private void renderFileTopLevel(FileDescriptor fileDescriptor) {
     TemplateFileDescriptor descriptor = TemplateFileDescriptor.create(fileDescriptor);
-    VelocityContext velocityContext = new VelocityContext();
-    velocityContext.put("descriptor", descriptor);
-    mergeTemplate(velocityContext, "file.vm", descriptor.getType().getModuleName() + ".proto");
+    generate(
+        ImmutableMap.of("descriptor", descriptor),
+        "file.vm",
+        descriptor.getType().getModuleName() + ".proto");
   }
 
   private void generateEnum(EnumDescriptor enumDescriptor) {
     checkArgument(enumDescriptor.getContainingType() == null, "Should be top level enum");
     TemplateEnumDescriptor descriptor = TemplateEnumDescriptor.create(enumDescriptor);
-    VelocityContext velocityContext = new VelocityContext();
-    velocityContext.put("enumDescriptor", descriptor);
-    mergeTemplate(velocityContext, "enum.vm", descriptor.getType().getModuleName());
+    generate(
+        ImmutableMap.of("enumDescriptor", descriptor),
+        "enum.vm",
+        descriptor.getType().getModuleName());
   }
 
-  private void mergeTemplate(
-      VelocityContext velocityContext, String templateName, String fileName) {
-    VelocityEngine velocityEngine = VelocityUtil.createEngine();
-    StringWriter outputBuffer = new StringWriter();
-    if (!velocityEngine.mergeTemplate(
-        TemplateRenderer.class.getPackage().getName().replace('.', '/')
-            + "/templates/"
-            + templateName,
-        StandardCharsets.UTF_8.name(),
-        velocityContext,
-        outputBuffer)) {
-      throw new RuntimeException("Velocity failed to render template");
+  private void generate(
+      ImmutableMap<String, ?> velocityContext, String templateName, String fileName) {
+    String renderedTemplate;
+    try {
+      renderedTemplate = velocityRenderer.renderTemplate(templateName, velocityContext);
+    } catch (IOException ex) {
+      throw new UncheckedIOException("Velocity failed to render template", ex);
     }
 
     writer.putNextEntry(fileName + ".js");
-    writer.print(outputBuffer.toString());
+    writer.print(renderedTemplate);
     writer.closeEntry();
   }
 }

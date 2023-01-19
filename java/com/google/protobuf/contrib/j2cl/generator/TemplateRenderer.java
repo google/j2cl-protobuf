@@ -13,13 +13,12 @@
  */
 package com.google.protobuf.contrib.j2cl.generator;
 
+import com.google.common.collect.ImmutableMap;
 import com.google.protobuf.Descriptors.FileDescriptor;
+import com.google.protobuf.contrib.immutablejs.generator.VelocityRenderer;
 import com.google.protobuf.contrib.j2cl.generator.J2CLProtobufCompiler.ProtoImplementation;
 import java.io.IOException;
-import java.io.StringWriter;
-import java.nio.charset.StandardCharsets;
-import org.apache.velocity.VelocityContext;
-import org.apache.velocity.app.VelocityEngine;
+import java.io.UncheckedIOException;
 
 /** Renders protos using veloctiy templates. */
 // Class should be package protected, but this breaks velocity templating.
@@ -28,6 +27,7 @@ public class TemplateRenderer {
   private final FileDescriptor fileDescriptor;
   private final CodeWriter writer;
   private final String templateNameSuffix;
+  private final VelocityRenderer velocityRenderer = new VelocityRenderer(getClass());
 
   public TemplateRenderer(
       CodeWriter writer, FileDescriptor fileDescriptor, ProtoImplementation implementation) {
@@ -48,42 +48,39 @@ public class TemplateRenderer {
   }
 
   private void renderMessage(TemplateMessageDescriptor descriptor) {
-    VelocityContext velocityContext = new VelocityContext();
-    velocityContext.put("templateNameSuffix", templateNameSuffix);
-    velocityContext.put("descriptor", descriptor);
+    ImmutableMap<String, Object> velocityContext =
+        ImmutableMap.of(
+            "templateNameSuffix", templateNameSuffix,
+            "descriptor", descriptor);
     generate(velocityContext, "message", descriptor.getFileName());
   }
 
   private void renderEnum(TemplateEnumDescriptor descriptor) {
-    VelocityContext velocityContext = new VelocityContext();
-    velocityContext.put("enumDescriptor", descriptor);
+    ImmutableMap<String, Object> velocityContext = ImmutableMap.of("enumDescriptor", descriptor);
     generate(velocityContext, "enum", descriptor.getFileName());
   }
 
   private void renderFile(TemplateFileDescriptor descriptor) {
-    VelocityContext velocityContext = new VelocityContext();
-    velocityContext.put("templateNameSuffix", templateNameSuffix);
-    velocityContext.put("fileDescriptor", descriptor);
+    ImmutableMap<String, Object> velocityContext =
+        ImmutableMap.of(
+            "templateNameSuffix", templateNameSuffix,
+            "fileDescriptor", descriptor);
     generate(velocityContext, "file", descriptor.getFileName());
   }
 
-  private void generate(VelocityContext velocityContext, String templateName, String fileName) {
-    VelocityEngine velocityEngine = VelocityUtil.createEngine();
-    StringWriter outputBuffer = new StringWriter();
-
-    String templatePath =
-        TemplateRenderer.class.getPackage().getName().replace('.', '/')
-            + "/templates/"
-            + templateName
-            + templateNameSuffix
-            + ".vm";
-    if (!velocityEngine.mergeTemplate(
-        templatePath, StandardCharsets.UTF_8.name(), velocityContext, outputBuffer)) {
-      throw new RuntimeException("Velocity failed to render template");
+  private void generate(
+      ImmutableMap<String, ?> velocityContext, String templateName, String fileName) {
+    String renderedTemplate;
+    try {
+      renderedTemplate =
+          velocityRenderer.renderTemplate(
+              String.format("%s%s.vm", templateName, templateNameSuffix), velocityContext);
+    } catch (IOException ex) {
+      throw new UncheckedIOException("Velocity failed to render template", ex);
     }
 
     writer.putNextEntry(fileName);
-    writer.print(outputBuffer.toString());
+    writer.print(renderedTemplate);
     writer.closeEntry();
   }
 }

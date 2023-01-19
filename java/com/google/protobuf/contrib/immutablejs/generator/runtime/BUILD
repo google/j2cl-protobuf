@@ -14,7 +14,6 @@ java_library(
         "//third_party:auto_value",
         "//third_party:descriptor_java_proto",
         "//third_party:guava",
-        "//third_party:jakarta_velocity",
         "//third_party:jsr305_annotations",
         "//third_party:plugin_java_proto",
         "//third_party:protobuf",
