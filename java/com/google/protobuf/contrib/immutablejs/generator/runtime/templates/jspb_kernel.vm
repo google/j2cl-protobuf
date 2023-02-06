@@ -24,7 +24,7 @@ const ListView = goog.require('proto.im.ListView');
 const MapView = goog.require('proto.im.MapView');
 const internalChecks = goog.require('proto.im.internal.internalChecks');
 const {assert} = goog.require('goog.asserts');
-const {isFixGroupsB171736612Enabled, FIXED_GROUP_FLAG} = goog.require('proto.im.defines');
+const {FIXED_GROUP_FLAG} = goog.require('proto.im.defines');
 
 #parse('imports.vm')
 
@@ -43,6 +43,9 @@ const cachedListKey = '${D}jspb_cached_list_';
 
 /** @private @const */
 const cachedMapKey = '${D}jspb_cached_map_';
+
+/** @private @const */
+const cachedFixedGroup = '${D}jspb_fixed_group_';
 
 /**
  * @param {!Array} data
@@ -69,7 +72,8 @@ function hasExtensionObject(data) {
  * @return {boolean}
  */
 function hasGroupFlag(data) {
-  return hasExtensionObject(data) && FIXED_GROUP_FLAG in data[data.length - 1];
+  return cachedFixedGroup in data ||
+    hasExtensionObject(data) && FIXED_GROUP_FLAG in data[data.length - 1];
 }
 
 /**
@@ -170,24 +174,30 @@ class JspbKernel {
     // Group fields do not support a message ID offset. Groups fixing
     // b/171736612 will have a pivot and sparse object that contains an
     // indicator flag. All other groups will not have a pivot.
-    let groupOffset = groupFieldNumber > 0 ? groupFieldNumber : 0;
 
     // TODO(b/240186489): Groups should use the same suggested pivot calculation
     // as other messages.
-    const isFixedGroup = hasGroupFlag(data);
-    if (isFixedGroup) {
-      groupOffset = 0;
-      suggestedPivot = data.length - 1;
+    if (!hasGroupFlag(data)) {
+      if (goog.DEBUG) {
+        throw new Error(
+          `Group is missing a fix indicator flag.`
+        );
+      } else {
+        throw new Error();
+      }
     }
 
-    const messageOffset = -1 - groupOffset;
+    // All groups now have a sparse object until the closeout of b/171736612.
+    suggestedPivot = data.length - 1;
+
+    const messageOffset = -1;
     const pivot = calculatePivot(data, suggestedPivot, messageOffset);
 
     return new JspbKernel(
         data,
         pivot,
         messageOffset,
-        isFixedGroup);
+        /* isFixedGroup = */ true);
   }
 
   /**
@@ -198,6 +208,16 @@ class JspbKernel {
    */
   static fromArray(ctor, data) {
     return JspbKernel.getOrCache_(data, cachedMsgKey, () => new ctor(data));
+  }
+
+  /**
+   * @param {!JspbKernel} kernel
+   * @return {boolean}
+   *
+   * Returns true if data represents a fixed group.
+   */
+  static isFixedGroup(kernel) {
+    return cachedFixedGroup in kernel.data_;
   }
 
   /**
@@ -212,14 +232,18 @@ class JspbKernel {
   constructor(data, pivot, messageOffset, isFixedGroup) {
     /** @private @const {!Array<*>} */
     this.data_ = data;
+    if (isFixedGroup) {
+      /** @type{!Object} */(this.data_)[cachedFixedGroup] = true;
+    }
+
     /** @private {number} */
     this.pivot_ = pivot;
     /** @private @const {number} */
     this.messageOffset_ = messageOffset;
-    /** @type {boolean} */
-    this.isFixedGroup = isFixedGroup;
     /** @private */
     this.hash_ = 0;
+
+    this.typeName = "";
   }
 
   /**
@@ -241,7 +265,7 @@ class JspbKernel {
           Object.assign({}, /** @type {!Object} */ (newData.pop()));
       cloneRepeatedFields_(clonedExtension);
 
-      if (this.isFixedGroup) {
+      if (cachedFixedGroup in this.data_) {
         // If cloning a fixed group, its sparse object will not contain the
         // fix marker because we previously removed it to simplify internal_add$
         // handling. Add it back now so we can call fromArray, which expects
@@ -253,7 +277,7 @@ class JspbKernel {
       }
 
       newData.push(clonedExtension);
-    } else if (this.isFixedGroup) {
+    } else if (cachedFixedGroup in this.data_) {
       // If cloning a fixed group, its sparse object will not contain the
       // fix marker because we previously removed it to simplify internal_add$
       // handling. Add it back now so we can call fromArray, which expects
@@ -620,4 +644,3 @@ function fieldNumberFromArrayIndex(arrayIndex, messageOffset) {
 }
 
 exports = JspbKernel;
-

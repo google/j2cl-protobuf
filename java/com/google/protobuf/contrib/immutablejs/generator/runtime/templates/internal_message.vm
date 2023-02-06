@@ -40,7 +40,7 @@ const MapView = goog.require('proto.im.MapView');
 const Message = goog.require('proto.im.Message');
 const internalChecks = goog.require('proto.im.internal.internalChecks');
 const reflect = goog.require('goog.reflect');
-const {isFixGroupsB171736612Enabled, FIXED_GROUP_FLAG} = goog.require('proto.im.defines');
+const {FIXED_GROUP_FLAG} = goog.require('proto.im.defines');
 
 #parse('imports.vm')
 
@@ -108,8 +108,8 @@ class InternalMessage extends Message {
         () => {
           const initialMsg =
           (/** @type{{internalDoNotUseIsGroup:(boolean|undefined)}} */
-            (ctor).internalDoNotUseIsGroup || false) &&
-              isFixGroupsB171736612Enabled() ? [{[FIXED_GROUP_FLAG] : 1}] : [];
+            (ctor).internalDoNotUseIsGroup || false)
+            ? [{[FIXED_GROUP_FLAG] : 1}] : [];
           return InternalMessage.fromArray(ctor, initialMsg);
         },
         () => String(goog.getUid(ctor)));
@@ -317,7 +317,7 @@ InternalMessage.Builder = class extends Message.Builder {
     this.internal_message = originalMessage.shallowCopy_();
     /** @private @const {!JspbKernel} */
     this.kernel_ = this.internal_message.kernel_;
-    if (this.kernel_.isFixedGroup) {
+    if (JspbKernel.isFixedGroup(this.kernel_)) {
       // Remove the fix indicator flag (and the sparse object if it becomes
       // empty, which is likely) so that we don't need to consider it during
       // mutations. The fix group flag and its containing sparse object are
@@ -335,11 +335,10 @@ InternalMessage.Builder = class extends Message.Builder {
   build() {
     // Clone the message so further modifications in builder doesn't reflect.
     const copy = this.internal_message.shallowCopy_();
-    if (this.kernel_.isFixedGroup) {
+    if (JspbKernel.isFixedGroup(this.kernel_)) {
       // We are handing off a fixed group and need to (re-)attach a fix
       // indicator flag in case of serialization. If this group is later
       // provided/converted to a builder, we'll (re-)remove the fix flag then.
-      copy.kernel_.isFixedGroup = true;
       copy.kernel_.addGroupFlag();
     }
     return copy;
@@ -724,4 +723,3 @@ function kernelProvider(message) {
 const DEFAULT_INSTANCES = {};
 
 exports = InternalMessage;
-

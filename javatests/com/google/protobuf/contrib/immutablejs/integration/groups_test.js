@@ -15,16 +15,12 @@
 goog.module('proto.im.integration.FloatFieldsTest');
 goog.setTestOnly();
 
+const BuggyGroupMessage = goog.require('improto.protobuf.contrib.immutablejs.protos.BuggyGroupMessage');
 const GroupsProto = goog.require('improto.protobuf.contrib.immutablejs.protos.GroupsProto');
 const testSuite = goog.require('goog.testing.testSuite');
 const {assertEqualsForProto} = goog.require('proto.im.proto_asserts');
-const {enableFixGroupsB171736612} = goog.require('proto.im.defines');
 
 class GroupsTest {
-  setUpPage() {
-    enableFixGroupsB171736612(false);
-  }
-
   testOptionalGroup() {
     const groupsBuilder = GroupsProto.newBuilder().setOptionalGroup(
         GroupsProto.OptionalGroup.newBuilder().setFoo('foo').setBar(1));
@@ -66,27 +62,26 @@ class GroupsTest {
     assertEqualsForProto(
         'buzz', nonIncrementingFieldNumbersBuilder.getHigherThanGroup());
 
-    // But not on the built object since they get dropped when we defensively
-    // copy
+    // No fields should be dropped while copying with the group fix enabled.
     assertEqualsForProto(
-        '', groups.getNonIncrementingFieldNumbers().getLowerThanGroup());
+        'foo', groups.getNonIncrementingFieldNumbers().getLowerThanGroup());
     assertEqualsForProto(
-        '', groups.getNonIncrementingFieldNumbers().getEqualToGroup());
+        'bar', groups.getNonIncrementingFieldNumbers().getEqualToGroup());
     assertEqualsForProto(
         'buzz', groups.getNonIncrementingFieldNumbers().getHigherThanGroup());
   }
 
-  testSerialized() {
-    const groups =
-        GroupsProto.newBuilder()
-            .setOptionalGroup(
-                GroupsProto.OptionalGroup.newBuilder().setFoo('aaa').setBar(1))
-            .addRepeatedGroup(
-                GroupsProto.RepeatedGroup.newBuilder().setFoo('bbb').setBar(2))
-            .build();
+  testCloneNonIncrementingFieldNumbers() {
+    const nonIncrementingFieldNumbersBuilder =
+        GroupsProto.NonIncrementingFieldNumbers.newBuilder().setLowerThanGroup(
+            'foo');
 
-    assertObjectEquals(
-        [['aaa', 1], [['bbb', 2]]], JSON.parse(groups.serialize()));
+    const copy = nonIncrementingFieldNumbersBuilder.clone();
+
+    assertEqualsForProto(
+        'foo', nonIncrementingFieldNumbersBuilder.getLowerThanGroup());
+
+    assertEqualsForProto('foo', copy.getLowerThanGroup());
   }
 
   testPivot() {
@@ -99,12 +94,15 @@ class GroupsTest {
     const json = JSON.parse(groups.serialize());
 
     // All groups should be zero-indexed with no pivot. Therefore the
-    // beyond_normal_pivot field should be at array index 998 within the group
-    // since field number 1000 - 1 (zero indexed) - 1 (the group field number).
+    // beyond_normal_pivot field should be at array index 999 within the
+    // group since field number 1000 - 1 (zero indexed).
+
     const beyondNormalPivotIndex =
-        GroupsProto.OptionalGroup.BEYOND_NORMAL_PIVOT_FIELD_NUMBER - 2;
+        GroupsProto.OptionalGroup.BEYOND_NORMAL_PIVOT_FIELD_NUMBER - 1;
     const expected = [new Array(beyondNormalPivotIndex).fill(null)];
     expected[0][beyondNormalPivotIndex] = 1;
+    expected[0].push({'g': 1});
+
     assertObjectEquals(expected, json);
   }
 
@@ -119,13 +117,84 @@ class GroupsTest {
             .setNonIncrementingFieldNumbers(nonIncrementingFieldNumbersBuilder)
             .build();
 
-    assertObjectEquals([null, null, ['buzz']], JSON.parse(groups.serialize()));
+    assertEquals(
+        '[null,null,["foo",null,"bar","buzz",{"g":1}]]', groups.serialize());
   }
 
-  testParsePreservesFixedFlag() {
-    const g = GroupsProto.parse('[[null,"hello",{"g":1}]]').toBuilder().build();
+  testSerialized() {
+    const groups =
+        GroupsProto.newBuilder()
+            .setOptionalGroup(
+                GroupsProto.OptionalGroup.newBuilder().setFoo('aaa').setBar(1))
+            .addRepeatedGroup(
+                GroupsProto.RepeatedGroup.newBuilder().setFoo('bbb').setBar(2))
+            .build();
 
-    assertEquals(g.serialize(), '[[null,"hello",{"g":1}]]');
+    assertEquals(
+        '[[null,"aaa",1,{"g":1}],[[null,null,"bbb",2,{"g":1}]]]',
+        groups.serialize());
+  }
+
+  testBuildFixedBuggyGroup() {
+    let buggy =
+        BuggyGroupMessage.newBuilder()
+            .setSomeString('hello')
+            .setBuggyGroup(BuggyGroupMessage.BuggyGroup.getDefaultInstance())
+            .build();
+    assertEquals('["hello",null,[{"g":1}]]', buggy.serialize());
+
+    buggy = buggy.toBuilder()
+                .setBuggyGroup(
+                    BuggyGroupMessage.BuggyGroup.newBuilder().setSecond('2nd'))
+                .build();
+    assertEquals('["hello",null,[null,"2nd",{"g":1}]]', buggy.serialize());
+
+    buggy =
+        buggy.toBuilder()
+            .setBuggyGroup(buggy.getBuggyGroup().toBuilder().setFirst('1st'))
+            .build();
+
+    assertEquals('["hello",null,["1st","2nd",{"g":1}]]', buggy.serialize());
+  }
+
+  testFixedBuggyGroupFromWire() {
+    let buggy = BuggyGroupMessage.parse('["hello",null,[{"g":1}]]');
+    assertEquals('["hello",null,[{"g":1}]]', buggy.serialize());
+
+    buggy =
+        BuggyGroupMessage.newBuilder(buggy)
+            .setBuggyGroup(buggy.getBuggyGroup().toBuilder().setSecond('2nd'))
+            .build();
+    assertEquals('["hello",null,[null,"2nd",{"g":1}]]', buggy.serialize());
+
+    buggy =
+        BuggyGroupMessage.newBuilder(buggy)
+            .setBuggyGroup(buggy.getBuggyGroup().toBuilder().setFirst('1st'))
+            .build();
+    assertEquals('["hello",null,["1st","2nd",{"g":1}]]', buggy.serialize());
+  }
+
+  testFixedBuggyGroupFromWireUpdateBeforeSparseField() {
+    let buggy = BuggyGroupMessage.parse('["hello",null,[{"1":"1st","g":1}]]');
+    assertEquals('["hello",null,[{"1":"1st","g":1}]]', buggy.serialize());
+
+    // Even though the group has a suggested pivot, it's sparse
+    // object only exists because of the fixed flag so we should
+    // pretend it isn't there.
+    buggy =
+        BuggyGroupMessage.newBuilder(buggy)
+            .setBuggyGroup(buggy.getBuggyGroup().toBuilder().setSecond('2nd'))
+            .build();
+    assertEquals(
+        '["hello",null,[{"1":"1st","2":"2nd","g":1}]]', buggy.serialize());
+  }
+
+  testGroupWithoutFixFlagThrows() {
+    assertThrows(
+        `Group is missing a fix indicator flag. If you see this error, please contact go/web-protos-help (see b/171736612 for more information).`,
+        () => {
+          return BuggyGroupMessage.BuggyGroup.parse('["hello"]');
+        });
   }
 }
 

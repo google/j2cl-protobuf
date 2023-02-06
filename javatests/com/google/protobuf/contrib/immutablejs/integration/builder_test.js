@@ -19,8 +19,6 @@ const GroupsProto = goog.require('improto.protobuf.contrib.immutablejs.protos.Gr
 const TestProto = goog.require('improto.protobuf.contrib.immutablejs.protos.TestProto');
 const testSuite = goog.require('goog.testing.testSuite');
 const {assertEqualsForProto} = goog.require('proto.im.proto_asserts');
-const {enableFixGroupsB171736612} = goog.require('proto.im.defines');
-
 
 class BuilderTest {
   testClone() {
@@ -39,18 +37,8 @@ class BuilderTest {
     assertEqualsForProto('', builder2.getOptionalString());
     assertEqualsForProto(false, builder2.hasOptionalString());
   }
-}
 
-class GroupBuilderTestUnderFixFlagTest {
-  setUp() {
-    enableFixGroupsB171736612(true);
-  }
-
-  tearDown() {
-    enableFixGroupsB171736612(false);
-  }
-
-  testBuildGroupUnderFixedFlag() {
+  testBuildGroup() {
     const g = GroupsProto.newBuilder()
                   .setOptionalGroup(GroupsProto.OptionalGroup.newBuilder())
                   .build();
@@ -59,7 +47,4 @@ class GroupBuilderTestUnderFixFlagTest {
   }
 }
 
-testSuite({
-  testBuilder: new BuilderTest(),
-  testGroupBuilderTestUnderFixFlag: new GroupBuilderTestUnderFixFlagTest()
-});
+testSuite(new BuilderTest());
