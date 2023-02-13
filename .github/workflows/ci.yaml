@@ -39,6 +39,12 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
+      - name: Install dependencies for ubuntu
+        if: ${{ matrix.os == 'ubuntu-latest' }}
+        run: |
+          sudo apt update
+          sudo apt install libtinfo5
+
       - name: Setup Java
         uses: actions/setup-java@v3
         with:
