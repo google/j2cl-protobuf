@@ -22,16 +22,19 @@
 # Blessed by J2CL team. This is needed for J2CL provider and J2CL provider API is
 # only avaiable for proto. Other should never depend on J2CL internals.
 load(
+    "@com_google_j2cl//build_defs/internal_do_not_use:provider.bzl",
+    "J2clInfo",
+    "J2wasmInfo",
+)
+load(
     "@com_google_j2cl//build_defs/internal_do_not_use:j2cl_common.bzl",
     "J2CL_TOOLCHAIN_ATTRS",
-    "J2clInfo",
     "j2cl_common",
 )
 load(
     "@com_google_j2cl//build_defs/internal_do_not_use:j2wasm_common.bzl",
     "j2wasm_common",
 )
-load("@com_google_j2cl//build_defs/internal_do_not_use:provider.bzl", "J2wasmInfo")
 load(
     "//java/com/google/protobuf/contrib/immutablejs:immutable_js_proto_library.bzl",
     "ImmutableJspbInfo",
