@@ -3,7 +3,7 @@ workspace(name = "com_google_j2cl_protobuf")
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 # Load J2CL separately
-_J2CL_VERSION = "master"
+_J2CL_VERSION = "7856e8b4cace643a8cc088a40eb21ec82dd3a03f"
 
 http_archive(
     name = "com_google_j2cl",
